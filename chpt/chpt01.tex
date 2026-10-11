@@ -1,6 +1,6 @@
 \chapter{经典引力场论}\label{chpt:GR}
 
-\section{经典场论}
+\section{广义相对论}
 \subsection{时空及对钟}
 
 物理学研究各类\textbf{事件}(event)。类似于记叙文，真实事件持续一段时间并占据一定体积，但理想上可抽象为时刻、空间点所构成的\textbf{时空点}。
@@ -297,7 +297,7 @@ $\dot{\bm x}$ 几乎处处为常数时取等。
 直观上，考虑图 \ref{fig:twin} 的三角情形，显然斜线的固有时短于竖线。
 这导致著名的\textbf{孪生佯谬}(twin paradox)：设一对双胞胎从某时空点分离，并回合于另一时空点，则惯性运动者将年长于非惯性运动者，因为惯性观者经历更多固有时。也可理解为，折线的同时面会发生突变，因此惯性观者多出了图 \ref{fig:twin} 阴影部分的时间差。
 
-\subsection{相对论动力学}
+\subsection{拉氏理论}
 
 许多物理定律能靠着一种信念得到：\textit{实际定律总使系统作用量最小}，此称\textbf{最小作用量原理}(principle of least action)。当然，最小只是美学说法，其实只要求导数为零，故严格称法为\textbf{稳恒}(stationary)\textbf{作用量原理}，仅在分析解的稳定性时再关注最优化问题。
 这一哲思起源于 Fermat 原理：固定起点终点，光的实际路径应使传播时间取极值。故作用量通常像曲线线长、传播时间这样表为积分形式：
@@ -515,17 +515,6 @@ Fréchet 变分与 $\p,\int$ 交换而计算 $\var S=\int \d[4]{x}\var\Lag$。
 在粒子情形我们通过决定性原理排除高阶导，而现在 $\p$ 还包含相互作用势的含义，高阶导数可能导致能量无下界，故一般不考虑高阶导。\S\ref{sec:Einstein} 还出现一类情况：高阶导只存在于边界项中，于是在变分时实质上消除掉了。若非要考虑高阶导，则公式法本身也并不方便。
 为规避这些麻烦，直接具体问题具体分析，按相似程序计算变分即可。
 
-
-
-
-
-
-
-
-
-
-\section{广义相对论}
-
 \subsection{惯性系的存在性}\label{sec:inertial}
 
 前文对惯性系存在性的考虑，仍然承袭 Newton 体系的思维，即认为存在一个“绝对空间”作为先验的惯性系，相对其匀速的物体仍为惯性系，而具有加速度的为非惯性系。
@@ -621,8 +610,6 @@ $\d\xi^\beta$ 的展开分量为 $\pdv*{\xi^\beta}{x^\mu}$，由 Jacobi 矩阵�
 由于上式是合同变换，则任意系的分量矩阵都将保持可逆。
 注意，由 $g_{\mu\nu}$ 变换可知 $\pdv*{x^\mu}{\xi^\alpha}$ 的度规对偶 $g_{\mu\nu} \pdv*{x^\mu}{\xi^\alpha} = g'_{\mu\nu} \pdv*{\xi^\mu}{x^\alpha}\ne \pdv*{\xi^\mu}{x^\alpha}$ 不等于对偶基。
 
-\subsection{最小引力耦合}
-
 广义不变性、等效原理共同决定引力耦合方式。
 置单一自由落体质点。
 
@@ -713,6 +700,8 @@ Einstein 曾为此困扰而企图放弃广义协变性，提出\textbf{空穴论
 由于空穴论证中假设的坐标变换只发生在空穴中，因而 Einstein 开始讨论时空、坐标系在无物质时的存在性，这实际上是一个更大的话题，超出了对引力规范理论的讨论。最终他提出\textbf{点重合}(point coincidence)\textbf{原理}：\textit{各种可观测事件都归结为世界线的交叉点，物理理论是在预言这些交叉的分布}。物理预言在这种意义下当然具有坐标冗余性。在量子层面 Pauli 不相容似乎与之矛盾，只要将这种重合性理解为通过相互作用交换信息即可。当然，点重合其实还有更多的哲学意义未发掘，而这或许对量子引力的提出有帮助。
 Kretschmann 借鉴 Leibniz 的相对关系主义，进一步提出\textbf{拓扑原理}，即物质间的关系是拓扑性质的，实质上是引力场、物质场、时空都被一齐拖拽，而现实中看来，时空未动而坐标系变动。
 这其实分别就是主动和被动观点。
+
+点变换和坐标变换可互相转换。前者为新旧点在同一坐标系下的表示 $x\to\tilde x$，称\textbf{主动观点}：点变（场、运动路径也一齐拖拽）、坐标系不变；后者为同一时空点在不同系的表示 $\{x\}\to\{x'\}$，称\textbf{被动观点}：点不变、坐标系变。双向连续的双射称为\textbf{同胚}、双向光滑的双射称\textbf{微分同胚}(diffeomorphism)。我们只考虑可逆光滑坐标变换，这就给出主动观点下流形之间的微分同胚。
 
 \subsection{Einstein 方程}\label{sec:Einstein}
 
@@ -1136,40 +1125,7 @@ T^{\mu \nu}{}_{;\nu}&=T^{\mu \nu}{}_{,\nu}+\Gamma_{\lambda \nu}^\mu T^{\lambda \
 }
 从而 $\p\delta g=0$ 的确与 $\var\Gamma_{\mu \nu}^\lambda$ 等价。
 
-考虑电磁引力耦合
-\begin{align}
-    S &= \int\d[4]x\sqrt{-g} \left(\frac{1}{16\pi} (R - F^{\mu\nu} F_{\mu\nu})+A_\nu J^\nu\right) - \sum_n\int\d{\tau_n} m_n\notag\\
-    &= \frac{1}{16\pi}\int\d[4]{x}\sqrt{-g}\,(R - F^{\mu\nu} F_{\mu\nu}) -\sum_n\int\d{\tau_n} m_n+ \sum_n q_n \int\d{x^\mu_n} A_\mu,
-\end{align}
-$F_{\mu\nu}$ 的定义和无挠性自动给出 $F_{\mu\nu}=2\cd_{[\mu}A_{\nu]}=2\p_{[\mu}A_{\nu]}$，则 $\var F_{\mu\nu} =\cd_\mu\var A_\nu-\cd_\nu\var A_\mu$，于是 $F_{[\mu\nu;\lambda]}=F_{[\mu\nu,\lambda]}=0$，以及 $x^\mu_n,A_\mu$ 变分结果
-\eq{
-    \Dv{p^\mu_n}{\tau_n}=q_n F^\mu{}_{\nu}u^\nu_n,\quad\cd_\mu F^{\mu\nu}=-4 \pi J^\nu.
-}
-对自由电磁场进行 $g^{\mu\nu}$ 变分得到 Hilbert 能动张量
-\eq{
-    T_{\mu\nu}=\frac{1}{4\pi}\left(F_{\mu\sigma}F_{\nu}{}^{\sigma}-\frac{1}{4}g_{\mu\nu} F_{\sigma\lambda}F^{\sigma\lambda}\right).
-}
-而耦合项 $\int\d{x^\mu_n} A_\mu$ 不含度规，变分结果为零。
-$g^{\mu\nu}$ 的运动方程为 $R_{\mu\nu}-\frac12 g_{\mu\nu} R=8\pi(T_{\mu\nu} + \hat T_{\mu\nu})$。守恒性为 $\cd_\mu\hat T^{\mu\nu}=F^\mu{}_{\lambda}J^\lambda=-\cd_\mu T^{\mu\nu}$。
-电荷质量呈 $\delta$ 分布，则电磁场 $T_{\mu\nu}$ 占主导，称为\textbf{Einstein-Maxwell 方程}。
-Lorenz 规范从局域惯性系出发变换为 $\cd^\mu A_\mu =0$，则引力耦合的 d'Alembert 方程为
-\begin{align}
-    -4\pi J_\nu&=\cd^\mu\cd_\mu A_\nu- \cd^\mu \cd_\nu A_\mu = \cd^\mu\cd_\mu A_\nu- (\cd_\nu\cd^\mu A_\mu -g^{\kappa\mu} R^\lambda{}_{\mu\kappa\nu} A_\lambda)\notag\\
-    &=\square_g A_\nu-g^{\mu\kappa} g^{\lambda\sigma} R_{\mu\sigma\kappa\nu} A_\lambda=\square_g A_\nu- R^\lambda{}_{\nu} A_\lambda,
-\end{align}
-其中 $\square_g=\cd^\mu\cd_\mu$ 是\textbf{Laplace-Beltrami 算子}。
-以上都是$g_{\mu\nu},F_{\mu\nu}$ 的耦合方程。
-同理得光线方程 $k^\mu\cd_\mu k^\nu=0, k_\mu k^\mu = 0$。
 
-可以看到以上弯曲时空中的电磁学方程，似乎都是将其平直情形做直接替换：
-\[
-    \eta_{\mu\nu}\to g_{\mu\nu},\quad\p_\mu\to\cd_\mu,\quad\d\to\D,
-\]
-故许多人将最小引力耦合理解为这种所谓的“\textbf{最小替换}”(minimal replacement)。必须指出这不一定成立，如 $-4\pi J_\nu=\square_g A_\nu- R^\lambda{}_{\nu} A_\lambda$ 就并非从 $\square A_\mu =-4\pi J_\mu$ 直接替换。
-关键在于二阶及以上导数将带来曲率效应，这不能用任何坐标系消除。能满足广义不变性的方程是很多的，不能冒然只做“最小替换”而图高枕无忧。企图从局域惯性系转化到一般坐标系的关键在于，导数内所作用的量\textit{全部}是广义不变的张量，显然 $\p^\nu(\p_\nu A_\mu)$ 括号内的 $\p_\nu A_\mu$ 并不满足。在一阶导时，可轻松保证导数作用的量是张量，故“最小替换”适用。这才是能从最小耦合推出“最小替换”的实质关键。
-也有人将等效原理及最小耦合理解为：若一个方程在平直情形时成立，则在弯曲情形也成立。这也不一定。的确，协变导数在平直时空惯性系中表为偏导数。但曲率在平直情形直接为零，因此任何额外加曲率项的方程也将符合这句话，比如 $\cd_\mu F^{\mu\nu}+\alpha \cd_\mu(F^{\mu\nu}R)=-4 \pi J^\nu$。但等效原理指的是，利用局域惯性系来描述真实引力场，这样才能排除 $\cd_\mu(F^{\mu\nu}R)$。切记，这些张量和协变导数的定义是从局域惯性系中，做广义坐标变换得来。
-或许有读者指出，具有曲率项的正确方程（如 $-4\pi J_\nu=\square_g A_\nu- R^\lambda{}_{\nu} A_\lambda$）也并不在局域惯性系中退回狭义相对论。对此，我们再次强调，一开始本书就给了最不易混淆的正确理解：将最小耦合应用于一开始的作用量上。因为作用量始终是广义不变的标量，不涉及坐标变换等麻烦的过程，最小耦合只是引入了适配体元 $\sqrt{-g}\d[4]{x}$。故其实并不需要用局域惯性系去讨论一个物理方程，而只需要讨论最原始的作用量。
-当然，并不一定要把等效原理、最小耦合奉为教条。若在量子理论中非要讨论诸如 $\cd_\mu(F^{\mu\nu}R)$ 的曲率项，可认为是适当地放弃等效原理，比如 \S\ref{sec:scalar}。但在经典理论的视角下，这些项的数量级太小，且目前实验精度无法达到，尤其是微弱的曲率，故等效原理仍被默认。总之，包括等效原理在内，最终都要接受实验的考验。
 
 $\cd_{(\mu}\xi_{\nu)}=0$ 称为该度规的\textbf{Killing 方程}。满足该方程的矢量场 $\xi^\mu$ 称为\textbf{Killing 矢量场}。它给出 $\bar\var g_{\mu\nu}=-\cd_{(\mu}\xi_{\nu)}=0$，即\textbf{等度规变换}(isometry)。等度规变换所构成的集合称\textbf{等度规群}。
 故直观上，Killing 矢量场表示对称变换的方向，沿着该方向移动度规场仿佛没有变化。这是主动观点。
@@ -1380,13 +1336,15 @@ $\d s^2=0$ 即 $t=\pm\left(r+2M\ln|r-2M|\right)+C$。
 光线外向族为 $\dv*{\tilde t}{r}=\frac{r+2M}{r-2M}$，即 $t=r+4M\ln\abs{r-2M}+C_1, r=2M$。
 内向族正是 $\dv*{\tilde t}{r}=-1$ 即 $\tilde t=-r+C$。
 
+\section{规范对称}
+
 \subsection{Noether 定理}\label{sec:Noe}
 计算上，可将连续变换视作一系列参数为小量 $\alpha=\epsilon$ 的\textbf{无穷小变换}之累积。相较而言，有限参数的连续变换又称为\textbf{有限变换}。
 进行无穷小变换 $\Phi(x)\to\tilde\Phi(\tilde x)$，带来变化
 \eq{
     \bar\var\Phi=\tilde\Phi(x)-\Phi(x)=\epsilon(x) F,\quad \delta x^\mu=\tilde x^\mu - x^\mu = \epsilon(x) \xi^\mu.
 }
-$\bar\var$ 称为\textbf{等时变分}。定域性使参数往往可随时空点而变，这种变换称\textbf{局域变换}，否则称\textbf{整体变换}，这里用 $\p_\mu\epsilon\ne 0$ 一并考虑即可。
+$\bar\var$ 称为\textbf{等时变分}\footnote{Fréchet 变分相当于固定端点的等时变分（$\delta t=0,\var=\bar\var$）。}。定域性使参数往往可随时空点而变，这种变换称\textbf{局域变换}，否则称\textbf{整体变换}，这里用 $\p_\mu\epsilon\ne 0$ 一并考虑即可。
 代入 $\tilde\Phi=\bar\var\Phi+\Phi$ 可见总变化（线性主部）为 $\var \Phi=\tilde\Phi(\tilde x)- \Phi=\tilde\Phi + \var x^\nu\p_\nu\tilde{\Phi} - \Phi=\bar\var\Phi+\var x^\nu\p_\nu\Phi$，$\var$ 称\textbf{Noether 变分}，公式记作
 \eq{
     \delta=\bar\var+\delta x^\nu\p_\nu.
@@ -1679,6 +1637,151 @@ $s^{\mu\nu}$ 为\textbf{自旋角动量}，来自于 $\Sigma^{\mu\nu}$。
     \nabla_\mu B^{\mu\nu} =\mathcal E_M\nabla^\nu\Phi \xlongequal{\text{在壳}} 0,\quad T^{\mu\nu} = B^{\mu\nu} +\mathcal E_M J^{\mu\nu}\Phi  \xlongequal{\text{在壳}} B^{\mu\nu}.
 }
 后者即\textbf{Rosenfeld–Belinfante 在壳等价性定理}。这就解释了为何对（最小耦合）Hilbert 张量取 $g\to\eta$ 可得平直 Belinfante 能动张量。
+
+\subsection{电动力学}\label{sec:ED}
+
+狭义相对论缘起于经典电动力学，其研究经典电磁场与电荷系统。
+我们学过从电荷守恒假设、若干实验定律推测出 Maxwell 方程，其优美的对称性启发我们寻找这些假设的根源。
+置闵氏时空惯性系。
+量子力学具有相位对称性，比如波函数 $\Psi(t,\bm x)$ 在\textbf{U(1) 整体相位变换} $\Psi\to \e^{\i\theta}\Psi$ 下，一切可观测量都不变，其中 $\theta$ 是常数。在场论里，复标量场、旋量场的作用量也具有这种 U(1) 对称性。变换为 $\Phi'(x) = \e^{\i q \alpha} \Phi(x)$，局域上 $\bar\delta\Phi = \delta\Phi = \i q \alpha \Phi$。
+如此，一阶导也具有这种变换 $\delta(\p_\mu\Phi)=\i q \alpha \p_\mu\Phi$。
+不同量构造 U(1) 作用量可得不同 Noether 流。
+无论具体对象如何，只要有 U(1) 对称性，其动力学的结果都将是 Maxwell 方程。
+研究表明，电子由 Dirac 旋量场描述，实标量场可描述 $\pi^0$ 介子，复标量场及其共轭可描述 $\pi^\pm$ 介子。
+故 $\pi^\pm$ 介子、电子等都带有电荷，参与电磁相互作用。故将 U(1) 对称性的守恒流称为\textbf{4-电流密度}。
+依据相互作用的对称性、实验特征、量纲，所考虑耦合项的最简单形式，称为\textbf{最小耦合}(minimal coupling)。
+考虑规范化 $\alpha\to \alpha(x)$，作用量中的一阶导有 $\delta(\p_\mu\Phi)=\i q \alpha \p_\mu\Phi + \i q \p_\mu\alpha \Phi$，$\p_\mu\alpha$ 项破坏原对称性。
+尝试加项使总作用量 $S$ 局域对称：$\delta S = \delta S_0 + \delta S_1 = 0$，即耦合项 $\Lag_1:=\Lag-\Lag_0$ 必引入矢量 $A_\mu$ 使 $\delta\Lag_1 = J^\mu_0 \p_\mu\alpha = J^\mu_0\delta A_\mu$。也就是
+\eq{
+    A_\mu'(x) = A_\mu(x) + \p_\mu \alpha(x) \im \delta(\D_\mu\Phi) = \i q\alpha \D_\mu\Phi,\quad\D_\mu := \p_\mu - \i q A_\mu.
+}
+因此，恢复局域对称的一个简单办法\footnote{如果 $\delta J_0^\mu = 0$ 也就是已经局域对称，则 $\Lag_1 = J_0^\mu A_\mu$ 已经可充当最小耦合，仍满足 $\delta\Lag_1 =J_0^\mu\delta A_\mu$，则总 Noether 流就是自由流 $J^\mu = J^\mu_0$。可构造简单的复标量场自由作用量 $\Lag_0=-\p^\mu\phi^*\p_\mu\phi-m^2\phi^*\phi$，Noether 流 $J_0^\mu = \i q(\phi^* \p^\mu \phi - \phi\p^\mu \phi^*)$ 包含一阶导，$\delta J_0^\mu \ne 0$，可预料导数替换后虽仍有 $\delta\Lag_1 = J^\mu_0\delta A_\mu$，但 $J^\mu\ne J^\mu_0$ 含有 $A_\mu$， $\Lag_1\ne J_0^\mu A_\mu$ 甚至 $\Lag_1\ne J^\mu A_\mu$（具体表达式留给读者）。旋量场则是 $\Lag_0=\bar\psi(\i\gamma^\mu\p_\mu - m)\psi$，得 $J_0^\mu = q\bar\psi\gamma^\mu\psi$，满足$\delta J_0^\mu = 0$，读者可证 $\Lag=\bar\psi(\i\gamma^\mu \D_\mu - m)\psi$ 确实有 $J^\mu=J_0^\mu$，且 $\Lag_1=J^\mu A_\mu$。故只是旋量场满足，标量场不满足。}是将 $\p$ 替换为\textbf{规范协变导数} $\D$。
+这一内部对称性导致 $A^\mu$ 存在冗余 $A_\mu+\p_\mu f$。此称\textbf{规范自由性}(gauge freedom)。$A_\mu$ 称为\textbf{规范场}。
+$\varphi:=A^0$ 就解释为电标势，$A^i$ 就是磁矢势。$A_\mu$ 称为\textbf{4-势}，规范自由性导致 $\varphi+C,\bm A+\grad f$ 的选取自由。整体对称性催生守恒电流，规范化催生电磁场。
+另一例子是 $\pi$ 介子场的\textbf{手征对称性}，对称荷为色荷，局域化得到强相互作用色场。实际上，引力也是规范场。
+
+
+可对 $A^\mu$ 人为约定\textbf{规范固定}(gauge fixing)条件。比如\textbf{Lorenz 规范}\footnote{指丹麦物理学家 Ludvig Valentin Lorenz(1829-1891)。当然它又是 Lorentz 协变的，所以也可叫做 Lorentz 规范。二人名字的发音相同，容易混淆，需要注意 Lorentz 是荷兰的物理学家，相对论的奠基者之一。}
+\eq{
+    \p_\mu A^\mu =0.
+}
+这种 $A^\mu$ 总是存在的，因为对任意 $\p^\mu A_\mu \ne 0$ 的 $A^\mu$，总可构造 $\tilde A_\mu = A_\mu + \p_\mu f$ 且 $\square f=\p^\mu\p_\mu f=-\p^\mu A_\mu $（这里 $\square=\p^\mu\p_\mu = -\p_t^2 + \nabla^2$ 为 d'Alembert 算子，$\nabla^2$ 为 Laplace 算子），即可有 $\p^\mu \tilde A_\mu =0$。“$\square f =$\,常数”的非零解存在且甚多。
+若选择 $\p_\mu A^\mu=0$，由于这是 Lorentz 标量，那 $A^\mu$ 当然是 Lorentz 矢量。然而也可采取\textbf{Coulomb 规范} $\div\bm A=\p_iA^i=0$，为使新系中 $\p'_iA'^i=0$，变换必形如 $A'^\mu(x') = \Lambda^\mu{}_\nu A^\nu(x) + \p'^\mu\Omega(x')$，伴随着规范补偿项(compensation)。
+因此 $A^\mu$ 并非时空中的普通 Lorentz 矢量，其本质目的是保持协变导数。在数学上，此称内部对称性空间上的\textbf{规范联络}。
+
+为研究 $A_\mu$ 的动力学，需构造自由电磁场作用量。它应是抵消规范冗余的物理可观测量。
+因为 $A_\mu$ 的运动方程应至少二阶，作用量需出现 $\p_\mu A_\nu$。
+最简单的选择是关于 $\p_\mu A_\nu$ 线性的张量。
+施加 Lorentz 变换并考虑规范补偿，则 $\p'_\mu A'_\nu = (\Lambda^{-1})^{\rho}{}_{\mu} (\Lambda^{-1})^{\lambda}{}_{\nu} \p_{\rho}A_{\lambda} + \p'_{\mu}\p'_{\nu}\Omega$,
+故 $\p_\mu A_\nu$ 线性组合的规范不变 Lorentz 张量，必须消除 $\p'_{\mu}\p'_{\nu}\Omega$ 项。这是完全任意的函数，唯一的限制是关于 $\mu,\nu$ 对称，故唯一的办法是施以反称化，即正比于 $\p_{[\mu} A_{\nu]}$。
+考虑 $F_{\mu\nu}=2\p_{[\mu} A_{\nu]}$。此称\textbf{电磁张量}。
+它\textit{确有}场强意义：可将 $F_{i0}$ 解释为电场 $E_i$，再注意 $A_0=-\varphi$，则 $\bm E=-\grad\varphi-\p_t{\bm A}$。数值上 $F^{i0}=\eta^{i\mu}\eta^{0\nu}F_{\mu\nu}=-F_{i0}$，$E^i=\delta^{ij}E_j=E_i$，所以还可写成 $F^{i0}=E^i$。
+表达磁场需要引入叉乘。
+由行列式知叉乘 $\bm A\times \bm B$ 的分量写法为 $\varepsilon_{ijk} A^j B^k$。这样，给定 $F^{ij}=\varepsilon^{ijk}B_k$，
+可转写\footnote{可证 $\varepsilon_{kij} \varepsilon^{kmn} =2\delta_{[i}^{m}\delta_{j]}^{n}=2\delta_{i}^{[m}\delta_{j}^{n]}$，见 \S\ref{sec:tensor-density}。}为 $B_i=\frac 12 \varepsilon_{ijk}F^{jk}=\varepsilon_{ijk}\p^{[j}A^{k]}=\varepsilon_{ijk}\p^j A^k$，这正是 $\bm B=\curl\bm A$。
+总结为
+\eq{
+    E_i=F_{i0},\quad B_i=\frac 12 \varepsilon_{ijk}F^{jk}\iff F^{i0}=E^i,\quad F^{ij}=\varepsilon^{ijk}B_k.
+}
+可用矩阵表为
+\[\left(F_{\mu\nu}\right)=\left[\begin{array}{cccc}0& -E^{1} & -E^{2} & -E^{3}\\E^{1} & 0 & B^{3} & -B^{2} \\E^{2} & -B^{3} & 0 & B^{1} \\E^{3} & B^{2} & -B^{1} & 0 \end{array}\right].\]
+从定义立即得到微分恒等式
+\eq{
+ F_{[\mu\nu,\lambda]}=2  A_{[[\nu,\mu],\lambda]}=2  A_{[\nu,(\mu,\lambda)]}=0,
+}
+这已给出 $\div\bm B=0$ 和 $\curl\bm E=-\p_t \bm B$。%% 也可从 $A^\mu U_\mu = 0$ 出发，由 $F_{\mu\nu} U^\mu U^\nu=0$ 通过分配律理解其反称性。
+使用 $F_{\mu\nu}$ 的最简单构造是 $F_{\mu\nu} F^{\mu\nu}=2(\bm B^2-\bm E^2)$。
+考虑 $\Lag= \Lag_0 + \Lag_1 + \Lag_2$，这里 $\Lag_2 = -\frac{1}{16\pi}F^{\mu\nu} F_{\mu\nu}$ 的耦合强度由实验测定并取 Gauss 几何制($4\pi\epsilon_0 = 1$)。
+以 $\bar\delta$ 表示前文 $\Phi,A_\mu$ 都变的 U(1) 变换，$\delta$ 表示单独 $A_\mu$ 任意变分，则 $\delta\Lag_0=0$。
+对称性给出 $\bar\delta(\Lag_0+\Lag_1) = 0$ 和 $\bar\delta\Lag_0 = -J_0^\mu\p_\mu\alpha$，以及 $\bar\delta(\Lag_0+\Lag_1) - \delta(\Lag_0+\Lag_1) = -J^\mu\p_\mu\alpha$。
+得 $\delta\Lag_1=\delta(\Lag_0+\Lag_1)=J^\mu\delta A_\mu$，无论 $J^\mu$ 是否含 $A_\mu$。
+进而
+\eq{\var(F^{\mu\nu} F_{\mu\nu})=4  F^{\mu\nu} \delta (\p_\mu A_\nu) \simeq -4  \p_\mu F^{\mu\nu} \delta A_\nu \im \p_\mu F^{\mu\nu}=-4\pi J^\nu.}
+这给出了 $\div\bm E=4\pi \rho$ 和 $\curl\bm B-\p_t \bm E=4\pi \bm j$。
+利用规范 $\p_\mu A^\mu=0$ 可将 Maxwell 方程组写作一条，即\textbf{d'Alembert 方程}（$F_{[\mu\nu,\lambda]}=0$ 自动由定义满足）
+\eq{
+    -4\pi J_\nu=\p^\mu\p_\mu A_\nu-\p_\nu \p^\mu A_\mu = \p^\mu\p_\mu A_\nu =\square A_\nu.
+}
+
+经典场论考虑如下点电荷系统总作用量
+\begin{align}
+    S &= -\frac{1}{16\pi}\int\d[4]{x}F^{\mu\nu} F_{\mu\nu} -\sum_n\int\d{\tau_n} m_n+ \sum_n q_n \int\d{x^\mu_n} A_\mu\\
+    &= \int\d[4]{x} \left(-\frac{1}{16\pi}F^{\mu\nu} F_{\mu\nu}+A_\mu J^\mu\right) - \sum_n\int\d{\tau_n} m_n\notag,
+\end{align}
+其中注意由 $\delta\Lag_1=J^\mu\delta A_\mu$ 可知电流密度\footnote{若非要从量子场论理解，取标量场特解 $\phi = B\e^{\i kx}$，$J^\mu_0 = 2 q B^2 k^\mu$。振幅平方代表粒子出现的空间概率密度，退化为数密度。}
+\eq{
+    J^\mu := \sum_n q_n \dot x^\mu_n \delta_n = \sum_n q_n \int\d{\tau_n} u^\mu_n\delta^4_n.
+}
+系综平均形如 $\rho U^\mu$。
+对 $A_\mu$ 变分得 Maxwell 方程，对 $x^\mu_n$ 变分就是运动方程。
+耦合项变分为 $\delta \int\d x^\mu A_\mu=\int\left(\p_\nu A_{\mu} \delta x^\nu \d x^\mu+A_\mu \d(\delta x^\mu)\right) \simeq \int\d x^\nu F_{\mu \nu} \delta x^\mu$，
+可以看到 $F_{\mu\nu}$ \textit{自然作为场强而出现}。
+变分结果为\footnote{取惯性坐标时 $t$ 可直接得 3 维空间 $\Sigma_t$ 表述，$L=\sum_n(-m_n\sqrt{1-\dot{\bm x}_n^2}-q_n\varphi+q_n\dot{\bm x}_n\cdot\bm A)$ 对 $\bm x(t)$ 变分即可。}
+\eq{
+    \dv*{p^\mu_n}{\tau_n}=q_n F^{\mu}{}_{\nu}u^\nu_n \im \dot{\bm p}_n=q_n(\bm E+\dot{\bm x}_n\times\bm B).
+}
+称 $q F^{\mu}{}_{\nu}u^\nu$ 为\textbf{4-Lorentz 力}。 
+可见最小耦合迫使场强成为 4-速的线性变换。
+4-Lorentz 力密度为 $\p_\mu\hat T^{\mu\nu} = \sum_n \dot p^\nu_n \delta_n = \sum_n q_n F^{\nu}{}_{\lambda}\dot x^\lambda_n \delta_n = F^{\mu}{}_{\lambda} J^\lambda$。
+矢量场的正则能动张量一般不对称，且无规范不变性。考虑用 Belinfante 张量：
+\eq{
+\tcbhighmath{
+    T_{\mu\nu}=\frac{1}{4\pi}\left(F_{\mu\sigma}F_{\nu}{}^{\sigma}-\frac{1}{4}\eta_{\mu\nu} F_{\sigma\lambda}F^{\sigma\lambda}\right),
+}
+}
+它对称且正好规范不变。
+$\{x\}$ 所测电磁场能量密度为熟知的 $T^{00}=(\bm E^2+\bm B^2)/8\pi$；能流或动量密度为 $T^{i0}=-T_{i0}$ 即熟知的 Poynting 矢量 $(\bm E\times \bm B) / 4\pi$；动流密度或应力张量为 $T^{ij}=-(E^i E^j+B^i B^j)/4\pi+T^{00}\delta^{ij}$。代入 $\p_\mu F^{\mu\nu}=-4 \pi J^\nu$ 得
+$\p^\mu T_{\mu\nu}=-F_{\nu\lambda}J^\lambda$。因此总和 $T_{\mu\nu} + \hat T_{\mu\nu}$ 满足守恒方程。
+无迹性 $T^\mu{}_\mu=0$ 恒成立。可这样理解，若电磁场呈现为光子流体，这无非意味着固有质量为零。
+
+%%
+
+Lorenz 规范下无源线性波动方程 $\square A_\mu = 0$。通解为平面波\footnote{平面波意指同相位点之集 $\bm x$ 满足 $\bm p\cdot\bm x$ 为常数，则波前为平面。常考虑指数形式。}的 Fourier 积分。
+不失一般性，考虑简单平面波 $A_\mu = \Re{C_\mu \e^{\i\theta}}$，其中 $C_\mu\in\C$ 称\textbf{偏振矢}(polarization vector)。
+考虑常偏振 $\p_\mu C^\nu = 0$。
+由 $\square A_\mu = 0$ 得 $k^\mu k_\mu = 0,\p_\mu k^\mu=\square\theta=0$，其中 \textbf{4-波矢}为 $k^\mu = \p_\mu\theta$，取积分常数为零则 $\theta = kx = k^\mu x_\mu = -\omega t+\bm k\cdot\bm x \in \R$。
+记角频率 $\omega=k^0$，由 $k^2:=k^\mu k_\mu=0$ 得 $\omega=|\bm k|$，波长为 $\lambda = \frac{1}{\nu} = \frac{2\pi}{\omega}$。
+并且 $0=\p_\nu(k^\mu k_\mu) = 2k^\mu\p_\nu \p_\mu \theta =  2k^\mu\p_\mu \p_\nu \theta = 2k^\mu \p_\mu k_\nu$。
+因此 $k^\mu$ 走类光测地线，光是一种电磁波。
+常偏振、波矢的波称\textbf{单色平面波}。
+现实中的电磁波只能近似成为单色平面波。考虑 $A_\mu = \Re{C_\mu \e^{\i\theta}}$ 但 $\p_\mu C_\nu \ll \p_\mu\theta C_\nu$，也即 $C_\mu$ 缓变，$\theta$ 快变，则 $\square A_\mu \approx 0$ 仍然成立。此称\textbf{准单色平面波}，可看做一大群光子的叠加，每个光子具有近似相同的 $k^\mu,C_\mu$。
+光线虽不能定义固有时和质量，但由能动张量分析知，电磁波的 4-动量正比于 4-波矢。进一步，可借量子理论的 de Broglie 关系定义单个光子的 $p^\mu=\hbar k^\mu$。$\hbar = 1$ 单位制下 $p^\mu,k^\mu$ 不再区分。
+%% 
+
+考虑电磁引力耦合
+\begin{align}
+    S &= \int\d[4]x\sqrt{-g} \left(\frac{1}{16\pi} (R - F^{\mu\nu} F_{\mu\nu})+A_\nu J^\nu\right) - \sum_n\int\d{\tau_n} m_n\notag\\
+    &= \frac{1}{16\pi}\int\d[4]{x}\sqrt{-g}\,(R - F^{\mu\nu} F_{\mu\nu}) -\sum_n\int\d{\tau_n} m_n+ \sum_n q_n \int\d{x^\mu_n} A_\mu,
+\end{align}
+$F_{\mu\nu}$ 的定义和无挠性自动给出 $F_{\mu\nu}=2\cd_{[\mu}A_{\nu]}=2\p_{[\mu}A_{\nu]}$，则 $\var F_{\mu\nu} =\cd_\mu\var A_\nu-\cd_\nu\var A_\mu$，于是 $F_{[\mu\nu;\lambda]}=F_{[\mu\nu,\lambda]}=0$，以及 $x^\mu_n,A_\mu$ 变分结果
+\eq{
+    \Dv{p^\mu_n}{\tau_n}=q_n F^\mu{}_{\nu}u^\nu_n,\quad\cd_\mu F^{\mu\nu}=-4 \pi J^\nu.
+}
+对自由电磁场进行 $g^{\mu\nu}$ 变分得到 Hilbert 能动张量
+\eq{
+    T_{\mu\nu}=\frac{1}{4\pi}\left(F_{\mu\sigma}F_{\nu}{}^{\sigma}-\frac{1}{4}g_{\mu\nu} F_{\sigma\lambda}F^{\sigma\lambda}\right).
+}
+而耦合项 $\int\d{x^\mu_n} A_\mu$ 不含度规，变分结果为零。
+$g^{\mu\nu}$ 的运动方程为 $R_{\mu\nu}-\frac12 g_{\mu\nu} R=8\pi(T_{\mu\nu} + \hat T_{\mu\nu})$。守恒性为 $\cd_\mu\hat T^{\mu\nu}=F^\mu{}_{\lambda}J^\lambda=-\cd_\mu T^{\mu\nu}$。
+电荷质量呈 $\delta$ 分布，则电磁场 $T_{\mu\nu}$ 占主导，称为\textbf{Einstein-Maxwell 方程}。
+Lorenz 规范从局域惯性系出发变换为 $\cd^\mu A_\mu =0$，则引力耦合的 d'Alembert 方程为
+\begin{align}
+    -4\pi J_\nu&=\cd^\mu\cd_\mu A_\nu- \cd^\mu \cd_\nu A_\mu = \cd^\mu\cd_\mu A_\nu- (\cd_\nu\cd^\mu A_\mu -g^{\kappa\mu} R^\lambda{}_{\mu\kappa\nu} A_\lambda)\notag\\
+    &=\square_g A_\nu-g^{\mu\kappa} g^{\lambda\sigma} R_{\mu\sigma\kappa\nu} A_\lambda=\square_g A_\nu- R^\lambda{}_{\nu} A_\lambda,
+\end{align}
+其中 $\square_g=\cd^\mu\cd_\mu$ 是\textbf{Laplace-Beltrami 算子}。
+以上都是$g_{\mu\nu},F_{\mu\nu}$ 的耦合方程。
+同理得光线方程 $k^\mu\cd_\mu k^\nu=0, k_\mu k^\mu = 0$。
+
+可以看到以上弯曲时空中的电磁学方程，似乎都是将其平直情形做直接替换：
+\[
+    \eta_{\mu\nu}\to g_{\mu\nu},\quad\p_\mu\to\cd_\mu,\quad\d\to\D,
+\]
+故许多人将最小引力耦合理解为这种所谓的“\textbf{最小替换}”(minimal replacement)。必须指出这不一定成立，如 $-4\pi J_\nu=\square_g A_\nu- R^\lambda{}_{\nu} A_\lambda$ 就并非从 $\square A_\mu =-4\pi J_\mu$ 直接替换。
+关键在于二阶及以上导数将带来曲率效应，这不能用任何坐标系消除。能满足广义不变性的方程是很多的，不能冒然只做“最小替换”而图高枕无忧。企图从局域惯性系转化到一般坐标系的关键在于，导数内所作用的量\textit{全部}是广义不变的张量，显然 $\p^\nu(\p_\nu A_\mu)$ 括号内的 $\p_\nu A_\mu$ 并不满足。在一阶导时，可轻松保证导数作用的量是张量，故“最小替换”适用。这才是能从最小耦合推出“最小替换”的实质关键。
+也有人将等效原理及最小耦合理解为：若一个方程在平直情形时成立，则在弯曲情形也成立。这也不一定。的确，协变导数在平直时空惯性系中表为偏导数。但曲率在平直情形直接为零，因此任何额外加曲率项的方程也将符合这句话，比如 $\cd_\mu F^{\mu\nu}+\alpha \cd_\mu(F^{\mu\nu}R)=-4 \pi J^\nu$。但等效原理指的是，利用局域惯性系来描述真实引力场，这样才能排除 $\cd_\mu(F^{\mu\nu}R)$。切记，这些张量和协变导数的定义是从局域惯性系中，做广义坐标变换得来。
+或许有读者指出，具有曲率项的正确方程（如 $-4\pi J_\nu=\square_g A_\nu- R^\lambda{}_{\nu} A_\lambda$）也并不在局域惯性系中退回狭义相对论。对此，我们再次强调，一开始本书就给了最不易混淆的正确理解：将最小耦合应用于一开始的作用量上。因为作用量始终是广义不变的标量，不涉及坐标变换等麻烦的过程，最小耦合只是引入了适配体元 $\sqrt{-g}\d[4]{x}$。故其实并不需要用局域惯性系去讨论一个物理方程，而只需要讨论最原始的作用量。
+当然，并不一定要把等效原理、最小耦合奉为教条。若在量子理论中非要讨论诸如 $\cd_\mu(F^{\mu\nu}R)$ 的曲率项，可认为是适当地放弃等效原理，比如 \S\ref{sec:scalar}。但在经典理论的视角下，这些项的数量级太小，且目前实验精度无法达到，尤其是微弱的曲率，故等效原理仍被默认。总之，包括等效原理在内，最终都要接受实验的考验。
 
 \subsection{流体力学}
 
