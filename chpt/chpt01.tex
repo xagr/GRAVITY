@@ -470,7 +470,7 @@ Cartan 率先给出定义 $\{e_I\}$ 的准确办法，从而可不借坐标地�
         T_{\mu_1\cdots\mu_k}=T_{[\mu_1\cdots\mu_k]}\im T_{(\mu_1\cdots\mu_k)}=0.\]
 \end{enumerate}
 
-\subsection{定域场拉氏理论}\label{sec:Lag-Noe}
+
 
 粒子间的相互作用会使各粒子动量、能量变化，为保持总和守恒，须设想粒子将其传递给周遭弥漫着的某种媒介，这就是场。于是有了最自然的图像：粒子作为\textbf{源}，与场接触作用，再由场接触作用于另一粒子。接触作用强度涉及粒子的\textbf{荷}(charge)。
 设想一种\textbf{试验粒子}(test particle)，忽略其体积、形变及自旋，最重要地是忽略其自场对外场之干扰，就能测量受力来研究外场。每单位荷的场力即\textbf{场强}(strength)，通常无关于试验粒子，往往又能表为某个\textbf{势}(potential)之导数。
@@ -505,39 +505,6 @@ $\p_t\Phi_i,\p_i\Phi$ 分别是时间导数以及相邻体元间的相互作用�
 
 点变换和坐标变换可互相转换。前者为新旧点在同一坐标系下的表示 $x\to\tilde x$，称\textbf{主动观点}：点变（场、运动路径也一齐拖拽）、坐标系不变；后者为同一时空点在不同系的表示 $\{x\}\to\{x'\}$，称\textbf{被动观点}：点不变、坐标系变。双向连续的双射称为\textbf{同胚}、双向光滑的双射称\textbf{微分同胚}(diffeomorphism)。我们只考虑可逆光滑坐标变换，这就给出主动观点下流形之间的微分同胚。
 
-计算上，可将连续变换视作一系列参数为小量 $\alpha=\epsilon$ 的\textbf{无穷小变换}之累积。相较而言，有限参数的连续变换又称为\textbf{有限变换}。
-进行无穷小变换 $\Phi(x)\to\tilde\Phi(\tilde x)$，带来变化
-\eq{
-    \bar\var\Phi=\tilde\Phi(x)-\Phi(x)=\epsilon(x) F,\quad \delta x^\mu=\tilde x^\mu - x^\mu = \epsilon(x) \xi^\mu.
-}
-$\bar\var$ 称为\textbf{等时变分}。定域性使参数往往可随时空点而变，这种变换称\textbf{局域变换}，否则称\textbf{整体变换}，这里用 $\p_\mu\epsilon\ne 0$ 一并考虑即可。
-代入 $\tilde\Phi=\bar\var\Phi+\Phi$ 可见总变化（线性主部）为 $\var \Phi=\tilde\Phi(\tilde x)- \Phi=\tilde\Phi + \var x^\nu\p_\nu\tilde{\Phi} - \Phi=\bar\var\Phi+\var x^\nu\p_\nu\Phi$，$\var$ 称\textbf{Noether 变分}，公式记作
-\eq{
-    \delta=\bar\var+\delta x^\nu\p_\nu.
-}
-替换得 $\delta\Phi_{,\mu}=\bar\var\Phi_{,\mu}+ \delta x^\nu\Phi_{,\mu\nu}$，也可直接计算 $\pdv{\tilde x^\mu}(\tilde \Phi(\tilde x))-\Phi_{,\mu}$。同理 $\delta\Lag=\bar\var\Lag+\delta x^\nu\p_\nu\Lag$。
-一般 $\var,\p$ 不交换，但 $\bar\var\p =\p\bar\var$。
-$\d[4]\tilde x=J\d[4]x$ 中的 Jacobi 行列式为
-\[
-J=\det(\pdv{\tilde x^\mu}{x^\nu})=\sum_{(\mu_0\cdots \mu_3)\in S_4}\sgn(\mu_0\cdots \mu_3)\pdv{\tilde x^{\mu_0}}{x^0}\cdots\pdv{\tilde x^{\mu_3}}{x^3}=\varepsilon_{\mu_0\cdots \mu_3}\pdv{\tilde x^{\mu_0}}{x^0}\cdots\pdv{\tilde x^{\mu_3}}{x^3},
-\]
-其中 $\varepsilon_{\pi}$ 称\textbf{Levi-Civita 符号}：若 $\pi\in S_n$，则 $\varepsilon_{\pi}=\sgn \pi$，否则为零。
-代入 $\delta x^\mu$ 有
-\eq{
-    \pdv{\tilde x^\mu}{x^\nu}=\delta_\nu^\mu+\p_\nu\delta x^\mu, \quad \pdv{x^\alpha}{\tilde x^\mu} = \delta^\alpha_\mu - \p_\mu \var x^\alpha.
-}
-零阶项 $\varepsilon_{\mu_0\cdots \mu_3} \delta_0^{\mu_0}\cdots\delta_3^{\mu_3}=\varepsilon_{0\cdots 3}=1$。一阶项为 $\varepsilon_{\mu_0\cdots \mu_3}\delta_0^{\mu_0}\cdots\p_\nu\delta x^{\mu_\nu}\cdots\delta_3^{\mu_3}=\delta_{\mu_\nu}^{\nu}\p_\nu\delta x^{\mu_\nu}=\p_\nu\delta x^\nu$。所以 $J=1+\p_\mu\delta x^\mu$，也即 $\delta(\d[4]{x})=\p_\mu\delta x^\mu\d[4]{x}$。
-这相当于将 Noether 变分挪进积分并求 $\var(\d[4]{x}\Lag) = \d[4]{x}\var\Lag + \d[4]{x}\Lag\p_\mu\delta x^\mu$。
-综上
-\begin{align*}
-    \delta S &=\int \delta(\d[4]{x}\Lag)=\int \d[4]{x} (\bar\var\Lag+\p_\mu(\Lag\delta x^\mu))=\int\d[4]{x}\left(\fdv{\Lag}{\Phi^A}\bar\var\Phi^A - \p_\mu(\epsilon J^\mu)\right),\\
-    J^\mu &:=-\frac{1}{\epsilon}\left(\pdv{\Lag}{\Phi^A_{,\mu}}\bar\var\Phi^A+\cdots+\Lag\delta x^\mu\right)=-\pdv{\Lag}{\Phi^A_{,\mu}} F^A+\cdots-\Lag \xi^\mu,\\
-    \fdv{\Lag}{\Phi^A}&=\pdv{\Lag}{\Phi^A}-\p_\mu\pdv{\Lag}{\Phi^A_{,\mu}}+\cdots.
-\end{align*} 
-细心的读者可能发现全导数看上去很奇怪：$\p_\mu\Lag = \pdv{\Lag}{\Phi}\p_\mu\Phi + \pdv{\Lag}{\Phi_{,\nu}}\p_\mu\p_\nu\Phi + \cdots + \pdv{\Lag}{x^\mu}$，
-因为左边 $\Lag=\Lag(x)$ 是复合函数简写，右边 $\Lag=\Lag(x,\Phi,\p\Phi,\cdots)$ 是定义式简写。简写时习惯用 $\p_\mu,\pdv*{x^\mu}$ 区分，前者表示复合函数（时空场）的坐标偏导，后者表示泛函型显式偏导。对 $\Lag$ 之外的事物不用区分 $\p_\mu,\pdv*{x^\mu}$。
-
-
 Fréchet 变分相当于固定端点的等时变分（$\delta t=0,\var=\bar\var$），故与 $\p$、$\int$ 交换而计算 $\var S=\int \d[4]{x}\var L$。
 单元微积分下，边界项即函数作差；在多元情形中这是高维 Gauss 定理 \eqref{eq:Gauss} 式，证明见 \S\ref{appx:form}。故为消除边界项可有三类 Fréchet 假设：
 \begin{enumerate}
@@ -549,84 +516,7 @@ Fréchet 变分相当于固定端点的等时变分（$\delta t=0,\var=\bar\var$
 在粒子情形我们通过决定性原理排除高阶导，而现在 $\p$ 还包含相互作用势的含义，高阶导数可能导致能量无下界，故一般不考虑高阶导。\S\ref{sec:Einstein} 还出现一类情况：高阶导只存在于边界项中，于是在变分时实质上消除掉了。若非要考虑高阶导，则公式法本身也并不方便。
 为规避这些麻烦，直接具体问题具体分析，按相似程序计算变分即可。
 
-对称严格来说是指 $\delta S=0$。
-当然，也可让变换前后的 $S$ 只相差边界项（称为\textbf{准对称}）或常系数（称为\textbf{标度对称}），因为它们给出相同在壳 $\Phi$。
-连续准对称性就是指相应 $\delta\Phi$ 只引起 $\delta S=\int \d[4]{x} \p_\mu K^\mu$，等价于判据 $\fdv{L}{\Phi} \bar\var\Phi - \p_\mu(\epsilon J^\mu) = \p_\mu K^\mu$，此称\textbf{Noether 条件}。
-但注意 $\p_\mu(\epsilon J^\mu)$ 已是全散度项，而 $\delta x^\mu$ 的贡献全部收了进去，可见 $\delta x^\mu$ 并不影响准对称，准对称实际上仅约束 $\bar\var\Phi$ 的形式。更多时候还是直接要求 $\delta S=0$，等价为 $\p_\mu K^\mu=0$。
-\textbf{Noether 定理}指出，\textit{连续整体对称性导致在壳时具有相应的守恒量}：$\Phi$ 在壳时 $J^\mu$ 连续性方程 $\p_\mu J^\mu=0$，这就是整体守恒流\footnote{场论与离散系统的对应就是 $q(t)\leftrightarrow \Phi(x)$。离散系统中，相应结论就是：$\delta=\bar\var+\delta t\dv*{t}$ 作用于 $q,\dot q,L(t)$，以及 $\delta(\d t)=\d\tilde t-\d t=\dot{\tilde{t}}\d t-\d t=\dv{t}(\delta t)\d t$。Noether 荷是 $Q = (\pdv*{L}{\dot q}\bar\var q+\cdots+L \delta t)/\epsilon$，在壳守恒性为 $\dot Q = 0$。可见 $p_\mu = \pdv*{L}{\dot x^\mu}$ 的确是时空平移所致。}，也称\textbf{Noether 流}。
-可见对称性不仅约束相互作用，还导致守恒量，但注意并非所有守恒量都来源于对称。
-有的 $\Lag$ 形式上不包含 $\Phi$，则很难用 $J^\mu$ 公式法计算守恒流。
-下述技巧称为\textbf{局域化}、\textbf{规范化}(gauging)或\textbf{Gell-Mann–Lévy 法}：整体变换下 $\delta S = 0$，做任意局域化  $\epsilon\to\epsilon(x)$，$S$ 整体但不局域对称，局域变换将使 $\delta S\ne 0$。具体地，考虑 $\Lag(x,\Phi,\p\Phi)$，其必形如
-\[
-    \delta S = -\int\d[4]{x} J^\mu \p_\mu\epsilon.
-\]
-因为恢复为整体变换时 $\delta S$ 必须为零，故不能依赖于 $\epsilon$，只能出现 $\p_\mu\epsilon$ 项。至多含 $\p\Phi$ 导致参数更高阶导不会出现，正比关系是因为求导乘法法则。
-$\p_\mu\epsilon$ 的系数一定是欲求的在壳整体对称流。
-因为在壳意味着对 Fréchet 变分有 $\delta S=0$，也就是取 $\epsilon(x)=o(1/r^3)$ 进而 $0=\delta S\simeq\int\d[4]{x} \p_\mu J^\mu \epsilon$，等价为 $\p_\mu J^\mu=0$。
-再考虑用变分严格理解上述过程。先确定整体变换 $\delta S=0$ 但可以离壳，则 $\fdv{\Lag}{\Phi}F=\p_\mu J^\mu $。一旦局域化，仍有$\fdv{\Lag}{\Phi}F=\p_\mu J^\mu$，故多出 $\delta S=-\int\d[4]{x} J^\mu \p_\mu\epsilon$。考虑 $\epsilon(x)=o(1/r^3)$，则 $\delta S\simeq\int\d[4]{x} \p_\mu J^\mu \epsilon=\int\d[4]{x}\fdv{\Lag}{\Phi}\epsilon F \xlongequal{\text{在壳}}0$。
-按此流程手算 $\delta S$，不用管 $\epsilon$（加起来必为零），只需盯着 $\p_\mu\epsilon$ 并全部收集起来，直接读出 $J^\mu$。最重要的是，这兼容准对称性：若整体变换下 $\Lag$ 改变了导数项 $\delta\Lag = \epsilon\p_\mu K^\mu$，局域法依然适用，此时 $\delta S = \int\d[4]{x} (-J^\mu - K^\mu)\p_\mu\epsilon$。
-无论如何，读出的系数直接是物理上真正的守恒流。
 
-$J^0,\bm J$ 为\textit{惯性系 $\{x\}$ 所测}\textbf{荷密度}、\textbf{流密度}。理由如下。
-约定 $\bm J=o(1/\bm r^2)$，则 $\p_\mu J^\mu=0$ 给出守恒荷 $Q=\int\d[3]{x} J^0$，因为 $\dot Q=\int\d[3]{x}\p_t J^0=-\int\d[3]{x}\div\bm J=0$。
-但这其实易混淆：若把积分域显式写为同时面 $\Sigma_t:x^0=t$，易认为积分域随 $t$ 可变，从而不能放心将 $\dv*{t}$ 移进积分成 $\pdv*{t}$；但 $\Sigma_t$ 对任意 $t$ 都是 $\R^3$，它其实又“没变”。这再次涉及主被动观点的辨析，见 \S\ref{appx:form}。
-考虑以下办法。
-注意同时面是时空的超曲面，因此三维积分可通过如下挑选法转写为四维积分。而全时空怎般变化都是 $\R^4$，规避混淆。
-引入\textbf{Dirac $\delta$ 函数}\footnote{严格来说它不是函数（仅在 $x=0$ 处发散说明无穷积分只能是 0），但我们只会借它进行形式上的积分计算，故实际上是当泛函 $\delta_{x_0}(f)=f(x_0)$ 使用，这在数学上称为\textbf{分布}(distribution)。}：
-\eq{
-\tcbhighmath{
-    \int_{\R}\d{x} f(x)\delta(x-x_0):=f(x_0) \iff \delta(x)=\begin{cases}+\infty,& x=0,\\ 0,& x\ne 0;\end{cases}\quad \int_{\R}\d{x} \delta(x)=1.
-}
-}
-故具有性质 $f(x)\delta(x)=f(0)\delta(x)$。
-对一维 $\delta(s)$，若自变量 $s'=s$ 是不变标量，则 $\delta(s)$ 直接不变。$t$ 时刻 $Q$ 显式写为
-\begin{align}
-    Q(t) &= \int_{x^0=t} \d[3]{x} J^0 = \int \d[4]{x} J^0\delta(x^0-t) = \int \d[4]{x} J^\mu\p_\mu\theta(x^0 - t),\\
-    \theta(x)&=\int_{-\infty}^x \d{y}\delta(y)=\begin{cases}1,& x>0\\ 0,& x<0\end{cases} \text{ 为阶梯函数。}
-\end{align}
-由于不关心 $x=0$，还可用符号函数 $\sgn x=|x|/x$ 表示为 $\theta(x)=(1+\sgn x)/2$。
-可见 $\p_\mu\theta(x^0) = \delta_\mu^0\delta(x^0)$。由 $\p_\mu J^\mu = 0$，$Q$ 求导为边界项
-\[
-    \dv{Q}{t} = \int \d[4]{x} J^\mu\p_\mu\left(\pdv{t}\theta(x^0 - t)\right) = - \int \d[4]{x} J^\mu\p_\mu \delta(x^0 - t) = - \int \d[4]{x} \p_\mu (J^\mu \delta(x^0 - t)),
-\]
-注意 $\delta(x^0 - t)$ 在 $x^0\ne t$ 都为零，因此无穷远时间边界本就无贡献。由 $\bm J=o(1/\bm r^2)$ 严格得证守恒性，并显然地对应了时间平移对称性。直接证明 $\int_{x^0=0}\d[3]{x} J^0=\int_{x'^0=0}\d[3]{x'} J'^0$ 来说明 $Q$ 不变是困难的，但考虑四维就轻松了。$\{x'\}$ 系测得 $Q' = \int \d[4]{x'} J'^\mu\p'_\mu\theta(x'^0) = \int \d[4]{x} J^\mu\p_\mu\theta(x'^0)$，故其实是讨论相同 $\d[3]{x} J^0$ 在不同 $x^0=0,x'^0=0$ 的积分，应用 Gauss 定理可知相等。或显式地代入 $x'^\mu = \Lambda^\mu{}_\nu x^\nu$，则 $Q'-Q=\int\d[4]{x} \p_\mu(J^\mu f)$，其中 $f=\theta(\Lambda^0{}_\nu x^\nu)-\theta(x^0)$ 只在两同时面之间所夹的楔形区域非零，因此时间无穷远本就 $f=0$，结合空间无穷远条件得 $Q'=Q$。标量的不变性某种意义是 Lorentz 对称性的守恒量。
-
-纯时空变换 $\delta x^\mu=\epsilon \xi^\mu$（标量场必有 $\var\phi=0$，但一般 $\delta\Phi\ne 0$）对应\textbf{时空对称性}或\textbf{外部对称性}，纯场变换 $\delta x^\mu=0$（必有 $\bar\var=\delta$）对应\textbf{内部对称性}。
-置 $\{x\}$ 为惯性系。
-时空平移（$\xi^\mu$ 为\textit{任意}常矢量）是 $\Lambda^\mu{}_\nu=\delta^\mu_\nu$ 的 Poincaré 变换，故任意张量 $\Phi$ 都有 $\tilde\Phi(\tilde x)=\Phi(x)$，即保持 $\delta\Phi=0$。平移保持 $\delta(\d[4] x)=0$，$\delta S=0$ 给出 $\delta\Lag = \pdv{\Lag}{x^\mu}\var x^\mu = 0$，与粒子拉氏理论类似。则有\textbf{时空平移对称} $\pdv*{\Lag}{x^\mu}=0$。
-局域化方法应最终得到 $\p_\mu\var x_\nu=\xi_\nu\p_\mu \epsilon$ 项，即 $\delta S=-\int\d[4]{x} J^\mu\p_\mu \epsilon=\int\d[4]{x} S^{\mu\nu}\xi_\nu\p_\mu \epsilon$。
-对 $\Lag(\Phi,\p\Phi)$ 情形，代入 $\delta\Phi=0$ 有
-\eq{
-    S^{\mu\nu}:=-\pdv{\Lag}{\Phi_{,\mu}}\p^\nu\Phi+\Lag\eta^{\mu\nu},\quad J^\mu=\pdv{\Lag}{\Phi_{,\mu}}\xi^\nu\p_\nu\Phi-\Lag\xi^\mu.
-}
-在壳时 $\p_\mu J^\mu=0$ 给出守恒标量 $\int\d[3]{x} J^0 = - \int\d[3]{x} S^{0\nu}\xi_\nu$，但注意 $\p_\mu\xi_\nu=0$，因此可提出积分，换言之应考虑 $-\p_\mu J^\mu = \xi_\nu\p_\mu S^{\mu\nu} = 0\Rightarrow \p_\mu S^{\mu\nu}=0$。
-也可先直接计算再用在壳性
-\eq{
-    \p_\mu S^{\mu\nu}
-    =\fdv{\Lag}{\Phi}\p^\nu\Phi
-    +\eta^{\mu\nu}\pdv{\Lag}{x^\mu}=\fdv{\Lag}{\Phi}\p^\nu\Phi\xlongequal{\text{在壳}}0,
-}
-对应守恒量正是总 4-动量
-\eq{
-    p^\nu=\int\d[3]{x}S^{0\nu},
-}
-同理可证它是 Lorentz 矢量。
-$\nu=0$ 对应时间变换 $\xi^0$，有总能 $p^0=H= \int\d[3]{x} \Ham$，其中\textbf{哈氏密度}或\textbf{能量密度}为（注意 $\p^0=-\p_0$）
-\eq{
-    \Ham=S^{00}=\Pi\Phi_{,0}-\Lag,\quad \Pi = \pdv*{\Lag}{\Phi_{,0}},
-}
-$\Pi$ 为\textbf{共轭动量密度}。
-只考虑时间平移 $\xi^\mu=\delta_0^\mu$（$\xi_\nu = \eta_{\nu 0}$）得 $J^\mu=S^{\mu 0}$，
-可见为使 $\Ham = S^{00} = J^0$（后者是 $\xi^\mu=\delta_0^\mu$ 才有），$S^{\mu\nu},J^\mu$ 定义式的符号与号差有关，但 $J^\mu=-S^{\mu\nu}\xi_\nu$ 不变。
-$\nu=i$ 对应空间变换 $\xi^i$，有总 3-动量 $p^i = \int\d[3]{x}S^{0i}$。
-$p^\nu$ 就是总 4-动量。$S^{0i}=-\Pi\p_i\Phi$ 是\textbf{动量密度}。
-由 $\dot H=-\int\d[3]{x} \p_i S^{i0}$ 看出 $S^{i0}$ 是\textbf{能流密度}。
-$S^{\mu\nu}$ 一般不对称，故动量和能流还不能等价。
-由 $\dot p^j = -\int\d[3]{x} \p_i S^{ij}$ 看出 $S^{ij}$ 是\textbf{动流密度}或应力(stress)张量。
-$S^{\mu\nu}$ 称为\textbf{正则能动张量}(canonical energy-momentum tensor)，有时也称 4-动流密度。
-
-原则上满足 $\p_\mu T^{\mu\nu}=0$ 并给出相同 $p^\nu=\int\d[3]{x}T^{0\nu}=\int\d[3]{x}S^{0\nu}$ 的 $T^{\mu\nu}$ 就已经可称能动张量，故定义不唯一。附加项为 $\bar T^{\mu\nu} = T^{\mu\nu} - S^{\mu\nu}$，这要求 $\int\d[3]{x}\bar T^{0\nu} = 0,\p_\mu \bar T^{\mu\nu} = 0$。即附加项使空间中能量、动量重新分布，但不改变总值。一个简单选择是令 $X^{\sigma\mu\nu}=X^{[\sigma\mu]\nu}=o(1/\bm r^2)$，附加项可取 $\p_\sigma X^{\sigma\mu\nu}$，因为 $\p_\mu\p_\sigma X^{\sigma\mu\nu} = 0$ 且 $\int\d[3]{x} \p_\sigma X^{\sigma 0 \nu} = 0$。
-必须人为施加额外约束才能确定能动张量。
 
 
 
