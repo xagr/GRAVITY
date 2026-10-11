@@ -651,6 +651,30 @@ $\{x\}$ 为任意坐标系，\textbf{时空度规}或\textbf{Lorentz 度规}为
 \end{center}
 当今主流上称这套理论为\textbf{广义相对论}\footnote{最初 Einstein 认为“广义相对”一词来自广义相对性原理、广义协变性，但现在看来是来自等效原理、广义不变性。为避免歧义，Wheeler 很早就提议将该理论称为\textbf{几何动力学}(geometrodynamics)以强调其本质，并且尝试将所有的相互作用都归结为几何。}。
 
+引入\textbf{Dirac $\delta$ 函数}\footnote{严格来说它不是函数（仅在 $x=0$ 处发散说明无穷积分只能是 0），但我们只会借它进行形式上的积分计算，故实际上是当泛函 $\delta_{x_0}(f)=f(x_0)$ 使用，这在数学上称为\textbf{分布}(distribution)。}：
+\eq{
+\tcbhighmath{
+    \int_{\R}\d{x} f(x)\delta(x-x_0):=f(x_0) \iff \delta(x)=\begin{cases}+\infty,& x=0,\\ 0,& x\ne 0;\end{cases}\quad \int_{\R}\d{x} \delta(x)=1.
+}
+}
+粒子的作用量是 $\int\d t$ 形式，改写为 $\int \d[4]x$ 后才能读出能动张量。
+类似于同时面，离散自由度涉及的密度场积分可借助 $\delta$ 函数。
+先推广任意维：
+\eq{
+    \int\d[\cate{N}]{x} f(x)\delta^\cate{N}(x-x_0)=f(x_0) \iff \delta^\cate{N}(x)=\prod_{\mu=0}^{\cate{N}-1}\delta(x^\mu).
+}
+$\int\d[4]{x}\delta^4(x)=1=\int\d[4]{x'}\delta^4(x')$，因 $\d[4]{x}=\d[4]{x'}$，故 $\delta^4(x)$ 是 Lorentz 标量。
+点粒子的密度表述需用到 $\delta$ 函数。
+第 $n$ 条粒子世界线记作 $x_n^\mu(\lambda)$，固有时满足 $\d\tau_n^2=-\eta_{\mu\nu}\d x^\mu_n\d x^\nu_n$，4-速为 $u_n^\mu=\dv*{x_n^\mu}{\tau_n}$。
+惯性系 $\{x\}$ 测量粒子 $n$ 的 Lorentz 因子为 $\gamma_n=u_n^0=(-\eta_{\mu\nu}\dot x^\mu_n\dot x^\nu_n)^{-1/2}$，其中点表示对坐标时间 $t=x^0$ 求导。自由质点作用量可写为\footnote{由于自变量加粗已表示三维，$\delta$ 函数省略上标 3。
+}
+\eq{
+\tcbhighmath{
+    S = -\int\d{t}\sum_n \frac{m_n}{\gamma_n} = \int\d[4]{x} \Lag,\quad \Lag = -\sum_n \frac{m_n}{\gamma_n(t)} \delta_n(x).
+}
+}
+其中 $\delta_n(x):=\delta(\bm x-\bm x_n(t))$ 的 $t$ 仅通过 $\bm x_n$ 依赖，仍是时空场，但不是标量。
+
 $g_{\mu\nu}\d x^\mu \d x^\nu$ 具有广义不变性。绝对对象 $\eta_{\mu\nu}$ 在广义变换下可变（即数值上不是张量），也就是 $\eta_{\alpha\beta}\pdv{\xi_X^\alpha}{x^\mu}\pdv{\xi_X^\beta}{x^\nu}\ne\eta_{\mu\nu}$，故 $\eta_{\mu\nu}$ 不能出现，且必须直接定义 $g_{\mu\nu}$ 来吸收 Jacobi 矩阵。
 引力作用现解释为度规非闵。因为倘若存在某系使得处处 $g_{\mu\nu}=\eta_{\mu\nu}$，该系就为全局的惯性系，$S$ 彻底地还原回狭义相对论，而非仅在局域惯性系中。
 可见，局域化 Lorentz 不变性、等效原理引入的规范场是 $h_{\mu\nu}=g_{\mu\nu}-\eta_{\mu\nu}$。
@@ -868,11 +892,23 @@ $G_{\mu\nu}=\kappa T_{\mu\nu}$ 即引力场方程，但系数还未确定。还�
 \[ 
 R_{\mu\nu}=G_{\mu\nu}-\frac 12 g_{\mu\nu} G=\kappa\left(T_{\mu\nu}-\frac12 g_{\mu\nu}T\right),\quad T:=T^\mu{}_\mu.
 \]
+
 下节将证 Hilbert 张量 $T^{\mu\nu}$ 就是 Belinfante 能动张量 $B^{\mu\nu}$ 的引力耦合版本。
 本节用粒子系统来看出。由 $-\var(\gamma_n^{-1})=\frac{1}{2}\gamma_n\dot x_n^\mu \dot x_n^\nu\delta g_{\mu\nu}$，计算 $\var S=-\int\d t\sum_n m_n\var(\gamma_n^{-1})$，结果正是闵氏时空中能动张量的引力耦合
 \eq{
     \hat T^{\mu\nu} = \sum_n \frac{p^\mu_n p^\nu_n}{E_n\sqrt{-g}} \delta_n.
 }
+
+\[\hat T^{\mu\nu} = \sum_n \frac{p^\mu_n p^\nu_n}{E_n} \delta_n = \sum_n\int\d{\tau_n} p^\mu_n u^\nu_n\delta^4_n\]
+显然对称，其中 $p^\mu_n=m_n u^\mu_n, E_n=\gamma_n m_n, \delta^4_n = \delta^4(x-x_n)$。
+上式积分写法可看出 $\hat T^{\mu\nu},\Lag = \hat T^\mu{}_\mu$ 的确是 Lorentz 张量；从 $S,\d[4]x,m_n$ 不变性也可看出；或者注意 $\int\d t/\gamma_n$ 不变，则 $\delta'_n/\gamma'_n = \int\d{t'}\delta'^4_n/\gamma'_n = \int\d {t}\delta^4_n/\gamma_n=\delta_n/\gamma_n$。
+
+\textbf{能量密度}
+是\textbf{动量密度}。
+由  看出 $S^{i0}$ 是\textbf{能流密度}。
+由  看出 $S^{ij}$ 是\textbf{动流密度}或应力(stress)张量。
+$S^{\mu\nu}$ 称为\textbf{正则能动张量}(canonical energy-momentum tensor)，有时也称 4-动流密度。
+
 无论微观动理如何，宏观能动张量总可沿宏观运动分解。按推导 \eqref{eq:projection} 的办法，或直接由最小耦合，可知投影映射仍为 $\delta^\mu_\nu + U^\mu U_\nu$，故理想流体就是
 \eq{
     T^{\mu\nu} = (\varepsilon+p)U^\mu U^\nu + p g^{\mu\nu}.
@@ -1077,27 +1113,7 @@ T^{\mu \nu}{}_{;\nu}&=T^{\mu \nu}{}_{,\nu}+\Gamma_{\lambda \nu}^\mu T^{\lambda \
 }
 故 $g^{\mu\nu}\Gamma^\lambda_{\mu\nu}= 0$ 还可转写为 $\square_g x^\lambda=(-g)^{-1/2}\p_\mu(\sqrt{-g} g^{\mu\lambda})=-g^{\mu\nu}\Gamma^\lambda_{\mu\nu}= 0$，其中 $x^\mu$ 按函数处理，因而也称\textbf{谐和坐标}\footnote{数学上 $\square f = 0$ 的解称为谐和(harmonic)函数。}条件。
 
-给定度规求解克氏符、测地线，直接用公式法很麻烦，因为对零分量的计算无法跳过。
-计算测地线总通过度规变分：$L\propto g_{\mu\nu} U^\mu U^\nu$ 计算 E-L 方程，
-这一方法有用的原因是 $\Gamma^\lambda_{\mu\nu}U^\mu U^\nu$ 的展开自动省略零分量。故原则上可从测地线系数读出克氏符。
-当然，$\d s^2=g_{\mu\nu}\d x^\mu\d x^\nu$ 已经具有这种效果，因此从度规计算克氏符应采取
-\[\Gamma^\lambda_{\mu\nu}\d x^\mu\d x^\nu=g^{\sigma\lambda}\left(\d g_{\sigma\mu}\,\d x^\mu- \frac{1}{2} \p_\sigma(\d s^2)\right),\]
-遍历 $\lambda$ 四个坐标即可，并注意对角矩阵的逆直接元素取倒数。
-计算测地线还有另一著名办法。经典力学中，固定起点 $(q_0,t_0)$，考虑任意终点 $(q,t)$，我们总能找到一条在壳路径连接二者。终点移动，这条在壳路径随之而动。在壳路径上的 $S$ 就表为了终点的函数 $S(q,t)$，称\textbf{Hamilton 主函数}。这时在终点处做 $\delta q,\delta t$ 就称为\textbf{在壳变分}，但仍与 Noether 变分的代数性质一致。立即有
-\eq{
-    \delta S = p_i \bar\var q^i + L\delta t = p_i \delta q^i - H \delta t,
-}
-其中注意起点处 $\delta t=0,\delta q^i=0$。因此 $p_i=\pdv*{S}{q^i},H=-\pdv*{S}{t}$。因此对运动（涉及 $p^i,H$）的研究就转化为对 $S$ 的求解。$H(t,q,\dot q)$ 中 $\dot q^i$ 可由 $t,q^i,p_i$ 表出，故 $S(q,t)$ 满足如下一阶非线性偏微分方程，称\textbf{Hamilton-Jacobi 方程}：
-\eq{
-\tcbhighmath{
-    H\left(t,q,\pdv{S}{q}\right)+\pdv{S}{t}=0.
-}
-}
-若 $H$ 为常数，说明 $S$ 关于 $t$ 线性；若还有某个正则动量守恒，比如 $\phi$ 的角动量 $L$，则可写成 $S=-Ht + L\phi + W(q^2,q^3)$，这样就分离了变量，代入上式可拆为若干常微分方程。
-相对论中，考虑 Hamilton 主函数 $S(x^\mu)$，通过在壳变分 $x^\mu\to x^\mu+\delta x^\mu$ 可分析出 $p_\mu=\pdv*{S}{x^\mu}$，得
-\[
-\tcbhighmath{\eta^{\mu\nu}\pdv{S}{x^\mu}\pdv{S}{x^\nu}=-m^2.}
-\]
+
 
 返回到变分 $\delta R_{\mu\nu}$。取局域惯性系有 $\delta\tilde R_{\alpha\beta} = \tilde\p_\sigma(\delta\tilde\Gamma^\sigma_{\alpha\beta})-\tilde\p_\beta(\delta\tilde \Gamma^\sigma_{\alpha\sigma}) = \cd_\sigma(\delta\tilde\Gamma^\sigma_{\alpha\beta})-\cd_\beta(\delta\tilde \Gamma^\sigma_{\alpha\sigma})$。
 注意，虽克氏符不是张量，但克氏符变分是张量（作差消去非协变项），故任意坐标系下有如下\textbf{Palatini 公式}
@@ -1154,7 +1170,27 @@ $x_q=x_p\cos\alpha-y_p\sin\alpha, y_q=x_p\sin\alpha+y_p\cos\alpha$。
 也可用 E-L 方程 $\dv*{p_\mu}{\tau}=\frac 12 mg_{\alpha\beta,\mu} U^\alpha U^\beta$
 看出，显然 $g_{\alpha\beta,0}$ 给出 $p^0$ 守恒。
 
-% 与 int Tmunu \bar\var gmunu 的关系
+给定度规求解克氏符、测地线，直接用公式法很麻烦，因为对零分量的计算无法跳过。
+计算测地线总通过度规变分：$L\propto g_{\mu\nu} U^\mu U^\nu$ 计算 E-L 方程，
+这一方法有用的原因是 $\Gamma^\lambda_{\mu\nu}U^\mu U^\nu$ 的展开自动省略零分量。故原则上可从测地线系数读出克氏符。
+当然，$\d s^2=g_{\mu\nu}\d x^\mu\d x^\nu$ 已经具有这种效果，因此从度规计算克氏符应采取
+\[\Gamma^\lambda_{\mu\nu}\d x^\mu\d x^\nu=g^{\sigma\lambda}\left(\d g_{\sigma\mu}\,\d x^\mu- \frac{1}{2} \p_\sigma(\d s^2)\right),\]
+遍历 $\lambda$ 四个坐标即可，并注意对角矩阵的逆直接元素取倒数。
+计算测地线还有另一著名办法。经典力学中，固定起点 $(q_0,t_0)$，考虑任意终点 $(q,t)$，我们总能找到一条在壳路径连接二者。终点移动，这条在壳路径随之而动。在壳路径上的 $S$ 就表为了终点的函数 $S(q,t)$，称\textbf{Hamilton 主函数}。这时在终点处做 $\delta q,\delta t$ 就称为\textbf{在壳变分}，但仍与 Noether 变分的代数性质一致。立即有
+\eq{
+    \delta S = p_i \bar\var q^i + L\delta t = p_i \delta q^i - H \delta t,
+}
+其中注意起点处 $\delta t=0,\delta q^i=0$。因此 $p_i=\pdv*{S}{q^i},H=-\pdv*{S}{t}$。因此对运动（涉及 $p^i,H$）的研究就转化为对 $S$ 的求解。$H(t,q,\dot q)$ 中 $\dot q^i$ 可由 $t,q^i,p_i$ 表出，故 $S(q,t)$ 满足如下一阶非线性偏微分方程，称\textbf{Hamilton-Jacobi 方程}：
+\eq{
+\tcbhighmath{
+    H\left(t,q,\pdv{S}{q}\right)+\pdv{S}{t}=0.
+}
+}
+若 $H$ 为常数，说明 $S$ 关于 $t$ 线性；若还有某个正则动量守恒，比如 $\phi$ 的角动量 $L$，则可写成 $S=-Ht + L\phi + W(q^2,q^3)$，这样就分离了变量，代入上式可拆为若干常微分方程。
+相对论中，考虑 Hamilton 主函数 $S(x^\mu)$，通过在壳变分 $x^\mu\to x^\mu+\delta x^\mu$ 可分析出 $p_\mu=\pdv*{S}{x^\mu}$，得
+\[
+\tcbhighmath{\eta^{\mu\nu}\pdv{S}{x^\mu}\pdv{S}{x^\nu}=-m^2.}
+\]
 
 \subsection{潮汐}\label{sec:tidal}
 
@@ -1379,29 +1415,14 @@ J=\det(\pdv{\tilde x^\mu}{x^\nu})=\sum_{(\mu_0\cdots \mu_3)\in S_4}\sgn(\mu_0\cd
 但注意 $\p_\mu(\epsilon J^\mu)$ 已是全散度项，而 $\delta x^\mu$ 的贡献全部收了进去，可见 $\delta x^\mu$ 并不影响准对称，准对称实际上仅约束 $\bar\var\Phi$ 的形式。更多时候还是直接要求 $\delta S=0$，等价为 $\p_\mu K^\mu=0$。
 \textbf{Noether 定理}指出，\textit{连续整体对称性导致在壳时具有相应的守恒量}：$\Phi$ 在壳时 $J^\mu$ 连续性方程 $\p_\mu J^\mu=0$，这就是整体守恒流\footnote{场论与离散系统的对应就是 $q(t)\leftrightarrow \Phi(x)$。离散系统中，相应结论就是：$\delta=\bar\var+\delta t\dv*{t}$ 作用于 $q,\dot q,L(t)$，以及 $\delta(\d t)=\d\tilde t-\d t=\dot{\tilde{t}}\d t-\d t=\dv{t}(\delta t)\d t$。Noether 荷是 $Q = (\pdv*{L}{\dot q}\bar\var q+\cdots+L \delta t)/\epsilon$，在壳守恒性为 $\dot Q = 0$。可见 $p_\mu = \pdv*{L}{\dot x^\mu}$ 的确是时空平移所致。}，也称\textbf{Noether 流}。
 可见对称性不仅约束相互作用，还导致守恒量，但注意并非所有守恒量都来源于对称。
-有的 $\Lag$ 形式上不包含 $\Phi$，则很难用 $J^\mu$ 公式法计算守恒流。
-下述技巧称为\textbf{局域化}、\textbf{规范化}(gauging)或\textbf{Gell-Mann–Lévy 法}：整体变换下 $\delta S = 0$，做任意局域化  $\epsilon\to\epsilon(x)$，$S$ 整体但不局域对称，局域变换将使 $\delta S\ne 0$。具体地，考虑 $\Lag(x,\Phi,\p\Phi)$，其必形如
-\[
-    \delta S = -\int\d[4]{x} J^\mu \p_\mu\epsilon.
-\]
-因为恢复为整体变换时 $\delta S$ 必须为零，故不能依赖于 $\epsilon$，只能出现 $\p_\mu\epsilon$ 项。至多含 $\p\Phi$ 导致参数更高阶导不会出现，正比关系是因为求导乘法法则。
-$\p_\mu\epsilon$ 的系数一定是欲求的在壳整体对称流。
-因为在壳意味着对 Fréchet 变分有 $\delta S=0$，也就是取 $\epsilon(x)=o(1/r^3)$ 进而 $0=\delta S\simeq\int\d[4]{x} \p_\mu J^\mu \epsilon$，等价为 $\p_\mu J^\mu=0$。
-再考虑用变分严格理解上述过程。先确定整体变换 $\delta S=0$ 但可以离壳，则 $\fdv{\Lag}{\Phi}F=\p_\mu J^\mu $。一旦局域化，仍有$\fdv{\Lag}{\Phi}F=\p_\mu J^\mu$，故多出 $\delta S=-\int\d[4]{x} J^\mu \p_\mu\epsilon$。考虑 $\epsilon(x)=o(1/r^3)$，则 $\delta S\simeq\int\d[4]{x} \p_\mu J^\mu \epsilon=\int\d[4]{x}\fdv{\Lag}{\Phi}\epsilon F \xlongequal{\text{在壳}}0$。
-按此流程手算 $\delta S$，不用管 $\epsilon$（加起来必为零），只需盯着 $\p_\mu\epsilon$ 并全部收集起来，直接读出 $J^\mu$。最重要的是，这兼容准对称性：若整体变换下 $\Lag$ 改变了导数项 $\delta\Lag = \epsilon\p_\mu K^\mu$，局域法依然适用，此时 $\delta S = \int\d[4]{x} (-J^\mu - K^\mu)\p_\mu\epsilon$。
-无论如何，读出的系数直接是物理上真正的守恒流。
+
 
 $J^0,\bm J$ 为\textit{惯性系 $\{x\}$ 所测}\textbf{荷密度}、\textbf{流密度}。理由如下。
 约定 $\bm J=o(1/\bm r^2)$，则 $\p_\mu J^\mu=0$ 给出守恒荷 $Q=\int\d[3]{x} J^0$，因为 $\dot Q=\int\d[3]{x}\p_t J^0=-\int\d[3]{x}\div\bm J=0$。
 但这其实易混淆：若把积分域显式写为同时面 $\Sigma_t:x^0=t$，易认为积分域随 $t$ 可变，从而不能放心将 $\dv*{t}$ 移进积分成 $\pdv*{t}$；但 $\Sigma_t$ 对任意 $t$ 都是 $\R^3$，它其实又“没变”。这再次涉及主被动观点的辨析，见 \S\ref{appx:form}。
 考虑以下办法。
 注意同时面是时空的超曲面，因此三维积分可通过如下挑选法转写为四维积分。而全时空怎般变化都是 $\R^4$，规避混淆。
-引入\textbf{Dirac $\delta$ 函数}\footnote{严格来说它不是函数（仅在 $x=0$ 处发散说明无穷积分只能是 0），但我们只会借它进行形式上的积分计算，故实际上是当泛函 $\delta_{x_0}(f)=f(x_0)$ 使用，这在数学上称为\textbf{分布}(distribution)。}：
-\eq{
-\tcbhighmath{
-    \int_{\R}\d{x} f(x)\delta(x-x_0):=f(x_0) \iff \delta(x)=\begin{cases}+\infty,& x=0,\\ 0,& x\ne 0;\end{cases}\quad \int_{\R}\d{x} \delta(x)=1.
-}
-}
+
 故具有性质 $f(x)\delta(x)=f(0)\delta(x)$。
 对一维 $\delta(s)$，若自变量 $s'=s$ 是不变标量，则 $\delta(s)$ 直接不变。$t$ 时刻 $Q$ 显式写为
 \begin{align}
@@ -1414,6 +1435,7 @@ $J^0,\bm J$ 为\textit{惯性系 $\{x\}$ 所测}\textbf{荷密度}、\textbf{流
     \dv{Q}{t} = \int \d[4]{x} J^\mu\p_\mu\left(\pdv{t}\theta(x^0 - t)\right) = - \int \d[4]{x} J^\mu\p_\mu \delta(x^0 - t) = - \int \d[4]{x} \p_\mu (J^\mu \delta(x^0 - t)),
 \]
 注意 $\delta(x^0 - t)$ 在 $x^0\ne t$ 都为零，因此无穷远时间边界本就无贡献。由 $\bm J=o(1/\bm r^2)$ 严格得证守恒性，并显然地对应了时间平移对称性。直接证明 $\int_{x^0=0}\d[3]{x} J^0=\int_{x'^0=0}\d[3]{x'} J'^0$ 来说明 $Q$ 不变是困难的，但考虑四维就轻松了。$\{x'\}$ 系测得 $Q' = \int \d[4]{x'} J'^\mu\p'_\mu\theta(x'^0) = \int \d[4]{x} J^\mu\p_\mu\theta(x'^0)$，故其实是讨论相同 $\d[3]{x} J^0$ 在不同 $x^0=0,x'^0=0$ 的积分，应用 Gauss 定理可知相等。或显式地代入 $x'^\mu = \Lambda^\mu{}_\nu x^\nu$，则 $Q'-Q=\int\d[4]{x} \p_\mu(J^\mu f)$，其中 $f=\theta(\Lambda^0{}_\nu x^\nu)-\theta(x^0)$ 只在两同时面之间所夹的楔形区域非零，因此时间无穷远本就 $f=0$，结合空间无穷远条件得 $Q'=Q$。标量的不变性某种意义是 Lorentz 对称性的守恒量。
+同理可证 $p^\nu=\int\d[3]{x}S^{0\nu}$ 是 Lorentz 矢量。
 
 纯时空变换 $\delta x^\mu=\epsilon \xi^\mu$（标量场必有 $\var\phi=0$，但一般 $\delta\Phi\ne 0$）对应\textbf{时空对称性}或\textbf{外部对称性}，纯场变换 $\delta x^\mu=0$（必有 $\bar\var=\delta$）对应\textbf{内部对称性}。
 置 $\{x\}$ 为惯性系。
@@ -1434,8 +1456,8 @@ $J^0,\bm J$ 为\textit{惯性系 $\{x\}$ 所测}\textbf{荷密度}、\textbf{流
 \eq{
     p^\nu=\int\d[3]{x}S^{0\nu},
 }
-同理可证它是 Lorentz 矢量。
-$\nu=0$ 对应时间变换 $\xi^0$，有总能 $p^0=H= \int\d[3]{x} \Ham$，其中\textbf{哈氏密度}或\textbf{能量密度}为（注意 $\p^0=-\p_0$）
+
+$\nu=0$ 对应时间变换 $\xi^0$，有总能 $p^0=H= \int\d[3]{x} \Ham$，其中\textbf{哈氏密度}为（注意 $\p^0=-\p_0$）
 \eq{
     \Ham=S^{00}=\Pi\Phi_{,0}-\Lag,\quad \Pi = \pdv*{\Lag}{\Phi_{,0}},
 }
@@ -1443,14 +1465,35 @@ $\Pi$ 为\textbf{共轭动量密度}。
 只考虑时间平移 $\xi^\mu=\delta_0^\mu$（$\xi_\nu = \eta_{\nu 0}$）得 $J^\mu=S^{\mu 0}$，
 可见为使 $\Ham = S^{00} = J^0$（后者是 $\xi^\mu=\delta_0^\mu$ 才有），$S^{\mu\nu},J^\mu$ 定义式的符号与号差有关，但 $J^\mu=-S^{\mu\nu}\xi_\nu$ 不变。
 $\nu=i$ 对应空间变换 $\xi^i$，有总 3-动量 $p^i = \int\d[3]{x}S^{0i}$。
-$p^\nu$ 就是总 4-动量。$S^{0i}=-\Pi\p_i\Phi$ 是\textbf{动量密度}。
-由 $\dot H=-\int\d[3]{x} \p_i S^{i0}$ 看出 $S^{i0}$ 是\textbf{能流密度}。
+
+动量密度 $S^{0i}=-\Pi\p_i\Phi$ 
+能流密度 $\dot H=-\int\d[3]{x} \p_i S^{i0}$
+动流密度 $\dot p^j = -\int\d[3]{x} \p_i S^{ij}$
 $S^{\mu\nu}$ 一般不对称，故动量和能流还不能等价。
-由 $\dot p^j = -\int\d[3]{x} \p_i S^{ij}$ 看出 $S^{ij}$ 是\textbf{动流密度}或应力(stress)张量。
-$S^{\mu\nu}$ 称为\textbf{正则能动张量}(canonical energy-momentum tensor)，有时也称 4-动流密度。
 
 原则上满足 $\p_\mu T^{\mu\nu}=0$ 并给出相同 $p^\nu=\int\d[3]{x}T^{0\nu}=\int\d[3]{x}S^{0\nu}$ 的 $T^{\mu\nu}$ 就已经可称能动张量，故定义不唯一。附加项为 $\bar T^{\mu\nu} = T^{\mu\nu} - S^{\mu\nu}$，这要求 $\int\d[3]{x}\bar T^{0\nu} = 0,\p_\mu \bar T^{\mu\nu} = 0$。即附加项使空间中能量、动量重新分布，但不改变总值。一个简单选择是令 $X^{\sigma\mu\nu}=X^{[\sigma\mu]\nu}=o(1/\bm r^2)$，附加项可取 $\p_\sigma X^{\sigma\mu\nu}$，因为 $\p_\mu\p_\sigma X^{\sigma\mu\nu} = 0$ 且 $\int\d[3]{x} \p_\sigma X^{\sigma 0 \nu} = 0$。
 必须人为施加额外约束才能确定能动张量。
+
+有的 $\Lag$ 形式上不包含 $\Phi$，则很难用 $J^\mu$ 公式法计算守恒流。
+下述技巧称为\textbf{局域化}、\textbf{规范化}(gauging)或\textbf{Gell-Mann–Lévy 法}：整体变换下 $\delta S = 0$，做任意局域化  $\epsilon\to\epsilon(x)$，$S$ 整体但不局域对称，局域变换将使 $\delta S\ne 0$。具体地，考虑 $\Lag(x,\Phi,\p\Phi)$，其必形如
+\[
+    \delta S = -\int\d[4]{x} J^\mu \p_\mu\epsilon.
+\]
+因为恢复为整体变换时 $\delta S$ 必须为零，故不能依赖于 $\epsilon$，只能出现 $\p_\mu\epsilon$ 项。至多含 $\p\Phi$ 导致参数更高阶导不会出现，正比关系是因为求导乘法法则。
+$\p_\mu\epsilon$ 的系数一定是欲求的在壳整体对称流。
+因为在壳意味着对 Fréchet 变分有 $\delta S=0$，也就是取 $\epsilon(x)=o(1/r^3)$ 进而 $0=\delta S\simeq\int\d[4]{x} \p_\mu J^\mu \epsilon$，等价为 $\p_\mu J^\mu=0$。
+再考虑用变分严格理解上述过程。先确定整体变换 $\delta S=0$ 但可以离壳，则 $\fdv{\Lag}{\Phi}F=\p_\mu J^\mu $。一旦局域化，仍有$\fdv{\Lag}{\Phi}F=\p_\mu J^\mu$，故多出 $\delta S=-\int\d[4]{x} J^\mu \p_\mu\epsilon$。考虑 $\epsilon(x)=o(1/r^3)$，则 $\delta S\simeq\int\d[4]{x} \p_\mu J^\mu \epsilon=\int\d[4]{x}\fdv{\Lag}{\Phi}\epsilon F \xlongequal{\text{在壳}}0$。
+按此流程手算 $\delta S$，不用管 $\epsilon$（加起来必为零），只需盯着 $\p_\mu\epsilon$ 并全部收集起来，直接读出 $J^\mu$。最重要的是，这兼容准对称性：若整体变换下 $\Lag$ 改变了导数项 $\delta\Lag = \epsilon\p_\mu K^\mu$，局域法依然适用，此时 $\delta S = \int\d[4]{x} (-J^\mu - K^\mu)\p_\mu\epsilon$。
+无论如何，读出的系数直接是物理上真正的守恒流。
+尝试施加时空平移。上述 $\Lag$ 形式上不包含任何场宗量，不便使用公式法，考虑局域化方法。
+考虑时空平移 $\delta x^\mu=\epsilon\xi^\mu$ 及其局域化 $\epsilon\to\epsilon(x)$。
+暂时换曲线参数以避免混淆，读出\textbf{微观能动张量}：
+\begin{align}
+    \delta S &= -\int\d{\lambda}\sum_n m_n \var(\Big(-\eta_{\mu\nu}\dv{x^\mu_n}{\lambda}\dv{x^\nu_n}{\lambda}\Big)^{1/2}) = \int\d{\lambda}\sum_n m_n \eta_{\mu\nu}u^\mu_n\var(\dv{x^\nu_n}{\lambda}) \notag\\
+    &= \int\d{t}\sum_n \eta_{\mu\nu}p^\mu_n\dv{\var x^\nu_n}{t} = \int\d{t}\sum_n p^\mu_n \xi_\mu\dot\epsilon = \int\d{t}\sum_n p^\mu_n \dot x^\nu_n \xi_\mu\p_\nu\epsilon \notag\\
+    &= \int\d[4]{x}\hat T^{\mu\nu} \xi_\nu\p_\mu\epsilon,\quad \hat T^{\mu\nu} := \sum_n \frac{p^\mu_n p^\nu_n}{E_n} \delta_n.
+\end{align}
+
 
 假设系统在整体变换 $\delta x^\mu=\epsilon\xi^\mu$ 下不变，
 则 $\Lambda^\mu{}_\nu:=\pdv*{\tilde x^\mu}{x^\nu}$ 构成对称群。
@@ -1813,34 +1856,11 @@ $U^\mu$ 有两种定义办法。一种是\textbf{Eckart 标架} $U^\mu = N^\mu/\
 
 $\varepsilon,p$ 的关系称\textbf{物态方程}，具体情况需要研究微观动理。
 考虑最简单的\textbf{质点气}，即流体由大量微观有质粒子组成。
-粒子的作用量是 $\int\d t$ 形式，改写为 $\int \d[4]x$ 后才能读出能动张量。
-类似于同时面，离散自由度涉及的密度场积分可借助 $\delta$ 函数。
-先推广任意维：
-\eq{
-    \int\d[\cate{N}]{x} f(x)\delta^\cate{N}(x-x_0)=f(x_0) \iff \delta^\cate{N}(x)=\prod_{\mu=0}^{\cate{N}-1}\delta(x^\mu).
-}
-$\int\d[4]{x}\delta^4(x)=1=\int\d[4]{x'}\delta^4(x')$，因 $\d[4]{x}=\d[4]{x'}$，故 $\delta^4(x)$ 是 Lorentz 标量。
-点粒子的密度表述需用到 $\delta$ 函数。
-第 $n$ 条粒子世界线记作 $x_n^\mu(\lambda)$，固有时满足 $\d\tau_n^2=-\eta_{\mu\nu}\d x^\mu_n\d x^\nu_n$，4-速为 $u_n^\mu=\dv*{x_n^\mu}{\tau_n}$。
-惯性系 $\{x\}$ 测量粒子 $n$ 的 Lorentz 因子为 $\gamma_n=u_n^0=(-\eta_{\mu\nu}\dot x^\mu_n\dot x^\nu_n)^{-1/2}$，其中点表示对坐标时间 $t=x^0$ 求导。自由质点作用量可写为\footnote{由于自变量加粗已表示三维，$\delta$ 函数省略上标 3。$m_n$ 可强调地称\textbf{固有质量}。
+
+$m_n$ 可强调地称\textbf{固有质量}。
 注意本节要区分“固有”“共动”二字，前者代表微观数据，后者代表宏观 $U^\mu$。
-}
-\eq{
-\tcbhighmath{
-    S = -\int\d{t}\sum_n \frac{m_n}{\gamma_n} = \int\d[4]{x} \Lag,\quad \Lag = -\sum_n \frac{m_n}{\gamma_n(t)} \delta_n(x).
-}
-}
-其中 $\delta_n(x):=\delta(\bm x-\bm x_n(t))$ 的 $t$ 仅通过 $\bm x_n$ 依赖，仍是时空场，但不是标量。
-尝试施加时空平移。上述 $\Lag$ 形式上不包含任何场宗量，不便使用公式法，考虑局域化方法。
-考虑时空平移 $\delta x^\mu=\epsilon\xi^\mu$ 及其局域化 $\epsilon\to\epsilon(x)$。
-暂时换曲线参数以避免混淆，读出\textbf{微观能动张量}：
-\begin{align}
-    \delta S &= -\int\d{\lambda}\sum_n m_n \var(\Big(-\eta_{\mu\nu}\dv{x^\mu_n}{\lambda}\dv{x^\nu_n}{\lambda}\Big)^{1/2}) = \int\d{\lambda}\sum_n m_n \eta_{\mu\nu}u^\mu_n\var(\dv{x^\nu_n}{\lambda}) \notag\\
-    &= \int\d{t}\sum_n \eta_{\mu\nu}p^\mu_n\dv{\var x^\nu_n}{t} = \int\d{t}\sum_n p^\mu_n \xi_\mu\dot\epsilon = \int\d{t}\sum_n p^\mu_n \dot x^\nu_n \xi_\mu\p_\nu\epsilon \notag\\
-    &= \int\d[4]x\sum_n \hat T^{\mu\nu} \xi_\nu\p_\mu\epsilon,\enskip \hat T^{\mu\nu} := \sum_n \frac{p^\mu_n p^\nu_n}{E_n} \delta_n = \sum_n\int\d{\tau_n} p^\mu_n u^\nu_n\delta^4_n.
-\end{align}
-显然对称，其中 $p^\mu_n=m_n u^\mu_n, E_n=\gamma_n m_n, \delta^4_n = \delta^4(x-x_n)$。
-上式积分写法可看出 $\hat T^{\mu\nu},\Lag = \hat T^\mu{}_\mu$ 的确是 Lorentz 张量；从 $S,\d[4]x,m_n$ 不变性也可看出；或者注意 $\int\d t/\gamma_n$ 不变，则 $\delta'_n/\gamma'_n = \int\d{t'}\delta'^4_n/\gamma'_n = \int\d {t}\delta^4_n/\gamma_n=\delta_n/\gamma_n$。
+
+
 \textbf{微观粒子数流}为 Lorentz 矢量
 \eq{
     \hat N^\mu := \sum_n \frac{p_n^\mu}{E_n} \delta_n = \sum_n\int\d{\tau_n} u^\mu_n\delta^4_n.
