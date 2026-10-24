@@ -19,7 +19,7 @@
 
 \section{拓扑空间}
 
-$2^X$ 的子集称为\textbf{子集族}(collection of subsets)，全体子集族构成 $2^{2^X}$。欲对 $X$ 中每个点挑选⼀族⼦集作为邻域(neighbourhood)，就是给定映射 $\topo N:X\to 2^{2^X}$ 且 $\topo N(x)\ne \mt$。
+$2^X$ 的子集称为 $X$ 的\textbf{子集族}(collection of subsets)，全体子集族构成 $2^{2^X}$。欲对 $X$ 中每个点挑选⼀族⼦集作为邻域(neighbourhood)，就是给定映射 $\topo N:X\to 2^{2^X}$ 且 $\topo N(x)\ne \mt$。
 直观上，邻域只需含有 $x$ 即可，但由于大小任意，可无限接近于 $x$，故有“邻”称。
 若 $A\in \topo N(x)$，则 $x$ 为 $A$ 的内点(interior point)，而 $A$ 中全体内点之集 $A^\circ$ 就是其内部(interior)。
 
@@ -270,29 +270,22 @@ $\topo{T}=\left\{\bigcup_{U\in\topo{F}}U:\topo{F}\subset\topo{B}\right\}$ 构成
 \end{theorem}
 
 \begin{proof}
-    对任意开覆盖 $\topo U$，对每个基元素 $B$（来自可数基）如果它被某个 $U\in\topo U$ 包含，就挑一个这样的 $U_B$。因为基是可数的，所以被挑出来的 $U_B$ 至多可数；再用“每个点都落在某个基元素里”推出这些 $U_B$ 仍覆盖全空间，于是得到可数子覆盖。
-
-取$C_2$ $X$ 的一个可数基 $\topo B=\{B_n\}_{n\in\mathbb N}$。令 $\topo U$ 为 $X$ 的任意开覆盖。
-对每个 $n$，若存在 $U\in\topo U$ 使得 $B_n\subset U$，则任选一个这样的开集记为 $U_n\in\topo U$；
-若不存在这样的 $U$，则忽略该 $n$（不选取任何东西）。
-记所有被选中的开集所成的集合为
-\[
-\topo U':=\{U_n:\ B_n\subset U_n\text{ 且 }U_n\in\topo U\}.
-\]
-由于 $\topo B$ 可数，故 $\topo U'$ 至多可数。
-下面证明 $\topo U'$ 覆盖 $X$。任取 $x\in X$，由 $\topo U$ 覆盖，存在 $U\in\topo U$ 使 $x\in U$。
-又由于 $\topo B$ 为基，存在某个基元素 $B_n$ 满足
-\[
-x\in B_n\subset U.
-\]
-由构造知此时 $B_n$ 必会触发选择，于是存在被选中的 $U_n\in\topo U'$ 使得 $B_n\subset U_n$。
-从而 $x\in B_n\subset U_n$，说明 $x$ 落在 $\bigcup\topo U'$ 中。
-因此 $\topo U'$ 是 $\topo U$ 的可数子覆盖，证毕。
+    取 $X$ 的可数基 $\topo B$ 及任意开覆盖 $\topo U$。置
+    \[
+        \topo B'=\{B\in\topo B:\exists U\in\topo U,\ B\subset U\}.
+    \]
+    对每个 $B\in\topo B'$，取 $U_B\in\topo U$ 使 $B\subset U_B$，则 $\topo U'=\{U_B:B\in\topo B'\}$ 至多可数。
+    任给 $x\in X$，存在 $U\in\topo U$ 及 $B\in\topo B$ 使 $x\in B\subset U$，故 $B\in\topo B'$，从而 $x\in U_B$。因此 $\topo U'$ 是可数子覆盖。
 \end{proof}
 
 \begin{theorem}
     $C_2 \im C_1$。
 \end{theorem}
+
+\begin{proof}
+    取 $X$ 的可数基 $\topo B$。任给 $x\in X$，置 $\topo B_x=\{B\in\topo B:x\in B\}\subset\topo N(x)$，则 $\topo B_x$ 至多可数。
+    对任意 $U\in\topo N(x)$，存在开集 $O$ 使 $x\in O\subset U$，再由基的性质取 $B\in\topo B$ 使 $x\in B\subset O$。故 $B\in\topo B_x$ 且 $B\subset U$，即 $\topo B_x$ 是 $x$ 的可数邻域基。
+\end{proof}
 
 再讨论分离。分离意指是否可用拓扑结构（开集、连续映射）区分空间中的两个原本不应重叠的部分。按照对“不重叠两部分”的理解不同、区分方法的不同，有很多种不同判定方法和条件，统称\textbf{分离公理}(separation axiom)。
 常用的列举如表 \ref{tab:separation}。字母 T 来⾃于分离公理的德语“das Trennungsaxiom”。
@@ -326,6 +319,13 @@ x\in B_n\subset U.
     $T_5\im T_4\im T_3\xRightarrow{(T_3\Rightarrow T_1)}T_2 \im T_1\im T_0$。
 \end{theorem}
 
+\begin{proof}
+    $X$ 是自身的子空间，故 $T_5\im T_4$。
+    在 $T_4$ 空间中，单点集闭，故对任意闭集 $F$ 及 $x\notin F$，可用不交开集分别包含 $\{x\},F$，即 $T_3$。
+    在 $T_3$ 空间中，任给 $x\ne y$，因 $\{y\}$ 闭，可用不交开集分别包含 $x,y$，即 $T_2$。
+    不交的开邻域各不含另一点，故 $T_2\im T_1$；$T_1$ 中取其中一个开邻域即得 $T_0$。
+\end{proof}
+
 \begin{example}
     考虑 $\R^2$ 上直线 $y=0,1$。取两条直线之并，取等价关系 $(x,0) \sim(x,1),x>0$ 来构建商拓扑空间，也就是把两条线的 $x>0$ 部分黏合一起。$(0,0),(0,1)$ 的任意开邻域存在黏合部分 $x>0$，也就没有不交开邻域，因而不是 $T_2$ 空间。
 \end{example}
@@ -335,6 +335,8 @@ x\in B_n\subset U.
 \end{example}
 
 \begin{theorem}[收缩(shrink)]
+    设 $X$ 为 $T_1$ 空间，则显然：
+
     $T_3\iff$ 对任意点 $x\in X$ 及其任意邻域 $O$，存在开集 $U$ 使
 $x\in U, \bar U \subset O$。
 
@@ -398,6 +400,19 @@ d_{\infty}(x,y):=\lim_{p\to\infty}d_{p}(x, y)=\max _{1 \leqslant k \leqslant n}\
     可度量 $\im T_5$。
 \end{theorem}
 
+\begin{proof}
+    子空间 $Y\subset X$ 上的限制度量满足 $B_Y(y,r)=Y\cap B_X(y,r)$，故诱导相对拓扑。因此只需证度量空间是 $T_4$ 的。
+    单点集显然闭。任给不交闭集 $A,B$，对每个 $a\in A,b\in B$，取 $r_a,s_b>0$ 使 $B(a,2r_a)\cap B=\mt$，$B(b,2s_b)\cap A=\mt$。置开集
+    \[
+        U=\bigcup_{a\in A}B(a,r_a),\qquad V=\bigcup_{b\in B}B(b,s_b),
+    \]
+    则 $A\subset U,B\subset V$。若 $z\in U\cap V$，则存在 $a\in A,b\in B$ 使
+    \[
+        d(a,b)\leqslant d(a,z)+d(z,b)<r_a+s_b\leqslant 2\max\{r_a,s_b\}\leqslant d(a,b),
+    \]
+    矛盾。故 $U\cap V=\mt$，即得 $T_4$。
+\end{proof}
+
 我们已悉知 $\epsilon$-$\delta$ 语言可视为连续性在通常拓扑的特例。现在再用度量空间重新叙述。
 置 $(X,d_X,\topo T_X),(Y,d_Y,\topo T_Y)$ 和映射 $f:X\to Y$。$f$ 在 $x \in X$ 处对度量诱导拓扑连续，当且仅当 $\forall\epsilon>0,\exists\delta>0$ 使 $B(x,\delta) \subset f^{-1} [B(f(x),\epsilon)]$。
 即 $f^{-1} [B(f(x),\epsilon)]$ 是 $x$ 点邻域。
@@ -445,15 +460,15 @@ $\R^{n}$ 当然完备。
 \end{definition}
 
 \begin{definition}
-    $(X,d)$ 称为\textbf{全有界的}(totally bounded)，若存在任意 $\epsilon>0$ 的有限 $\epsilon$-网。换言之，可被有限多个半径任意小的球覆盖。
+    $(X,d)$ 称为\textbf{全有界的}(totally bounded)，若对任意 $\epsilon>0$，$X$ 都存在有限 $\epsilon$-网。
 \end{definition}
 
 \begin{remark}
-    全有界 $\im$ 有界。
+    全有界 $\im$ 有界。取 $\epsilon=1$，由三角不等式即得。若有限 $1$-网为 $\{x_1,\ldots,x_n\}$，则 $X\subset B (x_1,\,1+\max_{1\le i\le n}d(x_1,x_i) )$，故有界。
 \end{remark}
 
 \begin{example}
-    无穷维 Hilbert 空间 $\ell^2$ 是完备的。任意 $\epsilon>0$，$\{e_n\}_{n=1}^\infty$ 构成 $\ell^2$ 的 $\epsilon$-网格，但它是无穷集，不全有界。
+    无穷维 Hilbert 空间 $\ell^2$ 完备，但不全有界。标准基向量满足 $\|e_n-e_m\|=\sqrt2$（$n\ne m$），故半径小于 $\sqrt2/2$ 的球至多含一个 $e_n$，有限个这样的球不能覆盖 $\ell^2$。
 \end{example}
 
 %%%
@@ -483,30 +498,35 @@ $\R^{n}$ 当然完备。
 
 %%%
 \begin{remark}
-    紧 $\im$ 列紧。
-    若空间满足可数基或序列空间性质，两者可能一致。
+    一般拓扑空间中，紧与列紧互不蕴含。
 \end{remark}
 
 \begin{theorem}\label{thm:compactness}
-    度量空间上，紧 $\iff$ 列紧 $\iff$ 全有界 $\land$ 闭 $\land$ 完备。
+    对度量空间，紧 $\iff$ 列紧 $\iff$ 全有界 $\land$ 完备。
 \end{theorem}
 \begin{proof}
-    设 $X$ 是紧的。任意 $x\in X$，$\exists O\in\topo S$ 使 $x\in O$，则 $\topo S$ 是 $x$ 的某邻域的有限子覆盖。任意点列 $\{x_n\}$ 都有极限点 $x$，则 $\exists O\in\topo S$ 使 $x\in O$，因此 $\{x_n\}$ 有收敛子列。
-    反之，若 $X$ 是完备的且有界的，则 $\forall \epsilon>0,\exists x_1,\cdots,x_n\in X$
-    使 $\bigcup_{i=1}^n B(x_i,\epsilon)$ 覆盖 $X$。任意开覆盖 $\topo C$ 都存在 $\epsilon$-覆盖 $\topo S=\{B(x_i,\epsilon):x_i\in X\}$，则 $\topo S$ 是 $\topo C$ 的有限子覆盖。
-    反之，若 $X$ 的任意开覆盖都存在有限子覆盖，则任意点列 $\{x_n\}$ 的极限点 $x$ 都有某开邻域 $O$，使 $\{x_n\}$ 的无限个点都在 $O$ 中，因此 $\{x_n\}$ 有收敛子列。任意有界序列都有收敛子列，因此 $X$ 是完备的。
+    紧 $\im$ 列紧：任给点列 $\{x_n\}$。若每点都有仅含有限项的开邻域，则有限子覆盖将使点列仅有有限项，矛盾。故存在 $x\in X$，其任意邻域都含无限项；逐次取 $n_k>n_{k-1}$ 使 $x_{n_k}\in B(x,1/k)$，即得收敛子列。
+
+    列紧 $\im$ 全有界且完备：若不全有界，则存在 $\epsilon>0$，可逐次取 $x_n\notin\bigcup_{i<n}B(x_i,\epsilon)$。各项间距离不小于 $\epsilon$，故无收敛子列，矛盾。又任意 Cauchy 列都有收敛子列，因而本身收敛，故完备。
+
+    全有界且完备 $\im$ 紧：反设开覆盖 $\topo C$ 无有限子覆盖，置 $A_0=X$。对每个 $n\geqslant1$，用有限个半径 $2^{-n}$ 的开球覆盖 $X$，其中必有一个与 $A_{n-1}$ 的交 $A_n$ 仍不能被 $\topo C$ 中有限个开集覆盖。取 $x_n\in A_n$；由 $A_{n+1}\subset A_n$，当 $m\geqslant n$ 时 $d(x_m,x_n)<2^{1-n}$，故 $\{x_n\}$ 为 Cauchy 列，收敛于某 $x\in X$。
+    取 $U\in\topo C$ 使 $x\in U$。任给 $y\in A_n$，当 $m\geqslant n$ 时 $d(y,x_m)<2^{1-n}$；令 $m\to\infty$ 得 $d(y,x)\leqslant2^{1-n}$，故充分大 $n$ 时 $A_n\subset U$，矛盾。
 \end{proof}
+
+\begin{remark}
+    完备子空间在任何度量空间中都闭，故无需另加闭性。若环境空间 $X$ 完备，则 $K\subset X$ 闭 $\iff K$ 完备，从而 $K$ 紧 $\iff K$ 全有界且在 $X$ 中闭。
+\end{remark}
 
 \begin{example}[Bolzano-Weierstrass]
     实直线上，列紧 $\iff$ 有界 $\land$ 闭。
 \end{example}
 \begin{proof}
-    只需说明有界闭 $\iff$ 全有界，完备性自动满足。
-    若 $K\subset \R$ 是紧集。考虑 $K\subset\bigcup_{n\in\N^+}(-n,n)=\R$，紧性使存在 $K\subset \bigcup_{i=1}^m(-n_i,n_i)=(-\max_i{n_i},\max_i{n_i})$，即有界。
+    $K\subset\R$ 有界时，将包含它的有界区间分成有限段，每段长度小于 $\epsilon$，从每段与 $K$ 的非空交中取一点，即得有限 $\epsilon$-网。结合全有界 $\im$ 有界，知 $K$ 有界 $\iff$ 全有界。
+    $\R$ 完备，故闭子集完备；反之，若 $K$ 完备，则任意 $x\in\bar K$ 都是 $K$ 中某点列的极限，该列为 Cauchy 列，故 $x\in K$。于是 $K$ 闭 $\iff$ 完备，由定理 \ref{thm:compactness} 即得。
 \end{proof}
 
 \begin{example}[Heine-Borel]
-    结合 \ref{thm:compactness} 知，实直线上，紧 $\iff$ 有界 $\land$ 闭。
+    结合 \ref{thm:compactness} 知，实直线上，紧 $\iff$ 有界 $\land$ 闭。此外也可直接由紧性证明有界性：若 $K\subset\R$ 紧，则开覆盖 $K\subset\bigcup_{n\in\N^+}(-n,n)=\R$ 有有限子覆盖，即存在 $N = \max_i{n_i}\in\N^+$ 使 $K\subset \bigcup_{i=1}^m(-n_i,n_i)=(-N,N)$，即有界。
 \end{example}
 %%%
 
@@ -542,71 +562,19 @@ $\R^{n}$ 当然完备。
     可度量 $\im$ 仿紧。
 \end{theorem}
 \begin{proof}
-    下面对一般度量空间 $(X,d)$ 证明副紧性：任取开覆盖 $\topo U$，要构造一个局部有限开细化。
+    % M. E. Rudin, A new proof that metric spaces are paracompact,
+    % Proc. Amer. Math. Soc. 20 (1969), 603.
+    将任意开覆盖 $\{U_\alpha\}$ 的指标集良序化，置 $a(x)=\min\{\alpha:x\in U_\alpha\}$，$r_n=2^{-n}$。依 $n\geqslant1$ 递归定义 $V_{\alpha n}$ 为所有满足
+    \[
+        a(x)=\alpha,\qquad
+        x\notin\bigcup_{m<n,\,\beta}V_{\beta m},\qquad
+        B(x,3r_n)\subset U_\alpha
+    \]
+    的开球 $B(x,r_n)$ 之并。显然 $V_{\alpha n}\subset U_\alpha$。任给 $x\in X$，取 $n$ 使 $B(x,3r_n)\subset U_{a(x)}$；若 $x$ 未被前 $n-1$ 层覆盖，则 $x\in V_{a(x)n}$。故 $\{V_{\alpha n}\}$ 是开加细。
 
-对每个 $x\in X$，选取 $U_x\in\topo U$ 使 $x\in U_x$。
-因为 $U_x$ 开，存在 $r(x)>0$ 使得开球 $B(x,2r(x))\subset U_x$。
-令
-\[
-\topo B:=\{B(x,r(x)):\ x\in X\},
-\]
-则 $\topo B$ 是 $\topo U$ 的开细化（因为 $B(x,r(x))\subset B(x,2r(x))\subset U_x$），但未必局部有限。
-为此我们把这些球按半径分层：
+    固定 $n$。若 $\alpha<\beta$，分别取构成 $V_{\alpha n},V_{\beta n}$ 的球心 $y,z$。由 $a(z)=\beta$ 知 $z\notin U_\alpha$，而 $B(y,3r_n)\subset U_\alpha$，故 $d(y,z)\geqslant3r_n$。由三角不等式，两球内任意两点的距离大于 $r_n$，故不同 $V_{\alpha n}$ 中的点也相距大于 $r_n$。
 
-对每个 $n\in\mathbb N$，定义
-\[
-X_n:=\{x\in X:\ 2^{-(n+1)}<r(x)\le 2^{-n}\},
-\qquad
-\topo B_n:=\{B(x,r(x)):\ x\in X_n\}.
-\]
-则 $\topo B=\bigcup_{n=1}^\infty \topo B_n$，且每层的半径都有统一下界 $>2^{-(n+1)}$。
-
-现在对固定的 $n$，在集合 $X_n$ 中取一个\emph{极大}的 $2^{-(n+2)}$-分离子集 $S_n$：
-\[
-d(s,s')\ge 2^{-(n+2)}\quad(s\ne s',\ s,s'\in S_n),
-\]
-且 $S_n$ 在 $X_n$ 中关于包含关系极大（Zorn 引理或贪心构造均可保证存在）。
-极大性推出：对任意 $x\in X_n$，存在 $s\in S_n$ 使得
-\[
-d(x,s)<2^{-(n+2)}.
-\]
-否则 $S_n\cup\{x\}$ 仍是分离集，违背极大性。
-
-于是对每个 $n$，族
-\[
-\topo V_n:=\{B(s,2^{-n}) : s\in S_n\}
-\]
-覆盖 $X_n$（因为若 $x\in X_n$，取 $s\in S_n$ 满足 $d(x,s)<2^{-(n+2)}<2^{-n}$）。
-
-\emph{关键：$\topo V_n$ 是局部有限的。}
-取任意点 $p\in X$，看球 $B(p,2^{-(n+2)})$。
-若它与很多个 $B(s,2^{-n})$ 相交，则对每个相交的 $s$，有
-\[
-d(p,s)\le 2^{-n}+2^{-(n+2)}<2^{-n+1}.
-\]
-也就是说所有这些 $s$ 都落在有界集合 $B(p,2^{-n+1})$ 内。
-另一方面，$S_n$ 是 $2^{-(n+2)}$-分离的，故不同的 $s$ 之间至少相距 $2^{-(n+2)}$。
-这迫使在固定半径的球 $B(p,2^{-n+1})$ 中只能容纳\emph{有限}多个这样的 $s$（否则会出现无限多个两两分离点，
-从而可构造出无限多互不相交的小球，矛盾于该大球的“有限装填”，这是度量空间中的标准有界分离集有限性论证）。
-因此 $B(p,2^{-(n+2)})$ 只能与有限多个 $B(s,2^{-n})$ 相交，局部有限性得证。
-
-最后令
-\[
-\topo V:=\bigcup_{n=1}^\infty \topo V_n.
-\]
-则 $\topo V$ 覆盖 $X$（因为 $X=\bigcup_n X_n$，且每个 $X_n$ 被 $\topo V_n$ 覆盖），并且是可数并联的局部有限族：
-对任意点 $p$，在每个固定层 $n$ 上只有有限多个集合与某小邻域相交，
-再取更小邻域即可保证跨所有层也只与有限多个相交，从而 $\topo V$ 局部有限。
-
-还需验证它细化原覆盖 $\topo U$：对 $B(s,2^{-n})\in\topo V_n$，
-由于 $s\in X_n$，有 $r(s)>2^{-(n+1)}$，从而 $2^{-n}\le 2r(s)$，于是
-\[
-B(s,2^{-n})\subset B(s,2r(s))\subset U_s\in\topo U.
-\]
-故 $\topo V$ 是 $\topo U$ 的局部有限开细化。
-因此任意度量空间副紧。
-
-将 $X$ 取为第二步得到可度量化的 $M$，即得 $M$ 副紧，从而仿紧。证毕。
+    任给 $p\in X$，取 $p\in V_{\alpha k}$，再取 $N>k$ 使 $B(p,2r_N)\subset V_{\alpha k}$。当 $n\geqslant N$ 时，第 $n$ 层的球心均在 $V_{\alpha k}$ 外，且 $r_n\leqslant r_N$，故该层不与 $B(p,r_N)$ 相交。当 $n<N$ 时，$r_n\geqslant2r_N$，由上述距离估计，$B(p,r_N)$ 至多与该层的一个集合相交。因此 $\{V_{\alpha n}\}$ 局部有限。
 \end{proof}
 
 \section{度量化定理*}
@@ -615,62 +583,124 @@ B(s,2^{-n})\subset B(s,2r(s))\subset U_s\in\topo U.
     $T_2\xRightarrow{\text{仿紧}} T_4$ 
 \end{theorem}
 \begin{proof}
-    
+    局部有限族满足 $\overline{\bigcup_i V_i}=\bigcup_i\bar V_i$，因每点附近只涉及有限并。
+
+    先证 $T_3$。任给闭集 $F$ 及 $x\notin F$，由 $T_2$，对每个 $y\in F$ 可取开邻域 $U_y$ 使 $x\notin\bar U_y$。取开覆盖 $\{X\backslash F\}\cup\{U_y:y\in F\}$ 的局部有限开加细 $\topo V$，置
+    \[
+        W=\bigcup_{V\in\topo V,\,V\cap F\ne\mt}V.
+    \]
+    每个参与并集的 $V$ 必含于某个 $U_y$，故 $F\subset W$ 且 $x\notin\bar W$。于是 $W,X\backslash\bar W$ 分离 $F,x$，即得 $T_3$。
+
+    再取不交闭集 $A,B$。由 $T_3$，对每个 $a\in A$ 可取开邻域 $O_a$ 使 $\bar O_a\cap B=\mt$。取 $\{X\backslash A\}\cup\{O_a:a\in A\}$ 的局部有限开加细，令 $U$ 为其中与 $A$ 相交者之并。同理 $A\subset U$ 且 $\bar U\cap B=\mt$，故 $U,X\backslash\bar U$ 分离 $A,B$，即得 $T_4$。
 \end{proof}
 
-\begin{theorem}[Urysohn-Lindel\"of]
+\begin{lemma}[Urysohn]\label{lem:urysohn-separation}
+    $T_4$ 空间中，对任意不交闭集 $A,B$，存在连续函数 $f:X\to[0,1]$ 使 $f|_A=0,f|_B=1$。
+\end{lemma}
+\begin{proof}
+    置 $D=\{k/2^n:n,k\in\N,\ 0\leqslant k\leqslant2^n\}$，$O_1=X\backslash B$。由收缩定理取 $A\subset O_0\subset\bar O_0\subset O_1$，再逐次插入二等分点对应的开集，使 $r<s\im\bar O_r\subset O_s$。令
+    \[
+        f(x)=\inf\bigl(\{r\in D:x\in O_r\}\cup\{1\}\bigr).
+    \]
+    则 $f|_A=0,f|_B=1$。对 $0\leqslant t\leqslant1$，
+    \[
+        \{f<t\}=\bigcup_{r<t}O_r,\qquad
+        \{f>t\}=\bigcup_{r>t}(X\backslash\bar O_r),
+    \]
+    右端均开，故 $f$ 连续。
+\end{proof}
+
+\begin{theorem}[Urysohn-Lindel\"of]\label{thm:urysohn-metrization}
     $T_3\xLeftrightarrow{C_2} T_4\xLeftrightarrow{C_2}$ 可度量
 \end{theorem}
+\begin{proof}
+    先证 $C_2\land T_3\im T_4$。任给不交闭集 $A,B$，由可数基及收缩定理，取覆盖 $A,B$ 的可数开集族 $\{U_n\},\{V_n\}$，使 $\bar U_n\cap B=\bar V_n\cap A=\mt$。置
+    \[
+        U=\bigcup_{n\geqslant1}\left(U_n\backslash\bigcup_{j\leqslant n}\bar V_j\right),\qquad
+        V=\bigcup_{n\geqslant1}\left(V_n\backslash\bigcup_{j\leqslant n}\bar U_j\right).
+    \]
+    则 $U,V$ 为分别包含 $A,B$ 的不交开集，故 $T_4$。
 
+    再设 $C_2\land T_4$，取可数基 $\{B_i\}$。对每对 $\bar B_i\subset B_j$，由引理 \ref{lem:urysohn-separation} 取连续函数 $f_{ij}:X\to[0,1]$，在 $\bar B_i$ 上为 $1$，在 $X\backslash B_j$ 上为 $0$。将这些函数列为 $\{f_n\}_{n\geqslant1}$（有限时补零），置
+    \[
+        d(x,y)=\sum_{n=1}^\infty2^{-n}|f_n(x)-f_n(y)|.
+    \]
+    任给开集 $O\ni x$，由收缩定理可取 $x\in B_i\subset\bar B_i\subset B_j\subset O$，故某个 $f_n$ 在 $x$ 处为 $1$、在 $X\backslash O$ 上为 $0$。此族因而分离点，$d$ 是度量，且 $B_d(x,2^{-n})\subset O$。另一方面，级数一致收敛，故 $d(x,\cdot)$ 连续，度量开球在原拓扑中开。因此 $d$ 诱导原拓扑。逆向蕴涵已由前文证明。
+\end{proof}
 
 \begin{theorem}[Smirnov]
     $\text{仿紧}\land T_2\land\text{局部可度量}\im$ 可度量
 \end{theorem}
+\begin{proof}
+    由前文知 $X$ 为 $T_4$。取由非空可度量开集组成的局部有限覆盖 $\{U_i\}$，各带有相容度量 $d_i\leqslant1$（将原度量换为 $\min\{d_i,1\}$ 即可）。先用收缩定理，再取局部有限开加细，得到开覆盖 $\{V_j\}$ 及 $\bar V_j\subset U_{i(j)}$。置 $F_i=\bigcup_{i(j)=i}\bar V_j$；由局部有限性，$F_i$ 闭，且 $F_i\subset U_i$、$\bigcup_iF_i=X$。
+    由引理 \ref{lem:urysohn-separation}，取连续函数 $\phi_i:X\to[0,1]$，在 $F_i$ 上为 $1$，在 $X\backslash U_i$ 上为 $0$。对 $z\in U_i$ 置
+    \[
+        g_{i,z}(x)=
+        \begin{cases}
+            \phi_i(x)d_i(x,z),&x\in U_i,\\
+            0,&x\notin U_i,
+        \end{cases}
+    \]
+    并令
+    \[
+        \begin{aligned}
+            p_i(x,y)&=|\phi_i(x)-\phi_i(y)|+\sup_{z\in U_i}|g_{i,z}(x)-g_{i,z}(y)|,\\
+            d(x,y)&=\sum_i p_i(x,y).
+        \end{aligned}
+    \]
+    各 $p_i$ 非负、对称且满足三角不等式，和式由局部有限性只有有限项。若 $d(x,y)=0$，取 $x\in F_i$，则 $\phi_i(y)=1$，再取 $z=x$ 得 $d_i(x,y)=0$，故 $x=y$。因此 $d$ 是度量。
 
-\begin{theorem}[Negata-Smirnov]
-    
+    当 $y\to x$ 时，若 $x\in U_i$，则在 $U_i$ 内有 $p_i(x,y)\leqslant2|\phi_i(x)-\phi_i(y)|+d_i(x,y)\to0$；若 $x\notin U_i$，则 $p_i(x,y)\leqslant2\phi_i(y)\to0$。结合局部有限性得 $d(x,y)\to0$。
+    反之，任给开集 $O\ni x$，取 $x\in F_i$ 及 $0<\epsilon<1/2$ 使 $B_{d_i}(x,2\epsilon)\subset O\cap U_i$。若 $d(x,y)<\epsilon$，则 $\phi_i(y)>1/2$，且取 $z=x$ 得 $\phi_i(y)d_i(x,y)\leqslant d(x,y)<\epsilon$，故 $y\in O$。因此 $d$ 诱导原拓扑。
+\end{proof}
+
+\begin{theorem}[Nagata-Smirnov]
+    可度量 $\iff T_3\land$ 存在 $\sigma$-局部有限基，即拓扑基可写为 $\topo B=\bigcup_{n=1}^\infty\topo B_n$，其中每个 $\topo B_n$ 都局部有限。
 \end{theorem}
 \begin{remark}
-    这是另⼀个经典研究成果。证明⾮常复杂精巧，实际应⽤中也没有很多可以模仿着去做的机会，故略去。
+    这是另⼀个经典研究成果。证明毕竟精巧，实际应⽤中也没有很多可以模仿着去做的机会，读者粗读即可。
+    这里可数的是层数，各层本身不必可数。
 \end{remark}
+\begin{proof}
+    若 $X$ 可度量，则已知 $T_3$。由 Stone 定理，对每个 $n\geqslant1$，取开球覆盖 $\{B_d(x,2^{-n}):x\in X\}$ 的局部有限开加细 $\topo B_n$。任给开集 $O\ni x$，取 $n$ 使 $B_d(x,2^{1-n})\subset O$；含 $x$ 的某个 $B\in\topo B_n$ 含于一个半径 $2^{-n}$ 的球，故 $B\subset O$。因此 $\bigcup_n\topo B_n$ 是所求基。
 
+    反之，设 $X$ 为 $T_3$ 且有上述基。对开集 $O$，置
+    \[
+        W_n(O)=\bigcup\{B\in\topo B_n:\bar B\subset O\}.
+    \]
+    局部有限性使 $\overline{W_n(O)}\subset O$，而收缩定理及基的性质给出 $O=\bigcup_nW_n(O)$。对不交闭集 $A,B$，分别取 $W_n(X\backslash B),W_n(X\backslash A)$，沿用定理 \ref{thm:urysohn-metrization} 证明中的可数开集族分离构造，即得 $T_4$。
+
+    现在用连续函数表示每个基元素 $B$：在 $B$ 内为正，在外为零。由 Urysohn 引理，对每个 $m$ 取连续函数 $h_{Bm}:X\to[0,1]$，在 $\overline{W_m(B)}$ 上为 $1$，在 $X\backslash B$ 上为 $0$。则
+    \[
+        f_B=\sum_{m=1}^\infty2^{-m}h_{Bm}
+    \]
+    一致收敛，故 $f_B$ 连续，且 $0\leqslant f_B\leqslant1$、$\{f_B>0\}=B$。
+
+    同层取函数值之差的上确界，再将各层加权相加：
+    \[
+        p_n(x,y)=\sup_{B\in\topo B_n}|f_B(x)-f_B(y)|,\qquad
+        d(x,y)=\sum_{n=1}^\infty2^{-n}p_n(x,y),
+    \]
+    空层约定 $p_n=0$。各 $p_n$ 非负、对称且满足三角不等式；基能分离点，故 $d(x,y)=0\im x=y$。因此 $d$ 是度量。
+
+    局部有限性使 $p_n(x,\cdot)$ 在每点附近只涉及有限个 $f_B$，故连续；又 $p_n\leqslant1$，级数一致收敛，故 $d(x,\cdot)$ 连续。反之，任给开集 $O\ni x$，取 $x\in B\subset O$，其中 $B\in\topo B_n$。因 $f_B(x)>0$ 且 $f_B$ 在 $B$ 外为零，有
+    \[
+        B_d\bigl(x,2^{-n}f_B(x)\bigr)\subset B\subset O.
+    \]
+    因此 $d$ 诱导原拓扑。
+\end{proof}
 
 \begin{theorem}
     $T_2 \xRightarrow{\text{局部紧}} T_3$
 \end{theorem}
-
 \begin{proof}
-\textbf{局部正规}
-
-而在局部紧 $T_2$ 空间中，总可以把点与不含该点的闭集用互不相交的开集分开，这正是正则性。
-
-具体地，取任意 $x\in M$ 与闭集 $F\subset M$，且 $x\notin F$。
-因为 $F$ 闭，所以 $U_0:=M\setminus F$ 是开且含 $x$。
-由局部紧性，存在开集 $U$ 使得
-\[
-x\in U,\qquad \overline U\ \text{紧},\qquad \overline U\subset U_0.
-\]
-于是 $\overline U\cap F=\varnothing$。
-
-对每个 $y\in F$，由 $T_2$ 性，存在互不相交开集 $U_y\ni x$ 与 $W_y\ni y$。
-注意到 $\overline U$ 是紧集，且 $\{W_y\}_{y\in F}$ 是 $F$ 的开覆盖，
-从而也是 $\overline U\cap F=\varnothing$ 的“无关”——我们改用紧性来做如下操作：
-对每个 $p\in \overline U$，因 $p\notin F$ 且 $F$ 闭，$T_2$ $\Rightarrow$ 可分离，
-故存在开集 $A_p\ni p$ 与开集 $B_p\supset F$ 使得 $A_p\cap (M\setminus B_p)=\varnothing$，
-亦即 $A_p\subset B_p$ 且 $B_p$ 仍是包含 $F$ 的开集。
-于是 $\{A_p\}_{p\in\overline U}$ 覆盖紧集 $\overline U$，
-取有限子覆盖 $A_{p_1},\dots,A_{p_N}$，令
-\[
-V:=\bigcup_{j=1}^N A_{p_j},\qquad W:=\bigcap_{j=1}^N B_{p_j}.
-\]
-则 $V$ 为开且含 $\overline U$，$W$ 为开且含 $F$，并且由于每个 $A_{p_j}\subset B_{p_j}$，
-有 $V\subset W$，从而 $V\cap (M\setminus W)=\varnothing$。
-现在取 $U':=U$（开含 $x$）与 $W':=M\setminus V$（开含 $F$），便得
-\[
-U'\cap W'=\varnothing.
-\]
-于是正则。
-从而 $T_2 \land \text{局部紧}\iff T_2 \land (T_2 \land \text{局部紧}) \im T_1 \land \text{正则} \iff T_3$。
+    任给闭集 $F$ 及 $x\notin F$。由局部紧性，取 $x$ 的紧闭邻域 $K$ 及开集 $O$ 使 $x\in O\subset K$。
+    对每个 $y\in F\cap K$，由 $T_2$ 取不交开集 $U_y\ni x,V_y\ni y$。因 $F\cap K$ 紧，可取有限个 $V_{y_1},\ldots,V_{y_n}$ 覆盖它。置
+    \[
+        U=O\cap\bigcap_{j=1}^nU_{y_j},\qquad
+        V=(X\backslash K)\cup\bigcup_{j=1}^nV_{y_j}.
+    \]
+    则 $U,V$ 为不交开集，且 $x\in U,F\subset V$。又 $T_2\im T_1$，故 $T_3$。
 \end{proof}
 
 \begin{definition}
@@ -687,52 +717,18 @@ U'\cap W'=\varnothing.
     仿紧 $\land$ $T_2\im$ 任何开覆盖存在从属于它的局部有限的连续单位分解。
 \end{theorem}
 \begin{proof}
-    设开覆盖 $\topo P=\{O_\alpha\}$。
-    由仿紧性，$\topo P$ 存在局部有限开加细 $\{U_\alpha\}$ 满足 $U_\alpha\subset O_\alpha$。
-    
-    （必要时可先取局部有限细化 $\{U_i\}$，再对每个 $U_i$ 选取一个包含它的 $O_{\alpha(i)}$，并重编号。）
-
-    \medskip
-    \noindent\textbf{构造从属于 $\{U_i\}$ 的非负光滑函数族 $\{\varphi_i\}$。}
-    由于 仿紧 $\land$ $T_2\im T_4$。由 $T_4$ 收缩性，对每个 $i$ 可取开集 $V_i$ 使得
+    设开覆盖 $\topo P=\{O_\alpha\}$。由前文，$X$ 为 $T_4$。先用收缩定理，再取局部有限开加细，得到开覆盖 $\{U_i\}$ 及 $\bar U_i\subset O_{\alpha(i)}$。沿用 Smirnov 定理证明中的构造，取闭覆盖 $\{F_i\}$ 使 $F_i\subset U_i$。
+    由 Urysohn 引理，取连续函数 $\varphi_i:X\to[0,1]$，在 $F_i$ 上为 $1$，在 $X\backslash U_i$ 上为 $0$，故 $\supp\varphi_i\subset\bar U_i\subset O_{\alpha(i)}$。令
     \[
-        \overline{V_i}\subset U_i.
+        \Phi=\sum_i\varphi_i,\qquad
+        \rho_\alpha=\frac{\sum_{\alpha(i)=\alpha}\varphi_i}{\Phi}.
     \]
-    由流形上的 bump 函数引理（亦即光滑 Urysohn 引理），存在 $\varphi_i\in C^\infty(M)$ 满足
-    \begin{itemize}
-        \item $0\le \varphi_i\le 1$；
-        \item $\varphi_i\equiv 1$ 于 $\overline{V_i}$；
-        \item $\supp(\varphi_i)\subset U_i$。
-    \end{itemize}
-    特别地，$\varphi_i$ 在 $M\setminus U_i$ 上恒为 $0$，因此也从属于原覆盖：$\supp(\varphi_i)\subset U_i\subset O_i$。
-
-    \medskip
-    \noindent\textbf{归一化。}
-    令
+    各和在每点附近仅有有限项，且 $\{F_i\}$ 覆盖 $X$ 保证 $\Phi\geqslant1$。故 $\rho_\alpha$ 连续，$0\leqslant\rho_\alpha\leqslant1$，$\sum_\alpha\rho_\alpha=1$。
+    又 $\{\bar U_i\}$ 局部有限，其任意子族之并闭，故
     \[
-        \Phi(x):=\sum_{i=1}^\infty \varphi_i(x).
+        \supp\rho_\alpha\subset\bigcup_{\alpha(i)=\alpha}\bar U_i\subset O_\alpha.
     \]
-    由于 $\{U_i\}$ 局部有限，故对每个 $x\in M$，在某个邻域内仅有限个 $\varphi_i$ 非零，
-    因而上述和在该邻域内是有限和，$\Phi$ 是光滑函数。
-
-    下面证明 $\Phi(x)>0$ 对一切 $x$ 成立。
-    因为 $\{V_i\}$ 仍覆盖 $M$（可在取 $V_i$ 时保证这一点：对每个 $x\in U_i$ 选一个相对紧邻域并并入某个 $V_j$；或等价地先取 $\{V_i\}$ 为 $\{U_i\}$ 的开覆盖并满足 $\overline{V_i}\subset U_i$），
-    所以给定 $x\in M$，存在某个 $k$ 使得 $x\in V_k\subset \overline{V_k}$，从而 $\varphi_k(x)=1$，于是 $\Phi(x)\ge 1$。
-
-    因此可定义
-    \eq{
-        \rho_i(x):=\frac{\varphi_i(x)}{\Phi(x)}.
-    }
-    则 $\rho_i\in C^\infty(M)$，且 $0\le\rho_i\le 1$，并且
-    \[
-        \supp(\rho_i)\subset \supp(\varphi_i)\subset U_i\subset O_i.
-    \]
-    最后，
-    \[
-        \sum_{i=1}^\infty \rho_i(x)=\frac{\sum_i\varphi_i(x)}{\Phi(x)}=1,
-    \]
-    且由于局部有限性，上式在任意点的邻域内都是有限和，因此无收敛性问题。
-    故 $\{\rho_i\}$ 构成从属于 $\topo P$ 的单位分解。
+    每点附近只遇到有限个 $\bar U_i$，因而也只遇到有限个 $\supp\rho_\alpha$。即得所求单位分解。
 \end{proof}
 
 
@@ -743,23 +739,15 @@ U'\cap W'=\varnothing.
     定义等价关系如下：$x \sim y$ 当且仅当 $x,y$ 属于 $X$ 的同一个连通子空间。每个等价类称 $X$ 的一个\textbf{连通分支}。
 \end{definition}
 \begin{theorem}
-    连通的两条有用的等价说法：任何一个从 $X$ 到赋予离散拓扑的两点集合 $\{0,1\}$ 的连续映射都不是满射；连通拓扑空间只有两个既开又闭的子集。
+    连通的两条有用的等价说法：任何一个从 $X$ 到赋予离散拓扑的两点集合 $\{0,1\}$ 的连续映射都不是满射（非平凡开闭集 $A$ 将 $X$ 分成 $A$ 与其补集，而这恰好对应连续满射 $\mathbf1_A:X\to\{0,1\}$）；连通拓扑空间 $X$ 的既开又闭子集只有 $\mt,X$。
 \end{theorem}
 
 \begin{theorem}
     连续映射保持连通。
 \end{theorem}
-%% 有问题
 \begin{proof}
-假使 $f[A]$ 不连通，则存在不交非空开集 $U,V\subset Y$ 使
-\[
-f(A)\subset U\cup V,\quad f(A)\cap U\ne\varnothing,\quad f(A)\cap V\ne\varnothing.
-\]
-于是
-\[
-A = f^{-1}(U)\cap A\ \cup\ f^{-1}(V)\cap A
-\]
-是把 $A$ 分成两个不交的非空开集（因为 $f^{-1}(U), f^{-1}(V)$ 在 $X$ 中开），矛盾。故 $f(A)$ 连通。
+    置 $A\subset X$ 连通、$f:X\to Y$ 连续，则 $g=f|_A:A\to f[A]$ 为连续满射。
+    若 $f[A]=U\cup V$ 为两个不交非空相对开集之并，则 $A=g^{-1}[U]\cup g^{-1}[V]$。由 $g$ 连续且满射，右端为两个不交非空的 $A$ 中开集，与 $A$ 连通矛盾。故 $f[A]$ 连通。
 \end{proof}
 
 \begin{definition}
@@ -768,11 +756,11 @@ A = f^{-1}(U)\cap A\ \cup\ f^{-1}(V)\cap A
 \end{definition}
 
 \begin{definition}
-    $C':I'\to X$ 称为\textbf{重参数化}。严格单调
+    设曲线 $C:I\to X$ 及区间 $I'\subset\R$。若存在连续的严格单调双射 $\phi:I'\to I$，则 $C'=C\circ\phi:I'\to X$ 称为 $C$ 的\textbf{重参数化}(reparametrization)。$\phi$ 严格递增时保持方向，严格递减时反转方向；两者均不改变路径，即 $\Im C'=\Im C$。
 \end{definition}
 
 \begin{definition}
-    拓扑空间 $X$ 称为\textbf{路径连通的}(path-connected)或\textbf{弧连通的}(arcwise-connected)，如果 $X$ 中的任意两点都可被一条完全在 $X$ 中的路径连接。类似地有\textbf{局部路径连通}。
+    拓扑空间 $X$ 称为\textbf{路径连通的}(path-connected)或\textbf{弧连通的}(arcwise-connected)，如果 $X$ 中的任意两点都可被一条完全在 $X$ 中的路径连接。\textbf{局部路径连通}指任意点的任意邻域都包含该点的路径连通开邻域。
 \end{definition}
 
 \begin{example}
@@ -795,113 +783,28 @@ A = f^{-1}(U)\cap A\ \cup\ f^{-1}(V)\cap A
 \end{example}
 
 \begin{theorem}
-    连续开映射保持局部路径连通性。
+    设 $A\subset X$ 局部路径连通、$f:X\to Y$ 连续。若限制映射 $g=f|_A:A\to f[A]$ 为开映射，则 $f[A]$ 局部路径连通。
 \end{theorem}
-%% 没区分子拓扑
 \begin{proof}
-置 $A\subset X$ 局部路径连通、$f:X\to Y$ 连续开。 
-任取 $y\in f[A]$，$\exists x\in X$ 使 $f(x)=y$。故 $\exists U\in\topo T_X$ 使 $x\in U$ 且 $U$ 路径连通，从而 $\exists V:=f[U]\in\topo T_Y$ 使 $y=f(x)\in V$ 且 $V$ 路径连通。
-故 $f[A]$ 局部路径连通。
+    任给 $y\in f[A]$ 及其相对开邻域 $O$，取 $x\in A$ 使 $g(x)=y$。因 $g$ 连续，$g^{-1}[O]$ 是 $x$ 在 $A$ 中的开邻域，故存在 $A$ 中路径连通的开集 $U$ 使 $x\in U\subset g^{-1}[O]$。
+    由 $g$ 连续且开，$g[U]$ 是 $f[A]$ 中路径连通的开集，且 $y\in g[U]\subset O$。故 $f[A]$ 局部路径连通。
 \end{proof}
-
-\begin{proof}
-设 $f:X\to Y$ 连续且为开映射，$A\subset X$ 局部路径连通。记 $B=f(A)$，并赋予子空间拓扑。我们证明 $B$ 局部路径连通。
-
-任取 $y\in B$，取 $x\in A$ 使得 $f(x)=y$。令 $O\subset B$ 为 $y$ 的任意开邻域。由于 $B$ 取子空间拓扑，存在 $Y$ 中开集 $U$ 使得
-\[
-O=B\cap U.
-\]
-由连续性知 $f^{-1}(U)$ 在 $X$ 中开，从而
-\[
-f^{-1}(O)=f^{-1}(B\cap U)=f^{-1}(B)\cap f^{-1}(U)\supset A\cap f^{-1}(U)
-\]
-是 $X$ 中的集合；并且因为 $x\in A$ 且 $f(x)\in U$，可知
-\[
-x\in A\cap f^{-1}(U).
-\]
-注意到 $A\cap f^{-1}(U)$ 在 $A$ 的子空间拓扑中是开集，因此它是 $x$ 在 $A$ 中的一个开邻域。
-
-由于 $A$ 局部路径连通，存在 $A$ 中路径连通的开集 $W$ 满足
-\[
-x\in W\subset A\cap f^{-1}(U).
-\]
-于是 $f(W)\subset U$ 且 $f(W)\subset f(A)=B$，从而
-\[
-f(W)\subset B\cap U=O.
-\]
-
-下面说明 $f(W)$ 是 $B$ 中开且路径连通：
-\begin{itemize}
-\item $W$ 在 $A$ 中开，故存在 $X$ 中开集 $G$ 使 $W=A\cap G$。由于 $f$ 为开映射，$f(G)$ 在 $Y$ 中开，从而
-\[
-f(W)\subset f(G),\qquad f(W)=B\cap f(G),
-\]
-因此 $f(W)$ 在 $B$ 中开。
-\item $W$ 路径连通且 $f$ 连续，所以连续像 $f(W)$ 路径连通。
-\end{itemize}
-
-综上，对任意 $y\in B$ 的任意开邻域 $O$，都能找到 $B$ 中开且路径连通的邻域 $f(W)$ 满足
-\[
-y\in f(W)\subset O.
-\]
-故 $B=f(A)$ 局部路径连通。
-\end{proof}
-
+\begin{remark}
+    特别地，局部路径连通空间的连续开像仍局部路径连通。对一般子空间 $A$，不能由 $f$ 开推出 $f|_A$ 开，因为通常只有 $f[A\cap G]\subset f[A]\cap f[G]$。
+\end{remark}
 
 \begin{theorem}
     路径连通 $\im$ 连通。
 \end{theorem}
-%%
 \begin{proof}
-    置 $X$ 路径连通，任取 $x,y\in X$，存在 $\gamma:[0,1]\to X$ 连接。因 $[0,1]$ 连通，故 $\Im\gamma$ 连通。
-
-假使 $X$ 不连通，则存在不交非空开集 $U,V$ 使 $X=U\cup V$。取 $x\in U,y\in V$，则连通集 $\Im\gamma$ 必须完全落在 $U$ 或完全落在 $V$（否则会被 $U,V$ 分割成两个开集，破坏连通），矛盾。
-
-    从而整个空间不可能被分成两个不交的非空开集。
+    置 $X$ 路径连通。反设 $X=U\cup V$，其中 $U,V$ 为不交非空开集。取 $x\in U,y\in V$ 及连接两点的路径 $\gamma:[0,1]\to X$。则 $\gamma^{-1}[U],\gamma^{-1}[V]$ 是 $[0,1]$ 中两个不交非空相对开集，且并为 $[0,1]$，与区间连通矛盾。
 \end{proof}
-
-\begin{proof}
-    可以，最“直接”的证明就是用**反证法**：
-
-设 $X$ 不连通，则存在不交非空开集 $U,V$ 使得
-\[
-X=U\sqcup V.
-\]
-取 $x\in U,\ y\in V$。假设 $X$ 路径连通，则存在连续路径 $\gamma:[0,1]\to X$，$\gamma(0)=x,\ \gamma(1)=y$。
-
-令
-\[
-A=\gamma^{-1}(U),\qquad B=\gamma^{-1}(V).
-\]
-由于 $\gamma$ 连续且 $U,V$ 开，故 $A,B$ 是 $[0,1]$ 中的开集；又因 $U\cap V=\varnothing$ 且 $U\cup V=X$，得
-\[
-A\cap B=\varnothing,\qquad A\cup B=[0,1].
-\]
-并且 $0\in A$（因为 $\gamma(0)=x\in U$），$1\in B$（因为 $\gamma(1)=y\in V$），所以 $A,B$ 都非空。
-
-这说明 $[0,1]$ 被分成两个不交的非空开集 $A,B$，与 $[0,1]$ 连通矛盾。
-
-因此不存在这样的路径 $\gamma$，即 $X$ 不路径连通。
-\end{proof}
-
 
 \begin{theorem}
     连通 $\land$ 局部路径连通 $\im$ 路径连通
 \end{theorem}
 \begin{proof}
-    置 $(M,\topo T)$ 连通 $\land$ 局部路径连通。
-任取 $p\in M$，记 $C_p:=\{q\in M:\text{存在路径连接 $p,q$}\}$ 为包含 $p$ 的路径连通分支。任取 $q\in C_p$，由于 $M$ 局部路径连通，存在 $q$ 的一个路径连通的开邻域 $V$。对任意 $r\in V$，可将 $p,q$ 的路径与 $V$ 中 $q,r$ 的路径拼接，得到一条从 $p$ 到 $r$ 的路径，因此 $r\in C_p$，从而 $V\subset C_p$，从而 $q$ 是 $C_p$ 的内点，这说明 $C_p$ 是开集。
-
-因此，$M$ 可以表示为若干个互不相交的开路径连通分支的并。若 $M$ 不路径连通，则至少存在两个不同的路径连通分支，从而 $M$ 可分解为两个不交的非空开集，这与 $M$ 的连通性矛盾。
-
-* 同理，其他路径连通分支也都开；而不同路径连通分支两两不交，且并起来是全体 $X$。
-* 若 $X$ 有至少两个路径连通分支 $C_x,C_{x'}$，则
-  \[
-  X=C_x\sqcup (X\backslash C_x)
-  \]
-  是两个不交非空开集的分割，违背连通性。
-
-所以 $X$ 只能有一个路径连通分支，即 $X$ 路径连通。证毕。
+    空集情形显然。固定 $p\in X$，记 $C$ 为能以路径与 $p$ 相连的点之集。每点都有路径连通的开邻域 $U$；由路径拼接，$U$ 若与 $C$ 相交便含于 $C$，否则含于 $X\backslash C$。故 $C$ 及其补集均开。因 $p\in C$，连通性给出 $C=X$，故 $X$ 路径连通。
 \end{proof}
 
 一般总能将非连通集视为有限个连通分支之并，不妨只考虑其中一个连通分支。连通集合称为\textbf{单连通的}，就是说，其中任意形似橡皮圈的闭合曲线（称\textbf{简单闭线}）所围成的任意曲面都含于此集合中。

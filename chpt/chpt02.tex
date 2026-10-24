@@ -6,8 +6,8 @@
 
 取球坐标 $x^\mu=(\bar t,\bar r,\theta,\phi)$，并以 $A,B=0,1$ 和 $i,j=2,3$ 分别表示 $\bar t,\bar r$ 与 $\theta,\phi$ 两组指标。球对称性是指旋转群 $\mathrm{SO}(3)$ 在每个 $(\bar t,\bar r)$ 不变的 2-球面上等距作用，其三个 Killing 矢量场可取为
 \[
-    \xi_{(1)}=\p_\phi,\qquad
-    \xi_{(2)}=-\cos\phi\,\p_\theta+\cot\theta\sin\phi\,\p_\phi,\qquad
+    \xi_{(1)}=\p_\phi,\quad
+    \xi_{(2)}=-\cos\phi\,\p_\theta+\cot\theta\sin\phi\,\p_\phi,\quad
     \xi_{(3)}=\sin\phi\,\p_\theta+\cot\theta\cos\phi\,\p_\phi.
 \]
 它们分别满足 Killing 方程
@@ -20,10 +20,10 @@
 \]
 首先代入 $\xi_{(1)}$ 得 $\p_\phi g_{\mu\nu}=0$。再将 $\xi_{(2)},\xi_{(3)}$ 代入，并分别比较 $\sin\phi,\cos\phi$ 的系数，$AB,Ai,ij$ 分量依次给出
 \[
-    \p_\theta g_{AB}=0,\qquad
-    g_{A2}=g_{A3}=0,\qquad
-    \p_\theta g_{22}=0,\qquad
-    g_{23}=0,\qquad
+    \p_\theta g_{AB}=0,\quad
+    g_{A2}=g_{A3}=0,\quad
+    \p_\theta g_{22}=0,\quad
+    g_{23}=0,\quad
     g_{33}=g_{22}\sin^2\theta.
 \]
 故只有 $g_{00},g_{01},g_{11},g_{22},g_{33}$ 可能非零；前三者及 $g_{22}$ 对 $\theta,\phi$ 的导数均为零。记 $\bar g_{AB}(\bar t,\bar r)=g_{AB}$、$g_{22}=K(\bar t,\bar r)$，则 $g_{33}=K(\bar t,\bar r)\sin^2\theta$。
@@ -92,7 +92,7 @@ Schwarzschild 解的静态写法还有很多。\textbf{各向同性坐标系}就
 
 考虑球对称带电体。在源外 $r\ne0$ 处，方程为无源 Einstein--Maxwell 方程
 \[
-    \cd_\mu F^{\mu\nu}=0,\qquad R_{\mu\nu}=8\pi T_{\mu\nu},\qquad
+    \cd_\mu F^{\mu\nu}=0,\quad R_{\mu\nu}=8\pi T_{\mu\nu},\quad
     T_{\mu\nu}=\frac{1}{4\pi}\left(F_{\mu\sigma}F_\nu{}^\sigma-\frac14g_{\mu\nu}F_{\sigma\lambda}F^{\sigma\lambda}\right).
 \]
 其中第二式利用了 $T^\mu{}_\mu=0$。沿用上节的球对称度规 $\d s^2=-\e^{2\nu(\hat t,r)}\d\hat t^2+\e^{2\mu(\hat t,r)}\d r^2+r^2\d\Omega^2$，
@@ -117,7 +117,7 @@ Schwarzschild 解的静态写法还有很多。\textbf{各向同性坐标系}就
 \end{align*}
 前两者相加仍得 $\mu'+\nu'=0$，故 $\nu(\hat t,r)=-\mu(r)+h(\hat t)$。代入第三式有
 \[
-    \left(r\e^{-2\mu(r)}\right)'=1-\frac{Q^2}{r^2},\qquad
+    \left(r\e^{-2\mu(r)}\right)'=1-\frac{Q^2}{r^2},\quad
     \e^{-2\mu}=1-\frac{2M}{r}+\frac{Q^2}{r^2},
 \]
 其中将另一积分常数写作 $-2M$，代回前两式亦满足。取 $\d t=\e^{h(\hat t)}\d\hat t$ 消去 $h(\hat t)$，在新坐标下 $F_{01}=Q/r^2$。再取 $A_1=0$ 且令 $A_0$ 在无穷远为零，则 $F_{01}=-\p_rA_0$ 给出 $A_0=Q/r$，因而 $Q$ 解释为中心天体的电荷。
@@ -429,7 +429,7 @@ $r_m$ 称\textbf{Novikov 径向坐标}。可以看到的确 $\tilde g_{00}=-1,\t
 
 先在外部区域 $r>2M$ 考虑 $v=t+r_*$、$u=t-r_*$。Schwarzschild 度规的径向部分为 $\d s_{(2)}^2=-f\,\d v\,\d u$。引入待定常数 $\beta>0$，令
 \[
-    V=\e^{\beta v}>0,\qquad U=-\e^{-\beta u}<0,
+    V=\e^{\beta v}>0,\quad U=-\e^{-\beta u}<0,
 \]
 则 $\d s_{(2)}^2=-\beta^{-2}f\e^{\beta(u-v)}\d V\,\d U$。因 $u-v=-2r_*$，有
 \[
@@ -448,7 +448,7 @@ $r_m$ 称\textbf{Novikov 径向坐标}。可以看到的确 $\tilde g_{00}=-1,\t
 
 在外部区域，变换还可写成
 \[
-    T=\e^{r/4M}\sqrt{\frac{r}{2M}-1}\sinh\frac{t}{4M},\qquad
+    T=\e^{r/4M}\sqrt{\frac{r}{2M}-1}\sinh\frac{t}{4M},\quad
     X=\e^{r/4M}\sqrt{\frac{r}{2M}-1}\cosh\frac{t}{4M}.
 \]
 因此等 $r$ 线是双曲线，等 $t$ 线是过原点的射线。由坐标定义又有
@@ -483,8 +483,8 @@ Kruskal 坐标消除了视界的坐标奇性，却仍让无穷远位于无限坐
 
 球对称时空的 Penrose 图只画 $(t,r)$ 所张成的径向二维商空间，每个内部点实际代表一个对称 2-球。对 Kruskal 类光坐标作
 \[
-    \hat U=\arctan U,\qquad \hat V=\arctan V,\qquad
-    \mathcal T=\frac{\hat V+\hat U}{2},\qquad
+    \hat U=\arctan U,\quad \hat V=\arctan V,\quad
+    \mathcal T=\frac{\hat V+\hat U}{2},\quad
     \mathcal X=\frac{\hat V-\hat U}{2},
 \]
 则 $\hat U,\hat V\in(-\pi/2,\pi/2)$，原来无界的 $U,V$ 被压入有限区间。径向度规变为某个正函数乘以 $-\d\hat V\,\d\hat U=-\d\mathcal T^2+\d\mathcal X^2$，故略去该共形因子后，径向类光线仍处处与坐标轴成 $45^\circ$。
@@ -510,7 +510,7 @@ Penrose 图使事件视界的整体性质尤为清楚：相对于某一外部区
 Penrose 图强调因果结构，另一种互补的图示则强调某个空间切片的内禀几何。固定 Schwarzschild 时间，并在球对称空间中取赤道面 $\theta=\pi/2$，其诱导度规为
 \[
     \d \ell^2=\frac{\d r^2}{1-2M/r}+r^2\d\varphi^2,
-    \qquad r\geqslant 2M.
+    \quad r\geqslant 2M.
 \]
 为了把这张弯曲的二维曲面画出来，设它等距嵌入 Euclidean 三维空间。以 $(r,\varphi,z)$ 为柱坐标，并令曲面由 $z=z(r)$ 给出，则曲面上的线元是
 \[
@@ -518,7 +518,7 @@ Penrose 图强调因果结构，另一种互补的图示则强调某个空间切
 \]
 逐项比较两式可得
 \[
-    \dv{z}{r}=\pm\sqrt{\frac{2M}{r-2M}},\qquad
+    \dv{z}{r}=\pm\sqrt{\frac{2M}{r-2M}},\quad
     z=\pm2\sqrt{2M(r-2M)},
 \]
 其中已选择 $z=0$ 对应 $r=2M$。等价地，$r=2M+z^2/(8M)$；这张旋转曲面称为\textbf{Flamm 抛物面}(Flamm paraboloid)。远处 $\dv*{z}{r}\to0$，曲面渐近平坦；在 $r=2M$ 处斜率发散，形成最窄的圆周。
@@ -582,7 +582,7 @@ $b(r)$ 称为\textbf{形状函数}(shape function)，喉半径 $r_0$ 满足 $b(r
 
 球对称理想流体的静态平衡由 Tolman--Oppenheimer--Volkoff 方程控制。在几何单位制中，令 $m(r)$ 为半径 $r$ 内的质量、$\rho$ 为能量密度、$p$ 为压强，则
 \[
-    \dv{m}{r}=4\pi r^2\rho,\qquad
+    \dv{m}{r}=4\pi r^2\rho,\quad
     \dv{p}{r}=-\frac{(\rho+p)(m+4\pi r^3p)}{r(r-2m)}.
 \]
 给定状态方程 $p=p(\rho)$ 与中心密度后，可以向外积分至 $p=0$ 的星体表面。沿一族平衡解增大中心密度时，稳定性通常会在某个转折点改变；若总质量超过相应物态所能支撑的范围，压强梯度便不足以抵抗引力，星体开始动力学坍缩。这里的临界质量依赖状态方程、温度、自转和物质损失，不能只由 Schwarzschild 半径一个量决定。
@@ -595,7 +595,7 @@ $b(r)$ 称为\textbf{形状函数}(shape function)，喉半径 $r_0$ 满足 $b(r
 \[
     \d s^2=-\d\tau^2+a^2(\tau)
     \left(\d\chi^2+\sin^2\chi\,\d\Omega^2\right),
-    \qquad 0\leqslant\chi\leqslant\chi_b.
+    \quad 0\leqslant\chi\leqslant\chi_b.
 \]
 $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。尘埃密度满足 $\rho a^3=\text{常数}$，Friedmann 方程为
 \[
@@ -603,7 +603,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 \]
 若尘埃球在最大半径 $a_{\max}$ 处从静止开始坍缩，可引入参数 $0\leqslant\eta\leqslant\pi$，写成
 \[
-    a(\eta)=\frac{a_{\max}}{2}(1+\cos\eta),\qquad
+    a(\eta)=\frac{a_{\max}}{2}(1+\cos\eta),\quad
     \tau(\eta)=\frac{a_{\max}}{2}(\eta+\sin\eta).
 \]
 因此 $a$ 在固有时 $\tau_s=\pi a_{\max}/2$ 变为零。这个模型中所有尘埃壳层同时到达 $R=0$，密度和曲率发散，形成类空奇性。
@@ -615,7 +615,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 \]
 表面越过其 Schwarzschild 半径的条件 $R=2M$ 给出
 \[
-    \eta_H=\pi-2\chi_b\qquad(0<\chi_b<\pi/2),
+    \eta_H=\pi-2\chi_b\quad(0<\chi_b<\pi/2),
 \]
 显然发生在 $\eta=\pi$ 的奇性之前。Oppenheimer--Snyder 模型忽略了压强、密度梯度、自转和辐射，却清楚展示了一个关键事实：正则初始数据可以在有限固有时内演化出视界和奇性，外部则始终保持 Schwarzschild 形式。
 
@@ -627,7 +627,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 
 表观视界是准局域概念，可以由某一时刻的几何求出，但其位置依赖空间切片。事件视界则由整个时空定义：
 \[
-    \mathcal B=M\setminus J^-(\mathscr I^+),\qquad
+    \mathcal B=M\setminus J^-(\mathscr I^+),\quad
     \mathcal H^+=\partial J^-(\mathscr I^+),
 \]
 其中 $\mathcal B$ 是黑洞区。要判断一束光最终能否到达 $\mathscr I^+$，原则上必须知道时空的全部未来。因此事件视界可以穿过局部曲率有限、尚未出现陷获面的区域。在球对称坍缩图中，它从正则中心发出，穿过星体表面后成为外部的 $r=2M$ 类光超曲面。
@@ -697,8 +697,8 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 
 稳态轴对称时空具有两个对易 Killing 矢量
 \[
-    \xi=\p_t,\qquad \psi=\p_\phi,
-    \qquad [\xi,\psi]=0,
+    \xi=\p_t,\quad \psi=\p_\phi,
+    \quad [\xi,\psi]=0,
 \]
 其中 $\xi$ 在无穷远取单位时间平移，$\psi$ 的轨道以 $2\pi$ 为周期，并在旋转轴上退化为零。对于满足正交传递性（又称圆性条件）的 Einstein--Maxwell 解，可选取适配坐标 $(t,\phi,x^1,x^2)$，使度规写成
 \[
@@ -717,7 +717,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 
 取 Boyer--Lindquist 坐标 $(t,r,\theta,\phi)$，定义
 \begin{equation}\label{eq:kn-functions}
-    \Sigma=r^2+a^2\cos^2\theta,\qquad
+    \Sigma=r^2+a^2\cos^2\theta,\quad
     \Delta=r^2-2Mr+a^2+Q^2,
 \end{equation}
 则 Kerr--Newman 度规为（证明从略）
@@ -734,7 +734,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 \begin{equation}\label{eq:kn-potential}
     A=\frac{Qr}{\Sigma}
        (\d t-a\sin^2\theta\,\d\phi),
-    \qquad F=\d A .
+    \quad F=\d A .
 \end{equation}
 电势的整体正负可吸收到 $Q$ 的定义中，度规则只依赖 $Q^2$。展开 \eqref{eq:kn-metric} 的 $t,\phi$ 部分并记
 \[
@@ -745,14 +745,14 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 \begin{split}
     g_{tt}&=-\left(1-\frac{2Mr-Q^2}{\Sigma}\right),\\
     g_{t\phi}&=-\frac{a(2Mr-Q^2)\sin^2\theta}{\Sigma},\\
-    g_{\phi\phi}&=\frac{\mathcal A\sin^2\theta}{\Sigma},\qquad
+    g_{\phi\phi}&=\frac{\mathcal A\sin^2\theta}{\Sigma},\quad
     \det(g_{\mu\nu})=-\Sigma^2\sin^2\theta .
 \end{split}
 \end{equation}
 
 在 $r\to\infty$ 时，$g_{tt}=-1+2M/r+O(r^{-2})$、$g_{t\phi}=-2Ma\sin^2\theta/r+O(r^{-2})$ 且 $A_t=Q/r+O(r^{-3})$，故 ADM 质量、角动量与电荷分别为
 \[
-    M,\qquad J=Ma,\qquad Q.
+    M,\quad J=Ma,\quad Q.
 \]
 $a$ 因而是单位质量角动量。置 $Q=0$ 得 Kerr 解，置 $a=0$ 得 Reissner--Nordstr\"om 解，再置 $a=Q=0$ 便退化为 Schwarzschild 解。Boyer--Lindquist 坐标中的 $r$ 不是面积半径；$r=\text{常数}$ 的二维曲面一般也不是圆球。
 
@@ -765,7 +765,7 @@ $a$ 因而是单位质量角动量。置 $Q=0$ 得 Kerr 解，置 $a=0$ 得 Reis
 $\Sigma/\Delta$ 在 $r=r_\pm$ 发散只是 Boyer--Lindquist 坐标奇性。引入内落坐标
 \begin{equation}\label{eq:kn-ingoing}
     \d v=\d t+\frac{r^2+a^2}{\Delta}\d r,
-    \qquad
+    \quad
     \d\tilde\phi=\d\phi+\frac{a}{\Delta}\d r,
 \end{equation}
 度规便可光滑穿过未来外视界；电磁势中出现的纯 $r$ 项也可由规范变换消去。对亚极端精确解继续作解析延拓，可依次穿过外视界与内视界，并在避开 $\Sigma=0$ 时穿过 $r=0$ 圆盘进入 $r<0$ 区域，继而出现更多渐近平直区域。其径向因果块与亚极端 Reissner--Nordstr\"om 时空同样形成无限链，但 KN 时空不是球对称的：把角方向全部压掉的二维 Penrose 图只能表示这一块结构，不能显示环奇性和穿过圆盘时对 $\theta$ 的依赖。
@@ -783,7 +783,7 @@ KN 测地线虽不再具有球对称性，却仍因隐藏对称性而完全可�
     \Sigma^2\dot\theta^2&=\mathcal C-\cos^2\theta
       \left[a^2(\epsilon-E^2)+\frac{L^2}{\sin^2\theta}\right],\label{eq:kn-angular}\\
     \Sigma\dot t&=a(L-aE\sin^2\theta)
-      +\frac{r^2+a^2}{\Delta}\mathcal P,\qquad
+      +\frac{r^2+a^2}{\Delta}\mathcal P,\quad
     \Sigma\dot\phi=\frac{L}{\sin^2\theta}-aE
       +\frac{a}{\Delta}\mathcal P .\label{eq:kn-tphi}
 \end{align}
@@ -801,7 +801,7 @@ KN 测地线虽不再具有球对称性，却仍因隐藏对称性而完全可�
 外视界的类光生成元是两个 Killing 矢量的线性组合
 \begin{equation}\label{eq:kn-generator}
     \chi=\xi+\Omega_H\psi,
-    \qquad \Omega_H=\frac{a}{r_+^2+a^2}.
+    \quad \Omega_H=\frac{a}{r_+^2+a^2}.
 \end{equation}
 $\chi$ 在 $r=r_+$ 上为类光，故外视界是 Killing 视界；$\Omega_H$ 与 $\theta$ 无关，表示整个视界像刚体一样以同一角速度旋转。其空间截面的面积为
 \begin{equation}\label{eq:kn-area}
@@ -818,7 +818,7 @@ $\chi$ 在 $r=r_+$ 上为类光，故外视界是 Killing 视界；$\Omega_H$ �
 对静止发射者而言，红移因子 $\sqrt{-g_{tt}}$ 在 $r=r_{\rm s}$ 趋于零，所以静止极限面的确也是无限红移面。不过旋转时一般稳态观者沿 $\xi+\Omega\psi$ 而非 $\xi$ 运动，其红移还依赖 $\Omega$ 与光子的角动量；因此无限红移面不是事件视界。无限红移面是能层的外边界，而事件视界位于其内侧。允许的稳态角速度范围由
 \begin{equation}\label{eq:kn-omega-range}
     \Omega_-<\Omega<\Omega_+,
-    \qquad
+    \quad
     \Omega_\pm=\frac{-g_{t\phi}\pm
       \sqrt{g_{t\phi}^2-g_{tt}g_{\phi\phi}}}{g_{\phi\phi}}
 \end{equation}
@@ -850,7 +850,7 @@ $\chi$ 在 $r=r_+$ 上为类光，故外视界是 Killing 视界；$\Omega_H$ �
 归一化后，ZAMO 的 4-速度为
 \begin{equation}\label{eq:kn-zamo}
     n=\alpha^{-1}(\p_t+\omega\p_\phi),
-    \qquad
+    \quad
     \alpha=\sqrt{\frac{\Delta\Sigma}{\mathcal A}}.
 \end{equation}
 $\alpha$ 是 Boyer--Lindquist 时间切片的时移。远处 $\omega\sim2J/r^3$，给出弱场的 Lense--Thirring 拖曳；趋近外视界时 $\omega\to\Omega_H$、$\alpha\to0$。因此任何贴近视界而保持 $r,\theta$ 不变的观者都被迫以 $\Omega_H$ 共转，同时需要无限大的加速度；ZAMO 本身不能作为类时观者停在视界上。
@@ -860,7 +860,7 @@ $\alpha$ 是 Boyer--Lindquist 时间切片的时移。远处 $\omega\sim2J/r^3$�
 稳态与轴对称性使中性粒子的
 \[
     E=-p_\mu\xi^\mu=-p_t,
-    \qquad L=p_\mu\psi^\mu=p_\phi
+    \quad L=p_\mu\psi^\mu=p_\phi
 \]
 沿测地线守恒。在能层外，$\xi$ 为未来类时，任意未来因果粒子必有 $E>0$；在能层内 $\xi$ 变为类空，遂允许相对于无穷远具有 $E<0$ 的未来因果轨道。这并非粒子在局域标架中具有负能量，而是 Killing 能量的符号发生了变化。
 
@@ -893,7 +893,7 @@ $\alpha$ 是 Boyer--Lindquist 时间切片的时移。远处 $\omega\sim2J/r^3$�
 “无毛”并不是说外场没有高阶多极矩，而是说这些多极矩不是独立参量。以适当的质量多极矩 $M_\ell$、流多极矩 $S_\ell$ 以及电、磁多极矩 $Q_\ell,P_\ell$ 表示，KN 解满足
 \begin{equation}\label{eq:kn-multipoles}
     M_\ell+\mathrm{i}S_\ell=M(\mathrm{i}a)^\ell,
-    \qquad
+    \quad
     Q_\ell+\mathrm{i}P_\ell=Q(\mathrm{i}a)^\ell .
 \end{equation}
 例如 $M_0=M$、$S_1=J$、$M_2=-Ma^2$；一旦测得 $M,J,Q$，所有更高矩都已固定。这使观测黑洞四极矩成为检验 Kerr--Newman 几何的重要思路。
@@ -917,14 +917,14 @@ $\alpha$ 是 Boyer--Lindquist 时间切片的时移。远处 $\omega\sim2J/r^3$�
 对稳态黑洞，事件视界通常同时是某个 Killing 矢量 $\chi^a$ 的 Killing 视界。也就是说，$\chi^a$ 在视界上既与视界相切又为类光，并生成其类光母线。对 Kerr--Newman 黑洞，式 \eqref{eq:kn-generator} 已给出 $\chi=\xi+\Omega_H\psi$。沿视界生成元的参数一般不是仿射参数，而满足
 \begin{equation}\label{eq:surface-gravity-def}
     \chi^b\nabla_b\chi^a=\kappa\chi^a,
-    \qquad
+    \quad
     \nabla_a(\chi^b\chi_b)=-2\kappa\chi_a
     \quad\text{于 }\mathcal H^+ .
 \end{equation}
 比例系数 $\kappa$ 称为\textbf{表面引力}(surface gravity)。在渐近平直时空中，把 $\xi$ 归一化为无穷远处的单位时间平移便固定了 $\chi$ 的尺度，因而也固定了 $\kappa$。对亚极端 Kerr--Newman 黑洞，
 \begin{equation}\label{eq:kn-thermo-potentials}
-    \kappa=\frac{r_+-r_-}{2(r_+^2+a^2)},\qquad
-    \Omega_H=\frac{a}{r_+^2+a^2},\qquad
+    \kappa=\frac{r_+-r_-}{2(r_+^2+a^2)},\quad
+    \Omega_H=\frac{a}{r_+^2+a^2},\quad
     \Phi_H=\frac{Qr_+}{r_+^2+a^2}.
 \end{equation}
 这里 $\Phi_H$ 是视界生成元所测得的电势与无穷远电势之差，其符号随电磁势和电荷的约定一起改变。极端极限 $r_+=r_-$ 给出 $\kappa=0$。
@@ -972,8 +972,8 @@ $\Omega_H$ 和 $\Phi_H$ 分别是角动量与电荷的化学势。该式既可�
 \end{equation}
 这就是\textbf{Bekenstein--Hawking 熵}。面积而不是体积控制熵，是量子引力最重要的线索之一。对 Schwarzschild 黑洞，$A_H=16\pi M^2$ 且 $\kappa=1/(4M)$，所以
 \begin{equation}\label{eq:schwarzschild-thermo}
-    T_H=\frac{\hbar}{8\pi M},\qquad
-    S_{\rm BH}=\frac{4\pi M^2}{\hbar},\qquad
+    T_H=\frac{\hbar}{8\pi M},\quad
+    S_{\rm BH}=\frac{4\pi M^2}{\hbar},\quad
     C=\dv{M}{T_H}=-\frac{8\pi M^2}{\hbar}.
 \end{equation}
 负热容表示孤立黑洞越辐射越热。在渐近平直真空中，其功率量级为 $P\sim\hbar/M^2$，寿命量级为 $t_{\rm evap}\sim M^3/\hbar$；数值系数取决于可辐射粒子种类和灰体因子。负热容也说明渐近平直黑洞不能像普通物质那样与无限大热库形成稳定正则系综；若置于有限空腔或 AdS 时空，稳定性则可能改变。
@@ -992,8 +992,8 @@ $S_{\rm out}$ 的纠缠熵在视界附近含紫外发散，面积项所用的 Ne
 
 为了描述“黑洞本身已平衡、远处仍可有辐射”的情形，可用局域视界取代全局 Killing 视界。第一层结构是\textbf{非膨胀视界}(non-expanding horizon, NEH)：$\Delta$ 是拓扑为 $S^2\times\mathbb R$ 的类光超曲面，其退化内禀度规为 $q_{ab}$，任一未来类光法矢 $\ell^a$ 都满足 $\theta_{(\ell)}=0$，并要求场方程及适当的主导能量条件在 $\Delta$ 上成立。Raychaudhuri 方程随即给出
 \[
-    \sigma^{(\ell)}_{ab}=0,\qquad
-    T_{ab}\ell^a\ell^b=0,\qquad
+    \sigma^{(\ell)}_{ab}=0,\quad
+    T_{ab}\ell^a\ell^b=0,\quad
     \mathcal L_\ell q_{ab}=0.
 \]
 所以各截面面积相同，内禀度规沿生成元不变，也没有物质或引力辐射穿过 $\Delta$。
@@ -1005,7 +1005,7 @@ NEH 上的时空联络诱导出唯一的无挠内禀联络 $\mathcal D_a$。取�
 定义法丛联络 1-形式 $\omega_a$。若进一步要求
 \begin{equation}\label{eq:wih-condition}
     [\mathcal L_\ell,\mathcal D_a]\ell^b=0,
-    \qquad\text{等价地}\qquad
+    \quad\text{等价地}\quad
     \mathcal L_\ell\omega_a=0,
 \end{equation}
 则 $(\Delta,[\ell])$ 称为\textbf{弱孤立视界}(weakly isolated horizon, WIH)。其表面引力为 $\kappa_{(\ell)}=\ell^a\omega_a$。在视界上 $\iota_\ell\d\omega=0$，故由 Cartan 恒等式 $\mathcal L_\ell\omega=\d\kappa_{(\ell)}+\iota_\ell\d\omega$ 与式 \eqref{eq:wih-condition} 得 $\d\kappa_{(\ell)}=0$；这就是不依赖外部全局稳态的\textbf{第零定律}。重标度 $\ell\mapsto c\ell$ 会令 $\kappa_{(\ell)}\mapsto c\kappa_{(\ell)}$，但不破坏其在视界上的常值性。
@@ -1030,21 +1030,21 @@ NEH 上的时空联络诱导出唯一的无挠内禀联络 $\mathcal D_a$。取�
 
 令 $\hat\tau^a$ 是 $H$ 的未来单位类时法矢，$h_{ab}=g_{ab}+\hat\tau_a\hat\tau_b$ 是 $H$ 的三维诱导度规，$K_{ab}=h_a{}^ch_b{}^d\nabla_c\hat\tau_d$ 是外曲率。再令 $\hat r^a$ 为 $H$ 内垂直于叶片的外向单位法矢，$q_{ab}=h_{ab}-\hat r_a\hat r_b$ 为 $S$ 的二维度规，$\widetilde K_{ab}=q_a{}^cq_b{}^dD_c\hat r_d$ 为 $S\subset H$ 的外曲率。固定
 \[
-    \ell^a=\hat\tau^a+\hat r^a,\qquad
-    n^a=\hat\tau^a-\hat r^a,\qquad
+    \ell^a=\hat\tau^a+\hat r^a,\quad
+    n^a=\hat\tau^a-\hat r^a,\quad
     \ell\cdot n=-2,
 \]
 则分层条件与几何量的关系为
 \begin{equation}\label{eq:dh-foliation-geometry}
     \theta_{(\ell)}=q^{ab}(K_{ab}+\widetilde K_{ab})=0,
-    \qquad
+    \quad
     \theta_{(n)}=q^{ab}(K_{ab}-\widetilde K_{ab})<0.
 \end{equation}
 特别地，$\widetilde K=q^{ab}D_a\hat r_b=-\theta_{(n)}/2>0$，所以叶片面积沿 $\hat r^a$ 增加。三维数据 $(h_{ab},K_{ab})$ 还满足 Hamilton 与动量约束
 \begin{equation}\label{eq:dh-constraints}
     {}^{(3)}R+K^2-K_{ab}K^{ab}
        =16\pi T_{ab}\hat\tau^a\hat\tau^b,
-    \qquad
+    \quad
     D_b(K^{ab}-Kh^{ab})
        =8\pi T^{bc}\hat\tau_c h^a{}_b .
 \end{equation}
@@ -1084,9 +1084,9 @@ NEH 上的时空联络诱导出唯一的无挠内禀联络 $\mathcal D_a$。取�
 
 为显示有限过程的第一定律，先忽略电荷并选取与 Kerr 关系相容的视界能量与势
 \[
-    E_H(R,J)=\frac{\sqrt{R^4+4J^2}}{2R},\qquad
+    E_H(R,J)=\frac{\sqrt{R^4+4J^2}}{2R},\quad
     \kappa_{\rm eff}=\frac{R^4-4J^2}
-      {2R^3\sqrt{R^4+4J^2}},\qquad
+      {2R^3\sqrt{R^4+4J^2}},\quad
     \Omega_{\rm eff}=\frac{2J}{R\sqrt{R^4+4J^2}}.
 \]
 于是相邻叶片满足 $\d E_H=\kappa_{\rm eff}\d A/(8\pi)+\Omega_{\rm eff}\d J$。令 $r^0(R)$ 满足 $\dv*{r^0}{R}=2R\kappa_{\rm eff}$，并记 $N_{r^0}=|D r^0|$；沿 $\Delta H$ 积分则得到
@@ -1138,8 +1138,8 @@ Hawking 的原始半经典计算给出的晚时辐射近似热化；每个外部
 \end{equation}
 取迹后得到 $R=4\Lambda$，再代回原式即有 $R_{\mu\nu}=\Lambda g_{\mu\nu}$。不过，Ricci 张量与度规成比例只说明时空是 Einstein 空间，尚不自动保证其截面曲率处处相同；dS 与 AdS 还满足更强的最大对称性。定义曲率半径 $L>0$ 及符号 $\epsilon$ 为
 \[
-    \Lambda=\epsilon\frac{3}{L^2},\qquad
-    \epsilon=+1\ \text{对应 dS},\qquad
+    \Lambda=\epsilon\frac{3}{L^2},\quad
+    \epsilon=+1\ \text{对应 dS},\quad
     \epsilon=-1\ \text{对应 AdS},
 \]
 则其完整曲率张量为
@@ -1147,14 +1147,14 @@ Hawking 的原始半经典计算给出的晚时辐射近似热化；每个外部
     R_{\mu\nu\rho\sigma}
       =\frac{\epsilon}{L^2}
        \left(g_{\mu\rho}g_{\nu\sigma}-g_{\mu\sigma}g_{\nu\rho}\right),
-    \qquad
+    \quad
     R_{\mu\nu}=\frac{3\epsilon}{L^2}g_{\mu\nu},
-    \qquad
+    \quad
     R=\frac{12\epsilon}{L^2}.
 \end{equation}
 因此 Weyl 张量为零，且
 \[
-    R_{\mu\nu}R^{\mu\nu}=\frac{36}{L^4},\qquad
+    R_{\mu\nu}R^{\mu\nu}=\frac{36}{L^4},\quad
     R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}=\frac{24}{L^4}.
 \]
 这些不变量处处有限，故 dS、AdS 的坐标边界都不能仅凭曲率发散判作奇性。
@@ -1162,8 +1162,8 @@ Hawking 的原始半经典计算给出的晚时辐射近似热化；每个外部
 四维最大对称时空具有 $4\times5/2=10$ 个独立 Killing 矢量。Minkowski、dS 与 AdS 分别是零、正、负常曲率的 Lorentz 时空；忽略离散分支与万有覆盖的差别，其等距群分别为 Poincar\'e 群 $ISO(1,3)$、$SO(1,4)$ 与 $SO(2,3)$。若把宇宙学常数移到方程右侧，它等效于
 \[
     T^{(\Lambda)}_{\mu\nu}=-\frac{\Lambda}{8\pi}g_{\mu\nu},
-    \qquad
-    \rho_\Lambda=\frac{\Lambda}{8\pi},\qquad
+    \quad
+    \rho_\Lambda=\frac{\Lambda}{8\pi},\quad
     p_\Lambda=-\rho_\Lambda,
 \]
 即状态方程 $p=-\rho$ 的 Lorentz 不变真空能。
@@ -1177,46 +1177,46 @@ $\d s_5^2=-(\d X^0)^2+\sum_{A=1}^4(\d X^A)^2$。单叶双曲面
 \end{equation}
 的诱导度规就是四维 \textbf{de Sitter 时空}。令 $n^A$ 是单位 3-球上的坐标，即 $\sum_A(n^A)^2=1$，并取
 \[
-    X^0=L\sinh(T/L),\qquad
+    X^0=L\sinh(T/L),\quad
     X^A=L\cosh(T/L)n^A,
 \]
 便得到覆盖整个双曲面的全局坐标
 \begin{equation}\label{eq:dS-global}
     \d s^2=-\d T^2+L^2\cosh^2(T/L)\,\d\Omega_3^2,
-    \qquad -\infty<T<\infty.
+    \quad -\infty<T<\infty.
 \end{equation}
 每个 $T$ 常数面都是 $S^3$，故整体拓扑为 $\mathbb R\times S^3$。该坐标把 dS 写成闭合 FLRW 宇宙：空间先收缩，在 $T=0$ 达到最小半径 $L$，再重新膨胀。这只是所选分层的表现，并不破坏时空本身的最大对称性。
 
 为看清因果结构，定义全局共形时间
 \[
-    \tan\eta=\sinh(T/L),\qquad
+    \tan\eta=\sinh(T/L),\quad
     -\frac\pi2<\eta<\frac\pi2.
 \]
 将 $\d\Omega_3^2=\d\chi^2+\sin^2\chi\,\d\Omega^2$ 写成极坐标形式后，式 \eqref{eq:dS-global} 成为
 \begin{equation}\label{eq:dS-conformal}
     \d s^2=\frac{L^2}{\cos^2\eta}
       \left(-\d\eta^2+\d\chi^2+\sin^2\chi\,\d\Omega^2\right),
-    \qquad 0\leqslant\chi\leqslant\pi.
+    \quad 0\leqslant\chi\leqslant\pi.
 \end{equation}
 去掉共形因子后，径向光线满足 $\d\chi=\pm\d\eta$。过去与未来无穷远 $\mathscr I^-$、$\mathscr I^+$ 分别位于 $\eta=-\pi/2$、$\eta=\pi/2$，都是类空边界；这与渐近平直时空的类光无穷远截然不同。
 
 图 \ref{fig:dS-penrose} 显示，一个从 $\mathscr I^-$ 延伸到 $\mathscr I^+$ 的观者不能与整个 dS 时空交换信号。相对于 $\chi=0$ 的观者 $\gamma$，其过去、未来宇宙学视界在球对称商空间中围出一个静态区域。相应的嵌入坐标变换为
 \[
-    X^0=\sqrt{L^2-r^2}\sinh(t/L),\qquad
-    X^4=\sqrt{L^2-r^2}\cosh(t/L),\qquad
+    X^0=\sqrt{L^2-r^2}\sinh(t/L),\quad
+    X^4=\sqrt{L^2-r^2}\cosh(t/L),\quad
     (X^1,X^2,X^3)=r\bm n,
 \]
 静态坐标下的度规为
 \begin{equation}\label{eq:dS-static}
     \d s^2=-\left(1-\frac{r^2}{L^2}\right)\d t^2
       +\left(1-\frac{r^2}{L^2}\right)^{-1}\d r^2+r^2\d\Omega^2,
-    \qquad 0\leqslant r<L.
+    \quad 0\leqslant r<L.
 \end{equation}
 $r=L$ 是静态 Killing 矢量 $\partial_t$ 的 Killing 视界，并非曲率奇性。它的表面引力、Gibbons--Hawking 温度和视界熵分别为
 \begin{equation}\label{eq:dS-thermodynamics}
     \kappa_{\rm dS}=\frac1L,
-    \qquad T_{\rm dS}=\frac{\hbar}{2\pi L},
-    \qquad S_{\rm dS}=\frac{4\pi L^2}{4\hbar}=\frac{\pi L^2}{\hbar}.
+    \quad T_{\rm dS}=\frac{\hbar}{2\pi L},
+    \quad S_{\rm dS}=\frac{4\pi L^2}{4\hbar}=\frac{\pi L^2}{\hbar}.
 \end{equation}
 这里的视界依赖观者：换一条测地观者世界线会改变静态区域的位置，但不会改变其半径和热力学量。
 
@@ -1250,7 +1250,7 @@ dS 还可写成空间平直的膨胀坐标
     \d s^2=-\d\tau^2+\e^{2\tau/L}\d\bm x^2
       =\frac{L^2}{\eta_{\rm f}^2}
        \left(-\d\eta_{\rm f}^2+\d\bm x^2\right),
-    \qquad \eta_{\rm f}=-L\e^{-\tau/L}<0.
+    \quad \eta_{\rm f}=-L\e^{-\tau/L}<0.
 \end{equation}
 此时 Hubble 参数恒为 $H=1/L$。这套坐标只覆盖完整 dS 的一个膨胀半部；$\tau\to-\infty$ 的坐标边界不是式 \eqref{eq:dS-embedding} 上的曲率奇性。
 
@@ -1260,13 +1260,13 @@ dS 还可写成空间平直的膨胀坐标
 \begin{equation}\label{eq:flrw-conformal-radial}
     \d s^2=a^2(\eta)
       \left[-\d\eta^2+\d\chi^2+S_k^2(\chi)\d\Omega^2\right],
-    \qquad \d\eta=\frac{\d t}{a(t)},
+    \quad \d\eta=\frac{\d t}{a(t)},
 \end{equation}
 其中 $S_k(\chi)=\sin\chi,\chi,\sinh\chi$ 分别对应 $k=+1,0,-1$。径向光线仍满足 $\d\chi=\pm\d\eta$。若该宇宙学区域的初、末时刻为 $t_i,t_f$，则时刻 $t$ 的两个共动视界尺度为
 \begin{equation}\label{eq:particle-event-horizon}
     \chi_{\rm p}(t)=\int_{t_i}^{t}\frac{\d t'}{a(t')}
       =\eta(t)-\eta_i,
-    \qquad
+    \quad
     \chi_{\rm e}(t)=\int_t^{t_f}\frac{\d t'}{a(t')}
       =\eta_f-\eta(t).
 \end{equation}
@@ -1277,7 +1277,7 @@ dS 还可写成空间平直的膨胀坐标
 对式 \eqref{eq:dS-flat-slicing} 的永恒膨胀区域，$a(\tau)=\e^{H\tau}$ 且未来端点为 $\tau_f=+\infty$，所以
 \[
     \chi_{\rm e}(\tau)=\frac{\e^{-H\tau}}{H},
-    \qquad D_{\rm e}=a(\tau)\chi_{\rm e}(\tau)=H^{-1}=L.
+    \quad D_{\rm e}=a(\tau)\chi_{\rm e}(\tau)=H^{-1}=L.
 \]
 故 dS 的事件视界恰与 Hubble 半径重合；这是指数膨胀的特殊性质。若从有限初始时刻开始考察，粒子视界也随初始面的选取而出现。完整全局 dS 中，静态观者同时具有图 \ref{fig:dS-penrose} 所示的过去与未来宇宙学视界。
 
@@ -1286,9 +1286,9 @@ dS 还可写成空间平直的膨胀坐标
 含宇宙学常数的 Birkhoff 定理给出的球对称真空解称为 \textbf{Schwarzschild--de Sitter 时空}或 Kottler 时空：
 \begin{equation}\label{eq:schwarzschild-dS}
     \d s^2=-f(r)\d t^2+\frac{\d r^2}{f(r)}+r^2\d\Omega^2,
-    \qquad
+    \quad
     f(r)=1-\frac{2M}{r}-\frac{r^2}{L^2},
-    \qquad L^2=\frac3\Lambda.
+    \quad L^2=\frac3\Lambda.
 \end{equation}
 当 $M=0$ 时它退化为 dS 静态坐标；当 $\Lambda\to0$ 时，宇宙学视界移向无穷远并恢复 Schwarzschild 解。
 
@@ -1298,12 +1298,12 @@ dS 还可写成空间平直的膨胀坐标
 \end{equation}
 则 $f(r)=0$ 有两个正根 $r_b<r_c$。$r_b$ 是黑洞视界，$r_c$ 是宇宙学视界，而 $r_b<r<r_c$ 是 $\partial_t$ 为类时的静态区域。小 $M/L$ 极限下
 \[
-    r_b=2M+O(M^3/L^2),\qquad
+    r_b=2M+O(M^3/L^2),\quad
     r_c=L-M+O(M^2/L).
 \]
 两个视界重合的极限满足
 \[
-    9M^2\Lambda=1,\qquad r_b=r_c=\frac1{\sqrt\Lambda}=3M,
+    9M^2\Lambda=1,\quad r_b=r_c=\frac1{\sqrt\Lambda}=3M,
 \]
 称为 \textbf{Nariai 极限}。此时原静态坐标区间缩并；适当放大两视界之间的区域后得到 $\mathrm{dS}_2\times S^2$，而不是简单地把 $r_b=r_c$ 代入后丢弃该区域。
 
@@ -1311,7 +1311,7 @@ dS 还可写成空间平直的膨胀坐标
 \begin{equation}\label{eq:sdS-surface-gravity}
     \kappa_h=\frac12|f'(r_h)|
       =\left|\frac{M}{r_h^2}-\frac{r_h}{L^2}\right|,
-    \qquad T_h=\frac{\hbar\kappa_h}{2\pi}.
+    \quad T_h=\frac{\hbar\kappa_h}{2\pi}.
 \end{equation}
 一般有 $\kappa_b\ne\kappa_c$，所以同一静态区域的两个视界具有不同温度，不能用一个 Euclidean 时间周期同时消除两端的锥形奇性。又因该时空没有渐近平直无穷远，$\partial_t$ 缺少由无穷远单位观者给出的唯一归一化；讨论绝对温度时必须明确所用的静态观者或归一化约定。
 
@@ -1335,9 +1335,9 @@ $M$ 所产生的 Weyl 曲率使
 \end{equation}
 的诱导度规是四维 \textbf{anti-de Sitter 时空}。取
 \[
-    X^{-1}=L\cosh\rho\cos\tau,\qquad
+    X^{-1}=L\cosh\rho\cos\tau,\quad
     X^0=L\cosh\rho\sin\tau,
-    \qquad X^i=L\sinh\rho\,n^i,
+    \quad X^i=L\sinh\rho\,n^i,
 \]
 其中 $\bm n\in S^2$，可得
 \begin{equation}\label{eq:AdS-global-rho}
@@ -1384,14 +1384,14 @@ $M$ 所产生的 Weyl 曲率使
 \begin{equation}\label{eq:AdS-poincare}
     \d s^2=\frac{L^2}{z^2}
       \left(\d z^2-\d t^2+\d x^2+\d y^2\right),
-    \qquad z>0.
+    \quad z>0.
 \end{equation}
 $z=0$ 是共形边界的一部分，其代表度规为三维 Minkowski 度规；$z\to\infty$ 是 Poincar\'e 视界。两者都不是曲率奇性，这套坐标只覆盖全局 AdS 的一个区域。AdS 等距群 $SO(2,3)$ 在边界上恰表现为三维时空的共形群，这是 AdS/CFT 对应的几何起点。
 
 最后，负宇宙学常数也显著改变黑洞热力学。四维 Schwarzschild--AdS 解为
 \begin{equation}\label{eq:schwarzschild-AdS}
     f(r)=1-\frac{2M}{r}+\frac{r^2}{L^2},
-    \qquad
+    \quad
     T_H=\frac{\hbar}{4\pi r_h}
       \left(1+\frac{3r_h^2}{L^2}\right),
 \end{equation}

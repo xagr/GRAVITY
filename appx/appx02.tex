@@ -241,14 +241,15 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 \end{theorem}
 
 \begin{theorem}
-    置 $f\in V^0_k,g\in V^0_l$，则 $\A(\A f\otimes g)=\A(f\otimes\A g)=\A(f\otimes g)$。证明思想与第 \ref{sec:tensor} 节的方法一致。
+    置 $f\in V^0_k,g\in V^0_l$，则 $\A(\A f\otimes g)=\A(f\otimes\A g)=\A(f\otimes g)$。证明思想与第 \ref{sec:Lag} 节的方法一致。
 \end{theorem}
 
 严格来说，由于不同型张量暂不能相加，故还未得到张量代数。设线性空间族 $\{X_i\}$。将 $X_1\times\cdots\times X_s$ 构造为线性空间，只需给定 $(x_1,\cdots,x_s)\oplus(y_1,\cdots,y_s)=(x_1+y_1,\cdots,x_s+y_s)$ 和 $\lambda(x_1,\cdots,x_s)=(\lambda x_1,\cdots,\lambda x_s)$ 即可。此即线性空间的\textbf{直和}(direct sum)。线性空间改记为 $X_1\oplus\cdots\oplus X_s$，元素改记为 $x_1\oplus\cdots\oplus x_s$。直和可从 $s\in\N$ 推广至可数无穷，但要求 $\bigoplus_{i=1}^\infty x_i$ 中仅有限个 $x_i$ 非零。\textbf{张量代数}定义为
 \eq{
-    V=\bigoplus_{k,l=1}^\infty V^k_l.
+    T(V)=\bigoplus_{k,l=0}^\infty V^k_l.
 }
-它显然是无穷维线性空间。张量积构成其乘法运算，故容易看出其的确是代数。这种构造类似于二次量子化中 Fock 空间的构造 $V\to\mathscr H$，其中 $\mathscr H$ 是之后要学的单粒子 Hilbert 空间。
+它显然是无穷维线性空间。张量积构成其乘法运算，故容易看出其的确是代数。
+这种构造与量子场论中 Fock 空间的构造类似：从单粒子 Hilbert 空间 $\mathscr H$ 出发，对其各阶（反）对称张量积取 Hilbert 直和，即得到描述任意粒子数态的 Fock 空间 $\mathscr F_\pm(\mathscr H)$，见 \ref{sec:infinite}。
 
 \section{内积空间}
 
@@ -335,10 +336,10 @@ $f$ 满秩时称为非退化的。易证充要条件是分量矩阵可逆，或
 $\C$ 也能作为通常度量空间。以拓扑线性空间为对象、连续线性映射为态射，可构建\textbf{拓扑线性空间范畴} $\cate{TopVect}(\mathbb C)$。
 
 \begin{definition}
-    内积空间上全体连续线性函数之集称为其\textbf{共轭空间}或\textbf{对偶空间}。
+    内积空间上全体连续线性函数之集称为其\textbf{共轭空间}。
 \end{definition}
 \begin{remark}
-    有限维内积空间 $V$ 上的线性函数必连续，故 $\hom(V,\F)$ 等价于此处定义的对偶空间。
+    有限维内积空间 $V$ 上的线性函数必连续，故 $\hom(V,\F)$ 等价于此处定义的共轭空间。
 \end{remark}
 
 \section{外代数}
@@ -556,3 +557,9 @@ Penrose 首创一种兼顾二者优势的书写系统：仍用类似于分量语
 严格来讲，从映射语言或抽象指标得到分量语言，需经展开和缩并过程，并注意 $(e^\mu)_a(e_\mu)^b=\delta_a^b$。比如从 $g_{ab} v^b=v_a$ 得 $g_{\mu\nu} v^\nu=g_{ab} (e_\mu)^a(e_\nu)^b v^c (e^\nu)_c=g_{ab} (e_\mu)^a v^b=v_\mu$。但显然直接把抽象指标替换为具体指标，通常就是分量语言的结果。可见使用抽象指标的意义并不凸显。
 
 抽象指标的另一目的是表示张量等式，然而，欲用抽象指标代替受基影响的分量方程，须探讨“基依赖的张量”这种拗口概念。比如设基底 $\{e_\mu\}$，矢量的协变导数为 $\nabla_\nu V^\mu =\partial_\nu{V^\mu}+\Gamma^\mu_{\nu\sigma}V^\sigma$，其中克氏符可选特殊基而消去。该式在抽象指标下强行写作 $\nabla_b V^a =\partial_b{V^a}+\Gamma^a_{bc}V^c$，这里 $\partial_b{V^a},\Gamma^a_{bc}$ 都解释成“基依赖的张量”。若换成新基 $\{e_\mu'\}$，则 $\partial_b,\Gamma^a_{bc}$ 都得换成对应的 $\partial_b',\Gamma'^a_{bc}$。这样，$\Gamma^\mu_{\nu\sigma}$ 是 $\Gamma^a_{bc}$ 在 $\{e_\mu\}$ 的分量，$\Gamma'^\mu_{\nu\sigma}$ 是 $\Gamma'^a_{bc}$ 在 $\{e'_\mu\}$ 的分量，故 $\Gamma^\mu_{\nu\sigma},\Gamma'^\mu_{\nu\sigma}$ 不属于同一张量的分量，不满足张量变换律。为了避免使用 $\Gamma^a_{bc}$，数学教材向来直接用分量定义克氏符。既然如此，都已放弃这一概念，就更没必要用抽象指标书写受基影响的分量方程。这就是为何当今多数文献没有采用抽象指标。
+
+\section{无穷维线性代数*}\label{sec:infinite}
+
+%% 完备
+
+量子场论考虑粒子数可变的量子态，设 $\mathscr H$ 为单粒子 Hilbert 空间，则 $n$ 粒子量子态位于 $\mathscr H^{\otimes n}=\underbrace{\mathscr H\otimes\cdots\otimes\mathscr H}_{n\text{ 次}}$ 之中，Fock 空间构造为 $\mathscr F(\mathscr H)=\bigoplus_{n=0}^{\infty}\mathscr H^{ \otimes n}$，其中 \(\mathscr H^{\otimes0}=\mathbb C\) 对应零粒子真空态。当然，为了保证无限维的 $\mathscr H$ 仍可构造完备空间，准确应写作 $\mathscr H_1\widehat\otimes\mathscr H_2=\overline{\mathscr H_1\otimes\mathscr H_2}$。并且，Hilbert 直和允许无限多个非零分量，只要求它们的模平方可求和，而不要求只有有限项非零。
