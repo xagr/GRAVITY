@@ -166,14 +166,14 @@
 \section{流形的拓扑性质*}
 
 \begin{theorem}
-    局部欧 $\im$ 局部路径连通 $\land$ 局部紧 $\land$ 局部可度量。
+    局部欧 $\im$ 局部路径连通 $\land$ 局部可度量；若再满足 $T_2$，则局部紧。
 \end{theorem}
-
 \begin{proof}
-局部欧氏空间任意点都存在开邻域同胚于 $\R^n$，而同胚保持路径连通性，于是该开邻域也路径连通，因此局部欧 $\im$ 局部路径连通。
+    任给 $p\in M$ 及其邻域 $N$，取 $(O,\psi)$ 使 $p\in O$。存在 $\psi(p)$ 为心的欧氏开球 $B\subset \psi[O\cap N^\circ]$，同胚保持路径连通性，则 $\psi^{-1}[B]\subset N$ 是 $p$ 的路径连通开邻域，故 $M$ 局部路径连通。
 
-    流形局部同胚于 $\mathbb R^n$，因此每点都有一个的开邻域；
-换言之，$M$ 是\emph{局部紧}的。
+    坐标域 $O$ 上的度量 $d(p,q):=\|\psi(p)-\psi(q)\|$ 诱导其子拓扑，故 $M$ 局部可度量。
+
+    若 $M$ 为 $T_2$，取上述 $B$ 使闭球 $\bar B\subset\psi[O]$。则 $K:=\psi^{-1}[\bar B]$ 紧，因而在 $M$ 中闭。于是开邻域 $U:=\psi^{-1}[B]$ 在 $M$ 中的闭包满足 $\bar U\subset K$，故紧，即 $M$ 局部紧。
 \end{proof}
 
 \begin{theorem}
@@ -196,52 +196,50 @@
 \end{remark}
 
 \begin{definition}
-    若 开覆盖 $\topo P=\{O_i\}$ 的单位分解 $\{\rho_i\}$ 光滑，则称\textbf{光滑单位分解}。
+    若开覆盖 $\topo P=\{O_i\}$ 的单位分解 $\{\rho_i\}$ 光滑，则称\textbf{光滑单位分解}。
 \end{definition}
 
-\begin{theorem}[光滑 Urysohn 引理]\label{thm:smooth_urysohn_bump}
-设 $M$ 为光滑流形，$K\subset U\subset M$，其中 $K$ 为紧集，$U$ 为开集。
-则存在 $\varphi\in C^\infty(M)$ 满足
-\[
-0\le \varphi\le 1,\qquad \varphi\equiv 1\ \text{于}\ K,\qquad \supp(\varphi)\subset U.
-\]
-特别地，$\varphi$ 在 $M\setminus U$ 上恒为 $0$，且 $\varphi$ 的支撑是 $U$ 内的一个紧集。
-\end{theorem}
-
+\begin{lemma}[光滑 Urysohn 引理]\label{thm:smooth_urysohn_bump}
+    设 $M$ 为光滑流形，$K\subset U\subset M$，其中 $K$ 紧、$U$ 开。则存在 $\varphi\in C^\infty(M)$，使 $0\leqslant\varphi\leqslant1$、$\varphi|_K=1$，且 $\supp\varphi$ 为含于 $U$ 的紧集。
+\end{lemma}
 \begin{proof}
-    局部紧且正规
+    置 $h(t)=\e^{-1/t}$（$t>0$），$h(t)=0$（$t\leqslant0$）。由前文知 $h$ 光滑，故
+    \[
+        \chi(t):=\frac{h(1-t)}{h(1-t)+h(t-1/4)}
+    \]
+    光滑，取值于 $[0,1]$，且在 $t\leqslant1/4$ 时为 $1$，在 $t\geqslant1$ 时为 $0$。
 
-对每个 $x\in K$，取坐标图 $(W_x,\psi_x)$ 使得 $\overline{W_x}\subset U$ 且 $\psi_x(W_x)\subset \mathbb R^n$
-为开球（可取相对紧坐标邻域）。在 $\mathbb R^n$ 中取一个标准 bump 函数
-$b_x\in C^\infty_c(\psi_x(W_x))$，使得 $b_x\equiv 1$ 于一个较小的同心球，
-并令 $\tilde b_x$ 为将 $b_x$ 拉回到 $W_x$ 后再在 $M\setminus W_x$ 上延拓为 $0$ 得到的光滑函数。
-则 $\tilde b_x\in C^\infty(M)$，并且 $\supp(\tilde b_x)\subset W_x\subset U$，
-且在 $x$ 的某邻域上恒为 $1$。
+    对每个 $x\in K$，取坐标系 $(O_x,\psi_x)$ 使 $x\in O_x\subset U$、$\psi_x(x)=0$，并取 $r_x>0$ 使 $\bar B(0,r_x)\subset\psi_x[O_x]$。在 $O_x$ 上置
+    \[
+        b_x(p):=\chi\!\left(\frac{\|\psi_x(p)\|^2}{r_x^2}\right),
+    \]
+    并在 $M\backslash O_x$ 上置零。其支撑含于紧集 $\psi_x^{-1}[\bar B(0,r_x)]\subset O_x$，故延拓后仍光滑；且 $b_x$ 在开邻域 $V_x:=\psi_x^{-1}[B(0,r_x/2)]$ 上恒为 $1$。
 
-由于 $K$ 紧，可从 $\{W_x\}_{x\in K}$ 选出有限子覆盖 $W_{x_1},\dots,W_{x_N}$。
-令
-\[
-g:=\sum_{j=1}^N \tilde b_{x_j},
-\]
-则 $g\in C^\infty(M)$，且 $g>0$ 于 $K$，并且 $\supp(g)\subset \bigcup_{j=1}^N W_{x_j}\subset U$。
-取光滑函数 $\chi:\mathbb R\to[0,1]$ 满足 $\chi(t)=0$ 当 $t\le \tfrac12$，
-$\chi(t)=1$ 当 $t\ge 1$（可用一维 bump 函数构造）。
-因为 $g$ 在紧集 $K$ 上取得正的最小值 $m>0$，
-考虑 $\varphi:=\chi\!\left(\tfrac{g}{m}\right)$，则 $\varphi\in C^\infty(M)$，
-并且 $\varphi\equiv 1$ 于 $K$，且 $\supp(\varphi)\subset \supp(g)\subset U$，
-同时 $0\le \varphi\le 1$。证毕。
+    由紧性，取 $V_{x_1},\ldots,V_{x_N}$ 覆盖 $K$，令
+    \[
+        \varphi:=1-\prod_{i=1}^N(1-b_{x_i}).
+    \]
+    则 $\varphi$ 光滑，$0\leqslant\varphi\leqslant1$，在 $K$ 上恒为 $1$，且 $\supp\varphi\subset\bigcup_{i=1}^N\supp b_{x_i}\subset U$，故支撑紧。$K=\mt$ 时取 $\varphi=0$ 即可。
 \end{proof}
 
-需要把覆盖整理成局部有限（否则 $\sum_i \varphi_i$ 不一定光滑，甚至不一定有意义）
-需要 bump 函数把支撑塞进指定开集
-最后归一化 $\rho_i=\varphi_i/\sum_j\varphi_j$
-
 \begin{theorem}
-    仿紧 $\land$ $T_2\land\text{光滑流形}\im$ 任何开覆盖均存在从属于它的光滑单位分解。
+    光滑流形的任何开覆盖均存在从属于它的局部有限的光滑单位分解。
 \end{theorem}
+\begin{proof}
+    设开覆盖 $\{O_\alpha\}$。由局部紧性，先取相对紧开集组成的加细，再由仿紧性取其局部有限开加细 $\{U_i\}$，其中 $U_i\subset O_{\alpha(i)}$、$\bar U_i$ 紧。沿用连续单位分解证明中的收缩构造，取闭覆盖 $\{F_i\}$ 使 $F_i\subset U_i$，则各 $F_i$ 紧。
 
+    由引理 \ref{thm:smooth_urysohn_bump}，取光滑函数 $b_i$ 使 $0\leqslant b_i\leqslant1$、$b_i|_{F_i}=1$、$\supp b_i\subset U_i$。令
+    \[
+        b:=\sum_i b_i,\qquad
+        \rho_\alpha:=\frac{\sum_{\alpha(i)=\alpha}b_i}{b}.
+    \]
+    局部有限性保证各和光滑，且 $\{F_i\}$ 覆盖 $M$ 保证 $b\geqslant1$。故 $\rho_\alpha$ 光滑，$0\leqslant\rho_\alpha\leqslant1$，$\sum_\alpha\rho_\alpha=1$。又由局部有限性，$\bigcup_{\alpha(i)=\alpha}\supp b_i$ 闭，故
+    \[
+        \supp\rho_\alpha\subset\bigcup_{\alpha(i)=\alpha}\supp b_i\subset O_\alpha.
+    \]
+    每点附近只遇到有限个 $U_i$，故也只遇到有限个 $\supp\rho_\alpha$，即得所求。
+\end{proof}
 
-%%
 
 \section{切空间}
 
@@ -271,8 +269,6 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
 
 \begin{definition}
     置流形 $M$。设 $V\subset U\subset M$。$f:V\to\R$ 称为 $g:U\to\R$ 在 $V$ 上的\textbf{限制}，若 $\forall p\in V,f(p)=g(p)$。显然限制是唯一的。$g$ 称为 $f$ 在 $U$ 上的一个\textbf{延拓}。
-
-    
 \end{definition}
 
 对光滑流形 $M$ 及 $p\in M$，在 $C^r(M)$ 中规定等价关系：存在 $N\in\topo N(p)$ 使 $f,g\in C^r(M)$ 在 $N$ 上的限制相同。等价类 $[f]$ 称为\textbf{函数芽}，构成 $C^r(M)$ 的商集 $C^r_p$。

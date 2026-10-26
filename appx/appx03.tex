@@ -252,9 +252,9 @@ $\topo{T}=\left\{\bigcup_{U\in\topo{F}}U:\topo{F}\subset\topo{B}\right\}$ 构成
 可见，$\pi$ 就好比用来粘合拓扑空间的胶水。
 可以证明，设 $\tilde{\topo T}^{\prime}$ 为 $\tilde X$ 上另一个拓扑，且使 $\pi$ 连续，则 $\tilde{\topo T}^{\prime} \subset \tilde{\topo T}$。
 
-\begin{definition}
-    拓扑空间\textbf{局部地}具有某个性质，意指任意点都存在邻域具有这种性质。
-\end{definition}
+\begin{remark}
+    \textbf{局部}性质通过各点的邻域描述，但具体要求依性质而定：有时只需每点存在一个具有该性质的邻域，有时则要求这样的邻域构成邻域基。例如，局部可度量只需每点存在一个可度量开邻域，因为度量可限制到更小的子空间；路径连通却未必在缩小邻域后保留，故合理的“局部路径连通”应要求每点存在\textit{任意小}的路径连通开邻域。各术语以下文定义为准。
+\end{remark}
 
 \section{可数与分离}
 本节目的是给出物理上足够有用的空间，使拓扑性质足够好，不至于太怪异。
@@ -760,8 +760,11 @@ $\R^{n}$ 当然完备。
 \end{definition}
 
 \begin{definition}
-    拓扑空间 $X$ 称为\textbf{路径连通的}(path-connected)或\textbf{弧连通的}(arcwise-connected)，如果 $X$ 中的任意两点都可被一条完全在 $X$ 中的路径连接。\textbf{局部路径连通}指任意点的任意邻域都包含该点的路径连通开邻域。
+    拓扑空间 $X$ 称\textbf{路径连通}(path-connected)或\textbf{弧连通}(arcwise-connected)，若 $X$ 中任两点都可被一条完全在 $X$ 中的路径连接。\textbf{局部路径连通}指任点 $x\in X$ 的任意邻域 $N$ 都包含该点的路径连通开邻域 $U\subset N$，即每点都有由路径连通开集组成的邻域基。
 \end{definition}
+\begin{remark}
+    路径连通与局部路径连通无关。要区分“存在一个”与“存在任意小的”：仅仅说存在 $U\ni x$ 还不够，必须要借用 $N$ 来描述任意小。
+\end{remark}
 
 \begin{example}
     开球路径连通，因为对任意两点 $a,b\in B(x,r)$，存在线段
@@ -779,7 +782,7 @@ $\R^{n}$ 当然完备。
 \end{proof}
 
 \begin{example}
-    $O\in\topo T_u$ 一定局部路径连通：$\forall x\in O$，$\exists U:= B(x,r)\subset O$（从而 $B(x,r)=O\cap B(x,r)\in\topo T_O$）使 $x\in U$ 且 $U$ 路径连通。
+    欧氏空间的开集 $O$ 局部路径连通：任给 $x\in O$ 及其在 $O$ 中的邻域 $N$，存在开球 $B(x,r)\subset N$。此球是 $O$ 中路径连通的开邻域。
 \end{example}
 
 \begin{theorem}
