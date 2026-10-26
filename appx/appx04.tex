@@ -659,6 +659,8 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
 
 切矢通过作用于函数来定义，因此函数的拉回也将诱导切矢的推前。再对切映射取线性对偶，便得到余切矢的拉回。以下置 $p\in M$、$q:=\phi(p)$。
 
+这与附录 \ref{appx:cat} 的 $\hom$-函子直接相连。因为 $C^\infty(M)=\hom_{\cate{Man}}(M,\R)$，故标量函数的拉回正是定义 \ref{def:hom-functor} 中固定目标 $\R$、对来源作预复合的构造。其逆变性表现为 $\phi:M\to N$ 诱导反向的 $\phi^*:C^\infty(N)\to C^\infty(M)$。
+
 \begin{definition}\label{chdm:def_pullback-scalar}\label{chdm:def_pullback-scalar-onfield}
     标量函数的\textbf{拉回}为
     \[
@@ -693,6 +695,8 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
     \]
     故满足 Leibniz 法则。对任意切矢 $u,v$ 及 $a,b\in\R$，定义又直接给出 $\phi_*(au+bv)=a\phi_*u+b\phi_*v$。
 \end{proof}
+
+这也落实了例 \ref{eg:double-dual-functor} 中“先拉回输入，再推前泛函”的构造：$\phi_*v=v\circ\phi^*$。准确地说，函数芽的拉回是线性映射，其对偶将 $C^\infty_p(M)$ 上的线性泛函送到 $C^\infty_q(N)$ 上；上述命题保证它将点导子仍送到点导子，限制于切空间便得到 $\phi_{*p}$。这里的切空间是满足 Leibniz 法则的导子子空间，并非全体泛函。
 
 \begin{definition}\label{chdm:def_pullback-1form}
     $\phi$ 在 $p$ 处的\textbf{余切映射}是切映射的对偶，亦称余切矢的\textbf{拉回}：
@@ -760,8 +764,16 @@ $J$ 是 $n\times m$ 的 Jacobi 矩阵，其中 $m=\dim M,n=\dim N$，两者不�
         =(\d f)_q(\phi_*v)=v(f\circ\phi)
         =\bigl(\d(\phi^*f)\bigr)_p(v).
     \]
-    因而两者相等。特别地，$\phi^*(\d y^\alpha)=\d(y^\alpha\circ\phi)$。
+    因而两者相等。
 \end{proof}
+
+特别地，坐标微分的拉回为
+\[
+    \phi_p^*((\d y^\alpha)_q)
+    =\bigl(\d(y^\alpha\circ\phi)\bigr)_p
+    =J^\alpha{}_i(p)(\d x^i)_p.
+\]
+所以，$J$ 的第 $\alpha$ 行给出目标坐标微分拉回后的分量，第 $i$ 列给出源坐标基矢推前后的分量。两者由同一组偏导数联系，这就是余切映射、微分与 Jacobi 矩阵的关系。
 
 \begin{theorem}[链式法则]\label{chdm:thm_map-chain-rule}
     置光滑映射 $\phi:M\to N$、$\psi:N\to Q$，并记 $q=\phi(p)$。则
@@ -781,19 +793,23 @@ $J$ 是 $n\times m$ 的 Jacobi 矩阵，其中 $m=\dim M,n=\dim N$，两者不�
     即得第 (2) 式。第 (3) 式由第 (2) 式取线性对偶即得。
 \end{proof}
 
-恒等映射也诱导相应的恒等映射。可见，切映射保持复合次序，而函数拉回及余切映射反转次序，这分别体现了函子的协变性与逆变性。
+恒等映射也诱导相应的恒等映射，故上述构造满足 \S\ref{sec:functors} 的函子公理。具体地，以带基点的流形 $(M,p)$ 为对象、保持基点的光滑映射为态射，构成 $\cate{Man}_\bullet$。则 $(M,p)\mapsto T_pM$、$\phi\mapsto\phi_{*p}$ 给出协变函子 $\cate{Man}_\bullet\to\cate{Vect}(\R)$；取线性对偶，$(M,p)\mapsto T_p^*M$、$\phi\mapsto\phi_p^*$ 则给出逆变函子。函数拉回的逆变性同样由第 (1) 式给出。
 
 \begin{example}\label{chdm:exm_phiD=Dphi}
-    曲线切矢的推前等于像曲线的切矢。即对 $C^1$ 曲线 $\gamma:I\to M$，
+    对光滑曲线 $\gamma:I\to M$，其切矢就是切映射作用于参数方向的结果：
+    \[
+        \dot\gamma(t)=\gamma_{*t}\left(\left.\pdv{t}\right|_t\right),
+    \]
+    因两边作用于 $f$ 都给出 $\dv{(f\circ\gamma)}{t}$。反之，任给 $v=v^i\p_i|_p$，在坐标域内取
+    \[
+        \gamma(t):=\psi^{-1}\bigl(\psi(p)+t(v^1,\ldots,v^n)\bigr)
+    \]
+    （$|t|$ 足够小），便有 $\gamma(0)=p$、$\dot\gamma(0)=v$。因此每个切矢都可由曲线的切映射得到。
+
+    再由链式法则，曲线切矢的推前等于像曲线的切矢：
     \eq{\label{chdm:eqn_phiD=Dphi}
         \phi_{*\gamma(t)}\dot\gamma(t)=\dv{(\phi\circ\gamma)}{t}.
     }
-    只需作用于 $\phi(\gamma(t))$ 处的任意光滑函数芽 $f$，由定义得
-    \[
-        (\phi_*\dot\gamma(t))(f)
-        =\dot\gamma(t)(f\circ\phi)
-        =\dv{(f\circ\phi\circ\gamma)}{t}.
-    \]
 \end{example}
 
 \begin{example}
@@ -1247,209 +1263,157 @@ $J$ 是 $n\times m$ 的 Jacobi 矩阵，其中 $m=\dim M,n=\dim N$，两者不�
 
 \section{Lie 导数}\label{appx:Lie-deri}
 
-进一步对微分同胚，则称\textbf{单参微分同胚群}。对 $\forall p\in M$，取不同参数 $t$ 的 $\phi_t$ 将其映射至不同点 $\phi_t(p)$，形成一条以 $\phi_0(p)=p$ 为参数零点的光滑曲线 $C_p:\R\to M$，这称为该单参微分同胚群过 $p$ 点的\textbf{轨道}(orbit)。
+前节已由切矢场 $X$ 构造出流 $\phi_t$。沿流观察张量场 $T$ 时，$T_p$ 与 $T_{\phi_t(p)}$ 属于不同点的张量空间，不能直接相减。流的拉回恰好将后者送回 $p$，于是可以比较 $(\phi_t^*T)_p$ 与 $T_p$。它们的一阶差异就是 Lie 导数。对切矢，拉回由逆流的推前实现；对余切矢，则直接使用流的拉回。这些运算已在“诱导映射”中定义，无须另选度规或联络。
 
-因此 $M$ 上的单参微分同胚群给出其对应的光滑切矢场。
-
-由于同胚是双射，因此各轨道是不会相交的，因此只要给出各 $p$ 点在其对应轨道的切矢 $\pdv*{t}$，就给出了 $M$ 上的光滑切矢场。
-
-反之是否成立？可以证明，
-
-
-看来 $\forall \sigma\in\R$ 可借用矢量场 $V$ 的积分曲线定义微分同胚 $\phi_\sigma:M\to M$：设过 $p$ 的积分曲线为 $C_p$（且 $C_p(0)=p$），规定 $\phi_\sigma(p):=C_p(\sigma)$，于是似乎得到了单参微分同胚群。然而存在极端情形，某条积分曲线在参数取某些值时像点不存在，比如可人为挖去背景的某些区域，因此只能说 $V$ 局部地给出单参微分同胚群。准确地，只要 $p\in M$ 存在，总可找到其开邻域 $U\subset M$，使得 $U,\phi_t[U]$ 同胚且满足$\phi_t\phi_s=\phi_{t+s}$，其中参数范围为零的某开邻域 $I\subset\R$。这样我们就把 $\{\phi_t|t\in I\}$ 称为 $p$ 的\textbf{单参微分同胚局部群}。
-
-一般来说总考虑 $U=M$。
-
-数学上，如果一条曲线处处与该矢量场相切，就称为该矢量场的一条积分曲线。十分显然，因为一点只对应一条积分曲线，倘若对应多条，矢量场于该点的取值便出现多值。可见积分曲线不会相交。
-
-\textbf{参考系}指时空上的一个光滑单位类时矢量场 $\bm Z$。
-参考系的每一积分曲线 $\gamma(\tau)$ 都是类时世界线。
-
-所有微分同胚（包括那些不同单参变换的复合，它们不是单参变换）仍将构成群，称为 $M$ 的\textbf{微分同胚群}。一个集合可以是群，也可同时是一个背景，这种群称为 \textbf{Lie 群}。连续变换构成的群就可以用参数代表其坐标系，故实质上 Lie 群，其维数即参数种类，而一个切矢场又给出一种参数，可见微分同胚群是一种无穷维 Lie 群。一个光滑切矢场生成的是微分同胚群的一个\textbf{单参子群}，故又被称为微分同胚群的一个\textbf{无穷小生成元}或\textbf{生成元}。
-
-矢量场 $\xi$ 能局部地给出单参微分同胚群 $\{\phi_t\}$。由 $\phi_t$ 可诱导出一种导数，其目的是为了比较邻近的 $T,\phi_{t*} T$ 或等价的 $\phi_t^*T,T$。
 \begin{definition}
-    张量场沿切矢场 $\xi$ 的 \textbf{Lie 导数}为
-\eq{
-\Lie_\xi T:=\lim_{t\to 0}\frac{\phi_t^* T-T}{t}.
-}
+    置 $X\in\mathfrak X(M)$，记其最大流为 $\phi$。光滑 $(k,l)$-张量场 $T$ 沿 $X$ 的 \textbf{Lie 导数}\footnote{Sophus Lie（1842--1899），挪威数学家。李群见第 \ref{appx:Lie-group} 章。}定义为
+    \eq{\label{chdm:def_LieD-tensor}
+        (\Lie_XT)_p:=\left.\frac{\d}{\d t}(\phi_t^*T)_p\right|_{t=0}
+        =\lim_{t\to0}\frac{(\phi_t^*T)_p-T_p}{t}.
+    }
+    极限在同一张量空间 $\mathcal T^k_l(p)$ 中求取。流及其切映射光滑，故该极限存在，并组成同型的光滑张量场。定义只用 $t=0$ 附近的流，不要求 $X$ 完备。
 \end{definition}
 
-\begin{example}
-    就标量场 $f$ 而言 $\Lie_\xi f=\xi(f)$。
-\end{example}
-
-
-设$X$是$m$维光滑流形$M$上的完备光滑切矢量场，它诱导的（局部）单参数可微变换群是$\phi_t$，
-经过点$x\in M$的轨道记为$\gamma_x(t)$（当$t=0$时$\gamma_x(0)=x$）；
-由于$\phi_t$是（局部）微分同胚，可将轨道$\gamma_x(t)$上不同点的切空间建立联系。
-\begin{definition}
-    由 $\phi_t$ 可定义 Lie 导数\footnote{Sophus Lie（1842--1899），挪威数学家。其另一重大贡献是李群，见第\ref{chlg}章。}：
-    \begin{align}
-        (\Lie_Xf)(p)&:=\lim_{t\to0}\frac{f(\phi_t(p))-f(p)}{t}=X_p(f),
-        \label{chdm:def_LieD-scalar}\\
-        \Lie_XY&:=\lim_{t\to0}\frac{(\phi_{-t})_*Y-Y}{t},
-        \label{chdm:def_LieD-vector}\\
-        \Lie_XT&:=\lim_{t\to0}\frac{\phi_t^*T-T}{t}.
-        \label{chdm:def_LieD-tensor}
-    \end{align}
-    其中 $f\in C^\infty(M)$、$X,Y\in\mathfrak X(M)$、$T\in\mathfrak T^p_q(M)$。这些极限均逐点在同一张量空间内求取，前两式是第三式的特例。
-
-\end{definition}
-
-
-由于Lie 导数定义并不十分明朗，下面略微详细描述一下。
-由于$\phi_t$（至少局部上）是微分同胚，它的诱导映射都是线性同构的。
-\begin{align}
-    \phi_{-t*} = \phi_{t*} ^{-1} &: T_{\gamma_x(t)}M \to T_x M , \\
-    \phi_{t}^{*} &: T_{\gamma_x(t)}^{*}M \to T_x^{*} M , \\
-    \phi_{t}^{*} &: T_q^p\bigl({\gamma_x(t)}\bigr) \to T_q^p(x) .
-\end{align}
-上式最后一行的$\phi_t^{*}$是点$x$张量空间和点$\gamma_x(t)$张量空间的线性同构映射。
-设有局部坐标系$(U;x^i)$，并令$t$是个充分小的正实数，则有$\gamma_x(t)\in U$；
-我们用$\{x^i\}$表示$x$点处的坐标分量，为了在形式上有所区分，我们用$\{y^i\}$表示$\gamma_x(t)$点处的坐标分量；
-需要注意的是，当$t\to 0$时，坐标$\{y^i\}$就变成了坐标$\{x^i\}$，
-即$\lim_{t\to 0} y^i = x^i $。
-
-记 $y=\gamma_x(t)$，并以 $e_i(x),e_i(y)$ 及 $\epsilon^j(x),\epsilon^j(y)$ 表示同一坐标系在两点的切基及对偶基。则
-\[
-    T_y=T^{i_1\cdots i_p}{}_{j_1\cdots j_q}(y)
-    e_{i_1}(y)\otimes\cdots\otimes e_{i_p}(y)\otimes
-    \epsilon^{j_1}(y)\otimes\cdots\otimes\epsilon^{j_q}(y).
-\]
-拉回后各因子均位于 $x$ 处：
-\eq{\label{chdm:eqn_tmp501}
-\begin{aligned}
-    (\phi_t^*T)_x={}&T^{i_1\cdots i_p}{}_{j_1\cdots j_q}(y)
-    \bigl((\phi_{-t})_*e_{i_1}(y)\bigr)\otimes\cdots\otimes
-    \bigl((\phi_{-t})_*e_{i_p}(y)\bigr)\\
-    &\otimes\phi_t^*\epsilon^{j_1}(y)\otimes\cdots\otimes\phi_t^*\epsilon^{j_q}(y).
-\end{aligned}
+对标量场，拉回只是复合，故
+\eq{\label{chdm:def_LieD-scalar}
+    \Lie_Xf=\left.\frac{\d}{\d t}(f\circ\phi_t)\right|_{t=0}=X(f).
 }
-因此 $\lim_{t\to0}(\phi_t^*T)_x=T_x$。上述表达式与坐标选择无关：坐标变化时，分量与基底的变换矩阵互相抵消。
-
-\begin{proposition}\label{chdm:thm_cp-pc}
-    拉回 $\phi_t^*$ 与缩并运算 $C$ 可交换。
-\end{proposition}
-\begin{proof}
-    记 $y=\phi_t(x)$。对 $v\in T_yM$、$\omega\in T_y^*M$，由拉回定义，
-    \[
-        (\phi_t^*\omega)\bigl((\phi_{-t})_*v\bigr)
-        =\omega\bigl((\phi_t)_*(\phi_{-t})_*v\bigr)=\omega(v).
-    \]
-    缩并即对一个切矢因子和一个余切矢因子作此配对，故对简单张量有
-    \eq{\label{chdm:eqn_tmpa852}
-        C(\phi_t^*T)=\phi_t^*(CT).
-    }
-    任意张量均为简单张量之和，由线性性即得结论。在坐标基下，上述配对保持性也可由互逆的 Jacobi 矩阵看出：
-    \eq{\label{chdm:eqn_tmp-transxy}
-        (\phi_{-t})_*\p_{y^\alpha}=\pdv{x^i}{y^\alpha}\p_{x^i},\quad
-        \phi_t^*(\d y^\alpha)=\pdv{y^\alpha}{x^i}\d x^i.
-    }
-\end{proof}
+对切矢场，$\phi_t^*Y=(\phi_{-t})_*Y$，故
+\eq{\label{chdm:def_LieD-vector}
+    \Lie_XY=\lim_{t\to0}\frac{(\phi_{-t})_*Y-Y}{t}.
+}
+由前节定理 \ref{chdm:thm_xy-yx}，这正是 Lie 括号：
+\eq{\label{chdm:eqn_LieD-tangent}
+    \Lie_XY=[X,Y].
+}
+因此 Lie 导数把函数的方向导数、切矢场的 Lie 括号统一推广到了任意张量场。
 
 \begin{theorem}\label{chdm:thm_LieD-property}
-    Lie 导数$\Lie_{X}$有如下运算规则（其中，$\forall T\in \mathfrak{T}^p_q(M),\ S\in \mathfrak{T}^r_s(M)$，
-    $\forall \lambda \in \R$， $\forall \omega\in \mathfrak{X}^*(M)$，
-    $\forall X,Y\in \mathfrak{X}(M)$；
-    其中加法要求 $T,S$ 同型）：
-
-    (1) 线性：$\Lie_{X}(T + \lambda \cdot S) = \Lie_{X}T + \lambda\cdot \Lie_{X}S$；
-
-    (2) Leibniz律：$\Lie_{X} (T \otimes S) = T \otimes \Lie_{X} S + (\Lie_{X} T )\otimes S$；
-
-    (3) 与缩并运算可交换，即$C (\Lie_{X} T) =  \Lie_{X} (C T) $；
-
-
-    (4) 若$\psi:M\to M$是微分同胚，则$\psi_*(\Lie_{X} T) = \Lie_{\psi_*X} \psi_* T$。
+    Lie 导数保持张量类型，并满足实线性、Leibniz 法则及与缩并的交换性：
+    \[
+    \begin{aligned}
+        \Lie_X(aT+bS)&=a\Lie_XT+b\Lie_XS,\qquad a,b\in\R,\\
+        \Lie_X(T\otimes S)&=(\Lie_XT)\otimes S+T\otimes\Lie_XS,\\
+        \Lie_X(CT)&=C(\Lie_XT).
+    \end{aligned}
+    \]
+    其中加法要求 $T,S$ 同型，$C$ 表示任一缩并。若 $\psi:M\to M$ 为微分同胚，还有
+    \[
+        \psi_*(\Lie_XT)=\Lie_{\psi_*X}(\psi_*T).
+    \]
 \end{theorem}
 \begin{proof}
-    (1) 根据定义式\eqref{chdm:def_LieD-tensor}很容易证明线性性。
+    前文命题 \ref{chdm:thm_pptt} 已证明拉回保持线性、张量积及缩并。将对应等式对流参数在 $t=0$ 处求导，前三式即得。特别地，张量积的求导就是乘积法则。
 
-    (2) 根据定义式\eqref{chdm:def_LieD-tensor}和命题\ref{chdm:thm_pptt}，有
-    \begin{align*}
-        \Lie_{X} (T \otimes S) & = \lim_{t\to 0} \frac{\phi^{*}_{t} (T\otimes S) -T\otimes S }{t}
-          = \lim_{t\to 0} \frac{\phi^{*}_{t} (T)\otimes \phi^{*}_{t}(S) -T\otimes S }{t}\\
-        & = \lim_{t\to 0} \frac{\phi^{*}_{t} (T)\otimes \phi^{*}_{t}(S)
-             -T\otimes \phi^{*}_{t}(S) +T\otimes \phi^{*}_{t}(S) -T\otimes S }{t} \\
-        & = T \otimes \Lie_{X} S + (\Lie_{X} T )\otimes S .
-    \end{align*}
-
-    (3) 根据定义式\eqref{chdm:def_LieD-tensor}和命题\ref{chdm:thm_cp-pc}非常容易证明此命题；留给读者当练习。
-
-
-    (4) 依据定理\ref{chdm:thm_1PDG-diff}可令$\tilde{\phi}_t := \psi \circ \phi_t \circ \psi^{-1}$；
-    先验证切矢量场公式
-    \begin{equation*}
-        \psi_*(\Lie_{X} Y)  = \lim_{t\to 0} \frac{\psi_*{\phi}_{-t*} Y - \psi_*Y }{t}
-       = \lim_{t\to 0} \frac{\tilde{\phi}_{-t*} \psi_*Y -\psi_*Y }{t}
-       =\Lie_{\psi_*X} \psi_*Y .
-    \end{equation*}
-    再验证余切矢量场公式
-    \begin{align*}
-        \psi^{-1*}(\Lie_{X} \omega)  = \lim_{t\to 0} \frac{\psi^{-1*} {\phi}_{t}^{*}
-            \omega - \psi^{-1*}\omega }{t}
-        = \lim_{t\to 0} \frac{ \tilde{\phi}_{t}^{*} \psi^{-1*}\omega - \psi^{-1*}\omega }{t}
-        =\Lie_{\psi_*X} \psi^{-1*}\omega  .
-    \end{align*}
-    利用Leibniz律，可推广至高阶张量场。
+    定理 \ref{chdm:thm_1PDG-diff} 的共轭流证明同样适用于局部流，故 $\psi_*X$ 的局部流为 $\tilde\phi_t=\psi\circ\phi_t\circ\psi^{-1}$。利用 $\psi_*=(\psi^{-1})^*$ 及拉回的复合律，得
+    \[
+        \psi_*\circ\phi_t^*=\tilde\phi_t^*\circ\psi_*.
+    \]
+    两边在 $t=0$ 处求导，即得最后一式。
 \end{proof}
 
-\begin{example}
-    切矢量场、余切矢量场的 Lie 导数
-\end{example}
-由定理\ref{chdm:thm_xy-yx}可知切矢量场的 Lie 导数可以表示为：
-\eq{\label{chdm:eqn_LieD-tangent}
-    \Lie_{X} Y = [X, Y] , \quad \forall X, Y \in \mathfrak{X}(M).
+\begin{proposition}
+    对余切矢场 $\omega$ 及任意切矢场 $Y$，
+    \eq{\label{chdm:eqn_LieD-cotangent}
+        (\Lie_X\omega)(Y)=X\bigl(\omega(Y)\bigr)-\omega([X,Y]).
+    }
+    特别地，对任意光滑函数 $f$，$\Lie_X(\d f)=\d(Xf)$。
+\end{proposition}
+\begin{proof}
+    对配对 $\omega(Y)$ 应用 Leibniz 法则及缩并交换性，得
+    \[
+        X\bigl(\omega(Y)\bigr)=(\Lie_X\omega)(Y)+\omega(\Lie_XY),
+    \]
+    代入 $\Lie_XY=[X,Y]$ 即得第一式。再取 $\omega=\d f$，其右端为
+    \[
+        X(Yf)-[X,Y]f=Y(Xf)=\d(Xf)(Y),
+    \]
+    故第二式成立。
+\end{proof}
+
+以上运算规则给出了简便的坐标算法。在坐标系 $\{x^i\}$ 中，
+\eq{\label{chdm:eqn_LieD-bases}
+    \Lie_X\p_i=[X,\p_i]=-(\p_iX^a)\p_a,\qquad
+    \Lie_X(\d x^j)=\d X^j=(\p_aX^j)\d x^a.
 }
-利用式\eqref{chdm:def_LieD-scalar}及 Lie 导数与缩并可交换，得
-\[
-    (\Lie_X\omega)(Y)+\omega(\Lie_XY)=\Lie_X\bigl(\omega(Y)\bigr)=X\bigl(\omega(Y)\bigr).
-\]
-于是余切矢量场的 Lie 导数满足
-\eq{\label{chdm:eqn_LieD-cotangent}
-    (\Lie_X\omega)(Y)=X\bigl(\omega(Y)\bigr)-\omega([X,Y]),\quad X,Y\in\mathfrak X(M).
-}
-一般张量场可通过作用于多个切矢场和余切矢场来描述。在引入无挠联络后，还有分量表达式，见\S\ref{chccr:sec_LieD-Nabla}。
+将张量场展开为分量与坐标基的张量积，再逐项使用 Leibniz 法则，就能求出一般表达式。
 
+\begin{theorem}[Lie 导数的分量]
+    对任意 $(k,l)$-张量场 $T$，
+    \eq{\label{chdm:eqn_LieD-components}
+    \begin{aligned}
+        (\Lie_XT)^{i_1\cdots i_k}{}_{j_1\cdots j_l}
+        ={}&X^a\p_aT^{i_1\cdots i_k}{}_{j_1\cdots j_l}\\
+        &-\sum_{r=1}^k(\p_aX^{i_r})
+        T^{i_1\cdots a\cdots i_k}{}_{j_1\cdots j_l}\\
+        &+\sum_{s=1}^l(\p_{j_s}X^a)
+        T^{i_1\cdots i_k}{}_{j_1\cdots a\cdots j_l}.
+    \end{aligned}
+    }
+    两个求和项分别将第 $r$ 个上指标、第 $s$ 个下指标换为 $a$。
+\end{theorem}
+\begin{proof}
+    对分量函数求导给出首项。由式 \eqref{chdm:eqn_LieD-bases}，每个切基因子给出一个负号项，每个余切基因子给出一个正号项，合并即得。
+\end{proof}
+
+首项只是对分量作方向导数；其余各项来自基底随流的变换，不能在一般坐标系中省略。例如，
+\[
+\begin{aligned}
+    (\Lie_XY)^i&=X^a\p_aY^i-Y^a\p_aX^i,\\
+    (\Lie_X\omega)_i&=X^a\p_a\omega_i+\omega_a\p_iX^a,\\
+    (\Lie_XT)^{ij}&=X^a\p_aT^{ij}-T^{aj}\p_aX^i-T^{ia}\p_aX^j,\\
+    (\Lie_XS)_{ij}&=X^a\p_aS_{ij}+S_{aj}\p_iX^a+S_{ia}\p_jX^a.
+\end{aligned}
+\]
+
+\begin{corollary}
+    Lie 导数对生成场也具有实线性：
+    \[
+        \Lie_{aX+bY}T=a\Lie_XT+b\Lie_YT,\qquad a,b\in\R.
+    \]
+    但一般不具有函数线性。
+\end{corollary}
+\begin{proof}
+    分量公式对 $X^i$ 及其一阶偏导均线性，故第一式成立。若将常数换成函数，求导会产生额外项；例如
+    \[
+        \Lie_{fX}Y=[fX,Y]=f\Lie_XY-Y(f)X.
+    \]
+\end{proof}
+
+\begin{example}[适配坐标]
+    若 $X_p\ne0$，由直化定理可在 $p$ 附近取坐标使 $X=\p_1$。此时 $X$ 的分量恒定，上述基底变化项全为零，故对任意型张量场，
+    \eq{\label{chdm:eqn_LieD-adaptedX}
+        (\Lie_XT)^{i_1\cdots i_k}{}_{j_1\cdots j_l}
+        =\p_1T^{i_1\cdots i_k}{}_{j_1\cdots j_l}
+        =X\bigl(T^{i_1\cdots i_k}{}_{j_1\cdots j_l}\bigr).
+    }
+    几何上，流只平移第一个坐标，其 Jacobi 矩阵为单位矩阵，故拉回保持坐标基及对偶基，只需比较分量函数。这里张量 Lie 导数的分量恰等于分量的方向导数，是适配坐标的特殊性质。
+\end{example}
 
 \begin{example}
-    试证明：$\Lie_{X+Y} T = \Lie_{X} T  +\Lie_{Y} T $；其中$T$是任意张量场。
+    在 $\R^2$ 上取 $X=x^2\p_x$、$Y=\p_x+y^2\p_y$。由 Lie 括号的分量式，
+    \[
+        \Lie_XY=[X,Y]=-2x\p_x.
+    \]
+    换用 $u=x+y$、$v=x-y$，有 $x=(u+v)/2$、$\p_x=\p_u+\p_v$，故
+    \[
+        \Lie_XY=-(u+v)(\p_u+\p_v).
+    \]
+    这是同一切矢场在两套坐标中的表达。
 \end{example}
-由式\eqref{chdm:eqn_LieD-tangent}、\eqref{chdm:eqn_LieD-cotangent}出发，
-不难验证本例题对切矢量场、余切矢量场是正确的。再利用Leibniz律可将本例推广到高阶张量场。
-需要注意，一般说来$\Lie_{f\cdot X} T \neq f\cdot \Lie_{X} T$，其中$f\in C^\infty(M)$；
-此时需用式\eqref{chccr:eqn_LieD-tensor-Nabla}来计算。
 
+Lie 导数还可用来刻画流所保持的张量场。
+\begin{theorem}
+    $\Lie_XT=0$ 当且仅当 $X$ 的流保持 $T$，即 $\phi_t^*T=T$ 在各自的定义域上成立。
+\end{theorem}
+\begin{proof}
+    由流的复合律及拉回的复合律，在任一允许的时刻 $t$ 有
+    \[
+        \frac{\d}{\d t}\phi_t^*T
+        =\left.\frac{\d}{\d h}\phi_t^*(\phi_h^*T)\right|_{h=0}
+        =\phi_t^*(\Lie_XT).
+    \]
+    若 $\Lie_XT=0$，则对每个 $p$，$(\phi_t^*T)_p$ 在区间 $I_p$ 上恒为 $T_p$。反之，将 $\phi_t^*T=T$ 在 $t=0$ 处求导即得。
+\end{proof}
 
-\begin{example}
-    适配坐标系中的 Lie 导数。
-\end{example}
-
-由定理\ref{chdm:thm_1PDG-ppy}，若 $X_p\ne0$，可取适配坐标系使 $X|_U=\p_1$。此时流只改变第一个坐标：
-\[
-    y^1=x^1+t,\quad y^k=x^k\quad(k>1),
-\]
-故其 Jacobi 矩阵为单位矩阵，坐标基及对偶基在流的推前和拉回下不变。以 $(1,1)$ 型张量场 $T$ 为例，由式\eqref{chdm:eqn_tmp501}，
-\[
-    (\phi_t^*T)_p=T^i{}_j(\phi_t(p))\p_i|_p\otimes\left.\d x^j\right|_p.
-\]
-因此
-\eq{\label{chdm:eqn_LieD-adaptedX}
-    (\Lie_XT)^i{}_j(p)
-    =\lim_{t\to0}\frac{T^i{}_j(\phi_t(p))-T^i{}_j(p)}{t}
-    =\p_1T^i{}_j(p)=X(T^i{}_j)(p).
-}
-这里 $(\Lie_XT)^i{}_j=(\Lie_XT)(\d x^i,\p_j)$ 是张量场 $\Lie_XT$ 的分量，而 $X(T^i{}_j)$ 是对分量函数求导；二者在适配坐标系下相等，在一般坐标系下未必相等。
-
-
-\begin{exercise}
-	补全证明式\eqref{chdm:eqn_LieD-adaptedX}中所省略的步骤。
-\end{exercise}
-
-\begin{exercise}
-	在二维流形$\R^2$上有局部坐标系$x,y$，令$X = x^2 (\frac{\partial}{\partial x})$、
-	$Y = (\frac{\partial}{\partial x}) + y^2 (\frac{\partial}{\partial y})$。
-	计算$\Lie_X Y$关于$(\frac{\partial}{\partial x})$、$(\frac{\partial}{\partial y})$的表达式。
-	作变换$u=x+y$、$v=x-y$，求$\Lie_X Y$关于$(\frac{\partial}{\partial u})$、$(\frac{\partial}{\partial v})$的表达式。
-\end{exercise}
+特别地，$\Lie_Xg=0$ 表示流保持度规，$\Lie_XY=[X,Y]=0$ 表示流保持切矢场 $Y$。在时空中，光滑单位类时场 $Z$ 的积分曲线描述观察者的世界线；沿这些世界线考察 $\Lie_ZT$，便是在用观察者线汇的流比较邻近的张量。若它为零，$T$ 随该流保持不变，此性质与坐标选择无关。

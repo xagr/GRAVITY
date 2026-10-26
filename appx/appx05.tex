@@ -6,13 +6,11 @@
 被积内容总按微元的组合来求和，故可视作微分形式，系数则是其坐标分量。如此，积分便可写成 $\int \omega$，微元间的乘法可理解为楔积。
 再研究形式的微分。函数 $f$ 的微分 $\d f$ 给出 1-形式，该操作增添了一个微元。推广到形式的微分无非是作用于形式的系数并添上楔积。
 
-
 \begin{definition}
-    流形上的形式场称为\textbf{微分形式}。常取对偶坐标基将 $l$-微分形式 $\omega$ 表为
+    流形上的形式场称为\textbf{微分形式场}。常取对偶坐标基将 $l$-微分形式 $\omega$ 表为
     \eq{
     \omega=\sum_{\mu_1<\cdots<\mu_l}\omega_{\mu_1\cdots\mu_l} \d x^{\mu_1}\wedge\cdots\wedge \d x^{\mu_l}=\frac{1}{l!}\omega_{\mu_1\cdots\mu_l} \d x^{\mu_1}\wedge\cdots\wedge \d x^{\mu_l}.
     }
-    
 \end{definition}
 
 \begin{definition}
@@ -25,8 +23,6 @@
 \begin{theorem}
     任取坐标系有 $(\d\omega)_{\sigma\mu_1\cdots\mu_l}=(l+1)\omega_{[\mu_1\cdots\mu_l,\sigma]}$。
 \end{theorem}
-
-
 
 \begin{proof}由楔积定义知 $e^{\nu_1}\wedge\cdots\wedge e^{\nu_n}(e_{\mu_1},\cdots,e_{\mu_n})=n!\delta_{\mu_1}^{[\nu_1}\cdots\delta_{\mu_n}^{\nu_n]}$，则
     \begin{align*}
@@ -47,7 +43,7 @@
 \begin{definition}
     $l$-形式 $\omega$ 称\textbf{闭的}(closed) $\Leftrightarrow\d\omega=0$；$\omega$ 称\textbf{恰当的}(exact) $\Leftrightarrow \exists (l-1)$-形式 $\mu$ 使 $\omega=\d\mu$。
 \end{definition}
-依 Poincaré 引理，恰当形式必为闭形式。反之欲成立，须要求坐标域$X\subset M$ 第二种 de Rham 上同调 $H^{2}(X;\R)$ 平凡。形象理解为区域是任意的单连通流形，例如 $\R^{n}$、开球及更一般的“星形式”开区域等。对一般流形而言，往往局域 $X$ 内亦成立，即逆命题至少在处处点的邻域上成立。
+依 Poincaré 引理，恰当形式必为闭形式。反之欲成立，须要求坐标域$X\subset M$ 第二种 de Rham 上同调 $H^{2}(X;\R)$ 平凡，见 \S\ref{appx:Alge-Topo}。形象理解为区域是任意的单连通流形，例如 $\R^{n}$、开球及更一般的“星形式”开区域等。对一般流形而言，往往局域 $X$ 内亦成立，即逆命题至少在处处点的邻域上成立。
 
 \begin{definition}
     $\delta={\star\d\star}$ 称为\textbf{余微分}(codifferential)，有时也记作 $\d^*$。
@@ -78,48 +74,31 @@ $\rho$ 为固有电荷密度。进而 Maxwell 方程组的外微分语言为
 \begin{align*}F&= E^{1} \mathrm{d} x^{1} \wedge \mathrm{d} x^{0}+E^{2} \mathrm{d} x^{2} \wedge \mathrm{d} x^{0}+E^{3} \mathrm{d} x^{3} \wedge \mathrm{d} x^{0} \\&+ B^{3} \mathrm{d} x^{1} \wedge \mathrm{d} x^{2}+B^{2} \mathrm{d} x^{3} \wedge \mathrm{d} x^{1}+B^{1} \mathrm{d} x^{2} \wedge \mathrm{d} x^{3}.\end{align*}
 由 $\d F=0$，一定存在 $1$-形式 $A$ 满足
 \eq{F=\d A.}
-$A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 亦满足。但可证明\footnote{具体的外微分语言证明见 \cite{Parrott} 附录二（2.9 节）证明。}存在 $A$ 满足 Lorenz 规范 $\delta A=0$，从而只需求解 $4\pi J=\delta\d A=\square A$，其中 $\square=(\d+\delta)^2$。
+$A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 亦满足。但可证明存在 $A$ 满足 Lorenz 规范 $\delta A=0$，从而只需求解 $4\pi J=\delta\d A=\square A$，其中 $\square=(\d+\delta)^2$。
+下面证之。从任一满足 $\d A=F$ 的势出发，令 $A'=A+\d f$。由 $\d^2=0$，仍有 $\d A'=F$。又因标量场满足 $\delta f=0$，故 $\delta A'=\delta A+\delta\d f=\delta A+\square f$。
+在闵氏时空上，非齐次波动方程 $\square f=-\delta A$ 的光滑初值问题可解，故可取 $f$ 使 $\delta A'=0$。于是 $\square A'=(\d\delta+\delta\d)A'=\delta F=4\pi J$。
 \end{example}
 
 \begin{theorem}[Cartan]
-    设 $\omega$ 为 $l$-形式，$X$ 为矢量，则
+    设 $X$ 为光滑切矢场，则在微分形式上有
     \eq{
-        \mathscr L_X=[\d,i_X],\quad [\mathscr L_X,\d]=0.
+        \Lie_X=\d i_X+i_X\d,\qquad [\Lie_X,\d]=0.
     }
     前者称为\textbf{Cartan 同伦式}或\textbf{魔术公式}。
 \end{theorem}
 \begin{proof}
-    用坐标分量即可证明。设 $\omega_{\mu_1\cdots\mu_l}$。
-
-    由 Cartan 魔术公式的定义，需证 $\mathscr L_X\omega=[\d,i_X]\omega=\d i_X\omega+i_X\d\omega$。
-
-    不失一般性，设 $\omega=f\,\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l}$，$X=X^\nu\p_\nu$。
-
-    计算左边：
-    \begin{align*}
-        \mathscr L_X\omega&=\mathscr L_X(f\,\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l})\\
-        &=(\mathscr L_X f)\,\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l}+f\sum_{i=1}^l\d x^{\mu_1}\wedge\cdots\wedge(\mathscr L_X\d x^{\mu_i})\wedge\cdots\wedge\d x^{\mu_l}\\
-        &=(X^\nu\p_\nu f)\,\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l}+f\sum_{i=1}^l\d x^{\mu_1}\wedge\cdots\wedge\d(i_X\d x^{\mu_i})\wedge\cdots\wedge\d x^{\mu_l}\\
-        &=(X^\nu\p_\nu f)\,\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l}+f\sum_{i=1}^l(-1)^{i-1}\d(X^{\mu_i})\wedge\d x^{\mu_1}\wedge\cdots\wedge\widehat{\d x^{\mu_i}}\wedge\cdots\wedge\d x^{\mu_l}.
-    \end{align*}
-
-    计算右边：
-    \begin{align*}
-        \d(i_X\omega)&=\d(i_X f\,\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l}+f\,i_X(\d x^{\mu_1}\wedge\cdots\wedge\d x^{\mu_l}))\\
-        &=\d(f\sum_{i=1}^l(-1)^{i-1}X^{\mu_i}\d x^{\mu_1}\wedge\cdots\wedge\widehat{\d x^{\mu_i}}\wedge\cdots\wedge\d x^{\mu_l})\\
-        &=\sum_{i=1}^l(-1)^{i-1}[\d f\wedge X^{\mu_i}\d x^{\mu_1}\wedge\cdots\wedge\widehat{\d x^{\mu_i}}\wedge\cdots\wedge\d x^{\mu_l}+f\,\d(X^{\mu_i})\wedge\d x^{\mu_1}\wedge\cdots\wedge\widehat{\d x^{\mu_i}}\wedge\cdots\wedge\d x^{\mu_l}].
-    \end{align*}
-
-    结合 $i_X\d\omega$ 的计算可验证 $\d i_X\omega+i_X\d\omega=\mathscr L_X\omega$。
-
-    第二式由第一式和 $\d^2=0$ 直接得出：
-    \[[\mathscr L_X,\d]=\mathscr L_X\d-\d\mathscr L_X=\d i_X\d+i_X\d\d-\d\d i_X-\d i_X\d=0.\qedhere\]
+    记 $D:=\d i_X+i_X\d$。对 $k$-形式 $\alpha$，内乘满足
+    \eq{i_X(\alpha\wedge\beta)=(i_X\alpha)\wedge\beta+(-1)^k\alpha\wedge i_X\beta.}
+    结合外微分的 Leibniz 律，展开后交叉项相消，得
+    \eq{D(\alpha\wedge\beta)=(D\alpha)\wedge\beta+\alpha\wedge D\beta.}
+    故 $D$ 与 $\Lie_X$ 都满足通常的乘积法则。又由前文，
+    \eq{Df=i_X\d f=Xf=\Lie_Xf,\qquad D(\d x^i)=\d X^i=\Lie_X(\d x^i).}
+    任意形式局部都是 $f\,\d x^{i_1}\wedge\cdots\wedge\d x^{i_l}$ 之和，故由线性性及乘积法则得 $D=\Lie_X$。最后由 $\d^2=0$，
+    \eq{\Lie_X\d=\d i_X\d=\d\Lie_X.\qedhere}
 \end{proof}
 
 
-\section{定向、带边流形}
-
-
+\section{定向与带边流形}
 \begin{definition}
     连续的非零张量场称\textbf{非退化的}。非退化最高阶形式场称\textbf{体元场}或\textbf{体元}。存在体元的流形称\textbf{可定向的}(orientable)。
 \end{definition}
@@ -384,8 +363,16 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 \end{proof}
 
 \begin{example}
-    在 $\R^3$ 矢量代数中，我们有
-    \begin{align*}
-        =
-    \end{align*}
+在三维注意到 $2$-形式 $\omega$ 和向量场 $v$ 满足
+\begin{align*}
+    \star(\star\omega\wedge v^\flat)&=\star(\epsilon^{ijk}\omega_{ij}g_{k\mu}v_\nu\mathrm dx^\mu\wedge\mathrm dx^\nu)\\
+    &=\epsilon_{\alpha\beta\gamma}\epsilon^{ijk}\omega_{ij}v_\nu g_{k\mu}g^{\mu\alpha}g^{\nu\beta}\mathrm dx^\gamma\\ 
+    &=\delta_{\beta\gamma k}^{ijk}\omega_{ij}v^\beta\mathrm dx^\gamma\\ 
+    &=(\omega_{ij}-\omega_{ji})v^i\mathrm dx^j=\iota_v\omega, 
+\end{align*}
+
+在 $\R^3$ 矢量代数中，我们有
+令 $\omega=\mathbf F^\flat$ 就有 $\iota_v\omega=\mathbf F\cdot\bm v,\quad \iota_v\mathrm d\omega=\star(\star\mathrm d\mathbf{F}^\flat\wedge\bm v^\flat)=((\nabla\times\mathbf F)\times \bm v)^\flat. $
+令 $\omega=\star\mathbf{F}^\flat$ 就有 $\iota_v\omega=\star(\mathbf{F}^\flat\wedge\bm{v}^\flat)=(\mathbf F\times\bm v)^\flat,\quad\iota_v\mathrm d\omega=\star((\star\mathrm d\star\mathbf{F}^\flat)\bm v^\flat)=\star((\nabla\cdot\mathbf F)\bm v)^\flat. $
+令 $\omega=\star\mathrm F$ 就有 $\iota_v\omega=\star(\mathrm F\bm v)^\flat,\quad\iota_v\mathrm d\omega=\star(\star\mathrm d\star\mathrm F\wedge\bm v^\flat)=0.  $
 \end{example}

@@ -621,7 +621,7 @@ X & Y \arrow[l,"f"'] \\
 \end{definition}
 在处理许多范畴论性质时，善用对偶原理能省事不少。
 
-\subsection{函子}
+\subsection{函子}\label{sec:functors}
 一个范畴往往代表一套理论。研究范畴间的关系可进一步抽象出如下概念：
 \begin{definition}
     设 $\mathcal{C}',\mathcal{C}$ 为范畴。映射 $F: \mathcal{C}' \to \mathcal{C}$ 称为\textbf{函子}(functor)，包括：
@@ -880,7 +880,7 @@ FX & FY \arrow[l,"F(f)"'] \\
 	$F: \mathcal{C}_1 \times \mathcal{C}_2 \to \mathcal{C}$ 称\textbf{二元函子}或\textbf{双函子}(bifunctor)。多元函子 $\mathcal{C}_1 \times \cdots \times \mathcal{C}_n \to \mathcal{C}$ 定义类似。
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{def:hom-functor}
 		给定范畴 $\mathcal{C}$，则 $(X,Y) \mapsto \hom_{\mathcal{C}}(X, Y)$ 定义了二元函子 $\hom_{\mathcal{C}}: \mathcal{C}^\mathrm{op} \times \mathcal{C}  \to \cate{Set}$，
 	称 \textbf{$\hom$-函子}。
 	$\mathcal{C}$ 中的任一对态射 $f: X' \to X$，$g: Y \to Y'$ 诱导出
@@ -916,7 +916,7 @@ FX & FY \arrow[l,"F(f)"'] \\
 	也可直接验证逆变性：$f\in\hom(X',X) \mapsto f^*\in\hom(X^*, X'^*)$；$\id_X^*=\id_{X^*}$ 且 $(f  g)^*=g^*  f^*$。
 \end{example}
 
-\begin{example}
+\begin{example}\label{eg:double-dual-functor}
 	记 $D(\oo)=(\oo)^*$。为方便考虑 $\mathcal{C}=\cate{Set}$。
 	考虑复合 $DD^\mathrm{op}:\mathcal{C}\to\mathcal{C}$（简写为 $(\oo)^{**}$），称为\textbf{双对偶函子}。
 	$X\mapsto X^{**}=\hom(X^*,\F)$；

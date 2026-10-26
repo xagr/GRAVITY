@@ -20,6 +20,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 字体设置
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath} % 须先于 amsthm 加载，以支持公式中的 \qedhere
+%\usepackage[fleqn]{amsmath} % flush left equations \setlength{\mathindent}{..em}
 \usepackage{
     amsthm,
     amsfonts,
@@ -28,8 +30,6 @@
     url,
     graphicx
 }
-\usepackage{amsmath} % 使用 equations
-%\usepackage[fleqn]{amsmath} % flush left equations \setlength{\mathindent}{..em}
 \usepackage{xeCJKfntef} % \CJKunderwave
 \usepackage{extarrows}  % \xlongequal
 \usepackage{makecell} % 矩阵内 cell
