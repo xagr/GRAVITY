@@ -359,33 +359,24 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
     因 $f$ 任意，即得坐标基变换。将其代入 $v= v^iX_i= v'^jX'_j$，比较系数即得分量变换。
 \end{proof}
 
+切矢场就是给每点指定该点的一个切矢：
 \begin{definition}
-    $T^*_p M:=(T_p M)^*$ 称为 $M$ 在 $p$ 处的\textbf{余切空间}，其元素称为 $M$ 在 $p$ 处的\textbf{余切矢}。
-    全体余切空间的无交并 $T^*M:=\bigsqcup_{p\in M} T^*_p M$ 称为\textbf{余切丛}。
+    置开集 $U\subset M$。若映射 $v:U\to TM$ 满足 $v(p)\in T_pM$（$\forall p\in U$），则称其为 $U$ 上的\textbf{切矢场}，亦称 $TM$ 在 $U$ 上的\textbf{截面}(section)。
+
+    若 $v=v^i\p_i$ 在各坐标域中的分量 $v^i$ 均为 $C^r$ 函数，则称 $v$ 为 $C^r$ 切矢场。全体光滑切矢场记作 $\Gamma(TM|_U)$，亦记 $\mathfrak X(U)$，其中 $TM|_U:=\bigsqcup_{p\in U}T_pM$。$U=M$ 时简记 $\Gamma(TM)$。本书不标可微阶数的 $\Gamma$ 均指光滑截面的集合。
 \end{definition}
-
-
-
-切矢场就是给流形各处指定一个切矢，准确而言，还要带上起点信息：
-\begin{definition}
-    置 $U\subset M$。映射 $v:U\to TM$ 称为 $U$  上的\textbf{切矢场}，$\Im v$ 称为 $TM$ 在 $U$ 的一个\textbf{截面}(section)。
-\end{definition}
-
-以后用 $v,\omega,T$ 等无指标记号表示切矢、余切矢及张量本身；选定坐标基后，以 $v^i,\omega_j,T^i{}_j$ 等表示其分量，重复的上下分量指标按求和约定处理。
 
 \begin{definition}
     置 $C^1$-曲线 $\gamma:I\to M$。其在 $p=\gamma(t)$ 处的\textbf{切矢} $\dot\gamma(t)\in T_pM$ 定义为
     \eq{\label{chdm:eqn_DiffCurve}
         \dot\gamma(t)(f):=\dv{(f\circ\gamma)}{t},\quad f\in C^\infty_p(M).
     }
-    由链式法则，其坐标展开为
+    由链式法则，其坐标展开为 $\dot\gamma(t)=\dv{(x^i\circ\gamma)}{t}\p_i|_{\gamma(t)}$，时常简记 
     \eq{\label{chdm:eqn_DiffCurve-2}
-        \dot\gamma(t)=\dv{(x^i\circ\gamma)}{t}\left.\p_i\right|_{\gamma(t)}.
+        \dv{t} = \dv{x^i}{t}\p_i.
     }
     映射 $t\mapsto\dot\gamma(t)$ 是沿 $\gamma$ 的\textbf{曲线切矢场}。曲线在 $p$ 处的切矢属于 $T_pM$，而 $T_pM$ 中的切矢未必都切于该曲线。
 \end{definition}
-
-时常简写为 $\dv{t}=\dv{x^\mu}{t}\pdv{x^\mu}$。$\dot\gamma(t)(f)=\dv{(f\circ\gamma)}{t}$。
 
 \begin{example}
     第 $x^i$ 坐标线的切矢正是坐标基 $\delta^j_i\p_j=\p_i$。
@@ -393,59 +384,75 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
 
 
 \begin{definition}
-置映射 $g:A\to A$ 和 $f:A\to A$。若 $f\circ g=g\circ f$，则称 $f,g$ 是\textbf{对易的}(commutative)。若 $A$ 有减法运算，称映射 $[f,g]$ 为 $f,g$ 的\textbf{对易子}(commutator)，使 $[f,g]=f\circ g - g \circ f$。$f,g$ 对易即 $[f,g](x)=0$，简写为 $[f,g]=0$。
+    置映射 $f,g:A\to A$。若 $f\circ g=g\circ f$，则称 $f,g$ \textbf{对易}(commute)。若 $A$ 为加法交换群，则可逐点定义其\textbf{对易子}(commutator)
+    \[
+        [f,g](x):=f(g(x))-g(f(x)).
+    \]
+    此时 $f,g$ 对易 $\iff[f,g]=0$，其中 $0$ 表示零映射。
 \end{definition}
 
+\begin{remark}
+    此定义不要求 $f,g$ 线性，但一般映射的对易子未必具有双线性或满足 Jacobi 恒等式。在实线性空间的线性自映射上，对易子具有上述性质，构成通常的 Lie 括号。
+\end{remark}
 
-矢量场可导指矢量场按任意坐标基展开的分量为坐标域上的可导函数。
+光滑切矢场 $A$ 可视为算子 $C^\infty(U)\to C^\infty(U)$，规定 $A(f)(p):=A_p(f)$。以下 $AB$ 指这种算子的复合，即 $AB(f)=A(B(f))$。
+
+\begin{example}
+    微积分 Schwarz 定理指出，光滑函数的混合偏导可交换：$ [\p_\mu,\p_\nu ]=0$，称为\textbf{偏导对易性}。
+\end{example}
 
 \begin{theorem}
     光滑矢量场对易子 $[A,B]$ 仍是光滑矢量场。
 \end{theorem}
 \begin{proof}
-    映射语言上显然。分量语言上，注意 $v(f)$ 在坐标基下等于 $v^\mu\partial_\mu f$，故对易子即
+    $[A,B]$ 显然线性。展开 $A(B(fg))-B(A(fg))$，交叉项抵消，得
+    \[
+        [A,B](fg)=g[A,B](f)+f[A,B](g).
+    \]
+    故在每点取值均为切矢。又在坐标域中，二阶偏导项相消，得
     \eq{
         [A,B]^\lambda=A^\mu\partial_\mu B^\lambda-B^\mu\partial_\mu A^\lambda.
     }
-    应证它满足张量变换式：
+    各分量均光滑，故 $[A,B]$ 为光滑切矢场。如果只使用分量语言，还需额外再证它满足张量变换式：
     \[
         \pdv{x^\sigma}(\pdv{x'^\lambda}{x^\kappa}B^\kappa)=  B^\kappa\pdv{x'^\lambda}{x^\sigma}{x^\kappa}+\pdv{x'^\lambda}{x^\kappa}\partial_\sigma B^\kappa,
     \]
     因为 $\partial_\sigma\partial_\kappa=\partial_\kappa\partial_\sigma$ 始终使 $\pdv{x'^\lambda}{x^\sigma}{x^\kappa}$ 项抵消。
 \end{proof}
 
-\begin{example}
-    Fubini 定理指出 $\left[\p_\mu,\p_\nu\right]=0$，又称\textbf{偏导对易性}。
-\end{example}
-
-
-切空间是一个$m$维线性空间，它应该有对偶空间。
 \begin{definition}
-    切空间$T_{x_0}M$的对偶空间称为微分流形$M$在点$x_0$的\textbf{余切空间}，
-    记作$T_{x_0}^{*}M$。余切空间的元素称为\textbf{余切矢量}。
+    $T^*_p M:=(T_p M)^*$ 称为 $M$ 在 $p$ 处的\textbf{余切空间}，其元素称为 $M$ 在 $p$ 处的\textbf{余切矢}。
+    全体余切空间的无交并 $T^*M:=\bigsqcup_{p\in M} T^*_p M$ 称为\textbf{余切丛}。
 \end{definition}
-余切空间维数亦为 $m$。自然切基 $\{\left.\p_i\right|_{x_0}\}$ 的\textbf{对偶基}记为 $\{\left.\d x^j\right|_{x_0}\}$，由
+
+Cartan 不仅提出了切矢的泛函导子定义，他还注意到
+%% ...
+这相当于给函数微分一个更严格的理解。标准分析学中常将 $\d f$ 定义为 $\Delta f$ 的线性主部，即 $\d f(x,\Delta x):=f'(x)\Delta x$。这里 $\Delta x$ 是从某点 $x$ 出发的位移，实际上任意大小，但物理上的理解是在 $\Delta x$ 很小时给出的微小增量。
+%% ...
+可见微分和余切的关系。
+
+\begin{theorem}
+    $\dim T_p^* M = \dim T_p M = n$。
+\end{theorem}
+\begin{proof}
+    $\{\p_i|_{p}\}$ 的对偶基记为 $\{\left.\d x^j\right|_{p}\}$，由
 \eq{\label{chdm:eqn_dual-natural-bases}
-    \left.\d x^j\right|_{x_0}\!\left(\left.\p_i\right|_{x_0}\right):=\delta_i^j
+    \left.\d x^j\right|_{p}\!\left(\p_i|_{p}\right):=\delta_i^j
 }
-确定。下文略去取值点，则 $\d x^j(v)=v^i\delta_i^j=v^j$，即取出 $v$ 的第 $j$ 个分量。任给 $\omega\in T^*_{x_0}M$，有
+确定。下文略去取值点，则 $\d x^j(v)=v^i\delta_i^j=v^j$，即取出 $v$ 的第 $j$ 个分量。任给 $\omega\in T^*_{p}M$，有
 \eq{
     \omega=\omega_j\d x^j,\quad \omega(v)=\omega_jv^j.
 }
+\end{proof}
+
 配对 $\langle\omega,v\rangle:=\omega(v)$ 是实数，而 $v(f)$ 也是实数，因此可用函数 $f$ 定义余切矢量。
 
-并且，
-Cartan 还注意到，这相当于给函数微分一个更严格的理解。标准分析学中常将 $\d f$ 定义为 $\Delta f$ 的线性主部，即 $\d f(x,\Delta x):=f'(x)\Delta x$。这里 $\Delta x$ 是从某点 $x$ 出发的位移，实际上任意大小，但物理上的理解是在 $\Delta x$ 很小时给出的微小增量。
-
-\begin{definition}
-    映射 $F:M\to N$ 的在 $p$ 处的切映射
-\end{definition}
-
 \begin{definition}\label{chdm:def_pushforward-vector}
+    映射 $F:M\to N$ 的在 $p$ 处的切映射
     定义\textbf{推前映射}，或称为\textbf{切映射}：
     \eq{
         (\phi_{*}v)(g) := v(\phi^{*}(g)) = v (g \circ \phi),
-        \quad \forall g\in C^\infty_{\phi(x_0)}(N),\quad \forall v \in T_{x_0}M .
+        \quad \forall g\in C^\infty_{\phi(p)}(N),\quad \forall v \in T_{p}M .
     }
 \end{definition}
 
@@ -457,11 +464,11 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 
 由定义及坐标展开，
 \eq{\label{chdm:eqn_dfv}
-    (\d f)_{x_0}(v)=v(f)=v^i\left.\pdv{f}{x^i}\right|_{x_0}.
+    (\d f)_{p}(v)=v(f)=v^i\left.\pdv{f}{x^i}\right|_{p}.
 }
 特别地，$\d x^i(\p_j)=\p_j(x^i)=\delta^i_j$，故坐标函数的微分正是上述对偶基，称为\textbf{对偶坐标基}。于是
 \eq{\label{chdm:eqn_df}
-    (\d f)_{x_0}=\left.\pdv{f}{x^j}\right|_{x_0}\left.\d x^j\right|_{x_0}.
+    (\d f)_{p}=\left.\pdv{f}{x^j}\right|_{p}\left.\d x^j\right|_{p}.
 }
 略去取值点，即 $\d f=\p_jf\,\d x^j$，与通常的全微分一致。
 
@@ -474,50 +481,50 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 很明显定义\eqref{chdm:eqn_dual-natural-bases}和式\eqref{chdm:eqn_dfv}是相容的。
 
 
-微分流形定义中要求坐标卡可以取成各种相容形式，如果$x_0\in M$有两个相互容许的
+微分流形定义中要求坐标卡可以取成各种相容形式，如果$p\in M$有两个相互容许的
 坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，且$U\cap V \neq \varnothing$；
-对应的自然坐标基底分别是$(\frac{\partial }{\partial x^i})_{x_0} $
-和$(\frac{\partial }{\partial y^j})_{x_0} $。
-我们把$(\frac{\partial }{\partial y^j})_{x_0} $看成
+对应的自然坐标基底分别是$(\frac{\partial }{\partial x^i})_{p} $
+和$(\frac{\partial }{\partial y^j})_{p} $。
+我们把$(\frac{\partial }{\partial y^j})_{p} $看成
 式\eqref{chdm:eqn_v-expand-on-natural-bases}中的$v$，那么有
 \eq{\label{chdm:eqn_xy-transform}
-    \left(\frac{\partial }{\partial y^j}\right)_{x_0} = \left. \frac{\partial x^i}{\partial y^j}\right|_{x_0} \cdot
-    \left(\frac{\partial }{\partial x^i}\right)_{x_0}     {\ \Leftrightarrow \ }
-    \left(\frac{\partial }{\partial x^i}\right)_{x_0} = \left. \frac{\partial y^j}{\partial x^i}\right|_{x_0} \cdot
-    \left(\frac{\partial }{\partial y^j}\right)_{x_0} .
+    \left(\frac{\partial }{\partial y^j}\right)_{p} = \left. \frac{\partial x^i}{\partial y^j}\right|_{p} \cdot
+    \left(\frac{\partial }{\partial x^i}\right)_{p}     {\ \Leftrightarrow \ }
+    \left(\frac{\partial }{\partial x^i}\right)_{p} = \left. \frac{\partial y^j}{\partial x^i}\right|_{p} \cdot
+    \left(\frac{\partial }{\partial y^j}\right)_{p} .
 }
-上式同时写出了逆变换；可见过渡矩阵恰好是$x_0$点的Jacobi矩阵。
+上式同时写出了逆变换；可见过渡矩阵恰好是$p$点的Jacobi矩阵。
 
 
 在$U\cap V$中可以把$y^j$看成自变量是$x^i$的标量函数（也可反过来），
 将式\eqref{chdm:eqn_df}中的$f$用$y^j$替换后，有
 \eq{\label{chdm:eqn_xy-cov-transform}
-    (\d y^j) = (\d x^i) \left.\frac{\partial y^j}{\partial x^i}\right|_{x_0}
+    (\d y^j) = (\d x^i) \left.\frac{\partial y^j}{\partial x^i}\right|_{p}
     {\quad \Leftrightarrow \quad }
-    (\d x^i) = (\d y^j) \left.\frac{\partial x^i}{\partial y^j}\right|_{x_0}
+    (\d x^i) = (\d y^j) \left.\frac{\partial x^i}{\partial y^j}\right|_{p}
 }
-过渡矩阵恰好是$x_0$点的Jacobi矩阵之逆。
+过渡矩阵恰好是$p$点的Jacobi矩阵之逆。
 
-其实，在同一流形$M$中，点$x_0\in M$有两个相互容许的坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，
+其实，在同一流形$M$中，点$p\in M$有两个相互容许的坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，
 且$U\cap V \neq \varnothing$；此时的局部坐标变换与局部微分同胚是等价的，
 一般分别称它们为被动模式和主动模式。请读者仔细理解这两种操作的等价性。
 
-有了切空间$T_{x_0}M$及其对偶空间$T_{x_0}^{*}M$（两个都是线性空间），
-仿照\S\ref{chmla:sec_tensor}，可以定义微分流形$M$在点$x_0$处的$({p},{q})$型张量，
+有了切空间$T_{p}M$及其对偶空间$T_{p}^{*}M$（两个都是线性空间），
+仿照\S\ref{sec:tensor}，可以定义微分流形$M$在点$p$处的$({p},{q})$型张量，
 可以把它看成$m^{p+q}$维线性空间
 \eq{\label{chdm:eqn_TM-TsM}
-    \mathcal{T}^p_q(x_0) := \underbrace{T_{x_0}M\otimes \cdots \otimes T_{x_0}M}_{p\text{个}}
-    \otimes \underbrace{T_{x_0}^{*}M\otimes \cdots \otimes T_{x_0}^{*}M}_{q\text{个}}
+    \mathcal{T}^p_q(p) := \underbrace{T_{p}M\otimes \cdots \otimes T_{p}M}_{p\text{个}}
+    \otimes \underbrace{T_{p}^{*}M\otimes \cdots \otimes T_{p}^{*}M}_{q\text{个}}
 }
 中的元素。也可以把它看成笛卡尔积空间
 \eq{\label{chdm:eqn_TM-X-TsM}
-    \underbrace{T_{x_0}^{*}M \times \cdots \times T_{x_0}^{*}M}_{p\text{个}}
-    \times \underbrace{T_{x_0}M\times \cdots \times T_{x_0}M}_{q\text{个}}
+    \underbrace{T_{p}^{*}M \times \cdots \times T_{p}^{*}M}_{p\text{个}}
+    \times \underbrace{T_{p}M\times \cdots \times T_{p}M}_{q\text{个}}
 }
 的$p+q$重线性函数。
 
 
-从上一小节可知线性空间$\mathcal{T}^p_q(x_0)$的自然基矢量是（略去了下标$x_0$）
+从上一小节可知线性空间$\mathcal{T}^p_q(p)$的自然基矢量是（略去了下标$p$）
 \eq{\label{chdm:eqn_tensortrans}
     \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
     \d x^{j_1}\otimes\cdots\otimes\d x^{j_q}.
@@ -526,7 +533,7 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 由式\eqref{chdm:eqn_xy-transform}和\eqref{chdm:eqn_xy-cov-transform}不难得到
 上式在坐标变化下的变换关系。
 
-任一张量 $\alpha\in\mathcal T^p_q(x_0)$ 均可展开为
+任一张量 $\alpha\in\mathcal T^p_q(p)$ 均可展开为
 \eq{\label{chdm:eqn_tensor-component}
     \alpha=\alpha^{i_1\cdots i_p}{}_{j_1\cdots j_q}
     \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
@@ -542,8 +549,8 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
     \frac{\partial x^{j_1}}{\partial y^{l_1}} \cdots
     \frac{\partial x^{j_q}}{\partial y^{l_q}} .
 }
-需要强调的是：上式所有量都需在点$x_0\in M$取值，
-$\{x\}$、$\{y\}$是$x_0$点某个小邻域的两套坐标系。
+需要强调的是：上式所有量都需在点$p\in M$取值，
+$\{x\}$、$\{y\}$是$p$点某个小邻域的两套坐标系。
 由此式直接可得一阶切矢量或余切矢量的分量变换关系。
 
 \section{诱导映射}\label{chdm:sec_induced-map}
@@ -555,7 +562,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 \eq{
     y^\alpha = \phi(x^i)=y^\alpha (x^1,\cdots, x^m), \quad 1\leqslant \alpha \leqslant n .
 }
-取微分流形$M$中任一点$x_0$及微分流形$N$中点$\phi(x_0)$，
+取微分流形$M$中任一点$p$及微分流形$N$中点$\phi(p)$，
 则有$y^\alpha_0=\phi(x^i_0)$。
 那么它自然诱导出一系列映射。
 
@@ -566,11 +573,11 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 类似地，记 $\phi(p)=q$，若 $\phi$ 是同胚，则也可将 $p=\phi^{-1}(q)$ 处的 $f$ 值往前搬至 $q$ 处，即定义 $\phi_* f$ 使 $\phi_* f(q):=f(\phi^{-1}(q))$ 或者 $\phi_* f:=f\circ\phi^{-1}$
 
 \begin{definition}\label{chdm:def_pullback-scalar}
-    从$C^\infty_{\phi(x_0)}(N)$到$C^\infty_{x_0}(M)$
+    从$C^\infty_{\phi(p)}(N)$到$C^\infty_{p}(M)$
     的拉回 $\phi^{*}$ 为
     \eq{
         \phi^{*}(g) := g \circ \phi,
-        \quad \forall g\in C^\infty_{\phi(x_0)}(N) .
+        \quad \forall g\in C^\infty_{\phi(p)}(N) .
     }
 \end{definition}
 一般来说，我们不能把$M$中的标量函数推前到$N$上；比如映射$\phi$不是单射，
@@ -585,7 +592,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
     \textbf{拉回映射}可拓展到余切矢量，也称为\textbf{余切映射}：
     \eq{
         (\phi^*\omega)(v):=\omega(\phi_*v) ,
-        \quad \forall \omega \in T^{*}_{\phi(x_0)}N,\quad \forall v \in T_{x_0}M .
+        \quad \forall \omega \in T^{*}_{\phi(p)}N,\quad \forall v \in T_{p}M .
     }
 \end{definition}
 需要强调的是：上面几个定义都是点对点的。
@@ -595,7 +602,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
     切映射和余切映射都是线性的。
 \end{proposition}
 \begin{proof}
-    先证切映射是线性的。设$\forall u,v \in T_{x_0}M,\  \forall g\in C^\infty_{\phi(x_0)}(N),\
+    先证切映射是线性的。设$\forall u,v \in T_{p}M,\  \forall g\in C^\infty_{\phi(p)}(N),\
     \forall \lambda \in \R$，
 
     \begin{align*}
@@ -604,7 +611,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
         =(\phi_{*} u) (g) + \lambda \cdot (\phi_{*}v)(g) .
     \end{align*}
 
-    再证余切映射的线性性。任给 $\omega,\mu\in T^*_{\phi(x_0)}N$、$v\in T_{x_0}M$ 及 $\lambda\in\R$，有
+    再证余切映射的线性性。任给 $\omega,\mu\in T^*_{\phi(p)}N$、$v\in T_{p}M$ 及 $\lambda\in\R$，有
     \[
         \bigl(\phi^*(\omega+\lambda\mu)\bigr)(v)
         =(\omega+\lambda\mu)(\phi_*v)
@@ -654,7 +661,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 
 余切映射局部坐标基矢间的关系也是Jacobi矩阵。
 
-最后强调一点：所有公式只在$x_0$点取值，为使下标简洁上面表达式中略去了此点。
+最后强调一点：所有公式只在$p$点取值，为使下标简洁上面表达式中略去了此点。
 \end{proof}
 
 命题\ref{chdm:thm_coortrans}中映射是$\phi:M\to N$，如果我们令$N=M$，并且
@@ -667,10 +674,10 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 \begin{align}
     {\phi ^*} (\d f) =& {\phi ^*} \left[ \frac{ \partial f  }
       {\partial y^\alpha} (\d y^\alpha)  \right]
-    = \left. \frac{ \partial f }{\partial y^\alpha} \right|_{\phi(x_0)}
-      \left. \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} \right|_{x_0}
+    = \left. \frac{ \partial f }{\partial y^\alpha} \right|_{\phi(p)}
+      \left. \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} \right|_{p}
       \left( {\d {x^i }} \right)
-    = \left. \frac{ \partial (f \circ \phi) }{\partial x^i} \right|_{x_0}
+    = \left. \frac{ \partial (f \circ \phi) }{\partial x^i} \right|_{p}
       \left( {\d {x^i }} \right)  \notag\\
     =& \d (f \circ \phi) =\d ({\phi ^*}f) . \label{chdm:eqn_dfphi}
 \end{align}
@@ -1357,7 +1364,7 @@ Poisson 括号具有 $\R$-线性，但一般不具有 $C^\infty(M)$-线性。任
 
 \subsection{场上的诱导映射}\label{chdm:sec_induced-map-on-fields}
 
-在\S\ref{chdm:sec_induced-map}中，引入确定点$x_0$的切映射、余切映射等概念；
+在\S\ref{chdm:sec_induced-map}中，引入确定点$p$的切映射、余切映射等概念；
 其中有一些可以直接推广到“场”上，有一些则不可以。
 
 设有两个微分流形$M$和$N$，维数分别为$m$和$n$（两者未必相等），存在光滑映射$\phi:M\to N$；
@@ -1642,19 +1649,19 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作\textbf{度量}或\textbf
 
 \begin{example}
     设有一维光滑流形：实直线$\R$，局部坐标取为$\{x\}$。其上有光滑矢量场$k x$（只有一个分量），
-    其中$k$是实常数；求其过$x_0$点的积分曲线。将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
+    其中$k$是实常数；求其过$p$点的积分曲线。将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
     \eq{
         \frac{\d x(t)}{\d t}= k x
         \quad {\Rightarrow} \quad
-        x(t)= x_0 e^{k(t-t_0)}.
+        x(t)= p e^{k(t-t_0)}.
     }
 \end{example}
-上面例题应该是最简单的情形之一，读者可在平面上画出积分曲线（令$x_0$变动）。
+上面例题应该是最简单的情形之一，读者可在平面上画出积分曲线（令$p$变动）。
 下面给出一个略微复杂一点的例子。
 \begin{example}
     设有二维光滑流形：二维实平面$\R^2$，局部坐标取为$\{x,y\}$。
     其上有光滑矢量场$(x,ky)$（有两个分量），其中$k$是实常数；
-    求其过$(x_0,y_0)$点的积分曲线。将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
+    求其过$(p,y_0)$点的积分曲线。将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
     \eq{
         \begin{cases}
             \frac{\d x(t)}{\d t}& =  x \\
@@ -1662,7 +1669,7 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作\textbf{度量}或\textbf
         \end{cases}
         \quad {\Rightarrow} \quad
         \begin{cases}
-            x(t)& =  x_0 e^{t-t_0} \\
+            x(t)& =  p e^{t-t_0} \\
             y(t)& =  y_0 e^{k(t-t_0)}
         \end{cases}
     }
