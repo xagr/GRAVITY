@@ -1,4 +1,4 @@
-\chapter{经典引力场论}\label{chpt:GR}
+\chapter{经典引力场论}
 
 \section{广义相对论}
 \subsection{时空及对钟}
@@ -57,7 +57,6 @@
     \subfloat[\centering 动系对钟]{\includegraphics[height=.29\textwidth]{fig/chpt01/reflec2.pdf}
     }
     \caption{\small 若以 $G$ 为绘图基准，只需使反射光与 $G$ 夹角呈 $45^\circ$ 即可使 $BD,AC$ 呈 $90^\circ$，如(a)。以该系为基准，研究运动惯性观者的对钟情况，如(b)。可见惯性系坐标轴总关于 $45^\circ$ 斜线对称。}
-    \label{fig:clock_syn}
 \end{wrapfigure}
 
 随后想到双程信号。先讨论惯性参考系，\S\ref{sec:sync-clock} 再讨论哪种参考系才能对钟。规定惯性观者走匀速直线。
@@ -90,7 +89,6 @@
     \subfloat[\centering 钟慢效应：在 $S'$ 中静止]{\includegraphics[width=.35\textwidth]{fig/chpt01/TIME DILATION S'.pdf}
     }
     \caption{\small 作某事件的同时面可投影得其坐标时。设静系 $S$ 和动系 $S'$。某事件的 $t$ 坐标可做 $S$系同时面截得，而 $t'$ 坐标可做$S'$系同时面截得。无法区别出特定的同时面，此即\textbf{同时的相对性}。}
-    \label{fig:simurela}
 \end{figure}
 
 由光速不变知 $2\sqrt{L^2+\Delta\ell^2/4}=\Delta t$，则 $\Delta\tau^2=\Delta t^2-\Delta\ell^2$，或者 $\Delta t=\gamma\Delta\tau$，其中 $\gamma:=1/\sqrt{1-u^2}\geqslant 1$ 是\textbf{Lorentz 因子}。可见 $\Delta t\geqslant\Delta\tau$，在观者看来，运动的时钟走时慢，此称\textbf{钟慢效应}或\textbf{时间膨胀}。这种效应是对称的，每个观者都认为其它的相对运动的时钟走时慢。
@@ -134,7 +132,6 @@
     \centering
     \includegraphics[width=\linewidth]{fig/chpt01/order.pdf}
     \caption{类空间隔}
-    \label{fig:spacelike}
   \end{minipage}\quad
   \begin{minipage}[t]{0.4\textwidth}
     \centering
@@ -1055,7 +1052,7 @@ $\Lambda$ 称为\textbf{宇宙学常数}(cosmological constant)。
     }
 \end{center}
 于是 $(k,l)$-张量的 Levi-Civita 导数为（记作逗号或 $\cd_\mu$）
-\begin{align*}\label{eq:cov-tens}
+\begin{align*}
     T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\nu_l;\lambda}&=\pdv{x^{\mu_1}}{\xi^{\alpha_1}}\cdots\pdv{x^{\mu_k}}{\xi^{\alpha_k}}\pdv{\xi^{\beta_1}}{x^{\nu_1}}\cdots\pdv{\xi^{\beta_l}}{x^{\nu_l}}\pdv{\xi^\kappa}{x^\lambda}\pdv{\xi^\kappa}\tilde T^{\alpha_1\cdots\alpha_k}{}_{\beta_1\cdots\beta_l}\\
     &=\pdv{x^{\mu_1}}{\xi^{\alpha_1}}\cdots\pdv{x^{\mu_k}}{\xi^{\alpha_k}}\pdv{\xi^{\beta_1}}{x^{\nu_1}}\cdots\pdv{\xi^{\beta_l}}{x^{\nu_l}}\pdv{x^\lambda}( T^{\rho_1\cdots\rho_k}{}_{\sigma_1\cdots\sigma_l}\pdv{\xi^{\alpha_1}}{x^{\rho_1}}\cdots\pdv{\xi^{\alpha_k}}{x^{\rho_k}}\pdv{x^{\sigma_1}}{\xi^{\beta_1}}\cdots\pdv{x^{\sigma_l}}{\xi^{\beta_l}})\\
     &=T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\nu_l,\lambda}+\sum_{i=1}^k \{^{\mu_i}_{\lambda \sigma}\} T^{\mu_1\cdots\sigma\cdots\mu_k}{}_{\nu_1\cdots\nu_l}-\sum_{j=1}^l\{^{\sigma}_{\lambda \nu_j}\} T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\sigma\cdots\nu_l}.
@@ -2103,7 +2100,7 @@ $\mathscr N$ 就是惯性系 $\{x\}$ 所测数密度。将它与 \eqref{eq:gw-pl
 后者是以一般谐和规范下的复偏振张量 $e_{\mu\nu}$ 表示的总数密度；在 TT 规范中迹项消失。这里把经典波的能量除以单个量子的能量 $\hbar\omega$，正是由波强度过渡到引力子数目的最简单办法。
 
 同理，将 \eqref{eq:arbitrary-source-radiated-power} 除以单个引力子的能量 $\hbar\omega$，便得到向立体角 $\d\Omega$ 发射引力子的速率
-\begin{equation}\label{eq:graviton-emission-rate}
+\begin{equation}
     \d\Gamma=\frac{G\omega\,\d\Omega}{\pi\hbar}
     \left[\widetilde T^{\mu\nu *}\widetilde T_{\mu\nu}
     -\frac12\abs{\widetilde T^\mu{}_\mu}^2\right].
@@ -2126,7 +2123,7 @@ $\mathscr N$ 就是惯性系 $\{x\}$ 所测数密度。将它与 \eqref{eq:gw-pl
 其寿命远超宇宙年龄，说明单个微观系统的引力子自发辐射实际上不可观测。
 
 还可考虑本来就会发生的粒子碰撞，并询问额外发射软引力子的概率。设 $\mathcal P_c$ 是不分辨引力辐射时碰撞发生的概率；把 \eqref{eq:soft-graviton-radiated-energy} 乘以 $\mathcal P_c$，再除以 $\hbar\omega$，便有
-\begin{equation}\label{eq:soft-graviton-emission}
+\begin{equation}
     \d\mathcal P=\frac{G\omega\,\d\omega\d\Omega}{2\pi^2\hbar}\mathcal P_c
     \sum_{N,M}\frac{\eta_N\eta_M}{(p_N\cdot k)(p_M\cdot k)}
     \left[(p_N\cdot p_M)^2-\frac12m_N^2m_M^2\right].
@@ -2898,7 +2895,7 @@ $D^+(A)$ 只包含由 $A$ 上初值决定的未来区域，其可预言性的未
 时空度规分解为 $g_{\mu\nu}=q_{\mu\nu}-(k_\mu n_\nu+n_\mu k_\nu)$，其中后一项正是类光法平面上的 Lorentz 度规。加号来自归一化 $k\cdot n=-1$；若 $k\cdot n=-C$，则应写成 $q_{\mu\nu}=g_{\mu\nu}+(k_\mu n_\nu+n_\mu k_\nu)/C$。
 例如在闵氏时空取 $k=(\p_t+\p_z)/\sqrt2$、$n=(\p_t-\p_z)/\sqrt2$，便有 $q_{\mu\nu}\d x^\mu\d x^\nu=\d x^2+\d y^2$，正是垂直于光传播方向的屏空间。
 将 $\cd_\nu k_\mu $ 投影到屏空间，得到
-\begin{equation}\label{eq:null-congruence-decomposition}
+\begin{equation}
     B_{\mu\nu}=q_\mu{}^\gamma q_\nu{}^\kappa\cd_\kappa k_\gamma
       =\frac12\theta q_{\mu\nu}+\sigma_{\mu\nu}+\omega_{\mu\nu},
 \end{equation}
@@ -2928,7 +2925,7 @@ $D^+(A)$ 只包含由 $A$ 上初值决定的未来区域，其可预言性的未
 其中已用 Einstein 方程消去 Ricci 张量；宇宙学常数项因 $\ell^\mu\ell_\mu=0$ 不作贡献。
 
 事件视界的定义要知道时空的完整未来，在数值演化和局域物理中并不方便。为此取一个类空余二维曲面 $S$，选择未来指向的外向、内向类光法矢 $\ell^\mu,n^\mu$，并归一化为 $\ell\cdot n=-1$。取 $S$ 的局部切基 $e_A{}^\mu$，则 $q_{AB}:=g_{\mu\nu}e_A{}^\mu e_B{}^\nu$ 是 $S$ 的内禀度规，$q^{\mu\nu}:=q^{AB}e_A{}^\mu e_B{}^\nu$ 是其时空投影形式。两支未来类光法膨胀为
-\begin{equation}\label{eq:null-expansions}
+\begin{equation}
     \theta_{(\ell)}=q^{AB}e_A{}^\mu e_B{}^\nu\cd_\mu\ell_\nu
     =q^{\mu\nu}\cd_\mu\ell_\nu,
     \qquad
@@ -2946,7 +2943,7 @@ $D^+(A)$ 只包含由 $A$ 上初值决定的未来区域，其可预言性的未
 
 %紧致
 
-\subsection{Penrose 定理}\label{sec:Penrose}
+\subsection{Penrose 定理}
 
 \noindent \textbf{类光奇性定理}(Penrose, 1965)：若四维 Lorentz 时空满足
 \begin{enumerate}
@@ -3026,7 +3023,7 @@ Witten 的外移论证可以去掉生成线本身未来完备的额外假设。�
 
 真实事件视界在生成线加入的折痕集上通常只有 $C^0$。上述微分证明适用于其分片 $C^2$ 的正则部分；严格的低正则定理以几乎处处的广义膨胀和面积公式处理折痕集，新加入的生成线仍不会造成面积减少。若两截面间没有新生成线且面积相等，则正则部分上 $\theta=0$；Raychaudhuri 方程进一步给出 $\sigma_{\mu\nu}=0$ 和 $T_{\mu\nu}k^\mu k^\nu=0$。
 
-\subsection{表观视界}\label{sec:apparent-horizon}
+\subsection{表观视界}
 
 固定通向所选渐近平直端的类空切片 $\Sigma$。设 $u^\mu$ 是 $\Sigma$ 的未来单位法矢，$s^\mu$ 是闭曲面 $S\subset\Sigma$ 中指向该端的外单位法矢，取 $\ell^\mu=u^\mu+s^\mu$、$n^\mu=(u^\mu-s^\mu)/2$，则 $\ell\cdot n=-1$。由 $q^{\mu\nu}=h^{\mu\nu}-s^\mu s^\nu$，按本文 $K_{ij}=h_i{}^\mu h_j{}^\nu\cd_\mu u_\nu$ 的约定，外向膨胀为 $\theta_{(\ell)}=D_is^i+K-K_{ij}s^is^j$，其中 $D_i$ 表示 \S\ref{sec:Hamilton} 的空间协变导数。因此在给定初值资料 $(h_{ij},K_{ij})$ 后，MOTS 可由切片内的几何求出，不必先知道时空的完整未来。
 
@@ -3385,7 +3382,7 @@ $\cd^\mu\phi\cd_\mu\phi$ 代替即可，因而算子 $\square$ 换为 $\square_g
     \Gamma^\lambda_{\mu\nu} := \pdv{x^\lambda}{\xi^\alpha}\pdv{\xi^\kappa}{x^\mu}\tilde\cd_\kappa\pdv{\xi^\alpha}{x^\nu} \iff\pdv{\xi^\kappa}{x^\mu}\tilde\cd_\kappa\pdv{\xi^\alpha}{x^\nu}=\Gamma^\lambda_{\mu\nu}\pdv{\xi^\alpha}{x^\lambda},
 }
 从而
-\eq{\label{eq:cov-tens}
+\eq{
     T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\nu_l;\lambda}=T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\nu_l,\lambda}+\sum_{i=1}^k \Gamma^{\mu_i}_{\lambda \sigma} T^{\mu_1\cdots\sigma\cdots\mu_k}{}_{\nu_1\cdots\nu_l}-\sum_{j=1}^l\Gamma^{\sigma}_{\lambda \nu_j} T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\sigma\cdots\nu_l}.
 }
 联络系数是赝张量：

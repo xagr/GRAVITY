@@ -97,7 +97,7 @@ $A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 
     \eq{\Lie_X\d=\d i_X\d=\d\Lie_X.\qedhere}
 \end{proof}
 
-\section{定向与带边流形}\label{sec:orientation-boundary}
+\section{定向与带边流形}
 
 \S\ref{sec:tensor-density} 已定义线性空间的体元与定向。对流形，每个切空间都可单独定向，问题在于能否随点光滑地选取。
 
@@ -257,7 +257,7 @@ pattern radius = 1pt}
 
 最后确定边界的定向。外向是相对于 $M$ 的局部内侧而言，并不要求 $\partial M$ 将某个背景空间分成内外两部分。对 $p\in\partial M$，若 $\nu\in T_pM$ 满足 $\d x^n(\nu)<0$，就称 $\nu$ \textbf{外向}。此条件与边界坐标的选择无关：坐标变换保持边界和内侧，其微分在横向上只能乘以正数。这里不要求 $\nu$ 为单位矢量或与边界正交，因而无需度规。
 
-\begin{theorem}\label{thm:boundary-orientation}
+\begin{theorem}
     定向带边流形 $M$ 自然诱导 $\partial M$ 的定向。若 $\epsilon$ 为 $M$ 的正定体元、$\nu$ 为沿边界的光滑外向矢量场、$\iota:\partial M\hookrightarrow M$ 为包含映射，则边界定向由
     \eq{\epsilon_{\partial}:=\iota^*(i_\nu\epsilon)}
     给出。对 $n\geqslant2$，这等价于规定：$(v_1,\cdots,v_{n-1})$ 是边界的右手基，当且仅当 $(\nu,v_1,\cdots,v_{n-1})$ 是 $M$ 的右手基，称为\textbf{外向在前}约定。
@@ -360,7 +360,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     $\int_{\partial S} \tilde{\omega}$ 的积分域是闭合曲线 $\partial S$，至少要用两个坐标域覆盖，因此应先对每个坐标域做局部积分再“缝合”。幸好可这样：设 $L$ 是 $\partial S$ 挖去一点所得，则它用一个坐标域即可覆盖，但挖去一点不影响 Riemann 积分。
 \end{remark}
 
-\section{Gauss 定理}\label{sec:gauss-divergence}
+\section{Gauss 定理}
 
 以下置 $\dim M=n\geqslant2$，度规 $g$ 沿用定义 \ref{def:metric-field}，允许不定。升降指标及正交性均相对于 $g$ 而言。
 
@@ -447,7 +447,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     故 $\nabla_\mu X^\mu=\p_\mu X^\mu+\Gamma^\mu_{\mu\lambda}X^\lambda$ 恰为上式。这里不能将 Levi-Civita 联络换为任意仿射联络。
 \end{remark}
 
-\begin{theorem}[Gauss]\label{thm:gauss-divergence}
+\begin{theorem}[Gauss]
     设 $D$ 为定向度规流形 $(M,g)$ 中的光滑带边区域，$X$ 为光滑矢量场，且其在 $D$ 上的限制紧支撑。记 $j:\partial D\hookrightarrow M$，则
     \eq{\int_D(\operatorname{div}_gX)\epsilon
         =\int_{\partial D}j^*(i_X\epsilon).}
@@ -466,7 +466,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 \end{remark}
 
 为与 \S\ref{sec:Gauss} 的分量写法对应，定义\textbf{有向面元}的分量
-\eq{\label{eq:directed-surface-element}
+\eq{
     \d\Sigma_\mu:=j^*(i_{\p_\mu}\epsilon)
         =\frac{1}{(n-1)!}\epsilon_{\mu\mu_2\cdots\mu_n}
         j^*(\d x^{\mu_2}\wedge\cdots\wedge\d x^{\mu_n}).
@@ -496,7 +496,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     若每点都位于某个积分子流形中，则称 $W$ \textbf{可积}(integrable)。若一个积分子流形包含所有与它相交的积分子流形，则称它\textbf{最大}。
 \end{definition}
 
-\begin{theorem}[Frobenius 定理，矢量表述]\label{thm:frobenius-vector}
+\begin{theorem}[Frobenius 定理，矢量表述]
     光滑 $m$ 维分布 $W$ 可积当且仅当它对合。此时每点附近都有坐标 $(y^1,\ldots,y^n)$，使
     \eq{\label{eq:frobenius-coordinates}
         W=\operatorname{span}\{\p_{y^1},\ldots,\p_{y^m}\}.
@@ -517,7 +517,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     在原点附近 $F$ 有定义且 $F_*\p_{t^i}=X_i$。而 $F_{*(0,0)}$ 将其余坐标基映为 $\p_{x^{m+1}},\ldots,\p_{x^n}$，故可逆。由逆映射定理，$(t,z)$ 给出所求坐标；固定 $z$ 即得积分子流形。$m=0$ 或 $m=n$ 的情形直接成立。
 \end{proof}
 
-\begin{theorem}[最大积分子流形]\label{thm:frobenius-leaf}
+\begin{theorem}[最大积分子流形]
     若 $W$ 可积，则过每点恰有一个最大积分子流形，称为 $W$ 的\textbf{叶}(leaf)。各叶互不相交，其并为 $M$。
 \end{theorem}
 \begin{proof}
@@ -545,7 +545,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     它是光滑的 $n-m$ 维余切子空间场。取其局部基 $\mu^1,\ldots,\mu^{n-m}$，便有 $W=\bigcap_\alpha\ker\mu^\alpha$。取值于 $W^0$ 的 $1$-形式称为 $W$ 的\textbf{消灭形式}。
 \end{definition}
 
-\begin{theorem}[Frobenius 定理，对偶表述]\label{thm:frobenius-dual}
+\begin{theorem}[Frobenius 定理，对偶表述]
     光滑分布 $W$ 可积当且仅当它的每个局部消灭形式 $\omega$ 都可局部写成
     \eq{\label{eq:frobenius-ideal}
         \d\omega=\sum_{\alpha=1}^{n-m}\mu^\alpha\wedge\psi^\alpha,
@@ -566,7 +566,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     $\omega\wedge\d\omega=-\d x\wedge\d y\wedge\d z\ne0$，$\ker\omega$ 不可积。等价地，其局部基 $\p_x,\ \p_y+x\p_z$ 的 Lie 括号为 $\p_z$，不在该分布中。
 \end{example}
 
-\begin{theorem}[余维为一的情形]\label{thm:frobenius-one-form}
+\begin{theorem}[余维为一的情形]
     设 $\omega$ 是处处非零的 $1$-形式。下列条件等价：
     \begin{enumerate}
         \item $\ker\omega$ 可积；
@@ -587,7 +587,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     可积。这里允许 $v$ 类光。
 \end{definition}
 
-\begin{theorem}[超曲面正交的充要条件]\label{thm:hypersurface-orthogonal}
+\begin{theorem}[超曲面正交的充要条件]
     处处非零的 $v$ 超曲面正交当且仅当
     \eq{v_\flat\wedge\d v_\flat=0.}
     等价地，存在 $1$-形式 $\psi$ 使 $\d v_\flat=v_\flat\wedge\psi$，或每点附近有 $v_\flat=h\d f$。若以任一无挠导数算符 $\nabla$ 表示（见附录 \ref{appx:curvature}），条件写成
@@ -607,7 +607,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     因此 $\omega_{\mu\nu}=0$ 恰等价于 $\d Z_\flat$ 在 $Z^\perp\times Z^\perp$ 上为零。由式 \eqref{eq:annihilator-bracket} 及 Frobenius 定理，这又等价于 $Z$ 超曲面正交。故无旋参考系正是超曲面正交参考系；局部可取 $Z_\flat=-N\d t$（$N>0$），其正交超曲面为 $t=\text{常数}$。
 \end{example}
 
-\section{积分的求导}\label{sec:transport-integral}
+\section{积分的求导}
 
 积分随时间变化，既可能来自被积形式，也可能来自积分域的运动。将运动区域拉回初始区域，便可统一处理。
 
@@ -616,7 +616,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     v_t:=\dot\phi_t\circ\phi_t^{-1},}
 并由 $\phi_t$ 将定向传到 $D_t$。这里 $v_t$ 是区域的运动速度，允许依赖时间；只要求 $\phi_t$ 在所考察的时间区间内有定义。
 
-\begin{theorem}[广义 Leibniz 公式]\label{thm:transport-integral}
+\begin{theorem}[广义 Leibniz 公式]
     设 $\omega_t$ 为随时间光滑变化的 $p$-形式，定义在 $D_t$ 的邻域上，则
     \eq{
         \dv{t}\int_{D_t}\omega_t

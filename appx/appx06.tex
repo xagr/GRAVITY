@@ -195,7 +195,7 @@
     称为 $p$ 处的\textbf{指数映射}。将各点的定义域合为 $\mathcal D\subset TM$，记 $\exp(v):=\exp_p(v)$（$v\in T_pM$）。
 \end{definition}
 
-\begin{theorem}\label{thm:exponential-map}
+\begin{theorem}
     $\mathcal D$ 是包含零截面的开集，$\exp$ 为 $C^1$-映射。各 $\mathcal D_p$ 关于原点星形，且
     \eq{\exp_p(tv)=\gamma_v(t),\qquad (\exp_p)_{*0}=\id_{T_pM},}
     前式在 $t\in I_v$ 时成立，后式将 $T_0(T_pM)$ 自然识别为 $T_pM$。若流形及联络光滑，则 $\exp$ 光滑。
@@ -219,7 +219,7 @@
     定义坐标映射 $x:N\to\R^n$，则 $(N,x)$ 称为以 $p$ 为中心的\textbf{法坐标系}。光滑情形下，上述同胚为微分同胚，法坐标系属于 $M$ 的光滑图册。
 \end{definition}
 
-\begin{theorem}\label{thm:normal-neighborhood}
+\begin{theorem}
     每点的任意开邻域内均有该点的法邻域。在法坐标系中，当 $tv\in W$ 时，过中心 $p$ 的测地线表为 $x^\mu(\gamma_v(t))=tv^\mu$。
 \end{theorem}
 \begin{proof}
@@ -264,9 +264,9 @@
 
 由 \S\ref{appx:Lie-deri} 中流保持张量的判据，$K$ 为 Killing 场当且仅当其流的各 $\phi_t$ 均为局部等度规映射。$K$ 完备时，才得到定义于所有实参数的整体单参数等度规群。Killing 场描述从恒等映射连续生成的对称性；反射等离散对称性不由这种流给出。
 
-\begin{theorem}[Killing 方程]\label{thm:killing-equation}
+\begin{theorem}[Killing 方程]
     $K$ 为 Killing 场当且仅当
-    \eq{\label{eq:killing-equation}
+    \eq{
         \nabla_\mu K_\nu+\nabla_\nu K_\mu=0,\qquad K_\nu:=g_{\nu\lambda}K^\lambda.}
 \end{theorem}
 \begin{proof}
@@ -297,7 +297,7 @@
     欧氏平面 $g=\d x^2+\d y^2$ 上，平移场 $\p_x,\p_y$ 和旋转场 $J=-y\p_x+x\p_y$ 均为 Killing 场。三者作为矢量场在 $\R$ 上线性无关，尽管任一点的切空间只有二维，且 $J$ 在原点为零。后文所谓独立 Killing 场的数目，均指这种常系数线性无关，与逐点线性无关不同。
 \end{example}
 
-\begin{theorem}\label{thm:killing-conserved}
+\begin{theorem}
     若 $K$ 为 Killing 场，$\gamma$ 为仿射参数测地线，则 $g(K,\dot\gamma)$ 沿 $\gamma$ 为常数。
 \end{theorem}
 \begin{proof}
@@ -306,7 +306,7 @@
         =T^\mu T^\nu\nabla_\mu K_\nu=0.\qedhere}
 \end{proof}
 
-\begin{theorem}\label{thm:isometry-connection}
+\begin{theorem}
     局部等度规映射保持 Levi-Civita 联络及仿射参数测地线，因而
     \eq{\label{eq:isometry-exponential}
         \psi(\exp_p v)=\exp_{\psi(p)}(\psi_{*p}v),}
@@ -340,7 +340,7 @@
     \textbf{Ricci 标量}为 $R:=g^{\mu\nu}R_{\mu\nu}$。
 \end{definition}
 
-\begin{theorem}[曲率的对称性]\label{thm:curvature-symmetries}
+\begin{theorem}[曲率的对称性]
     置光滑流形 $M$ 及光滑度规 $g$，$\nabla$ 为 Levi-Civita 联络。记
     \eq{\mathcal R(X,Y,Z,W):=g(R(X,Y)Z,W).}
     则对任意切矢场 $X,Y,Z,W$，
@@ -365,7 +365,7 @@
     这些场两两对易，故交换 $X,Y$，交换 $Z,W$，或交换两对变量，即得前三式；对 $X,Y,Z$ 循环求和则各项相消，由 $g$ 非退化即得第一 Bianchi 恒等式。再对该式的输出与 $X$ 缩并，中项为 $R(Y,Z)$ 的迹，因其对 $g$ 反对称而为零，故 $\mathrm{Ric}(Y,Z)=\mathrm{Ric}(Z,Y)$。
 \end{proof}
 
-\begin{theorem}[第二 Bianchi 恒等式]\label{thm:second-bianchi}
+\begin{theorem}[第二 Bianchi 恒等式]
     光滑无挠联络的曲率满足
     \eq{(\nabla_XR)(Y,Z)+(\nabla_YR)(Z,X)+(\nabla_ZR)(X,Y)=0.}
     此为作用于切矢场的算符等式；其中
@@ -407,7 +407,7 @@
     在坐标基中，取 $e^\mu=\d x^\mu$ 即得坐标表达。
 \end{definition}
 
-\begin{theorem}[Cartan 第二结构方程]\label{thm:cartan-second}
+\begin{theorem}[Cartan 第二结构方程]
     曲率 2-形式与联络 1-形式满足
     \eq{\Omega^\lambda_\nu=\d\Gamma^\lambda_\nu
         +\Gamma^\lambda_\mu\wedge\Gamma^\mu_\nu.}
@@ -445,9 +445,9 @@
     若各 $\gamma_s$ 均以 $t$ 为仿射参数的测地线，则称为\textbf{测地线变分}。
 \end{definition}
 
-\begin{theorem}[测地偏离方程]\label{thm:jacobi-variation}
+\begin{theorem}[测地偏离方程]
     测地线变分的变分场满足
-    \eq{\label{eq:jacobi-equation}
+    \eq{
         \nabla_Z\nabla_ZJ+R(J,Z)Z=0.}
     此式称为\textbf{Jacobi 方程}，其解称为沿 $\gamma$ 的\textbf{Jacobi 场}。反之，每个 Jacobi 场均可由测地线变分得到。
 \end{theorem}
@@ -485,13 +485,13 @@
     曲线的\textbf{能量泛函}为
     \eq{E(\gamma):=\frac12\int_a^b g(\dot\gamma,\dot\gamma)\,\d t.}
     对沿测地线的场 $V,W$，定义\textbf{指标型}
-    \eq{\label{eq:geodesic-index-form}
+    \eq{
         I(V,W):=\int_a^b\left[g(\nabla_ZV,\nabla_ZW)
             -g(R(V,Z)Z,W)\right]\d t.}
     曲率的对称性保证 $I$ 为对称双线性型。
 \end{definition}
 
-\begin{theorem}[能量的变分]\label{thm:geodesic-second-variation}
+\begin{theorem}[能量的变分]
     固定端点的能量一阶变分为
     \eq{E'(0)=-\int_a^b g(V,\nabla_ZZ)\,\d t,}
     故临界曲线恰为仿射参数测地线。沿测地线的二阶变分为
@@ -508,7 +508,7 @@
     故 $E''(0)=-\int_a^b g(V,\nabla_Z\nabla_ZV+R(V,Z)Z)\,\d t$，分部积分即得结论。
 \end{proof}
 
-\begin{corollary}[弧长与固有时的二阶变分]\label{cor:length-second-variation}
+\begin{corollary}[弧长与固有时的二阶变分]
     若基准测地线非类光且单位速，记 $\varepsilon:=g(Z,Z)=\pm1$。置
     \eq{L(\gamma_s):=\int_a^b\sqrt{|g(\dot\gamma_s,\dot\gamma_s)|}\,\d t,
         \qquad V^\perp:=V-\varepsilon g(V,Z)Z.}
@@ -535,7 +535,7 @@
 
 \begin{theorem}\label{thm:jacobi-exponential}
     置 $p\in M$、$v\in\mathcal D_p$，记 $\gamma_v(t)=\exp_p(tv)$。对任意 $w\in T_pM$，初值为 $J_w(0)=0$、$(\nabla_ZJ_w)(0)=w$ 的 Jacobi 场满足
-    \eq{\label{eq:jacobi-exponential}
+    \eq{
         J_w(t)=(\exp_p)_{*tv}(tw).}
     若 $v\ne0$，则 $\exp_p(v)$ 与 $p$ 沿 $\gamma_v|_{[0,1]}$ 共轭，当且仅当 $(\exp_p)_{*v}$ 不可逆；共轭重数等于其核的维数。
 \end{theorem}
@@ -543,7 +543,7 @@
     对测地线变分 $F(s,t)=\exp_p(t(v+sw))$ 关于 $s$ 求导，即得所示表达式；其初值为 $0,w$，故由唯一性正是 $J_w$。所有初端为零的 Jacobi 场都由某个 $w$ 唯一给出，而 $J_w(1)=(\exp_p)_{*v}w$，于是后两项结论同时成立。
 \end{proof}
 
-\begin{theorem}\label{thm:index-form-kernel}
+\begin{theorem}
     固定端点场空间上的指标型退化，当且仅当两端沿该测地线共轭。更确切地，
     \eq{I(V,W)=0\text{ 对所有固定端点场 }W\text{ 成立}
         \iff V\text{ 为两端为零的 Jacobi 场}.}
@@ -588,7 +588,7 @@
 以下设 $\dim M=n\geqslant3$，$g$ 为光滑度规，$\nabla$ 为 Levi-Civita 联络。Ricci 张量由曲率缩并得到；从曲率中扣除由这些迹确定的部分，便得到 Weyl 张量。
 
 对称 $(0,2)$ 型张量 $S$ 可与度规组成
-\eq{\label{eq:metric-trace-curvature}
+\eq{
     B_S(X,Y)Z:=S(Y,Z)X-S(X,Z)Y
         +g(Y,Z)S^\sharp X-g(X,Z)S^\sharp Y,}
 其中 $S^\sharp$ 由 $g(S^\sharp X,Y)=S(X,Y)$ 确定。
@@ -601,7 +601,7 @@
     其降指标形式记作 $\mathcal C(X,Y,Z,W):=g(C(X,Y)Z,W)$。
 \end{definition}
 
-\begin{theorem}[曲率的迹分解]\label{thm:weyl-decomposition}
+\begin{theorem}[曲率的迹分解]
     $\mathcal C$ 具有 $\mathcal R$ 的全部代数对称性，且任意两项用 $g^{-1}$ 缩并均为零。分解 $R=C+B_P$ 在 $P$ 对称、$C$ 无迹的条件下唯一。
 \end{theorem}
 \begin{proof}
@@ -614,7 +614,7 @@
 \end{proof}
 
 沿用 $C_{\rho\sigma\mu\nu}:=g_{\rho\lambda}C^\lambda{}_{\sigma\mu\nu}$ 的分量顺序，上述定义为
-\eq{\label{eq:weyl-components}
+\eq{
 \begin{aligned}
     C_{\rho\sigma\mu\nu}={}&R_{\rho\sigma\mu\nu}
         -\frac1{n-2}\bigl(g_{\rho\mu}R_{\sigma\nu}-g_{\rho\nu}R_{\sigma\mu}
@@ -650,7 +650,7 @@
     若 $\widehat g=\e^{2f}g$，其中 $f\in C^\infty(M)$，则称两度规\textbf{共形}，此替换称为度规的\textbf{共形变换}。若每点附近存在坐标，使 $g=\e^{2f}\eta$，其中 $\eta$ 的分量为常数，则称 $g$ \textbf{局部共形平直}。
 \end{definition}
 
-\begin{theorem}[Weyl 张量的共形不变性]\label{thm:weyl-conformal}
+\begin{theorem}[Weyl 张量的共形不变性]
     若 $\widehat g=\e^{2f}g$，则两度规的 $(1,3)$ 型 Weyl 张量相同，即 $\widehat C=C$；降指标后则有 $\widehat{\mathcal C}=\e^{2f}\mathcal C$。
 \end{theorem}
 \begin{proof}
@@ -671,7 +671,7 @@
     常分量度规 $\eta$ 的曲率为零，故其 Weyl 张量为零，再用共形不变性即可。
 \end{proof}
 
-\section{最大对称空间}\label{sec:maximally-symmetric}
+\section{最大对称空间}
 
 本节设 $(M,g)$ 为连通光滑度规流形，$\dim M=n\geqslant3$，$\nabla$ 为 Levi-Civita 联络。度规可以正定，也可以不定；Lorentz 号差下的最大对称空间称为最大对称时空。
 
@@ -683,7 +683,7 @@
     更换 $\Pi$ 的基时，分子、分母均乘以基变换行列式的平方，故此定义与基无关。若所有点、所有非退化二维子空间的截面曲率均等于同一常数 $k$，则称 $(M,g)$ 为\textbf{常截面曲率空间}，简称\textbf{常曲率空间}。
 \end{definition}
 
-\begin{theorem}\label{thm:sectional-curvature-form}
+\begin{theorem}
     在一点 $p$，所有截面曲率均等于 $k$，当且仅当
     \eq{\label{eq:constant-sectional-curvature}
         R(X,Y)Z=k\bigl(g(Y,Z)X-g(X,Z)Y\bigr),\qquad X,Y,Z\in T_pM.}
@@ -700,7 +700,7 @@
     若 $\mathrm{Ric}=\lambda g$，其中 $\lambda$ 为常数，则称 $(M,g)$ 为\textbf{Einstein 流形}。此时 Ricci 标量为 $R=n\lambda$。
 \end{definition}
 
-\begin{theorem}[Schur]\label{thm:schur}
+\begin{theorem}[Schur]
     若 $\mathrm{Ric}=\lambda g$，其中 $\lambda$ 起初只假定为光滑函数，则 $\lambda$ 必为常数。特别地，若每点的截面曲率只依赖该点，则它在 $M$ 上恒定。
 \end{theorem}
 \begin{proof}
@@ -776,7 +776,7 @@
     每个环境度规反对称线性变换 $A$ 都给出切于 $Q_k$ 的 Killing 场 $K_A(x)=Ax$。若此场在一个非空开片上为零，则 $A$ 同时在该片一点 $p$ 及 $T_pQ_k$ 上为零；它们张成 $V$，故 $A=0$。因此这些场有 $n(n+1)/2$ 个独立参数。两类模型均达到 Killing 场数目的上界。
 \end{example}
 
-\begin{theorem}\label{thm:local-maximal-symmetry}
+\begin{theorem}
     连通度规流形局部最大对称，当且仅当具有常截面曲率。
 \end{theorem}
 \begin{proof}

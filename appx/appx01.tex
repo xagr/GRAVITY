@@ -278,7 +278,7 @@
 	与先前类似，因 $S$ 是集合，故可取极小的 $\theta$ 使得 $a_\theta = \mho$，$S = \{a_\beta: \beta < \theta\}$，后者和序数 $\theta = \{\beta : \beta < \theta \}$ 之间有显然的双射，于是导出 $S$ 上的良序.
 \end{proof}
 
-\begin{theorem}[Zorn 引理]\label{prop:Zorn}
+\begin{theorem}[Zorn 引理]
 	若非空偏序集 $P$ 中每个链都有上界，则 $P$ 含有极大元.
 \end{theorem}
 \begin{proof}
@@ -286,7 +286,7 @@
 \end{proof}
 选择公理、良序定理和 Zorn 引理任择一者，连同 \textbf{A.1} -- \textbf{A.8} 均给出 ZFC。
 
-\subsection{基数}\label{sec:cardinal-number}
+\subsection{基数}
 基数用以描述集合大小。我们从等势的概念出发，随后联系到序数.
 
 \begin{definition}
@@ -323,7 +323,7 @@
 \end{gather}
 可验证两者都是良定的运算。基数之无穷和与无穷积的进一步讨论从略.
 另外注意到 $2^{|X|} = |2^X|$。下述定理是熟知的.
-\begin{theorem}[Cantor]\label{prop:Cantor}
+\begin{theorem}[Cantor]
 	对任意集合 $X$ 皆有 $|2^X| > |X|$.
 \end{theorem}
 \begin{proof}
@@ -359,7 +359,7 @@
 \end{align*}
 特别地，基数全体构成一个真类.
 
-\begin{example}[Cantor]\label{eg:continuum}
+\begin{example}[Cantor]
 	我们证明 $|\R| = 2^{\aleph_0}$。首先留意到 $|\Q|=|\N|=\aleph_0$。Dedekind 分割 $x \mapsto \{r \in \Q: r < x \}$ 给出 $\R \hookrightarrow 2^\Q)$，于是 $|\R| \leqslant |2^\Q|=2^{\aleph_0}$。另一方面，区间 $[0,1]$ 包含 Cantor 集
 	\[ C := \left\{ \sum_{n=1}^\infty a_n 3^{-n}: \forall n,\; a_n = 0 \;\text{或}\; 2  \right\},\]
 	形式如上的 $3$ 进制表法是唯一的，因此 $|\R| \geqslant |C| = 2^{\aleph_0}$。应用定理 \ref{prop:Schröder-Bernstein} 即得所求.
@@ -405,7 +405,7 @@
 	与 $\beta < \alpha \Rightarrow \aleph_\beta < \aleph_\alpha$ 矛盾。
 \end{proof}
 
-\begin{corollary}\label{prop:cardinal-max}
+\begin{corollary}
 	对任意非零基数 $\kappa,\lambda$，设其一无穷，则
 	\begin{inparaenum}[(i)]
 		\item $\kappa + \lambda = \kappa \cdot \lambda = \max\{\lambda,\kappa\}$;
@@ -540,7 +540,7 @@ Grothendieck 试图为棘手的集合论问题建起一道防火墙，亦即，�
 如不约定 Grothendieck 宇宙 $\mathcal{U}$ 而径直考虑所有集合，则会面临各种悖论，因为所有集合的全体并不构成集合。
 NBG 集合论区分类和集，因而 $\Obj(\cate{Set}),\Mor(\cate{Set})$ 是真类，任一个态射集 $\hom_{\cate{Set}}(X,Y)$ 是集合。因而 $\cate{Set}$ 称为\textbf{大范畴}(large category)。
 但在 ZFC 下，$\mathcal U$ 已然极其庞大且足够使用，这样我们相当于框定出\textbf{小范畴}(small category)。
-\begin{definition}\label{def:U-cat}
+\begin{definition}
   一个范畴 $\mathcal{C}$ 称作是 \textbf{$\mathcal{U}$-范畴}，如果对任意对象 $X, Y$，集合 $\hom_{\mathcal{C}}(X,Y)$ 都是 $\mathcal{U}$-小集。如果态射集 $\Mor(\mathcal{C})$ 也是 $\mathcal{U}$-小集，则称之为 \textbf{$\mathcal{U}$-小范畴}.
 \end{definition}
 \begin{remark}
@@ -561,7 +561,7 @@ NBG 集合论区分类和集，因而 $\Obj(\cate{Set}),\Mor(\cate{Set})$ 是真
     $\operatorname{End} X := \hom(X, X)$，$\operatorname{Aut} X := \mathrm{Isom}(X, X)$ 分别称作 $X$ 的\textbf{自同态集}(set of endomorphisms)和\textbf{自同构集}(set of automorphisms)。这些集合在二元运算 $\circ$ 下封闭，或用代数的语言来说：$\operatorname{Aut} X$ 是群，$\operatorname{End} X$ 是幺半群。若忘记其定义可见下节。
 \end{definition}
 
-\begin{definition}\label{def:subcategory}
+\begin{definition}
 	称 $\mathcal{C}'$ 是 $\mathcal{C}$ 的\textbf{子范畴}(subcategory)，如果
 	\begin{compactenum}[(i)]
 		\item $\Obj(\mathcal{C}') \subset \Obj(\mathcal{C})$；
@@ -824,7 +824,7 @@ FX & FY \arrow[l,"F(f)"'] \\
 
 任意函子 $F$ 到自身有恒等态射 $\id_F : F \Rightarrow F$。对于 $\theta: F_1 \Rightarrow F_2$，若 $\psi: F_2 \Rightarrow F_1$ 满足 $\psi \circ \theta = \id_{F_1}$，$\theta \circ \psi = \id_{F_2}$，则称 $\psi$ 是 $\theta$ 的逆。可逆的自然变换称为\textbf{函子同构}，写作 $\theta: F_1 \xRightarrow{\sim} F_2$。由定义直接看出 $\theta$ 的逆若存在则是唯一的，记作 $\theta^{-1}$，它无非是在范畴中\textit{逐点}取逆：$(\theta^{-1})_X := (\theta_X)^{-1}: F_2 X \rightiso F_1 X$。同理可见 $\theta$ 可逆当且仅当任意 $\theta_X$ 可逆。易见同构的纵横复合仍是同构。故 $F_1,F_2$ 同构等价于对变元 $X$ 有自然同构 $F_1 X= F_2 X$。
 
-\begin{definition}\label{def:cat-equivalence}
+\begin{definition}
 	若一对函子
 	\begin{tikzcd}
 		\mathcal{C}_1 \arrow[bend left=20, r, "F"] & \mathcal{C}_2 \arrow[bend left=20, l, "G"]
@@ -845,7 +845,7 @@ FX & FY \arrow[l,"F(f)"'] \\
 	业已对“对象态射”“函子态射/自然变换”定义了逆，其逆若存在则唯一，依此定义何谓对象、函子同构。对于函子亦可定义逆的概念，逆函子若存在则唯一；相较之下，拟逆函子之间则可以差一个同构。实践表明范畴的同构概念不甚实用，等价的概念则处处出现。这体现了范畴论的一条经验准则：在函子层次，同构（如 $\theta: FG \xRightarrow{\sim} \id$）几乎总比严格相等（如 $FG = \id$）来得管用。然而同构也不是任意的，所需的条件一般称为融贯性：以等价为例，读者兴许已经在先前论证中感到拟逆的概念有些松散，\textbf{伴随等价}(adjoint equivalence)则更细化.
 \end{remark}
 
-\subsection{函子范畴}\label{sec:functor-category}
+\subsection{函子范畴}
 
 以下所论范畴皆为 $\mathcal{U}$-范畴.
 
@@ -946,7 +946,7 @@ FX & FY \arrow[l,"F(f)"'] \\
 
 对函子 $F, G : \mathcal{C}_1 \to \mathcal{C}_2$，在反范畴中相应地有 $F^\mathrm{op}, G^\mathrm{op}: \mathcal{C}_1^\mathrm{op} \to \mathcal{C}_2^\mathrm{op}$，易见自然变换 $\varphi: F \Rightarrow G$ 在反范畴中被倒转为 $\varphi^\mathrm{op}: G^\mathrm{op} \to F^\mathrm{op}$，而且 $(\varphi^{\mathrm{op}})^{\mathrm{op}} = \varphi$。摘要如下.
 
-\begin{proposition}\label{prop:op-functor-cat}
+\begin{proposition}
 	存在自然同构 $\mathrm{Fct}(\mathcal{C}_1, \mathcal{C}_2)^\mathrm{op} \xRightarrow{\sim} \mathrm{Fct}(\mathcal{C}_1^{\mathrm{op}}, \mathcal{C}_2^{\mathrm{op}})$，它将 $\varphi$ 映至 $\varphi^\mathrm{op}$.
 \end{proposition}
 

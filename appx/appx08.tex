@@ -47,20 +47,16 @@ $m$ 维复 Lie 群也是 $2m$ 维实 Lie 群，因为全纯群运算在底层实
     及定理\ref{chlg:thm_Lie3inv}）称为\textbf{紧致 Lie 代数}。
 \end{definition}
 
-
 由(1)和(2)可知， Lie 积对第二个因子也是线性的，即 Lie 积是双线性的。
 \begin{equation*}
     [Z,  X + k Y]= -[ X + k Y, Z]= -[X, Z]- k[Y, Z] = [Z,X]+ k[Z, Y].
 \end{equation*}
 
-% Lie 群与 Lie 代数最基本的关系可见\S \ref{chlg:sec_Lie3thm}的几个定理。
-
-
 \begin{definition}
     设有两个 Lie 群$G$和$H$，且$H\subset G$。如果 (1) $H$是$G$的子群；
-    (2) 恒等映射$\id :H\to G$是嵌入子流形。则称$H$为$G$的\textbf{Lie 子群}。
+    (2) 包含映射$\iota:H\to G$是光滑浸入。则称$H$为$G$的\textbf{Lie 子群}。
 
-    如果映射$\id :H\to G$是正则嵌入子流形，则称$H$为$G$的\textbf{拓扑 Lie 子群}。
+    如果包含映射$\iota:H\to G$还是嵌入，则称$H$为$G$的\textbf{拓扑 Lie 子群}。
 \end{definition}
 
 \begin{definition}
@@ -84,7 +80,6 @@ $m$ 维复 Lie 群也是 $2m$ 维实 Lie 群，因为全纯群运算在底层实
 因 Lie 代数具有反对称性（$[X,Y]=-[Y,X]$），故理想不分左、右，全部是双边理想。
  Lie 代数中理想的概念与群理论中正规子群（见定义\ref{chtop:def_normal-subgroup}）概念相当。
 
-
 \begin{definition}
     设有 Lie 群$G$及其 Lie 代数$\mathscr{G}$。
     若$G$不含有正规 Lie 子群（除群$G$本身和单位元$e$构成的子群之外），
@@ -99,7 +94,6 @@ $m$ 维复 Lie 群也是 $2m$ 维实 Lie 群，因为全纯群运算在底层实
     如果$\mathscr{G}$不含非零可对易理想，
     则称$\mathscr{G}$是\textbf{半单 Lie 代数}。
 \end{definition}
-
 
 设有 Lie 代数$\mathscr{G}$，$\mathscr{H}$是它的 Lie 子代数。
 我们用记号$[\mathscr{G},\mathscr{H}]$表示由所有$[X,Y]$
@@ -117,7 +111,6 @@ $m$ 维复 Lie 群也是 $2m$ 维实 Lie 群，因为全纯群运算在底层实
 除了一维 Lie 代数之外，所有单 Lie 代数都是半单的。
 
 今后，我们谈及{单纯}或{半单纯}时总假定 Lie 代数的维数大于1，即从2维谈起。
-
 
 \subsection{二维 Lie 代数}\label{chlg:sec_2DLA}
 
@@ -137,7 +130,6 @@ B=\left(
 \right).
 \end{equation}
 $A$、$B$是这个 Lie 代数的两个基，不难验证它们是对易的。
-
 
 下面考虑二维不可对易 Lie 代数$\mathscr{G}$。设它的基矢为$x_1$、$x_2$，并且$[x_1,x_2]\neq 0$。
 令$[x_1,x_2]= a_1 x_1+ a_2 x_2$，其中$a_1,a_2\in \mathbb{F}$；
@@ -167,16 +159,11 @@ $A$、$B$是这个 Lie 代数的两个基，不难验证它们是对易的。
 
 $\operatorname{span}\{y\}$ 是非零 Abel 理想，故此 Lie 代数不是半单的。
 
-
-\section{Lie 群与 Lie 代数例子}\label{chlg:sec_example}
-%我们讨论复数域上的 Lie 群时，仍假设底流形是实数的，把复数运算看作额外引入
-%的附加运算（见例\ref{chmla:exm_rc1}和\ref{chmla:exm_rc2}）。
-%我们不去研究建立在复流形（比如Hermite流形）上的复 Lie 群，这远超出了此课的范畴。
-%一个$m$维复流形肯定可以看成一个$2m$维实流形；反之却未必。
-
+\section{Lie 群与 Lie 代数例子}
+除另有说明外，本章把复矩阵群视为实 Lie 群；矩阵元的实部和虚部分别提供实坐标。
+因此$m$维复流形在忘掉复结构后是$2m$维实流形。
 
 \subsection{Lie 群例子}
-%先叙述一个极为简单的例子。
 \begin{example}\label{chlg:exam_Rplus}
     验证实数域$\mathbb{R}$关于加法构成一维 Lie 群。
 
@@ -187,9 +174,9 @@ $\operatorname{span}\{y\}$ 是非零 Abel 理想，故此 Lie 代数不是半单
     即无穷多次可微。因加法可交换，故实数群是可对易 Lie 群。
 
     同理，$\mathbb{R}^m$关于加法构成$m$维 Lie 群；一般记作$(\mathbb{R}^m,+)$。
-    可以证明，任意$m \geqslant 1$维 Lie 群$(\mathbb{R}^m,+)$都是{单连通}的。 \qed
+    任一以$0$为基点的闭路$\gamma$均可由
+    $H(s,t)=(1-s)\gamma(t)$收缩到常值闭路，故$(\mathbb R^m,+)$单连通。 \qed
 \end{example}
-
 
 我们用一个具体的例子来再次解释一下什么叫作群运算$C^\infty$可微性。
 \begin{example}\label{chlg:exam_1loopT}
@@ -201,7 +188,7 @@ $\operatorname{span}\{y\}$ 是非零 Abel 理想，故此 Lie 代数不是半单
     \end{align*}
     上述两个运算的函数都是$C^\infty$可微的，这便是定义\ref{chlg:def_lg}中
     $C^\infty$可微的具体示例。由此可见$T^1$是个一维交换 Lie 群。
-    一维环群$T^1$同构于商群$\mathbb{R}/\mathbb{Z}$。 %，商群$\mathbb{R}/\mathbb{Z}$是$[0,1)$。
+    一维环群$T^1$同构于商群$\mathbb{R}/\mathbb{Z}$。
     高维环群可以看作一维环群的直积$T^m=T^1\times \cdots \times T^1 \cong \mathbb{R}^m/\mathbb{Z}^m$。
     \qed
 \end{example}
@@ -211,7 +198,6 @@ $\operatorname{span}\{y\}$ 是非零 Abel 理想，故此 Lie 代数不是半单
 两者 Lie 代数相同，但例\ref{chlg:exam_Rplus}中 Lie 群是非紧致的，
 例\ref{chlg:exam_1loopT}中 Lie 群是紧致的，两者不可能同胚。
 其实$(\mathbb{R},+)$是$T^1$的无穷度通用覆盖群。
-
 
 \begin{example}
 设有任意$g\in G$，但$g$固定不变；令
@@ -231,7 +217,6 @@ $L_g h = gh = h \ \Rightarrow \ g=e$。
 因为有 $L_g e = g,\ \forall g$。右作用也类似。\qed
 \end{example}
 
-
 \begin{example}\label{chlg:exam_dir-prod}
     \textbf{Lie 群直积}。设有 Lie 群$G$、$H$，在积流形$G\times H$
     （见\S\ref{chdm:sec_cartensian-product}）上定义
@@ -243,7 +228,6 @@ $L_g h = gh = h \ \Rightarrow \ g=e$。
     这样定义的群乘法与求逆运算都是无穷阶可微的，故$G\times H$是 Lie 群，称为 Lie 群$G$和$H$的直积。
     并且$\dim (G\times H)=\dim G+\dim H$。 \qed
 \end{example}
-
 
 \begin{example}\label{chlg:exm_GL}
     一般线性群$GL(m,\mathbb{F})$ （General Linear Group）。
@@ -266,7 +250,6 @@ $(A\cdot B)^{j}_{i} = \sum_{k} a^j_{k} b^k_{i}$，这个运算只涉及
 自然也是$C^\infty$可微的。这便说明了群$GL(m,\mathbb{F})$中的
 群元乘法和群元逆运算都是$C^\infty$可微的，所以群$GL(m,\mathbb{F})$是$m^2$维{Lie 群}。
 
-
 \textbf{线性变换形式}：
 设有数域$\mathbb{F}$上$m$维线性空间$V$，其上全体可逆线性变换构成集合$GL(V)$，群乘法
 定义为两个可逆线性变换的相继作用。多个可逆线性变换的相继作用仍是可逆线性变换，同时
@@ -280,9 +263,6 @@ $(A\cdot B)^{j}_{i} = \sum_{k} a^j_{k} b^k_{i}$，这个运算只涉及
 
 这是一般线性群的两种表述方式。\qed
 
-%一般线性群自身及其子群称为\textbf{线性 Lie 群}。
-
-
 \subsection{Lie 代数例子}
 
 \begin{proposition}
@@ -292,7 +272,6 @@ $(A\cdot B)^{j}_{i} = \sum_{k} a^j_{k} b^k_{i}$，这个运算只涉及
 	证明过程并不难，留给读者当练习。
 \end{proof}
 
-
 设 Lie 代数$\mathfrak{g}$的一组基为$X_1, \cdots ,X_m$，由于 Lie 积满足封闭性，
 所以 Lie 积一定可以用这个基矢展开，即有
 \begin{equation}
@@ -301,7 +280,7 @@ $(A\cdot B)^{j}_{i} = \sum_{k} a^j_{k} b^k_{i}$，这个运算只涉及
 其中$c_{ij}^k$称为 Lie 代数$\mathfrak{g}$的\textbf{结构常数}。
 定义\ref{chlg:def_la}中性质(1)和(3)变为
 \begin{align}
-    c_{ij}^k +c_{ji}^k &= 0, \label{chlg:eqn_Cij=Cji} \\
+    c_{ij}^k +c_{ji}^k &= 0,  \\
     c_{ij}^s c_{sl}^k + c_{jl}^s c_{si}^k + c_{li}^s c_{sj}^k &=0. \label{chlg:eqn_CCC}
 \end{align}
 不同 Lie 代数的结构常数一般是不同的。同一个 Lie 代数在不同基矢下，结构常数也可能不同。
@@ -320,7 +299,9 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     =a_{ i}^s a_{ j}^t (b^{ k}_{r})^{\mathrm{T}} c_{st}^r  .
 \end{equation}
 由上式可以看出，结构常数$c^k_{ij}$服从$\binom{1}{2}$型张量的变换规则。
-%因为对下指标“$ij$”不是$C^\infty(G)-$线性的，所以$c^k_{ij}$不是张量场。
+这里的换基矩阵是常数，结构常数表示的是线性空间上的双线性映射
+$[\cdot,\cdot]:\mathfrak g\times\mathfrak g\to\mathfrak g$。
+若在流形上改用位置相关的标架，括号还会作用于换基系数，故一般标架的对易系数不按张量场分量变换。
 
 \begin{example}
     $\mathbb{R}^3$中的叉乘构成 Lie 代数。设有$\mathbb{R}^3$中三个矢量$u,v,w$，
@@ -350,9 +331,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     同理，它是$m^2$维实 Lie 代数。
 
     $\mathfrak{gl}(m)$是 Lie 群$GL(m)$的 Lie 代数，见例题\ref{chlg:exam_GL-la}。 \qed
-    %在\S\ref{chlg:sec_GL}中会清晰描述它们之间的关系。
 \end{example}
-
 
 \begin{definition}
     $GL(V)$的子群称为\textbf{线性 Lie 群}。
@@ -369,8 +348,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     故此 Lie 代数也是无穷维的。\qed
 \end{example}
 
-
-\begin{proposition}\label{chlg:thm_quotient-algebra}
+\begin{proposition}
     设$\mathfrak{h}$是 Lie 代数$\mathfrak{g}$的理想。在{商空间}$\mathfrak{g}/\mathfrak{h}=
     \{\bar{x}=x+\mathfrak{h} \ |\ x\in \mathfrak{g} \}$中定义括号积
     为$[\bar{x},\bar{y}]=\overline{[x,y]}$，$\forall x,y \in \mathfrak{g}$；
@@ -395,14 +373,12 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     故$\mathfrak{g}/\mathfrak{h}$是 Lie 代数。
 \end{proof}
 
-
 \begin{example}
 	三维实 Lie 代数的Bianchi分类。
 \end{example}
 
 只需要 Lie 代数定义（无需其它知识）便可对一维、二维 Lie 代数进行分类（见\S\ref{chlg:sec_definition}）。
-下面将通过结构常数来阐述三维实 Lie 代数的分类\cite[\S 116]{landau_2-classical-fields}，故写在此处。
-
+下面利用结构常数对三维实 Lie 代数分类。
 
 设有三维实 Lie 代数$\mathfrak{g}$，它有三个线性无关的基矢$\{e_1,e_2,e_3\}$；
 这三个基矢的结构常数为$C^k_{ij}$，由于下标反对称，故$C^k_{ij}$共有$9$个独立数值。
@@ -419,48 +395,17 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 \begin{equation}\label{chlg:eqn_Jacobi-na}
 	\sum\nolimits_{k=1}^{3}n^{lk} a_k =0;\qquad l=1,2,3.
 \end{equation}
-%\begin{small}
-%\begin{align*}
-%	0=& c_{ij}^s c_{sl}^k + c_{jl}^s c_{si}^k + c_{li}^s c_{sj}^k \\
-%	=&+ (\epsilon_{ijt} n^{ts} + \delta^s_i a_j - \delta^s_j a_i)(\epsilon_{slu} n^{uk} + \delta^k_s a_l - \delta^k_l a_s)\\
-%	&+(\epsilon_{jlt} n^{ts} + \delta^s_j a_l - \delta^s_l a_j)(\epsilon_{siu} n^{uk} + \delta^k_s a_i - \delta^k_i a_s)\\
-%	&+(\epsilon_{lit} n^{ts} + \delta^s_l a_i - \delta^s_i a_l)(\epsilon_{sju} n^{uk} + \delta^k_s a_j - \delta^k_j a_s) \\
-%	=&\epsilon_{ijt} n^{ts} \epsilon_{slu} n^{uk} + \delta^s_i a_j \epsilon_{slu} n^{uk}- \delta^s_j a_i\epsilon_{slu} n^{uk}
-%	+\epsilon_{ijt} n^{ts}\delta^k_s a_l + \delta^s_i a_j \delta^k_s a_l- \delta^s_j a_i \delta^k_s a_l \\
-%	&\quad -\epsilon_{ijt} n^{ts}\delta^k_l a_s - \delta^s_i a_j \delta^k_l a_s + \delta^s_j a_i \delta^k_l a_s \\
-%	&+\epsilon_{jlt} n^{ts} \epsilon_{siu} n^{uk} + \delta^s_j a_l \epsilon_{siu} n^{uk} - \delta^s_l a_j \epsilon_{siu} n^{uk}
-%	+\epsilon_{jlt} n^{ts} \delta^k_s a_i + \delta^s_j a_l \delta^k_s a_i - \delta^s_l a_j \delta^k_s a_i \\
-%	&\quad -\epsilon_{jlt} n^{ts} \delta^k_i a_s - \delta^s_j a_l \delta^k_i a_s + \delta^s_l a_j \delta^k_i a_s\\
-%	&+\epsilon_{lit} n^{ts}\epsilon_{sju} n^{uk} + \delta^s_l a_i \epsilon_{sju} n^{uk}- \delta^s_i a_l\epsilon_{sju} n^{uk}
-%	+\epsilon_{lit} n^{ts} \delta^k_s a_j + \delta^s_l a_i\delta^k_s a_j - \delta^s_i a_l \delta^k_s a_j \\
-%	&\quad -\epsilon_{lit} n^{ts} \delta^k_j a_s - \delta^s_l a_i \delta^k_j a_s + \delta^s_i a_l \delta^k_j a_s\\
-%	=&\epsilon_{ijt} n^{ts} \epsilon_{slu} n^{uk} + a_j \epsilon_{ilu}   n^{uk}- {a_i\epsilon_{jlu} n^{uk} }
-%	+{\epsilon_{ijt} n^{tk} a_l} + {a_j \delta^k_i a_l} -  {a_i \delta^k_j a_l}
-%	-\epsilon_{ijt} n^{ts} \delta^k_l a_s - {a_j \delta^k_l a_i} + {a_i \delta^k_l a_j} \\
-%	&+\epsilon_{jlt} n^{ts} \epsilon_{siu} n^{uk} + {a_l \epsilon_{jiu} n^{uk}} -  {a_j \epsilon_{liu} n^{uk}}
-%	+{\epsilon_{jlt} n^{tk} a_i} + {a_l \delta^k_j a_i} - {a_j \delta^k_l a_i}
-%	-\epsilon_{jlt} n^{ts} \delta^k_i a_s - {a_l \delta^k_i a_j} + {a_j \delta^k_i a_l} \\
-%	&+\epsilon_{lit} n^{ts}\epsilon_{sju} n^{uk} + a_i \epsilon_{lju} n^{uk}-  a_l\epsilon_{iju} n^{uk}
-%	+{\epsilon_{lit} n^{tk} a_j} + {a_i \delta^k_l a_j }-  {a_l \delta^k_i a_j}
-%	-\epsilon_{lit} n^{ts} \delta^k_j a_s -  {a_i \delta^k_j a_l +  a_l \delta^k_j a_i }\\
-%	=&(\epsilon_{ijt} \epsilon_{slu} +\epsilon_{jlt} \epsilon_{siu}  +\epsilon_{lit} \epsilon_{sju})n^{ts} n^{uk}
-%	 + (a_j \epsilon_{ilu} + a_i \epsilon_{lju}  + a_l\epsilon_{jiu}) n^{uk}
-%	 -(\epsilon_{ijt}  \delta^k_l  +\epsilon_{jlt}  \delta^k_i +\epsilon_{lit} \delta^k_j  )a_s n^{ts}
-%\end{align*}
-%用$\epsilon_{ijl}$缩并上式，有
-%\begin{align*}
-%	0=&\epsilon_{ijl}(\epsilon_{ijt} \epsilon_{slu} +\epsilon_{jlt} \epsilon_{siu}  +\epsilon_{lit} \epsilon_{sju})n^{ts} n^{uk}
-%	+ \epsilon_{ijl}(a_j \epsilon_{ilu} + a_i \epsilon_{lju}  + a_l\epsilon_{jiu}) n^{uk}
-%	-\epsilon_{ijl} (\epsilon_{ijt}  \delta^k_l  +\epsilon_{jlt}  \delta^k_i +\epsilon_{lit} \delta^k_j  )a_s n^{ts} \\
-%	=&2(\delta_{lt} \epsilon_{slu} +\delta_{it} \epsilon_{siu} +\delta_{jt}\epsilon_{sju})n^{ts} n^{uk} \\
-%	&-2 (a_j \delta_{ju}	+ a_i \delta_{iu}	+ a_l\delta_{lu}) n^{uk}	\\
-%	&-2(\delta^k_t    +\delta^k_t +\delta^k_t  )a_s n^{ts} \\
-%	=&6 \epsilon_{stu}n^{ts} n^{uk} -6 a_u n^{uk}	-6 a_s n^{ks} \\
-%	=& -12 a_s n^{ks} .
-%\end{align*}
-%\end{small}
+为说明这一步，Jacobi表达式对三个输入全反对称，三维时只需检验$(e_1,e_2,e_3)$。
+将式\eqref{chlg:eqn_Cna}代入，利用$n^{lk}=n^{kl}$可得
+\[
+ \sum_{s=1}^3\left(C^s_{12}C^k_{s3}+C^s_{23}C^k_{s1}+C^s_{31}C^k_{s2}\right)
+ =-2\sum_{s=1}^3 n^{ks}a_s .
+\]
+因此Jacobi恒等式恰等价于式\eqref{chlg:eqn_Jacobi-na}。
 
-一定存在{正交矩阵}$X$使得实对称矩阵$n^{lk}$对角化\cite[p.289]{qiuws-2018-v1}，即
+实对称矩阵的二次型在单位球面上取得极值，极值点由Lagrange乘子法给出单位特征矢量。
+其正交补在该矩阵作用下不变；对维数归纳便得到正交特征基。
+因此存在正交矩阵$X$使$n^{lk}$对角化，即
 \begin{equation}\label{chlg:eqn_XnXn}
 	\sum\nolimits_{l k}X^{-1}_{\bar{l} l} n^{lk} X_{k \bar{k}}= n^{\bar{l}} \delta_{\bar{l}\, \bar{k}},
 	\qquad \text{重复角标}\,\bar{l}\,\text{不求和}
@@ -498,7 +443,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 不失一般性，我们令$\bar{a}_2=0=\bar{a}_3$、$\bar{a}_1=a$；此时约束也只剩下一个：$n^1 a =0$。
 这种选择相当于有四个参数：$n^1$、$n^2$、$n^3$、$a$，和一个约束$n^1 a =0$；独立参数个数没有变化。
 由\eqref{chlg:eqn_Cijkna}可以得到基矢对易关系（为简单起见，去掉上面的横线）：
-\begin{equation}\label{chlg:eqn_G3-bc}
+\begin{equation}
 	[e_1,e_2]=-a e_2 + n^3 e_3,\quad
 	[e_2,e_3]= n^1 e_1,\quad
 	[e_3,e_1]=n^2 e_2 + a e_3 .
@@ -531,22 +476,17 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 
 {IX 型}：$(0,1,1,1)$。半单。同构于$\mathfrak{so}(3)$。
 
-
-%各种宇宙模型中的三维均匀空间的Killing矢量场可用三维实 Lie 代数来描述。
-更详尽讨论以及其它低维 Lie 代数分类可参考\parencite{Popovych_2003}。\qed
+更高维的分类仍是求解结构常数的反对称性和Jacobi条件，再按可逆换基识别同构类；
+其中可能出现连续参数，不能只用有限个离散类型列举。\qed
 
 \begin{exercise}
 	验证式\eqref{chlg:eqn_Jacobi-na}成立。
 \end{exercise}
 
-
-\section{Lie 群同态与表示}\label{chlg:sec_liesg}
-%先叙述有关 Lie 群、 Lie 子群同态概念；然后描述覆盖群和半直积群概念。
-
+\section{Lie 群同态与表示}
 
 \subsection{同态、表示定义}\label{chlg:sec_lieiso}
-%\S\ref{chmla:sec_group}中概念大都适用于本节，有的需要略作调整；我们从新叙述几个定义。
-\begin{definition}\label{chlg:def_homomorphism-LG}
+\begin{definition}
     若从 Lie 群$G$到 Lie 群$H$存在一个{光滑映射}$\phi:G\to H$（流形角度），
     它是群$G$到群$H$的群同态映射（见\pageref{chtop:def_tttg}页定义\ref{chtop:def_tttg}，群角度）；
     那么称$\phi$是 Lie 群$G$到$H$的\textbf{同态映射}。
@@ -555,7 +495,6 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     则称之为 Lie 群间的\textbf{同构映射}，记为$G \cong H$。
      Lie 群$G$到它自身的同构称为 Lie 群$G$的\textbf{自同构}。
 \end{definition}
-
 
 \begin{definition}\label{chlg:def_homomorphism-LA}
     设$\mathscr{G},\mathscr{H}$是两个 Lie 代数。设$\psi:\mathscr{G}\to \mathscr{H}$是
@@ -569,8 +508,6 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 我们将 Lie 群$G$的全体自同构映射（双射）所组成的集合记为$\operatorname{Aut}(G)$，这些双射构成一个群，
 称为 Lie 群$G$的\textbf{自同构群}。验证$\operatorname{Aut}(G)$是群的工作留给读者。
 
-
-%\subsection{线性表示}
  Lie 群、 Lie 代数表示理论是一个非常专门且深入的学科，任何具体群的实际应用
 绝大多数都是用它的表示。
 第\pageref{chtop:def_group_representation}页所叙述的群表示
@@ -589,7 +526,6 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     则称$\rho$是$\mathfrak{g}$的一个\textbf{线性表示}，$V$是表示空间，$\dim V$是表示\textbf{维数}。
 \end{definition}
 
-
 寻找群$G$表示的大体步骤是：首先，选一个线性空间$V$；
 其次，找到可逆线性变换构成的群（即$GL(V)$），它也称为$V$上
 全体可逆线性自同构群；
@@ -597,14 +533,11 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 如果$V$是实数域上空间，则群表示为\textbf{实表示}；
 如果是复数域上空间，则为\textbf{复表示}。
 
-
-%\subsection{覆盖群}
-下面介绍覆盖群概念，省略的定理证明可在文献\parencite[p.231--240]{xuyc-2001}查到。
+下面介绍覆盖群，并说明它如何保留局部群结构而改变整体拓扑。
 \begin{definition}
      Lie 代数$\mathfrak{g}$的\textbf{中心}定义为：
     $C(\mathfrak{g})=\{x\in \mathfrak{g}\ |\ [x,y]=0,\forall y\in\mathfrak{g}\}$。
 \end{definition}
-
 
 \begin{definition}
     设 $G, F$ 是连通 Lie 群，$\phi: G \rightarrow F$ 是连续同态映射。
@@ -614,24 +547,39 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     群$(G, \phi)$关于 $F$ 的{Poincar\'e 群}，Poincar\'e 群中元素个数称为\textbf{覆盖叶数}。
 \end{definition}
 
-% 定理3.2.7
 \begin{theorem}
     设$(G, \phi)$是 Lie 群$F$的覆盖群，则其 Poincar\'e群 $\Gamma=\phi^{-1}(e)$ 为 $G$的\textbf{离散正规子群}，
     因而 $\Gamma$是 Lie 群$G$中心$C (G)$的子集，且 $\phi^{-1}(f)=\left\{g \in G \mid \phi(g)=f\right\}=g \Gamma$，
     其中 $g$ 是 $\phi^{-1}(f)$ 中任一元素，$G / \Gamma$ 与 $F$ 是同构的拓扑群。
 \end{theorem}
+\begin{proof}
+核是正规子群，覆盖的局部同胚性质说明核的每个点都是孤立点。
+固定$\gamma\in\Gamma$，连续映射$g\mapsto g\gamma g^{-1}$由连通空间$G$取值于离散集$\Gamma$，
+故恒等于$\gamma$，即$\Gamma\subset C(G)$。
+由$\phi(h)=\phi(g)$当且仅当$g^{-1}h\in\Gamma$，得到纤维$g\Gamma$。
+$\phi$的像是开子群；因$F$连通，像为$F$。
+因此它诱导双射$G/\Gamma\to F$；覆盖映射是开映射，故该双射是拓扑群同构。
+\end{proof}
 
-% 定理3.2.11 Schreier
 \begin{theorem}
     设 $F$ 是任意一个连通 Lie 群，则在同构意义下存在唯一的单连通 Lie 群$G$，
     以及覆盖映射$\phi$使得$(G,\phi)$是$F$的覆盖群。
     称$G$是$F$的\textbf{通用覆盖群}。
 \end{theorem}
-
+\begin{proof}
+取所有从$e$出发的路径的端点固定同伦类$[\alpha]$，令
+$[\alpha][\beta]=[t\mapsto\alpha(t)\beta(t)]$，
+$[\alpha]^{-1}=[t\mapsto\alpha(t)^{-1}]$。
+路径同伦与逐点乘法相容，故这些运算良定义并满足群公理。
+端点映射$\phi([\alpha])=\alpha(1)$是同态。
+用$F$的小单连通坐标邻域的各个提升作为坐标邻域，便得到覆盖拓扑及光滑结构，
+群运算在这些坐标中由$F$的群运算给出，因而光滑。
+闭路的提升是否闭合恰由其同伦类决定，故所得空间单连通。
+任意另一单连通覆盖由路径提升唯一同构于此覆盖；保持单位元的提升还保持乘法。
+\end{proof}
 
 注意“单连通”和“连通”是两个不同的概念；连通是点集拓扑中概念；
 单连通是代数拓扑中概念，在单连通定义中事先要求拓扑是连通的。
-
 
 \subsection{半直积群}\label{chlg:sec_semi-dir-prod}
 介绍到这里，我们稍微偏离一下主题。例\ref{chlg:exam_dir-prod}中引入了{直积}的概念，
@@ -644,9 +592,9 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     \Phi : h \to \nu_h ,\qquad h\in H,\quad \nu \in \operatorname{Aut}(G).
 \end{equation}
 那么，便可定义$G$和$H$的\textbf{半直积群}$K=G  \rtimes H$，
-其元素可唯一地记为$k := (g,h)$； %，注意两者（即$g$和$h$）顺序不能改变；
+其元素可唯一地记为$k := (g,h)$；
 半直积群$K$中元素的群乘法为：
-\begin{equation}\label{chlg:eqn_semi-dir-prod}
+\begin{equation}
     k_1 k_2 = (g_1, h_1) (g_2, h_2)
     := \bigl(g_1 \nu_{h_1}(g_2),\ h_1 h_2 \bigr) .
 \end{equation}
@@ -659,7 +607,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     \nu_h (I_g)   =I_g, \quad  \forall h\in H ; \qquad
     \nu_{I_h} (g) = g,  \quad  \forall g\in G .
 \end{equation}
-利用上式可以证明，$\forall g'\in G,\ \forall h'\in H$有
+将上式代入群乘法，得到$\forall g'\in G,\ \forall h'\in H$有
 \begin{align}
     &( I_g, I_h ) (g', h') = \bigl( I_g \nu_{I_h}(g'), I_h h' \bigr)
     = ( I_g g', I_h h') =( g' ,h'). \\
@@ -684,7 +632,6 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
     =&( g_1, h_1) \bigl( g_2 \nu_{h_2} (g_3), h_2 h_3 \bigr)
     =( g_1, h_1) \bigl[( g_2, h_2) (g_3, h_3)\bigr].
 \end{align*}
-
 
 最后，半直积$(g,h)$的逆元是：$\bigl(\nu_{h^{-1}}(g^{-1}),\ h^{-1}\bigr)$；验证之
 
@@ -721,13 +668,10 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 我们约定：本书只用记号“$\rtimes$”；$g$和$h$顺序不能改变，
 不变子群的在前面，即$k := (g,h)$。
 
-
 我们也可以将上述构造过程反过来，将一个大群分解为两个群的半直积，
 这需要原来的大群有不变子群才可以。
-%具体例子见\S\ref{chlg:sec_Orthogonal}。
 
-
-\section{左不变切矢量场}\label{chlg:sec_Left-Invariant-Vector-Fields}
+\section{左不变切矢量场}
 Lie 群在单位元处的切空间带有自然的 Lie 代数结构，可用于研究群的局部性质。
 左移动 $L_g$ 的微分为 $(L_{g*})_h:T_hG\to T_{gh}G$，其中下标 $h$ 表示取微分的点。
 
@@ -789,13 +733,12 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
      {\partial x^i}\right|_{\substack{x=e\\y=g}}.
 \end{equation}
 上式与切映射公式（见\eqref{chdm:eqn_push-bases}）本质相同。
-与此对偶，可导出右移动的公式： % \parencite[6.1.12]{cc2001-zh}
+与此对偶，可导出右移动的公式：
 \begin{equation}\label{chlg:eqn_rve}
     (R_{g*})_e \left. \frac{\partial }{\partial x^i }\right|_{e}
      = \left. \frac{\partial \varphi^\alpha (x,y)}{\partial x^i}
     \right|_{\substack{x=e\\y=g}}   \left. \frac{\partial}{\partial y^\alpha}\right|_{g} .
 \end{equation}
-
 
 \subsection{切矢量场}
 前面只是两不同点间的矢量变换，下面进入切矢量场的内容。
@@ -807,7 +750,6 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 比如$X$定义在点$h$，定义\ref{chlg:def_left-vector}中
 利用左移动将其移动到$gh$处，即$(L_{g*})_h X(h)$；当$g$和$h$遍历整个 Lie 群$G$时，
 都有此式（$(L_{g*})_h X(h)=X(gh)$）成立，那么$X$便是左不变切矢量场。
-
 
 \begin{theorem}\label{chlg:thm_lfv}
 设$G$是$m$维光滑 Lie 群，幺元$e$中的切矢量$X_e\in T_eG$经过左移动$L_g$（$g$遍历整个 Lie 群$G$）变换
@@ -832,7 +774,6 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 \begin{theorem}\label{chlg:thm_lfvls}
     将$m$维 Lie 群$G$上全体左不变矢量场的集合记为$\mathscr{G}$，则$\mathscr{G}$是
     $m$维线性空间，它与切空间$T_eG$同构。
-    %Poisson括号在$\mathscr{G}$上是封闭的，因而$\mathscr{G}$是$m$维 Lie 代数。
 \end{theorem}
 \begin{proof}
     若$X,Y$是$G$上左不变切矢量场，则$X+\lambda\cdot Y(\forall \lambda \in \mathbb{R})$也是
@@ -851,7 +792,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 
     此外，$\forall X,Y\in \mathscr{G}$及$\forall g\in G$都有$L_{g*}X=X,\ L_{g*}Y=Y$，
     即切矢量场$X,Y$分别与它们自身是$L_g$-相关的。
-    由定理\ref{chdm:thm_push-Poisson-related}可知  %以及\S\ref{chdm:sec_poisson-lie}
+    由定理\ref{chdm:thm_push-Poisson-related}可知
     \begin{equation}\label{chlg:eqn_LgXY}
         L_{g*}[X,Y]=[L_{g*}X, L_{g*}Y]=[X,Y], \qquad \forall X,Y \in \mathscr{G}.
     \end{equation}
@@ -862,7 +803,6 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     需要注意 Lie 群$G$的 Lie 代数$\mathscr{G}$是有限维的；而例\ref{chlg:exm_LAXM}中
     的 Lie 代数$\mathfrak{X}(G)$是无穷维的；并且$\mathscr{G}$是$\mathfrak{X}(G)$的子代数。
 \end{proof}
-
 
 因$\mathscr{G}$与$T_eG$同构，故在$T_eG$中可以引入如下 Lie 积：$\forall A, B \in T_eG$有
 \begin{equation}\label{chlg:eqn_LA-TeG}
@@ -875,8 +815,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 记 $\mathfrak g:=T_eG$，并通过取值映射 $X\mapsto X(e)$ 与左不变场代数 $\mathscr G$ 自然等同。
 下文按语境使用这两种实现。
 
-
-\subsection{Lie 代数的结构常数}\label{chlg:sec_structure-constants}
+\subsection{Lie 代数的结构常数}
 本小节进一步阐述上面定义的 Lie 群$G$的 Lie 代数$\mathscr{G}$（或$T_eG$）。
 下面来导出$T_eG$中的结构常数，我们选取$\{\frac{\partial}{\partial x^i}|_{e}\}$为$T_eG$的基底；
 由式\eqref{chlg:eqn_lve}可以导出上述$m$个基底生成的左不变切矢量场。
@@ -907,10 +846,8 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     \ \text{显然有}\  c^\alpha_{ij} = -c^\alpha_{ji} .\label{chlg:eqn_struc-const}
 \end{align}
 
-
 \subsection{例题}
 \begin{example}
-%可对易群结构常数。
 可对易群意味着群乘法是可交换的，即$\varphi(x,y)=\varphi(y,x)$。
 由式\eqref{chlg:eqn_struc-const}可知结构常数恒为零，即$c^\alpha_{ij}=0$。\qed
 \end{example}
@@ -927,7 +864,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     $(\mathbb{F}^*,\times)$有两个互相不连通的连通分支。\qed
 \end{example}
 
-\begin{example}\label{chlg:exam_complex}
+\begin{example}
     设$C^*$是非零复数全体构成的集合。(1) 额外引入复数乘法，证明$C^*$是
     二维实 Lie 群。(2) 求出 Lie 代数的基矢和结构常数。
 \end{example}
@@ -938,7 +875,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     z_1\cdot z_2 = \varphi(z_1,z_2)=(x_1 x_2-y_1 y_2,\ x_2 y_1+x_1 y_2).
 \end{equation}
 由于已将零（$(0,0)$）排除，所以复数乘法可逆（即除法），是
-\begin{equation}\label{chlg:eqn_z-inv}
+\begin{equation}
     \varphi^{-1}(z)=\left(\frac{x}{x^2+y^2},\ \frac{-y}{x^2+y^2}\right) .
 \end{equation}
 由上两式可见复数乘法、求逆都是$C^\infty$函数运算。
@@ -1005,9 +942,8 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
       -\delta^l_{t} \delta^q_{k} \delta^s_{p} .
 \end{equation}
 
-
  Lie 群$GL(m,\mathbb{R})$的 Lie 代数$\mathfrak{gl}(m,\mathbb{R})$可以表示为
-\begin{equation}\label{chlg:eqn_GLA-bases}
+\begin{equation}
     \mathfrak{gl}(m,\mathbb{R}) = \operatorname{span}_{\mathbb{R}}  \left\{
     a^j_{t} \left.\frac{\partial }{\partial a_{s}^j}\right|_{g} \right\}.
 \end{equation}
@@ -1015,7 +951,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 在例\ref{chlg:exm_GL-a}中，已经说明$\mathfrak{gl}(m)$是 Lie 代数，
 它的基矢是矩阵$E^i_{j}(1\leqslant i,j \leqslant m)$；其中$E^i_{j}$表示
 的第$i$行、第$j$列元素为$1$，其余矩阵元是零。按照矩阵乘法，有
-\begin{equation}\label{chlg:eqn_GLA-bases-matrix}
+\begin{equation}
     [E_{t}^s, E_{k}^l]=E_{t}^s E_{k}^l-E_{k}^lE_{t}^s
     =\delta^l_{t} E^s_{k} -\delta^s_{k} E^l_{t}.
 \end{equation}
@@ -1045,23 +981,20 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 上式说明映射$\pi$保 Lie 积不变。上面讨论表明：
 从纯粹的代数角度来看，基矢是微分形式的 Lie 代数完全同构于矩阵形式的 Lie 代数；两者没有区别。
 
-
 这也就说明了：一般线性群$GL(m,\mathbb{R})$的 Lie 代数就是
 例题\ref{chlg:exm_GL-a}中的$\mathfrak{gl}(m,\mathbb{R})$。
 这一结论对于$GL(m,\mathbb{C})$和$\mathfrak{gl}(m,\mathbb{C})$也成立。
 \qed
 
-
 \subsection{左不变仿射联络}\label{chlg:sec_lic}
-%因 Lie 群是微分流形，故我们可以假设其上存在仿射联络$\nabla$。
 
-\begin{definition}\label{chlg:def_lic}
+\begin{definition}
     设有$m$维 Lie 群$G$。$\forall g\in G$，$\forall X,Y\in \mathfrak{X}(G)$，
     若$L_{g*}(\nabla_X Y) = \nabla_{L_{g*}X}(L_{g*}Y)$，则称
     仿射联络$\nabla$是 Lie 群$G$的\textbf{左不变仿射联络}。
 \end{definition}
 
-\begin{theorem}\label{chlg:thm_lic}
+\begin{theorem}
     设$\mathscr{G}$、$\nabla$是 Lie 群$G$的 Lie 代数和仿射联络；
     则$\nabla$是左不变的充分必要条件是：$\forall X,Y \in \mathscr{G}$都
     有$\nabla_X Y\in \mathscr{G}$。
@@ -1097,19 +1030,14 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     故$\nabla$是$G$的左不变联络。
 \end{proof}
 
-
 设$\nabla$是 Lie 群$G$的左不变联络，在其 Lie 代数$\mathscr{G}$中取定一组
 基底$\{e_1,\cdots,e_m\}$。
 因$\nabla_{e_i} e_j \in \mathscr{G}$，由定理\ref{chlg:thm_lfvls}可
 知存在{常数}$\{\Gamma^k_{i j}\}$使得$\nabla_{e_i} e_j= \Gamma^k_{i j} e_k$。
 对一般的联络而言$\{\Gamma^k_{i j}\}$是标量函数场，此处它们是{常数}。
-%下面阐述这个常数与结构常数的关系。
-
-%有关更多左不变仿射联络知识可参考\parencite[\S 2.1.3]{helgason-2001}。
-
 
 \subsection{右不变切矢量场}
-也存在通过右不变切矢量场来阐述本节理论的方式，具体可参见\parencite[\S 6.1]{cc2001-zh}；
+也可用右不变切矢量场表述本节理论；取逆映射交换左右移动，并在单位元的微分中引入负号。
 我们不打算全面介绍这种描述方式，只给出两者 Lie 积的关系。
 先阐述右不变切矢量场的 Lie 代数的结构常数；
 选取$\{\frac{\partial}{\partial x^i}|_{e}\}$为$T_eG$的基底，
@@ -1136,7 +1064,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     \right] \left. \frac{\partial}{\partial y^\alpha}\right|_{e} . \\
     \text{记}\quad
     \tilde{c}^\alpha_{ij}=&\left. \frac{\partial^2 \varphi^\alpha (x,y)}{\partial y^i \partial x^j} \right|_{\substack{x=e\\y=e}} -\left.
-    \frac{\partial^2 \varphi^\alpha (x,y)}{\partial y^j \partial x^i} \right|_{\substack{x=e\\y=e}} . \label{chlg:eqn_struc-const-R}
+    \frac{\partial^2 \varphi^\alpha (x,y)}{\partial y^j \partial x^i} \right|_{\substack{x=e\\y=e}} . 
 \end{align}
 对比左不变切矢量场的结构常数$c^\alpha_{ij}$（见式\eqref{chlg:eqn_struc-const}）可知：
 右不变切矢量场的结构常数$\tilde{c}^\alpha_{ij}$与$c^\alpha_{ij}$互为相反数，即
@@ -1144,14 +1072,13 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     \tilde{c}^\alpha_{ij} = -c^\alpha_{ij} .
 \end{equation}
 
-
 设$\xi_i \in T_e G$。令$X_i$表示由$\xi_i$左移动产生的左不变切矢量场，
 令$Y_i$表示由$\xi_i$右移动产生的右不变切矢量场。
 利用左不变切矢量场$X_i$，我们定义了$T_e G$中矢量的对易关系，
 即式\eqref{chlg:eqn_LA-TeG}。
 与之类似，用右不变矢量场$Y_i$也可以定义$T_e G$中矢量的对易关系如下：
 \begin{align}
-    [\xi_i, \xi_j]_{r} := & [Y_i, Y_j](e). \qquad \text{右不变矢量场} \label{chlg:eqn_LA-TeG-r} \\
+    [\xi_i, \xi_j]_{r} := & [Y_i, Y_j](e). \qquad \text{右不变矢量场}  \\
     [\xi_i, \xi_j]_{l} = & [X_i, X_j](e). \qquad \text{左不变矢量场} \tag{\ref{chlg:eqn_LA-TeG}}
 \end{align}
 由式\eqref{chlg:eqn_SC-lr}不难得到：
@@ -1159,12 +1086,6 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     [\xi_i, \xi_j]_{l} = - [\xi_i, \xi_j]_{r}.
 \end{equation}
 在实际使用中要注意这个“负号”的存在。
-
-
-%\begin{exercise}
-%	直接计算例题\ref{chlg:exam_complex}中的$[X_1,X_2]$。
-%\end{exercise}
-
 
 \section{Maurer--Cartan 形式}
 左不变余切矢量场与左不变切矢量场对偶。以下讨论左不变 $1$-形式，亦称 Maurer--Cartan 形式的分量，简称 MC 形式。
@@ -1178,7 +1099,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 此定义与定义\ref{chlg:def_left-vector}是相互对偶的。
 已知左移动$L_g$是微分同胚，它所诱导的拉回映射$L_g^*:T^*_{gh}G \to T^*_hG$自然是线性同构。
 定义\eqref{chlg:def_left-covvector}中的式子$  L_g^* \omega = \omega $可具体理解为
-\begin{equation}\label{chlg:eqn_Lg-omega-1}
+\begin{equation}
     L_g^* \omega(g\cdot h)= \omega(h) \quad \Leftrightarrow\quad
     L_g^* \omega(h)= \omega(g^{-1}\cdot h).
 \end{equation}
@@ -1188,13 +1109,12 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     =\bigl(\omega(g\cdot h)\bigr)(L_{g*}X) .
 \end{equation}
 连续两次拉回映射是
-\begin{equation}\label{chlg:eqn_Lg-omega-3}
+\begin{equation}
     L_f^* L_g^* \omega(h)=L_f^* \omega(g^{-1}\cdot h)=\omega(f^{-1}\cdot g^{-1}\cdot h)
     =L_{gf}^* \omega(h).
 \end{equation}
 
-
-\begin{theorem}\label{chlg:thm_left-1form}
+\begin{theorem}
     有 Lie 群$G$上的$\omega\in \mathfrak{X}^*(G)$是MC 形式的充要条件
     是：对于任意左不变切矢量场$X$，$\omega(X)$是常数。
 \end{theorem}
@@ -1211,8 +1131,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     因$X_e\in T_e(G)$是任取的，故有$\omega_e=L_g^* (\omega_g)$，所以它是MC 形式。
 \end{proof}
 
-
-\begin{theorem}\label{chlg:thm_lfspace}
+\begin{theorem}
     全体MC 形式构成线性空间（维数同 Lie 群$G$的维数），记为$\mathscr{G}^*$。
 \end{theorem}
 \begin{proof}
@@ -1222,7 +1141,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
         E^j(g):=(L_{g^{-1}}^*)_gE^j(e).
     \]
     它们分别为左不变场和左不变形式，且
-    \begin{equation}\label{chlg:eqn_tmpinv}
+    \begin{equation}
         E^j(g)\bigl(E_i(g)\bigr)=E^j(e)\bigl(E_i(e)\bigr)=\delta^j_i.
     \end{equation}
     任意左不变形式 $\omega$ 都由 $\omega(e)$ 唯一确定。
@@ -1230,10 +1149,9 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     故 $\mathscr G^*=\operatorname{span}_{\R}\{E^1,\ldots,E^m\}\cong T_e^*G$，维数为 $m$。
 \end{proof}
 
-
 \section{可解、幂零 Lie 代数}\label{chlg:sec_sn}
 
-本节省略的定理证明可在\parencite[\S 4.1-\S 4.2]{huangxg-2024}中查到；或查阅任意一本 Lie 代数书籍。
+本节的 Lie 代数和表示空间均为有限维，基域取$\mathbb R$或$\mathbb C$；Lie 定理另要求复数域。
 
 \begin{proposition}
     设$\mathfrak{g}$ 是数域 $\mathbb{F}$ 上的 Lie 代数。$\mathfrak{g}$ 中序列
@@ -1252,7 +1170,6 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     $\mathfrak{g}^{1}=\left[\mathfrak{g}, \mathfrak{g}\right]=\mathfrak{g}^{(1)}$；
     当$k\geqslant 2$时，两个序列一般不等。
 
-
     对 $k$ 作归纳证明，$\mathfrak{g}^{(0)}=\mathfrak{g}$ 自然是 $\mathfrak{g}$ 的理想。
     设 $\mathfrak{g}^{(k)}$是 $\mathfrak{g}$ 的理想，于是
     \begin{align*}
@@ -1260,7 +1177,6 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
     \end{align*}
     上式说明导代数序列是理想。降中心序列证明类似，请读者补齐。
 \end{proof}
-
 
 \begin{definition}
 设 $\mathfrak{g}$ 是 Lie 代数。
@@ -1349,7 +1265,6 @@ B=\left(\begin{array}{lll}
     不难验证二维非对易 Lie 代数不是幂零的。\qed
 \end{example}
 
-
 \begin{example}
     令$\mathfrak{g}$是$\mathfrak{iso}(2)$或$\mathfrak{so}(3)$
     （见\S\ref{chlg:sec_rotation}、\S\ref{chlg:sec_e2}）。
@@ -1370,7 +1285,6 @@ $\mathfrak{g}$的一个理想子代数；
 \end{equation*}
 经过简单计算不难发现$\mathfrak{g}^{(1)}=\mathfrak{g}$，故它不是可解的。 \qed
 
-
 \begin{example}
     由幂零 Lie 代数定义可知：$\mathfrak{g}$是幂零的充要条件是存在正整数$k$使得
     $\forall x_i\in \mathfrak{g}$（$i=1,2,\cdots,k$），有
@@ -1382,46 +1296,92 @@ $\mathfrak{g}$的一个理想子代数；
     其中$\operatorname{ad}_{x}$定义见\S \ref{chlg:sec_adjoint}。 \qed
 \end{example}
 
-
 下面定理是可解（幂零） Lie 代数中极其基本的定理。
 
-
-\begin{theorem}\label{chlg:thm_Lie}
+\begin{theorem}
     （ Lie 定理）设 $(\rho, V)$ 是复数域$\mathbb{C}$上有限维可解 Lie 代数$\mathfrak{g}$的有限维表示。
     则在$V$中存在基矢，使得 $\forall x \in \mathfrak{g}, \rho(x)$在此基下的矩阵为上三角方阵。
 \end{theorem}
+\begin{proof}
+先证存在公共特征矢量，对$\dim\mathfrak g$归纳。
+非零可解代数有余维为$1$的理想$\mathfrak h$：在非零Abel商
+$\mathfrak g/[\mathfrak g,\mathfrak g]$中取一个超平面的原像即可。
+由归纳假设，存在$v\neq0$和线性函数$\lambda$，使
+$\rho(y)v=\lambda(y)v$（$y\in\mathfrak h$）。取$\mathfrak g=\mathfrak h+\mathbb Cx$，
+令$W$由$v,\rho(x)v,\rho(x)^2v,\ldots$张成。
+利用$[y,x]\in\mathfrak h$逐次交换算符，可知$\rho(y)$保持这列递增子空间，
+且在每个一维商上的作用均为$\lambda(y)$。
+于是$W$在$\mathfrak g$下不变，且
+$0=\operatorname{tr}_W[\rho(x),\rho(y)]=\dim W\,\lambda([x,y])$。
+因此公共权空间
+$V_\lambda=\{w:\rho(y)w=\lambda(y)w,\ y\in\mathfrak h\}$
+在$\rho(x)$下不变。复数域上$\rho(x)|_{V_\lambda}$有特征矢量，
+它就是$\mathfrak g$的公共特征矢量。
+再对其张成的一维不变子空间取商，按$\dim V$归纳，得到完整不变旗，
+取适合该旗的基便得到上三角矩阵。
+\end{proof}
 
-
-\begin{theorem}\label{chlg:thm_Engel}
+\begin{theorem}
     （Engel定理）设$V$是数域$\mathbb{F}$ 上的线性空间，$\mathfrak{g}$是$\mathfrak{gl}(V)$的子代数，
     其中任何元素均是 $V$ 的幂零线性变换，则 $\mathfrak{g}$ 是幂零 Lie 代数。
 \end{theorem}
-
+\begin{proof}
+先证：一族构成 Lie 代数的幂零算符有公共非零零矢量。
+对该算符代数$\mathfrak g$的维数归纳，取极大真子代数$\mathfrak h$。
+若$y$为幂零算符，则
+$(\operatorname{ad}_y)^r A=\sum_{j=0}^r(-1)^j\binom rj y^{r-j}Ay^j$
+在$r$充分大时为零。
+故$\mathfrak h$在$\mathfrak g/\mathfrak h$上的伴随作用由幂零算符组成；
+归纳假设给出非零公共零矢量，即$\mathfrak h$的正规化子严格大于$\mathfrak h$。
+极大性说明正规化子为$\mathfrak g$，所以$\mathfrak h$是理想且余维为$1$。
+归纳假设还给出非零空间$W=\{v:\mathfrak h v=0\}$。
+它在$\mathfrak g$下不变；取$\mathfrak g=\mathfrak h+\mathbb F x$，
+幂零算符$x|_W$有非零核，便得到所求公共零矢量。
+对$V$逐次取商可得一组基，使所有算符严格上三角。
+$m=\dim V$个严格上三角矩阵的乘积为零，故足够长的嵌套对易子也为零，$\mathfrak g$幂零。
+\end{proof}
 
 \begin{theorem}
-    如果$\mathfrak{g}$是作用在$m$维实（或复）线性空间$V$上的幂零 Lie 代数，
+    如果$\mathfrak{g}\subset\mathfrak{gl}(V)$作用在$m$维实（或复）线性空间$V$上，
+    且它的每个元素都是幂零线性变换，
     那么$V$中存在一组基使得$\mathfrak{g}$中任意线性变换$A$关于这组基矢所对应的
     矩阵是严格上三角方阵$\mathfrak{n}(m,\mathbb{F})$。
 \end{theorem}
 
-上述三个定理表明：在复数域（不能是实数域）上研究可解 Lie 代数，在同构意义下就是研究全体复上三角方阵及其子代数。
+\begin{proof}
+这正是上述Engel定理证明中逐次构造公共零矢量所得的不变旗。
+\end{proof}
+
+这里要求表示中的每个算符幂零，不能只要求抽象 Lie 代数幂零。
+例如一维Abel代数可由恒等算符表示，此表示显然不能严格上三角化。
+结合下文Ado定理的幂零情形，在复数域（不能是实数域）上研究可解 Lie 代数，在同构意义下就是研究全体复上三角方阵及其子代数。
 在实（或复）数域上研究幂零 Lie 代数，在同构意义下就是研究全体严格上三角方阵及其子代数。
 
-
 \begin{proposition}
-    可解（幂零） Lie 代数的子代数（商代数）是可解（幂零）的。
+可解（幂零） Lie 代数的子代数和同态像仍可解（幂零），特别地商代数仍具有相应性质。
 \end{proposition}
-
-\begin{proposition}
-    若 Lie 代数$\mathfrak{g}$ 可解（幂零），则 $g$ 的任何子代数以及到另一 Lie 代数内的同态像都是可解（幂零）的；
-    特别$\mathfrak{g}$的任一商代数都是可解（幂零）的。
-\end{proposition}
+\begin{proof}
+子代数的导出列和降中心列逐项包含于原代数的相应列。
+同态$\phi$保持对易子，故$\phi(\mathfrak g^{(r)})=(\phi\mathfrak g)^{(r)}$，
+降中心列亦同；原列归零时，子代数及同态像的相应列也归零。
+\end{proof}
 
 \begin{proposition}\label{chlg:thm_isnosn}
     设有数域$\mathbb{F}$上的 Lie 代数$\mathfrak{g}$；如果$\mathfrak{g}$的两个理想$\mathfrak{h}$、$\mathfrak{k}$是
     可解（幂零）的，则$\mathfrak{h}+\mathfrak{k}$（它俩的和）仍是可解（幂零）的。
 \end{proposition}
-
+\begin{proof}
+商代数$(\mathfrak h+\mathfrak k)/\mathfrak h\cong\mathfrak k/(\mathfrak h\cap\mathfrak k)$可解。
+若其第$r$次导出代数为零，则$(\mathfrak h+\mathfrak k)^{(r)}\subset\mathfrak h$；
+再取足够多次导出代数即为零。
+对于幂零情形，设两理想的幂零类分别为$p,q$。
+展开$\mathfrak h+\mathfrak k$中长度为$p+q+1$的嵌套对易子；每项至少含$p+1$个
+$\mathfrak h$元素或$q+1$个$\mathfrak k$元素。
+Jacobi恒等式允许逐次把同一理想的元素移入内层；由于
+$[\mathfrak g,\mathfrak h^r]\subset\mathfrak h^r$，含$r$个$\mathfrak h$元素的每项属于
+$\mathfrak h$的第$r$项降中心列（此处首项编号为$1$）。
+同理适用于$\mathfrak k$，故上述各项均为零。
+\end{proof}
 
 下面讨论可解 Lie 群、幂零 Lie 群。
 
@@ -1441,7 +1401,17 @@ $\mathfrak{g}$的一个理想子代数；
     设$G$是一个$m$维连通 Lie 群；则$G$是可解的（幂零的）充分必要条件
     是$G$的 Lie 群 Lie 代数$\mathfrak{g}$是可解的（幂零的）。
 \end{theorem}
-
+\begin{proof}[证明概要]
+群对易子在单位元附近的最低非零项是 Lie 括号，故群的相应对易列归零时，
+Lie 代数的导出列或降中心列也归零。
+反之，先取$G$的单连通覆盖。对可解代数，包含导出代数的余维一理想
+可逐次积分为到$(\mathbb R,+)$的同态的核；这些核连通且单连通，
+由维数归纳得到可解群。对幂零代数，BCH级数有限截断，
+在代数本身定义单连通群；群对易列包含于相应的代数降中心列，故该群幂零。
+再由覆盖同态把结论传给$G$。
+最后，连续性给出$[\overline A,\overline B]\subset\overline{(A,B)}$，
+所以在这些对易列中逐步取闭包不会破坏有限步归零的性质。
+\end{proof}
 
 我们给出两个例子。第一个：任一个 Abel  Lie 群都是可解 Lie 群。
 
@@ -1467,9 +1437,7 @@ G^{(1)}=\left\{\left.\left(\begin{array}{ccc}
 进而$G^{(2)}=\left(\overline{G^{(1)}, G^{(1)}}\right)=I_3$ （$I_3$是单位矩阵）；
 故 $G$ 是一个可解 Lie 群。\qed
 
-
-\section{Lie 群、 Lie 代数基本定理}\label{chlg:sec_Lie3thm}
-
+\section{Lie 群、 Lie 代数基本定理}
 
 \begin{theorem}
     设$(U, \varphi),(V, \varphi)$为 Lie 群$G$包含幺元$e$的标架，
@@ -1507,43 +1475,76 @@ G^{(1)}=\left\{\left.\left(\begin{array}{ccc}
 
 \end{theorem}
 
-上述定理证明见\parencite[\S 3.7]{huangxg-2024}定理19。
-下面叙述 Lie 三个定理的逆定理（证明见\parencite[\S 3.7]{huangxg-2024}定理20）。
+\begin{proof}
+对结合律$\varphi(x,\varphi(y,z))=\varphi(\varphi(x,y),z)$关于$z$求导并令$z=0$，
+得到$D_2\varphi(x,y)L(y)=L(\varphi(x,y))$，这就是(1)。
+左不变基矢场$E_i=l_i^k\partial_k$满足$[E_i,E_j]=C_{ij}^kE_k$；
+逐分量展开即得(2)。再把基矢场代入括号的反对称性和Jacobi恒等式，
+比较各$E_q$的系数便得(3)。
+\end{proof}
+下面叙述相应的局部存在定理。
 
 \begin{theorem}\label{chlg:thm_Lie3inv}
     设有 Lie 代数$\mathfrak{g}$；则存在局部 Lie 群$G$，
     $G$的 Lie 代数与$\mathfrak{g}$同构。
 \end{theorem}
+\begin{proof}[证明概要]
+在$\mathfrak g$的零点附近用BCH级数定义
+$X*Y=X+Y+\tfrac12[X,Y]+\tfrac1{12}([X,[X,Y]]+[Y,[Y,X]])+\cdots$。
+取满足$\|[X,Y]\|\leqslant C\|X\|\|Y\|$的范数，
+BCH级数的绝对收敛估计保证$X,Y$充分小时此式收敛。
+在泛包络代数的形式幂级数中，$\exp(X*Y)=\exp X\exp Y$；
+结合律因此逐阶成立，并由收敛性成为局部解析恒等式。
+零元和逆元分别为$0$、$-X$；二阶对易项给出的 Lie 括号正是原括号，故得到所求局部群。
+\end{proof}
 
 不同 Lie 群可能有相同的 Lie 代数，
-确切地说（证明见\parencite[\S 3.7]{huangxg-2024}定理21）：
-\begin{theorem}\label{chlg:thm_g2G}
-    若局部 Lie 群$G$和$H$的 Lie 代数同构，则$G$和$H$局部微分同胚。
+确切地说：
+\begin{theorem}
+    若局部 Lie 群$G$和$H$的 Lie 代数同构，则$G$和$H$在单位元附近局部同构，因而局部微分同胚。
 \end{theorem}
+\begin{proof}
+设代数同构为$\rho$。指数映射在零点附近可逆，故
+$\exp_H\circ\rho\circ\exp_G^{-1}$是局部微分同胚。
+$\rho$保持BCH级数中的每个嵌套括号，因而此映射还保持局部乘法。
+\end{proof}
 
-
-关于 Lie 群和 Lie 代数同态有如下重要定理；定理证明可参阅\parencite[\S 6.1]{cc2001-zh}定理1.5。 %\parencite[\S 6.3]{chenwh2001}定理3.1。
+Lie 群同态在单位元处的微分保持 Lie 括号。
 \begin{theorem}\label{chlg:thm_tglie}
     设有两个 Lie 群$G,H$，它们的 Lie 代数是$\mathscr{G},\mathscr{H}$。
     假设有同态映射$\phi:G\to H$，那么
-    %    (1) 对于$G$上任意左不变矢量场$X\in \mathscr{G}$，在$H$上必有唯一一个
-    %    左不变矢量场$Y\in \mathscr{H}$，使得$Y$和$X$是$\phi$-相关的（定义见\ref{chdm:def_related}）；
     (1) $\phi$在它们的 Lie 代数间诱导出同态映射$\psi=\phi_{*}:\mathscr{G}\to \mathscr{H}$是 Lie 代数同态；
     (2) 如果$\phi$是 Lie 群同构，那么$\psi=\phi_{*}$也是 Lie 代数的同构。
 \end{theorem}
+\begin{proof}
+由$\phi\circ L_g=L_{\phi(g)}\circ\phi$，$X$的左不变延拓与
+$\phi_{*e}X$的左不变延拓是$\phi$-相关的。
+相关矢量场的括号仍相关，故在单位元处
+$\phi_{*e}[X,Y]=[\phi_{*e}X,\phi_{*e}Y]$。
+若$\phi$为同构，对$\phi^{-1}$求微分便得到$\phi_{*e}$的逆。
+\end{proof}
 
- Lie 群同态（同构）可以诱导出 Lie 代数同态（同构）。 %，见定理\ref{chlg:thm_tglie}
-反之则未必，具体情形可参考\parencite[p.226--231]{xuyc-2001}，以及定理3.2.13至3.2.21。
-我们摘录定理如下： %
+ Lie 群同态（同构）可以诱导出 Lie 代数同态（同构）。
+反方向需要控制整体拓扑。例如$\mathbb R$与$S^1$的 Lie 代数同构，但两群不同构。
+源群单连通时，Lie 代数同态可以唯一积分为群同态：
 \begin{theorem}\label{chlg:thm_LA2LG}
     设有连通 Lie 群$H$及其 Lie 代数$\mathfrak{h}$，再设有单连通 Lie 群$G$及其 Lie 代数$\mathfrak{g}$。
     设$\rho$是从 Lie 代数$\mathfrak{g}$到$\mathfrak{h}$的同态映射，
     则存在唯一的从单连通 Lie 群$G$到 Lie 群$H$的 Lie 群同态映射$\sigma$使得$\sigma_{*}=\rho$成立。
-    （证明见\parencite[p.235]{xuyc-2001}定理3.2.14）
 \end{theorem}
+\begin{proof}[证明概要]
+在$G\times H$上取左不变分布
+$\mathcal D_{(g,h)}=\{((L_g)_*X,(L_h)_*\rho X):X\in\mathfrak g\}$。
+$\rho$保持括号，故该分布对括号封闭。由Frobenius定理，经过$(e,e)$的积分叶
+投影到$G$是局部微分同胚。
+路径提升归结为$H$上给定左对数导数的常微分方程；在有限参数区间内，
+用单位元附近的解和左移动分段拼接，得到整个路径的提升。
+可积分性保证端点在端点固定同伦下不变；$G$单连通，因此该叶是某映射$\sigma:G\to H$的图像。
+分布左不变及积分叶唯一性给出$\sigma(gg')=\sigma(g)\sigma(g')$，且$\sigma_{*e}=\rho$。
+任一这样的同态都满足$\sigma(\exp X)=\exp(\rho X)$；连通群由单位元的指数邻域生成，故同态唯一。
+\end{proof}
 
-%在单连通前提下， Lie 代数也可以决定 Lie 群，详见下面定理。 % 定理
-\begin{theorem}\label{chlg:thm_LA2LG-all}
+\begin{theorem}
     任给 Lie 代数$\mathfrak{L}$。在 Lie 群同构的意义下唯一存在连通且单连通 Lie 群 $\widehat{G}$，
     它的 Lie 代数 $\widehat{\mathfrak{g}}$和$\mathfrak{L}$ 同构
     （这是在说在同构意义下 Lie 代数$\mathfrak{L}$和单连通 Lie 群$\widehat{G}$相互唯一确定）   。
@@ -1554,90 +1555,96 @@ G^{(1)}=\left\{\left.\left(\begin{array}{ccc}
     $\pi: \widehat{G} \rightarrow \widehat{G} / \Gamma $ 为自然映射，
     $\sigma: \widehat{G} / \Gamma \rightarrow G$ 为满同构，
     则有覆盖映射 $\phi=\sigma \circ \pi$。
-    （证明见\parencite[p.238]{xuyc-2001}定理3.2.20）
 \end{theorem}
+\begin{proof}[证明概要]
+由下述Ado定理，可将$\mathfrak L$嵌入某个矩阵 Lie 代数；
+由子代数对应定理\ref{chlg:thm_suglieg}取得相应连通浸入子群，再取其通用覆盖，便得存在性。
+这两个构造分别是代数表示的构造和Frobenius积分，不预先依赖本定理。
+若两个单连通群有同构的 Lie 代数，用定理\ref{chlg:thm_LA2LG}积分互逆的代数同构，
+再由唯一性知所得群同态互逆。
+对于一般连通$G$，同样积分得到$\phi:\widehat G\to G$。
+其微分为同构，所以它是局部微分同胚，核离散，像为开子群，连通性保证满射。
+平移单位元的局部逆即得覆盖邻域；于是$G\cong\widehat G/\ker\phi$。
+\end{proof}
 
-
-%\begin{theorem}
-%    任给一 Lie 代数$\mathfrak{g}$，在$\mathfrak{g}$中取定一组基底$e_1,\cdots,e_n$，
-%    其对易关系是
-%    \begin{equation}
-    %        [e_i,e_j] = C^k_{ij}e_k ,\quad 1 \leqslant i, j, k \leqslant n .
-    %    \end{equation}
-%    并且结构常数 $C_{i j}^k, 1 \leqslant i, j, k \leqslant n$ 满足条件
-%    \begin{equation}
-    %        C_{i j}^k+C_{j i}^k=0, \quad
-    %        C_{i j}^p C_{p k}^q+C_{k i}^p C_{p j}^q+C_{j k}^p C_{p i}^q =0 .
-    %    \end{equation}
-%    这时偏微分方程组
-%    \begin{equation}
-    %      l_i^k(x) \frac{\partial l_j^p(x)}{\partial x_k}-l_j^k(x) \frac{\partial l_i^p(x)}{\partial x_k}
-    %       = C_{i j}^k l_k^p(x), \quad 1 \leqslant i, j, p \leqslant n .
-    %    \end{equation}
-%    有适合初值
-%    $ l_i^j(0)=\delta_{i}^j, \ 1 \leqslant i, j \leqslant n$，
-%    及条件$ x^p l_p^j(x)=x^j, \ 1 \leqslant j \leqslant n$的唯一解析解
-%    \begin{equation}
-    %    L(x)=\left(l_i^j(x)\right)=\left(\int_0^1 \exp t A(x) \mathrm{d} t\right)^{-1} .
-    %    \end{equation}
-%    其中
-%    \begin{equation}
-    %        A(x)=  \begin{pmatrix}
-        %           A_1^1(x) & \cdots & A_n^1(x) \\
-        %            \vdots & \ddots & \vdots \\
-        %            A_1^n(x) & \cdots & A_n^n(x)
-        %        \end{pmatrix} ,
-    %        \quad A_i^j(x)= x_p C_{i p}^j, \quad
-    %        {\rm det} A(x)>0,|x|<\varepsilon .
-    %    \end{equation}
-%
-%    又偏微分方程组
-%    \begin{equation}
-    %    \frac{\partial \varphi(x, y)}{\partial y}=L\bigl(\varphi(x, y)\bigr) L(y)^{-1} .
-    %    \end{equation}
-%    有适合初值 $\varphi(x, 0)=0 $的唯一解析解 $\varphi(x, y)$；
-%    其中 $|y|<\varepsilon$，且在 $|x|<\varepsilon,|y|<\varepsilon$ 时，
-%    函数$\varphi(x, y)$是解析的；并且在$|x|<\varepsilon,|y|<\varepsilon,|z|<\varepsilon,
-%    |\varphi(x, y)|<\varepsilon,|\varphi(y, z)|<\varepsilon$时，它还满足
-%    \begin{equation}
-    %    \varphi(x, 0)=\varphi(0, x)=x, \quad \varphi\bigl(x, \varphi(y, z)\bigr)=\varphi\bigl(\varphi(x, y), z\bigr)  .
-    %    \end{equation}
-%    且唯一存在解析函数 $g(x),|x|<\varepsilon$，使得 $|g(x)|<\varepsilon$，且
-%    \begin{equation}
-    %    \varphi\bigl(x, g(x)\bigr)=\varphi\bigl(g(x), x\bigr)=0 .
-    %    \end{equation}
-%\end{theorem}
-
-
-%我们不加证明地再叙述几个在大多数 Lie 群教科书中能查到的定理。
-
-\begin{theorem}\label{chlg:thm_suglieg}  %%可参考\parencite[\S 3.8]{huangxg-2024}定理22。
+\begin{theorem}\label{chlg:thm_suglieg}
     设 Lie 群$H$为 Lie 群$G$的 Lie 子群，$H$的 Lie 代数是$\mathscr{H}$，$G$的 Lie 代数是$\mathscr{G}$。
     则必有：(1) $\mathscr{H}$是$\mathscr{G}$的子代数。
     (2) $\mathscr{G}$每个子代数恰好是$G$内唯一一个连通 Lie 子群的 Lie 代数。
-    （证明见\parencite[\S 3.8]{huangxg-2024}定理22）
 \end{theorem}
+\begin{proof}
+包含映射的微分保持括号，故得到(1)。
+给定子代数$\mathfrak h\subset\mathfrak g$，在$G$上定义
+$\mathcal D_g=(L_g)_*\mathfrak h$。
+它对括号封闭，Frobenius定理给出经过$e$的最大连通积分叶$H$。
+左移动保持该分布；对$h\in H$，$hH$与$H$相交，故两者是同一积分叶。
+所以$H$对乘法和取逆封闭，并以积分叶的光滑结构成为浸入 Lie 子群。
+任何具有 Lie 代数$\mathfrak h$的连通子群都是同一最大积分叶，故唯一。
+这里的子群允许浸入；它的流形拓扑未必等于$G$诱导的子空间拓扑。
+\end{proof}
 
-\begin{theorem}\label{chlg:thm_subg-cartan}  %% \parencite[\S 3.8]{huangxg-2024}定理23.
-    若 Lie 群$H$为 Lie 群$G$的闭子群，则$H$是$G$的拓扑 Lie 子群。 （证明见\parencite[\S 3.8]{huangxg-2024}定理23）
+\begin{theorem}\label{chlg:thm_subg-cartan}
+    若 Lie 群$H$为 Lie 群$G$的闭子群，则$H$是$G$的拓扑 Lie 子群。
 \end{theorem}
+\begin{proof}[证明概要]
+令$\mathfrak h=\{X\in\mathfrak g:\exp(tX)\in H,\ t\in\mathbb R\}$。
+乘积极限
+\[
+ \exp(t(X+Y))=\lim_{n\to\infty}(\exp(tX/n)\exp(tY/n))^n
+\]
+及对易子极限说明$\mathfrak h$对加法和 Lie 括号封闭；这里用到$H$闭。
+后一极限由
+\[
+ \exp(sX)\exp(sY)\exp(-sX)\exp(-sY)
+ =\exp\bigl(s^2[X,Y]+O(s^3)\bigr)
+\]
+取整数次幂得到。
+取补空间$\mathfrak m$，映射$(X,Y)\mapsto\exp X\exp Y$在$(0,0)$附近为微分同胚。
+若存在非零$Y_j\in\mathfrak m$趋于零且$\exp Y_j\in H$，取子列使
+$Y_j/\|Y_j\|\to Y$。对任意$t$选整数$k_j$使$k_j\|Y_j\|\to t$，
+则$\exp(tY)=\lim_j(\exp Y_j)^{k_j}\in H$，
+推出$Y\in\mathfrak h\cap\mathfrak m$，与$\|Y\|=1$矛盾。
+故$H$在单位元附近恰为$\exp\mathfrak h$，平移后得到嵌入子流形结构，
+群运算为$G$群运算的限制，因而光滑。
+\end{proof}
 
-%上面两个定理证明可参考\parencite[\S 3.8]{huangxg-2024}定理22、定理23。
+这里还可得到几个常用的拓扑事实。开子群的其余陪集均开，故其补集开，它本身也闭。
+子群的闭包仍对乘法和取逆封闭，因为这两个运算连续。
+含单位元的连通分支$G^0$也是子群：$G^0G^0$及$(G^0)^{-1}$均连通且含$e$，所以包含于$G^0$。
+连通分支是闭集；共轭映射固定$e$，故保持$G^0$，于是$G^0$是闭正规子群。
 
-%\begin{theorem}
-%     Lie 群的开子群是闭的。 Lie 群子群的闭包也是子群。 %%田畴著《 Lie 群及其在微分方程中的应用》\S 2.1
-%\end{theorem}
-
-%\begin{theorem}
-%     Lie 群$G$的包含单位元$e$的连通分支是$G$的正规闭子群。 %%田畴著《 Lie 群及其在微分方程中的应用》\S 2.1
-%\end{theorem}
-
-
-\begin{theorem}\label{chlg:thm_Ado}
-    （Ado定理）数域上的$m$维 Lie 代数必定同构于一个矩阵 Lie 代数$\mathfrak{gl}(m,\mathbb{F})$的 Lie 子代数。
-    （证明参见\parencite[\S 7.4]{Hilgert-2012}）
+\begin{theorem}
+    （Ado定理）实数域或复数域上的有限维 Lie 代数$\mathfrak g$有有限维忠实表示，
+    即对某个正整数$N$，$\mathfrak g$同构于$\mathfrak{gl}(N,\mathbb F)$的子代数。
+    这里不要求$N=\dim\mathfrak g$。
 \end{theorem}
+\begin{proof}[证明概要]
+伴随表示的核为中心，故只需另造一个在中心上忠实的有限维表示，再与伴随表示取直和。
+先设$\mathfrak n$幂零。按降中心列选基并赋正整数权，
+泛包络代数$U(\mathfrak n)$由有序基单项式张成（PBW基）。
+交换两基元所产生的括号不降低总权，故权至少为$k$的单项式张成一个左理想$I_k$。
+取$k$大于所有基元的权，则$U(\mathfrak n)/I_k$有限维，
+左乘作用在$\mathfrak n$上忠实，且每次左乘增加权，因而这些算符均幂零。
 
+再设$\mathfrak r$可解，幂零根为$\mathfrak n$。
+Lie 定理把伴随表示三角化，$\mathfrak n$是全部对角权的公共核；
+任一导子$D$的指数保持这有限个权，所以$D\mathfrak r\subset\mathfrak n$。
+按$\dim(\mathfrak r/\mathfrak n)$归纳，取包含$\mathfrak n$的余维一理想$\mathfrak a$，
+已有在$\mathfrak a$上忠实、在$\mathfrak n$上幂零的表示$\rho_0$。
+在$U(\mathfrak a)$中令$J$由$\ker\rho_0$和$\mathfrak n$生成；
+足够大的$k$使$J^k\subset\ker\rho_0$。
+Cayley--Hamilton关系的$k$次幂限制了PBW单项式的各个指数，
+故$U(\mathfrak a)/J^k$有限维。
+补空间的生成元$x$以导子$[x,\cdot]$作用，$\mathfrak a$以左乘作用；
+$[x,\mathfrak a]\subset\mathfrak n$保证此作用保持$J^k$。
+所得表示在$\mathfrak n$上忠实且幂零；补入伴随表示即得归纳结论。
+
+一般情形用下述Levi分解$\mathfrak g=\mathfrak r\oplus_{\mathrm S}\mathfrak k$。
+对$U(\mathfrak r)$重复上述商空间构造，让$\mathfrak k$以导子作用，
+可得在$\mathfrak r$上忠实的有限维表示。
+中心包含于$\mathfrak r$，故再与伴随表示取直和便忠实。
+实数域的结论也可由复化后限制标量得到。
+\end{proof}
 
  Lie 群有直积、半直积概念；与之对应， Lie 代数有直和、半直和的概念。
 
@@ -1655,29 +1662,52 @@ G^{(1)}=\left\{\left.\left(\begin{array}{ccc}
     记为$\mathfrak{g}=\mathfrak{h}\oplus_{\mathrm S}\mathfrak{k}$。
 \end{definition}
 
-
-\begin{theorem}\label{chlg:thm_Levi-Malcev}
-    （Levi--Malcev定理）数域上的任意有限维 Lie 代数$\mathfrak{g}$必定可以
+\begin{theorem}
+    （Levi--Malcev定理）实数域或复数域上的任意有限维 Lie 代数$\mathfrak{g}$必定可以
     分解为可解 Lie 代数$\mathfrak{s}$与半单 Lie 代数$\mathfrak{k}$的半直和，
     即$\mathfrak{g}=\mathfrak{s}\oplus_{\mathrm S}\mathfrak{k}$。
-    （证明参见\parencite[\S 5.6]{Hilgert-2012}）
 \end{theorem}
+\begin{proof}[证明概要]
+令$\mathfrak s$为全部可解理想的和；由命题\ref{chlg:thm_isnosn}及有限维性，
+它仍可解，并且$\mathfrak g/\mathfrak s$半单。
+对$\dim\mathfrak s$归纳：在$\mathfrak s$的最后一个非零导出理想中取极小非零理想
+$\mathfrak a$，则$\mathfrak a$为Abel理想。
+商代数$\mathfrak g/\mathfrak a$有Levi补代数；取其在$\mathfrak g$中的原像，
+只须分裂一个以$\mathfrak a$为核、以半单代数$\mathfrak l$为商的扩张。
+
+取线性截面$u:\mathfrak l\to\mathfrak g$，其未能保持括号的部分为
+$c(x,y)=[u(x),u(y)]-u([x,y])\in\mathfrak a$。
+Jacobi恒等式给出
+\[
+ \sum_{\mathrm{cyc}}\bigl(x\cdot c(y,z)-c([x,y],z)\bigr)=0,
+ \qquad x\cdot a=[u(x),a].
+\]
+Whitehead二阶引理断言，此类$c$均可写成
+$c(x,y)=x\cdot b(y)-y\cdot b(x)-b([x,y])$。
+于是$u-b$保持括号，其像便是所求补代数。
+
+该引理的代数机制如下：将系数模分解为不可约模，取Killing型对偶基
+$e_i,e^i$及Casimir算符$C=\sum_i\rho(e_i)\rho(e^i)$。
+在非平凡不可约分量上$C$是非零标量，
+将余循环恒等式与$\sum_i\rho(e_i)c(e^i,x)$收缩并除以$C$便得到$b(x)$。
+在平凡分量上，用Killing型写$c(x,y)=B(Dx,y)$；
+余循环条件说明$D$为导子，而半单代数的导子为内导子，故$c$仍为上述形式。
+这说明分裂的障碍为何消失；实数域可先复化，再将所求线性方程的解取实部。
+\end{proof}
 
 复半单 Lie 代数分类已由Cartan完成。可解 Lie 代数分类仍未彻底解决。
 
-
 \section{单参数子群与指数映射}
-\subsection{单参数子群}\label{chlg:sec_1psg}
+\subsection{单参数子群}
 单参数子群是最简单的 Lie 子群之一，容易研究清楚。
 单参数子群理论与单参数微分变换群（见\S\ref{chdm:sec_One-Parameter-Transformations-Groups}）内容有密切关系。
 我们已经知道实数域$\mathbb{R}$关于加法构成一维、单连通、可对易 Lie 群（见例\ref{chlg:exam_Rplus}），
 用它可以定义单参数子群。
 \begin{definition}
-    设$G$是 Lie 群，其维数不小于$1$。如果映射$\sigma:\mathbb{R}\to G$是浸入的（微分流形角度），
+    设$G$是 Lie 群，其维数不小于$1$。如果映射$\sigma:\mathbb{R}\to G$是光滑的（允许常值映射），
     并且又是群$(\mathbb{R},+)$到群$G$内的一个同态（群的角度）；
     则称$\sigma$是$G$的\textbf{单参数子群}。
 \end{definition}
-
 
 \begin{theorem}\label{chlg:thm_comlv}
     $m$维 Lie 群$G$的任一左不变切矢量场$X$都是完备的。
@@ -1728,14 +1758,7 @@ G^{(1)}=\left\{\left.\left(\begin{array}{ccc}
     也就说明了$X$是完备的。
 \end{proof}
 
-
-%根据定义\ref{chdm:def_1PTG-local}可知：在局部，$X(t)$必然在$G$上生成一个单参数可微变换群，
-%记为$\phi:\mathbb{R}\times G\to G$；
-%即有$X(e)=\left.\frac{{\rm d}\phi(t,p)}{{\rm d}t}\right|_{t=0}$。
-
-
-%关于单参数子群，有以下定理。
-\begin{theorem}\label{chlg:thm_oglsv}
+\begin{theorem}
     设$G$是$m(>0)$维 Lie 群，任意给定$T_e G$内一个非零矢量$X_e$，
     由$X_e$生成的左不变切矢量场是$X(t)$；那么一定存在唯一单参数子群$\sigma(t)$满足
      $X(t)=\sigma_{t*}\left(\frac{\d }{\d t}\right)$。
@@ -1800,19 +1823,26 @@ $\phi_s$与$L_{\sigma(t)}$是可交换的。继续上式的计算，有
 $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到。
 \end{proof}
 
-通过上述分析可知（严紧证明见\parencite[\S 2.1]{xiang-hou-meng-2014}定理1）：
+上述构造给出如下对应：
 \begin{theorem}\label{chlg:thm_la4}
-    如下四种表述等价：
-    (1)  Lie 群$G$的 Lie 代数$\mathfrak{g}$；
-    (2) 左不变切矢量场；
-    (3) （左）单参数微分同胚群的切矢量场；
-    (4) 单参数子群的切矢量场。
+下列四类对象一一对应：
+(1) $\mathfrak g\cong T_eG$中的元素；
+(2) $G$上的左不变切矢量场；
+(3) 与所有左移动交换的单参数微分同胚群；
+(4) $G$的单参数子群（包括常值子群）。
 \end{theorem}
+\begin{proof}
+$X_e$唯一确定左不变场$X_g=(L_g)_*X_e$，其完备流为
+$\Phi_t(g)=g\sigma_X(t)$，其中$\sigma_X(t)=\Phi_t(e)$。
+因此该流与左移动交换；反之，若$\Phi_t$与左移动交换，则
+$\Phi_t(g)=g\Phi_t(e)$，流的群律给出$\Phi_{t+s}(e)=\Phi_t(e)\Phi_s(e)$。
+最后对单参数子群在$t=0$处求导即返回$X_e$，故四个构造互逆。
+注意左不变场的流由右移动给出。
+\end{proof}
 
+\subsection{指数映射}
 
-\subsection{指数映射}\label{chlg:sec_exp-map}
-
-\begin{definition}\label{chlg:def_exp-map}
+\begin{definition}
     设有 Lie 群$G$，$\forall X_e \in T_eG$，用$\sigma_X:\mathbb{R}\to G$表示
      Lie 群$G$中由$X_e$确定的单参数子群（见\eqref{chlg:eqn_opsi}）。定义\textbf{指数映射}为
     $\exp : T_e G \to G$，具体表示为
@@ -1820,7 +1850,6 @@ $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到。
         \exp(X) := \sigma_X(1); \qquad \forall X \in T_eG .
     \end{equation}
 \end{definition}
-
 
 \begin{theorem}\label{chlg:thm_exp-sigma-id}
     设有$m$维 Lie 群$G$，指数映射$\exp : T_e G \to G$是光滑的，且有
@@ -1842,11 +1871,10 @@ $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到。
     单位元$e$处有局部坐标系$(U;x^i)$，$e$对应坐标原点$\{0\}$。
     设由自然基矢$\frac{\partial }{\partial x^i}|_{e}$生成的
     左不变切矢量场是（参见式\eqref{chlg:eqn_lve}，辅助函数）
-    \begin{equation}\label{chlg:eqn_LA-bases}
+    \begin{equation}
         E_i = (L_{g*})_e \left.\frac{\partial }{\partial x^i}\right|_{e} =
         l^j_i(x) \left.\frac{\partial }{\partial x^j}\right|_{g}; \quad
         l^j_i(x) \in C^\infty(U) , \quad l^j_i(0)=\delta^j_i .
-%        \quad 1\leqslant i,j \leqslant m .
     \end{equation}
     $\frac{\partial }{\partial x^i}|_{e}$是$T_eG$上的基矢组，
     $\{E_i\}$是 Lie 代数$\mathscr{G}$上的基矢组，两者同构。
@@ -1872,7 +1900,6 @@ $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到。
     根据常微分方程解存在唯一性依赖定理可知
     $\exp(t X)$是参数$t,a^1,\cdots,a^m$的光滑函数。
 
-
     采用直接求导的方式证明第(2)条；
     因$\exp(t X)$是左不变切矢量场$\widetilde{X}$过单位元$e$的积分曲线，故
     \begin{equation}
@@ -1888,19 +1915,10 @@ $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到。
     \exp(t+s)X = \sigma_X(s+t) = \sigma_X(t)\cdot \sigma_X(s) = \exp(tX) \cdot \exp(sX) .
 \end{equation}
 
-
 由定理\ref{chdm:thm_inv-in-M}可以得到如下命题：
 \begin{proposition}\label{chlg:thm_exp-sigma-id-cor1}
     指数映射$\exp : T_e G \to G$在单位元$e$的小邻域内是局部微分同胚的。
 \end{proposition}
-
-%一般说来$\exp(\mathscr{G})\neq G$，但
-%如果$G$是单连通的，那么$\exp(\mathscr{G}) = G$。
-%不那么严谨的的证明：$\exp(\mathscr{G})$在$G$的单位元$e$附近生成了
-%一个单连通局部 Lie 群；很明显$\exp(\mathscr{G})$和$G$的 Lie 代数是相同的；
-%如果$G$本身也是单连通的，那么由定理\ref{chlg:thm_g2G}可
-%知$\exp(\mathscr{G})$和$G$是微分同胚的；证毕。
-
 
 \begin{theorem}\label{chlg:thm_feef}
     设$F$是从$m$维 Lie 群$M$到$n$维 Lie 群$N$的$C^\infty$同态映射。
@@ -1927,16 +1945,13 @@ $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到。
         \xlongequal{\ref{chlg:thm_exp-sigma-id}}F_{*} (X_{e_M}) .
     \end{equation*}
     证毕。
-%    我们在$M$的单位元$e_M$附近取坐标卡$(U,\phi;x^i)$，
-%    在$N$的单位元$e_N$附近取坐标卡$(V,\psi;y^\alpha)$； 并且有$F(e_M) = e_N$和$F(U)\subset V$。
 \end{proof}
-
 
 \begin{example}
     指数映射$\exp(t X)= \sigma(t)$在原点$\{0\}$（单位元$e$）处的展开。
 \end{example}
 设$m$维 Lie 群$G$上有$C^\infty$函数场$f$。
-左不变矢量场$X(t)$诱导出来的积分曲线是单参数子群$\sigma(t)$；%它的控制方程是\eqref{chlg:eqn_tmp88}。
+左不变矢量场$X(t)$诱导出来的积分曲线是单参数子群$\sigma(t)$；
 $X(t)$作用在$f$上，有
 \begin{equation}
     X(f) = \left.\frac{\d x^j}{\d t}\right|_{\sigma(t)}
@@ -1969,27 +1984,30 @@ $X(t)$作用在$f$上，有
 \end{equation}
 这就是指数映射在单位元$e$处的展开式。\qed
 
-% %\cite[\S 2.1.4]{helgason-2001} %\cite[\S 5.3]{hall-2015}
-
-
-不加证明地给出Baker--Campbell--Hausdorff公式\cite[\S 3.8]{huangxg-2024}的几个近似表达。
+Baker--Campbell--Hausdorff公式的二阶展开为
 \begin{align}
-    &\exp(tX) \exp(tY) = \exp\bigl(t(X+Y)+\frac{t^2}{2} [X,Y]+o(t^3)\bigr), \label{chlg:eqn_BCH-xy} \\
-    &\exp(tX) \exp(tY) \exp(-tX) \exp(-tY) =  \exp\bigl(t^2[X,Y]+o(t^3)\bigr), \label{chlg:eqn_BCH-xy-x-y} \\
-    &\exp(tX) \exp(tY) \exp(-tX) =  \exp\bigl(tY+t^2[X,Y]+o(t^3)\bigr) . \label{chlg:eqn_BCH-xy-x}
+    &\exp(tX) \exp(tY) = \exp\bigl(t(X+Y)+\frac{t^2}{2} [X,Y]+O(t^3)\bigr),  \\
+    &\exp(tX) \exp(tY) \exp(-tX) \exp(-tY) =  \exp\bigl(t^2[X,Y]+O(t^3)\bigr),  \\
+    &\exp(tX) \exp(tY) \exp(-tX) =  \exp\bigl(tY+t^2[X,Y]+O(t^3)\bigr) . \label{chlg:eqn_BCH-xy-x}
 \end{align}
 其中$X,Y$是 Lie 群$G$的 Lie 代数$\mathscr{G}$中的元素，也就是切矢量场；
-$t$是实参数；$o(t^3)$表示它是$t$的3阶小量。
+$t$是实参数；$O(t^3)$表示余项的范数在$t	o0$时不超过常数乘$|t|^3$。
 上述三个公式表征了指数映射将 Lie 群$G$单位元$e$处切空间的切矢量映入 Lie 群$G$的性状。
 
+\begin{proof}
+由Ado定理可在忠实矩阵表示中计算。
+展开指数并相乘，得
+$\exp(tX)\exp(tY)=I+t(X+Y)+t^2(X^2/2+XY+Y^2/2)+O(t^3)$。
+代入$\log(I+A)=A-A^2/2+O(\|A\|^3)$即得第一式；
+再分别乘以$\exp(-tX)$和$\exp(-tY)$，保留二阶项便得其余两式。
+局部群同构把这些等式传回原 Lie 群。
+\end{proof}
 
 读者应能发现 Lie 群中通过单参数子群定义的指数映射和由黎曼测地线定义的指数映射（见\S\ref{chgd:sec_exp}）有
 很多相似之处；其实在满足一定条件下两者是相同的，见推论\ref{chlg:thm_expiso}。
 
-
 \subsection{矩阵群的指数映射}\label{chlg:sec_GL-exp}
 
-%本节我们会求出$GL(m,\mathbb{C})$的所有单参数子群；为此先叙述一些矩阵级数的知识。
 在例\ref{chlg:exam_GL-la}中，已经指出$GL(m,\mathbb{C})$（所有$m$维可逆矩阵）的
  Lie 代数是$\mathfrak{gl}(m,\mathbb{C})$（任意$m$维矩阵）。
 已知任意固定的$m$维复数矩阵$X$，考虑如下矩阵级数：
@@ -2001,7 +2019,6 @@ $t$是实参数；$o(t^3)$表示它是$t$的3阶小量。
 因为它和实数或复数的指数函数$\e^x$展开式形式几乎完全相同。
 后面会看到这正是把式\eqref{chlg:eqn_exp-map}称为“\textbf{指数映射}”的原因。
 
-
 令$\rho$是$X$矩阵元最大模数值，即$\rho= \max\limits_{i,j} |x_{ij}|$。
 级数\eqref{chlg:eqn_exp-X}矩阵元为
 \begin{align*}
@@ -2012,8 +2029,7 @@ $t$是实参数；$o(t^3)$表示它是$t$的3阶小量。
 \end{align*}
 上式中第二行的级数是绝对收敛的，故矩阵级数\eqref{chlg:eqn_exp-X}是有意义的。
 
-
-若两个矩阵的乘法可对易，即$XY=YX$，则经计算可得 %（可参考\parencite[3.35(9)]{warner-1983-FDMLG}）
+若两个矩阵的乘法可对易，即$XY=YX$，则经计算可得
 \begin{equation}\label{chlg:eqn_tmp34}
     \exp(X+Y) = \exp X \cdot \exp Y .
 \end{equation}
@@ -2050,18 +2066,17 @@ $\varphi(\exp tX)$的第$ij$项是
 这说明映射$F$是浸入同态映射。
 最终得到$F$（式\eqref{chlg:eqn_exp-tX}）是$GL(m,\mathbb{C})$的单参数子群。
 
-
 既然是单参数子群，那么式\eqref{chlg:eqn_exp-tX}也可看成（其实就是）$\mathbb{R}^{2m^2}$中
 的一条光滑曲线，不难求出单参数子群$F$的切矢量
 
-\begin{equation}\label{chlg:eqn_Dexp-all}
+\begin{equation}
     \frac{\d }{\d t} F(t)
     = \frac{\d }{\d t} \left(I_m + t X
     +\frac{1}{2}t^2 X^2 +\cdots \right)
     = X \cdot \exp tX = (\exp tX) X .
 \end{equation}
 尤其在$t=0$处的切矢量是
-\begin{equation}\label{chlg:eqn_Dexp}
+\begin{equation}
     \left. \frac{\d }{\d t} F(t)\right|_{t=0}    = X .
 \end{equation}
 
@@ -2069,26 +2084,19 @@ $\varphi(\exp tX)$的第$ij$项是
 的{指数映射}（\eqref{chlg:eqn_exp-map}），表达式为式\eqref{chlg:eqn_exp-X}。
 这便解释了式\eqref{chlg:eqn_exp-map}为何被称为“\textbf{指数映射}”。
 
-
 需要指出的是：对数（实数或复数）的指数函数成立的结果可能适用于
 指数矩阵，也可能不适用；
 比如，当$[X,Y]\neq 0$时，$\exp(X+tY)$的导数就不是$Y\exp(X+tY)$。
-
 
 \begin{proposition}\label{chlg:thm_GL-expA}
     $GL(m,\mathbb{C})$的任意单参数子群都具有式\eqref{chlg:eqn_exp-tX}的形式。
 \end{proposition}
 \begin{proof}
-设有$GL(m,\mathbb{C})$的任意单参数子群$\widetilde{F}(t)$，
-自然是通过求解方程式\eqref{chlg:eqn_tmp88}来决定$\widetilde{F}(t)$的表达式。
-$GL(m,\mathbb{C})$单位元处的切矢量$X_e$（也就是 Lie 代数）自然是$\mathfrak{gl}(m,\mathbb{C})$中矩阵。
-
-式\eqref{chlg:eqn_Dexp}说明单参数子群$F(t)=\exp tX$在单位元处的切矢量$X$也是
-$\mathfrak{gl}(m,\mathbb{C})$中矩阵；而$F(t)$自然也可通过求解式\eqref{chlg:eqn_tmp88}来得到。
-式\eqref{chlg:eqn_Dexp}中的$X$可以取遍$\mathfrak{gl}(m,\mathbb{C})$中所有矩阵，
-故$GL(m,\mathbb{C})$的任意单参数子群$\widetilde{F}(t)$具有$F(t)=\exp tX$的形式。
+设$F(t)$为单参数子群，令$X=F'(0)$。
+对$F(t+s)=F(t)F(s)$关于$s$求导并令$s=0$，得$F'(t)=F(t)X$，且$F(0)=I$。
+矩阵函数$\exp(tX)$满足同一初值问题，由常微分方程解的唯一性，$F(t)=\exp(tX)$。
+$X=0$时对应常值子群。
 \end{proof}
-
 
 \paragraph{矩阵级数的计算}
 再给出一个关于$GL(m,\mathbb{C})$指数映射的表达式，更能体现“指数”这个名称了。
@@ -2116,7 +2124,7 @@ Jordan矩阵对角线上的数是$X$的特征值（也称为本征值），即�
     \end{pmatrix} .
 \end{equation*}
 有限个上三角矩阵乘积仍是上三角矩阵。故有
-\begin{equation}\label{chlg:eqn_BexpXB}
+\begin{equation}
     B\cdot (\exp X) \cdot B^{-1} = \exp(B\cdot X B^{-1})=
     \begin{pmatrix}
         \e^{\lambda_1} & \cdots &*\\
@@ -2127,39 +2135,17 @@ Jordan矩阵对角线上的数是$X$的特征值（也称为本征值），即�
 上式中对指数映射$\exp X$进行相似变换，得到一个上三角矩阵；
 对角元是本征值$\lambda_i$的指数函数$\e^{\lambda_i}$。
 由此可得$GL(m,\mathbb{C})$指数映射$\exp X$的行列式为
-\begin{equation}\label{chlg:eqn_detexpX}
+\begin{equation}
     \det (\exp X) = (\det B) (\det \exp X) (\det B^{-1})
     = \prod_{i=1}^m \e^{\lambda_i} = \e^{\sum_i {\lambda_i}} .
 \end{equation}
 由上式更加明显地看出$\det (\exp X) \neq 0$。
-
-%\paragraph{微分方程}
-%下面我们从常微分方程角度再次讨论上述问题。
-%已知$\mathfrak{gl}(m,\mathbb{C})$的基矢\eqref{chlg:eqn_GLA-bases}，
-%结合指数映射（也是单参数子群）控制方程式\eqref{chlg:eqn_tmp88}，有
-%\begin{equation}
-%    \frac{{\rm d} x^{ij}(t)}{{\rm d} t} = x^{il} a_{l}^j ;\qquad
-%    \text{初条件}\  x^{ij}(0)=\delta^{ij}.
-%\end{equation}
-%把上式写成矩阵形式，有（把$x^{ij}$换成$\sigma$， ）
-%\begin{equation}
-%    \frac{{\rm d} \sigma(t)}{{\rm d} t} = \sigma(t) A;\qquad
-%    \text{初条件}\  \sigma(0)=I.
-%\end{equation}
-%适合上述方程的唯一解析解是
-%\begin{equation}
-%    \sigma(t) = \exp tA  = I + t A  + \frac{t^2}{2!} A^2
-%    + \cdots + \frac{t^k}{k!} A^k    + \cdots
-%\end{equation}
-%很明显，这正是本小节开头所定义矩阵级数。
-
 
 \section{伴随表示与Killing 型}
 \subsection{伴随表示}\label{chlg:sec_adjoint}
 在这里，我们只讨论 Lie 群、 Lie 代数的一种自然且重要的表示——伴随表示（Adjoint Representation），
 其表示空间就是 Lie 群、 Lie 代数空间自身。
 
-%\subsection{自同构映射}
 对于 Lie 群$G$中任意元素$g$，定义映射$F(g):G\to G$如下：
 \begin{equation}\label{chlg:eqn_Fghg}
     \bigl(F(g)\bigr) (h) := g h g^{-1},\quad \forall h\in G;
@@ -2206,7 +2192,7 @@ $F(g)$由左右移动构成，故它是双射；
   \operatorname{Ad}_{g} := \bigl(F(g)\bigr)_{*e} : \mathscr{G}  \to \mathscr{G} .
 \end{equation}
 因$F(g)$是同构映射，故$\forall X, Y \in \mathscr{G}$可以得到一个常用公式：
-\begin{equation}\label{chlg:eqn_AdXY}
+\begin{equation}
     \begin{aligned}
     \operatorname{Ad}_{g}[X, Y] =& \bigl(F(g)\bigr)_{*e} [X,Y]  \xlongequal{\ref{chdm:eqn_push-Poisson}}
     \left[ \bigl(F(g)\bigr)_{*e} X,\  \bigl(F(g)\bigr)_{*e} Y\right] \\
@@ -2240,7 +2226,7 @@ $\forall g,h \in G$，有
 从伴随表示的定义可以看到
 \begin{align}
     \operatorname{Ad}_{g} =& (L_{g*})_{g^{-1}} \circ (R_{g^{-1}*})_{e}
-     = (R_{g^{-1}*})_{g}\circ (L_{g*})_{e}, \label{chlg:eqn_Adg-1}\\
+     = (R_{g^{-1}*})_{g}\circ (L_{g*})_{e}, \\
     \operatorname{Ad}_{g}X =& \bigl(F(g)\bigr)_{*e} \left( \left.\frac{\d }{\d t}\right|_{t=0} \exp(t X)\right)
 \xlongequal{\ref{chdm:eqn_phiD=Dphi}}\left.\frac{\d }{\d t}\right|_{t=0}
 \bigl(g \cdot \e^{tX} \cdot g^{-1}\bigr),  \label{chlg:eqn_Adg-2} \\
@@ -2259,7 +2245,7 @@ $\forall A\in GL(m)$、$\forall X\in \mathfrak{gl}(m)$，利用式\eqref{chlg:eq
     =\exp(t A X A^{-1}) .
 \end{align*}
 由上式以及式\eqref{chlg:eqn_gegAd}，$\forall A\in GL(m)$、$\forall X\in \mathfrak{gl}(m)$，有
-\begin{equation}\label{chlg:eqn_AeAi=eax}
+\begin{equation}
     \operatorname{Ad}_A X = A X A^{-1}. \qquad \text{注意}\, A \, \text{必须为矩阵群元素}
 \end{equation}
 
@@ -2297,7 +2283,7 @@ $\forall A\in GL(m)$、$\forall X\in \mathfrak{gl}(m)$，利用式\eqref{chlg:eq
     为清晰起见可将$\operatorname{ad}_X  Y$记为$\operatorname{ad}_X  (Y)$。
 \end{proof}
 
-\begin{theorem}\label{chlg:thm_adxy2}
+\begin{theorem}
     $\operatorname{ad}_{[X,Y]} = \left[\operatorname{ad}_X,\  \operatorname{ad}_Y \right]$ .
 \end{theorem}
 \begin{proof}
@@ -2319,16 +2305,14 @@ $g$可以看成$\binom{1}{1}$型张量，也就是说$GL(V)$是$V$上全体$\bin
 $\operatorname{Ad}_g\in GL(\mathscr{G})$是$\mathscr{G}$上的线性变换，故它是 Lie 代数$\mathscr{G}$上的$\binom{1}{1}$型张量。
 $\operatorname{ad}_X \in \mathfrak{gl}(\mathscr{G})$是$\mathscr{G}$上的线性变换，故它也是 Lie 代数$\mathscr{G}$上的$\binom{1}{1}$型张量。
 
-
-\begin{definition}\label{chlg:def_AdGinvariant}
+\begin{definition}
     定义在 Lie 群$G$的 Lie 代数$\mathscr{G}$上的某个对象（或操作）
     称为\textbf{$\operatorname{Ad}(G)$-不变的}是指：
     此对象在变换$\operatorname{Ad}_g:\mathscr{G}\to \mathscr{G}$
     （$\forall g\in G$）下保持不变。
 \end{definition}
 
-
-\subsection{Lie 代数Killing 型}\label{chlg:sec_KillingForm}
+\subsection{Lie 代数Killing 型}
 
 \begin{definition}\label{chlg:def_Killing-Form}
     设有$m$维 Lie 代数$\mathscr{G}$，定义$\mathscr{G}$上的\textbf{Killing 型}为
@@ -2365,7 +2349,6 @@ $\operatorname{ad}_X \in \mathfrak{gl}(\mathscr{G})$是$\mathscr{G}$上的线性
 \begin{equation}
     (Y,Z)=\operatorname{tr}(\operatorname{ad}_Y  \operatorname{ad}_Z )
     = \operatorname{tr}\bigl((\operatorname{ad}_Y)^\sigma _\beta (\operatorname{ad}_Z)^\beta _\rho \bigr)
-%    =  y^\alpha z^\nu {\rm Tr} ( C^\sigma_{\alpha\beta}  C^\beta_{\nu\rho} )
     =  y^\alpha z^\nu C^\sigma_{\alpha\beta}  C^\beta_{\nu\sigma} .
 \end{equation}
 经过比对可得式\eqref{chlg:eqn_Killing-Form}。
@@ -2378,30 +2361,24 @@ $\operatorname{ad}_X \in \mathfrak{gl}(\mathscr{G})$是$\mathscr{G}$上的线性
 由式\eqref{chlg:eqn_Killing-Form}可得
 $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。\qed
 
-
 \begin{example}
     一般线性 Lie 代数$\mathfrak{gl}(m,\mathbb{F})$的Killing 型。
 \end{example}
  Lie 代数$\mathfrak{gl}(m,\mathbb{F})$结构常数是\eqref{chlg:eqn_gl-sc}，由此得它的Killing 型
-\begin{equation}\label{chlg:eqn_KillingF-gl}
+\begin{equation}
 \begin{aligned}
     g_{(st)(ij)} =& C^{(pq)}_{(st)(lk)} C^{(lk)}_{(ij)(pq)}
     = \left(\delta^s_{k} \delta^q_{t} \delta^l_{p}
     -\delta^l_{t} \delta^q_{k} \delta^s_{p} \right)
     \left(\delta^i_{q} \delta^k_{j} \delta^p_{l}
     -\delta^p_{j} \delta^k_{q} \delta^i_{l} \right) \\
-%    =&  \delta^s_{k} \delta^q_{t} \delta^l_{p}\delta^i_{q} \delta^k_{j} \delta^p_{l}
-%    -\delta^l_{t} \delta^q_{k} \delta^s_{p} \delta^i_{q} \delta^k_{j} \delta^p_{l}
-%    -\delta^s_{k} \delta^q_{t} \delta^l_{p}\delta^p_{j} \delta^k_{q} \delta^i_{l}
-%    +\delta^l_{t} \delta^q_{k} \delta^s_{p} \delta^p_{j} \delta^k_{q} \delta^i_{l}    \\
     =& 2m\, \delta_{it} \delta_{sj} - 2\delta_{st} \delta_{ij}.
 \end{aligned}
 \end{equation}
 这里 $(st)$、$(ij)$ 是矩阵单位基的复合编号，各字母取 $1,\ldots,m$。
 求和针对复合编号 $(pq)$、$(lk)$；Kronecker 符号中的上下位置仅标记矩阵行列，不表示度规升降指标。\qed
 
-
-\begin{example}\label{chlg:exm_Tr-gl}
+\begin{example}
     证明$\forall x\in \mathfrak{gl}(m,\mathbb{F})$，有$\operatorname{tr}(\operatorname{ad}_{x})=0$。
 \end{example}
 参考例题\ref{chlg:exam_GL-la}，我们取$\mathfrak{gl}(m,\mathbb{F})$的基矢为
@@ -2422,7 +2399,6 @@ $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。
 \end{align*}
 上式说明：$\forall x\in \mathfrak{gl}(m,\mathbb{F})$，
 有$\operatorname{tr}(\operatorname{ad}_{x})=0$。\qed
-
 
 \begin{theorem}\label{chlg:thm_Killing-sym}
      Lie 代数$\mathscr{G}$的Killing 型有如下性质：
@@ -2449,20 +2425,13 @@ $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。
           +\operatorname{tr} (\operatorname{ad}_Y \operatorname{ad}_{X} \operatorname{ad}_{Z} ) -\operatorname{tr} (\operatorname{ad}_Y \operatorname{ad}_{Z} \operatorname{ad}_{X}  )
     \end{align*}
     有限维矩阵乘积之迹有如下关系：$\operatorname{tr}(ABC)=\operatorname{tr}(CAB)$。继续上式计算，有
-    \begin{equation*}\label{chlg:eqn_LA-compact}
+    \begin{equation*}
         \bigl([X,Y], Z\bigr) + \bigl(Y, [X,Z]\bigr)
         =\operatorname{tr} (\operatorname{ad}_{X} \operatorname{ad}_{Y}  \operatorname{ad}_Z)  -\operatorname{tr} (\operatorname{ad}_Y \operatorname{ad}_{Z} \operatorname{ad}_{X}  )
-%        ={\rm Tr} ({\rm ad}_{X} {\rm ad}_{Y}  {\rm ad}_Z)  -{\rm Tr} ({\rm ad}_{X} {\rm ad}_Y {\rm ad}_{Z}  )
         =0 .
     \end{equation*}
     证毕。
-%    满足这一关系式的 Lie 代数常被称作\textbf{紧致 Lie 代数}。
 \end{proof}
-
- %
-
-
-%我们用一个具体例子来解释一下定义\ref{chlg:def_AdGinvariant}中的“ ${\rm Ad}(G)$-不变”。
 
 \begin{proposition}
      Lie 群$G$的Killing 型是$\operatorname{Ad}(G)$-不变的，即$\forall X,Y \in \mathscr{G}$及$\forall g\in G$
@@ -2480,12 +2449,9 @@ $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。
     \end{align*}
     因$\operatorname{Ad}_g$是 Lie 代数$\mathscr{G}$上的自同构，
     故令上式中的$\phi=\operatorname{Ad}_g$即可。
-    %证明过程参考了\parencite[\S 11.5]{oneill1983}。
-    % 也见\parencite[\S 2.3]{Alexandrino-2015}命题2.32
 \end{proof}
 
-
-\begin{proposition}\label{chlg:thm_Killing-oplus}
+\begin{proposition}
     设 Lie 代数$\mathfrak{g}$有直和分解$\mathfrak{g}=\mathfrak{h}\oplus\mathfrak{k}$，
     也就是说$\mathfrak{h}$、$\mathfrak{k}$都是$\mathfrak{g}$的理想；
     则Killing 型有如下分解：
@@ -2517,7 +2483,6 @@ $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。
     上式即为命题中Killing 型分解的具体解释。
 \end{proof}
 
-
 \begin{proposition}\label{chlg:thm_Killing-gh}
     设 Lie 代数$\mathfrak{g}$有理想$\mathfrak{h}$；
     则$(x,y)_{\mathfrak{g}}=(x,y)_{\mathfrak{h}}$，
@@ -2548,23 +2513,28 @@ $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。
     需注意，如果$\mathfrak{h}$仅是$\mathfrak{g}$的子代数，不是理想，则没有上述属性。
 \end{proof}
 
+\section{常用矩阵 Lie 群}
+本节介绍常用的有限维矩阵 Lie 群与 Lie 代数。
+其拓扑性质可由极分解和球面纤维丛得到，下面先说明所用方法。
+任一可逆实（复）矩阵有极分解$A=QP$，其中$Q$正交（酉）、$P$正定；
+路径$QP^{1-t}$把$GL(m,\mathbb R)$、$GL(m,\mathbb C)$分别形变收缩到$O(m)$、$U(m)$。
+在行列式为$1$的子群中同一路径仍成立，故$SL(m,\mathbb R)$、$SL(m,\mathbb C)$
+分别形变收缩到$SO(m)$、$SU(m)$。
 
-\section{常用矩阵 Lie 群}\label{chlg:sec_matrixG-I}
-本节介绍几个常用矩阵 Lie 群（有限维）与 Lie 代数；
-详细、严谨论述可参考\parencite[Part I]{hall-2015}，  %或\parencite{wangjie-2015}
-本节中未给出的定理证明过程可在其中查到。
-尤其不去证明各种群的拓扑属性（比如紧致、连通、单连通等等），而是直接陈述它们。
-
+正交和酉矩阵集合闭且有界，因而紧致。
+实正交矩阵可正交化为一维$\pm1$块和二维转动块；在$SO(m)$内把转角连续缩至零，
+便得其连通性，$O(m)$则由行列式的两种符号分成两支。
+四元数单位球面$S^3$以$q:x\mapsto qxq^{-1}$双覆盖$SO(3)$，核为$\{1,-1\}$，
+故$\pi_1(SO(3))=\mathbb Z_2$。
+纤维丛$SO(m-1)\to SO(m)\to S^{m-1}$由取最后一列给出；
+其同伦正合列说明$m\geqslant4$时基本群不变。
+因此$\pi_1(SO(2))=\mathbb Z$，$\pi_1(SO(m))=\mathbb Z_2$（$m\geqslant3$）；
+$m=1$的单位分支为单点。
+酉群的连通性和特殊酉群的单连通性将在相应小节说明；
+由$SU(m)\to U(m)\xrightarrow{\det}S^1$还可得$\pi_1(U(m))=\mathbb Z$。
+正定因子空间非紧，给出上述一般线性群和$m\geqslant2$的特殊线性群的非紧性。
 
 \subsection{几个定理}
-%任何一个矩阵群都是$GL(m,\mathbb{C})$的子群。
-%我们先给出如下命题。
-%\begin{proposition}\label{chlg:thm_MatrixG-gexp}
-%设有矩阵 Lie 群$G$（$GL(m,\mathbb{C})$的子群）及其 Lie 代数$\mathfrak{g}$。
-%那么，存在光滑曲线$\gamma(t)\in G, \  t\in \mathbb{R}$使得$\gamma(0)=e$（$e\in G$是单位元），
-%并且$\gamma'(0)=X$的充要条件是矩阵$X\in \mathfrak{g}$。
-%（证明见\parencite[\S 3.8]{hall-2015}推论3.46。）
-%\end{proposition}
 
 \begin{proposition}\label{chlg:thm_MatrixG-gexp}
     设有矩阵 Lie 群$G$（$GL(m,\mathbb{C})$的子群）及其 Lie 代数$\mathfrak{g}$。
@@ -2580,41 +2550,37 @@ $g_{\mu\nu}=\left(\begin{smallmatrix} 1 & 0 \\ 0 & 0\end{smallmatrix}\right)$。
 故只需要对其全部指数映射求导即可。
 \end{proof}
 
-
 \begin{proposition}\label{chlg:thm_exp-compact}
     如果$G$是一连通、紧致矩阵 Lie 群，则由 Lie 代数到 Lie 群的指数映射$\exp:\mathfrak{g}\to G$是满射；
     即有$\exp \mathfrak{g} = G$ 。
-    （证明见\parencite[\S 11.2]{hall-2015}推论11.10）
 \end{proposition}
+\begin{proof}
+用归一化不变积分对$T_eG$上的任意正定内积作$\operatorname{Ad}(G)$平均，
+得到双不变黎曼度规；平均公式及其不变性见后面的不变度规小节。
+Koszul公式给出$\nabla_XY=\tfrac12[X,Y]$（$X,Y$左不变），
+故经过$e$的测地线为单参数子群$\exp(tX)$。
+紧致黎曼流形完备，Hopf--Rinow定理保证$e$与任意$g$可由测地线连接，
+所以$g=\exp X$。
+\end{proof}
 
 从命题\ref{chlg:thm_exp-compact}可知，如果$G$不是紧致矩阵 Lie 群，那么$\exp$可能不是满映射。
 $GL(m)$、$SL(m)$等群不是紧致的，故它们的指数映射可能不是满的。
 即一般只有$\exp \mathfrak{gl}(m) \subset GL(m)$，
 但没有$\exp \mathfrak{gl}(m) = GL(m)$。
 例如$\left(\begin{smallmatrix} -2 & 0\\0 & -1\end{smallmatrix}\right) \in GL(2)$就没有指数映射下的原像。
-%再例$\left(\begin{smallmatrix} -2 & 0\\0 & -1/2\end{smallmatrix}\right) \in SL(2)$也没有指数映射下的原像。
 
+对矩阵 Lie 代数还可定义实双线性\textbf{迹型}
+$B_{\mathrm{tr}}(X,Y)=\operatorname{Re}\operatorname{tr}(XY)$。
+由迹的循环性，
+\[
+ B_{\mathrm{tr}}(AXA^{-1},AYA^{-1})
+ =\operatorname{Re}\operatorname{tr}(AXYA^{-1})=B_{\mathrm{tr}}(X,Y).
+\]
+它对称且伴随不变，但在子代数上可能退化，例如在严格上三角矩阵代数上恒为零。
+$\operatorname{Re}\operatorname{tr}(X^\dagger Y)$则是正定内积，
+它在酉矩阵的共轭作用下不变，不能与上述迹型混同。
 
-%\begin{proposition}\label{chlg:thm_Ad-GL}
-%    如果$G$是$GL(m,\mathbb{C})$的 Lie 子群，$\mathfrak{g}$是其 Lie 代数；那么：
-%    (1) ${\rm Ad}_a (X) = a X a^{-1}, \forall a\in G, X\in \mathfrak{g}\subset \mathfrak{gl}(m,\mathbb{C})$。
-%    (2) 设$X,X^\dagger \in \mathfrak{g}$，则$B(X,Y) := {\rm Re} {\rm Tr}(XY) = {\rm Re} {\rm Tr}(X^\dagger Y)$是
-%    一个${\rm Ad}(G)$不变的标量积，称作\textbf{迹型(trace form)}。
-%\end{proposition}
-%\begin{proof}
-%    (1)  Lie 群$G$的内自同构是$F_a(g)=a g a^{-1}$（见\S \ref{chlg:sec_adjoint}）。
-%    依据式\eqref{chlg:eqn_Adg-2}，再结合$a$是常数矩阵，同时参考式\eqref{chlg:eqn_exp-tX}，可得
-%       $ {\rm Ad}_{a}X = \frac{{\rm d}}{{\rm d} t}\left.\bigl(a \cdot \exp(t X)
-%    \cdot a^{-1}\bigr)\right|_{t=0} = a X a^{-1} $。
-%
-%    (2) 很明显$B(X,Y)$是对称的双线性函数；令$Y=X^\dagger$，则
-%    从$0=B(X,X^\dagger) = {\rm Re} {\rm Tr}(X X^\dagger) = \sum_{ij} |X_{ij}|^2 $可得
-%    $X=0$必然成立；综上便验证了$B(X,Y)$满足标量积的定义。
-%    利用(1)立刻可证$B({\rm Ad}_a X,{\rm Ad}_a Y)=B(X,Y)$。
-%\end{proof}
-
-
-\subsection{一般线性群} %\label{chlg:sec_GL}
+\subsection{一般线性群}
 一般线性群已经分散在
 例题\ref{chlg:exm_GL}、\ref{chlg:exm_GL-a}、\ref{chlg:exam_GL-la}中
 以及\S\ref{chlg:sec_GL-exp}中介绍过了。我们会在各小节介绍其它矩阵群，
@@ -2626,10 +2592,7 @@ $SL(m,\mathbb{C})$、$U(m,\mathbb{C})$是$GL(m,\mathbb{C})$的拓扑 Lie 子群�
 我们已知$\mathfrak{gl}(m)$是$m$维任意（实或复）矩阵，那么它的子群所对应的
  Lie 代数自然也是$m$维任意（实或复）矩阵的某个子集。
 
-%在单位元局部，指数映射$\exp:\mathfrak{gl}(m,\mathbb{C}) \to GL(m,\mathbb{C})$（式\eqref{chlg:eqn_exp-X}）生成全部 Lie 群。
-
-
-\subsection{特殊线性群}\label{chlg:sec_SL}
+\subsection{特殊线性群}
 特殊线性群$SL(m,\mathbb{C})$ （Special Linear ）是一般线性群的子群，
 定义为
 \begin{equation}
@@ -2649,7 +2612,6 @@ $GL(m,\mathbb{C})$减掉$SL(m,\mathbb{C})$后剩余元素的行列式
 上面关于闭子集的论述同样适用于$SL(m,\mathbb{R})$、
 $SO(m,\mathbb{R})$、$SU(m,\mathbb{C})$等子群。
 
-
 作为$GL(m,\mathbb{C})$拓扑 Lie 子群的$SL(m,\mathbb{C})$，指数映射自然也适合于它。
 假设$\exp tA \in SL(m,\mathbb{C})$，那么
 必然有$\det \e^{tA} =\e^{t \operatorname{tr}A} =1$；对此式求实数$t$的导数得，
@@ -2662,9 +2624,6 @@ $(\operatorname{tr}A) \e^{t \operatorname{tr}A} =0$，令$t=0$则有$\operatorna
 根据命题\ref{chlg:thm_MatrixG-gexp}可知$\mathfrak{sl}(m,\mathbb{C})$是
 群$SL(m,\mathbb{C})$的 Lie 代数。
 
-%由式\eqref{chlg:eqn_detexpX}可知$SL(m,\mathbb{C})$的行列式为$\det e^A = e^{{\rm Tr} A} =1 \ \Leftrightarrow \ {\rm Tr} A =0$；
-
-
 $SL(m,\mathbb{R})$的定义与$SL(m,\mathbb{C})$的定义完全类似，
 只是把上面公式中的$\mathbb{C}$换成$\mathbb{R}$即可。
 其它所有内容几乎无需改变，结论也无任何变化（除了维数）。
@@ -2674,7 +2633,7 @@ $SL(m,\mathbb{R})$的定义与$SL(m,\mathbb{C})$的定义完全类似，
 故$SL(m,\mathbb{C})$实维数是$2m^2 -2$。
 对于$SL(m,\mathbb{R})$而言，是一个约束，故它的实维数是$m^2-1$。
 
-可以证明$\mathfrak{sl}(m,\mathbb{F})$是$\mathfrak{gl}(m,\mathbb{F})$的{理想}；
+迹的循环性说明$\mathfrak{sl}(m,\mathbb F)$是$\mathfrak{gl}(m,\mathbb F)$的理想：
 $\forall X \in \mathfrak{sl}(m,\mathbb{F}), \  \forall Y \in \mathfrak{gl}(m,\mathbb{F})$，有
 \begin{equation}
     \operatorname{tr}[X,Y]=\operatorname{tr}(XY-YX) = 0 \ \Rightarrow \
@@ -2695,9 +2654,7 @@ $\forall A \in SL(m,\mathbb{F}),  B \in GL(m,\mathbb{F})$有
 
 与一般线性群相同，特殊线性群也是非紧致 Lie 群。
 
-
 \subsection{保度规群}\label{chlg:sec_isometry}
-
 
 任取数域$\mathbb{F}$上的$m\times m$矩阵$S$，考虑$GL(m,\mathbb{F})$中的子集
 \begin{equation}\label{chlg:eqn_gsinit}
@@ -2732,41 +2689,29 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
        X^{\mathrm{T}} S + S {X} = 0 \right\} .
 \end{equation}
 显然$\tilde{\mathfrak{g}}(s)$是$\mathfrak{gl}(m,\mathbb{F})$的子代数。
-我们还需验证$\exp(tX)\in G(S),\ \forall X \in \tilde{\mathfrak{g}}(s)$。%$\forall X \in \tilde{\mathfrak{g}}(s)$，
-利用式$C_{m + 1}^k = C_m^k + C_m^{k - 1}$可
-证$ \sum_{k=0}^{m}C^k_m (X^{\mathrm{T}})^k S {X}^{m-k} =0, \ \forall m\geqslant 1 $；
-借用此式可以证明$(\exp tX)^{\mathrm{T}} S (\exp t{X}) = S, \ \forall t\in \mathbb{R}$。
-证明过程大致如下：首先，
-对有限个矩阵相乘与转置是可交换的，即$(X^{\mathrm{T}})^2 = (X^2)^{\mathrm{T}},\ \cdots,\ (X^{\mathrm{T}})^k = (X^k)^{\mathrm{T}}$；
-忽略无穷个矩阵相乘所带来的（可能存在、可能不存在的）不确定性，
-我们认为无限个矩阵相乘与转置也是可交换的。其次，直接计算
-\begin{align*}
-    (\exp tX)^{\mathrm{T}} S (\exp t{X}) = & \left(\sum_{k=0}^{\infty}\frac{t^k}{k!}({X}^{\mathrm{T}})^k\right)
-    S\left(\sum_{l=0}^{\infty}\frac{t^l}{l!}X^l\right) \\
-    =& S + \sum_{m=1}^{\infty}\frac{t^m}{m!} \sum_{k=0}^{m}
-    \frac{m!}{k!(m-k)!} (X^{\mathrm{T}})^k S {X}^{m-k} =S .
-\end{align*}
-这便说明了$\exp tX \in G(S),\ \forall X\in \tilde{\mathfrak{g}}(s)$。
+我们还需验证$\exp(tX)\in G(S),\ \forall X \in \tilde{\mathfrak{g}}(s)$。
+对$t$求导得
+$\frac{\d}{\d t}((\exp tX)^{\mathrm T}S\exp tX)
+=(\exp tX)^{\mathrm T}(X^{\mathrm T}S+SX)\exp tX=0$；
+在$t=0$时其值为$S$，故$(\exp tX)^{\mathrm T}S\exp tX=S$。
 对于矩阵群，全部单参数子群都具有指数映射形式（见定理\ref{chlg:thm_GL-expA}）；
 根据命题\ref{chlg:thm_MatrixG-gexp}可知$G(S)$的 Lie 代数就是$\tilde{\mathfrak{g}}(s)$；
 之后我们将略去式\eqref{chlg:eqn_gs}中$\mathfrak{g}$上的波浪号，直接使用记号$\mathfrak{g}(s)$。
-
 
 由各种不同的非退化方阵$S$（可被理解成某种度规），
 可以得到一系列重要的典型群；
 我们介绍如下几个：正交群、广义正交群、酉群和辛群。
 
 式\eqref{chlg:eqn_gsinit}中的构造还可以变为如下形式：
-\begin{equation}\label{chlg:eqn_invaings}
+\begin{equation}
     A^{\mathrm{T}} S {A} =S \ \Rightarrow \ S = A^{-\mathrm{T}} S {A^{-1}} ; \qquad
     \text{记}\  A^{-\mathrm{T}} := ({A^{-1}})^{\mathrm{T}} .
 \end{equation}
 因此，上式说明：若$A\in G(S)$，则$A^{-1} \in G(S)$。
 
-
 对于正交群、广义正交群、酉群和辛群来说，$S$是非退化矩阵且$S=S^{-1}$；
 故，我们可以从“若$A, A^{-1}\in G(S)$”出发来进一步推演。
-\begin{equation*} %\label{chlg:eqn_atings}
+\begin{equation*}
     (A^{-\mathrm{T}}) S {A^{-1}} =S \ \Rightarrow \
     {A} S^{-1} A^{\mathrm{T}} = S^{-1} \ \Rightarrow \ {A} S A^{\mathrm{T}} = S
     \ \Rightarrow \  \left({({A}^{\mathrm{T}})}\right)^{\mathrm{T}} S ({A}^{\mathrm{T}}) = S .
@@ -2780,7 +2725,6 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 对于正交群、广义正交群、酉群和辛群来说，式\eqref{chlg:eqn_gs}是它们的 Lie 代数。
 后面我们会通过对单参数子群求导的方式得到这些矩阵及对易关系；
 请读者自行验证这些矩阵满足式\eqref{chlg:eqn_gs}。
-
 
 \begin{proposition}
     设$S'= C^{\mathrm{T}} S C $（$C$非退化，合同关系），则$G(S)$同构于$G(S')$。
@@ -2801,7 +2745,6 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
     由定理\ref{chlg:thm_tglie}可知：$G(S)$的 Lie 群 Lie 代数$\mathfrak{g}(s)$也有类似同构关系。
 \end{proof}
 
-
 \subsubsection{正交群}\label{chlg:sec_Orthogonal}
 在实数域$\mathbb{R}$中，取式\eqref{chlg:eqn_gsinit}中的$S$为单位矩阵$I$，则
 \begin{equation}\label{chlg:eqn_LG-Om}
@@ -2818,8 +2761,8 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 由式\eqref{chlg:eqn_LG-Om}可得正交矩阵行列式：
 $\det A \cdot \det A^{\mathrm{T}} = 1 \ \Rightarrow \ \det A = \pm 1$。
 群元行列式为$\pm 1$，也就注定了$O(m)$不是连通的。含幺元连通分支是：
-\begin{equation}\label{chlg:eqn_LG-so}
-    SO(m) %= O(m) \cap SL(m,\mathbb{R})
+\begin{equation}
+    SO(m)
     = \left\{ A \in GL(m,\mathbb{R})\ |\ A A^{\mathrm{T}} =I
     \ \text{且}\ \det A = 1 \right\} .
 \end{equation}
@@ -2828,17 +2771,6 @@ $SO(m)$对应着欧氏空间$R^m$的转动，故通常也称之为\textbf{转动
 因$SO(m)$群是连通、紧致的，故由命题\ref{chlg:thm_exp-compact}可知
 指数映射是满射，即不但$\exp \mathfrak{o}(m) \subset SO(m)$，
 并且$\exp \mathfrak{o}(m) = SO(m)$。
-
-%对于任意属于$\mathfrak{o}(m)$的矩阵$A$，则
-%\begin{equation}
-%    (\exp A) (\exp A)^T= (\exp A) (\exp A^T)=(\exp A) (\exp (-A))
-%    =\exp 0 = I.
-%\end{equation}
-%这便说明了$\exp A$是正交矩阵。
-
-
-%下面来说明$\exp (t\cdot\mathfrak{o}(m)) = SO(m)$。
-
 
 不难验证$SO(m)$是$O(m)$的不变子群，其行列式映射的同态核是$\{+1,-1\}$。
 我们将$O(m)$中行列式为$-1$的所有元素记为$R_{\ell}(m)$，显然单位矩阵（幺元）
@@ -2858,15 +2790,12 @@ $SO(m)$对应着欧氏空间$R^m$的转动，故通常也称之为\textbf{转动
 不难验证$\phi(N)$是$SO(m)$中的元素。
 由此可以看出$O(m)=SO(m)\rtimes C_2$（半直积定义见\S\ref{chlg:sec_semi-dir-prod}）。
 
-
 当$m$是奇数时，$-I_m \in R_{\ell}(m)$，此时$\{I_m, -I_m\}$也是$O(m)$群
 的不变子群。故
 $O(m)=SO(m)\times \{I_m, -I_m\}$，即此时是直积。
 当$m$是偶数时，半直积不能退化到直积，此时$-I_m \in SO(m), \  -I_m \notin R_{\ell}(m)$。
 
-
 讨论几个低维正交群。$SO(1)$是零维 Lie 群（单点集$\{1\}$），极平凡。
-
 
 一维 Lie 群$SO(2)$同构于$x-y$平面上的绕$z$轴旋转，详见\S\ref{chlg:sec_rotation}。
 需要指出的是：$SO(2)$是无穷度连通的（用专业术语来说它的基本群是整数加法群$(\mathbb{Z},+)$，
@@ -2874,16 +2803,21 @@ $\mathbb{Z}$有无穷多个元素，故为无穷度连通），
 它的通用覆盖群是单连通的实数加法群$(\mathbb{R},+)$。
 它们的群表示见\S\ref{chlar:sec_Abel-Lie}。
 
-
 \subsubsection{SO(3)群}\label{chlg:sec_rotation}
 
-\begin{theorem}\label{chlg:thm_Euler}
+\begin{theorem}
     $SO(3)$中非幺元的元素$A$是$\mathbb{R}^3$中一个转角为$\theta$的绕$n$轴的转动。
 \end{theorem}
-上述定理称为欧拉定理，证明可见\parencite{marsden-1999-IMS}定理9.2.6。
+上述结论称为欧拉定理。
+\begin{proof}
+实正交矩阵的非实特征值成共轭对出现，且模为$1$。
+由$\det A=1$及维数为$3$可知$A$有特征值$1$；取相应单位特征矢量$n$。
+平面$n^\perp$在$A$下不变，其上的限制是行列式为$1$的二维正交变换，故是平面转动。
+于是$A$是绕$n$轴的转动。
+\end{proof}
 在三维位型空间中，位置矢量$x$绕过原点的固定轴$n$
 （单位矢量）转过无限小$\d \theta$的转动算符是：
-\begin{equation}\label{chlg:eqn_rot-inf}
+\begin{equation}
     x' = \hat{Q}(n\d \theta) x
     = x +  \d \theta n\times x .
 \end{equation}
@@ -2892,7 +2826,8 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 欧拉定理是在说：$SO(3)$中的元素$R$同构于$\mathbb{R}^3$中固有转动。
 描述转动矩阵的作用方式见例题\ref{chlg:exm_GLonV}、\ref{chlg:exm_GLonB}。
 
-%主动方式与被动方式；主动方式是指坐标系不动，被旋转矢量动；被动方式是指坐标系旋转，矢量不动；我们采用主动模式。
+以下采用主动转动：坐标轴固定，矢量按$x'=Rx$转动。
+若改为被动转动，即矢量固定而坐标轴转动，相应的分量变换矩阵为$R^{-1}$。
 
 \begin{figure}[htb]
     \begin{minipage}[t]{0.49\textwidth}
@@ -2906,7 +2841,6 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
         \caption{欧拉角：临时轴$N$是$x$轴} \label{chlg:fig_euler2}
     \end{minipage}
 \end{figure}
-
 
 我们可以借用$\mathbb{R}^3$中常用的欧拉角$\alpha,\beta,\gamma$描述转动$R$。
 图\ref{chlg:fig_euler}蓝色标小写字母$xyz$的坐标轴为
@@ -2927,11 +2861,11 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 \begin{equation}\label{chlg:eqn_rotation}
     R(\alpha\beta\gamma)=C_Z(\gamma)C_N(\beta)C_z(\alpha) .
 \end{equation}
-注意转动的乘积顺序不能随意改变。%但这个表示不是很方便，需要进行化简。
+注意转动的乘积顺序不能随意改变。
 我们注意到
 \begin{align}
-    C_N(\beta) &=C_z(\alpha)C_y(\beta)C_z(-\alpha) , \label{chlg:eqn_N_rotation} \\
-    C_Z(\gamma)&=C_z(\alpha)C_y(\beta)C_z(\gamma)C_y(-\beta)C_z(-\alpha) . \label{chlg:eqn_Z_rotation}
+    C_N(\beta) &=C_z(\alpha)C_y(\beta)C_z(-\alpha) ,  \\
+    C_Z(\gamma)&=C_z(\alpha)C_y(\beta)C_z(\gamma)C_y(-\beta)C_z(-\alpha) . 
 \end{align}
 代入上面的转动矩阵后，就得到了式\eqref{chlg:eqn_rotation}的欧拉角表示
 \begin{small}
@@ -2991,18 +2925,16 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 这是需要注意的。这正反映了二维闭球面不能用一个坐标域覆盖的事实，即至少
 需要两个坐标域才能覆盖二维球面流形。
 
-
 式\eqref{chlg:eqn_rotation_euler_y}或式\eqref{chlg:eqn_rotation_euler_x}需
 右作用在基矢量$\{e_1,e_2,e_3\}$（行）上；
 或者左作用在某矢量的具体分量$(x,y,z)^{\mathrm{T}}$（列）上；不能反过来。
 
 我们把$\mathfrak{so}(3)$ Lie 代数放到\S\ref{chlar:sec_LA-su2so3}，与$\mathfrak{su}(2)$一起讨论。
 
-
-\subsubsection{广义正交群}\label{chlg:sec_Opq}
+\subsubsection{广义正交群}
 在实数域$\mathbb{R}$中，取式\eqref{chlg:eqn_gsinit}中的$S$为
 （按照物理习惯，作替换$S\to \eta$）
-\begin{equation}\label{chlg:eqn_generalized-Lorentz-metric}
+\begin{equation}
     \eta = \begin{pmatrix}
         -I_p & 0 \\  0 & I_q
     \end{pmatrix},
@@ -3018,7 +2950,7 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 不难发现$O(p,q)\cong O(q,p)$，两者只差一个相似变换。
 有关系$O(m)= O(0,m)$。
 由式\eqref{chlg:eqn_gs}得它的 Lie 代数是
-\begin{equation}\label{chlg:eqn_LA-opq}
+\begin{equation}
     \mathfrak{o}(p,q)= \left\{ X \in
     \mathfrak{gl}(m,\mathbb{R})\ |\  X\eta + \eta {X}^{\mathrm{T}} =0 \right\}.
 \end{equation}
@@ -3031,11 +2963,11 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 由式\eqref{chlg:eqn_gLorentz}可得广义正交矩阵行列式：
 $ \det A \cdot\det\eta\cdot \det A^{\mathrm{T}} = \det \eta \ \Rightarrow \ \det A = \pm 1$；
 这也就注定了$O(p,q)$不是连通的。行列式为1的分支是
-\begin{equation}\label{chlg:eqn_LG-sopq}
+\begin{equation}
     SO(p,q)= \left\{ A \in GL(m,\mathbb{R})\ |\ A \eta {A}^{\mathrm{T}} =\eta
     \ \text{且}\ \det A = 1 \right\} .
 \end{equation}
-正交群$O(m)$有两个连通分支，而$O(p,q)$群有四个连通分支。将其记为
+正交群$O(m)$有两个连通分支；当$p,q>0$时，$O(p,q)$有四个连通分支。将其记为
 \begin{equation}
     g=\begin{pmatrix}
         a_T & b \\ c & a_S
@@ -3043,7 +2975,6 @@ $ \det A \cdot\det\eta\cdot \det A^{\mathrm{T}} = \det \eta \ \Rightarrow \ \det
     \qquad \forall g\in O(p,q) ,\quad 0 < p < m.
 \end{equation}
 其中类时部分的$a_T$是$p\times p$的矩阵，类空部分的$a_S$是$q\times q$的矩阵。
-
 
 可以用反证法证明它们的行列式都是非奇异的，即$|a_T| \neq 0$、$|a_S| \neq 0$。
 假设行列式$|a_T| = 0$，则存在非零的$p$维列矢量$s$使得$a_T s =0$。
@@ -3068,8 +2999,14 @@ $ \det A \cdot\det\eta\cdot \det A^{\mathrm{T}} = \det \eta \ \Rightarrow \ \det
 
 不难发现：$SO(p,q)= O^{++}(p,q)\cup O^{--}(p,q)$。记$O^{++}(p,q)$为$SO^{+}(p,q)$。
 
-当$0<p<m$时，$O(p,q)$及$SO^{+}(p,q)$是非紧致的；这与正交群不同。
-
+这四片确为连通分支：对$g\in O(p,q)$作极分解$g=QP$，
+由$\eta g^{\mathrm T}g\eta=(g^{\mathrm T}g)^{-1}$得到$\eta P\eta=P^{-1}$，
+所以$P^t\in O(p,q)$，而$Q\in O(p)\times O(q)$。
+于是$QP^{1-t}$将各片收缩到对应的$O(p)\times O(q)$分支，每一分支都连通。
+当$p,q>0$时，取一个类时方向和一个类空方向上的
+$\left(\begin{smallmatrix}\cosh t&\sinh t\\\sinh t&\cosh t\end{smallmatrix}\right)$，
+其矩阵元随$t$无界，故$O(p,q)$及$SO^+(p,q)$非紧。
+特别地，$SO^+(1,3)$形变收缩到$SO(3)$，所以基本群为$\mathbb Z_2$。
 
 \subsubsection{酉群}\label{chlg:sec_unitary}
 
@@ -3099,7 +3036,11 @@ $ \det A \cdot\det\eta\cdot \det A^{\mathrm{T}} = \det \eta \ \Rightarrow \ \det
 通过上式可知$\mathfrak{u}(m)$的实维数是：$m^2$。
 故酉群的 Lie 代数是由反厄米复矩阵组成。
 
-可以证明$U(m)$群是紧致、连通的，故有$\exp \mathfrak{u}(m)= U(m)$。
+$U(m)$闭且有界，故紧致。
+由酉矩阵的谱分解，$U=Q\operatorname{diag}(\e^{\i\theta_1},\ldots,\e^{\i\theta_m})Q^{-1}$；
+将$\theta_j$换为$t\theta_j$便给出从$I$到$U$的路径。
+这也直接给出$U=\exp(Q\operatorname{diag}(\i\theta_j)Q^{-1})$，
+故$U(m)$连通且$\exp\mathfrak u(m)=U(m)$。
 
 设有幺正矩阵$U$，那么必然有$\bar{U}^{\mathrm{T}} U = I$，两边取行列式，得
 \begin{equation}
@@ -3109,21 +3050,26 @@ $ \det A \cdot\det\eta\cdot \det A^{\mathrm{T}} = \det \eta \ \Rightarrow \ \det
 上式说明酉矩阵的行列式是模为一的复数，复角$\phi$无法确定，它处于复平面的单位圆周上。
 如果进一步要求酉群元素的行列式为$+1$（复角$\phi=0$），那么可得\textbf{特殊酉群}，
 \begin{equation}
-    SU(m)= %U(m)\cap SL(m,\mathbb{C}) =
+    SU(m)=
     \left\{ A \in GL(m,\mathbb{C})\ |\ A \bar{A}^{\mathrm{T}} =I \ \text{且} \  \det A=1 \right\}.
 \end{equation}
 特殊酉群的 Lie 代数是零迹反厄米复矩阵
-\begin{equation}\label{chlg:eqn_LA-su}
-    \mathfrak{su}(m) %= \mathfrak{u}(m)\cap \mathfrak{sl}(m,\mathbb{C})
+\begin{equation}
+    \mathfrak{su}(m)
     =\left\{X\in\mathfrak{gl}(m,\mathbb{C})\ |\ X+\bar{X}^{\mathrm{T}}=0
     \ \text{且} \  \operatorname{tr} X =0 \right\} .
 \end{equation}
 $\mathfrak{su}(m)$的实维数是：$m^2-1$。
 
-
-可以证明$SU(m)$是紧致、单连通的 Lie 群，
-故有$\exp \mathfrak{su}(m) = SU(m)$。
-
+$SU(m)$是$U(m)$的闭子集，故紧致。
+在上述谱分解中，$\det U=1$给出$\sum_j\theta_j\in2\pi\mathbb Z$；
+调整一个角的$2\pi$整数倍可令该和为零，于是上述路径位于$SU(m)$，且其对数无迹。
+所以$SU(m)$连通且$\exp\mathfrak{su}(m)=SU(m)$。
+此外$SU(2)=\{\left(\begin{smallmatrix}a&b\\-\bar b&\bar a\end{smallmatrix}\right):|a|^2+|b|^2=1\}\cong S^3$。
+取矩阵的最后一列得到局部平凡纤维丛$SU(m-1)\to SU(m)\to S^{2m-1}$，
+局部平凡化可由Gram--Schmidt正交化构造。
+球面$S^{2m-1}$的第一、第二同伦群在$m\geqslant2$时均为零，
+故同伦正合列及归纳法给出$\pi_1(SU(m))=0$。$SU(1)$为单点，也单连通。
 
 \paragraph{$U(1)$群}
 此时式\eqref{chlg:eqn_unitary}中的矩阵$A$是一维的，
@@ -3134,11 +3080,6 @@ $U(1)=\exp (\i \theta),\ \theta\in \mathbb{R}$。
 $U(1)$是连通的，但不是单连通的。
 
 $SU(1)$不是连续群，是单点集（$(1,0)$），平庸无奇。
-
-%在\S\ref{chlar:sec_SU2SO3}将具体讲解$SU(2)$群。
-
-%$U(1)$是一维 Lie 群，容易求得一维反厄米矩阵是由虚数单位“$\mathbbm{i}$”构成的线性空间；
-
 
 \subsubsection{辛群}
 在数域$\mathbb{F}$中，取式\eqref{chlg:eqn_gsinit}中的$S$为反对称矩阵
@@ -3160,10 +3101,16 @@ $Sp(m,\mathbb{F})$中的元素称为\textbf{辛矩阵}。
 \end{equation}
 由上式可得复辛群的实维数是 $2(2m^2+m)$，实辛群维数是 $2m^2+m$。
 
-%$Sp(m,\mathbb{F})$是连通的（点集拓扑）；非紧致的。代数拓扑连通属性是：复辛群是单连通，实辛群是$\infty$度连通。
+实辛群和复辛群均连通且非紧。其极分解$A=QP$中的两个因子仍为辛矩阵，
+路径$QP^{1-t}$分别给出到$U(m)$和紧致辛群
+$K_m=Sp(m,\mathbb C)\cap U(2m)$的形变收缩。
+因此$\pi_1(Sp(m,\mathbb R))=\pi_1(U(m))=\mathbb Z$。
+将$K_m$看作保持四元数内积的矩阵群，取最后一列便得到纤维丛
+$K_{m-1}\to K_m\to S^{4m-1}$；由$K_1\cong S^3$及同伦正合列归纳可知$K_m$连通且单连通，
+故$Sp(m,\mathbb C)$单连通。
+两种辛群都包含$\operatorname{diag}(\e^t I_m,\e^{-t}I_m)$，所以非紧。
 
-\subsection{古典 Lie 群、 Lie 代数}\label{chlg:sec_clg}
-
+\subsection{古典 Lie 群、 Lie 代数}
 
 记$A_m$为$SL(m+1,\mathbb{C})$。记$C_m$为$Sp(m,\mathbb{C})$。
 
@@ -3179,22 +3126,29 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
 复数域上的正交群$O(m,\mathbb{C})$在物理学上几乎无用，同时我们不省略复数域$\mathbb{C}$的标记。
 本书中，所有的$O(m)$均指$O(m,\mathbb{R})$，即省略实数域$\mathbb{R}$的标记。
 
-%\begin{proposition}
-%    (1)：$\bigl( \mathfrak{so}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{so}(m,\mathbb{C})$。
-%    (2)：$\bigl( \mathfrak{sl}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{sl}(m,\mathbb{C})$。
-%    (3)：$\bigl( \mathfrak{sp}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{sp}(m,\mathbb{C})$。
-%    (4)：$\mathfrak{su}(m,\mathbb{C})$是$\mathfrak{sl}(m,\mathbb{C})$的实形式。
-%\end{proposition}
-%\begin{proof}
-%    前三条几乎一望而知。下面证明第(4)条，需要提醒一下，$\mathfrak{su}(m)$本来就定义在
-%    复数域上，没有$\mathfrak{su}(m,\mathbb{R})$。
-%\end{proof}
-
-\begin{theorem}\label{chlg:thm_CLA-simple}
+\begin{theorem}
 	古典 Lie 代数$A_m(m\geqslant 1)$、$B_m(m\geqslant 1)$、$C_m(m\geqslant 1)$、$D_m(m\geqslant 3)$是
-	单纯 Lie 代数。（证明见\parencite[p.148]{huangxg-2024}定理6，或\parencite[\S 1.3]{wanzx-2013}定理1.2）
+	单纯 Lie 代数。
 \end{theorem}
-
+\begin{proof}[证明概要]
+在对角Cartan子代数下，四类复矩阵代数的非零根分别为
+\[
+ \begin{array}{ll}
+ A_m:\ e_i-e_j\ (i\ne j), & B_m:\ \pm e_i\pm e_j,\ \pm e_i,\\
+ C_m:\ \pm e_i\pm e_j,\ \pm2e_i, & D_m:\ \pm e_i\pm e_j .
+ \end{array}
+\]
+其中$A_m$的指标为$1,\ldots,m+1$，其余为$1,\ldots,m$，双指标根均要求$i\ne j$；
+$e_i$为对角参数的坐标线性函数。
+这些根可直接由矩阵单位与对角矩阵的对易关系读出，根空间均为一维。
+非零理想在Cartan作用下分解为权空间；若只含Cartan元素，
+与某个根矢量取括号仍会产生非零根矢量，因为这些根张成Cartan子代数的对偶空间。
+若理想含$E_\alpha$，则含$H_\alpha=[E_\alpha,E_{-\alpha}]$，
+继而含所有满足$\beta(H_\alpha)\ne0$的$E_\beta$。
+在题述秩的范围内，上列根系不能分成两组相互正交的非空根集；
+因此重复此步骤可得到全部根空间及其对易子所张成的Cartan子代数。
+非零理想只能是全代数，故单纯。$D_2$的根系分成两个正交部分，正是它被排除的原因。
+\end{proof}
 
 \begin{table}[htb]
     \centering
@@ -3224,18 +3178,17 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
 \end{table}
 
 {表\ref{chlg:tab_groups}中“连通性”一栏，上面是点集拓扑的连通属性；
-下面是代数拓扑的属性（单连通或复连通）。表中“维数”是指实数域上 Lie 群的维数。}
+下面是代数拓扑的属性（单连通或复连通）。表中“维数”是指实数域上 Lie 群的维数。
+一般$m$的各行按$m\geqslant3$列示；$SO(2)$的基本群为$\mathbb Z$，
+$m=1$的特殊线性群和特殊酉群均为单点。}
 
+\section{物理中常用等距 Lie 群}
+继\S\ref{chlg:sec_isometry}，本节在具体坐标中讨论几类保度规群。
 
-\section{物理中常用等距 Lie 群}\label{chlg:sec_matrixG-II}
-继\S\ref{chlg:sec_isometry}，本节再描述一些保度规群\cite{tung-1985}，有些群会涉及流形局部坐标。
-
-
-\subsection{等距映射补遗}\label{chlg:sec_iso-add}
+\subsection{等距映射补遗}
 本节将第\ref{appx:curvature}章的等距群 $\operatorname{Isom}(M,g)$ 简记为 $I(M)$。
 在\S \ref{chrg:sec_isometry}我们已初步讨论了等距映射（Isometry），
 等距定义自然仍为\ref{chrg:def_isometry-immersion}；我们从群论角度再次讨论这个问题。
-
 
 对于光滑广义黎曼流形$M$，所有从$M$到$M$的等距映射集合$I(M)$，在把
 复合映射当成群乘法的情形下构成一个群，称为$M$的\textbf{等距群}。
@@ -3246,9 +3199,8 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
 
 由于$M$的每个切空间与$\mathbb{R}^n_\nu$是（局部）等距同胚的，
 因此等距群$I(\mathbb{R}^n_\nu)$在广义黎曼几何中具有基本意义。
-%特别是，对于具有不定度规的流形，它导致了类似于普通可定向性的时间和空间可定向性的孪生概念。
 
-\begin{theorem}\label{chlg:thm_isoexp}
+\begin{theorem}
     设在广义黎曼流形$(M,g)$、$(N,h)$间存在局部等距同构映射$\phi:M\to N$。
     则$\forall p\in M$，交换图\ref{chlg:pic_exp-exchange}成立；
     其中$U_p\subset T_pM$，$V_{\phi(p)}\subset T_{\phi(p)}N$分别
@@ -3279,8 +3231,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
     这正是本定理需要证明的，即交换图\ref{chlg:pic_exp-exchange}。
 \end{proof}
 
-%\parencite{oneill1983}定理3.62
-\begin{proposition}\label{chlg:thm_isopall}
+\begin{proposition}
     设有两个连通广义黎曼流形$M$、$N$，存在局部等距同构映射$\phi,\psi:M\to N$。
     若存在一个点$p\in M$使得$\phi(p)=\psi(p)$和$\phi_{p*} = \psi_{p*}$成立，
     则有$\phi=\psi$。
@@ -3302,7 +3253,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
     直至能够覆盖流形$M$。
 \end{proof}
 
-\begin{example}\label{chlg:exam_DQpsi}
+\begin{example}
     标量函数场变换规则。
 \end{example}
 我们以量子物理中的波函数为例来说明标量函数场在对称操作下的变换规则。
@@ -3320,7 +3271,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
     \psi(Q^{-1}r) = \psi'(r) .
 \end{equation}
 在对称变换$Q$的作用下，新的态矢量$\psi'$可用一个函数变换算符来表示，即
-\begin{equation}\label{chlg:eqn_psip2psi}
+\begin{equation}
     \psi'(r) :=\hat{D}(Q)\psi(r).
     \qquad \text{等号两边的宗量$r$是相同的}
 \end{equation}
@@ -3330,13 +3281,12 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
 \end{equation}
 上式便是态矢量在对称变换下的变化关系式。    \qed
 
-
 \subsection{平移群}\label{chlg:sec_translation-group}
 在$\mathbb{R}^m$中，\textbf{平移}（translation）是一种几何变换，
 它将图形、形状或空间的每个点在给定方向上移动相同的距离。
 平移也可以解释为向每个点添加一个常量矢量，或移动坐标系的原点。
 用坐标语言来说，便是：
-\begin{equation}\label{chlg:eqn_translation}
+\begin{equation}
     x\to x' : x'^{i} = x^i + a^i
     \quad \Leftrightarrow \quad
     x' =\hat{Q}(x)= x + a ;
@@ -3353,7 +3303,6 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
 \begin{equation}\label{chlg:eqn_translationONf}
     f'(x)=\hat{T}(m) f(x)= f(\hat{Q}^{-1}x) = f(x - a) .
 \end{equation}
-
 
 自然把群乘法取成连续进行两次“坐标加法”，
 即$x$加上$b$，再加上$a$；
@@ -3405,7 +3354,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为\textbf{古典 Lie 群}，其 Lie 代数称�
 
 平移群是连通、单连通、非紧致 Lie 群。
 
-\begin{example}\label{chlg:exam_pm2}
+\begin{example}
     号差为$-2$的Lorentz度规下的平移算符。
 \end{example}
 号差为$+2$的Lorentz度规下动量算符定义成$\hat{P}_\mu =- \i \frac{\partial }{\partial x^\mu}$
@@ -3423,7 +3372,6 @@ $\hat{P}_\mu = \i \frac{\partial }{\partial x^\mu}$。
 算符是$\hat{T}(m) = \exp\left(\i a^\mu \hat{P}_\mu  \right) $，
 与式\eqref{chlg:eqn_Texp}差一负号。\qed
 
-
 \subsection{欧几里得群}\label{chlg:sec_Euclidean-group}
 在低速、低能情形下（比如牛顿力学范畴内），几乎所有证据表明，
 三维物理空间是均匀和各向同性的，因此在孤立系统上进行的科学实验的结果
@@ -3435,7 +3383,7 @@ $m$维欧几里得空间（正定度规）的对称群是欧几里得群（记�
 \end{definition}
 上述定义中线性两个字加上引号是因为平移不是线性算符（见\S\ref{chlg:sec_translation-group}），
 纯旋转是线性算符；无穷小平移是线性的。对应的坐标变换是
-\begin{equation}\label{chlg:eqn_trans-rot}
+\begin{equation}
     x\to x' : x'^{i} = R^i_{ j}x^j + a^i ,\qquad  1 \leqslant i \leqslant m .
 \end{equation}
 用矩阵形式表示为（后面会证明式中$R\in O(m)$）
@@ -3467,8 +3415,6 @@ $m$维欧几里得空间（正定度规）的对称群是欧几里得群（记�
     = m + m(m-1)/2 = m(m+1)/2 .
 \end{equation*}
 
-
-%由于$\hat{T}(m)$和$R(\theta)$通常情形下是不对易的，因此$E(m)$以非平凡的方式将它们组合起来。
 我们把$E(m)$的群乘法定义为复合映射，连续两次欧氏变换为
 \begin{small}
 
@@ -3506,10 +3452,6 @@ $\Psi_{R_1}( a_2)=R_1 a_2 = \hat{T}(m)_{R_1 a_2}$，
 $(a_1, R_1)(a_2, R_2)=(a_1 \Psi_{R_1}( a_2), R_1 R_2)
 =(a_1 + R_1 a_2 , R_1 R_2)$。
 这与上面用矩阵表示的连续两次欧氏变换完全相同。
-
-
-%下面稍微介绍一下最简单的欧氏群：$ISO(2)$（Inhomogeneous SO）。
-
 
 \subsubsection{$ISO(2)$}\label{chlg:sec_e2}
 二维欧几里得群$ISO(2)$（或$E(2)$）的乘法关系\eqref{chlg:eqn_Em-max}中的$T$可表示为
@@ -3563,7 +3505,7 @@ $\exp(-\i a^j P_j)$就是式\eqref{chlg:eqn_Em-max}中的平移。
 不难发现式\eqref{chlg:eqn_tmpR}中的$J$和式\eqref{chlg:eqn_Trans-Momen}的$P_1,P_2$是
 指数映射的生成元；也就是说$J,P_1,P_2$是$ISO(2)$群 Lie 代数$\mathfrak{iso}(2)$的基矢，
 通过矩阵的直接计算可得到对易关系如下：
-\begin{equation}\label{chlg:eqn_E2-LA}
+\begin{equation}
     [P_1,P_2]=0, \quad [J,P_1]=\i P_2,\quad
     [J,P_2]=-\i P_1。
 \end{equation}
@@ -3571,7 +3513,7 @@ $\exp(-\i a^j P_j)$就是式\eqref{chlg:eqn_Em-max}中的平移。
 直接计算偏导数形式的基矢量对易关系，所得结果与上式相同；
 故两者是同构的，可以不必仔细区分。
 
-\begin{proposition}\label{chlg:thm_E2-decomposition}
+\begin{proposition}
     $ISO(2)$中的元素可分解为$T( a, \theta ) = \hat{T}(2) R(\theta) $。
 \end{proposition}
 \begin{proof}
@@ -3585,14 +3527,12 @@ $\exp(-\i a^j P_j)$就是式\eqref{chlg:eqn_Em-max}中的平移。
     将$R(\theta)$乘在上式两端便可证明命题。
 \end{proof}
 
-
-\subsubsection{Lie 代数收缩一：几何形式的$\mathfrak{so}(3)\to \mathfrak{iso}(2)$} \label{chlg:sec_inonu-wigner}
+\subsubsection{Lie 代数收缩一：几何形式的$\mathfrak{so}(3)\to \mathfrak{iso}(2)$} 
 这里叙述较易理解的几何形式In\"on\"u--Wigner收缩。
 作为 Lie 变换群，$SO(3)$是二维球面的对称群，$ISO(2)$是二维平面的对称群；
 可以通过球面上的点在平面上的立体投影来建立这些群的元素之间的对应关系。
 当球的半径变大时，这种对应关系就变得简单了。
 我们将看到：当球半径趋于无限大时，群$SO(3)$“收缩”到$ISO(2)$。
-
 
 我们以地球为例。以地心$O$为原点建立坐标系$XYZ$，$Z$是由地心指向北极点$N$方向，
 $X$轴由地心指向经纬度$(0,0)$点方向，按右手叉乘法则确定$Y$轴方向。
@@ -3626,7 +3566,7 @@ $x-y$平面切于地球表面，切点是北极点$N$。
 第二个动作变成沿$x$方向平移$d_1$；
 第三个动作不变，即绕$Z$轴旋转不变；
 用公式表示便是
-\begin{equation}\label{chlg:eqn_tmp-rpp}
+\begin{equation}
     \alpha \hat{L}_X + \beta \hat{L}_Y + \theta \hat{L}_Z
     =-d_2\frac{\hat{L}_X}{R}  + d_1\frac{\hat{L}_Y}{R}  + \theta \hat{L}_Z
     \ \to \    d_2\hat{P}_Y  + d_1 \hat{P}_X  + \theta \hat{L}_Z .
@@ -3649,17 +3589,13 @@ $x-y$平面切于地球表面，切点是北极点$N$。
 \end{align*}
 上式说明了：当$R\to \infty$时，$\mathfrak{so}(3)$ Lie 代数收缩到$\mathfrak{iso}(2)$ Lie 代数。
 
-
 \subsection{Lorentz群}\label{chlg:sec_Lorentz-group}
-
-%在\S\ref{chlg:sec_Opq}中，我们已经初步介绍了广义正交群的一些知识，在此做些补充。
-%，也可参考第\ref{chsr}章 \S\ref{chsr:sec_lorentz-transofrm}给出的
 
 本节讨论任意方向的 Lorentz 变换。时空分量指标 $\mu,\nu=0,1,2,3$，空间分量指标 $i,j=1,2,3$；
 采用 $\eta=\operatorname{diag}(-1,1,1,1)$。三维速度记为 $v=v^ie_i$，速率为 $|v|=\sqrt{\delta_{ij}v^iv^j}$。
 
 由一般Lorentz变换（即$\Lambda ^{\mathrm{T}} \eta \Lambda = \eta$，见式\eqref{chlg:eqn_gLorentz}）可知
-\begin{equation}\label{chlg:eqn_Linv-ud}
+\begin{equation}
     \Lambda^\mu_{\rho} \eta_{\mu\nu} \Lambda^\nu_{\sigma} = \eta_{\rho\sigma}
     \quad \Leftrightarrow \quad
     (\Lambda^{-1})^\rho_{\mu}=
@@ -3668,7 +3604,7 @@ $x-y$平面切于地球表面，切点是北极点$N$。
 \end{equation}
 若只考虑单位元附近的无穷小Lorentz变换，
 即令$\Lambda^\mu_{\rho}=\delta^\mu_\rho+\omega^\mu_{\rho}$，有
-\begin{equation}\label{chlg:eqn_L-infty}
+\begin{equation}
     (\delta^\mu_\rho+\omega^\mu_{\rho}) \eta_{\mu\nu}
     (\delta^\nu_\sigma+\omega^\nu_{\sigma}) =  \eta_{\rho\sigma}
     \ \xRightarrow[\text{一阶项}]{\text{只保留}} \
@@ -3700,11 +3636,7 @@ Lorentz变换分为四类（如表\ref{chlg:tab_lorentz}，类似于表\ref{chlg
 这四片Lorentz变换是互相不连通的，其中固有正时部分包含单位变换，是我们要主要研究的
 部分。其它三个部分可以通过离散变换（空间反射$(\mathcal{P})$与时间反演
 $(\mathcal{T})$）与固有正时部分相联系。
-%在前面推导时空Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}时
-%曾假定Lorentz变换不改变时间方向，也不改变空间坐标轴方向。
-%时间反演、空间反射是将两者都换了方向；是对那里内容的补充。
 下面分别介绍几种常用的Lorentz变换。
-
 
 \begin{table}[!htb]
     \centering
@@ -3719,28 +3651,24 @@ $(\mathcal{T})$）与固有正时部分相联系。
     \end{tabular}
 \end{table}
 
-
-\subsubsection{空间反射、时间反演} %\label{chlg:sec_space-inversion}
+\subsubsection{空间反射、时间反演}
 空间反射变换只将空间坐标反号，矩阵是
 $\mathcal{P} = diag (+1,-1,-1,-1)$。
 作变换$x^{\prime \mu}=\mathcal{P}^\mu _\nu x^{\nu}$后，
 有$x^{\prime 0}=+x^0, x^{\prime i}= -x^i$。
 显然这种变换属于$L^{\uparrow}_{-}$ 。
 
-%\subsubsection{}\label{chlg:sec_time-reversal}
 时间反演变换只将时间坐标反号，矩阵是
 $\mathcal{T} = diag (-1,+1,+1,+1)$。
 作变换$x^{\prime \mu}=\mathcal{T}^\mu _\nu x^{\nu}$后，
 有$x^{\prime 0}=-x^0, x^{\prime i}= +x^i$。
 显然这种变换属于$L^{\downarrow}_{-}$ 。
 
-%\subsubsection{全反演}
 全反演就是时间反演和空间反射的联合变换，矩阵是
 $\mathcal{PT}$。
 作变换$x^{\prime \mu}=(\mathcal{PT})^\mu _\nu x^{\nu}$后，
 有$x^{\prime 0}=-x^0, x^{\prime i}= -x^i$。
 显然这种变换属于$L^{\downarrow}_{+}$ 。
-
 
 以上三种变换是离散变换。
 
@@ -3762,7 +3690,7 @@ $L^{\uparrow}_{+}\cup L^{\downarrow}_{+}$保纯空间定向不变，
 其实时间方向的概念也是如此定义的，只不过时间维度是一个数，不需要用矩阵行列式来描述，
 或者说是一个$1\times 1$的矩阵。
 
-\subsubsection{纯空间固有转动} %\label{chlg:sec_rotation}
+\subsubsection{纯空间固有转动}
 纯空间固有转动$R$是Lorentz变换的一个子类，它不涉及时间轴，所以它属于
 同一惯性参考系中两个不同坐标系的变换；我们先看这种简单的情形。
 最一般的情形就是把三个空间轴绕原点转动任意角，其矩阵形式为
@@ -3778,11 +3706,6 @@ $L^{\uparrow}_{+}\cup L^{\downarrow}_{+}$保纯空间定向不变，
 $\Lambda^{0}_{0}\geqslant +1, \det(\Lambda)=+1$，
 它属于$L^{\uparrow}_{+}$。
 
-%在此，我们用三维矩阵来表示纯空间转动，就是式\eqref{chlg:eqn_rotation}
-%中右下角那个矩阵$R^i_{j}$，这里的三维转动矩阵与式\eqref{chlg:eqn_rotation}
-%有一一对应关系，联系上下文不会引起误解。
-
-
 \subsubsection{伪转动}
 选两个惯性系，系$O'$相对于$O$以速度$v$运动，这两个
 惯性系间无相对空间转动的 Lorentz 变换称为伪转动（boost）。
@@ -3794,7 +3717,7 @@ $\Lambda^{0}_{0}\geqslant +1, \det(\Lambda)=+1$，
     x^{\prime \mu} = B_x(v_x) ^\mu _{\nu} x^\nu .
 \end{equation}
 其中$B_x(v_x)$是沿$x$轴的Lorentz变换，将上式写开即为：
-\begin{equation}\label{chlg:eqn_lorentz-transofrm-x-MatrixForm}
+\begin{equation}
 	\begin{pmatrix}
 		ct'\\x'\\y'\\z'
 	\end{pmatrix} =
@@ -3812,10 +3735,6 @@ $\Lambda^{0}_{0}\geqslant +1, \det(\Lambda)=+1$，
 	\end{pmatrix}.
 \end{equation}
 
-
-%式\eqref{chsr:eqn_lorentz-transofrm-x-MatrixForm}
-
-
 如果两惯性系$\tilde{O}$和$\tilde{O}'$的速度差$v=(v_x,v_y,v_z)$不与坐标轴平行，
 但$\tilde{O}$和$\tilde{O}'$系中的坐标系相应轴仍旧相互平行、同向，我们来看此时
 Lorentz变换的伪转动$B(v)$是什么样子。
@@ -3829,23 +3748,16 @@ $v$如图\ref{chlg:fig_cart_sph}所示。
 区别起见，我们记$O$和$O'$系的速度差为$u$，方向沿$x$轴，大小当然为$|u|=|v|$；
 联系$O$和$O'$系的伪转动是$X' = {B_x}(u)X$，即式\eqref{chlg:eqn_lorentz-matrix-b}。
 最后，再旋转回$\tilde{O}$和$\tilde{O}'$系。
-\begin{equation} \label{chlg:eqn_rboostr}
+\begin{equation} 
     X' = {B_x}(u)X {\quad \Rightarrow\quad } RX' = R{B_x}(u)X
     {\quad \Rightarrow\quad }  \tilde{X}' = R{B_x}(u)R^{-1}\tilde{X} .
 \end{equation}
-
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=6cm]{fig/ch13-boost.pdf}
     \caption{两参考系速度差$v$与坐标系的关系} \label{chlg:fig_cart_sph}
 \end{figure}
-
-%我们知道，整体矢量表示$x^\mu \boldsymbol{e}_{\mu}$是Lorentz变换下的不变形式，
-%即$x'^\mu \boldsymbol{e}^{\prime}_{\mu}=x^\nu \boldsymbol{e}_{\nu}$，也就是
-%$\boldsymbol{e}^{\prime} X' =\boldsymbol{e} X {\Rightarrow}
-%(\boldsymbol{e}^{\prime} R^{-1})( R X') =(\boldsymbol{e} R^{-1}) (RX){\Rightarrow}
-%\tilde{\boldsymbol{e}}^{\prime} \tilde{X}' =\tilde{\boldsymbol{e}} \tilde{X}$。
 
 关键是求解旋转矩阵$R^{-1}({\theta \phi })$的表达式。
 根据我们的约定（见例题\ref{chlg:exm_GLonV}、\ref{chlg:exm_GLonB}），
@@ -3854,7 +3766,7 @@ $v$如图\ref{chlg:fig_cart_sph}所示。
 现在考虑如图\ref{chlg:fig_cart_sph}所示的$v$，
 纯空间固有旋转$R^{-1}({\theta \phi })$相当于将$v$（对应基矢$e$）
 旋转到$\tilde{x}$（对应基矢$\tilde{e}$）的方向。不难求得
-\begin{equation}\label{chlg:eqn_R-of-bx2b}
+\begin{equation}
     R^{-1}( {\theta \phi } )  = C_{\tilde y}\left({\frac{\pi }{2} -\theta} \right) C_{\tilde z}( -\phi )
     \ \Rightarrow\  R( {\theta \phi } )  =
     {C_{\tilde  z}}(  {\phi } ) {C_{\tilde  y}} \left(  { \theta -\frac{\pi }{2}} \right) .
@@ -3899,7 +3811,7 @@ $v$如图\ref{chlg:fig_cart_sph}所示。
 符号不变；右下角的$3\times 3$矩阵因负负得正，符号不变。
 
 式\eqref{chlg:eqn_lorentz-matrix-any-v}作用到时空坐标，也常写成另外一种形式
-\begin{equation}\label{chlg:eqn_boost-xt}
+\begin{equation}
     ct'= \gamma\left( ct-\frac{v\cdot r}{c}\right) , \quad
     r' = r+(\gamma-1)\frac{v
         \cdot r}{|v|^2}v-\gamma \frac{v}{c} ct.
@@ -3952,7 +3864,7 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
 
 由式\eqref{chlg:eqn_b1b2}可见用快度表示Lorentz变换时，
 它是单参数子群。同理可以得到沿$y,z$方向的快度表达式：
-\begin{equation*}  %\label{chlg:eqn_lorentz-rapid-yz}
+\begin{equation*}
     (\Lambda_y)^{\mu}_{\nu} =
     \begin{pmatrix}
         \cosh\theta_y  & 0 & -\sinh\theta_y & 0 \\
@@ -3975,15 +3887,11 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
 令$\tanh \theta_z=v_z/c$，就有$\gamma = \cosh \theta_z$；
 则$-1<v_z/c<1$相当于$-\infty < \theta_z <+\infty$。
 
-
 \subsubsection{Lorentz矩阵分解}
 在狭义相对论发展的初期，学者们就基本解决了Lorentz变换矩阵的分解问题；
-此处的叙述参考了较新的文献\parencite{liang_zhou2009_2}附录G.9，而没有去寻找最原始的证明。
+下面先由时间分量确定推动，再证明剩余变换是空间转动。
 
-%全部三维坐标空间的固有转动群是SO(3)，也就是所有\eqref{chlg:eqn_rotation}组成的集合。
-
-
-\begin{proposition}\label{chlg:thm_xx-txtx}
+\begin{proposition}
     如果两个惯性坐标系$X$和$X'$由伪转动$B(v)$联系，并且$R\in SO(3)$，则
     $\tilde{X} := RX$和$\tilde{X}' := RX'$也由伪转动联系。
 \end{proposition}
@@ -4014,11 +3922,10 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
     $\widehat R B(v)\widehat R^{-1}=B(Rv)$。$v=0$ 时取连续极限 $B(0)=I_4$。
 \end{proof}
 
-
-\begin{theorem} \label{chlg:thm_lorentz-decompose-r}
+\begin{theorem} 
     对于任意的$ \Lambda \in L^{\uparrow}_{+}$，
     存在唯一的伪转动$B(v)$以及唯一的纯空间固有转动$R$，
-    使得$\Lambda = B(v) R = R'B(v)$，具体表达式见证明过程。
+    使得$\Lambda = B(v) R = R\,B(R^{-1}v)$，具体表达式见证明过程。
 \end{theorem}
 \begin{proof}
     甲若$\Lambda$是伪转动，则只需取$B(v)=\Lambda,R=I$即可。
@@ -4064,7 +3971,7 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
         {v^i}= - {c}\frac{\Lambda^i_{0}}{\Lambda^0_{0}}.
     \end{equation}
     号差$+2$的Lorentz度规并不改变$v$纯空间分量正负号，故$v_i=v^i$（$i=1,2,3$）。
-    利用\eqref{chlg:eqn_ltm00}可以证明$|v|<c$：
+    由\eqref{chlg:eqn_ltm00}可得$|v|<c$：
     \begin{equation*}
         \sum_{i=1}^{3}\left( \frac{v^i}{c}\right)^2
         =\sum_{i=1}^{3}\left( \frac{\Lambda^i_{0}}{\Lambda^0_{0}}\right)^2
@@ -4075,7 +3982,7 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
     即上面定义的速度是亚光速的。
     先求出速度$v$的大小（要参考\eqref{chlg:eqn_ltm00}）。
 
-    \begin{equation}\label{chlg:eqn_ltdbr-v}
+    \begin{equation}
         |v|^2 = \sum_{i=1}^{3}v_i^2 =  \dfrac{c^2}{(\Lambda^0_{0})^2} \sum_{i=1}^{3}
         ({\Lambda^i_{0}})^2
         = \dfrac{c^2}{(\Lambda^0_{0})^2}\left(  (\Lambda^0_{0})^2 -1\right)
@@ -4120,162 +4027,36 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
     这说明$\gamma_u =\gamma_v$，$\gamma_u u^i=\gamma_v v^i{\  \Rightarrow \  } u^i=v^i$，
     也就是${B}(u) = B(v)$，    从而$\tilde{R}= R$。
 
-
-    $\Lambda = R'B(v)$的分解证明留给读者当练习。
+    由命题\ref{chlg:thm_b-rbr}，$B(v)R=R B(R^{-1}v)$。
+    因此把推动移到转动右侧时，速度参数须同时变为$R^{-1}v$；反向分解的唯一性也由此得到。
 \end{proof}
 
-%\subsubsection{一般Lorentz变换}
-%本小节主要讨论时空$1+3$分解后的一般Lorentz变换。
-%式\eqref{chlg:eqn_boost-xt}给出了初始时刻相应坐标轴相互平行、同向的情形；
-%下面讨论坐标轴不相互平行的情形。根据定理\ref{chlg:thm_lorentz-decompose-r}可知：
-%这种Lorentz变换还相差一个纯空间转动。
-%我们用$D$表示这个转动，则有
-%\begin{equation}\label{chlg:eqn_lorentz-xt}
-%    t'= \gamma_v \left( t-\frac{\boldsymbol{v}\cdot\boldsymbol{r}}{c^2}\right) , \qquad
-%    \boldsymbol{r}' = D\boldsymbol{r}+D\boldsymbol{v}
-%    \left((\gamma_v-1)\frac{\boldsymbol{v}\cdot\boldsymbol{r}}{v^2}-\gamma_v t \right).
-%\end{equation}
-%这就是说$\boldsymbol{r}_{\parallel}= D \boldsymbol{r}$所处坐标系与$\boldsymbol{r}'$所处坐标系的坐标轴相互平行、同向。
-%式\eqref{chlg:eqn_lorentz-xt}中第二式中圆括号内是标量，
-%即$(\gamma_v-1)\frac{\boldsymbol{v}\cdot\boldsymbol{r}}{v^2}-\gamma_v t $是标量；
-%它的数值不随纯空间转动$D$而改变。$D$只改变$\boldsymbol{r}$、$\boldsymbol{v}$的方向，不改变其大小；
-%对$\boldsymbol{v}$的转动（$D$）操作正好是$O'$系测量$O$系的速度$\boldsymbol{v}'$的负值，即
-%\begin{equation}\label{chlg:eqn_vDvp}
-%    D \boldsymbol{v} = - \boldsymbol{v}' .
-%\end{equation}
-%
-%对式\eqref{chlg:eqn_lorentz-xt}取微分，注意$D$、$\boldsymbol{v}$、$\gamma_v$都是常数，
-%微分只对$t$、$t'$、$\boldsymbol{r}$、$\boldsymbol{r}'$起作用。
-%取完微分后，求商即可得到速度（$\boldsymbol{u}={\rm d}\boldsymbol{r}/{\rm d}t,\,
-%\boldsymbol{u}'={\rm d}\boldsymbol{r}'/{\rm d}t' $）变换公式
-%\begin{equation}\label{chlg:eqn_u2up}
-%    \boldsymbol{u}' = \frac{1}{1-\boldsymbol{v}\cdot \boldsymbol{u}/c^2}\left(
-%    \gamma_v^{-1} D \boldsymbol{u} + \frac{\gamma_v-1}{\gamma_v}
-%    \frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2} D\boldsymbol{v}-D\boldsymbol{v} \right) .
-%\end{equation}
-%
-%%\begin{equation}
-%%    (\gamma_v^2 v^2/c^2)= \frac{1}{1-\frac{v^2}{c^2}} v^2/c^2
-%%    =\gamma_v^2-1=(\gamma_v+1)(\gamma_v-1) .
-%%\end{equation}
-%
-%
-%下面列出一个常用公式：
-%\begin{equation}\label{chlg:eqn_ggg}
-%    \gamma_{u'}= \gamma_v \gamma_u\left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)
-%    \quad \text{和} \quad
-%    \gamma_{u}= \gamma_v \gamma_{u'}\left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right) .
-%\end{equation}
-%只需将各种速度带入相应Lorentz因子，然后直接计算即可证明。
-%
-%%证明过程如下：
-%%上式等价于证明
-%%\begin{equation}\label{chlg:eqn_tmpggg}
-%%    \left(1- \frac{v^2}{c^2} \right)\left(1- \frac{u^2}{c^2} \right)
-%%    =\left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)^2
-%%    \left(1- \frac{u^{\prime 2}}{c^2} \right) .
-%%\end{equation}
-%%下式推导中注意利用$D$是正交矩阵。
-%%\begin{align*}
-%%    &\gamma_v^{2}(1-\boldsymbol{v}\cdot \boldsymbol{u}/c^2)^2 \boldsymbol{u}'\cdot \boldsymbol{u}' =\left[
-%%    D \boldsymbol{u} + \left((\gamma_v-1)
-%%    \frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right) D\boldsymbol{v} \right]^2 \\
-%%    =& D \boldsymbol{u}\cdot D \boldsymbol{u}  + 2 D \boldsymbol{u} \cdot
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right) D\boldsymbol{v}
-%%    + \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right)^2 D\boldsymbol{v} \cdot D\boldsymbol{v}  \\
-%%    =& u^2  + 2
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right) \boldsymbol{u} \cdot\boldsymbol{v}
-%%    + \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right)^2 v^2
-%%\end{align*}
-%%我们可以来证明式\eqref{chlg:eqn_tmpggg}了。
-%%\begin{align*}
-%%    &\left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)^2
-%%    \left(1- \frac{u^{\prime 2}}{c^2} \right)
-%%    =\left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)^2
-%%    -\left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)^2 \frac{u^{\prime 2}}{c^2} \\
-%%    =&\left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)^2-
-%%    \gamma_v^{-2} c^{-2} \left[u^2  + 2
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right) \boldsymbol{u} \cdot\boldsymbol{v}
-%%    + \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right)^2 v^2  \right] \\
-%%    =&1 + \frac{(\boldsymbol{v}\cdot \boldsymbol{u})^2}{c^4} - 2\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}
-%%    -\gamma_v^{-2} c^{-2} u^2  \\
-%%    &- 2 \gamma_v^{-2} c^{-2}
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right) \boldsymbol{u} \cdot\boldsymbol{v} \\
-%%    &- \gamma_v^{-2} c^{-2}\left((\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}-\gamma_v\right)^2 v^2   \\
-%%    =&1 + \frac{(\boldsymbol{v}\cdot \boldsymbol{u})^2}{c^4} - 2\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}
-%%    -\gamma_v^{-2} \frac{u^2}{c^2}   \\
-%%    &- 2 \gamma_v^{-2} (\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2} \frac{\boldsymbol{u}\cdot \boldsymbol{v}}{c^2}
-%%    + 2 \gamma_v^{-1}  \frac{\boldsymbol{u}\cdot \boldsymbol{v}}{c^2}\\
-%%    &- \left[\left(\frac{\gamma_v-1}{\gamma_v}\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2} \right)^2
-%%    -2\frac{\gamma_v-1}{\gamma_v}\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2}    +1\right]\frac{v^2}{c^2}   \\
-%%    =&1   -\gamma_v^{-2} \frac{u^2}{c^2}    -\frac{v^2}{c^2}   \\
-%%    &+ \frac{(\boldsymbol{v}\cdot \boldsymbol{u})^2}{c^4 }
-%%    - 2 \gamma_v^{-2} (\gamma_v-1)\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2} \frac{\boldsymbol{u}\cdot \boldsymbol{v}}{c^2}
-%%    - \left(\frac{\gamma_v-1}{\gamma_v}\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2} \right)^2 \frac{v^2}{c^2}  \\
-%%    &+ 2 \gamma_v^{-1}  \frac{\boldsymbol{u}\cdot \boldsymbol{v}}{c^2}
-%%    +2\frac{\gamma_v-1}{\gamma_v}\frac{\boldsymbol{u}\cdot \boldsymbol{v}}{v^2} \frac{v^2}{c^2}
-%%    - 2\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2} .
-%%\end{align*}
-%%上式最后一步中$\boldsymbol{v}\cdot \boldsymbol{u}$前的系数之和正好为零，故有
-%%\begin{align}
-%%    \left(1-\frac{\boldsymbol{v}\cdot \boldsymbol{u}}{c^2}\right)^2
-%%    \left(1- \frac{u^{\prime 2}}{c^2} \right)
-%%    =1   -\gamma_v^{-2} \frac{u^2}{c^2}    -\frac{v^2}{c^2}
-%%    =\left(1- \frac{v^2}{c^2} \right)\left(1- \frac{u^2}{c^2} \right).
-%%\end{align}
-%
-%
-%%逆变换的证明过程如下：
-%%上式等价于证明
-%%\begin{equation}\label{chlg:eqn_tmpggg}
-%%    \left(1- \frac{v^2}{c^2} \right)\left(1- \frac{u'^2}{c^2} \right)
-%%    =\left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right)^2
-%%    \left(1- \frac{w^2}{c^2} \right) .
-%%\end{equation}
-%%下式推导中注意利用$D$是正交矩阵以及速度逆变换公式\eqref{chsr:eqn_boost-u-inv}。
-%%\begin{align*}
-%%    &\gamma_v^{2}(1+\boldsymbol{v}\cdot \boldsymbol{u}'/c^2)^2 \boldsymbol{w}\cdot \boldsymbol{w} =\left[
-%%    D \boldsymbol{u}' + \left((\gamma_v-1)
-%%    \frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right) D\boldsymbol{v} \right]^2 \\
-%%    =& D \boldsymbol{u}'\cdot D \boldsymbol{u}'  + 2 D \boldsymbol{u}' \cdot
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right) D\boldsymbol{v}
-%%    + \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right)^2 D\boldsymbol{v} \cdot D\boldsymbol{v}  \\
-%%    =& u'^2  + 2
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right) \boldsymbol{u}' \cdot\boldsymbol{v}
-%%    + \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right)^2 v^2
-%%\end{align*}
-%%我们可以来证明式\eqref{chlg:eqn_tmpggg}了。
-%%\begin{align*}
-%%    &\left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right)^2
-%%    \left(1- \frac{w^2}{c^2} \right)
-%%    =\left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right)^2
-%%    -\left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right)^2 \frac{w^2}{c^2} \\
-%%    =&\left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right)^2
-%%    -\gamma_v^{-2} c^{-2} \left[u'^2  + 2
-%%    \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right) \boldsymbol{u}' \cdot\boldsymbol{v}
-%%    + \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right)^2 v^2 \right] \\
-%%    =& 1 + 2 \frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2} + \frac{(\boldsymbol{v}\cdot \boldsymbol{u}')^2}{c^4} -\gamma_v^{-2} c^{-2} u'^2
-%%    -\gamma_v^{-2} c^{-2} 2\left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right) \boldsymbol{u}' \cdot\boldsymbol{v}
-%%    -\gamma_v^{-2} c^{-2} \left((\gamma_v-1)\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}+\gamma_v\right)^2 v^2 \\
-%%    =&1 + 2 \frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2} + \frac{(\boldsymbol{v}\cdot \boldsymbol{u}')^2}{c^4} -\gamma_v^{-2} c^{-2} u'^2
-%%    -2 \frac{\gamma_v-1}{\gamma_v^{2}}\frac{(\boldsymbol{u}'\cdot \boldsymbol{v})^2}{c^2 v^2}
-%%    -\frac{2}{\gamma_v}\frac{\boldsymbol{u}' \cdot\boldsymbol{v}}{c^2}  \\
-%%    &- \left[\left(\frac{\gamma_v-1}{\gamma_v}\right)^2\frac{(\boldsymbol{u}'\cdot \boldsymbol{v})^2}{v^4}
-%%    +2\frac{\gamma_v-1}{\gamma_v}\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2}    +1\right] \frac{v^2}{c^2} \\
-%%    =&1 -\gamma_v^{-2} c^{-2} u'^2 - \frac{v^2}{c^2} \\
-%%    & + 2 \frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2} -\frac{2}{\gamma_v}\frac{\boldsymbol{u}' \cdot\boldsymbol{v}}{c^2}
-%%    - 2\frac{\gamma_v-1}{\gamma_v}\frac{\boldsymbol{u}'\cdot \boldsymbol{v}}{v^2} \frac{v^2}{c^2} \\
-%%    & + \frac{(\boldsymbol{v}\cdot \boldsymbol{u}')^2}{c^4} -2 \frac{\gamma_v-1}{\gamma_v^{2}}\frac{(\boldsymbol{u}'\cdot \boldsymbol{v})^2}{c^2 v^2}
-%%    -\left(\frac{\gamma_v-1}{\gamma_v}\right)^2\frac{(\boldsymbol{u}'\cdot \boldsymbol{v})^2}{v^4}\frac{v^2}{c^2}
-%%\end{align*}
-%%上式最后一步中$\boldsymbol{v}\cdot \boldsymbol{u}$前的系数之和正好为零，故有
-%%\begin{align}
-%%    \left(1+\frac{\boldsymbol{v}\cdot \boldsymbol{u}'}{c^2}\right)^2
-%%    \left(1- \frac{w^2}{c^2} \right)
-%%    =1   -\gamma_v^{-2} \frac{u'^2}{c^2}    -\frac{v^2}{c^2}
-%%    =\left(1- \frac{v^2}{c^2} \right)\left(1- \frac{u'^2}{c^2} \right).
-%%\end{align}
-
+\subsubsection{转动与推动组合后的速度变换}
+由上述分解，任意固有正时Lorentz变换也可记作$\Lambda=\widehat D B(v)$，
+其中$D\in SO(3)$、$\widehat D=\operatorname{diag}(1,D)$；这里$v$是先作推动时的速度参数。
+对时空坐标$(t,r)$，有
+\begin{equation}
+ \begin{aligned}
+ t'&=\gamma_v\left(t-\frac{v\cdot r}{c^2}\right),\\
+ r'&=D\left[r+v\left((\gamma_v-1)\frac{v\cdot r}{|v|^2}-\gamma_v t\right)\right],
+ \qquad \gamma_v=(1-|v|^2/c^2)^{-1/2}.
+ \end{aligned}
+\end{equation}
+$v=0$时按连续极限理解。令$u=\d r/\d t$、$u'=\d r'/\d t'$，
+对上式微分并相除，得到
+\begin{equation}
+ u'=\frac{D\left[u+(\gamma_v-1)\dfrac{u\cdot v}{|v|^2}v-\gamma_v v\right]}
+ {\gamma_v(1-v\cdot u/c^2)} .
+\end{equation}
+令$r=0$，可见原坐标系的原点在新坐标系中的速度为$v'=-Dv$。
+对于类时运动，由固有时不变及$\gamma_u=\d t/\d\tau$，有
+\begin{equation}
+ \gamma_{u'}=\gamma_v\gamma_u\left(1-\frac{v\cdot u}{c^2}\right),\qquad
+ \gamma_u=\gamma_v\gamma_{u'}\left(1+\frac{(Dv)\cdot u'}{c^2}\right).
+\end{equation}
+第一式来自$\d t'/\d t=\gamma_v(1-v\cdot u/c^2)$；
+第二式对逆变换应用同一关系，并代入$v'=-Dv$。
+当$D\ne I$时，逆变换中的空间内积必须使用$Dv$，因为$u'$的分量属于转动后的坐标系。
 
 \subsubsection{Lorentz代数}
 正时固有Lorentz群$SO^{+}(1,3)$有六个实参数来描述，其中固有转动占三个，伪转动占三个。
@@ -4348,12 +4129,6 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
 式\eqref{chlg:eqn_LA-so13-r}、\eqref{chlg:eqn_LA-so13-b}连同
 对易关系\eqref{chlg:eqn_LA-so13-comm}构成了$\mathfrak{so}^{+}(1,3)$ Lie 代数。
 
-
-%\begin{example}
-%    结构常数、Killing型、Casimir算子。
-%\end{example}
-
-
 物理学上较喜欢用厄米或反厄米矩阵来表示生成元，即作如下变换
 \begin{equation}\label{chlg:eqn_LA-so13-JK}
     J_i = \i r_i,\qquad  K_i = \i b_i .
@@ -4368,14 +4143,6 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
 对易关系\eqref{chlg:eqn_LA-so13-comm-JK}是$\mathfrak{so}^{+}(1,3)$ Lie 代数
 的另外一种常用表示。
 
-
-%反之，我们也可以从无穷小形式$\omega_{\rho\sigma}$出发，通过指数映射得到
-%一般形式的Lorentz变换$\Lambda^\mu_{\rho}$。由下式出发
-%\begin{align*}
-%    \omega^\mu_{\nu} =& \eta^{\mu\rho} \omega_{\rho\nu}
-%    =\frac{1}{2}( \eta^{\mu\rho} \omega_{\rho\nu} - \eta^{\mu\rho} \omega_{\nu\rho})
-%    =\frac{1}{2}( \eta^{\mu\rho} \delta^\sigma_\nu - \eta^{\mu\sigma} \delta^\rho_\nu ) \omega_{\rho\sigma}.
-%\end{align*}
 若我们定义（$\eta=\diag (-1,1,1,1)$）
 \begin{equation}\label{chlg:eqn_LJw}
     (\mathcal{J}^{\rho\sigma})^\mu_{\nu} := \i ( \eta^{\mu\sigma} \delta^\rho_\nu -\eta^{\mu\rho} \delta^\sigma_\nu).
@@ -4385,10 +4152,18 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
     \{\mathcal{J}^{10},\mathcal{J}^{20},\mathcal{J}^{30} \} =\{K_1,K_2,K_3\}, \
     \{\mathcal{J}^{23},\mathcal{J}^{31},\mathcal{J}^{12} \} =\{J_1,J_2,J_3\}.
 \end{align}
-那么一般Lorentz变换可表示为
+由$\omega_{\rho\sigma}=-\omega_{\sigma\rho}$及式\eqref{chlg:eqn_LJw}，有
+\[
+ \omega^\mu_{\nu}=\frac12
+ (\eta^{\mu\rho}\delta^\sigma_\nu-\eta^{\mu\sigma}\delta^\rho_\nu)\omega_{\rho\sigma}
+ =\frac{\i}{2}\omega_{\rho\sigma}(\mathcal J^{\rho\sigma})^\mu_\nu .
+\]
+记$W=(\omega^\mu_\nu)$，则$W^{\mathrm T}\eta+\eta W=0$，
+所以$\exp(tW)$为固有正时分支中的单参数子群。
+单位元邻域内的Lorentz变换可写为
 \begin{equation}
-    \Lambda^\mu_{\nu} = \exp\left( -\frac{\i }{2}\omega_{\rho\sigma}
-    (\mathcal{J}^{\rho\sigma})^\mu_{\nu} \right) .
+ \Lambda^\mu_\nu=
+ \left[\exp\left(\frac{\i}{2}\omega_{\rho\sigma}\mathcal J^{\rho\sigma}\right)\right]^\mu_\nu .
 \end{equation}
 通过矩阵的指数运算可以得到$\exp(-\i \alpha J_1)= C_x(\alpha)$
 （见式\eqref{chlg:eqn_rotation-x}）；与之类似，$J_2,J_3$的矩阵指数
@@ -4398,7 +4173,6 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
 （$\exp(-\i \theta K_2)$、$\exp(-\i \theta K_3)$）
 自然是$y$、$z$方向的伪转动。
 这些计算略显繁琐，但没有难度；也可借助计算机符号软件完成。
-
 
 在\S\ref{chlar:sec_LA-su2so3}中，我们建立了$\mathfrak{so}(3)$ Lie 代数矩阵基矢量和微分基矢量间的同构关系；
 仿照那里的做法，可以建立Lorentz Lie 代数$\mathfrak{so}^{+}(1,3)$矩阵基矢量和微分基矢量间的同构关系$\Psi$。
@@ -4414,7 +4188,6 @@ $\theta_x$称为\textbf{快度}；此时Lorentz矩阵可以表示为另一种形
 通过直接计算可以验证微分形式的基矢量对易关系与\eqref{chlg:eqn_LA-so13-comm-JK}式完全相同，
 故它们是同构关系，没有必要严格区分它们。
 
-
 \subsection{Poincar\'{e}群}\label{chlg:sec_Poincare-group}
 Poincar\'{e}（Jules Henri Poincar\'e，1854--1912，法国数学家 ）
 群与欧几里得群大致相同，唯一不同的就是度规；
@@ -4426,7 +4199,7 @@ Poincar\'{e}（Jules Henri Poincar\'e，1854--1912，法国数学家 ）
 \end{definition}
 我们将庞氏群记为$\mathcal{P}(1,3)$，可简记成$\mathcal{P}$。
 庞氏对应的坐标变换是
-\begin{equation}\label{chlg:eqn_xpoincare}
+\begin{equation}
     x\to x' : x'^{\mu} = \Lambda^\mu_{\nu }x^\nu + b^\mu ,\qquad  0 \leqslant \mu \leqslant 3 .
 \end{equation}
 用矩阵形式表示为（后面会证明$\Lambda$是一般Lorentz矩阵，$\Lambda^{-1}=\eta \Lambda^{\mathrm{T}} \eta$）
@@ -4453,14 +4226,11 @@ Poincar\'{e}（Jules Henri Poincar\'e，1854--1912，法国数学家 ）
     \dim \bigl(I(\mathbb{R}^4_1)\bigr)= \dim   \hat{T}(4) + \dim  O(1,3) = 10 .
 \end{equation}
 
-
 我们把$\mathcal{P}$的群乘法定义为复合映射，连续两次庞氏变换为
 \begin{equation}\label{chlg:eqn_tmpptp}
     \begin{bmatrix}  \Lambda_1 & b_1 \\ 0^{\mathrm{T}} & 1  \end{bmatrix}
     \begin{bmatrix}  \Lambda_2 & b_2 \\ 0^{\mathrm{T}} & 1  \end{bmatrix}
     \begin{bmatrix}  x \\ 1 \end{bmatrix}
-%    =\begin{bmatrix} \Lambda_1 & b_1 \\ \boldsymbol{0}^T & 1  \end{bmatrix}
-%    \begin{bmatrix}  \Lambda_2  x + b_2 \\  1  \end{bmatrix}
     =\begin{bmatrix} \Lambda_1 \Lambda_2 x + \Lambda_1 b_2 + b_1 \\  1  \end{bmatrix}.
 \end{equation}
 两次庞氏变换是不对易的。
@@ -4483,19 +4253,19 @@ Poincar\'{e}（Jules Henri Poincar\'e，1854--1912，法国数学家 ）
 $\Psi_{\Lambda_1}( b_2)=\Lambda_1 b_2 = \hat{T}(4)_{\Lambda_1 b_2}$，
 其中$\Lambda_1 \in O(1,3)$，$b_2\in \hat{T}(4)$。
 那么连续两次庞氏变换可以表示为：
-\begin{equation}\label{chlg:eqn_ptp}
+\begin{equation}
     (b_1, \Lambda_1)(b_2, \Lambda_2)
     =\bigl(b_1 \Psi_{\Lambda_1}( b_2),\ \Lambda_1 \Lambda_2 \bigr)
     =(b_1 + \Lambda_1 b_2 ,\ \Lambda_1 \Lambda_2) .
 \end{equation}
 这与上面用矩阵表示的连续两次庞氏变换\eqref{chlg:eqn_tmpptp}完全相同。
 
-仿照命题\ref{chlg:thm_E2-decomposition}可以证明：Poincar\'{e}群可以分解成
-\begin{equation}\label{chlg:eqn_PL-decomposition}
+由仿射变换$x\mapsto a+\Lambda x$可直接分解Poincar\'{e}群元素：
+\begin{equation}
     \mathcal{P}(a,\Lambda)= \hat{T}(4)_{a} \Lambda .
 \end{equation}
 其中$\hat{T}(4)_{a}$是四维平移，$\Lambda$是一般Lorentz变换。
-
+变换在原点的值唯一确定$a$，其微分唯一确定$\Lambda$，故该分解唯一。
 
 \begin{example}\label{chlg:exm_Rmnu}
     仿照欧氏群和庞氏群的分析过程，可以看出平直流形$\mathbb{R}^m_\nu$的
@@ -4503,8 +4273,7 @@ $\Psi_{\Lambda_1}( b_2)=\Lambda_1 b_2 = \hat{T}(4)_{\Lambda_1 b_2}$，
     故$\dim \bigl(I(\mathbb{R}^m_\nu)\bigr)= m(m+1)/2 $。    \qed
 \end{example}
 
-
-\subsubsection{Poincar\'{e}代数I}\label{chlg:sec_PA-1}
+\subsubsection{Poincar\'{e}代数I}
 Poincar\'{e}代数包括四个平移（\eqref{chlg:eqn_Texp}）和
 六个Lorentz变换（\eqref{chlg:eqn_LA-so13-JK-diff}）。
 \begin{subequations}\label{chlg:eqn_PA-gen}
@@ -4555,7 +4324,7 @@ Poincar\'{e}代数基矢量除了微分形式外，还有取其同构的矩阵�
         0&\i & 0 & 0 &0\\
         0&0 & 0 & 0&0\\
         0&0&0&0&0
-    \end{smallmatrix}\right) . \label{chlg:eqn_PA-iso13-JK} \\
+    \end{smallmatrix}\right) .  \\
     K_1=&  \left(\begin{smallmatrix}
         0  &- \i &0 & 0 & 0 \\
         -\i & 0  & 0 & 0&0 \\
@@ -4615,8 +4384,7 @@ Poincar\'{e}代数基矢量除了微分形式外，还有取其同构的矩阵�
 $\exp(-\i \alpha J_1 )$、$\exp(-\i \theta K_1 )$等等，
 它们是式\eqref{chlg:eqn_xP5m}、绕$x$轴转动和沿$x$轴的伪转动，等等。
 
-
-\subsection{Galilei群}\label{chlg:sec_Galilei-group}
+\subsection{Galilei群}
 考虑$GL(5, \mathbb{R})$的一个闭子群$G$，它作用在$\mathbb{R}^5$上齐次坐标的具体表达为
 \begin{equation}\label{chlg:eqn_Galilei-max}
 \begin{aligned}
@@ -4661,12 +4429,14 @@ Poincar\'{e}代数\eqref{chlg:eqn_PA-iso13-comm-PJK}变为
 当光速$c\to \infty$时，上式便是Galilei代数。
 上式中，所有算符都应标记上标“$G$”；但对易关系发生变化的只有两个。
 
-在 Lie 群、 Lie 代数理论中，群收缩（ Lie 代数收缩）是一个较为小众的课题，
-文献\parencite{Gilmore-1974}第十章对此作了非常全面的总结。
+一般地，取可逆线性映射$S_\varepsilon$，定义
+$[X,Y]_\varepsilon=S_\varepsilon^{-1}[S_\varepsilon X,S_\varepsilon Y]$。
+若$\varepsilon\to0$时结构常数有有限极限，该极限仍满足反对称性和Jacobi恒等式，
+因为这些条件是结构常数的多项式等式；但极限代数未必与原代数同构。
+这就是 Lie 代数收缩。上面的$c\to\infty$使两个含$c^{-2}$的对易项消失，
+从而将相对论的运动对称性化为Galilei对称性。
 
-运动的群论描述另见\parencite{McRae-2007}。
-
-\subsubsection{保Galilei变换不变的退型}\label{chlg:sec_Galilei-metric}
+\subsubsection{保Galilei变换不变的退型}
 
 我们仿照\S\ref{chlg:sec_isometry}开头的计算方式来寻找保Galilei变换不变的度规是什么。
 忽略平移，将式\eqref{chlg:eqn_Galilei-max}改成$4\times 4$的矩阵
@@ -4739,7 +4509,6 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 \end{array}\right) .
 \end{align}
 
-
 \section{紧致 Lie 群的不变积分}\label{chlg:sec_Integral}
 
 设 Lie 群$G$维数是$m$；$\omega_1,\cdots,\omega_m$是它的MC 形式的基矢，
@@ -4751,8 +4520,11 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 上式中的$\omega_1 \wedge\cdots\wedge\omega_m$称为 Lie 群$G$的左不变体积元；
 进而如果在任意右移动$R_x$作用下$\omega_1 \wedge\cdots\wedge\omega_m$也是不变的，
 那么称之为 Lie 群$G$的\textbf{双不变体积元}。
-可以证明紧致连通 Lie 群上必存在双不变体积元（见\parencite[p. 288]{xuyc-2001}定理4.1.4）。
-
+紧致连通 Lie 群上的左不变体积元自动双不变。
+事实上，右移动与左移动交换，所以$R_g^*\Omega=c(g)\Omega$。
+连通性给出$c(g)>0$，且$c:G\to\mathbb R_{>0}$是连续乘法同态。
+紧致群的像紧致，而$\mathbb R_{>0}$的唯一紧致子群是$\{1\}$，故$c(g)=1$。
+对于不连通的紧致群，改用正密度，完全相同的论证仍成立。
 
 有了双不变体积元概念，可仿照\S\ref{chdf:sec_integral-on-manifold}中
 式\eqref{chdf:eqn_def-integral-omega-partition}引入
@@ -4766,28 +4538,27 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
  Lie 群既是流形又是群，有时也将 Lie 群$G$上不变积分改用群元形式表示，即上式中最后一个等号的形式，
 其中$\d g$表示体积元。
 
-
 若双不变体积元$\Omega=\lambda \cdot \omega_1 \wedge\cdots\wedge\omega_m,\
 (0\neq\lambda\in \mathbb{R})$积分满足$\int_{G}\Omega {=} 1$，
-%（只需取$\lambda^{-1}= \int_{G} \omega_1 \wedge\cdots\wedge\omega_m$即可），
-则称此双不变体积元$\Omega$是连通紧致 Lie 群$G$的\textbf{Harr测度}。
-以后谈及紧致 Lie 群上的积分时都是在Harr测度上讨论，并将其简记为$\Omega$。
-如果 Lie 群是非紧致的，那么情况要糟糕一些；非紧群的左不变体积元可能不等于
-右不变体积元（见\parencite[\S 6.1]{Miller-1973}），此时不好定义Harr测度。
-可以证明（见\parencite[p.289]{xuyc-2001}定理4.1.6）
-$m$维连通紧致 Lie 群$G$上积分具有如下性质：
+则称此双不变体积元$\Omega$是连通紧致 Lie 群$G$的\textbf{Haar测度}。
+以后谈及紧致 Lie 群上的积分时都是在Haar测度上讨论，并将其简记为$\Omega$。
+非紧 Lie 群同样有左Haar测度：取任一左不变正密度并积分即可，
+但总测度不能归一化为$1$，且左、右Haar测度未必相同。
+例如仿射群$(a,b)(a',b')=(aa',b+ab')$（$a>0$）的
+左、右不变密度分别为$\d a\,\d b/a^2$和$\d a\,\d b/a$；
+直接计算左右平移的Jacobi行列式即可验证。
+$m$维连通紧致 Lie 群$G$上的归一化积分具有如下性质：
 
 \begin{align}
     \int_{G} (f+\lambda h) \Omega =& \int_{G} f \Omega +\lambda \int_{G}  h \Omega,
     \qquad \forall \lambda\in \mathbb{R},\  \forall f,h\in C^0(G). \\
     \int_{G} f(g' g) \Omega(g)=& \int_{G} f(g g') \Omega(g)
     = \int_{G} f(g^{-1}) \Omega(g) = \int_{G} f(g) \Omega(g) .
-    \label{chlg:eqn_Int-fLRI}
 \end{align}
-第一式表明积分是线性的，证明很容易。
-式\eqref{chlg:eqn_Int-fLRI}中$g'\in G$是任意但固定的，证明有些麻烦；
-由此式可以看到不变积分中的“不变”的含义。
-
+第一式由积分的线性性得到。第二式的前两个等号分别作变量替换$h=g'g$和$h=gg'$，
+使用左右不变性即可。取逆映射把左不变密度变为右不变密度，并保持总积分为$1$；
+二者在紧致群上均为同一归一化不变密度，故$h=g^{-1}$也不改变积分。
+这里的积分按正密度理解，取逆可能改变定向不会引入负号。
 
 下面给出几个具体的例子。
 \begin{example}
@@ -4807,8 +4578,7 @@ $m$维连通紧致 Lie 群$G$上积分具有如下性质：
     容易验证：双不变性；若$f\equiv 1$则积分为$1$；线性性。\qed
 \end{example}
 
-
-\begin{theorem}\label{chlg:thm_Weyl}
+\begin{theorem}
     （Weyl定理）设有一般线性群$GL(m,V)$，$G$是$GL(m,V)$中连通、紧致 Lie 子群。
     那么在线性空间$V$上存在$G$-\textbf{不变标量积}$(x,y)$，即
     \begin{equation}\label{chlg:eqn_invariant-sp}
@@ -4838,7 +4608,6 @@ $m$维连通紧致 Lie 群$G$上积分具有如下性质：
     因此，由式\eqref{chlg:eqn_Weyl-sp}定义标量积是$G$-不变标量积。
 \end{proof}
 
-
 \begin{theorem}\label{chlg:thm_U}
     设有$m$维复线性空间$V$，且度规选为酉内积\ref{chcx:def_unitary-space}；
     以及其上的复一般线性群$GL(V)$，$G$是$GL(V)$中连通、紧致 Lie 子群。
@@ -4863,17 +4632,14 @@ $m$维连通紧致 Lie 群$G$上积分具有如下性质：
 定理\ref{chlg:thm_U}说明：存在基矢变换，令紧致、线性 Lie 群的任意表示等价于幺正表示。
 故对紧致 Lie 群，我们可以只讨论幺正表示，而不会失去一般性。
 
-
-\section{黎曼群}\label{chlg:sec_bi-invariant-metric}
-本节内容参考了\parencite{oneill1983}第11章双不变度规小节，以及\parencite{Alexandrino-2015}第二章。
+\section{黎曼群}
+本节由单位元处的双线性型构造不变度规，并计算相应的联络和曲率。
 
  Lie 群$G$既是群又是微分流形，作为微分流形，我们可以给其指定广义黎曼度规场$g$，
 即$g$的特征值可正可负。对于$G$上的任意两个切矢量场$X,Y$，
 将度规作用记为$g(X,Y)$，也写作$\langle X,Y\rangle$，以免与下文的群元$g$混淆。
 选定局部标架$\{e_i\}$后，$g_{ij}:=g(e_i,e_j)$，从而
 $g=g_{ij}e^i\otimes e^j$，$g(X,Y)=g_{ij}X^iY^j$。
-
-%下面我们开始定义双不变黎曼度规场。
 
 \begin{definition}
     设$m$维 Lie 群$G$上有（广义）黎曼度规场$\left<\cdot,\cdot \right>$。
@@ -4890,14 +4656,20 @@ $g=g_{ij}e^i\otimes e^j$，$g(X,Y)=g_{ij}X^iY^j$。
 \end{definition}
 容易看出，双不变黎曼度规本意是指：左右移动是等距同胚。
 
-
-可以证明紧致 Lie 群上一定存在双不变黎曼度规场（ 见\parencite[\S 2.2]{Alexandrino-2015}命题2.24）。
+紧致 Lie 群上总存在双不变黎曼度规。
+取$\mathfrak g$上的任意正定内积$h$及归一化Haar测度$\d g$，令
+\[
+    \langle X,Y\rangle_e=\int_G h(\operatorname{Ad}_gX,\operatorname{Ad}_gY)\,\d g .
+\]
+被积二次型对非零$X$严格为正，故平均仍正定。
+作变量替换$g\mapsto ga$可知它是$\operatorname{Ad}(G)$不变的。
+将此内积左平移到各切空间，所得度规因伴随不变性同时右不变。
 
 Lie 群$G$上的左不变度规场由$G$的 Lie 代数$\mathfrak{g}$上的非退化对称双线性形式唯一确定，
 或者切空间$T_e G$上的标量积；读者应能记起 Lie 代数$\mathfrak{g}$中
 的元素同构于单位元$e$处切空间$T_e G$中的元素。
 若$\left<\cdot,\cdot \right>_e$是$T_e G$上的标量积，那么
-\begin{equation}\label{chlg:eqn_left-invariant-metric}
+\begin{equation}
     \left<X,Y\right>_a :=
     \left<L_{a^{-1}*} X,\, L_{a^{-1}*} Y \right>_e,
     \quad \forall X,Y \in T_a G.
@@ -4908,10 +4680,7 @@ Lie 群$G$上的左不变度规场由$G$的 Lie 代数$\mathfrak{g}$上的非退
 \subsection{左不变}
 本小节假定 Lie 群$G$上有左不变度规场，
 且 Lie 群上的左不变仿射联络（见\S\ref{chlg:sec_lic}）是无挠、与度规相容的；
-以下公式参考\parencite{Milnor-1976}，可用于 Bianchi 宇宙模型的曲率计算。
-
-%\cite{Cacciatori-Kamenshchik-2018}
-
+以下由结构常数计算联络和曲率的公式可用于 Bianchi 宇宙模型。
 
 设有 Lie 群$G$上的左不变切标架$\{e_1,\cdots,e_m\}$，
 $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左不变的。
@@ -4923,15 +4692,8 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
 令$X=e_i$、$Y=e_j$、$Z=e_k$，
 由式\eqref{chlg:eqn_Koszul-lv}得（注$g_{kl}=\left<e_{k}, e_{l} \right>$为常数方阵）
 \begin{align}
-%	&2 \left<\nabla_{\boldsymbol{e}_i}\boldsymbol{e}_j , \boldsymbol{e}_k\right> =
-%	\left<\boldsymbol{e}_j, [\boldsymbol{e}_k,\boldsymbol{e}_i]\right>
-%  + \left<\boldsymbol{e}_k, [\boldsymbol{e}_i,\boldsymbol{e}_j]\right>
-%  - \left<\boldsymbol{e}_i, [\boldsymbol{e}_j,\boldsymbol{e}_k]\right> \quad \Rightarrow \notag \\
-%  &2 \left<\Gamma_{ji}^l \boldsymbol{e}_l, \boldsymbol{e}_k\right> =
-%  \left<\boldsymbol{e}_j, C_{ki}^l \boldsymbol{e}_l \right>
-%  + \left<\boldsymbol{e}_k, C_{ij}^l \boldsymbol{e}_l \right>
-%  - \left<\boldsymbol{e}_i, C_{jk}^l \boldsymbol{e}_l\right> \quad \Rightarrow \notag \\
-%  &2 g_{lk}\Gamma_{ji}^l =   C_{ki}^l g_{jl}  + C_{ij}^l g_{kl}  - C_{jk}^l g_{il} \quad \Rightarrow \notag \\
+  &2g_{kl}\Gamma^l_{ij}
+    =C^l_{ki}g_{jl}+C^l_{ij}g_{kl}-C^l_{jk}g_{il},\notag\\
   &\Gamma^n_{i j}  = \frac{1}{2} \left(C_{ij}^n + C_{ki}^l g_{jl}g^{nk} + C_{kj}^l g_{il}g^{nk}\right) .
   \label{chrg:eqn_Gamma-g-C}
 \end{align}
@@ -4943,56 +4705,24 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
 	\notag \\
 	\xlongequal[\text{为常数}]{\Gamma^k_{j i}}&
 	\Gamma^l_{j k}\Gamma^n_{i l} - \Gamma^l_{i k}\Gamma^n_{j l}	- C_{ij}^l \Gamma^n_{l k}.
-	\label{chrg:eqn_R-G-C}
 \end{align}
 这些曲率分量在左不变标架下为常数，但不一定满足常截面曲率空间的代数形式，故左不变度规未必具有常截面曲率。
 
-
-%%%%需保留如下推导，不要删除%%%%%%
-%下面，我们给出 Lie 群上的黎曼曲率（请读者比对此处与\S\ref{chrg:sec_RCrf}中的知识）。
-%我们自然选择 Lie 代数$\mathscr{G}$的左不变切标架场$\{\boldsymbol{e}_i\}$来计算。
-%借用一个很重要的公式
-%\begin{align}
-%	\bigl[\boldsymbol{e}_i, \boldsymbol{e}_j\bigr]
-%	= \bigl(\Gamma^{k}_{ji} - \Gamma^{k}_{ij}\bigr) \boldsymbol{e}_k
-%	= \bigl(-\omega_{jki} + \omega_{ikj}\bigr) \boldsymbol{e}^k .
-%	\tag{\ref{chrg:eqn_EmuEnucommutator}}
-%\end{align}
-%式\eqref{chrg:eqn_EmuEnucommutator}第一个等号适用于一般标架，
-%第二个等号只适用于刚性标架（定义见\ref{chrg:def_rigid-frame}）。
-% Lie 代数基矢有如下对易关系$\bigl[\boldsymbol{e}_i, \boldsymbol{e}_j\bigr]=C_{ij}^k \boldsymbol{e}_k$。
-%我们使用对偶矢量场$\boldsymbol{e}^{*l}$缩并掉上式中的基矢，有
-%\begin{equation}\label{chlg:eqn_CG}
-%	C_{ij}^l
-%	= \Gamma^{l}_{ji} - \Gamma^{l}_{ij}
-%	= \bigl(\omega_{ikj}-\omega_{jki}\bigr) g^{kl} ;
-%	\qquad g^{kl}=\left<\boldsymbol{e}^{k}, \boldsymbol{e}^{*l} \right>
-%\end{equation}
-%度规与联络相容是指$\nabla g =0$，故有
-%\begin{align*}
-%	\partial_i g_{jk} = \Gamma_{ji}^l g_{lk} + \Gamma_{ki}^l g_{jl} , \quad
-%	\partial_j g_{ki} = \Gamma_{kj}^l g_{li} + \Gamma_{ij}^l g_{kl}, \quad
-%	-\partial_k g_{ij} = -\Gamma_{ik}^l g_{lj} - \Gamma_{jk}^l g_{il}  .
-%\end{align*}
-%需注意：一般标架场上$\Gamma^{k}_{ji} \neq \Gamma^{k}_{ij}$。
-%上三式相加，再结合式\eqref{chlg:eqn_CG}，有
-%\begin{align*}
-%	\partial_i g_{jk}+\partial_j g_{ki}-\partial_k g_{ij}
-%	=& (\Gamma_{ji}^l + \Gamma_{ij}^l) g_{kl}
-%	+ (\Gamma_{ki}^l - \Gamma_{ik}^l) g_{lj}
-%	+ (\Gamma_{kj}^l - \Gamma_{jk}^l) g_{il} \\
-%	=& (C_{ij}^l + 2\Gamma_{ij}^l) g_{kl}
-%	+ C_{ik}^l g_{lj} + C_{jk}^l g_{il} .
-%\end{align*}
-%由此得到
-%\begin{equation}\label{chrg:eqn_Gamma-g-C}
-%	\Gamma_{ij}^n  = \frac{1}{2}g^{nk}(g_{jk,i}+g_{ki,j}-g_{ij,k})
-%	+ \frac{1}{2} \left(C_{ji}^n + C_{ki}^l g_{lj}g^{nk} + C_{kj}^l g_{il}g^{nk}\right) .
-%\end{equation}
-%虽然 Lie 代数$\mathscr{G}$的基矢场是一般标架场，但它可能不是刚性的（定义见\ref{chrg:def_rigid-frame}），
-%故$\partial_i g_{jk}= g_{jk,i}$可能不是零。
-%这点有区别于\S\ref{chrg:sec_RCrf}中公式。
-
+同一计算也适用于一般标架。记$[e_i,e_j]=C^k_{ij}e_k$，
+由无挠性和度规相容性分别得到
+\begin{equation}
+ C^k_{ij}=\Gamma^k_{ij}-\Gamma^k_{ji},\qquad
+ e_i(g_{jk})=\Gamma^l_{ij}g_{lk}+\Gamma^l_{ik}g_{jl}.
+\end{equation}
+将度规相容式对$(i,j,k)$作循环置换，前两式相加再减去第三式，
+并用无挠关系消去交换下标的联络系数，便得
+\[
+ \Gamma^n_{ij}=\frac12g^{nk}\left(
+ e_i(g_{jk})+e_j(g_{ik})-e_k(g_{ij})
+ +C^l_{ij}g_{lk}+C^l_{ki}g_{jl}+C^l_{kj}g_{il}\right).
+\]
+左不变度规在左不变标架下满足$e_i(g_{jk})=0$，即化为式\eqref{chrg:eqn_Gamma-g-C}；
+这里不要求该标架正交归一。
 
 \subsection{双不变}
 
@@ -5042,8 +4772,6 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     因$g\in G$的任意性，
     由上式可说明度规场$\left<\cdot,\cdot\right>$也是右不变的；故是双不变的。
 
-
-
     \noindent {$(1)\Leftrightarrow (3)$。}先证“(1)$\Rightarrow$(3)”。
     因$I^e(g)=g^{-1}$；    对于任意单参数子群$\alpha(t)$，
     $I^e\bigl(\alpha(t)\bigr) = \bigl(\alpha(t)\bigr)^{-1}=\alpha(-t)$；
@@ -5059,7 +4787,6 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     容易看出$R_g = I^g\circ L_{g^{-1}}\circ I^g$，因左移动和$I^g$都是等距，
     故右移动也是等距的；因此可知度规场是双不变的。
 
-
     \noindent {$(2)\Leftrightarrow (4)$。}
     先证“(2)$\Rightarrow$(4)”。$\forall X,Y,Z\in \mathfrak{g}$有
     $\left<\operatorname{Ad}_{\exp(tX)}Y,\operatorname{Ad}_{\exp(tX)}Z\right>=\left<Y,Z\right>$；
@@ -5069,7 +4796,11 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     =\left<[X,Y],Z\right> + \left<Y,[X,Z]\right> $ 。
     将上式中$X\leftrightarrow Y$对换可得(4)。
 
-    再证“(4)$\Rightarrow$(2)”。    略麻烦，可参见\parencite{oneill1983}第11章引理3。
+    再证“(4)$\Rightarrow$(2)”。令
+    $F(t)=\langle\operatorname{Ad}_{\exp(tX)}Y,\operatorname{Ad}_{\exp(tX)}Z\rangle$。
+    对$t$求导，利用$\frac{\d}{\d t}\operatorname{Ad}_{\exp(tX)}=\operatorname{ad}_X\operatorname{Ad}_{\exp(tX)}$
+    及(4)，得$F'(t)=0$。所以内积在每个$\operatorname{Ad}_{\exp(tX)}$下不变。
+    连通 Lie 群由单位元的指数邻域生成，故它在所有$\operatorname{Ad}_g$下不变。
 
     \noindent {$(4)\Leftrightarrow (5)$。}
     若(4)成立，将(4)中的$Y$、$Z$互换得$\left<X,[Z,Y]\right>=\left<[X,Z],Y\right>$；
@@ -5081,7 +4812,6 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
         =- 2 \left<\nabla_Y X, Z \right>
         =- \left< [Y,X], Z \right> = \left< [X,Y], Z \right> .
     \end{align*}
-
 
     \noindent {$(5)\Leftrightarrow (6)$。}
     $(5)\Rightarrow (6)$是显然的，现证明$(6)\Rightarrow (5)$。
@@ -5112,7 +4842,7 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     的指数映射（见\S\ref{chgd:sec_exp}）完全相同。
 \end{corollary}
 
-\begin{theorem}\label{chlg:thm_riemann-section-curvature}
+\begin{theorem}
     设有广义黎曼群$G$，其 Lie 代数是$\mathfrak{g}$；其黎曼曲率及截面曲率是：
 
     (1) $R(X,Y)Z=-\frac{1}{4}\bigl[[X,Y],Z\bigr]$；$ \forall X,Y,Z\in \mathfrak{g}$。
@@ -5144,19 +4874,13 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     这里$K (X, Y)$是一个纯数。
 \end{proof}
 
-
 \section{Lie 变换群}\label{chlg:sec_Lie-transformation-group}
 
 S. Lie最早研究的连续群就是今天称为 Lie 变换群（Lie transformation group）的内容。在物理和几何中，
 空间或对象的对称性表明它们容许有一定的群的作用。
-%本节介绍 Lie 变换群的概念。
-本节主要参考了\parencite[\S 6.5]{chenwh2001}和\parencite[\S 9.3]{marsden-1999-IMS}。
+本节讨论群作用的轨道、基本矢量场及其对易关系。
 
-%\parencite[\S 2.3]{helgason-2001}
-
-%\subsection{基本定义}
-
-\begin{definition}\label{chlg:def_Lie-Trans-R}
+\begin{definition}
     设有$m$维光滑流形$M$，$r$维$G$ Lie 群。若$\theta:M\times G \to M$是光滑映射，记为
     \begin{equation*}
         \theta(x,g)=x\cdot g,\quad \forall(x,g)\in M\times G,
@@ -5210,7 +4934,6 @@ $\{L_g=\sigma(g,\cdot),\ \forall g \in G\}$是 $\mathrm{Diff}(M)$的一个子群
 式\eqref{chlg:eqn_tmplrg}表明：对应 $g \to L_{g}$给出了从群$G$到$\mathrm{Diff}(M)$的一个同态。
 同理，$R_g \in \mathrm{Diff}(M)$，并且 $g \to R_{\mathrm{g}}$也是从群$G$到$\mathrm{Diff}(M)$ 的同态。
 
-
  Lie 群 $G$ 在 $M$ 上的左作用和右作用是可以互相转换的。实际上，若有 Lie 群 $G$ 在 $M$
 上的右作用 $\theta: M \times G \to M$，定义映射 $\sigma: G \times M \to M$ 如下:
 \begin{equation}
@@ -5225,7 +4948,6 @@ $\{L_g=\sigma(g,\cdot),\ \forall g \in G\}$是 $\mathrm{Diff}(M)$的一个子群
 \end{align*}
 且$\sigma(e, x)=\theta(x, e)=x$。
 故 $\sigma: G \times M \rightarrow M$ 是 Lie 群 $G$ 在流形 $M$ 上的左作用。
-
 
 \begin{example}
     单参数可微变换群。对照\S\ref{chdm:sec_One-Parameter-Transformations-Groups}中的定义\ref{chdm:def_1PTG-local}，
@@ -5244,7 +4966,6 @@ $\{L_g=\sigma(g,\cdot),\ \forall g \in G\}$是 $\mathrm{Diff}(M)$的一个子群
 \end{equation}
 无论按哪一种看法， $G$都是作用在$G$上的 Lie 变换群。
 \qed
-
 
 \begin{example}\label{chlg:exm_GLonV}
     $ GL(m)$ 是左作用在$m$维矢量空间$V$上的 Lie 变换群。
@@ -5295,7 +5016,6 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
 所以$GL(m)$是右作用在$\mathscr{B}$上的 Lie 变换群。
 \qed
 
-
 \begin{definition}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群。若对$G$中任意一个非单位元素$g$，都有$M$中一点$x$，
     使得$g \cdot x \neq x$，则称 $G$ 在 $M$ 上的作用是\textbf{有效的}（effective）。
@@ -5303,30 +5023,25 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
 
 即，若$G$在$M$上的作用是有效的，则$\forall g \neq e, L_{g}: M \rightarrow M$不是恒同映射。
 
-
 \begin{definition}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群。若对$G$中任意一个非单位元素$g$，
     微分同胚$L_g: M \rightarrow M$都没有不动点，即$\forall x \in M$都有$L_g(x)=g \cdot x \neq x$；
     则称$G$在$M$上的作用是\textbf{自由的}（free）。
 \end{definition}
 
-
  Lie 群$G$在光滑流形$M$上的自由作用必定是有效的。
-
 
 \begin{definition}
     设$G$是左作用在流形$M$上的 Lie 变换群，若$\forall x, y \in M$，
     必存在一个元素$g \in G$使得$y=g \cdot x$；则称$G$在$M$上的作用是\textbf{可迁的}（transitive）。
 \end{definition}
 
-
 \begin{definition}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群，则$x \in M$点的\textbf{轨道}（orbit）定义
     为：$\mathcal{O}(x) := \{ g\cdot x \ | \  g\in G \}$。
 \end{definition}
 
-
-\begin{definition}\label{chlg:def_isotropy}
+\begin{definition}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群，则$x \in M$点的\textbf{迷向子群}
     （isotropy，也译成{各向同性}）定义
     为：$G_x := \{ g\in G \ | \  g\cdot x = x \}$。
@@ -5347,7 +5062,6 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     由于这个左作用有一个不动点$0\in \mathbb{R}^3$，故它不是自由的。 \qed
 \end{example}
 
-
 设$G$是左作用在光滑流形$M$上的 Lie 变换群。
 取$X \in T_e G$，用$\exp(tX)$记由$X$在$G$中产生的单参数子群，
 于是$L_{\exp(tX)}: M \rightarrow M$给出左作用在$M$上的单参数可微变换群，
@@ -5358,8 +5072,6 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     =\lim _{t \rightarrow 0} \frac{f\bigl(\exp(tX)\cdot p\bigr)-f(p)}{t} .
 \end{equation}
 
-%    （参见定理\ref{chlg:thm_oglsv}中关于“左右”的对偶叙述）
-
 \begin{definition}\label{chlg:def_left-basicV}
     设$G$是左作用在流形$M$上的 Lie 变换群。
     $\forall X \in T_e G$，由左作用在$M$上的单参数可微变换群$L_{\exp (t  X)}$诱导的切矢量场
@@ -5368,8 +5080,7 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     （或\textbf{无穷小左变换}）。
 \end{definition}
 
-
-\begin{example}\label{chlg:exm_ltmpa}
+\begin{example}
     若把 Lie 群$G$看作左作用在它自身的 Lie 变换群，
     则由$X \in T_e G$在$G$上决定的基本矢量场恰好就是$X$在
      Lie 群$G$上生成的右不变矢量场。实际上，有
@@ -5380,21 +5091,12 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     $\widetilde{X}$是$R_{g}$不变的，即 $\widetilde{X}$是$G$的右不变矢量场。 \qed
 \end{example}
 
-%\subsection{数个定理}
-
 \begin{theorem}\label{chlg:thm_liegaeb}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群，则$M$上全体左基本矢量场构成一个 Lie 代数；
     它是 Lie 群$G$的 Lie 代数$\mathscr{G}= T_e G$的{反}同态像。
     若 Lie 群$G$在$M$上的作用是有效的，则$M$上左基本矢量场的 Lie 代数{反}同构于
      Lie 群$G$的左不变切矢量场构成的 Lie 代数。
 \end{theorem}
-%\begin{proof}
-%    请参阅\parencite[\S 6.2]{cc2001-zh}定理2.5。
-%\end{proof}
-
-%上述定理有对偶表述（可参见\parencite[\S 6.2]{cc2001-zh}定理2.5）：
-%如果$G$是左作用在光滑流形$M$上的 Lie 变换群，则同样可定义$M$上的左基本矢量场，
-%此时$M$上的左基本矢量场的集合也成为一个 Lie 代数，它是$G$上的右不变切矢量场构成的 Lie 代数的同态像。
 
 \begin{proof}
     已知：流形$M$上光滑切矢量场的集合$\mathfrak{X}(M)$关于Lie 括号
@@ -5436,7 +5138,6 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     因此 $\alpha: T_e G \rightarrow \mathfrak{X}(M)$ 是线性的。
     这同时验证了映射的线性性。
 
-
     为了证明映射 $\alpha: T_e G \rightarrow \mathfrak{X}(M)$保持Lie 括号积，
     把$G$的 Lie 代数$\mathscr{G}_r\cong T_e G$重新看成 Lie 群$G$上右不变矢量场所组成的空间。
     设$X$是 Lie 群$G$上的右不变矢量场，
@@ -5477,32 +5178,7 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     即$M$上基本矢量场的 Lie 代数与 Lie 群$G$的 Lie 代数反同构。
 \end{proof}
 
-%\begin{remark}\label{chlg:rek_pmtt}
-%    定义\ref{chlg:def_left-basicV}是从右作用 Lie 变换群出发，
-%    我们的 Lie 群 Lie 代数对易关系是用左不变矢量场来定义的，见定理\ref{chlg:thm_lfvls}；
-%    这使得定理\ref{chlg:thm_liegaeb}中的对易关系是同态的。
-%    有的文献，在与定理\ref{chlg:thm_liegaeb}类似的定理中得到的是反同态的，即差一负号；
-%    比如文献\parencite{marsden-1999-IMS}中定理9.3.6就是。
-%    原因是他们\cite{marsden-1999-IMS}的定义9.3.3是
-%    从左作用 Lie 变换群出发的，且该书的 Lie 群 Lie 代数对易关系是
-%    用左不变矢量场来定义的；这便出现反同态。
-%    请读者对比文献\textcite{marsden-1999-IMS}和\textcite[\S 6.2]{cc2001-zh}，
-%    陈省身书也是从左作用 Lie 变换群出发的；但陈书的 Lie 群 Lie 代数对易关系是
-%    用右不变矢量场来定义的（见该书\S 6.1），故陈省身书
-%    定理6.2.5得到的是同态，不是反同态。
-%
-%     下面略微解释一下这个负号的来源。我们已知定理\ref{chlg:thm_liegaeb}中的对易关系是同态的。
-%     如果定义\ref{chlg:def_left-basicV}是从\textbf{左作用} Lie 变换群出发的，
-%     那么必然会诱导出 Lie 群的右不变切矢量场；
-%     而 Lie 群 Lie 代数对易关系仍是由左不变切矢量场来定义（如见\parencite{marsden-1999-IMS}的
-%     定义9.1.2、定义9.3.3和定理9.3.6），
-%     则同态关系$\alpha: T_{e} G \rightarrow \mathfrak{X}(M)$在$T_e G$中诱导出
-%     的对易关系自然是$[\cdot,\cdot]_{r}$；根据式 \eqref{chlg:eqn_LR-XY}可知此处有一个负号；
-%     故\textcite{marsden-1999-IMS}定理9.3.6中的对易关系将出现一个负号。 \qed
-%\end{remark}
-
-
-\begin{theorem}\label{chlg:thm_Liefga}
+\begin{theorem}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群。如果 Lie 群$G$在$M$上的作用是自由的，
     则任意一个非零切矢量 $X \in T_e G$在$M$上所诱导的左基本矢量场$\widetilde{X}$处处不为零，
     因而在$M$上存在$r(=\dim  G)$个处处线性无关的左基本向量场，
@@ -5539,10 +5215,9 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     则$\widetilde{X}_i (1 \leqslant i \leqslant r)$必定是处处线性无关的。
 \end{proof}
 
-
-\begin{theorem}\label{chlg:thm_subclosed}
+\begin{theorem}
     设$G$是左作用在光滑流形$M$上的 Lie 变换群，令
-    \begin{equation}\label{chlg:eqn_clinvsub}
+    \begin{equation}
         K=\bigcap_{x\in M} K_x=\{k \in G \ |\ k \cdot x=x,\ \forall x \in M\}.
     \end{equation}
     则$K$是$G$的闭正规子群，称为左作用$G$的\textbf{核}（kernel）。
@@ -5555,59 +5230,27 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
     \end{equation}
     所以 $g \cdot h \cdot g^{-1} \in K$， 即 $K$ 是 $G$ 的正规子群。
 
-    下面证明$K$是$G$的闭子集。 若$g \in G / K$，则存在点$x \in M$使得$g\cdot x \neq x$。
+    下面证明$K$是$G$的闭子集。 若$g \in G\setminus K$，则存在点$x \in M$使得$g\cdot x \neq x$。
     由于$M$是Hausdorff空间，且$G$在$M$上的作用是光滑的；故有$g$在$G$中的开邻域$U$以及$x$在$M$中的开邻域$V$，
     使得$(U \cdot V) \cap V=\varnothing$，
     其中$U \cdot V=\{h \cdot y \ |\ h \in U, y \in V\}$。
     这意味着，$\forall h \in U$及$\forall y \in V\subset M$，
-    有$h \cdot y \neq y$，故$h \in G / K$。
-    因此$U \subset G / K$，故$G / K$是开子集，$K$是$G$的闭子集。
+    有$h \cdot y \neq y$，故$h \in G\setminus K$。
+    因此$U \subset G\setminus K$，故$G\setminus K$是开子集，$K$是$G$的闭子集。
 \end{proof}
 
-%进一步还可以证明$K$是$G$的闭 Lie 子群，并且$G / K$是一个 Lie 群，称为 Lie 群$G$关于闭正规子群$K$的商群。
+\begin{theorem}
+设$G$光滑作用于$M$，作用的核为$K$。则商 Lie 群$G/K$在$M$上有自然的有效作用。
+\end{theorem}
+\begin{proof}
+由上一定理及闭子群定理，$K$是闭正规 Lie 子群，故$G/K$具有商 Lie 群结构。
+定义$[g]\cdot x=g\cdot x$；因$K$的每个元素固定所有点，此定义与代表元无关。
+商映射$\pi:G\to G/K$是满浸没，故在每点附近有光滑局部截面$s:U\to G$。
+在$U\times M$上，商群作用写成$([g],x)\mapsto s([g])\cdot x$，因而光滑。
+单位元和乘法的作用律由$G$继承；若$[g]$固定所有点，则$g\in K$，即$[g]=[e]$，所以作用有效。
+\end{proof}
 
-%用商群$G / K$代替 Lie 群$G$，总是可以把非有效作用的 Lie 变换群化为有效作用的 Lie 变换群。
-%我们有下面的定理：
-
-%\begin{theorem}\label{chlg:thm_Liefes}
-%    设$G$是左作用在光滑流形$M$上的 Lie 变换群。若$G$在$M$上的作用不是有效的，
-%    即式\eqref{chlg:eqn_clinvsub}所定义的$K \neq\{e\}$；
-%    则有商 Lie 群$G / K$在光滑流形$M$上的左作用，使得该作用是有效的。
-%\end{theorem}
-%\begin{proof}
-%   前面已知$G / K$是 Lie 群。对于$g \in G$用$[g]$记左陪集$g \cdot K$。
-%   于是有映射$\tilde{\sigma}: G / K \times M \rightarrow M$，使得
-%    \begin{equation}
-    %        \tilde{\sigma}([g], x)=\sigma(g, x)=g \cdot x .
-    %    \end{equation}
-%    很明显，此定义是有意义的，即右端与$[g]$的代表$g$的取法无关。
-%    可以证明这是$C^{\infty}$映射（较难，略）。
-%%实际上, 由 $\S 3$ 定理 3.12 的 (2), 对每一点 $[g] \in G / K$, 存在 $[g]$ 的 开邻域 $W \subset G / K$ 及光滑映射 $\tau: W \rightarrow G$, 使得 $\pi \circ \tau=\mathrm{id}: W \rightarrow W$. 这样, $\left.\tilde{\sigma}\right|_{W \times M}$ 能够表示为
-%%$$
-%%\begin{aligned}
-%%    \tilde{\sigma}(\widetilde{h}, x) & =\sigma(\tau(\widetilde{h}), x) \\
-%%    & =\tau(\widetilde{h}) \cdot x, \quad \forall(\widetilde{h}, x) \in W \times M,
-%%\end{aligned}
-%%$$
-%%所以 $\tilde{\sigma}$ 是光滑的.
-%
-%    显然，$\tilde{\sigma}([e], x)=x, \forall x \in M$。
-%    对于任意的$g, h \in G, x \in M$有
-%\begin{align*}
-%    \tilde{\sigma}([g], \tilde{\sigma}([h], x))=\tilde{\sigma}([g], h \cdot x)
-%    =  g \cdot(h \cdot x)=(g \cdot h) \cdot x
-%    =  \tilde{\sigma}([g \cdot h], x)=\tilde{\sigma}([g] \cdot[h], x) .
-%\end{align*}
-%所以$\tilde{\sigma}: G / K \times M \rightarrow M$是左作用在$M$上的 Lie 变换群。
-%$G / K$ 在 $M$上的作用显然是有效的。实际上，若设$[g] \in G / K$，
-%使得对任意的$x \in M$有$\tilde{\sigma}([g], x)=x$，
-%即$g \cdot x=x$；故 $g \in K$，即 $[g]=[e]$。
-%\end{proof}
-
-
-%本节最后叙述一下等变的概念。
-
-\begin{definition}\label{chlg:def_equivariant}
+\begin{definition}
     设$M$和$N$是光滑流形，$G$是 Lie 变换群。
     $\forall g\in G$，有$\sigma_g := \sigma(g,\cdot): M\to M$左作用在$M$上，
     同时有$\pi_g := \pi(g,\cdot):N\to N$左作用在$N$上。
@@ -5634,41 +5277,65 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
 
 记$g=\exp(t X)$，并对式\eqref{chlg:eqn_equivariant}在$t=0$处取$t$的导数，
 得到$f_* X_M = X_N \circ f$；这说明$X_M$和$X_N$是$f$-相关的。
-%特别地，若$f$是一个等变微分同胚，则$f_* X_M = X_N$。
 
-
-\section{Lie 群$I(M)$}\label{chlg:sec_IM}
+\section{Lie 群$I(M)$}
 
 已知$S^n_\nu$、$H^n_\nu$和$\mathbb{R}^n_\nu$的等距群都是{Lie 群}
 （见命题\ref{chhss:thm_ssh}和例题\ref{chlg:exm_Rmnu}）。
-其实任意广义黎曼流形$(M,g)$的等距群$I(M)$也是{Lie 群}，
-这就是Myers--Steenrod定理，定理证明是艰深的，
-可参考\parencite{oneill1983}定理9.32以及那里列出的更原始文献。
-
-%\parencite{palais-1957}第四章
+一般连通广义黎曼流形$(M,g)$的等距群$I(M)$也是 Lie 群。
+本节均假定$M$连通，等距群取紧开$C^\infty$拓扑。
 
 \begin{theorem}\label{chlg:thm_ISOM}
-    （Myers--Steenrod定理）若$(M,g)$是一个广义黎曼流形，
+    （Myers--Steenrod定理）若$(M,g)$是一个连通广义黎曼流形，
     则有唯一的途径使得$I(M)$成为微分流形，并且使它满足：
     (1) $I(M)$是 Lie 群；
     (2) 左作用$I(M)\times M\to M$是$C^\infty$的；
     (3) 若映射$\mathbb{R}\times M\to M$（具体来说$(t,p)\to \beta(t)\cdot p$）
     是$C^\infty$的，那么同态映射$\beta : \mathbb{R}\to I(M)$也是$C^\infty$的。
-%    (4) 若$M$是紧致的，则$I(M)$也是紧致的。
 \end{theorem}
+\begin{proof}[证明概要]
+固定$p\in M$。等距映射$f$保持Levi-Civita联络，因而在正规邻域中满足
+$f(\exp_pv)=\exp_{f(p)}(f_{*p}v)$。
+沿有限条测地线段反复使用此式，说明$f$由$(f(p),f_{*p})$唯一确定。
+故固定一个正交标架后，等距群可忠实地作用在正交标架丛上，并保持其典范形式和联络形式。
+这两种形式合在一起给出标架丛的绝对平行化，即在每点给出切空间到固定线性空间的同构。
 
-%我们参考\parencite{oneill1983}定理9.32、\parencite{Alexandrino-2015}定理2.12给出一个叙述；
+证明的关键是绝对平行化的自同构定理：连通流形上保持一组全局标架的自同构群
+具有有限维 Lie 群结构。其构造是用标架场的流逐次建立局部坐标；
+自同构与这些流交换，因而由一点的像决定。
+流的唯一性把保持标架的条件变成局部乘法的相容条件，闭性与局部群定理给出 Lie 群结构。
+在此结构中，求值和微分均光滑。
+将该构造用于上述标架丛（必要时逐个处理其有限个分支），
+保持典范形式的自同构恰下降为底空间的等距映射，遂得(1)、(2)。
+若$\beta(t)$对$M$的作用光滑，则$(\beta(t)p,\beta(t)_{*p})$光滑，
+由同一局部坐标构造得到(3)；这些坐标也确定了结构的唯一性。
+\end{proof}
 
-\subsection{Lie 变换群与Killing 矢量场}\label{chlg:sec_killing}
+\subsection{Lie 变换群与Killing 矢量场}
+
+\begin{proposition}
+Killing矢量场$\xi$沿任一测地线$\gamma$的限制是Jacobi场。
+\end{proposition}
+\begin{proof}
+设$\Phi_s$是$\xi$的局部流。因$\Phi_s$为局部等距映射，
+$F(s,t)=\Phi_s(\gamma(t))$对每个固定$s$都是测地线。
+其变分场为$\left.\partial_sF\right|_{s=0}=\xi\circ\gamma$，
+由测地变分方程即知这是Jacobi场。
+\end{proof}
 
 \begin{theorem}\label{chlg:thm_comp-kill}
     完备、广义黎曼流形的任一个Killing 矢量场是完备的。
 \end{theorem}
 \begin{proof}
-    见\parencite{oneill1983}命题9.30。
-    非完备流形的Killing 场可能完备、也可能不完备。
+    这里的完备指测地完备。设$X$的局部流为$\Phi_t$；取$p$附近的共同存在区间$(-\varepsilon,\varepsilon)$。
+    对任意$v\in T_pM$，测地完备性使
+    $c_v(t)=\exp_{\Phi_t(p)}((\Phi_t)_{*p}v)$在此区间有定义。
+    Killing场沿测地线的限制是Jacobi场；将测地线初值随$\Phi_t$变动，
+    得到的变分场与$X$具有相同的初值和初导数，故由Jacobi方程唯一性相等。
+    因而$c_v'(t)=X(c_v(t))$，即从$\exp_pv$出发的积分曲线也在同一区间存在。
+    沿连接任意两点的有限条测地线段反复应用此论证，可将该共同区间传到整个连通分支。
+    于是$\Phi_t$对所有点及$|t|<\varepsilon$均有定义；利用流的合成律逐段迭代，即延拓到所有$t\in\mathbb R$。
 \end{proof}
-
 
 我们把等距群$I(M)$群定义成广义黎曼流形$(M,g)$的左作用 Lie 变换群，
 它的 Lie 代数是$\mathfrak{I}(M)\cong T_e\bigl(I(M)\bigr)$（$\mathfrak{I}(M)$由左不变矢量场构成）。
@@ -5678,7 +5345,6 @@ $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的�
 群$\exp(t X)$可以看成$I(M)$的单参数可微变换群，它自然是{等距}子群；
 依照Killing 场定义\ref{chrg:def_killing}可知由$I(M)$的
 单参数可微变换子群$\exp(t X)$诱导得到的左基本矢量场$\widetilde{X}$是$M$上的Killing 矢量场。
-
 
 沿用第\ref{appx:curvature}章的记法，全体 Killing 场组成 $\mathfrak{kill}(M,g)$；本节简记为 $\mathfrak K(M)$。
 设$I(M)$是$M$的有效左作用，
@@ -5700,9 +5366,14 @@ $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的�
     $\mathfrak{I}(M)$与$\mathfrak{K}(M)$反同构。
 \end{theorem}
 \begin{proof}
-    第(1)条证明请参考\parencite{oneill1983}定理9.33。
-    第(2)条中的反同构可以由定理\ref{chlg:thm_liegaeb}中式\eqref{chlg:eqn_gmr}直接得到。
-    第(3)条是定理\ref{chlg:thm_comp-kill}和(2)的推论。
+    任意完备Killing场的全局流$\Phi_t$满足
+    $\frac{\d}{\d t}\Phi_t^*g=\Phi_t^*\mathcal L_Xg=0$，故给出$I(M)$中的单参数子群。
+    由定理\ref{chlg:thm_ISOM}(3)，此子群光滑，因而对应$\mathfrak I(M)$中的唯一元素。
+    反过来，$I(M)$的任一单参数子群给出完备Killing场，所以$\psi$双射；
+    作用的微分说明$\psi$线性。
+    定理\ref{chlg:thm_liegaeb}给出$[\psi(X),\psi(Y)]=-\psi([X,Y])$，
+    故其像对线性组合和括号封闭，同时证明(1)、(2)。
+    第(3)条再由定理\ref{chlg:thm_comp-kill}得到。
 \end{proof}
 
 \begin{remark}
@@ -5711,35 +5382,9 @@ $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的�
 	$I(M)$最少包含一个元素——恒等变换（此时是零维）。
 \end{remark}
 
-%\begin{proposition}
-%    设$\xi$是广义黎曼流形$M$上的Killing矢量场，$\gamma(t)$是$M$上一条测地线。
-%    矢量场$\xi$在$\gamma$上的限制$\xi_\gamma$是Jacobi场。
-%\end{proposition}
-%\begin{proof}
-%    Killing场$\xi$的积分曲线$\psi_s$是局部单参数可微等距群，因此
-%    函数$(t,s)\to \psi_s\bigl(\gamma(t)\bigr)$是曲线$\gamma$的测地变分。
-%    对于固定的$t$，曲线$s\to \psi_s\bigl(\alpha(t)\bigr)$是$\xi$的一条积分曲线，
-%    因此当$s=0$时，$\xi_\gamma$是$\gamma(t)$的切矢量。故可认为$\xi_\gamma$是
-%    测地变分；由定理\ref{chgd:thm_vvJ}可知$\xi_\gamma$是Jacobi场。
-%\end{proof}
 
 
-%\begin{theorem}\label{chlg:thm_killing-MAX}
-%    $m$维广义黎曼流形$M$上最多有$m(m+1)/2$个线性独立Killing矢量场。
-%\end{theorem}
-%\begin{proof}
-%    我们已知所有Killing场构成 Lie 代数$\mathfrak{K}(M)$。
-%    对$M$上任意一个固定点$p$，有切空间$T_p M$；
-%    Killing场是无限小等距变换，也就是切空间$T_p M$上的等距变换。
-%    切空间$T_p M$在线性结构上同构于完备空间$\mathbb{R}^m_\nu$；
-%    而描述$\mathbb{R}^m_\nu$等距群的维数是$m(m+1)/2$（见例\ref{chlg:exm_Rmnu}）；
-%    故$\mathfrak{K}(M)$的维数不会超过$m(m+1)/2$。
-%    流形$M$的任何属性都会反应到$T_p M$中，比如$M$不完备，Killing场也可能不完备，
-%    从而独立的Killing场个数会减少。
-%\end{proof}
-
-
-\subsection{例}\label{chlg:sec_killing-example}
+\subsection{例}
 
 \paragraph{闵氏时空}
 \S\ref{chrg:sec_killing-Minkowski}中讨论了广义闵氏空间的Killing 矢量场，
@@ -5750,21 +5395,22 @@ $I({R}^4_1)$的 Lie 代数是Poincar\'{e}代数（生成元是\eqref{chlg:eqn_PA
 既然同构，那么Killing 场的物理意义就清晰了，分别是：平移、转动、伪转动。
 Killing 场对易关系的系数自然与Poincar\'{e}代数的结构常数本质相同。
 
-
 \paragraph{欧氏空间}
 正定度规的欧几里得空间$\mathbb{R}^m$的等距群是$ISO(m)$，
 $(\mathbb{R}^m,\delta)$上全体Killing 场同构于 Lie 代数$\mathfrak{iso}(m)$。
 \S\ref{chlg:sec_e2}中给出$ISO(2)$的相关内容；
-$ISO(3)$群可参见\parencite[\S 9.6]{tung-1985}。
+这里$ISO(3)=\mathbb R^3\rtimes SO(3)$，乘法为
+$(a,R)(b,S)=(a+Rb,RS)$。
+若$J_i$和$P_i$分别为实转动生成元和平移生成元，则
+$[J_i,J_j]=\epsilon_{ijk}J_k$、$[J_i,P_j]=\epsilon_{ijk}P_k$、$[P_i,P_j]=0$。
 
-
-\begin{example}\label{chlg:exm_incomplete-iso2}
+\begin{example}
     已知二维平面$\mathbb{R}^2$是完备空间，其上有三个Killing 矢量场，就是$\mathfrak{iso}(2)$的三个生成元。
     若把下半平面挖掉，那么剩余的二维空间不再是完备的，完备Killing 矢量场只剩下沿$x$轴的平移；
     沿$y$轴的平移和绕$z$轴的转动都不再是完备Killing 矢量场。
 \end{example}
 
-\paragraph{二维球面}\label{chlg:sec_S2}
+\paragraph{二维球面}
 正定度规的欧几里得空间$\mathbb{R}^3$中的二维球面$S^2$的等距群是$O(3)$群，
 $S^2$是紧致、完备的，它上的Killing 场同构于 Lie 代数$\mathfrak{o}(3)$。
 $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
@@ -5775,7 +5421,7 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 \end{equation*}
 为简单起见，去掉虚数单位；把它们变成球坐标的形式（参考式\eqref{chrg:eqn_rtpxyz}），
 \begin{small}
-\begin{equation}\label{chlg:eqn_S2-killing}
+\begin{equation}
     \xi_1= \sin\phi \frac{\partial }{\partial \theta} + \cot\theta \cos\phi \frac{\partial }{\partial \phi},\
     \xi_2=-\cos\phi\frac{\partial }{\partial \theta}+\cot\theta\sin\phi \frac{\partial }{\partial \phi},\
     \xi_3=-\frac{\partial }{\partial \phi} .
@@ -5788,7 +5434,6 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
     [\xi_2, \xi_3] = \xi_1, \quad
     [\xi_3, \xi_1] = \xi_2 .
 \end{equation}
-
 
 \section{复化与实形}
 本节讨论实 Lie 代数的复化及复 Lie 代数的实形式。
@@ -5806,12 +5451,15 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 \end{equation}
 满足上述 Lie 积关系的$\mathfrak{g}^{\mathbb{C}}$（$m$维）称为实 Lie 代数$\mathfrak{g}$（$m$维）的\textbf{复化}。
 
-
 反之，设$\mathfrak{h}$是一个复 Lie 代数，$\mathfrak{h}_{0}$为实 Lie 代数；
 如果$\mathfrak{h}_{0}$的复化$(\mathfrak{h}_{0})^{\mathbb{C}}=\mathfrak{h}$，
 则称$\mathfrak{h}_{0}$是$\mathfrak{h}$的\textbf{实形式}。
-我们知道任何复线性空间都有对应的实形式，但复 Lie 代数可能没有对应的实形式
-（参见\parencite[p.88]{Hilgert-2012}例5.1.24）。
+任何复线性空间都有实形式，但复 Lie 代数未必如此。
+例如取复基$h,x,y$，规定$[h,x]=x$、$[h,y]=2\i y$、$[x,y]=0$。
+其导出代数$\operatorname{span}_{\mathbb C}\{x,y\}$是特征理想，
+$\operatorname{ad}_h$在其上的特征值比为$2\i$；换基只可把此比换成其倒数。
+共轭代数的相应比为$-2\i$，既不等于$2\i$也不等于$(2\i)^{-1}$，故两代数不同构。
+若原代数有实形式，则关于该实形式的复共轭会给出它与共轭代数的同构，产生矛盾。
 复 Lie 代数$\mathfrak{h}$有实形式的充要条件是它存在一组
 基矢$\{e_i\}$使得这组基的结构常数恰好都是实数。
 
@@ -5821,7 +5469,6 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 \begin{equation}
     \mathbb{J}[x,y]= \i [x,y]=[\i x,y]=[\mathbb{J}x,y]=[x,\mathbb{J}y]=[x,\i y].
 \end{equation}
-
 
 设 $\mathfrak h_0$ 的实基为 $\{e_1,\ldots,e_m\}$，复化为 $\mathfrak h$。
 限制标量得到实 Lie 代数 $\mathfrak h_{\R}$，其实基为
@@ -5912,7 +5559,7 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$。
 因而 $(x, y)_0$、$(x, y)$、$(x, y)_{\mathbb{R}}$ 之一非退化，则它们同时非退化。
 \end{proof}
 
-\begin{example}\label{chlg:exam_real-complex}
+\begin{example}
     实形、复化典型例子。
     \begin{align*}
         &\bigl(\mathfrak{gl}(m,\mathbb{R}) \bigr)^{\mathbb{C}} \cong \mathfrak{gl}(m,\mathbb{C}), \quad
@@ -5925,47 +5572,116 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$。
     我们需要把$\mathfrak{su}(m,\mathbb{C})$当成实 Lie 代数来看，
     它是$\mathfrak{sl}(m,\mathbb{C})$的紧致实形式；
     $\mathfrak{sl}(m,\mathbb{R})$是$\mathfrak{sl}(m,\mathbb{C})$的实形式，但不是紧致实形式。
-    这个证明可参见\parencite[p.266]{wanzx-2013}。 \qed
+    为验证复化关系，记$X^\dagger=\bar X^{\mathrm T}$，将任一无迹复矩阵写成
+    \[
+        X=\frac{X-X^\dagger}{2}
+          +\i\,\frac{X+X^\dagger}{2\i} .
+    \]
+    右侧两个系数矩阵均无迹且反厄米；厄米与反厄米矩阵的交为零，故分解唯一。
+    其余由实系数矩阵方程定义的代数，把矩阵逐项分成实部和虚部即可。
+    $SU(m)$紧致，故$\mathfrak{su}(m)$是紧致实形式。
+    当$m\geqslant2$时，$\mathfrak{sl}(m,\mathbb R)$中对角元的伴随作用有非零实特征值，
+    不可能关于正定内积反对称；紧致 Lie 代数具有伴随不变正定内积，故它不紧致。
+    $m=1$时两代数均为零代数。\qed
 \end{example}
-
 
 \section{半单 Lie 代数}
 
-
-\begin{theorem}\label{chlg:thm_LA-semi}
+\begin{theorem}
     数域$\mathbb{F}$上 Lie 代数$\mathfrak{g}$是半单的充要条件是其Killing 型非退化，
     即$\det(g_{\mu\nu}) =\det\bigl( C^\tau_{\mu\rho} C^\rho_{\nu\tau}\bigr) \neq 0$。
-    （证明可参考\parencite[\S 6.2]{serre-1992}第44页定理2.1）
 \end{theorem}
+\begin{proof}
+记Killing型为$B$。若$\mathfrak a$是Abel理想，则对$x\in\mathfrak a$、$y\in\mathfrak g$，
+$\operatorname{ad}_x\operatorname{ad}_y$把$\mathfrak g$映入$\mathfrak a$并在$\mathfrak a$上为零，
+故$B(x,y)=0$。任一非零可解理想的最后一个非零导出理想是Abel理想，
+所以$B$非退化时$\mathfrak g$半单。
 
-%证明可参考\parencite[p.27]{xuyc-2001}定理1.2.14
+反之，$B$的根空间$\mathfrak r=\{x:B(x,\mathfrak g)=0\}$是理想。
+对$x,y\in\mathfrak r$，它们的伴随作用在$\mathfrak g/\mathfrak r$上为零，
+故$B_{\mathfrak r}(x,y)=B(x,y)=0$。
+下面的迹判据说明$\mathfrak r$可解；若$\mathfrak g$半单，则$\mathfrak r=0$。
 
-上述定理称为\textbf{Cartan 判据}。大多数书籍证明上述定理时会用到
-可解 Lie 代数以及 Lie 定理\ref{chlg:thm_Lie}，这必须要求基域是复数域（可以弱化到特征为零的代数闭域）；
-实数域上 Lie 定理一般不成立，故不能使用。
-上面定理中所列文献的证明过程没有用到 Lie 定理（故不要求代数闭域），
-因此定理\ref{chlg:thm_LA-semi}同时适用于实数域和复数域。
+所用迹判据为：若复矩阵 Lie 代数$\mathfrak l$满足
+$\operatorname{tr}(ab)=0$（$a\in\mathfrak l$, $b\in[\mathfrak l,\mathfrak l]$），则$\mathfrak l$可解。
+为简述其证明，取$x\in[\mathfrak l,\mathfrak l]$，设其特征值为$\lambda_j$（计重数），
+对它们的$\mathbb Q$线性包取任意$\mathbb Q$线性函数$f$，值域为$\mathbb Q$。
+令$y$在$x$的广义$\lambda_j$特征空间上为标量$f(\lambda_j)$。
+在矩阵空间上，$\operatorname{ad}_y$是$\operatorname{ad}_x$的零常数项多项式：
+在特征值差$\lambda_i-\lambda_j$处指定值$f(\lambda_i-\lambda_j)$，
+并令高阶导数为零，作Hermite插值即可。
+因此$[y,\mathfrak l]\subset[\mathfrak l,\mathfrak l]$。
+写$x=\sum_r[a_r,b_r]$，由迹的循环性得
+\[
+ \sum_j\lambda_j f(\lambda_j)=\operatorname{tr}(xy)
+ =\sum_r\operatorname{tr}(a_r[b_r,y])=0 .
+\]
+再对这个等式施以$f$，得$\sum_j f(\lambda_j)^2=0$，所以所有$f(\lambda_j)=0$。
+$f$任意，故全部$\lambda_j=0$。由Engel定理，$[\mathfrak l,\mathfrak l]$幂零，$\mathfrak l$可解。
+将此用于$\operatorname{ad}(\mathfrak r)$，并注意其核是Abel中心，即知$\mathfrak r$可解。
+实数域情形先复化；Killing型的矩阵不变，非退化性也不变。
+\end{proof}
+
+上述定理称为\textbf{Cartan 判据}。这里基域为$\mathbb R$或$\mathbb C$；
+实数域的结论可在复化后证明，再限制回实代数，不要求实数域上的Lie定理成立。
 
 由命题\ref{chlg:thm_h0hhR}还可以得到实半单 Lie 代数的一个判据：
 实 Lie 代数是半单的充要条件是其复化 Lie 代数的Killing 型非退化，
 即其复化 Lie 代数是半单的。
 
-
-\begin{theorem}\label{chlg:thm_semi-cx-rc}
+\begin{theorem}
     复半单 Lie 代数必有紧致实形式。
-    （证明可参考\parencite[p.109]{xuyc-2001}定理2.1.10）
 \end{theorem}
+\begin{proof}[证明概要]
+取Cartan子代数及根矢量$E_\alpha$。
+根空间分解可规范化为Cartan--Weyl基：Cartan子代数中有实子空间$\mathfrak h_0$，
+所有根在其上取实值，且
+$[E_\alpha,E_{-\alpha}]=H_\alpha\in\mathfrak h_0$、
+$B(E_\alpha,E_{-\alpha})>0$，
+$[E_\alpha,E_\beta]=N_{\alpha\beta}E_{\alpha+\beta}$中的常数为实数，
+满足$N_{-\alpha,-\beta}=-N_{\alpha\beta}$。
+此规范化由各根对应的$\mathfrak{sl}(2)$三元组出发，沿有限根串逐次选择根矢量得到；
+Jacobi恒等式保证相邻根串的选择相容。
 
+令$\mathfrak u$为下列元素的实线性包：
+\[
+ \i H\ (H\in\mathfrak h_0),\qquad
+ E_\alpha-E_{-\alpha},\qquad
+ \i(E_\alpha+E_{-\alpha})\quad(\alpha>0).
+\]
+上述实结构常数及其符号关系说明$\mathfrak u$对括号封闭，
+且$\mathfrak g=\mathfrak u\oplus\i\mathfrak u$，所以它是实形式。
+根空间的正交性给出两个根方向的平方均为$-2B(E_\alpha,E_{-\alpha})<0$；
+又$B(H,H)=\sum_\alpha\alpha(H)^2>0$（$0\ne H\in\mathfrak h_0$），
+故$B$在$\mathfrak u$上负定。
+由下一定理，$\mathfrak u$为紧致实形式。
+\end{proof}
 
-\begin{theorem}\label{chlg:thm_LA-semi-real-compact}
+\begin{theorem}
     实数域$\mathbb{R}$上 Lie 代数为{紧致半单纯}的充分必要条件是其Killing 型负定。
-    （证明可参考\parencite[p.113]{xuyc-2001}定理2.1.12）
 \end{theorem}
+\begin{proof}
+若$\mathfrak g$紧致，则平均构造给出伴随不变正定内积；
+每个$\operatorname{ad}_X$关于此内积反对称，故
+$B(X,X)=\operatorname{tr}((\operatorname{ad}_X)^2)\leqslant0$，
+等号当且仅当$X$在中心。半单代数的中心为零，故$B$负定。
 
+反之，若$B$负定，Cartan判据说明$\mathfrak g$半单。
+$\operatorname{Aut}(\mathfrak g)$保持$B$，且保持括号的条件是闭条件，
+故它是紧致正交群$O(-B)$的闭子群。
+其 Lie 代数为导子代数$\operatorname{Der}(\mathfrak g)$，下面验证所有导子均为内导子。
+给定导子$D$，由$B$非退化取$x$使
+$B(x,y)=\operatorname{tr}(D\operatorname{ad}_y)$；置$D'=D-\operatorname{ad}_x$。
+利用$[D',\operatorname{ad}_y]=\operatorname{ad}_{D'y}$及迹的循环性，有
+\[
+ B(D'y,z)=\operatorname{tr}([D',\operatorname{ad}_y]\operatorname{ad}_z)
+ =\operatorname{tr}(D'\operatorname{ad}_{[y,z]})=0 .
+\]
+所以$D'=0$，即$\operatorname{Der}(\mathfrak g)=\operatorname{ad}(\mathfrak g)\cong\mathfrak g$。
+于是紧致 Lie 群$\operatorname{Aut}(\mathfrak g)^0$的 Lie 代数就是$\mathfrak g$，结论成立。
+\end{proof}
 
-%由定理\ref{chlg:thm_Levi-Malcev}可知半单 Lie 代数很重要，它可以分解为单 Lie 代数直和。
-
-\begin{theorem}\label{chlg:thm_LA-Decom-semi}
+\begin{theorem}
     半单 Lie 代数$\mathfrak{g}$（其Killing 型自然非退化）可分解为单纯理想的直和，
     除这些单纯理想的次序外，这种分解是唯一的。
 \end{theorem}
@@ -5974,7 +5690,7 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$。
 
     下面考虑$\mathfrak{g}$是半单 Lie 代数。
     设 $\mathfrak{h}$ 是 $\mathfrak{g}$ 的非平凡理想。令
-    \begin{equation}\label{chlg:eqn_h-perp}
+    \begin{equation}
         \mathfrak{h}^{\perp}=\left\{x \in \mathfrak{g} \mid (x, y)=0,\ \forall y \in \mathfrak{h}\right\} .
     \end{equation}
     $\forall x \in \mathfrak{h}^{\perp}$，$\forall y \in \mathfrak{h}$，$\forall z \in \mathfrak{g}$；
@@ -5987,7 +5703,6 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$。
     属于$\mathfrak{h}^{\perp}$）。
     注意 Killing 型的非退化性，于是可得$\mathfrak{a}$是可交换的；
     又由$\mathfrak{g}$ 的半单性可知$\mathfrak{a}=\mathfrak{h} \cap \mathfrak{h}^{\perp}=\{0\}$。
-
 
     设$x_1, x_2, \cdots, x_m$ 为 $\mathfrak{h}$ 的基；
     再设$y \in \mathfrak{g}$并且$ y \notin \mathfrak{h}$。
@@ -6008,7 +5723,7 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$。
     由于$y$是任取的，故$\mathfrak{g}=\mathfrak{h} \oplus \mathfrak{h}^{\perp}$（直和），
     并且$[\mathfrak{h} , \mathfrak{h}^{\perp}]=0$、$\mathfrak{h} \cap \mathfrak{h}^{\perp}=\{0\}$。
     注意$\mathfrak{g}$ 的 Killing 型在理想 $\mathfrak{h}$、$ \mathfrak{h}^{\perp}$ 的限制就是它们的诱导Killing 型，
-    并且诱导Killing 型也是非退化的（见命题\ref{chlg:thm_Killing-gh}）。 %%\parencite[p.17]{xuyc-2001}引理1.2.6
+    并且诱导Killing 型也是非退化的（见命题\ref{chlg:thm_Killing-gh}）。
     如果$\mathfrak{h}$或者$ \mathfrak{h}^{\perp}$仍是半单纯的，那么继续分解；
     经过有限步后可知半单纯 Lie 代数$\mathfrak{g}$可以分解为有限个的单纯理想的直和：
     $\mathfrak{g}=\mathfrak{h}_1 \oplus \mathfrak{h}_2 \oplus \cdots \oplus \mathfrak{h}_r$。
@@ -6018,7 +5733,6 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$。
     因此 $[\mathfrak{b}, \mathfrak{g}]=\{0\}$。这是不可能的。
     因此有$i$ 使得 $\mathfrak{b}=\mathfrak{h}_i$。由此知分解的唯一性。
 \end{proof}
-
 
 设有数域$\mathbb{F}$上的半单 Lie 代数$\mathfrak{g}$，其Killing 型\eqref{chlg:eqn_Killing-Form}自然非退化，
 那么可以看作线性空间$\mathfrak{g}$（ Lie 代数本身是线性空间）上的度规。我们将其逆记为$g^{\mu\nu}$，
@@ -6039,22 +5753,21 @@ C^p_{qk} C^q_{li} C_{jp}^l -C^p_{kq} C^q_{lj} C_{pi}^l $。
 由此式，利用指标代换以及式\eqref{chlg:eqn_LC-Jacobi}中的反对称性
 可以得到反对称式\eqref{chlg:eqn_Cijk-anti-sym}。
 
-
 设半单 Lie 代数$\mathfrak{g}$的基矢为$\{X_l\}$，其中$1\leqslant l \leqslant m$。
 因$\mathfrak{g}$的Killing 型非退化，借助于它可定义$n$阶\textbf{Casimir算子}：
-\begin{equation}\label{chlg:eqn_Casimir}
+\begin{equation}
     C_n := \sum_{\{i\}\{j\}\{k\}}
     C_{i_1 j_1} ^{j_2} C_{i_2 j_2} ^{j_3}\cdots C_{i_n j_n} ^{j_1}
     \times g^{i_1 k_1} \cdots g^{i_n k_n} X_{k_1} \cdots X_{k_n} .
 \end{equation}
 最常用的是二阶Casimir算子（其中$X^i=g^{il}X_l$）：
-\begin{equation}\label{chlg:eqn_Casimir2}
+\begin{equation}
     C_2 := C_{i_1 j_1} ^{j_2} C_{i_2 j_2} ^{j_1}
     g^{i_1 k_1} g^{i_2 k_2} X_{k_1} X_{k_2}
     = g_{ij} X^i X^j.
 \end{equation}
 
-\begin{theorem}\label{chlg:thm_CX=0}
+\begin{theorem}
     $C_n$与$\mathfrak{g}$的任意基矢$X_\rho$都对易，即$[C_n, X_\rho]=0$。
 \end{theorem}
 
@@ -6089,7 +5802,6 @@ C^p_{qk} C^q_{li} C_{jp}^l -C^p_{kq} C^q_{lj} C_{pi}^l $。
     \end{align*}
     将上式展开，并对$l$求和，所有项相互抵消。最终，有$[C_n, X_\rho]=0$。
 \end{proof}
-
 
 \S\ref{chlg:sec_Lorentz-group}、\S\ref{chlg:sec_Poincare-group}适用于Lorentz度规。
 \S\ref{chlg:sec_Orthogonal}、\S\ref{chlg:sec_Euclidean-group}、\S\ref{chlg:sec_Integral}
