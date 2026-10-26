@@ -259,28 +259,24 @@ Cartan 最先提出这一思想：用一个具有求导性质的泛函来代指�
     f=f(p)+\p_i f(p)(x^i-x^i(p))+ \frac 12\p_i\p_j f(p)(x^i-x^i(p))(x^j-x^j(p))+\cdots.
 \]
 $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法法则 $A(fg)=g(p)A(f)+f(p)A(g)$。
-线性性构成线性空间.
 乘法法则给出 $A(1)=A(1\cdot 1)=2A(1)\Rightarrow A(1)=0$，再由线性性知$\forall c\in\R$，$A(c)=A(c\cdot 1)=c A(1)=0$。
 从而 $A$ 作用于 $f$ 的确只剩下 $A(f)=A(x^\mu)\p_\mu f(p)$，高阶项为零是因为必然存在 $x^j(p)-x^j(p)=0$。可见线性性、乘法法则已能反求得 $A=A^\mu\p_\mu$，故此即所需的全部求导代数性质了。
 当然，对无穷级数滥用代数运算是危险的，其次也不需要 $f$ 解析，我们更倾向于考虑有限项相加。
 
-另一个关键在于，简单谈及 $C^r(M)$ 会忽视 $x^\mu$ 这种不在 $M$ 上的函数。
-为合法地谈及坐标分量 $A(x^\mu)$，应将 $U$ 上函数拓展到 $M$ 上。而只要 $f_1,f_2\in C^r(M)$ 在 $U\in\topo N(p)$ 上相等，置 $f:=f_1-f_2$，令 $h$ 在 $M\backslash U$ 上为零但 $h(p)\ne 0$，就可构造零元 $fh=0$，则 $0=A(fh)=h(p)A(f)$ 从而 $A(f)=0$，即 $p$ 点任意切矢 $A$ 满足 $A(f_1)=A(f_2)$。
+需要注意，坐标函数 $x^\mu$ 通常只在坐标域上定义，好在求导只关心 $p$ 附近的函数值：只要 $M$ 上函数 $f_1,f_2$ 在 $U\in\topo N(p)$ 上相等，置 $f:=f_1-f_2$，令 $h$ 在 $M\backslash U$ 上为零但 $h(p)\ne 0$，就可构造零元 $fh=0$，则 $0=A(fh)=h(p)A(f)$ 从而 $A(f)=0$，即 $p$ 点任意切矢 $A$ 满足 $A(f_1)=A(f_2)$。便能合法谈及坐标分量 $A(x^\mu)$。
 
 \begin{definition}
-    置流形 $M$。设 $V\subset U\subset M$。$f:V\to\R$ 称为 $g:U\to\R$ 在 $V$ 上的\textbf{限制}，若 $\forall p\in V,f(p)=g(p)$。显然限制是唯一的。$g$ 称为 $f$ 在 $U$ 上的一个\textbf{延拓}。
-\end{definition}
+    置光滑流形 $M$ 及 $p\in M$。设 $U,V$ 为 $p$ 的开邻域，$f\in C^\infty(U),g\in C^\infty(V)$ 为实函数。若存在开邻域 $W\ni p$，使 $W\subset U\cap V$ 且 $f|_W=g|_W$，则称 $f,g$ 在 $p$ 处等价。等价类 $[f]_p$ 称为 $p$ 处的\textbf{函数芽}，全体记作 $C^\infty_p(M)$。在共同定义域上作运算，规定
+    \eq{
+        [f]_p+[g]_p:=[f+g]_p,\quad c[f]_p:=[cf]_p,\quad [f]_p[g]_p:=[fg]_p,
+    }
+    则 $C^\infty_p(M)$ 构成实代数，且 $[f]_p(p):=f(p)$ 与代表元无关。
 
-对光滑流形 $M$ 及 $p\in M$，在 $C^r(M)$ 中规定等价关系：存在 $N\in\topo N(p)$ 使 $f,g\in C^r(M)$ 在 $N$ 上的限制相同。等价类 $[f]$ 称为\textbf{函数芽}，构成 $C^r(M)$ 的商集 $C^r_p$。
+    $p$ 处的\textbf{切矢}是满足 Leibniz 乘法法则的实线性映射 $v:C^\infty_p(M)\to\R$，即
     \eq{
-        [f]+[g]:=[f+g],\quad [f][g]:=[fg].
+        v([f]_p[g]_p)=g(p)v([f]_p)+f(p)v([g]_p).
     }
-\begin{definition}
-    \textbf{切矢}是满足 Leibniz 乘法法则的线性泛函：
-    置 $p\in M$，线性函数 $v:C^r_p\to\R$ 满足 $\forall f,g\in C^r_p$，
-    \eq{
-        v(fg)=g(p)v(f)+f(p)v(g).
-    }
+    对任何在 $p$ 附近定义的光滑函数，总可简记 $v([f]_p)=v(f)$。
     $p$ 处全体切矢的集合 $T_p M$ 称为 $M$ 在 $p$ 处的\textbf{切空间}。全体切空间的无交并
     \eq{
         TM:=\bigsqcup_{p\in M} T_p M=\bigcup_{p\in M}\{p\}\times T_p M=\{(p,v):p\in M,v\in T_p M\}
@@ -289,67 +285,64 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
 \end{definition}
 
 \begin{remark}
-    部分教材将无交并写作 $\coprod$。
-    直观图像是把切空间理解为背景在该点的切平面。
+    直观图像是把切空间理解为背景在该点的切平面，切丛就是全体切平面。
+
+    此处直接考虑光滑性 $r=\infty$，是为了使坐标分解
+    \[
+        f-f(p)=\sum_i(x^i-x^i(p))H_i
+    \]
+    中的 $H_i$ 仍属于同一函数代数，从而可对各项使用 Leibniz 法则。对 $f\in C^r$（$1\leqslant r<\infty$），这种分解的系数一般仅为 $C^{r-1}$，$v(H_i)$ 未必有定义；光滑时则无此问题，并可由此证明切矢恰由 $\dim M$ 个坐标分量决定。因此不能直接将上述定义中的 $\infty$ 换为有限 $r$；有限阶可微流形可用曲线等价类定义切矢。
 \end{remark}
 
 \begin{theorem}
-    $\dim T_p M=\dim M$。
+    前文已暗示更简单的等价定义：$p$ 处的切矢是满足
+    \[
+        D(fg)=g(p)D(f)+f(p)D(g)
+    \]
+    的实线性泛函 $D:C^\infty(M)\to\R$。两种定义的对应关系为 $D(f)=v([f]_p)$。
 \end{theorem}
-
 \begin{proof}
-    可相加，可数乘，还可定义零元 $0(f)=0$。这样 $\{\p_i\}$ 的确线性无关：$A=0\Rightarrow A^i=A^j\p_j(x^i)=A(x^i)=0$，因此 $\{\p_i\}$ 就是基。
+    由函数芽上的切矢 $v$ 定义 $D(f):=v([f]_p)$，显然满足上述条件。
 
+    反之，先证 $D$ 只依赖函数芽。若 $h\in C^\infty(M)$ 在 $p$ 的开邻域 $W$ 上恒为零，取光滑函数 $\chi$ 使 $\chi(p)=1$、$\supp\chi\subset W$，则 $h\chi=0$，故
+    \[
+        0=D(h\chi)=\chi(p)D(h)+h(p)D(\chi)=D(h).
+    \]
+    因而在 $p$ 附近相等的全局函数具有相同的 $D$ 值。
 
-    总存在标量场 $H_i$ 使得 $f(q) =f(p)+(x^i(q)-x^i(p))H_i(q)$，只需定义
-\eq{
-    H_i(q):=\left\{\begin{aligned}
-        \frac{f(q)-f(p)}{x^i(q)-x^i(p)},&\quad q\ne p.\\
-        \pdv{(f\circ\psi^{-1})}{x^i}\bigg|_{\psi(p)},&\quad q=p.
-    \end{aligned}\right.
-}
-比如说，由多元函数微分中值定理可知，$\forall f\in C_{x_0}^\infty(M)$，有
+    任给函数芽 $[f]_p$，设 $f\in C^\infty(U)$。取光滑函数 $\rho$，使其在 $p$ 的某邻域上恒为 $1$，且 $\supp\rho\subset U$。将 $\rho f$ 在 $M\backslash U$ 上置零，得到 $F\in C^\infty(M)$，且 $[F]_p=[f]_p$。于是 $v([f]_p):=D(F)$ 与代表元及延拓的选择无关，并保持线性性与 Leibniz 法则。每个芽都有这样的全局代表，故此对应唯一且互逆。
+\end{proof}
 
-\begin{equation*} %\label{chdm:eqn_wfzzdlM}
-    (f \circ\varphi^{-1})(x^1,\cdots,x^m)=(f \circ\varphi^{-1})(x^1_0,\cdots,x^m_0)+ 
-    (x^i-x^i_0) \frac{\partial (f \circ\varphi^{-1}) \bigl(x_0+\theta(x-x_0) \bigr)}{\partial x^i},
-\end{equation*}
-其中$0<\theta<1$。
+\begin{theorem}
+    $T_p M$ 是线性空间，且 $\dim T_p M=\dim M =: n$。
+\end{theorem}
+\begin{proof}
+    切矢对通常的泛函加法及数乘封闭，故 $T_p M$ 为实线性空间。取坐标系 $(O,\psi)$，置 $a:=\psi(p)$。由求导法则，
+    \[
+        \left.\p_i\right|_p(f):=\pdv{(f\circ\psi^{-1})}{x^i}\bigg|_a
+    \]
+    是切矢，且 $\left.\p_i\right|_p(x^j)=\delta_i^j$，故这 $n$ 个切矢线性无关。
 
-现在大可使用线性性和 Leibniz 乘法法则，得到 $A(f)=H_i(p) A(x^i)$，故总存在 $n$ 个实数 $\{A(x^i)\}$，只要记
-\eq{
-A^i:=A(x^i),
-}
-就有
-\eq{
-    A(f):=A^i\pdv{(f\circ\psi^{-1})}{x^i}\bigg|_{\psi(p)}.
-}
-
-将矢量$v^a$作用到上式，可得
-\begin{align*} %\label{chdm:eqn_wfzzdlM}
-    v\bigl( f \circ\varphi^{-1} (x^1,\cdots,x^m)\bigr) = v(x^i-x^i_0) \cdot      \left.
-     \frac{\partial (f \circ\varphi^{-1}) \bigl(x_0+\theta(x-x_0) \bigr)}{\partial x^i}\right|_{x=x_0}.
-\end{align*}
-记$v^i\equiv v(x^i)$，并将坐标省略，上式变为（将$f \circ\varphi^{-1}$记为$\hat{f}$）
-\begin{equation}\label{chdm:eqn_v-expand-on-natural-bases}
-    v( \hat{f} ) = v^i \cdot 
-    \frac{\partial \hat{f} (x_0)}{\partial x^i}
-    {\quad \color{red}\Leftrightarrow \quad }
-    v^a = \sum_{i=1}^{m} { v^i \left(\frac{\partial }{\partial x^i}\right)^a_{x_0} }.
-\end{equation}
-上面“${ \color{red}\Leftrightarrow }$”后的式子将$\hat{f}\equiv f \circ\varphi^{-1} $略
-去（因$f$和$\varphi$都是任选的），并补上了抽象指标记号。
-上式充分说明$x_0$点任意矢量$v^a$都可以由$m$个$x_0$点矢量$(\frac{\partial }{\partial x^i})^a_{x_0} $展开，
-其系数是$m$个实数$v^i\equiv v(x^i)$。
-
-因此，$\{(\frac{\partial }{\partial x^i})^a_{x_0}, \ 1\leqslant i\leqslant m\}$是线性空间$T_{x_0}M$的
-一组基矢量，称之为\textbf{自然坐标（切）基底}，简称自然基底；空间$T_{x_0}M$的维数是$m$。
+    任给 $f$ 在 $p$ 处的光滑函数芽，缩小 $O$，使 $f$ 在 $O$ 上光滑且 $\psi[O]$ 为以 $a$ 为心的开球。记 $\hat f:=f\circ\psi^{-1}$，由微积分基本定理，
+    \[
+        f(q)-f(p)=\sum_i(x^i(q)-x^i(p))H_i(q),\qquad
+        H_i(q):=\int_0^1\p_i\hat f\bigl(a+t(\psi(q)-a)\bigr)\,\mathrm dt.
+    \]
+    各 $H_i$ 光滑，且 $H_i(p)=\left.\p_i\right|_p(f)$。任给 $v\in T_p M$，由 $v(c)=0$ 及 Leibniz 法则，得
+    \[
+        v(f)=\sum_i v(x^i)H_i(p)=\sum_i v(x^i)\left.\p_i\right|_p(f).
+    \]
+    因 $f$ 任意，故
+    \eq{\label{chdm:eqn_v-expand-on-natural-bases}
+        v=\sum_i v^i\left.\p_i\right|_p,\qquad v^i:=v(x^i).
+    }
+    于是 $\{\left.\p_i\right|_p\}_{i=1}^n$ 张成 $T_p M$，从而是一组基，故 $\dim T_p M=n$。
 \end{proof}
 
 
 
 \begin{definition}
-    $X_\mu = \pdv{x^\mu}|_p$ 称为 $p$ 处第 $i$ 个\textbf{坐标基矢}。$\{X_i\}$ 称为 $p$ 处的\textbf{坐标基}。
+    $X_i = \pdv{x^i}|_p$ 称为 $p$ 处第 $i$ 个\textbf{坐标基矢}。$\{X_i\}$ 称为 $p$ 处的\textbf{坐标基}。
 \end{definition}
 
 \begin{theorem}
@@ -375,34 +368,15 @@ A^i:=A(x^i),
 \end{definition}
 
 \begin{definition}
-    置 $C^1$-曲线 $\sigma\mapsto C(\sigma)$ 的\textbf{曲线切矢场}定义如下。
-
-
-    设$m$维光滑流形$M$有局部坐标系$(U;x^i)$，$\forall p\in U$（$p$对应$t=0$），曲线$\gamma(t)$上点的
-    局部坐标记为$\{x^i\}$。将式\eqref{chdm:eqn_DiffCurve}展开为
-
-    \begin{equation}\label{chdm:eqn_DiffCurve-2}
-        \left. \frac{{\rm d} \bigl(f \circ \gamma (t)\bigr)}{{\rm d} t} \right |_{t=0}
-        = \frac{\partial f}{\partial x^i}
-        \left. \frac{{\rm d} x^i\circ\gamma (t)}{{\rm d} t} \right |_{t=0}
-        {\color{red}\Rightarrow}
-        \left. \left(\frac{{\rm d}  }{{\rm d} t}\right)^a \right |_{\gamma (0)}
-        = \frac{{\rm d} x^i\bigl(\gamma (0)\bigr)}{{\rm d} t}
-        \left(\frac{\partial }{\partial x^i}\right)^a .
-    \end{equation}
-    上式中“${\color{red}\Rightarrow}$”是因为$f \in C^\infty_p(M)$的任意性。
-    这便是曲线$\gamma(t)$在$p$点切矢量的局部坐标展开式；
-    其中切矢量$\left(\frac{{\rm d}  }{{\rm d} t}\right)^a $必需沿曲线$\gamma(t)$，
-    且取$t=0$。
-    
-    \index[physwords]{切矢量!切线切矢量} \index[physwords]{切线切矢量}
-    
-    注：一般称$\left(\frac{{\rm d}  }{{\rm d} t}\right)^a $是
-    曲线$\gamma(t)$切线的切矢量，简称\textbf{切线切矢量}。 
-    比如二维球面$S$上任一点$p$的切平面$T$上的任意（原点在切点$p$的）矢量都是切于球面$S$的。
-    再取过$p$点的一个大圆$\gamma(t)$，切平面上的切矢量未必切于大圆$\gamma(t)$。
-    “切线切矢量”是笔者杜撰出来的名词，
-    用来描述切于曲线$\gamma(t)$的切矢量，以区别于切平面$T$上其它切矢量。
+    置 $C^1$-曲线 $\gamma:I\to M$。其在 $p=\gamma(t)$ 处的\textbf{切矢} $\dot\gamma(t)\in T_pM$ 定义为
+    \eq{\label{chdm:eqn_DiffCurve}
+        \dot\gamma(t)(f):=\dv{(f\circ\gamma)}{t},\qquad f\in C^\infty_p(M).
+    }
+    由链式法则，其坐标展开为
+    \eq{\label{chdm:eqn_DiffCurve-2}
+        \dot\gamma(t)=\dv{(x^i\circ\gamma)}{t}\left.\p_i\right|_{\gamma(t)}.
+    }
+    映射 $t\mapsto\dot\gamma(t)$ 是沿 $\gamma$ 的\textbf{曲线切矢场}。曲线在 $p$ 处的切矢属于 $T_pM$，而 $T_pM$ 中的切矢未必都切于该曲线。
 \end{definition}
 
 时常简写为 $\dv{t}=\dv{x^\mu}{t}\pdv{x^\mu}$。$\dv{\sigma} (f)=\dv{(f \circ C)}{\sigma}$。
@@ -410,7 +384,6 @@ A^i:=A(x^i),
 \begin{example}
     第 $x^i$ 坐标线的切矢正是坐标基 $\delta^j_i\p_j=\p_i$。
 \end{example}
-
 
 
 \begin{definition}
@@ -445,35 +418,15 @@ A^i:=A(x^i),
     切空间$T_{x_0}M$的对偶空间称为微分流形$M$在点$x_0$的\textbf{余切空间}，
     记作$T_{x_0}^{*}M$。余切空间的元素称为\textbf{余切矢量}。
 \end{definition}
-首先，
-余切空间维数与切空间相同，都是$m$维；其次，
-定义自然切基矢的\textbf{对偶自然基矢}，
-将其记为$({\rm d}x^j)_a$（由于点${x_0}$的标记位置与对偶基矢抽象指标位置重合，暂将${x_0}$略去）：
-\begin{equation}\label{chdm:eqn_dual-natural-bases}
-    ({\rm d}x^j)_a \left(\frac{\partial }{\partial x^i}\right)^a_{x_0} \equiv 
-    \left< ({\rm d}x^j)_a , \   \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}\right>
-    \overset{def}{=} \delta^j_i .
-\end{equation}
-由上式定义的对偶基矢共有$m$个。
-将$({\rm d}x^j)_a$作用在任意矢量$v^a$上，有
-\begin{equation*}
-    ({\rm d}x^j)_a v^a =  ({\rm d}x^j)_a 
-       \left[v^i \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}\right] 
-    =  v^i \left[ ({\rm d}x^j)_a  \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}\right] 
-    =  v^i \delta^j_i = v^j .
-\end{equation*}
-这说明$({\rm d}x^j)_a$的作用是取出$v^a$在自然坐标基底上的第$j$分量。
-
-任意余切空间元素$\omega_a \in T_{x_0}^{*}M$都可以在自然对偶基矢上展开，
-并将其作用到任一切矢量$v^a$上，有
-\begin{equation}
-    \omega_a (v^a) = \left[\omega_j({\rm d}x^j)_a\right] 
-      \left(v^i \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}\right) = 
-     \omega_j v^i \delta^j_i = \omega_j v^j .
-\end{equation}
-上式说明对偶矢量和切矢量的线性映射是一个实数，余切矢量场和切矢场的缩并其实就是将对偶矢量作用于矢量，即$\langle \omega, v\rangle$；
-而切矢量$v^a$作用到标量函数$f$上也得到一个
-实数$v(f)$；结合这两点，可说明标量函数$f$可以诱导出一个对偶矢量。
+余切空间维数亦为 $m$。自然切基 $\{\left.\p_i\right|_{x_0}\}$ 的\textbf{对偶基}记为 $\{\left.\d x^j\right|_{x_0}\}$，由
+\eq{\label{chdm:eqn_dual-natural-bases}
+    \left.\d x^j\right|_{x_0}\!\left(\left.\p_i\right|_{x_0}\right):=\delta_i^j
+}
+确定。下文略去取值点，则 $\d x^j(v)=v^i\delta_i^j=v^j$，即取出 $v$ 的第 $j$ 个分量。任给 $\omega\in T^*_{x_0}M$，有
+\eq{
+    \omega=\omega_j\d x^j,\qquad \omega(v)=\omega_jv^j.
+}
+配对 $\langle\omega,v\rangle:=\omega(v)$ 是实数，而 $v(f)$ 也是实数，因此可用函数 $f$ 定义余切矢量。
 
 并且，
 Cartan 还注意到，这相当于给函数微分一个更严格的理解。标准分析学中常将 $\d f$ 定义为 $\Delta f$ 的线性主部，即 $\d f(x,\Delta x):=f'(x)\Delta x$。这里 $\Delta x$ 是从某点 $x$ 出发的位移，实际上任意大小，但物理上的理解是在 $\Delta x$ 很小时给出的微小增量。
@@ -484,10 +437,10 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 
 \begin{definition}\label{chdm:def_pushforward-vector}
     定义\textbf{推前映射}，或称为\textbf{切映射}：
-    \begin{equation}
-        (\phi_{*}v)(g) \overset{def}{=} v(\phi^{*}(g)) = v (g \circ \phi), 
-        \qquad \forall g\in C^\infty_{\phi(x_0)}(N),\quad \forall v^a \in T_{x_0}M .
-    \end{equation}
+    \eq{
+        (\phi_{*}v)(g) := v(\phi^{*}(g)) = v (g \circ \phi),
+        \qquad \forall g\in C^\infty_{\phi(x_0)}(N),\quad \forall v \in T_{x_0}M .
+    }
 \end{definition}
 
 \begin{definition}函数的\textbf{微分}定义为
@@ -496,28 +449,15 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 }
 \end{definition}
 
-记为$({\rm d}f)_a$；具体过程如下：
-\begin{equation}\label{chdm:eqn_dfv}
-    ({\rm d}f)_a v^a \equiv v(f)  %= v^i \left.\frac{\partial f}{\partial x^j}\right|_{x_0}
-    = v^i  \delta_i^j  \left.\frac{\partial f}{\partial x^j}\right|_{x_0}
-    = \left[v^i  \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}\right] \left[
-      ({\rm d}x^j)_a  \left.\frac{\partial f}{\partial x^j}\right|_{x_0} \right] .
-\end{equation}
-我们说了$({\rm d}f)_a$是由$f$诱导的对偶矢量，自然令$({\rm d}f)_a v^a$ 等于$v(f)$，也可看成定义。
-上式计算过程用到了式\eqref{chdm:eqn_v-expand-on-natural-bases}和
-式\eqref{chdm:eqn_dual-natural-bases}。
-
-可以看到 $x^i$ 的微分正是坐标基 $\p_i$ 的对偶 $\d x^i(\p_j)=\p_j(x^i)=\delta^i_j$，称为\textbf{对偶坐标基}或\textbf{逆变基}。
-
-故 $\d f$ 的分量是 $\d f(\p_i)=\p_i f$，$f$诱导的对偶矢量$({\rm d}f)_a$可以看成
-\begin{equation}\label{chdm:eqn_df}
-    ({\rm d}f)_a = ({\rm d}x^j)_a \left.\frac{\partial f}{\partial x^j}\right|_{x_0} .
-\end{equation}
-即可展开为 $\d f=\p_i f \d x^i$。
-
-很明确地显示了由$f$诱导的对偶矢量是其普通\textbf{微分}${\rm d}f$。
-这也是我们将标量函数$f$（包括坐标基矢$x^i$）诱导的对偶矢量记成微分的
-理由（也见式\eqref{chdm:eqn_dual-natural-bases}）。
+由定义及坐标展开，
+\eq{\label{chdm:eqn_dfv}
+    (\d f)_{x_0}(v)=v(f)=v^i\left.\pdv{f}{x^i}\right|_{x_0}.
+}
+特别地，$\d x^i(\p_j)=\p_j(x^i)=\delta^i_j$，故坐标函数的微分正是上述对偶基，称为\textbf{对偶坐标基}。于是
+\eq{\label{chdm:eqn_df}
+    (\d f)_{x_0}=\left.\pdv{f}{x^j}\right|_{x_0}\left.\d x^j\right|_{x_0}.
+}
+略去取值点，即 $\d f=\p_jf\,\d x^j$，与通常的全微分一致。
 
 在标准分析中，全微分理解为各线性映射间的关系，这里将线性映射叙述为余切矢量。由于分量是 $\p_i f$，因此有时建议称标量场的\textbf{梯度}\footnote{为区分于标准分析学中的概念，部分书籍会用粗体表示这些泛函，如 $\bm A,\bm\omega,\bm{\partial}/{\bm{\partial}x^i},\mathbf{d}f$。但其实没有必要，因为两种概念其实是一致的。看似不同是因为本科教学为了通俗性，默认以坐标空间为基础，而没有额外提出流形。}。
 
@@ -530,27 +470,26 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 
 微分流形定义中要求坐标卡可以取成各种相容形式，如果$x_0\in M$有两个相互容许的
 坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，且$U\cap V \neq \varnothing$；
-对应的自然坐标基底分别是$(\frac{\partial }{\partial x^i})^a_{x_0} $
-和$(\frac{\partial }{\partial y^j})^a_{x_0} $。
-我们把$(\frac{\partial }{\partial y^j})^a_{x_0} $看成
-式\eqref{chdm:eqn_v-expand-on-natural-bases}中的$v^a$，那么有
-\begin{equation}\label{chdm:eqn_xy-transform}
-    \left(\frac{\partial }{\partial y^j}\right)^a_{x_0} = \left. \frac{\partial x^i}{\partial y^j}\right|_{x_0} \cdot
-    \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}     {\ \Leftrightarrow \ }
-    \left(\frac{\partial }{\partial x^i}\right)^a_{x_0} = \left. \frac{\partial y^j}{\partial x^i}\right|_{x_0} \cdot
-    \left(\frac{\partial }{\partial y^j}\right)^a_{x_0} .
-\end{equation}
+对应的自然坐标基底分别是$(\frac{\partial }{\partial x^i})_{x_0} $
+和$(\frac{\partial }{\partial y^j})_{x_0} $。
+我们把$(\frac{\partial }{\partial y^j})_{x_0} $看成
+式\eqref{chdm:eqn_v-expand-on-natural-bases}中的$v$，那么有
+\eq{\label{chdm:eqn_xy-transform}
+    \left(\frac{\partial }{\partial y^j}\right)_{x_0} = \left. \frac{\partial x^i}{\partial y^j}\right|_{x_0} \cdot
+    \left(\frac{\partial }{\partial x^i}\right)_{x_0}     {\ \Leftrightarrow \ }
+    \left(\frac{\partial }{\partial x^i}\right)_{x_0} = \left. \frac{\partial y^j}{\partial x^i}\right|_{x_0} \cdot
+    \left(\frac{\partial }{\partial y^j}\right)_{x_0} .
+}
 上式同时写出了逆变换；可见过渡矩阵恰好是$x_0$点的Jacobi矩阵。
 
-\index[physwords]{切空间!坐标变换}
 
 在$U\cap V$中可以把$y^j$看成自变量是$x^i$的标量函数（也可反过来），
 将式\eqref{chdm:eqn_df}中的$f$用$y^j$替换后，有
-\begin{equation}\label{chdm:eqn_xy-cov-transform}
-    ({\rm d}y^j)_a = ({\rm d}x^i)_a \left.\frac{\partial y^j}{\partial x^i}\right|_{x_0} 
+\eq{\label{chdm:eqn_xy-cov-transform}
+    ({\rm d}y^j) = ({\rm d}x^i) \left.\frac{\partial y^j}{\partial x^i}\right|_{x_0}
     {\quad \Leftrightarrow \quad }
-    ({\rm d}x^i)_a = ({\rm d}y^j)_a \left.\frac{\partial x^i}{\partial y^j}\right|_{x_0} 
-\end{equation}
+    ({\rm d}x^i) = ({\rm d}y^j) \left.\frac{\partial x^i}{\partial y^j}\right|_{x_0}
+}
 过渡矩阵恰好是$x_0$点的Jacobi矩阵之逆。
 
 其实，在同一流形$M$中，点$x_0\in M$有两个相互容许的坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，
@@ -560,52 +499,45 @@ Cartan 还注意到，这相当于给函数微分一个更严格的理解。标�
 有了切空间$T_{x_0}M$及其对偶空间$T_{x_0}^{*}M$（两个都是线性空间），
 仿照\S\ref{chmla:sec_tensor}，可以定义微分流形$M$在点$x_0$处的$({p},{q})$型张量，
 可以把它看成$m^{p+q}$维线性空间
-\begin{equation}\label{chdm:eqn_TM-TsM}
+\eq{\label{chdm:eqn_TM-TsM}
     \mathcal{T}^p_q(x_0) \equiv \underbrace{T_{x_0}M\otimes \cdots \otimes T_{x_0}M}_{p\text{个}}
     \otimes \underbrace{T_{x_0}^{*}M\otimes \cdots \otimes T_{x_0}^{*}M}_{q\text{个}}
-\end{equation}
+}
 中的元素。也可以把它看成笛卡尔积空间
-\begin{equation}\label{chdm:eqn_TM-X-TsM}
+\eq{\label{chdm:eqn_TM-X-TsM}
     \underbrace{T_{x_0}^{*}M \times \cdots \times T_{x_0}^{*}M}_{p\text{个}}
     \times \underbrace{T_{x_0}M\times \cdots \times T_{x_0}M}_{q\text{个}}
-\end{equation}
+}
 的$p+q$重线性函数。
 
-\index[physwords]{切空间!张量}
 
 从上一小节可知线性空间$\mathcal{T}^p_q(x_0)$的自然基矢量是（略去了下标$x_0$）
-\begin{equation}\label{chdm:eqn_tensortrans}
-    \left(\frac{\partial }{\partial x^{i_1}}\right)^{a_1} \otimes \cdots \otimes
-    \left(\frac{\partial }{\partial x^{i_p}}\right)^{a_p} \otimes
-    ({\rm d}x^{j_1})_{b_1} \otimes \cdots \otimes ({\rm d}x^{j_q})_{b_q} .
-\end{equation}
+\eq{\label{chdm:eqn_tensortrans}
+    \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
+    \d x^{j_1}\otimes\cdots\otimes\d x^{j_q}.
+}
 上式中$1\leqslant \{i,j\} \leqslant m $。
 由式\eqref{chdm:eqn_xy-transform}和\eqref{chdm:eqn_xy-cov-transform}不难得到
-上式在坐标变化下的变换关系。通常省略张量积符号$\otimes$。
+上式在坐标变化下的变换关系。
 
-$\mathcal{T}^p_q(x_0)$中的任一张量可以在基矢组\eqref{chdm:eqn_tensortrans}上展开，
-\begin{equation}\label{chdm:eqn_tensor-component}
-    \alpha^{a_1 \cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q} 
-     = \alpha^{i_1 \cdots i_p}_{\phantom{i_1 \cdots i_p}j_1\cdots j_q} 
-      \left(\frac{\partial }{\partial x^{i_1}}\right)^{a_1} \cdots 
-      \left(\frac{\partial }{\partial x^{i_p}}\right)^{a_p} 
-      ({\rm d}x^{j_1})_{b_1} \cdots  ({\rm d}x^{j_q})_{b_q}    .
-\end{equation}
-简写为
-\eq{
-    T=T^{\mu_1\cdots\mu_k}{}_{\nu_1\cdots\nu_l}\partial_{\mu_1}\otimes\cdots\otimes\partial_{\mu_k}\otimes\d x^{\nu_1}\otimes\cdots\otimes\d x^{\nu_l}.
+任一张量 $\alpha\in\mathcal T^p_q(x_0)$ 均可展开为
+\eq{\label{chdm:eqn_tensor-component}
+    \alpha=\alpha^{i_1\cdots i_p}{}_{j_1\cdots j_q}
+    \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
+    \d x^{j_1}\otimes\cdots\otimes\d x^{j_q}.
 }
+
 代入 $V=T_p M,e_i=X_i$ 即可得到分量变换律。
 当坐标变换时，由式\eqref{chdm:eqn_xy-transform}和\eqref{chdm:eqn_xy-cov-transform}易得
 分量的变换关系是
-\begin{equation}\label{chdm:eqn_tensor-component-trans}
+\eq{\label{chdm:eqn_tensor-component-trans}
     \tilde{\alpha}^{k_1 \cdots k_p}_{\phantom{k_1 \cdots k_p}l_1\cdots l_q} (y)
     ={\alpha}^{i_1 \cdots i_p}_{\phantom{i_1 \cdots i_p}j_1\cdots j_q} (x) \times
-    \frac{\partial y^{k_1}}{\partial x^{i_1}} \cdots 
+    \frac{\partial y^{k_1}}{\partial x^{i_1}} \cdots
     \frac{\partial y^{k_p}}{\partial x^{i_p}} \times
-    \frac{\partial x^{j_1}}{\partial y^{l_1}} \cdots 
+    \frac{\partial x^{j_1}}{\partial y^{l_1}} \cdots
     \frac{\partial x^{j_q}}{\partial y^{l_q}} .
-\end{equation}
+}
 需要强调的是：上式所有量都需在点$x_0\in M$取值，
 $\{x\}$、$\{y\}$是$x_0$点某个小邻域的两套坐标系。
 由此式直接可得一阶切矢量或余切矢量的分量变换关系。
@@ -616,9 +548,9 @@ $\{x\}$、$\{y\}$是$x_0$点某个小邻域的两套坐标系。
 
 设有两个微分流形$M$和$N$，维数分别为$m$和$n$（两者未必相等），存在光滑映射$\phi:M\to N$；
 $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
-\begin{equation}
+\eq{
     y^\alpha = \phi(x^i)=y^\alpha (x^1,\cdots, x^m), \qquad 1\leqslant \alpha \leqslant n .
-\end{equation}
+}
 取微分流形$M$中任一点$x_0$及微分流形$N$中点$\phi(x_0)$，
 则有$y^\alpha_0=\phi(x^i_0)$。
 那么它自然诱导出一系列映射。
@@ -632,20 +564,14 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 \begin{definition}\label{chdm:def_pullback-scalar}
     从$C^\infty_{\phi(x_0)}(N)$到$C^\infty_{x_0}(M)$
     的拉回 $\phi^{*}$ 为
-    \begin{equation}
-        \phi^{*}(g) \overset{def}{=} g \circ \phi, 
+    \eq{
+        \phi^{*}(g) := g \circ \phi,
         \qquad \forall g\in C^\infty_{\phi(x_0)}(N) .
-    \end{equation}
+    }
 \end{definition}
 一般来说，我们不能把$M$中的标量函数推前到$N$上；比如映射$\phi$不是单射，
 假设有$\phi(x_1)=\phi(x_2)=y\in N$，那么$y$处的被推前函数值就不知道该
 选为$g(x_1)$还是$g(x_2)$的值了，出现多值选择困难。
-
-\index[physwords]{诱导映射}
-\index[physwords]{诱导映射!切映射、推前映射}
-\index[physwords]{诱导映射!余切映射、拉回映射}
-
-
 
 
 同样注意，对于一般的光滑映射，我们不能定义切矢量的拉回；请读者
@@ -653,10 +579,10 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 
 \begin{definition}\label{chdm:def_pullback-1form}
     \textbf{拉回映射}可拓展到余切矢量，也称为\textbf{余切映射}：
-    \begin{equation}
-        (\phi^{*}\omega)_a v^a \overset{def}{=} \omega_a (\phi_{*}v)^a ,
-        \qquad \forall \omega_a \in T^{*}_{\phi(x_0)}N,\quad \forall v^a \in T_{x_0}M .
-    \end{equation}
+    \eq{
+        (\phi^*\omega)(v):=\omega(\phi_*v) ,
+        \qquad \forall \omega \in T^{*}_{\phi(x_0)}N,\quad \forall v \in T_{x_0}M .
+    }
 \end{definition}
 需要强调的是：上面几个定义都是点对点的。
 
@@ -665,24 +591,22 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
     切映射和余切映射都是线性的。
 \end{proposition}
 \begin{proof}
-    先证切映射是线性的。设$\forall u^a,v^a \in T_{x_0}M,\  \forall g\in C^\infty_{\phi(x_0)}(N),\ 
-    \forall \lambda \in \mathbb{R}$，
+    先证切映射是线性的。设$\forall u,v \in T_{x_0}M,\  \forall g\in C^\infty_{\phi(x_0)}(N),\
+    \forall \lambda \in \R$，
 
     \begin{align*}
         \bigl(\phi_{*}(u+ \lambda v) \bigr)(g)= (u+ \lambda v)(g\circ \phi)
         =u(g\circ \phi) +\lambda \cdot v (g\circ \phi)
         =(\phi_{*} u) (g) + \lambda \cdot (\phi_{*}v)(g) .
     \end{align*}
-    
-    再证余切映射的线性性。$\forall \omega_a ,\mu_a \in T^{*}_{\phi(x_0)}N,\ 
-    \forall v^a\in T_{x_0}M, \ \forall \lambda \in \mathbb{R}$，有
-    \begin{align*}
-         \phi^{*} (\omega+\lambda \mu )_a v^a  = 
-        (\omega+\lambda \mu )_a (\phi_{*}v)^a 
-%        =(\omega)_a (\phi_{*}v)^a + \lambda(\mu )_a (\phi_{*}v) ^a
-        =(\phi^{*}\omega)_a v^a + \lambda(\phi^{*}\mu)_a v^a .
-    \end{align*}
-    证明过程与上面证明完全类似，所以省略了一步。
+
+    再证余切映射的线性性。任给 $\omega,\mu\in T^*_{\phi(x_0)}N$、$v\in T_{x_0}M$ 及 $\lambda\in\R$，有
+    \[
+        \bigl(\phi^*(\omega+\lambda\mu)\bigr)(v)
+        =(\omega+\lambda\mu)(\phi_*v)
+        =(\phi^*\omega)(v)+\lambda(\phi^*\mu)(v).
+    \]
+
     标量函数的拉回映射\ref{chdm:def_pullback-scalar}也是线性的，
     证明过程完全相同，略。
 \end{proof}
@@ -698,37 +622,32 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
     导出自然基矢在切映射和余切映射下的变换关系。
 \end{proposition}
 \begin{proof}
-符号同本小节开头叙述。命题要求解的是切映射$\phi_{*}(\frac{\partial}{\partial x^i})^a$在局部坐标$(V;y)$的
-自然基矢$(\frac{\partial}{\partial y^\alpha})^a$下的展开系数，
+符号同本小节开头叙述。命题要求解的是切映射$\phi_{*}(\frac{\partial}{\partial x^i})$在局部坐标$(V;y)$的
+自然基矢$(\frac{\partial}{\partial y^\alpha})$下的展开系数，
 我们只需将它作用在局部坐标$y^\alpha(x^i)$上即可。
 
-\begin{equation}\label{chdm:eqn_push-bases}
-    \left[\phi_{*}\left(\frac{\partial}{\partial x^i}\right)\right] (y^\alpha) 
-    =\frac{\partial}{\partial x^i} \left(y^\alpha \circ \phi \right) 
-    =\frac{\partial y^\alpha}{\partial x^i} 
+\eq{\label{chdm:eqn_push-bases}
+    \left[\phi_{*}\left(\frac{\partial}{\partial x^i}\right)\right] (y^\alpha)
+    =\frac{\partial}{\partial x^i} \left(y^\alpha \circ \phi \right)
+    =\frac{\partial y^\alpha}{\partial x^i}
     \ \Leftrightarrow\ \phi_{*}
-    \left(\frac{\partial}{\partial x^i}\right)^a = \frac{\partial y^\alpha}{\partial x^i}
-    \left(\frac{\partial}{\partial y^\alpha}\right)^a 
-\end{equation}
+    \left(\frac{\partial}{\partial x^i}\right) = \frac{\partial y^\alpha}{\partial x^i}
+    \left(\frac{\partial}{\partial y^\alpha}\right)
+}
 切映射在局部坐标基矢间的关系是Jacobi矩阵，
 注意这个矩阵未必是方阵。
 
-命题要求解的是余切映射${\phi ^*}( {\rm{d}}{y^\alpha } )_a$在局部坐标$(U;x)$的
-自然基矢$({\rm{d}}{x^i })_a$下的展开系数，作法同上，
-\begin{align}
-    {\phi ^*}\left( {{\rm{d}}{y^\alpha }} \right)_a 
-    \left(\frac{\partial}{\partial x^i}\right) ^a 
-    &= \left( {{\rm{d}}{y^\alpha }} \right)_a \ {\phi _*}
-    \left(\frac{\partial}{\partial x^i}\right) ^a 
-    = \left( {{\rm{d}}{y^\alpha }} \right)_a 
-    \frac{\partial y^\beta}{\partial x^i}
-    \left(\frac{\partial}{\partial y^\beta}\right)^a
-    = \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} \notag \\
-    \Rightarrow \ 
-    {\phi ^*}\left( {{\rm{d}}{y^\alpha }} \right)_a &=
-     \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} 
-     \left( {{\rm{d}}{x^i }} \right)_a  . \label{chdm:eqn_pull-bases}
-\end{align}
+余切映射作用于对偶基时，由定义得
+\[
+    (\phi^*\d y^\alpha)(\p_i)
+    =\d y^\alpha(\phi_*\p_i)
+    =\pdv{(y^\alpha\circ\phi)}{x^i},
+\]
+故
+\eq{\label{chdm:eqn_pull-bases}
+    \phi^*(\d y^\alpha)=\pdv{(y^\alpha\circ\phi)}{x^i}\d x^i.
+}
+
 余切映射局部坐标基矢间的关系也是Jacobi矩阵。
 
 最后强调一点：所有公式只在$x_0$点取值，为使下标简洁上面表达式中略去了此点。
@@ -736,41 +655,41 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 
 命题\ref{chdm:thm_coortrans}中映射是$\phi:M\to N$，如果我们令$N\equiv M$，并且
 令$\phi$是恒等映射${\rm id}$；但$M$和$N$的局部坐标未必相同。
-这时上面命题中的变换可以理解成同一局部邻域内的{\kaishu 坐标变换}；
+这时上面命题中的变换可以理解成同一局部邻域内的{坐标变换}；
 公式与\S\ref{chdm:sec_coortrans}中的相同。
 
 利用式\eqref{chdm:eqn_pull-bases}可证明如下一个重要公式，
 即普通微分和拉回映射可对易。
 \begin{align}
-    {\phi ^*} ({\rm d} f)_a =& {\phi ^*} \left[ \frac{ \partial f  } 
-      {\partial y^\alpha} ({\rm d} y^\alpha)_a  \right]
+    {\phi ^*} ({\rm d} f) =& {\phi ^*} \left[ \frac{ \partial f  }
+      {\partial y^\alpha} ({\rm d} y^\alpha)  \right]
     = \left. \frac{ \partial f }{\partial y^\alpha} \right|_{\phi(x_0)}
       \left. \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} \right|_{x_0}
-      \left( {{\rm{d}}{x^i }} \right)_a 
+      \left( {{\rm{d}}{x^i }} \right)
     = \left. \frac{ \partial (f \circ \phi) }{\partial x^i} \right|_{x_0}
-      \left( {{\rm{d}}{x^i }} \right)_a  \notag\\
-    =& {\rm d}_a (f \circ \phi) ={\rm d}_a ({\phi ^*}f) . \label{chdm:eqn_dfphi}
+      \left( {{\rm{d}}{x^i }} \right)  \notag\\
+    =& {\rm d} (f \circ \phi) ={\rm d} ({\phi ^*}f) . \label{chdm:eqn_dfphi}
 \end{align}
 仿照上式，其实式\eqref{chdm:eqn_pull-bases}也
-可以写为${\phi ^*} ({\rm d} y^\alpha)_a = {\rm d}_a (y^\alpha \circ \phi)$。
+可以写为${\phi ^*} ({\rm d} y^\alpha) = {\rm d} (y^\alpha \circ \phi)$。
 
 给出复合映射的关系式。
 \begin{theorem}\label{chdm:thm_map-chain-rule}
     设有光滑流形$M,N$和$Q$，存在流形间的光滑映射$\phi:M\to N$和$\psi:N\to Q$，则
     复合映射$ \psi\circ\phi  : M\to Q$的三种诱导映射服从如下链式法则（其中$\forall p\in M$），
-    
-    {\bfseries (1)} $(\psi\circ \phi)^{*}= \phi^{*}\circ \psi^{*}:  C^{\infty}_{\psi\circ\phi(p)}(Q)\to C^{\infty}_p (M)$；
+
+    {(1)} $(\psi\circ \phi)^{*}= \phi^{*}\circ \psi^{*}:  C^{\infty}_{\psi\circ\phi(p)}(Q)\to C^{\infty}_p (M)$；
     对应定义\ref{chdm:def_pullback-scalar}；
-    
-    {\bfseries (2)} $(\psi\circ \phi)_{*}= \psi_{*}\circ \phi_{*}: T_p M\to T_{\psi\circ\phi(p)}Q$；
+
+    {(2)} $(\psi\circ \phi)_{*}= \psi_{*}\circ \phi_{*}: T_p M\to T_{\psi\circ\phi(p)}Q$；
     对应定义\ref{chdm:def_pushforward-vector}；
-    
-    {\bfseries (3)} $(\psi\circ \phi)^{*}= \phi^{*}\circ \psi^{*}:  T^{*}_{\psi\circ\phi(p)}Q\to T^{*}_p M$；
+
+    {(3)} $(\psi\circ \phi)^{*}= \phi^{*}\circ \psi^{*}:  T^{*}_{\psi\circ\phi(p)}Q\to T^{*}_p M$；
     对应定义\ref{chdm:def_pullback-1form}。
 \end{theorem}
 \begin{proof}
-    设有任意$v^a\in T_pM$和任意$f\in C^\infty_{\psi\circ\phi(p)}(Q)$，
-    以及任意的$\omega_a\in T^{*}_{\psi\circ\phi(p)}(Q)$。
+    设有任意$v\in T_pM$和任意$f\in C^\infty_{\psi\circ\phi(p)}(Q)$，
+    以及任意的$\omega\in T^{*}_{\psi\circ\phi(p)}(Q)$。
     先证第(1)式，由定义直接计算，得
     \begin{align*}
         (\psi\circ \phi)^{*} (f) &= f\circ \psi\circ \phi (p) = (f\circ \psi )\circ \phi (p)
@@ -787,10 +706,10 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
     \end{equation*}
     证明过程中用到了第(1)式。最后证明第(3)式：
     \begin{equation*}
-        \bigl((\psi\circ \phi)^{*} \omega_a\bigr) (v^a) = \omega_a \bigl((\psi\circ \phi)_{*} v^a\bigr)
-        = \omega_a (\psi_{*} \circ \phi_{*}  v^a )
-        = \psi^{*} \omega_a ( \phi_{*}  v^a)
-        = (\phi^{*}\circ \psi^{*} \omega_a) (v^a) .
+        \bigl((\psi\circ \phi)^{*} \omega\bigr) (v) = \omega \bigl((\psi\circ \phi)_{*} v\bigr)
+        = \omega (\psi_{*} \circ \phi_{*}  v )
+        = \psi^{*} \omega ( \phi_{*}  v)
+        = (\phi^{*}\circ \psi^{*} \omega) (v) .
     \end{equation*}
     需要注意，第(1)、(3)式的链式法则次序与原复合映射次序相反。
 \end{proof}
@@ -809,14 +728,13 @@ $M$中有光滑参数曲线$\gamma(t)$，此线切矢量如式\eqref{chdm:eqn_Di
     = \left.\frac{{\rm d}  }{{\rm d} t}\right|_{\phi\circ\gamma(0)} (f) .
 \end{align*}
 从上式可以得到
-\begin{equation}\label{chdm:eqn_phiD=Dphi}
-    \phi_{*}\left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma(0)}\right)^a
-    = \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\phi\circ\gamma(0)}\right)^a.
-\end{equation}
-在涉及曲线切矢量的计算时，此式非常有用。  
+\eq{\label{chdm:eqn_phiD=Dphi}
+    \phi_{*}\left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma(0)}\right)
+    = \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\phi\circ\gamma(0)}\right).
+}
+在涉及曲线切矢量的计算时，此式非常有用。
 \qed
 
-\index[physwords]{切矢量!曲线切矢}
 
 \begin{exercise}\label{chdm:exer_fg}
 	有映射$f(t)=(t,t^2)$，$g(x,y)=x \cos y$。
@@ -829,14 +747,12 @@ $M$中有光滑参数曲线$\gamma(t)$，此线切矢量如式\eqref{chdm:eqn_Di
 \end{exercise}
 
 \section{嵌入映射}\label{chdm:sec_sub-manifold}
-\index[physwords]{子流形}
-\index[physwords]{反函数定理}
 
 
 \begin{theorem}\label{chdm:thm_inv-in-M}
     设光滑流形$M$和$N$的维数都是$m$，$f:M\to N$是光滑映射。
     如果在一点$p\in M$，切映射$f_{*}:T_p M\to T_{f(p)}N$是同构的，
-    则\CJKunderwave{存在点}$p$在$M$中的邻域$U$使得$V=f(U)$是点$f(p)$在$N$中的一个邻域，
+    则存在点$p$在$M$中的邻域$U$使得$V=f(U)$是点$f(p)$在$N$中的一个邻域，
     并且$f|_U :U\to V$是微分同胚映射。
 \end{theorem}
 利用上面定理可证明如下定理。
@@ -845,12 +761,12 @@ $M$中有光滑参数曲线$\gamma(t)$，此线切矢量如式\eqref{chdm:eqn_Di
     $f:M\to N$是光滑映射，并且切映射$f_{*}:T_p M\to T_{f(p)}N$是非退化的。
     则存在点$p$的局部坐标系$(U;x^i)$以及点$q=f(p)$的局部坐标系$(V;y^\alpha)$，
     使得$f(U)\subset V$，并且映射$f|_U$可用局部坐标表示为
-    \begin{equation}
+    \eq{
         \begin{cases}
-            y^i \circ f = x^i, & 1 \leqslant i \leqslant m ; \\ 
+            y^i \circ f = x^i, & 1 \leqslant i \leqslant m ; \\
             y^\nu \circ f = 0, & 1+m \leqslant \nu \leqslant n .
         \end{cases}
-    \end{equation}
+    }
 \end{theorem}
 \begin{proof}
     设光滑映射$f$在$p$点局部坐标系$(U;x^i)$下的像点$q$的坐标关系是
@@ -863,49 +779,45 @@ $M$中有光滑参数曲线$\gamma(t)$，此线切矢量如式\eqref{chdm:eqn_Di
       \left. \frac{\partial ({f^1,\cdots,f^m})}{\partial ({x^1,\cdots,x^m})} \right|_{x^i=0} \neq 0.
     \end{equation*}
     因$f$是光滑函数，此行列式至少是连续的，所以存在$p$点附近一个充分小邻域，在此小邻域范围内上式恒不为零。
-    
-    可以将$(U;x^i)$的$m$维坐标卡延拓至$n$维，即假设有$\mathbb{R}^{n-m}$中的一个充分小方体
+
+    可以将$(U;x^i)$的$m$维坐标卡延拓至$n$维，即假设有$\R^{n-m}$中的一个充分小方体
     \begin{equation*}
         I\equiv \{(x^{m+1},\cdots,x^n) \mid \ \max(|x^{m+1}|,\cdots,|x^n|) < \delta \} ,
     \end{equation*}
     其中$\delta$是一个充分小正实数。
     我们构造映射$\tilde{f}:U\times I \to V$，其坐标表达式如下
-    \begin{equation}\label{chdm:eqn_tmp88}
+    \eq{\label{chdm:eqn_tmp88}
         \begin{cases}
             (y\circ \tilde{f})^i = f^i(x^1,\cdots,x^m), & 1 \leqslant i \leqslant m; \\
             (y\circ \tilde{f})^\alpha =x^\alpha+ f^\alpha(x^1,\cdots,x^m), & 1+m \leqslant \alpha \leqslant n .
         \end{cases}
-    \end{equation}
+    }
     不失一般性，以设$p$点坐标是原点$0$；如果不是，平移一下原点即可。
     我们将方体$I$的原点和$p$结合在一起，构成$U\times I $的新原点$\tilde{p}\equiv\{0\}$。
     很明显映射$\tilde{f}$在新原点$\tilde{p}$的Jacobi行列式不为零，也就是切映射$\tilde{f}_{*}$是非退化的；
     根据定理\ref{chdm:thm_inv-in-M}可知映射$\tilde{f}$在$\tilde{p}$点充分小邻域内是微分同胚。
-    
+
     现在我们舍弃$V$中原有坐标系$\{y^\alpha\}$（如果$\{y^\alpha\}$与式\eqref{chdm:eqn_tmp98}相同，
     就不用舍弃了，直接用！）；
     利用微分同胚$\tilde{f}$带来的坐标当成开集$V$的新局部坐标系$(V;z)$，可表示为
-    \begin{equation}\label{chdm:eqn_tmp98}
+    \eq{\label{chdm:eqn_tmp98}
     \begin{cases}
         (z\circ \tilde{f})^i = x^i, & 1 \leqslant i \leqslant m; \\
         (z\circ \tilde{f})^\alpha =x^\alpha, & 1+m \leqslant \alpha \leqslant n .
     \end{cases}
-    \end{equation}
+    }
     在此局部坐标系内，$\tilde{f}$是$(U\times I;x)$到$(V;z)$的恒等映射。
     由映射$\tilde{f}$定义\eqref{chdm:eqn_tmp88}可知$\tilde{f}|_{U\times\{0\}}$满足定理中
     要求的映射$f|_U$；也就是，坐标系\eqref{chdm:eqn_tmp98}具体表达为
-    \begin{equation}
+    \eq{
         \tilde{f}(x^1,\cdots,x^m,0,\cdots,0)
         = (x^1,\cdots,x^m,0,\cdots,0).
-    \end{equation}
+    }
     此定理说明，通过坐标变换满秩映射$f$可以将$U$单一地映入$N$的一个
     局部坐标面内。
 \end{proof}
 
 
-\index[physwords]{浸入}
-\index[physwords]{嵌入}
-\index[physwords]{嵌入!正则嵌入}
-\index[physwords]{淹没}
 \subsection{浸入、嵌入与淹没}\label{chdm:sec_immerse-embed}
 现在引入几个定义。设光滑流形$M$和$N$的维数分别是$m$和$n$；
 $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chdm:rek_jacobi}）
@@ -915,11 +827,11 @@ $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 
 (1) 若$m=n={\rm rank}_p\phi$，则$\phi$是局部微分同胚的。
 
-(2) 若$m\leqslant n, {\rm rank}_p\phi=m$，也就是映射$\phi$说在$p$点某个邻域内是\CJKunderwave{局部}单一的，
+(2) 若$m\leqslant n, {\rm rank}_p\phi=m$，也就是映射$\phi$说在$p$点某个邻域内是局部单一的，
 则称$\phi$点$p$是\textbf{局部浸入}的。若
 映射$\phi$在$M$上每一点都浸入，则称为\textbf{浸入映射}（immerse）。
 
-(3) 设$\phi:M\to N$是浸入的，若$\phi$是\CJKunderwave{整体}单一的，则称为\textbf{嵌入映射}（embed）。
+(3) 设$\phi:M\to N$是浸入的，若$\phi$是整体单一的，则称为\textbf{嵌入映射}（embed）。
 
 (4) 设$\phi:M\to N$是嵌入的，若$\phi$从$M$带到$\phi(M)$的拓扑结构与$\phi(M)$从$N$上得到
 的诱导拓扑结构（见定义\ref{chtop:def_induced-top}）相同，
@@ -944,9 +856,7 @@ $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chd
     \textbf{浸入（嵌入、正则嵌入）子流形}。
 \end{definition}
 
-\index[physwords]{子流形!浸入、嵌入}
 
-\index[physwords]{包含映射}
 \begin{definition}\label{chdm:def_inclusion-map}
     设有集合$A$和$B$，并且有$A\subset B$，
     映射$\imath: A\to B;\ \imath(x) = x, \ \forall x\in A. $
@@ -973,28 +883,28 @@ $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 \end{example}
 
 
-下面给出两个十分相近的函数，它们都是从$\mathbb{R}$到$\mathbb{R}^2$的映射。
+下面给出两个十分相近的函数，它们都是从$\R$到$\R^2$的映射。
 \begin{example}\label{chdm:exm_iec1}
-    浸入，非嵌入例子。  
-    \begin{equation}\label{chdm:eqn_tmp-f-immerse}
+    浸入，非嵌入例子。
+    \eq{\label{chdm:eqn_tmp-f-immerse}
         F(t)=\left(2\cos\Big(t-\frac{\pi}{2}\Big),\ \sin2\Big(t-\frac{\pi}{2}\Big) \right) .
-    \end{equation}
+    }
     当$t$取值从$-\infty$到$+\infty$时，式\eqref{chdm:eqn_tmp-f-immerse}在原点（$(0,0)$）处无穷多次自相交。
-    所以$(F,\mathbb{R})$是$\mathbb{R}^2$的浸入子流形，不是嵌入子流形。\qed  
+    所以$(F,\R)$是$\R^2$的浸入子流形，不是嵌入子流形。\qed
 \end{example}
 
 \begin{example}\label{chdm:exm_iec2}
     浸入，且嵌入，但非正则嵌入例子。
-    \begin{equation}\label{chdm:eqn_tmp-g-embed}
-      G(t)=\left(2\cos\Big(2\arctan t+\frac{\pi}{2}\Big),\ \sin2\Big(2 \arctan t+\frac{\pi}{2}\Big) \right) . 
-    \end{equation}    
+    \eq{\label{chdm:eqn_tmp-g-embed}
+      G(t)=\left(2\cos\Big(2\arctan t+\frac{\pi}{2}\Big),\ \sin2\Big(2 \arctan t+\frac{\pi}{2}\Big) \right) .
+    }
         当$t=0$时，$G(0)=(0,0)$。当$t\to \pm \infty$时，曲线无限接近原点，
     但没有到达原点，即$G(t\to \pm \infty)\to (0,0)$；没有自交点。
-    所以$(G,\mathbb{R})$是$\mathbb{R}^2$是嵌入子流形，当然它也是浸入子流形。
+    所以$(G,\R)$是$\R^2$是嵌入子流形，当然它也是浸入子流形。
 
-    由$G$带入$G(\mathbb{R})$的是一条不自相交的曲线，这个拓扑是一维的，同胚于实数轴。
+    由$G$带入$G(\R)$的是一条不自相交的曲线，这个拓扑是一维的，同胚于实数轴。
     我们再来看诱导拓扑，参见定义\ref{chtop:def_induced-top}。
-    取二维平面$\mathbb{R}^2$中的通常拓扑：开圆盘。圆心在原点的开圆盘$C$，无论半径取多小
+    取二维平面$\R^2$中的通常拓扑：开圆盘。圆心在原点的开圆盘$C$，无论半径取多小
     （必须是个有限小的确定数值，不能是零，也不能取无限趋近于零的极限），首先
     会包含$-\epsilon < t< \epsilon$的$G(t)$曲线；
     其次当$t\to \pm \infty$时，$G(t\to \pm \infty)\to (0,0)$，曲线
@@ -1003,24 +913,23 @@ $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 \end{example}
 
 
-
 \begin{example}\label{chdm:exm_iec3}
     浸入，且嵌入，但非正则嵌入又一例。
-    定义映射$H:\mathbb{R}\to \mathbb{R}^2$如下
-    \begin{equation}
+    定义映射$H:\R\to \R^2$如下
+    \eq{
         H(t)=\begin{cases}
            \left(\frac{3}{t^2},\sin\pi t \right), & 1 \leqslant t < +\infty, \\
            \left(0,\ t+2\right), & -\infty < t \leqslant -1.
         \end{cases}
-    \end{equation}
+    }
     假定$H(t)$在定义区间$[-1,+1]$内是连接$(3,0)$和$(0,1)$两点的光滑曲线，且与上式给出的两个部分无交点。
-    映射$(H,\mathbb{R})$是整体单一浸入到$\mathbb{R}^2$的曲线，没有自交点；所以它是浸入的，且是嵌入的。
-    
+    映射$(H,\R)$是整体单一浸入到$\R^2$的曲线，没有自交点；所以它是浸入的，且是嵌入的。
+
     带入拓扑是由$H(t)$描述的一维曲线，同胚于实数轴。
     下面分析诱导拓扑，不难发现$y$轴的$[-1,+1]$部分是曲线$H(t)$的一部分，
     记为$I_y$；显然$I_y$是诱导拓扑中的一部分，且是一维直线段。
     当$t\to +\infty$时，曲线会围绕着$x$轴上下摆动，从右侧无限接近$I_y$部分。
-    与上一例相似，取$\mathbb{R}^2$中的通常拓扑——开圆盘$C$，
+    与上一例相似，取$\R^2$中的通常拓扑——开圆盘$C$，
     且令开圆盘的圆心在$I_y$上。
     但是无论开圆盘半径取得多么小（必须是有限小的确定值），
     当$t\to +\infty$时，曲线$H(t\to +\infty)$都会进入开圆盘$C$；
@@ -1042,7 +951,7 @@ $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 \begin{theorem}\label{chdm:thm_embed-3}
     设$(\phi,M)$是$n$光滑流形$N$的$m$维浸入子流形。
     $(\phi,M)$是正则嵌入的充分必要条件是：
-    \CJKunderwave{对任意点}$p\in M$，在$N$中存在$q=\phi(q)$的局部坐标系$(V;y^i)$，
+    对任意点$p\in M$，在$N$中存在$q=\phi(q)$的局部坐标系$(V;y^i)$，
     其中$y^i(q)=0$；还要使得$\phi(M)\cap V$是
     由$y^{m+1}=y^{m+2}=\cdots=y^{n}=0$定义的。
 \end{theorem}
@@ -1055,30 +964,24 @@ $\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 的开邻域$\phi(U)\subset V\subset N$，在邻域$V$内坐标分量$y^i=0(i>m)$；对邻域$U$外的$M$中的点
 如何在$N$中表示也作要求，即$M-U$中的点不能映入$V$中。
 若只在$p$点局部邻域$U$内看问题的话，则浸入和正则嵌入没有差别，
-换句话说：浸入{\kaishu 在局部上}必定是正则嵌入的。
+换句话说：浸入{在局部上}必定是正则嵌入的。
 例\ref{chdm:exm_iec1}、\ref{chdm:exm_iec2}、\ref{chdm:exm_iec3}具体地表明了
 浸入、嵌入、正则嵌入的差别，尤其请参阅后两道例题中带入拓扑和诱导拓扑的分析。
-
-
-
-
-
 
 
 \section{切矢量丛}\label{chdm:sec_tangent-bundles}
 两个流形（笛卡尔）积是一个很基本的概念，见\S \ref{chdm:sec_cartensian-product}。
 例如，定义在微分流形$M$上实函数$f(x)$的像$(x,f(x))$便是从$M$到（笛卡尔）积
-流形$M\times \mathbb{R}$的一个映射；这个概念可以进一步推广成{\kaishu 纤维丛}；
+流形$M\times \R$的一个映射；这个概念可以进一步推广成{纤维丛}；
 本节只叙述相对简单的纤维丛——切矢量丛。
 
-\index[physwords]{切丛}
 
 %切矢量丛是一个非常基本的概念，这里只给出结果；详尽完整论述可参见\textcite[pp. 63-106]{spivak-dif-1}或类似文献。
 
 设$M$是$m$维光滑流形，$p\in M$点的切空间记为$T_pM$，记
-\begin{equation}\label{chdm:eqn_tangent-bundle-set}
-    TM \equiv \bigcup _{p\in M} T_pM = \{v^a \in T_pM \mid \forall p\in M\} .
-\end{equation}
+\eq{\label{chdm:eqn_tangent-bundle-set}
+    TM \equiv \bigcup _{p\in M} T_pM = \{v \in T_pM \mid \forall p\in M\} .
+}
 $TM$是流形$M$上全体切矢量的集合。我们要给它赋予一个拓扑结构和微分结构，
 使它成为一个$2m$维的光滑流形。
 我们将略去如下证明（可见\parencite[\S 3.1]{chenwh2001}、\parencite[\S 12.1]{tu-IM-2011}）：
@@ -1087,16 +990,16 @@ $TM$是Hausdorff空间；$TM$存在开覆盖$\bigcup _{\alpha\in I} \pi^{-1} (U_
 
 虽然省略了一些证明，但还是要建立$TM$拓扑的。
 定义映射$\pi:TM\to M$如下：
-\begin{equation}
-    \pi(v^a) = p; \qquad \forall v^a\in T_pM,\quad p\in M.
-\end{equation}
+\eq{
+    \pi(v) = p; \qquad \forall v\in T_pM,\quad p\in M.
+}
 这样，对每一个点$p\in M$，都有$\pi^{-1}(p)=T_pM$；注意这里的$\pi^{-1}$不是指
 逆映射，是指逆像的集合；映射$\pi$不是单射，无逆；容易看出映射$\pi$是满射。
 
 设微分流形$M$有微分结构$\mathscr{A}=\{(U_\alpha,\varphi_\alpha;x^i)|\alpha \in I \}$，令
-\begin{equation}
+\eq{
     \pi^{-1} (U_\alpha) \equiv \bigcup _{p\in U_\alpha} T_pM .
-\end{equation}
+}
 当$\alpha$遍历整个指标集$I$后，
 便有$\bigcup _{\alpha \in I}  \pi^{-1} (U_\alpha) = TM$。
 很明显$\pi^{-1} (U_\alpha)$是$TM$的子集；
@@ -1108,19 +1011,19 @@ $TM$是Hausdorff空间；$TM$存在开覆盖$\bigcup _{\alpha\in I} \pi^{-1} (U_
 
 
 设$(x_p^1,\cdots,x_p^m)$是$p$点在映射$\varphi_\alpha$作用下的坐标；
-矢量$v^a\in \pi^{-1} (U_\alpha)$可以在$p$点自然切
-基矢$\left.\left(\frac{\partial }{\partial x^i}\right)^a \right | _p$下
+矢量$v\in \pi^{-1} (U_\alpha)$可以在$p$点自然切
+基矢$\left.\left(\frac{\partial }{\partial x^i}\right) \right | _p$下
 展开，其分量是$(v^1,\cdots,v^m)$。
 $\forall \alpha \in I$，
-定义映射$\psi_\alpha: \pi^{-1} (U_\alpha) \to U_\alpha \times \mathbb{R}^m 
-\overset{\varphi_\alpha}{\longrightarrow} \varphi_\alpha(U_\alpha) \times \mathbb{R}^m $
-（其中$\varphi_\alpha(U_\alpha) \subset \mathbb{R}^m$维数是$m$）。
+定义映射$\psi_\alpha: \pi^{-1} (U_\alpha) \to U_\alpha \times \R^m
+\overset{\varphi_\alpha}{\longrightarrow} \varphi_\alpha(U_\alpha) \times \R^m $
+（其中$\varphi_\alpha(U_\alpha) \subset \R^m$维数是$m$）。
 \begin{small}
-\begin{equation}\label{chdm:eqn_tb_atalas}
-    \psi_\alpha\left(v^i \left. \left(\frac{\partial }{\partial x^i}\right)^a 
-    \right | _p \right) \overset{def}{=} \left(x_p^1,\cdots,x_p^m, v^1,\cdots,v^m\right),
-    \quad \forall p\in U_\alpha,\ v^a\in \pi^{-1} (p).
-\end{equation}
+\eq{\label{chdm:eqn_tb_atalas}
+    \psi_\alpha\left(v^i \left. \left(\frac{\partial }{\partial x^i}\right)
+    \right | _p \right) := \left(x_p^1,\cdots,x_p^m, v^1,\cdots,v^m\right),
+    \quad \forall p\in U_\alpha,\ v\in \pi^{-1} (p).
+}
 \end{small}
 因$(x_p^1,\cdots,x_p^m)$与$(v^1,\cdots,v^m)$都是可变动的，所以上述
 定义更好地说明了$\pi^{-1} (U_\alpha)$是$2m$维的。
@@ -1128,99 +1031,96 @@ $\forall \alpha \in I$，
 我们可以规定$\psi_\alpha$和$\psi_\alpha^{-1}$是连续映射，
 相当于规定了$\pi^{-1} (U_\alpha)$中的开集；这样，
 式\eqref{chdm:eqn_tb_atalas}中的映射便是拓扑同胚的，
-它将$\varphi_\alpha(U_\alpha) \times \mathbb{R}^m $中的（通常）拓扑
+它将$\varphi_\alpha(U_\alpha) \times \R^m $中的（通常）拓扑
 携带到$\pi^{-1} (U_\alpha)$中。
 很明显$(\pi^{-1} (U_\alpha),\psi_\alpha)$是$TM$一个坐标卡，
 这样我们建立了$TM$的拓扑结构。
 {\footnote{建立$M$的拓扑过程大体如下：(1)找到$M$的一个覆盖集合$\mathcal{C}$；
-        (2)将集合$\mathcal{C}$与$\mathbb{R}^m$中的开子集建立双射关系$\sigma$，
+        (2)将集合$\mathcal{C}$与$\R^m$中的开子集建立双射关系$\sigma$，
         要求$\sigma$和$\sigma^{-1}$都连续；
-        (3)双射$\sigma$可将$\mathbb{R}^m$中拓扑（即开集概念）携带到$M$；
+        (3)双射$\sigma$可将$\R^m$中拓扑（即开集概念）携带到$M$；
         $\sigma$便是拓扑同胚映射。这样，$M$成为拓扑流形。
-        
-    需注意：如果$M$中原来有拓扑结构$\mathcal{T}$，这个拓扑未必与$\mathbb{R}^m$中开集
+
+    需注意：如果$M$中原来有拓扑结构$\mathcal{T}$，这个拓扑未必与$\R^m$中开集
 存在条件(2)中的$\sigma$；如果存在，那么$(M,\mathcal{T})$本身便是拓扑流形。}}
 
 
-
 我们开始建立$TM$上的微分结构；只需验证坐标卡$(\pi^{-1} (U_\alpha),\psi_\alpha)$是$C^\infty$相容的。
-实际上，$\pi^{-1} (U_\alpha) \cap \pi^{-1} (U_\beta) \neq \varnothing {\color{red}\Leftrightarrow}
+实际上，$\pi^{-1} (U_\alpha) \cap \pi^{-1} (U_\beta) \neq \varnothing {\Leftrightarrow}
 U_\alpha \cap U_\beta \neq \varnothing$。
 当$U_\alpha \cap U_\beta \neq \varnothing$时，设分别存在
 坐标卡$(U_\alpha;x^i)$和$(U_\beta;\tilde{x}^i)$；那么，它们间的坐标变换是$C^\infty$的，
 即Jacobi矩阵$\frac{\partial \tilde{x}^j}{\partial {x}^i}$是$\{x^j\}$的$C^\infty$函数，
 同样，其逆矩阵$\frac{\partial {x}^i}{\partial \tilde{x}^j}$也是$\{\tilde{x}^i\}$的$C^\infty$函数。
-设$p \in U_\alpha \cap U_\beta$，则式\eqref{chdm:eqn_tb_atalas}中的$v^a$在$p$点的
+设$p \in U_\alpha \cap U_\beta$，则式\eqref{chdm:eqn_tb_atalas}中的$v$在$p$点的
 坐标表达式有两个等价描述如下：
-\begin{equation}
-    v^a = v^i \left. \left(\frac{\partial }{\partial x^i}\right)^a \right | _p
-        = \tilde{v}^j \left. \left(\frac{\partial }{\partial \tilde{x}^j}\right)^a  \right | _p
-\end{equation}
+\eq{
+    v = v^i \left. \left(\frac{\partial }{\partial x^i}\right) \right | _p
+        = \tilde{v}^j \left. \left(\frac{\partial }{\partial \tilde{x}^j}\right)  \right | _p
+}
 不难得到两者分量的变换关系：
-\begin{equation}\label{chdm:eqn_tbv}
+\eq{\label{chdm:eqn_tbv}
     v^i = \tilde{v}^j \left. \frac{\partial {x}^i}{\partial \tilde{x}^j}  \right | _p
-    {\quad \color{red}\Leftrightarrow \quad}
+    {\quad \Leftrightarrow \quad}
     \tilde{v}^j = {v}^i \left. \frac{\partial \tilde{x}^j}{\partial {x}^i}  \right | _p .
-\end{equation}
+}
 上述坐标变换关系中的Jacobi矩阵是$C^\infty$的，坐标$(v^1,\cdots,v^m)$本身也是$C^\infty$的，
 那么坐标变换$v^i \leftrightarrow \tilde{v}^i$是$C^\infty$的；
 而$U_\alpha \cap U_\beta$自身的坐标变换$x^i \leftrightarrow \tilde{x}^i$本来就是$C^\infty$的；
 $TM$坐标是由两者结合得到的$(x^1,\cdots,x^m,v^1,\cdots,v^m)$，它的坐标变换自然也是$C^\infty$的。
 由\pageref{chdm:def_Dmanifold}页
 定义\ref{chdm:def_Dmanifold}中第二条和命题\ref{chdm:thm_biggestDiffStruc}可知，
-这个坐标卡集合是{\kaishu 相容的}，那么便建立了$TM$的$C^\infty$微分结构，从而它是微分流形了。
+这个坐标卡集合是{相容的}，那么便建立了$TM$的$C^\infty$微分结构，从而它是微分流形了。
 $TM$便是切矢量丛，简称切丛。
 
 更多内容请参见第\ref{chfb}章。
-
 
 
 \section{切矢量场}\label{chdm:sec_tangent-vector-field}
 在\S\ref{chdm:sec_tangentspace}中，我们已经介绍了微分流形$M$上某确定点$x$切矢量
 定义\ref{chdm:def_tang-vec-inManifold}，这个定义可以推广到整个流形，那便是切矢量场。
 \begin{definition}\label{chdm:def_tangent-vector-field}
-    在微分流形$M$的每一点$x$都指定一个切矢量$v^a(x)\in T_xM$，称$v^a$是$M$上
-    的一个\textbf{切矢量\CJKunderwave{场}}。
+    在微分流形$M$的每一点$x$都指定一个切矢量$v(x)\in T_xM$，称$v$是$M$上
+    的一个\textbf{切矢量场}。
 \end{definition}
-%由定义不难看出切矢量场是这样一个映射$v^a:M\to TM$。考虑到切丛$(TM,M,\pi)$和
-%矢量丛截面定义\ref{chfb:def_vf-section}，则可知$\pi \circ v^a = {\rm id}$；因此
-%切矢量场$v^a$是切丛$TM$的一个截面。
+%由定义不难看出切矢量场是这样一个映射$v:M\to TM$。考虑到切丛$(TM,M,\pi)$和
+%矢量丛截面定义\ref{chfb:def_vf-section}，则可知$\pi \circ v = {\rm id}$；因此
+%切矢量场$v$是切丛$TM$的一个截面。
 
 
 设$m$维微分流形$M$有局部坐标系$(U,\varphi;x)$，很明显，
-$\{(\frac{\partial }{\partial x^i})^a\}$（其中$1\leqslant i \leqslant m$）是
+$\{(\frac{\partial }{\partial x^i})\}$（其中$1\leqslant i \leqslant m$）是
 开集$U$上的切矢量场，但一般说来它们不是整个流形$M$上的切矢量场。
 在\S\ref{chdm:sec_tangentspace}中，已经说明在确定的点$p$，
-$\{(\frac{\partial }{\partial x^i})^a_p\}$是该点切空间自然坐标基矢；
-在$U$上每一点都有定义的$\{(\frac{\partial }{\partial x^i})^a\}$（$1\leqslant i \leqslant m$）是
-$U$上\textbf{自然标架场}，任一$U$上切矢量场$v^a(x)$都可以用此标架展开
-\begin{equation}\label{chdm:eqn_vfnf}
-    v^a(x)|_U = v^i \left(\frac{\partial }{\partial x^i}\right)^a .
-\end{equation}
+$\{(\frac{\partial }{\partial x^i})_p\}$是该点切空间自然坐标基矢；
+在$U$上每一点都有定义的$\{(\frac{\partial }{\partial x^i})\}$（$1\leqslant i \leqslant m$）是
+$U$上\textbf{自然标架场}，任一$U$上切矢量场$v(x)$都可以用此标架展开
+\eq{\label{chdm:eqn_vfnf}
+    v(x)|_U = v^i \left(\frac{\partial }{\partial x^i}\right) .
+}
 
-\index[physwords]{切矢量场}
 
 \begin{definition}
     若式\eqref{chdm:eqn_vfnf}中系数$v^i(1\leqslant i \leqslant m)$是$C^\infty(U)$的，
-    则称$v^a$是$U$上\textbf{光滑切矢量场}。
-    若$v^i$对流形$M$每个坐标卡中开覆盖是$C^\infty$的，则称$v^a$是$M$上\textbf{光滑切矢量场}；$M$上
+    则称$v$是$U$上\textbf{光滑切矢量场}。
+    若$v^i$对流形$M$每个坐标卡中开覆盖是$C^\infty$的，则称$v$是$M$上\textbf{光滑切矢量场}；$M$上
     全体光滑切矢量场记为$\mathfrak{X}(M)$。
 \end{definition}
 用自然方式定义$\mathfrak{X}(M)$中矢量场的加法与
-数乘（$\forall u^a,v^a \in \mathfrak{X}(M),\  \forall x\in M, \  \forall \lambda \in \mathbb{R}$），
-\begin{equation}\label{chdm:eqn_rnumtimesv}
-    (u^a+v^a)(x) \overset{def}{=} u^a(x) + v^a(x), \qquad 
-    (\lambda \cdot v^a)(x) \overset{def}{=} \lambda\cdot v^a(x).
-\end{equation}
-这样定义后，$\mathfrak{X}(M)$构成了实数域$\mathbb{R}$上的矢量空间；
+数乘（$\forall u,v \in \mathfrak{X}(M),\  \forall x\in M, \  \forall \lambda \in \R$），
+\eq{\label{chdm:eqn_rnumtimesv}
+    (u+v)(x) := u(x) + v(x), \qquad
+    (\lambda \cdot v)(x) := \lambda\cdot v(x).
+}
+这样定义后，$\mathfrak{X}(M)$构成了实数域$\R$上的矢量空间；
 由于点$x\in M$是连续的、变动的，所以这个矢量空间是无穷维的（因$x$有无穷多个值）。
-除了实数域上的数量乘法，还可以定义$C^\infty(M)$上\CJKunderwave{函数乘法}（也
-称为\CJKunderwave{$C^r(M)$-线性}，也见定理\ref{chdm:thm_Tensor-Characterization-Lemma}；
+除了实数域上的数量乘法，还可以定义$C^\infty(M)$上函数乘法（也
+称为$C^r(M)$-线性，也见定理\ref{chdm:thm_Tensor-Characterization-Lemma}；
 注意与数域$\mathbb{F}$-线性的区别）：
-\begin{equation}\label{chdm:eqn_functimesv}
-    (f \cdot v^a)(x) \overset{def}{=} f(x)\cdot v^a(x); \
-    \forall x\in M, \ \forall f(x) \in C^\infty(M), \ \forall v^a \in \mathfrak{X}(M) .
-\end{equation}
+\eq{\label{chdm:eqn_functimesv}
+    (f \cdot v)(x) := f(x)\cdot v(x); \
+    \forall x\in M, \ \forall f(x) \in C^\infty(M), \ \forall v \in \mathfrak{X}(M) .
+}
 流形$M$（或其开子集$U$）上的$C^\infty(M)$构成一个含有幺元的交换环（请读者依照定义\ref{chtop:def_ring}验证）；
 在式\eqref{chdm:eqn_functimesv}定义下（加法仍由式\eqref{chdm:eqn_rnumtimesv}中第一式来定义），
 $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\infty(M)$-模；
@@ -1228,36 +1128,34 @@ $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\inft
 
 \subsection{切矢量场几何定义}\label{chdm:sec_vdef2}
 设有微分流形$M$及其局部坐标系$(U,\varphi;x)$，
-再设$v^a\in \mathfrak{X}(M)$，及$f(x) \in C^\infty(M)$；
+再设$v\in \mathfrak{X}(M)$，及$f(x) \in C^\infty(M)$；
 我们先给出切矢量场作用标量函数上的定义：
-\begin{equation}\label{chdm:eqn_vecffunc}
-    \bigl(v(f)\bigr) (x)  \overset{def}{=}  v(x) \bigl( f(x)\bigr) .
-\end{equation}
+\eq{\label{chdm:eqn_vecffunc}
+    \bigl(v(f)\bigr) (x)  :=  v(x) \bigl( f(x)\bigr) .
+}
 利用式\eqref{chdm:eqn_vfnf}，得
-\begin{equation}
-    v(x) f = v^i \frac{\partial f }{\partial x^i} = 
+\eq{
+    v(x) f = v^i \frac{\partial f }{\partial x^i} =
     v^i \frac{\partial f\circ \varphi^{-1} }{\partial x^i}.
-\end{equation}
+}
 因$v^i, f \in C^\infty(M)$，所以由上式可知光滑切矢量场作用在光滑标量场上得到
-一个光滑标量场，也就是可以把光滑切矢量场看成这样一个映射$v^a:C^\infty(M)\to C^\infty(M)$；
+一个光滑标量场，也就是可以把光滑切矢量场看成这样一个映射$v:C^\infty(M)\to C^\infty(M)$；
 上面局部坐标系是任选的，所以这种看法与局部坐标系无关。
 此映射自然满足一些性质，见下面定理。
 
 
-\index[physwords]{切矢量场!几何定义}
-
 \begin{theorem}\label{chdm:thm_vf-def2}
-    依式\eqref{chdm:eqn_vecffunc}定义的$v^a\in \mathfrak{X}(M)$是这样一个映射$v^a:C^\infty(M)\to C^\infty(M)$，
+    依式\eqref{chdm:eqn_vecffunc}定义的$v\in \mathfrak{X}(M)$是这样一个映射$v:C^\infty(M)\to C^\infty(M)$，
     并且它满足如下条件：
 
-    {\bfseries (1)} 线性性：$\forall g,h \in C^\infty(M) $ ， $\forall \lambda \in \mathbb{R}$，有
+    {(1)} 线性性：$\forall g,h \in C^\infty(M) $ ， $\forall \lambda \in \R$，有
     $v (g+\lambda h) = v (g)+ \lambda v (h) $；
 
-    {\bfseries (2)} Leibnitz律：$\forall g,h \in C^\infty(M) $，有
+    {(2)} Leibnitz律：$\forall g,h \in C^\infty(M) $，有
     $v (g\cdot h) = \bigl(v(g)\bigr)\cdot h(x)+ g(x)\cdot v (h) .$
-    
+
     反之，如果有映射$\alpha:C^\infty(M)\to C^\infty(M) $满足上面两个条件，
-    那么存在唯一$v^a\in \mathfrak{X}(M)$使得
+    那么存在唯一$v\in \mathfrak{X}(M)$使得
     $v(f)=\alpha(f),\ \forall f\in C^\infty(M)$。
 \end{theorem}
 这个定理说明：如果映射满足上述两个条件，那么它便是一个切矢量场，从而这两个条件
@@ -1268,8 +1166,6 @@ $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\inft
 后半部分证明略显复杂，为此
 我们先证明一个命题，也被称为\textbf{局部性定理}。
 
-\index[physwords]{局部性定理}
-\index[physwords]{局部性定理!切矢量场}
 
 \begin{proposition}\label{chdm:thm_vf-local}
     设$f,c\in C^\infty(M)$，在开集$U\subset M$上有$f|_U = c|_U$。
@@ -1278,11 +1174,11 @@ $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\inft
 \end{proposition}
 \begin{proof}
     利用第二个条件，令$g=1,\ h=1$，则有
-    $v(1\cdot 1)=1\cdot v(1)+1\cdot v(1) {\color{red}\Rightarrow}
-    v(1)=2\cdot v(1){\color{red}\Rightarrow} v(1)=0$，
+    $v(1\cdot 1)=1\cdot v(1)+1\cdot v(1) {\Rightarrow}
+    v(1)=2\cdot v(1){\Rightarrow} v(1)=0$，
     进而可以得到$v(const)=0$；
     这说明$v$将常数标量场映射为零标量场。
-    
+
     $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \overline{V} \subset U$；
     令$h\in C^\infty(M)$是满足命题\ref{chdm:thm_exp1UVM}中条件的标量场，那么
     在整个流形$M$中有$(f-c)\cdot h \equiv 0$；将映射$v$作用在这个等式两端，
@@ -1296,7 +1192,7 @@ $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\inft
     所以有$v(f)|_V = v(c)|_V$。又因点$p$是任意的，所以必然有$v(f)|_U = v(c)|_U$。
 \end{proof}
 
-\begin{remark}\label{chdm:rmk_local}  
+\begin{remark}\label{chdm:rmk_local}
 定理\ref{chdm:thm_vf-def2}中的映射$\alpha$是定义在整个流形$M$上的；
 一般说来，流形是不存在全局（即大范围、整体）坐标系的。
 只有限制在局部开子集$U\subset M$上，才可能存在一个坐标系就能覆盖住$U$的情形，
@@ -1320,10 +1216,10 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 取$f\in C^\infty(U)$，根据命题\ref{chdm:thm_Flocal-equiv-Fglobal}可以将$f$延拓至
 整个流形$M$上的$\hat{f}\in C^\infty(M)$，并且有$f|_V= \hat{f}|_V$。
 根据局部性定理，我们可以将$\alpha(f)$在$p\in U$点的局部值定义为
-\begin{equation}\label{chdm:eqn_aflg}
-    \bigl(\alpha(f)\bigr)(p) \overset{def}{=} \bigl(\alpha(\hat{f})\bigr)(p) .
-\end{equation}
-定义号“$\overset{def}{=}$”右端是$C^\infty(M)$中的标量场，本来就有意义。
+\eq{\label{chdm:eqn_aflg}
+    \bigl(\alpha(f)\bigr)(p) := \bigl(\alpha(\hat{f})\bigr)(p) .
+}
+定义号“$:=$”右端是$C^\infty(M)$中的标量场，本来就有意义。
 需要注意的是，这个定义与开集$V$选取无关；
 可以将$V$换成任意其它开集$V'$，只要满足$V' \subset \overline{V'} \subset U$即可；
 证明过程与上面完全相同。
@@ -1337,36 +1233,36 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 满足定理\ref{chdm:thm_vf-def2}中的两个条件。下面开始证明定理\ref{chdm:thm_vf-def2}。
 
 设流形$M$有相容性坐标覆盖$(U_i,\varphi_i;x^j)$，对于任意点$p\in M$，它必然属于
-某个开覆盖$U_i$；在此点，我们定义一个映射$v:C^\infty_p \to \mathbb{R}$如下
-\begin{equation}\label{chdm:eqn_vfgl}
-    \bigl(v(f)\bigr)(p) \equiv \bigl(v(p)\bigr)(f) \overset{def}{=} 
+某个开覆盖$U_i$；在此点，我们定义一个映射$v:C^\infty_p \to \R$如下
+\eq{\label{chdm:eqn_vfgl}
+    \bigl(v(f)\bigr)(p) \equiv \bigl(v(p)\bigr)(f) :=
       \bigl(\alpha({f})\bigr)(p) =\bigl(\alpha(\hat{f})\bigr)(p) , \qquad \forall f\in C^\infty_p .
-\end{equation}
+}
 由于局部映射$\alpha:C^\infty(U)\to C^\infty(U)$同样
 满足定理\ref{chdm:thm_vf-def2}中的两个条件；不难证明
 在定义\eqref{chdm:eqn_vfgl}的意义下，这两个条件全部限制在
 点$p$处取值，即（证明留给读者，极易。
-其中$\forall g,h \in C^\infty_p,\ \lambda \in \mathbb{R} $）
-\begin{equation}\label{chdm:eqn_tmpvfg}
+其中$\forall g,h \in C^\infty_p,\ \lambda \in \R $）
+\eq{\label{chdm:eqn_tmpvfg}
 \begin{aligned}
     \bigl(v(p)\bigr) (g+\lambda h) &= \bigl(v(p)\bigr) (g) + \lambda\cdot \bigl(v(p)\bigr) (h) , \\
     \bigl(v(p)\bigr) (g\cdot h) &= \bigl(v(p)(g)\bigr) \cdot h + g\cdot\bigl(v(p)\bigr) ( h) .
 \end{aligned}
-\end{equation}
+}
 上两式说明，由式\eqref{chdm:eqn_vfgl}定义的$v(p)$符合切矢量定义\ref{chdm:def_tang-vec-inManifold}，
 因此$v(p)$是流形$M$在点$p$处的一个切矢量。由于点$p$是任意选取的，于是$M$中每一点都可以定义类似
-切矢量，这样构造的$v$是$M$上的{\kaishu 切矢量场}。
+切矢量，这样构造的$v$是$M$上的{切矢量场}。
 
-仍需证明$v^a$的光滑性。取局部坐标系$(U_i,\varphi_i;x^j)$，将$v$展开
+仍需证明$v$的光滑性。取局部坐标系$(U_i,\varphi_i;x^j)$，将$v$展开
 
-\begin{equation}\label{chdm:eqn_tmpadf23}
-    v^a(p) = v^j(p) \left.\left(\frac{\partial }{\partial x^j}\right)^a \right|_p
-      = \bigl(v(p)\bigr)(x^j) \left.\left(\frac{\partial }{\partial x^j}\right)^a \right|_p
-      = \bigl(\alpha(p)\bigr)(x^j) \left.\left(\frac{\partial }{\partial x^j}\right)^a \right|_p
-\end{equation}
+\eq{\label{chdm:eqn_tmpadf23}
+    v(p) = v^j(p) \left.\left(\frac{\partial }{\partial x^j}\right) \right|_p
+      = \bigl(v(p)\bigr)(x^j) \left.\left(\frac{\partial }{\partial x^j}\right) \right|_p
+      = \bigl(\alpha(p)\bigr)(x^j) \left.\left(\frac{\partial }{\partial x^j}\right) \right|_p
+}
 坐标函数$x^j$是光滑标量场，故而$\alpha(x^j)$也是光滑标量场，由定义\eqref{chdm:eqn_aflg}可知
 其限制在$p$点取值后，$v^j(p)$也是$C^\infty_p$的；又因$p$是任取的，所以$v^j$是$C^\infty(M)$的。
-这便说明了$v^a$在$M$上的光滑性。
+这便说明了$v$在$M$上的光滑性。
 切矢量场光滑性的证明不依赖于某特定局部坐标系。定理\ref{chdm:thm_vf-def2}证毕。
 
 \begin{remark}
@@ -1382,29 +1278,27 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 \end{remark}
 
 
-\index[physwords]{Poisson括号}
-
 \subsection{Poisson括号}\label{chdm:sec_poisson-lie}
-设$u^a,v^a \in \mathfrak{X}(M)$，$\forall f\in C^\infty(M)$，有
-\begin{equation}\label{chdm:def_poisson-bracket}
-    \left[u,v\right] (f) \overset{def}{=} u\bigl(v(f)\bigr) - v\bigl(u(f)\bigr) .
-\end{equation}
-由上式定义的Poisson括号（也称为对易子）是流形$M$上一个光滑矢量场，即$[u,v]^a \in \mathfrak{X}(M)$。
+设$u,v \in \mathfrak{X}(M)$，$\forall f\in C^\infty(M)$，有
+\eq{\label{chdm:def_poisson-bracket}
+    \left[u,v\right] (f) := u\bigl(v(f)\bigr) - v\bigl(u(f)\bigr) .
+}
+由上式定义的Poisson括号（也称为对易子）是流形$M$上一个光滑矢量场，即$[u,v] \in \mathfrak{X}(M)$。
 证明并不困难，首先从定义式易看出：$\left[u,v\right]:C^\infty(M)\to C^\infty(M)$；
 剩下只需验证它满足定理\ref{chdm:thm_vf-def2}中的两个条件，
-我们先验证线性性（其中$\forall f,g \in C^\infty(M),\ \lambda \in \mathbb{R} $）：
+我们先验证线性性（其中$\forall f,g \in C^\infty(M),\ \lambda \in \R $）：
 
 \begin{align*}
-    &\left[u,v\right] (f + \lambda g) = u\bigl(v(f + \lambda g)\bigr) - v\bigl(u(f + \lambda g)\bigr) 
+    &\left[u,v\right] (f + \lambda g) = u\bigl(v(f + \lambda g)\bigr) - v\bigl(u(f + \lambda g)\bigr)
     =u\bigl(v(f)+\lambda v(g)\bigr)- v\bigl(u(f)+\lambda u(g)\bigr) \\
-    &=u\bigl(v(f)\bigr)+ \lambda u\bigl(v(g)\bigr) - v\bigl(u(f)\bigr) - \lambda v\bigl( u(g)\bigr) 
+    &=u\bigl(v(f)\bigr)+ \lambda u\bigl(v(g)\bigr) - v\bigl(u(f)\bigr) - \lambda v\bigl( u(g)\bigr)
     =\left[u,v\right] (f ) + \lambda \left[u,v\right] ( g) .
 \end{align*}
 Leibniz律的验证略显麻烦，我们先计算下式：
 \begin{align*}
-    u\bigl(v(f \cdot g)\bigr) &= u\bigl( v(f) \cdot g+ f \cdot v( g)\bigr)    
+    u\bigl(v(f \cdot g)\bigr) &= u\bigl( v(f) \cdot g+ f \cdot v( g)\bigr)
       = u\bigl( v(f) \cdot g\bigr) + u\bigl( f \cdot v( g)\bigr) \\
-      &= u\bigl( v(f) \bigr) \cdot g + v(f) \cdot u\bigl(  g\bigr) 
+      &= u\bigl( v(f) \bigr) \cdot g + v(f) \cdot u\bigl(  g\bigr)
       + u\bigl( f \bigr) \cdot v(g) + f \cdot u\bigl( v( g)\bigr) .
 \end{align*}
 将上式中$u$和$v$互换，并作差，得
@@ -1416,7 +1310,7 @@ Leibniz律的验证略显麻烦，我们先计算下式：
 这便验证了Leibnitz律。因此证明了Poisson括号是一个光滑切矢量场。
 
 设$M$有局部坐标系$(U;x^i)$，可在局部坐标系将Poisson括号展开，有
-\begin{equation}\label{chdm:eqn_poisson-bracket-expand}
+\eq{\label{chdm:eqn_poisson-bracket-expand}
 \begin{aligned}
     \left[u,v\right] (f) &= u^i\frac{\partial }{\partial x^i}\bigl(v^j\frac{\partial }{\partial x^j}(f)\bigr)
        - v^j\frac{\partial }{\partial x^j}\bigl(u^i\frac{\partial }{\partial x^i}(f)\bigr) \\
@@ -1424,21 +1318,21 @@ Leibniz律的验证略显麻烦，我们先计算下式：
        + u^iv^j \frac{\partial^2 f}{\partial x^i x^j}
        - v^j\frac{\partial u^i}{\partial x^j}\frac{\partial f}{\partial x^i}
        - u^i v^j\frac{\partial^2 f}{\partial x^j x^i} \\
-     &=  \left( u^i\frac{\partial v^j}{\partial x^i} 
+     &=  \left( u^i\frac{\partial v^j}{\partial x^i}
        - v^i\frac{\partial u^j}{\partial x^i} \right)  \frac{\partial }{\partial x^j} (f) .
 \end{aligned}
-\end{equation}
+}
 
 \begin{theorem}\label{chdm:thm_poisson-Lie-bracket}
     光滑流形$M$上的切矢量场$\mathfrak{X}(M)$中的Poisson括号满足如下规则：
-    
-    {\bfseries (1)} 反交换律：$\left[u,v\right]^a = -\left[v,u\right]^a$；
-    
-    {\bfseries (2)} $\mathbb{R}$-线性：$\left[k u+ v,w\right]^a = k \left[u,w\right]^a +\left[v,w\right]^a$；
-    
-    {\bfseries (3)} Jacobi恒等式：$\bigl[u, [v,w]\bigr]^a+\bigl[w, [u,v]\bigr]^a+\bigl[v, [w,u]\bigr]^a=0$。
-    
-    其中$\forall u^a,v^a,w^a \in \mathfrak{X}(M)$，$ \forall k \in \mathbb{R}$。
+
+    {(1)} 反交换律：$\left[u,v\right] = -\left[v,u\right]$；
+
+    {(2)} $\R$-线性：$\left[k u+ v,w\right] = k \left[u,w\right] +\left[v,w\right]$；
+
+    {(3)} Jacobi恒等式：$\bigl[u, [v,w]\bigr]+\bigl[w, [u,v]\bigr]+\bigl[v, [w,u]\bigr]=0$。
+
+    其中$\forall u,v,w \in \mathfrak{X}(M)$，$ \forall k \in \R$。
 \end{theorem}
 \begin{proof}
     前两条性质证明极易；下面给出第三条性质的证明，
@@ -1454,17 +1348,13 @@ Leibniz律的验证略显麻烦，我们先计算下式：
 光滑切矢量场$\mathfrak{X}(M)$便是实数域上关于Poisson括号乘积的\textbf{李代数}；
 更详细内容请见例\ref{chlg:exm_LAXM}。 %\S \ref{chlg:sec_definition}。
 
-定理\ref{chdm:thm_poisson-Lie-bracket}中性质(2)说明Poisson括号具有$\mathbb{R}$-线性，
+定理\ref{chdm:thm_poisson-Lie-bracket}中性质(2)说明Poisson括号具有$\R$-线性，
 然而这一性质并不能推广成$C^\infty(M)$-线性；$\forall f,g\in C^\infty (M)$，
-$\forall u^a,v^a \in \mathfrak{X}(M)$，一般有
-\begin{equation}\label{chdm:eqn_fg-PoissonBracket}
-    [f u, g v]^a = fg[u,v]^a+f\cdot u(g)\cdot v^a -g\cdot v(f)\cdot u^a .
-\end{equation}
+$\forall u,v \in \mathfrak{X}(M)$，一般有
+\eq{\label{chdm:eqn_fg-PoissonBracket}
+    [f u, g v] = fg[u,v]+f\cdot u(g)\cdot v -g\cdot v(f)\cdot u .
+}
 计算过程并不复杂，留给读者当作练习。
-
-\index[physwords]{诱导映射}
-\index[physwords]{诱导映射!切映射、推前映射}
-\index[physwords]{诱导映射!余切映射、拉回映射}
 
 
 \subsection{场上的诱导映射}\label{chdm:sec_induced-map-on-fields}
@@ -1476,48 +1366,47 @@ $\forall u^a,v^a \in \mathfrak{X}(M)$，一般有
 $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$。
 
 
-
 其中标量函数的拉回映射\ref{chdm:def_pullback-scalar}可以直接推广到“场”与“场”间的拉回：
 \begin{definition}\label{chdm:def_pullback-scalar-onfield}
     从$C^\infty(N)$到$C^\infty(M)$
     的\textbf{拉回映射} $\phi^{*}$定义为
-    \begin{equation}
-        \phi^{*}(g) \overset{def}{=} g \circ \phi, 
+    \eq{
+        \phi^{*}(g) := g \circ \phi,
         \qquad \forall g\in C^\infty(N) .
-    \end{equation}
+    }
 \end{definition}
 由于标量函数的拉回映射本质上就是复合函数，对$\phi$没有太多要求；例如，
-举一个极端的例子，假设两个流形分别都是实直线$\mathbb{R}$，
-$\phi$是个常数映射 $\phi(x)=0,\ \forall x \in \mathbb{R}$，
+举一个极端的例子，假设两个流形分别都是实直线$\R$，
+$\phi$是个常数映射 $\phi(x)=0,\ \forall x \in \R$，
 这个映射显然不是单射，也不是满射。那么$\phi$定义的拉回是良定义吗？
-检查拉回的定义就能看出一点问题都没有，$\phi$把（目标流形$N$）$\mathbb{R}$的
-任何光滑函数$g$拉回为（源流形$M$）$\mathbb{R}$的常数函数，其值为 $g(0)$；
+检查拉回的定义就能看出一点问题都没有，$\phi$把（目标流形$N$）$\R$的
+任何光滑函数$g$拉回为（源流形$M$）$\R$的常数函数，其值为 $g(0)$；
 $\phi^*(g)$对任意$x\in M$都有定义。
 
 仿照切矢量场定义，给出余切矢量场定义：
 \begin{definition}\label{chdm:def_cotangent-vector-field}
-    在微分流形$M$的每一点$x$都指定一个余切矢量$\omega_a(x)\in T^{*}_xM$，称$\omega_a$是$M$上
-    的一个\textbf{余切矢量\CJKunderwave{场}}。一般记为$\mathfrak{X}^{*}(M)$或者$A^1(M)$。
+    在微分流形$M$的每一点$x$都指定一个余切矢量$\omega(x)\in T^{*}_xM$，称$\omega$是$M$上
+    的一个\textbf{余切矢量场}。一般记为$\mathfrak{X}^{*}(M)$或者$A^1(M)$。
 \end{definition}
 
 余切矢量的拉回同样可以拓展到“场”：
 \begin{definition}\label{chdm:def_pullback-1form-onfield}
-    余切矢量\CJKunderwave{场}间的\textbf{拉回映射}定义为，
-    \begin{equation}
-        (\phi^{*}\omega)_a v^a \overset{def}{=} \omega_a (\phi_{*}v)^a ,
-        \qquad \forall \omega_a \in \mathfrak{X}^{*}(N),\quad \forall v^a \in T_{x}M .
-    \end{equation}
+    余切矢量场间的\textbf{拉回映射}定义为，
+    \eq{
+        (\phi^*\omega)(v):=\omega(\phi_*v) ,
+        \qquad \forall \omega \in \mathfrak{X}^{*}(N),\quad \forall v \in T_{x}M .
+    }
 \end{definition}
 可以看出这个定义中的点$x$是可以遍历到流形$M$中任意一点的；
-$(\phi_{*}v)^a$只需逐点定义即可。
-映射$\phi$是否单一（是否满射）并不影响$(\phi^{*}\omega)_a$是$M$上的“场”这一结论。
+$(\phi_{*}v)$只需逐点定义即可。
+映射$\phi$是否单一（是否满射）并不影响$(\phi^{*}\omega)$是$M$上的“场”这一结论。
 不难看出定义\ref{chdm:def_pullback-1form-onfield}很容易拓展到任意$\binom{0}{q}$型张量场。
 
 切矢量的推前映射与以上两个定义不同，一般说来，它不能推前成“场”。
 比如$\phi$不是单一的，可能有$x_1,x_2\in M$使得$\phi(x_1)=\phi(x_2)=y\in N$，
-但多数情况下$\phi_*(v_{x_1})^a \neq \phi_*(v_{x_2})^a$；这样在$y\in N$便有两个
+但多数情况下$\phi_*(v_{x_1}) \neq \phi_*(v_{x_2})$；这样在$y\in N$便有两个
 不同的切矢量，出现多值性。
-再比如$\phi$不是满射，那么$\phi_*(v_{x})^a$不能遍历到$N$上每个点，因此不能称为“场”。 
+再比如$\phi$不是满射，那么$\phi_*(v_{x})$不能遍历到$N$上每个点，因此不能称为“场”。
 
 
 再研究切矢场 $v$。确定一个 $v$ 只需对其作用于任意 $f$ 的结果做出要求。将 $v$ 推前即 $\phi_* v(f):=v(\phi^* f)$。这里未出现 $\phi^{-1}$，可见对一般光滑映射，只能借助切矢场给出：
@@ -1530,67 +1419,66 @@ $(\phi_{*}v)^a$只需逐点定义即可。
     \phi^* T=T(\phi_*(\oo),\cdots;\phi_*(\oo),\cdots),\quad \phi_* T=T(\phi^*(\oo),\cdots;\phi^*(\oo),\cdots).
 }
 
-如果规定$\phi$是\CJKunderwave{\kaishu 微分同胚}，那么可以把推前切矢量变成“场”。
+如果规定$\phi$是微分同胚，那么可以把推前切矢量变成“场”。
 \begin{definition}\label{chdm:def_pushforward-vector-onfield}
-    定义切矢量\CJKunderwave{场}的\textbf{推前映射}，或称为\textbf{切映射}（其中$\phi$是微分同胚）
-    \begin{equation}\label{chdm:eqn_pushforward-vector-onfield}
-        (\phi_{*}v)(g) \overset{def}{=} v(\phi^{*}(g)) = v (g \circ \phi), 
-        \qquad \forall g\in C^\infty_{\phi(x)}(N),\quad \forall v^a \in T_{x}M .
-    \end{equation}
+    定义切矢量场的\textbf{推前映射}，或称为\textbf{切映射}（其中$\phi$是微分同胚）
+    \eq{\label{chdm:eqn_pushforward-vector-onfield}
+        (\phi_{*}v)(g) := v(\phi^{*}(g)) = v (g \circ \phi),
+        \qquad \forall g\in C^\infty_{\phi(x)}(N),\quad \forall v \in T_{x}M .
+    }
 \end{definition}
 很明显，切映射$\phi_{*}$是流形$M$切空间$T_xM$和流形$N$切空间$T_{\phi(x)}N$间的线性映射。
 
 \begin{proposition}\label{chdm:thm_fxxf}
-    设$\phi:M\to N$是微分同胚，那么$\forall v^a \in\mathfrak{X}(M)$、
-    $\forall \omega_a \in\mathfrak{X}^{*}(M)$和$f\in C^\infty(M)$，
+    设$\phi:M\to N$是微分同胚，那么$\forall v \in\mathfrak{X}(M)$、
+    $\forall \omega \in\mathfrak{X}^{*}(M)$和$f\in C^\infty(M)$，
     它们在微分同胚映射$\phi$下的变换关系是：
-    $    \phi_{*} (f v^a) = \bigl(f\circ\phi^{-1}\bigr) \bigl( \phi_{*} v^a \bigr), \
+    $    \phi_{*} (f v) = \bigl(f\circ\phi^{-1}\bigr) \bigl( \phi_{*} v \bigr), \
         \phi^{-1*} \bigl(v(f)\bigr) = \bigl( \phi_{*} v \bigr)
         \bigl(f\circ\phi^{-1}\bigr), \
-        \phi^{-1*}(f \omega_a) = \bigl(f\circ\phi^{-1}\bigr)\bigl(\phi^{-1*}\omega_a\bigr) 
+        \phi^{-1*}(f \omega) = \bigl(f\circ\phi^{-1}\bigr)\bigl(\phi^{-1*}\omega\bigr)
     $。
 \end{proposition}
 \begin{proof}
     由定义\ref{chdm:def_pushforward-vector-onfield}可知，$\forall g\in C^\infty(N)$，有
-    \begin{equation}
+    \eq{
         \phi_{*} (f v) g = (f v)(g\circ \phi) =f\cdot \bigl(v(g\circ \phi)\bigr)
         =(f\circ \phi^{-1})\cdot \bigl(\phi_{*} v(g)\bigr).
-    \end{equation}
+    }
     需注意$f$的定义域是$M$，故需要$\phi^{-1}$操作。与之类似，可证明第二式
-    \begin{equation}
+    \eq{
         \phi^{-1*} \bigl(v(f)\bigr) = \bigl(v(f)\bigr) \circ \phi^{-1}
         =\bigl( \phi_{*} v \bigr)  \bigl(f\circ\phi^{-1}\bigr) .
-    \end{equation}
+    }
     第三式证明留给读者。
     总的来说，切矢量场要用$\phi_{*}$推前；标量函数场、余切矢量场要用$\phi^{-1}$拉回。
 \end{proof}
 
 
-\index[physwords]{$\phi$-相关矢量场}
 \subsection{$\phi$-相关矢量场}\label{chdm:sec_related}
 定义\ref{chdm:def_pushforward-vector-onfield}将映射限定为微分同胚，其实这还能弱化。
 设有两个光滑流形$M$、$N$，它们的维数分别是$m$、$n$，两者可以不等（一般$m\leqslant n$）；
 再设$\phi:M\to N$是光滑映射。 %\cite[\S 1.3]{helgason-2001}
 \begin{definition}\label{chdm:def_related}
-    $X^a\in \mathfrak{X}(M)$，$Y^a\in \mathfrak{X}(N)$；
-    若$\forall p\in M$有$\phi_{*} X^a = Y^a_{\phi(p)}$成立（或有
+    $X\in \mathfrak{X}(M)$，$Y\in \mathfrak{X}(N)$；
+    若$\forall p\in M$有$\phi_{*} X = Y_{\phi(p)}$成立（或有
     等价式$(\phi_{*}X)(f)= (Yf)\circ\phi$，$\forall f\in C^\infty(N)$），则称
-    $X^a$与$Y^a$是$\phi$-\textbf{相关矢量场}。
+    $X$与$Y$是$\phi$-\textbf{相关矢量场}。
 \end{definition}
 举个简单的例子，比如流形$M$是一条直线，$N$是二维平面；$\phi$是恒等映射，
 它将$M$映射为$N$中的一条直线（比如$x$坐标轴）。
-$M$上（直线）自然可以定义一个矢量场$X^a$，映射$\phi$只是将$M$映射为$N$中的$x$轴；
-在$N$中$x$轴之外的地方无法与$M$建立联系，故$\phi$不能把$X^a$推前成$N$中的“场”。
-如果把$N$中矢量场$Y^a$的取值范围限定在$x$轴上（即$\phi(M)$上），
-那么$X^a$和$Y^a_{\phi(p)}$间是有双射关系的，这便是
+$M$上（直线）自然可以定义一个矢量场$X$，映射$\phi$只是将$M$映射为$N$中的$x$轴；
+在$N$中$x$轴之外的地方无法与$M$建立联系，故$\phi$不能把$X$推前成$N$中的“场”。
+如果把$N$中矢量场$Y$的取值范围限定在$x$轴上（即$\phi(M)$上），
+那么$X$和$Y_{\phi(p)}$间是有双射关系的，这便是
 定义\ref{chdm:def_related}中描述的$\phi$-相关。
 
 %证明摘自\parencite{warner-1983-FDMLG}定理1.55 。
 
 \begin{theorem}\label{chdm:thm_push-Poisson-related}
-    设$X_i^a$和$Y_i^a$是$\phi$-相关的（$i=1,2$），则$[X_1,X_2]^a$
-    与$[Y_1,Y_2]^a$是$\phi$-相关的，
-    即$\phi_{*} [X_1,X_2]^a = [Y_1,Y_2]^a\circ \phi =\left[\phi_{*}X_1,\phi_{*}X_2\right]^a$。
+    设$X_i$和$Y_i$是$\phi$-相关的（$i=1,2$），则$[X_1,X_2]$
+    与$[Y_1,Y_2]$是$\phi$-相关的，
+    即$\phi_{*} [X_1,X_2] = [Y_1,Y_2]\circ \phi =\left[\phi_{*}X_1,\phi_{*}X_2\right]$。
 \end{theorem}
 \begin{proof}
     由定义\ref{chdm:def_related}可知：
@@ -1598,16 +1486,16 @@ $M$上（直线）自然可以定义一个矢量场$X^a$，映射$\phi$只是将
         Y_1\bigl( Y_2 (f)\bigr)\circ \phi = (\phi_* X_1 )\bigl( Y_2 (f)\bigr)
         =X_1\bigl( Y_2 (f\circ \phi)\bigr)  =X_1\bigl( \phi_{*} X_2 (f)\bigr) = X_1\bigl( X_2 (f\circ \phi)\bigr) .
     \end{equation*}
-    由此式自然可证$\phi_{*} [X_1,X_2]^a = [Y_1,Y_2]^a\circ \phi =\left[\phi_{*}X_1,\phi_{*}X_2\right]^a$。
+    由此式自然可证$\phi_{*} [X_1,X_2] = [Y_1,Y_2]\circ \phi =\left[\phi_{*}X_1,\phi_{*}X_2\right]$。
 \end{proof}
 
 由上述定理立刻可得如下定理：
 \begin{theorem}\label{chdm:thm_push-Poisson}
     设$\phi:M\to N$是微分同胚，则$\phi_{*}$保持Poisson括号不变：
-    \begin{equation}\label{chdm:eqn_push-Poisson}
-        \phi_{*} [X,Y]^a = \left[\phi_{*}X,\phi_{*}Y\right]^a, \qquad
-        \forall X^a, Y^a \in \mathfrak{X}(M) .
-    \end{equation}
+    \eq{\label{chdm:eqn_push-Poisson}
+        \phi_{*} [X,Y] = \left[\phi_{*}X,\phi_{*}Y\right], \qquad
+        \forall X, Y \in \mathfrak{X}(M) .
+    }
 \end{theorem}
 %\begin{proof}
 %    设$\forall g\in C^\infty(N)$，$\forall p\in M$，记$q=\phi(p)$，那么
@@ -1616,7 +1504,7 @@ $M$上（直线）自然可以定义一个矢量场$X^a$，映射$\phi$只是将
 %%        = \bigl(u (g\circ \phi )\bigr)|_p .
 %%    \end{equation*}
 %%    因点$p$是任选的，所以对整个场而言也是正确的。
-%%    利用上式可得    
+%%    利用上式可得
 %    \begin{equation*}
 %         \phi_{*}u  \bigl(\phi_{*}v (g) \bigr)
 %         = \phi_{*}u  \bigl(v (g\circ \phi )\bigr)
@@ -1643,29 +1531,27 @@ $M$上（直线）自然可以定义一个矢量场$X^a$，映射$\phi$只是将
 切矢量场的概念自然可以推广到张量上来，见下：
 \begin{definition}\label{chdm:def_tensor-field}
     在微分流形$M$每一点$x$指定一个$\binom{p}{q}$型张量
-    $T^{a_1\cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q}(x)\in \mathcal{T}^{p}_{q} M (x)$，
-    则称$T^{a_1\cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q}(x)$是$M$上的一个\textbf{张量\CJKunderwave{场}}。
+    $T(x)\in \mathcal{T}^{p}_{q} M (x)$，
+    则称$T(x)$是$M$上的一个\textbf{张量场}。
 \end{definition}
 设点$x\in M$有局部坐标系$(U;x^i)$，张量$T$表达式为：
-\begin{equation}\label{chdm:eqn_tensor-component111}
-    T^{a_1 \cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q} 
-    = T^{i_1 \cdots i_p}_{\phantom{i_1 \cdots i_p}j_1\cdots j_q} 
-    \left(\frac{\partial }{\partial x^{i_1}}\right)^{a_1} \cdots 
-    \left(\frac{\partial }{\partial x^{i_p}}\right)^{a_p} 
-    ({\rm d}x^{j_1})_{b_1} \cdots  ({\rm d}x^{j_q})_{b_q}    .
-\end{equation}
+\eq{\label{chdm:eqn_tensor-component111}
+    T=T^{i_1\cdots i_p}{}_{j_1\cdots j_q}
+    \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
+    \d x^{j_1}\otimes\cdots\otimes\d x^{j_q}.
+}
 \begin{definition}
     若式\eqref{chdm:eqn_tensor-component111}中系数$T^{i_1 \cdots i_p}_{\phantom{i_1 \cdots i_p}j_1\cdots j_q}$
     是$C^\infty(U)$的，
-    则称$T^{a_1\cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q}$是$U$上\textbf{光滑张量场}。
+    则称$T$是$U$上\textbf{光滑张量场}。
     $U$上全体光滑切张量场记为$\mathfrak{T}^p_q(U)$；$M$上全体光滑切张量场记为$\mathfrak{T}^p_q(M)$。
 \end{definition}
 可以仿照切矢量场定义加法和数量乘法（见式\eqref{chdm:eqn_rnumtimesv}）使$\mathfrak{T}^p_q(M)$成为线性空间；
 仿照式\eqref{chdm:eqn_functimesv}定义$C^\infty(M)$-乘法（注意，此乘法不同于数量乘法）。除此之外，还可逐点定义
 张量积运算和缩并运算（见\S \ref{chmla:sec_tensor}）。如果记
-\begin{equation}
+\eq{
     \mathfrak{T}(M) = \bigoplus_{p,q \geqslant 0} \mathfrak{T}^p_q(M),
-\end{equation}
+}
 则$\mathfrak{T}(M)$成为$C^\infty(M)$模。其中，
 $\mathfrak{T}^{0}_{0}(M)$便是$C^\infty(M)$；
 $\mathfrak{T}^{1}_{0}(M)$便是$\mathfrak{X}(M)$；
@@ -1675,72 +1561,61 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作\textbf{度量}或\textbf
 张量场也存在与定理\ref{chdm:thm_vf-def2}类似的定理，
 因此张量场也可有与切矢量场类似的第二定义；两者的第二定义不需要局部坐标系，显得更几何化。
 \begin{theorem}\label{chdm:thm_Tensor-Characterization-Lemma}
-    （ { \heiti 张量场特征引理}）：
+    （ { 张量场特征引理}）：
     光滑流形$M$上一个多重线性映射$\mathscr{T}$如下
     \begin{equation*}
-        \mathscr{T}: \underbrace{\mathfrak{X}^{*}(M) \times \cdots \times \mathfrak{X}^{*}(M)}_{p\text{个}} \times 
+        \mathscr{T}: \underbrace{\mathfrak{X}^{*}(M) \times \cdots \times \mathfrak{X}^{*}(M)}_{p\text{个}} \times
         \underbrace{\mathfrak{X}(M) \times \cdots \times \mathfrak{X}(M)}_{q\text{个}}
         \to C^\infty(M)
     \end{equation*}
-    是一个$\binom{p}{q}$型光滑张量场，等价于，映射$\mathscr{T}$对每个位置都是$C^\infty(M)$-线性的（包含$\mathbb{R}$-线性），即
-    \begin{equation}\label{chdm:eqn_Tensor-Characterization-Lemma}
-    \begin{aligned}
-        &\mathscr{T}^{a_1 \cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q} 
-        \alpha^1_{a_1} \cdots\alpha^p_{a_p} v_1^{b_1} \cdots (f\cdot v_r^{b_r}) \cdots v_q^{b_q} \\
-        =&f\cdot \mathscr{T}^{a_1 \cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q} 
-          \alpha^1_{a_1} \cdots\alpha^p_{a_p} v_1^{b_1} \cdots v_q^{b_q}\\
-        =&\mathscr{T}^{a_1 \cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q} 
-        \alpha^1_{a_1} \cdots (f\cdot \alpha^s_{a_s}) \cdots \alpha^p_{a_p} v_1^{b_1} \cdots v_q^{b_q}.
-    \end{aligned}
-    \end{equation}
-    其中，$\forall f\in C^\infty(M)$，$\forall \alpha_{a_i}^j\in \mathfrak{X}^{*}(M)$，$\forall v^{b_i}_j\in \mathfrak{X}(M)$，
+    是一个$\binom{p}{q}$型光滑张量场，等价于，映射$\mathscr{T}$对每个位置都是$C^\infty(M)$-线性的（包含$\R$-线性），即
+    \eq{\label{chdm:eqn_Tensor-Characterization-Lemma}
+\begin{aligned}
+    &\mathscr T(\alpha_1,\ldots,\alpha_p;v_1,\ldots,fv_r,\ldots,v_q)\\
+    &\quad=f\,\mathscr T(\alpha_1,\ldots,\alpha_p;v_1,\ldots,v_q)\\
+    &\quad=\mathscr T(\alpha_1,\ldots,f\alpha_s,\ldots,\alpha_p;v_1,\ldots,v_q).
+\end{aligned}
+}
+    其中，$\forall f\in C^\infty(M)$，$\forall \alpha_j\in \mathfrak{X}^{*}(M)$，$\forall v_j\in \mathfrak{X}(M)$，
     任意的$1\leqslant r \leqslant q$和$1\leqslant s \leqslant p$。
 \end{theorem}
 \begin{proof}
     可参考文献\parencite[\S 3.5]{chenwh2001}定理5.1，或\parencite[\S 12.3]{lee-2013-ism}引理12.24；
     或其它类似文献。
-%    下面我们要证明$\tau_a$是一个余切矢量场。由于定理描述中采用了抽象指标记号，
-%    可能给人一种误解，这不就是缩并吗，直接把函数$f$拿到前面不就可以了，还需要证明？
-%    实际上，没有那么简单，见\S\ref{chmla:sec_abstract-index-notation}条目\fbox{辛}。
 \end{proof}
-    
 
-\index[physwords]{张量场}
 
 很明显，这个定理有许多变种，比如（利用上面定理很容易证明如下推论）
 \begin{corollary}\label{chdm:thm_Tensor-Characterization-Lemma-1}
     光滑流形$M$上一个多重线性映射$\mathscr{T}$如下
     \begin{equation*}
-        \mathscr{T}: \underbrace{\mathfrak{X}^{*}(M) \times \cdots \times \mathfrak{X}^{*}(M)}_{p\text{个}} \times 
+        \mathscr{T}: \underbrace{\mathfrak{X}^{*}(M) \times \cdots \times \mathfrak{X}^{*}(M)}_{p\text{个}} \times
         \underbrace{\mathfrak{X}(M) \times \cdots \times \mathfrak{X}(M)}_{q\text{个}}
-        \to {\color{red}\mathfrak{X}(M)}
+        \to {\mathfrak{X}(M)}
     \end{equation*}
     是一个$\binom{p+1}{q}$型光滑张量场，充分必要条件是，映射$\mathscr{T}$对每个位置都是$C^\infty(M)$线性的，
     即满足式\eqref{chdm:eqn_Tensor-Characterization-Lemma}。
 \end{corollary}
 
-推前和拉回映射可拓展到$\binom{p}{q}$型张量\CJKunderwave{场}上。
+推前和拉回映射可拓展到$\binom{p}{q}$型张量场上。
 \begin{definition}\label{chdm:def_push-pull-tensor}
-    流形$M$上张量\CJKunderwave{场}$T_{b_1\cdots b_q}^{a_1\cdots a_p}$的诱导映射定义为
-    \begin{equation*}
-        (\Phi^{*}T)_{b_1\cdots b_q}^{a_1\cdots a_p} \omega_{a_1}\cdots \omega_{a_p}\  u^{b_1} \cdots u^{b_q}
-        \overset{def}{=} T_{b_1\cdots b_q}^{a_1\cdots a_p}
-        (\phi^{*}\omega_{a_1})\cdots (\phi^{*}\omega_{a_p})
-        (\phi_{*}^{-1}u^{b_1})\cdots (\phi_{*}^{-1}u^{b_q}) .
-    \end{equation*}
-    其中$\forall \omega_{a_i} \in T^{*}_{\phi(p)}N,\ \forall u^{b_j} \in T_{\phi(p)}N$；
-    $\phi:M\to N$是微分同胚；
-    $\Phi^{*}$是推前和拉回映射的混合；矢量场$u^{b_j}$的“推前”需要
-    用$\phi_{*}^{-1}:T_{\phi(p)}N\to T_p M$。
+    设 $\phi:M\to N$ 为微分同胚，$T$ 为 $M$ 上的 $(p,q)$ 型张量场。其\textbf{推前}由下式定义，其中 $y=\phi(x)$：
+    \[
+    \begin{aligned}
+        &(\phi_*T)_y(\omega_1,\ldots,\omega_p;u_1,\ldots,u_q)\\
+        &\quad:=T_x\bigl(\phi^*\omega_1,\ldots,\phi^*\omega_p;
+        (\phi^{-1})_*u_1,\ldots,(\phi^{-1})_*u_q\bigr),
+    \end{aligned}
+    \]
+    其中 $\omega_i\in T_y^*N$、$u_j\in T_yN$。对 $N$ 上的张量场 $S$，其\textbf{拉回}定义为 $\phi^*S:=(\phi^{-1})_*S$。在切矢和余切矢上，这些定义与前文一致。
 \end{definition}
 
 \begin{proposition}\label{chdm:thm_pptt}
-    设有$M$上张量场$T$、$S$，由定义\ref{chdm:def_push-pull-tensor}可
-    知$\Phi^{*}(T\otimes S) = \Phi^{*}(T) \otimes \Phi^{*}(S)$。
+    设有$N$上张量场$T$、$S$，由定义\ref{chdm:def_push-pull-tensor}可
+    知$\phi^{*}(T\otimes S) = \phi^{*}(T) \otimes \phi^{*}(S)$。
 \end{proposition}
 
 
-\index[physwords]{单参数变换群}
 \section{单参数变换群}\label{chdm:sec_One-Parameter-Transformations-Groups}
 单参数变换群理论是微分流形中一个重要课题，贯穿有两个中心思想及其衍生结果，
 即矢量场直化定理和单参数线性变换群理论。
@@ -1748,138 +1623,137 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作\textbf{度量}或\textbf
 我们需要用常微分方程理论来描述流形上的矢量场。为此，在本节假设常微分方程解存在且唯一，
 也就是满足Lipschitz条件\cite[\S 31]{arnold-2001-ode}。
 
-\index[physwords]{积分曲线}
+
 \begin{definition}
-    给定$m$维光滑流形$M$上的光滑切矢量场$v^a$且处处非零。如果流形$M$上的光滑曲线$\gamma(t)$的
-    切矢量$(\frac{\partial}{\partial t})^a = v^a$（见式\eqref{chdm:eqn_DiffCurve-2}），
-    则称曲线$\gamma(t)$是切矢量场$v^a$的\textbf{积分曲线}（或\textbf{轨道}）。
+    给定$m$维光滑流形$M$上的光滑切矢量场$v$且处处非零。如果流形$M$上的光滑曲线$\gamma(t)$的
+    切矢量$(\frac{\partial}{\partial t}) = v$（见式\eqref{chdm:eqn_DiffCurve-2}），
+    则称曲线$\gamma(t)$是切矢量场$v$的\textbf{积分曲线}（或\textbf{轨道}）。
 \end{definition}
-因此，在曲线上每一点，曲线$\gamma(t)$的切矢量都由$v^a$规定。
+因此，在曲线上每一点，曲线$\gamma(t)$的切矢量都由$v$规定。
 
 设流形$M$有局部坐标系$(U;x^i)$，借用式\eqref{chdm:eqn_v-expand-on-natural-bases}，
-将切矢量场$v^a$在局部坐标系展开，其中$v^i$是其分量。
+将切矢量场$v$在局部坐标系展开，其中$v^i$是其分量。
 再参考例题\ref{chdm:exm_DiffCurve}，可用分量语言来详细描述一下上述定义
-\begin{equation}\label{chdm:eqn_tmp-va2xit}
-    \frac{{\rm d} x^i\circ\gamma(t)}{{\rm d} t}=v^i(x^1\circ\gamma,\cdots,x^m\circ\gamma), 
-    \qquad \left. x^i(t) \right|_{t=t_0} = x^i_p  . 
-\end{equation}
+\eq{\label{chdm:eqn_tmp-va2xit}
+    \frac{{\rm d} x^i\circ\gamma(t)}{{\rm d} t}=v^i(x^1\circ\gamma,\cdots,x^m\circ\gamma),
+    \qquad \left. x^i(t) \right|_{t=t_0} = x^i_p  .
+}
 我们在上式中同时指定了初始条件：当$t=t_0$时，坐标$x^i(t_0)$取$p\in M$点坐标$x^i_p$。
-上式是积分曲线的分量表达式，需要注意矢量场$v^a$是不显含参量$t$的。
+上式是积分曲线的分量表达式，需要注意矢量场$v$是不显含参量$t$的。
 根据常微分方程解存在唯一性定理\cite[\S 31]{arnold-2001-ode}可知
 给定初始条件的微分系统\eqref{chdm:eqn_tmp-va2xit}解是唯一确定的；
-也就是说给定矢量场$v^a$后，过$p$点的积分曲线是（局部）\CJKunderwave{唯一的}。
+也就是说给定矢量场$v$后，过$p$点的积分曲线是（局部）唯一的。
 由于积分曲线未必在整个实数轴上有定义，所以积分曲线未必整体存在、唯一。
 
 \begin{example}
-    设有一维光滑流形：实直线$\mathbb{R}$，局部坐标取为$\{x\}$。其上有光滑矢量场$k x$（只有一个分量），
+    设有一维光滑流形：实直线$\R$，局部坐标取为$\{x\}$。其上有光滑矢量场$k x$（只有一个分量），
     其中$k$是实常数；求其过$x_0$点的积分曲线。将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
-    \begin{equation}
-        \frac{{\rm d} x(t)}{{\rm d} t}= k x 
-        \quad {\color{red}\Rightarrow} \quad
+    \eq{
+        \frac{{\rm d} x(t)}{{\rm d} t}= k x
+        \quad {\Rightarrow} \quad
         x(t)= x_0 e^{k(t-t_0)}.
-    \end{equation}
+    }
 \end{example}
 上面例题应该是最简单的情形之一，读者可在平面上画出积分曲线（令$x_0$变动）。
 下面给出一个略微复杂一点的例子。
 \begin{example}
-    设有二维光滑流形：二维实平面$\mathbb{R}^2$，局部坐标取为$\{x,y\}$。
+    设有二维光滑流形：二维实平面$\R^2$，局部坐标取为$\{x,y\}$。
     其上有光滑矢量场$(x,ky)$（有两个分量），其中$k$是实常数；
     求其过$(x_0,y_0)$点的积分曲线。将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
-    \begin{equation}
+    \eq{
         \begin{cases}
             \frac{{\rm d} x(t)}{{\rm d} t}& =  x \\
             \frac{{\rm d} y(t)}{{\rm d} t}&= k y
         \end{cases}
-        \quad {\color{red}\Rightarrow} \quad
+        \quad {\Rightarrow} \quad
         \begin{cases}
             x(t)& =  x_0 e^{t-t_0} \\
-            y(t)& =  y_0 e^{k(t-t_0)} 
+            y(t)& =  y_0 e^{k(t-t_0)}
         \end{cases}
-    \end{equation}
+    }
 积分曲线比上一例题复杂多了，需要对$k$取值范围进行分类，然后再画；
 有兴趣的读者请仔细画出。
 \end{example}
 
 积分曲线不仅与出发点（即初始条件那个点）有关，还与曲线参数化有关。
 \begin{example}
-    设$v^a$是光滑流形$M$上处处非零的光滑切矢量场。
-    假设$\gamma(t)$是矢量场$v^a$的积分曲线，
+    设$v$是光滑流形$M$上处处非零的光滑切矢量场。
+    假设$\gamma(t)$是矢量场$v$的积分曲线，
     那么$\gamma(u)$（其中$u=t+c$，$c$是实常数）
-    也是矢量场$v^a$的积分曲线。
+    也是矢量场$v$的积分曲线。
 直接计算即可证明，
-    \begin{equation}
-        \frac{{\rm d} x^i\circ\gamma(t+c)}{{\rm d} t} = 
+    \eq{
+        \frac{{\rm d} x^i\circ\gamma(t+c)}{{\rm d} t} =
         \frac{{\rm d} x^i\circ\gamma(t+c)}{{\rm d} (t+c)}=
         \frac{{\rm d} x^i\circ\gamma(u)}{{\rm d} u}=v^i(u)=v^i(t+c).
-    \end{equation}
+    }
 \end{example}
 
-处处非零矢量场$v^a$过$p\in M$点积分曲线$\gamma(t),\ b<t<c$在$p$点小邻域内是唯一的，其中$\gamma(0)=p$。
+处处非零矢量场$v$过$p\in M$点积分曲线$\gamma(t),\ b<t<c$在$p$点小邻域内是唯一的，其中$\gamma(0)=p$。
 我们将$\gamma(t)$的定义域$(b,c)$向整个实数轴延拓，使得所有符合方程\eqref{chdm:eqn_tmp-va2xit}的解
-都包含在内，则称延拓后的积分曲线$\gamma(t)$为矢量场$v^a$的、通过点$p$的\textbf{最大积分曲线}。
+都包含在内，则称延拓后的积分曲线$\gamma(t)$为矢量场$v$的、通过点$p$的\textbf{最大积分曲线}。
 需要指出的是最大积分曲线的定义域未必是整个实数轴，可能存在某些无法包含在内的点或区间（比如奇点）。
 
 \begin{definition}
-    设$v^a \in \mathfrak{X}(M)$，若在$p\in M$有$v^a(p)=0$，
-    则称$p$是$v^a$的\textbf{奇点}。
+    设$v \in \mathfrak{X}(M)$，若在$p\in M$有$v(p)=0$，
+    则称$p$是$v$的\textbf{奇点}。
 \end{definition}
 我们不研究奇点。在非奇点附近，切矢量场性状是简单的。
 
-\index[physwords]{完备!切矢量场}
 
 \begin{definition}\label{chdm:def_vector-complete}
-    设$v^a \in \mathfrak{X}(M)$且处处非零，如果$v^a$的\CJKunderwave{最大积分曲线}$\gamma(t)$中的
-    参数$t$可以取遍整个实数轴$\mathbb{R}$，那么称$v^a$是\textbf{完备}切矢量场。
+    设$v \in \mathfrak{X}(M)$且处处非零，如果$v$的最大积分曲线$\gamma(t)$中的
+    参数$t$可以取遍整个实数轴$\R$，那么称$v$是\textbf{完备}切矢量场。
 \end{definition}
 
-设矢量场$v^a$是完备的，则它的最大积分曲线定义域是整个实数轴。如果我们人为地挖掉某点（比如$t=1$），
-那么积分曲线定义域不再是整个实数轴，矢量场也不再完备。这种点可以通过\CJKunderwave{延拓}来补齐，从而
+设矢量场$v$是完备的，则它的最大积分曲线定义域是整个实数轴。如果我们人为地挖掉某点（比如$t=1$），
+那么积分曲线定义域不再是整个实数轴，矢量场也不再完备。这种点可以通过延拓来补齐，从而
 使得矢量场再次完备。不能通过延拓而补上的点具有奇异性。
 
 \begin{proposition}\label{chdm:thm_st}
-    设有光滑流形$M$，处处非零的光滑矢量场$v^a\in \mathfrak{X}(M)$的最大积分曲线$\gamma_p(t)$过点$p \in M$，
+    设有光滑流形$M$，处处非零的光滑矢量场$v\in \mathfrak{X}(M)$的最大积分曲线$\gamma_p(t)$过点$p \in M$，
     并且当$t=0$时，$\gamma_p(0)=p$；令$q=\gamma_p(s)$。那么有$\gamma_p(s+t)=\gamma_q(t)$。
 \end{proposition}
 \begin{proof}
     假设命题中所有参数取值在积分曲线$\gamma_p$定义域内。
-    
+
     由命题中叙述可知，点$q\in M$也在积分曲线$\gamma_p$上，
     且其参数取$s$，即$q=\gamma_p(s)$。
-    
-    曲线$\gamma_q$是指通过$q$点的矢量场$v^a$的积分曲线（且$\gamma_q(0)=q$）。
-    由于$q$在曲线$\gamma_p$上，并且矢量场$v^a$的最大积分曲线是唯一的
+
+    曲线$\gamma_q$是指通过$q$点的矢量场$v$的积分曲线（且$\gamma_q(0)=q$）。
+    由于$q$在曲线$\gamma_p$上，并且矢量场$v$的最大积分曲线是唯一的
     （可从常微分方程解的唯一性得到）；
     所以$\gamma_q$与$\gamma_p$是同一条曲线的两种不同表述方式，差别仅在于初始点的不同。
     依命题中叙述不难得到结论：$\gamma_p(s+t)=\gamma_q(t)$。
 \end{proof}
 
 设有$m$维光滑流形$M$，对于任意点$p \in M$，
-由处处非零的\CJKunderwave{完备切矢量场}$v^a\in \mathfrak{X}(M)$的\CJKunderwave{最大积分曲线}$\gamma_p(t)$可以定义
+由处处非零的完备切矢量场$v\in \mathfrak{X}(M)$的最大积分曲线$\gamma_p(t)$可以定义
 一个变换{\footnote{映射一般定义成两个不同集合之间的关系，比如$\phi:M\to N$；
         如果是同一集合内部的映射（$\phi:M\to M$），
         则赋予它一个特别的名字：\textbf{变换}。}}
-\begin{equation}\label{chdm:eqn_tmp-gammap}
-    \phi(t,p)\equiv \gamma_p(t), \qquad \forall t\in \mathbb{R},\quad \forall p\in M .
-\end{equation}
+\eq{\label{chdm:eqn_tmp-gammap}
+    \phi(t,p)\equiv \gamma_p(t), \qquad \forall t\in \R,\quad \forall p\in M .
+}
 当$p$固定时，$\phi(t,p)$就是过$p$点积分曲线。
 当参数$t$固定时，$\phi(t,p)$给出一个从$M$到$M$的映射（变换）；
-$\forall(t,p )\in\mathbb{R}\times M$，记$\phi_t(p)\equiv \phi(t,p)$。
+$\forall(t,p )\in\R\times M$，记$\phi_t(p)\equiv \phi(t,p)$。
 可证明此变换满足如下定理。
 
-\begin{theorem}\label{chdm:thm_1PTG}    
-    变换$\phi$满足如下条件：    
-    {\bfseries (1)} $\phi_0\equiv {\rm id} : M\to M$；    
-    {\bfseries (2)} 对于任意实数$s,t$都有$\phi_t\circ \phi_s = \phi_{t+s}$ 。    
+\begin{theorem}\label{chdm:thm_1PTG}
+    变换$\phi$满足如下条件：
+    {(1)} $\phi_0\equiv {\rm id} : M\to M$；
+    {(2)} 对于任意实数$s,t$都有$\phi_t\circ \phi_s = \phi_{t+s}$ 。
 \end{theorem}
 \begin{proof}
     (1)： $\phi_0(p)=\phi(0,p)$自然将$p$点映射成$p$点，所以它是恒等映射。
-    
+
     (2)：由命题\ref{chdm:thm_st}可得：
     $\phi_t\circ \phi_s(p)=\phi_t\bigl(\phi_s(p)\bigr) =\phi(t,q)= \phi_{t+s}(p)$ 。
-\end{proof}    
+\end{proof}
 满足定理\ref{chdm:thm_1PTG}中两个条件的$\phi$（由式\eqref{chdm:eqn_tmp-gammap}定义）
 被称为\textbf{（左）单参数可微变换群}。
-完备切矢量场$v^a$一般也称为由单参数可微变换群$\phi(t,p)$\CJKunderwave{诱导的切矢量场}；两者一一对应。
+完备切矢量场$v$一般也称为由单参数可微变换群$\phi(t,p)$诱导的切矢量场；两者一一对应。
 
 还需要说明$\phi_t$是一个群。把第(2)条的复合映射看成群乘法，很明显此乘法是封闭的。
 由第(2)条易证群乘法满足结合律。
@@ -1888,14 +1762,14 @@ $\phi_0$是恒等映射，可看成单位元。
 因此$\phi_{-t} = \phi_t^{-1}$；这说明$\phi_t$的逆存在且是$C^\infty$的。
 综上，$\phi_t$是群。
 
-%对于任意给定的$t\in \mathbb{R}$，用反证法可证明$\phi_t(p)$是单射。
+%对于任意给定的$t\in \R$，用反证法可证明$\phi_t(p)$是单射。
 %假设$\phi_t(p)$不是单射，即存在两个不同的点$p$和$q$使得$\phi(t,p)=\phi(t,q)$；
 %依据条件(2)有$\phi(-t,p)\circ\phi(t,p)=\phi(-t,p)\circ\phi(t,q)
-%{\color{red}\Rightarrow} {\rm id}=\phi(-t,p)\circ\phi(t,q)$，因
+%{\Rightarrow} {\rm id}=\phi(-t,p)\circ\phi(t,q)$，因
 %$p$与$q$是两个不同的点，此式右端不是恒等映射，矛盾，所以必然单射。
 %既然是单射，而且其逆存在，那必然也是满的；自然是双射。
 
-%那么，$\gamma_p(t): \mathbb{R} \to M$是流形$M$中经过点$p$的一条可微曲线，称为单参数可微
+%那么，$\gamma_p(t): \R \to M$是流形$M$中经过点$p$的一条可微曲线，称为单参数可微
 %变换群$\phi(t,p)$经过点$p$的\textbf{轨道}（orbit）。
 
 
@@ -1905,15 +1779,13 @@ $\phi_0$是恒等映射，可看成单位元。
 这说明此群是可对易的。
 
 
-
-
-$v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_DiffCurve}有公式，有
-\begin{equation}\label{chdm:eqn_tmp-vecp}
+$v_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_DiffCurve}有公式，有
+\eq{\label{chdm:eqn_tmp-vecp}
     v_p(f)= \left. \frac{{\rm d} \bigl(f \circ \gamma_p (t)\bigr)}{{\rm d} t} \right |_{t=0}
     = \lim_{t\to 0} \frac{f\bigl(\phi(t,p)\bigr) - f\bigl(\phi(0,p)\bigr)}{t},
-\end{equation}
+}
 其中$\forall f\in C^\infty _p(M) $。
-利用上式，用推前映射语言来描述一下由$\phi(t,p)$诱导的切矢量场$v^a$的变换关系。
+利用上式，用推前映射语言来描述一下由$\phi(t,p)$诱导的切矢量场$v$的变换关系。
     很明显$p\equiv\phi(0,p)$，令$q\equiv\phi(s,p)$。
     由式\eqref{chdm:eqn_tmp-vecp}易得
     \begin{align*}
@@ -1923,42 +1795,42 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
          =v_p\bigl(f\circ \phi_s(p) \bigr)  =\phi_{s*}(v_p)(f).
     \end{align*}
     因$f$及$p$的任意性，由上式可得
-    \begin{equation}\label{chdm:eqn_phisv}
-        v^a_q = v^a_{\phi_s(p)} = \phi_{s*}(v^a_p) .
-    \end{equation}
+    \eq{\label{chdm:eqn_phisv}
+        v_q = v_{\phi_s(p)} = \phi_{s*}(v_p) .
+    }
     这便是两点间切矢量推前映射关系式。
 %\end{example}
 
 
 %设流形$M$有局部坐标系$(U;x^i)$，则由$p$映射出的像点$\phi(t,p)$的坐标表达式为
-%\begin{equation}\label{chdm:eqn_tmp-gxerp}
+%\eq{\label{chdm:eqn_tmp-gxerp}
 %    x^i=\phi^i(t,x^1_p,\cdots,x^m_p),
-%\end{equation}
+%}
 %根据定义，$\phi^i$是所有参量$t,x^1_p,\cdots,x^m_p$的$C^\infty$函数。
-%借用式\eqref{chdm:eqn_v-expand-on-natural-bases}，将切矢量场$v^a$在局部坐标系展开，
-%\begin{equation}\label{chdm:eqn_tmp-va2dfd}
-%    v^i \left(\frac{\partial }{\partial x^i}\right)^a_{p}  \equiv v^a \ 
+%借用式\eqref{chdm:eqn_v-expand-on-natural-bases}，将切矢量场$v$在局部坐标系展开，
+%\eq{\label{chdm:eqn_tmp-va2dfd}
+%    v^i \left(\frac{\partial }{\partial x^i}\right)_{p}  \equiv v \
 %    = \left. \frac{\partial \phi^i(t,x^1_p,\cdots,x^m_p)}{\partial t} \right|_{t=0}
-%    \left(\frac{\partial }{\partial x^i}\right)^a_{p}
+%    \left(\frac{\partial }{\partial x^i}\right)_{p}
 %    = \left. \frac{\partial x^i}{\partial t} \right|_{t=0}
-%    \left(\frac{\partial }{\partial x^i}\right)^a_{p}
-%\end{equation}
+%    \left(\frac{\partial }{\partial x^i}\right)_{p}
+%}
 %很容易看到它的系数是$C^\infty$的，所以这个矢量场是光滑的。
-%由式\eqref{chdm:eqn_tmp-va2dfd}可以看到矢量场$v^a$在局部坐标系的
+%由式\eqref{chdm:eqn_tmp-va2dfd}可以看到矢量场$v$在局部坐标系的
 %系数$v^i=\frac{\partial \phi^i(t,x^1_p,\cdots,x^m_p)}{\partial t}|_{t=0}$是直接由
 %映射$\phi$的对应分量求导得到；我们还可以把式\eqref{chdm:eqn_tmp-va2dfd}看成
 %一常微分方程组，它有$m$个未知变量$x^i$，自变量是$t$，
 %方程组可以简化为（仅在局部坐标上）
 %
 %式\eqref{chdm:eqn_tmp-va2dfd}非常清楚地表明了
-%诱导切矢量场$v^a$是由轨道\eqref{chdm:eqn_tmp-gammap}对$t$求导得到的；
+%诱导切矢量场$v$是由轨道\eqref{chdm:eqn_tmp-gammap}对$t$求导得到的；
 %那么轨道\eqref{chdm:eqn_tmp-gammap}自然是方程\eqref{chdm:eqn_tmp-va2xit}的解，
 %也就是诱导切矢量场的积分曲线。
 %
 %
 %我们在上面的论述中说明了轨道会诱导出流形$M$的切矢量场；反之，如果
-%给定流形$M$上的一个切矢量场$v^a$是否存在$M$上的单参数可微变换群$\phi_t$，
-%它以$v^a$为其诱导切矢量场？回答是肯定的！
+%给定流形$M$上的一个切矢量场$v$是否存在$M$上的单参数可微变换群$\phi_t$，
+%它以$v$为其诱导切矢量场？回答是肯定的！
 %无非是解方程\eqref{chdm:eqn_tmp-va2xit}得到其积分曲线，再证明积分曲线
 %局部单参数可微变换群；不过论证过程略显麻烦，为此先引入如下定义。
 
@@ -1966,45 +1838,44 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
 \begin{definition}\label{chdm:def_1PTG-local}
     设$U$是光滑流形$M$的一个开子集，取$\epsilon>0$。
     如果光滑映射$\phi:(-\epsilon,\epsilon)\times U \to M $满足如下条件：
-    
-    {\bfseries (1)} $\forall p\in U,\ |t|< \epsilon$都有$\phi_0 : U\to U$恒等映射；
-    
-    {\bfseries (2)} 若$|s|<\epsilon,\ |t|<\epsilon, \ |s+t|<\epsilon$，则$\phi_s\circ \phi_t = \phi_{s+t}$ 。
-    
-    那么，称$\phi_t$为作用在开子集$U$上的\textbf{\CJKunderwave{局部}（左）单参数可微变换群}。
+
+    {(1)} $\forall p\in U,\ |t|< \epsilon$都有$\phi_0 : U\to U$恒等映射；
+
+    {(2)} 若$|s|<\epsilon,\ |t|<\epsilon, \ |s+t|<\epsilon$，则$\phi_s\circ \phi_t = \phi_{s+t}$ 。
+
+    那么，称$\phi_t$为作用在开子集$U$上的\textbf{局部（左）单参数可微变换群}。
 \end{definition}
-局部单参数可微变换群自然也有与之对应的局部光滑诱导切矢量场$v^a\in \mathfrak{X}(U)$。
-所诱导的切矢量场$v^a$一般说来不再是完备的，但$\phi_t$仍是局部微分同胚的。
-需要强调的是：本节定义的单参数可微变换群是{\kaishu 左作用}在流形$M$上的；
-与之对偶，可以定义{\kaishu 右作用}在流形$M$上的单参数可微变换群；
+局部单参数可微变换群自然也有与之对应的局部光滑诱导切矢量场$v\in \mathfrak{X}(U)$。
+所诱导的切矢量场$v$一般说来不再是完备的，但$\phi_t$仍是局部微分同胚的。
+需要强调的是：本节定义的单参数可微变换群是{左作用}在流形$M$上的；
+与之对偶，可以定义{右作用}在流形$M$上的单参数可微变换群；
 具体参见\S\ref{chlg:sec_Lie-transformation-group}。
 
-\index[physwords]{单参数变换群!局部}
 
 %
 %局部单参数可微变换群$\phi_t$同样可以诱导开子集$U$上的一个光滑切矢量场。$\forall p\in U$，
 %取此点的局部坐标系为$(V;x^i)$，并且$V$是$U$的开子集。由于$\phi_t$是$C^\infty$的，所以
 %肯定是连续映射，只要$\epsilon$充分小，总有$\phi_t(p)\in V$，于是$\phi_t$的诱导切矢量场
 %的局部坐标可以表示为
-%\begin{equation}
-%    v^a_p= \sum_{i=1}^{m} v^i_p \left(\frac{\partial }{\partial x^i}\right)^a_{p},\qquad
+%\eq{
+%    v_p= \sum_{i=1}^{m} v^i_p \left(\frac{\partial }{\partial x^i}\right)_{p},\qquad
 %    {\text{其中}}\ v^i_p=\left.\frac{\partial \phi^i(t,x^1_p,\cdots,x^m_p)}{\partial t}\right|_{t=0}.
-%\end{equation}
+%}
 %仿照前面表述，上式用微分方程表示便是式\eqref{chdm:eqn_tmp-va2xit}（注意$x^i\equiv\phi^i$）。
 %
 %\begin{theorem}\label{chdm:thm_vphil}
-%    设$v^a$是光滑流形$M$上的光滑切矢量场，则$\forall p\in M$存在一个开邻域$U\subset M$以及
-%    作用在$U$上的局部单参数变换群$\phi_t$，当$|t|<\epsilon$时，使得$v^a|_U$是$\phi_t$在$U$上
+%    设$v$是光滑流形$M$上的光滑切矢量场，则$\forall p\in M$存在一个开邻域$U\subset M$以及
+%    作用在$U$上的局部单参数变换群$\phi_t$，当$|t|<\epsilon$时，使得$v|_U$是$\phi_t$在$U$上
 %    诱导的光滑切矢量场。
 %\end{theorem}
 %\begin{theorem}\label{chdm:thm_vphig}
-%    设$v^a$是\CJKunderwave{紧致}的$m$维光滑流形$M$上的光滑切矢量场，
-%    那么$v^a$可以生成作用在流形$M$上的单参数可微变换群$\phi:\mathbb{R}\times M\to M$，
-%    即$v^a$是$\phi$诱导的光滑切矢量场。
+%    设$v$是紧致的$m$维光滑流形$M$上的光滑切矢量场，
+%    那么$v$可以生成作用在流形$M$上的单参数可微变换群$\phi:\R\times M\to M$，
+%    即$v$是$\phi$诱导的光滑切矢量场。
 %\end{theorem}
 %\begin{proof}
 %    以上两个定理证明请参阅文献\parencite[\S 6.2]{cc2001-zh}或\parencite[\S 3.3]{chenwh2001}。
-%    需要提醒的是：单参数可微变换群$\phi$就是切矢量场$v^a$的积分曲线。
+%    需要提醒的是：单参数可微变换群$\phi$就是切矢量场$v$的积分曲线。
 %\end{proof}
 %\begin{remark}\label{chdm:rmk_vphilg}
 %    在满足李普希兹条件下（通常都满足），常微分方程组解存在且唯一；故上面两定理中
@@ -2014,18 +1885,18 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
 
 
 \begin{theorem}\label{chdm:thm_1PDG-diff}
-    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$v^a$是其所诱导的
+    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$v$是其所诱导的
     光滑切矢量场。如果$\psi:M\to M$是一个$C^\infty$微分同胚，
     那么$\tilde{\phi}_t \equiv \psi \circ \phi_t \circ \psi^{-1}$也是作用在$M$上的单参数可微变换群，
-    并且其诱导的光滑切矢量场是$\psi_{*}v^a$。
+    并且其诱导的光滑切矢量场是$\psi_{*}v$。
 \end{theorem}
 \begin{proof}
     显然$\tilde{\phi}_t$是从$M$到$M$的变换；$\tilde{\phi}_0=\psi \circ \phi_0 \circ \psi^{-1}={\rm id}$是
     恒等映射，满足定理\ref{chdm:thm_1PTG}中的第(1)条；
-    $\tilde{\phi}_t\circ \tilde{\phi}_s =  (\psi \circ \phi_t \circ \psi^{-1} ) \circ 
+    $\tilde{\phi}_t\circ \tilde{\phi}_s =  (\psi \circ \phi_t \circ \psi^{-1} ) \circ
     (\psi \circ \phi_s \circ \psi^{-1}) = \psi \circ \phi_{t+s} \circ \psi^{-1}=\tilde{\phi}_{t+s}$，
     也满足第(2)条；综上，$\tilde{\phi}_t$是作用在$M$上的单参数可微变换群。
-    
+
     对其求导便可得诱导切矢量场，令$q=\psi(p)$，$\forall f\in C^\infty (M)$，有
     \begin{align*}
         \tilde{v}(f) & = \left. \frac{{\rm d} \bigl(f \circ \tilde{\phi}(t,q)\bigr)}{{\rm d} t} \right |_{t=0}
@@ -2034,58 +1905,58 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
         &\xlongequal{\ref{chdm:eqn_tmp-vecp}} v(f \circ \psi)
         \xlongequal{\ref{chdm:eqn_pushforward-vector-onfield}} \psi_{*}v(f) .
     \end{align*}
-    因此$\tilde{\phi}_t$诱导的光滑切矢量场是$\tilde{v}^a=\psi_{*}v^a$。
+    因此$\tilde{\phi}_t$诱导的光滑切矢量场是$\tilde{v}=\psi_{*}v$。
 \end{proof}
 
 \begin{definition}\label{chdm:def_invariant-vector-field}
-    设$v^a$是光滑流形$M$上的光滑切矢量场，$\psi:M\to M$是光滑微分同胚。
-    如果$\psi_{*}v^a=v^a$，那么称$v^a$在$\psi$作用下是不变的。
+    设$v$是光滑流形$M$上的光滑切矢量场，$\psi:M\to M$是光滑微分同胚。
+    如果$\psi_{*}v=v$，那么称$v$在$\psi$作用下是不变的。
 \end{definition}
 
 
 \begin{proposition}\label{chdm:thm_ivf}
-    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$v^a$是其所诱导的
+    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$v$是其所诱导的
     光滑切矢量场；$\psi:M\to M$是一个$C^\infty$微分同胚。
-    $v^a$在$\psi$作用下是不变的充分必要条件是：$\phi_t$与$\psi$可交换，
+    $v$在$\psi$作用下是不变的充分必要条件是：$\phi_t$与$\psi$可交换，
     即$\phi_t\circ \psi = \psi \circ \phi_t$。
 \end{proposition}
 \begin{proof}
     先证“$\Leftarrow$”。
     如果$\phi_t$与$\psi$可交换，即${\phi}_t = \psi \circ \phi_t \circ \psi^{-1}$，
-    由定理\ref{chdm:thm_1PDG-diff}可知${v}^a=\psi_{*}v^a$，即$v^a$在$\psi$作用下是不变的。
-    
+    由定理\ref{chdm:thm_1PDG-diff}可知${v}=\psi_{*}v$，即$v$在$\psi$作用下是不变的。
+
     再证“$\Rightarrow$”。
-    由${v}^a$和$\psi_{*}v^a$决定的
+    由${v}$和$\psi_{*}v$决定的
     单参数可微变换群分别是${\phi}_t$和$\psi \circ \phi_t \circ \psi^{-1}$。
-    如果$v^a$在$\psi$作用下是不变的，即${v}^a=\psi_{*}v^a$，那么说明两个单参数可微变换群
+    如果$v$在$\psi$作用下是不变的，即${v}=\psi_{*}v$，那么说明两个单参数可微变换群
     满足同一常微分方程和相同的初始条件，也就是两条积分曲线是重合的，
     即${\phi}_t = \psi \circ \phi_t \circ \psi^{-1}$。
 \end{proof}
 
 
 \begin{theorem}\label{chdm:thm_xy-yx}
-    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$X^a$是其所诱导的光滑切矢量场；
-    $Y^a$是$M$上另一切矢量场。那么两个切矢量场的Poisson括号（对易子）表达式为
-    \begin{equation}\label{chdm:eqn_xy-yx}
-        \left[X,Y\right]^a = \lim_{t\to 0} \frac{Y^a_{\phi_{0}} - (\phi_{t})_{*} Y^a_{\phi_{-t}} }{t}
-        =\lim_{t\to 0} \frac{(\phi_{-t})_{*} Y^a_{\phi_{t}} - Y^a_{\phi_{0}}}{t} .
-    \end{equation}
+    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$X$是其所诱导的光滑切矢量场；
+    $Y$是$M$上另一切矢量场。那么两个切矢量场的Poisson括号（对易子）表达式为
+    \eq{\label{chdm:eqn_xy-yx}
+        \left[X,Y\right] = \lim_{t\to 0} \frac{Y_{\phi_{0}} - (\phi_{t})_{*} Y_{\phi_{-t}} }{t}
+        =\lim_{t\to 0} \frac{(\phi_{-t})_{*} Y_{\phi_{t}} - Y_{\phi_{0}}}{t} .
+    }
 \end{theorem}
 \begin{proof}
     只需令$t\to -t$即可看到两个表达式等价，所以只需证明其中之一便可。
-    
+
     对于任意的$f\in C^\infty(M)$，有$(\phi_{-t})_{*} Y_{\phi_{t}}(f)=Y_{\phi_{t}}\bigl( f\circ\phi({-t},p) \bigr)$，
     其中点$p$（对应$t=0$点）是$M$中任一点。从中可以看出，需要仔细计算其中的
     表达式$F(t)\equiv f\circ\phi({-t},p)$；在$p\in M$点小邻域内，我们利用如下积分技巧
     \begin{equation*}
         F(t)-F(0) = \int_{0}^{1} \frac{{\rm d} F(st)}{{\rm d} s} {\rm d}s
-        = t \cdot \int_{0}^{1}  \frac{{\rm d} F(st)}{{\rm d} (st)} {\rm d}s 
+        = t \cdot \int_{0}^{1}  \frac{{\rm d} F(st)}{{\rm d} (st)} {\rm d}s
         \equiv t \cdot g(t,p).
     \end{equation*}
     上式最后的恒等号相当于定义了$g(t,p)$，很明显$g(t,p)$是光滑函数。由此得
-    \begin{equation}
+    \eq{
         f\circ\phi({-t},p) = f(p) + t \cdot g(t,p) .
-    \end{equation}
+    }
     先计算一下$g(0,p)$
     \begin{align*}
         g(0,p)=& \lim_{t\to 0} \int_{0}^{1}  \frac{{\rm d} F(st)}{{\rm d} (st)} {\rm d}s
@@ -2097,11 +1968,11 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
     \begin{align*}
         &\lim_{t\to 0} \frac{(\phi_{-t})_{*} Y_{\phi_{t}} - Y_{\phi_{0}}}{t}(f) =
         \lim_{t\to 0} \frac{Y_{\phi_{t}}\bigl( f(p) + t \cdot g(t,p) \bigr) - Y_{\phi_{0}}(f)}{t}  \\
-        &= \lim_{t\to 0} \frac{Y_{\phi_{t}}\bigl( f(p)  \bigr) - Y_{\phi_{0}}(f)}{t} 
+        &= \lim_{t\to 0} \frac{Y_{\phi_{t}}\bigl( f(p)  \bigr) - Y_{\phi_{0}}(f)}{t}
           + \lim_{t\to 0} Y_{\phi_{t}}\bigl(  g(t,p) \bigr) \\
         &=\lim_{t\to 0} \frac{(Y_{p} f) \circ\phi(t,p)  - (Y_{p}f )\circ\phi(0,p) }{t} - Y_{p} \circ X_{p}(f) \\
 %        &=\left. \frac{{\rm d} Y_{p}\bigl( f \circ\phi(t,p) \bigr)}{{\rm d}t}\right|_{t=0} - Y_{p} \circ X_{p}(f) \\
-        & \xlongequal{\ref{chdm:eqn_tmp-vecp}} 
+        & \xlongequal{\ref{chdm:eqn_tmp-vecp}}
         X_{p}\Bigl(Y_{p}\bigl( f (p) \bigr)\Bigr) - Y_{p} \circ X_{p}(f)
         =\left[X,Y\right]_p (f) .
     \end{align*}
@@ -2110,16 +1981,16 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
 
 
 \begin{theorem}\label{chdm:thm_1PDG-ppy}
-    设$X^a$是光滑流形$M$上的光滑切矢量场，如果在点$p \in M$矢量场$X^a_p \neq 0$，
-    那么，存在$p$点的一个局部坐标系$(V;y^i)$使得$X^a |_V = (\frac{\partial }{\partial y^1} )^a$。
+    设$X$是光滑流形$M$上的光滑切矢量场，如果在点$p \in M$矢量场$X_p \neq 0$，
+    那么，存在$p$点的一个局部坐标系$(V;y^i)$使得$X |_V = (\frac{\partial }{\partial y^1} )$。
 \end{theorem}
 \begin{proof}
     设$p$点附近存在局部坐标系$(U;x^i)$，并将$p$取为坐标原点，即$x^i(p)=0$。在这个局部坐标系内
-    光滑流形$X^a$可以展开为：$ X^a |_U = \xi^ j (\frac{\partial }{\partial x^j} )^a$，
+    光滑流形$X$可以展开为：$ X |_U = \xi^ j (\frac{\partial }{\partial x^j} )$，
     其中 $\xi^ j \in C^\infty(U)$。
-    因$X^a_p \neq 0$，不妨设$\xi^1(p)\neq 0$。利用$\xi^j$的连续性，可假设$\xi^1$在
+    因$X_p \neq 0$，不妨设$\xi^1(p)\neq 0$。利用$\xi^j$的连续性，可假设$\xi^1$在
     开集$U$上不为零；如果有零点，将$U$缩小便可。
-    考虑切矢量场$X^a$的积分轨道，要求此轨道经过坐标面$x^1=0$上的点$(0,y^2,\cdots,y^m)$，
+    考虑切矢量场$X$的积分轨道，要求此轨道经过坐标面$x^1=0$上的点$(0,y^2,\cdots,y^m)$，
     此轨道满足如下常微分方程和初始条件：
     \begin{equation*}
         \frac{{\rm d} x^i}{{\rm d} t} = \xi^i (x^1,\cdots,x^m); \quad
@@ -2147,10 +2018,10 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
         \frac{\partial}{\partial y^1} = \frac{\partial x^i}{\partial y^1} \frac{\partial}{\partial x^i}
         = \xi^i \frac{\partial}{\partial x^i}
     \end{equation*}
-    配上抽象指标后便是定理所求。
-    光滑矢量场$X^a$存在与之对应的单参数可微变换群$\phi(t,p)$；由上易见，
+    这就是所求的坐标表达式。
+    光滑矢量场$X$存在与之对应的单参数可微变换群$\phi(t,p)$；由上易见，
     单参数$t$便是所选坐标系的第一个坐标。
-    一般称坐标系$(V;y^i)$是矢量场$X^a$的\textbf{适配坐标系}。 \index[physwords]{适配坐标系}
+    一般称坐标系$(V;y^i)$是矢量场$X$的\textbf{适配坐标系}。
 \end{proof}
 
 \section{Lie 导数}\label{appx:Lie-deri}
@@ -2187,34 +2058,23 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
     就标量场 $f$ 而言 $\Lie_\xi f=\xi(f)$。
 \end{example}
 
-\index[persons]{Lie}
-\index[physwords]{Lie 导数}
 
-设$X^a$是$m$维光滑流形$M$上的完备光滑切矢量场，它诱导的（局部）单参数可微变换群是$\phi_t$，
+设$X$是$m$维光滑流形$M$上的完备光滑切矢量场，它诱导的（局部）单参数可微变换群是$\phi_t$，
 经过点$x\in M$的轨道记为$\gamma_x(t)$（当$t=0$时$\gamma_x(0)=x$）；
 由于$\phi_t$是（局部）微分同胚，可将轨道$\gamma_x(t)$上不同点的切空间建立联系。
 \begin{definition}
-    由$\phi_t$可定义Lie 导数\footnote{Sophus Lie(1842-1899)，
-            挪威数学家。其另一更重大贡献是李群，可见第\ref{chlg}章。}：
+    由 $\phi_t$ 可定义 Lie 导数\footnote{Sophus Lie（1842--1899），挪威数学家。其另一重大贡献是李群，见第\ref{chlg}章。}：
     \begin{align}
-        \Lie_{X} f(p) &\overset{def}{=} \lim_{t\to 0}
-        \frac{\phi^{*}_{t}(p) f-\phi^{*}_{0}(p)f}{t} = \bigl(X(f)\bigr)(p), \label{chdm:def_LieD-scalar} \\
-        \Lie_{X} Y^{a} &\overset{def}{=} \lim_{t\to 0}
-        \frac{(\phi_{-t})_{*} Y^{a}-(\phi_{0})_{*}Y^{a}}{t}=\lim_{t\to 0}
-        \frac{\phi^{-1}_{t*} Y^{a}-\phi^{-1}_{0*}Y^{a}}{t},  \label{chdm:def_LieD-vector} \\
-        \Lie_{X} T_{b_1\cdots b_q}^{a_1\cdots a_p} &\overset{def}{=} \lim_{t\to 0}
-        \frac{\Phi^{*}_{t} T_{b_1\cdots b_q}^{a_1\cdots a_p}-\Phi^{*}_{0}T_{b_1\cdots b_q}^{a_1\cdots a_p}}{t} .
-          \label{chdm:def_LieD-tensor}
+        (\Lie_Xf)(p)&:=\lim_{t\to0}\frac{f(\phi_t(p))-f(p)}{t}=X_p(f),
+        \label{chdm:def_LieD-scalar}\\
+        \Lie_XY&:=\lim_{t\to0}\frac{(\phi_{-t})_*Y-Y}{t},
+        \label{chdm:def_LieD-vector}\\
+        \Lie_XT&:=\lim_{t\to0}\frac{\phi_t^*T-T}{t}.
+        \label{chdm:def_LieD-tensor}
     \end{align}
-    其中 $\forall f \in C^\infty_p(M)$，$\forall X^a, Y^{a} \in \mathfrak{X}(M) $和
-    $\forall T_{b_1\cdots b_q}^{a_1\cdots a_p} \in \mathfrak{T}^p_q(M)$。
-    上面分别给出了标量场、切矢场、一般张量场的Lie 导数定义，其实都可以
-    归结为一般张量场定义。$\Phi^{*}_{t}$见定义\ref{chdm:def_push-pull-tensor}。
-\end{definition}
+    其中 $f\in C^\infty(M)$、$X,Y\in\mathfrak X(M)$、$T\in\mathfrak T^p_q(M)$。这些极限均逐点在同一张量空间内求取，前两式是第三式的特例。
 
-\begin{remark}\label{chdm:rek_lieabstnoa}
-    为避免抽象指标不匹配，$\Lie_{X}$中的$X$不附抽象指标，即不写成$\Lie_{X^a}$。
-\end{remark}
+\end{definition}
 
 
 由于Lie 导数定义并不十分明朗，下面略微详细描述一下。
@@ -2222,127 +2082,75 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
 \begin{align}
     \phi_{-t*} \equiv \phi_{t*} ^{-1} &: T_{\gamma_x(t)}M \to T_x M , \\
     \phi_{t}^{*} &: T_{\gamma_x(t)}^{*}M \to T_x^{*} M , \\
-    \Phi_{t}^{*} &: T_q^p\bigl({\gamma_x(t)}\bigr) \to T_q^p(x) .
+    \phi_{t}^{*} &: T_q^p\bigl({\gamma_x(t)}\bigr) \to T_q^p(x) .
 \end{align}
-上式最后一行的$\Phi_t^{*}$是点$x$张量空间和点$\gamma_x(t)$张量空间的线性同构映射。
+上式最后一行的$\phi_t^{*}$是点$x$张量空间和点$\gamma_x(t)$张量空间的线性同构映射。
 设有局部坐标系$(U;x^i)$，并令$t$是个充分小的正实数，则有$\gamma_x(t)\in U$；
 我们用$\{x^i\}$表示$x$点处的坐标分量，为了在形式上有所区分，我们用$\{y^i\}$表示$\gamma_x(t)$点处的坐标分量；
 需要注意的是，当$t\to 0$时，坐标$\{y^i\}$就变成了坐标$\{x^i\}$，
-\CJKunderwave{即$\lim_{t\to 0} y^i = x^i $}。
+即$\lim_{t\to 0} y^i = x^i $。
 
-张量$T^{a_1 \cdots a_p}_{b_1\cdots b_q} $在两点处的局部坐标表示如下：
-\begin{align*}
-    T^{a_1 \cdots a_p}_{b_1\cdots b_q}(x) & = T^{i_1 \cdots i_p}_{j_1\cdots j_q} (x)
-    \left(\frac{\partial }{\partial x^{i_1}}\right)^{a_1} \cdots 
-    \left(\frac{\partial }{\partial x^{i_p}}\right)^{a_p} 
-    ({\rm d}x^{j_1})_{b_1} \cdots  ({\rm d}x^{j_q})_{b_q}    ,\\
-    T^{a_1 \cdots a_p}_{b_1\cdots b_q}\bigl(\gamma_x(t)\bigr) 
-    & = T^{i_1 \cdots i_p}_{j_1\cdots j_q}\bigl(\gamma_x(t)\bigr)
-    \left(\frac{\partial }{\partial y^{i_1}}\right)^{a_1} \cdots 
-    \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} 
-    ({\rm d}y^{j_1})_{b_1} \cdots  ({\rm d}y^{j_q})_{b_q}    .
-\end{align*}
-将$\Phi_t^*$作用在$T^{a_1 \cdots a_p}_{b_1\cdots b_q}\bigl(\gamma_x(t)\bigr)$上，有
-\begin{equation}\label{chdm:eqn_tmp501}
+记 $q=\gamma_x(t)$，并以 $e_i(x),e_i(q)$ 及 $\epsilon^j(x),\epsilon^j(q)$ 表示同一坐标系在两点的切基及对偶基。则
+\[
+    T_q=T^{i_1\cdots i_p}{}_{j_1\cdots j_q}(q)
+    e_{i_1}(q)\otimes\cdots\otimes e_{i_p}(q)\otimes
+    \epsilon^{j_1}(q)\otimes\cdots\otimes\epsilon^{j_q}(q).
+\]
+拉回后各因子均位于 $x$ 处：
+\eq{\label{chdm:eqn_tmp501}
 \begin{aligned}
-    (\Phi_t^* T^{a_1 \cdots a_p}_{b_1\cdots b_q})\bigl(\gamma_x(t)\bigr) 
-     =& \ T^{i_1 \cdots i_p}_{j_1\cdots j_q}\bigl(\gamma_x(t)\bigr) \ 
-    \phi_{t*} ^{-1}  \left(\frac{\partial }{\partial y^{i_1}}\right)^{a_1} \cdots 
-    \phi_{t*} ^{-1} \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} \\
-    & \times \phi_{t}^{*}({\rm d}y^{j_1})_{b_1} \cdots \phi_{t}^{*} ({\rm d}y^{j_q})_{b_q}  .
+    (\phi_t^*T)_x={}&T^{i_1\cdots i_p}{}_{j_1\cdots j_q}(q)
+    \bigl((\phi_{-t})_*e_{i_1}(q)\bigr)\otimes\cdots\otimes
+    \bigl((\phi_{-t})_*e_{i_p}(q)\bigr)\\
+    &\otimes\phi_t^*\epsilon^{j_1}(q)\otimes\cdots\otimes\phi_t^*\epsilon^{j_q}(q).
 \end{aligned}
-\end{equation}
-由上式容易得到
-\begin{equation}
-    \lim_{t\to 0}(\Phi_t^* T^{a_1 \cdots a_p}_{b_1\cdots b_q})\bigl(\gamma_x(t)\bigr)
-    =T^{a_1 \cdots a_p}_{b_1\cdots b_q}(x).
-\end{equation}
-很容易证明上几式表述与局部坐标系的选取无关（只需换个坐标系，基矢会产生一组Jacobi矩阵；张量分量
-也会产生一组Jacobi矩阵；两组矩阵刚好互逆，所以形式不变）。
+}
+因此 $\lim_{t\to0}(\phi_t^*T)_x=T_x$。上述表达式与坐标选择无关：坐标变化时，分量与基底的变换矩阵互相抵消。
 
 \begin{proposition}\label{chdm:thm_cp-pc}
-    证明$\Phi_t^*$与缩并运算$C$可交换。
+    拉回 $\phi_t^*$ 与缩并运算 $C$ 可交换。
 \end{proposition}
 \begin{proof}
-    我们只以$i_1$和$j_1$的缩并来说明问题，其它基矢缩并与之类似。    首先，
-    \begin{align*}
-        C_{i_1}^{j_1} \left(T^{a_1 \cdots a_p}_{b_1\cdots b_q}\bigl(\gamma_x(t)\bigr) \right)
-        &= T^{i_1 \cdots i_p}_{j_1\cdots j_q}\bigl(\gamma_x(t)\bigr)
-        \left(\frac{\partial }{\partial y^{i_1}}\right)^{\color{red} a_1} \cdots 
-        \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} 
-        ({\rm d}y^{j_1})_{\color{red} a_1} \cdots  ({\rm d}y^{j_q})_{b_q} \\
-        &= T^{k i_2 \cdots i_p}_{k j_2\cdots j_q}\bigl(\gamma_x(t)\bigr)
-        \left(\frac{\partial }{\partial y^{i_2}}\right)^{a_2} \cdots 
-        \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} 
-        ({\rm d}y^{j_2})_{b_2} \cdots  ({\rm d}y^{j_q})_{b_q} .
-    \end{align*}
-再将$\Phi_t^*$作用在上式两端，有
-    \begin{align}
-        \Phi_t^* \left(  C_{i_1}^{j_1} \Bigl( T^{a_1 \cdots a_p}_{b_1\cdots b_q}\bigl(\gamma_x(t)\bigr)\Bigr) \right) 
-        =& \ T^{k i_2 \cdots i_p}_{k j_2\cdots j_q}\bigl(\gamma_x(t)\bigr) \ 
-        \phi_{t*} ^{-1}  \left(\frac{\partial }{\partial y^{i_2}}\right)^{a_2} \cdots 
-        \phi_{t*} ^{-1} \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} \notag\\
-        & \times \phi_{t}^{*}({\rm d}y^{j_2})_{b_2} \cdots \phi_{t}^{*} ({\rm d}y^{j_q})_{b_q}  .
-        \label{chdm:eqn_tmpa852}
-    \end{align}
-利用命题\ref{chdm:thm_coortrans}可以导出$x$点和$\gamma_x(t)$点基矢之间的变换关系：
-\begin{equation}\label{chdm:eqn_tmp-transxy}
-    \phi_{t*}^{-1} \left(\frac{\partial}{\partial y^\alpha}\right)^a 
-     = \frac{\partial x^i}{\partial y^\alpha}
-    \left(\frac{\partial}{\partial x^i}\right)^a , \qquad
-    {\phi^{*}_{t}}\left( {{\rm{d}}{y^\alpha }} \right)_a =
-    \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} 
-    \left( {{\rm{d}}{x^i }} \right)_a  .
-\end{equation}
-利用上两式，把式\eqref{chdm:eqn_tmp501}缩并，可得
-\begin{equation*}%\label{chdm:eqn_tmpa862}
-    \begin{aligned}
-       &C_{i_1}^{j_1}\left (\Phi_t^* T^{a_1 \cdots a_p}_{b_1\cdots b_q}\right)\bigl(\gamma_x(t)\bigr) \\
-        =& \ T^{i_1 \cdots i_p}_{j_1\cdots j_q}\bigl(\gamma_x(t)\bigr) \ 
-        \phi_{t*} ^{-1}  \left(\frac{\partial }{\partial y^{i_1}}\right)^{\color{red} a_1} \cdots 
-        \phi_{t*} ^{-1} \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} 
-         \times \phi_{t}^{*}({\rm d}y^{j_1})_{\color{red} a_1} \cdots \phi_{t}^{*} ({\rm d}y^{j_q})_{b_q}  \\
-         =& \ T^{i_1 \cdots i_p}_{j_1\cdots j_q}\bigl(\gamma_x(t)\bigr) \ 
-        \phi_{t*} ^{-1}  \left(\frac{\partial }{\partial y^{i_2}}\right)^{ a_2} \cdots 
-        \phi_{t*} ^{-1} \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} 
-         \times \phi_{t}^{*}({\rm d}y^{j_2})_{b_2} \cdots \phi_{t}^{*} ({\rm d}y^{j_q})_{b_q}  
-        \times \frac{\partial x^i}{\partial y^{i_1} }
-        \frac{{\partial {y^{j_1} }}}{{\partial {x^i}}}  \\
-        =& \ T^{k i_2 \cdots i_p}_{k j_2\cdots j_q}\bigl(\gamma_x(t)\bigr) \ 
-        \phi_{t*} ^{-1}  \left(\frac{\partial }{\partial y^{i_2}}\right)^{ a_2} \cdots 
-        \phi_{t*} ^{-1} \left(\frac{\partial }{\partial y^{i_p}}\right)^{a_p} 
-         \times \phi_{t}^{*}({\rm d}y^{j_2})_{b_2} \cdots \phi_{t}^{*} ({\rm d}y^{j_q})_{b_q}  .
-    \end{aligned}
-\end{equation*}
-综合公式\eqref{chdm:eqn_tmpa852}和上式，命题得证。
+    记 $y=\phi_t(x)$。对 $v\in T_yM$、$\omega\in T_y^*M$，由拉回定义，
+    \[
+        (\phi_t^*\omega)\bigl((\phi_{-t})_*v\bigr)
+        =\omega\bigl((\phi_t)_*(\phi_{-t})_*v\bigr)=\omega(v).
+    \]
+    缩并即对一个切矢因子和一个余切矢因子作此配对，故对简单张量有
+    \eq{\label{chdm:eqn_tmpa852}
+        C(\phi_t^*T)=\phi_t^*(CT).
+    }
+    任意张量均为简单张量之和，由线性性即得结论。在坐标基下，上述配对保持性也可由互逆的 Jacobi 矩阵看出：
+    \eq{\label{chdm:eqn_tmp-transxy}
+        (\phi_{-t})_*\p_{y^\alpha}=\pdv{x^i}{y^\alpha}\p_{x^i},\qquad
+        \phi_t^*(\d y^\alpha)=\pdv{y^\alpha}{x^i}\d x^i.
+    }
 \end{proof}
-
 
 \begin{theorem}\label{chdm:thm_LieD-property}
     Lie 导数$\Lie_{X}$有如下运算规则（其中，$\forall T\in \mathfrak{T}^p_q(M),\ S\in \mathfrak{T}^r_s(M)$，
-    $\forall \lambda \in \mathbb{R}$， $\forall \omega_a\in \mathfrak{X}^*(M)$，
-    $\forall X^a,Y^a\in \mathfrak{X}(M)$；
-    为了公式简洁，省略了$T,S$的上下标）：
-    
-    {\bfseries (1)} 线性：$\Lie_{X}(T + \lambda \cdot S) = \Lie_{X}T + \lambda\cdot \Lie_{X}S$；
-    
-    {\bfseries (2)} Leibnitz律：$\Lie_{X} (T \otimes S) = T \otimes \Lie_{X} S + (\Lie_{X} T )\otimes S$；
-    
-    {\bfseries (3)} 与缩并运算可交换，即$C^\times_\times (\Lie_{X} T) =  \Lie_{X} (C^\times_\times T) $；
-    
-    
-    
-    {\bfseries (4)} 若$\psi:M\to M$是微分同胚，则$\psi_*(\Lie_{X} T) = \Lie_{\psi_*X} \psi_* T$。
+    $\forall \lambda \in \R$， $\forall \omega\in \mathfrak{X}^*(M)$，
+    $\forall X,Y\in \mathfrak{X}(M)$；
+    其中加法要求 $T,S$ 同型）：
+
+    {(1)} 线性：$\Lie_{X}(T + \lambda \cdot S) = \Lie_{X}T + \lambda\cdot \Lie_{X}S$；
+
+    {(2)} Leibnitz律：$\Lie_{X} (T \otimes S) = T \otimes \Lie_{X} S + (\Lie_{X} T )\otimes S$；
+
+    {(3)} 与缩并运算可交换，即$C^\times_\times (\Lie_{X} T) =  \Lie_{X} (C^\times_\times T) $；
+
+
+    {(4)} 若$\psi:M\to M$是微分同胚，则$\psi_*(\Lie_{X} T) = \Lie_{\psi_*X} \psi_* T$。
 \end{theorem}
 \begin{proof}
     (1) 根据定义式\eqref{chdm:def_LieD-tensor}很容易证明线性性。
-    
+
     (2) 根据定义式\eqref{chdm:def_LieD-tensor}和命题\ref{chdm:thm_pptt}，有
     \begin{align*}
-        \Lie_{X} (T \otimes S) & = \lim_{t\to 0} \frac{\Phi^{*}_{t} (T\otimes S) -T\otimes S }{t} 
-          = \lim_{t\to 0} \frac{\Phi^{*}_{t} (T)\otimes \Phi^{*}_{t}(S) -T\otimes S }{t}\\
-        & = \lim_{t\to 0} \frac{\Phi^{*}_{t} (T)\otimes \Phi^{*}_{t}(S) 
-             -T\otimes \Phi^{*}_{t}(S) +T\otimes \Phi^{*}_{t}(S) -T\otimes S }{t} \\
+        \Lie_{X} (T \otimes S) & = \lim_{t\to 0} \frac{\phi^{*}_{t} (T\otimes S) -T\otimes S }{t}
+          = \lim_{t\to 0} \frac{\phi^{*}_{t} (T)\otimes \phi^{*}_{t}(S) -T\otimes S }{t}\\
+        & = \lim_{t\to 0} \frac{\phi^{*}_{t} (T)\otimes \phi^{*}_{t}(S)
+             -T\otimes \phi^{*}_{t}(S) +T\otimes \phi^{*}_{t}(S) -T\otimes S }{t} \\
         & = T \otimes \Lie_{X} S + (\Lie_{X} T )\otimes S .
     \end{align*}
 
@@ -2352,16 +2160,16 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
     (4) 依据定理\ref{chdm:thm_1PDG-diff}可令$\tilde{\phi}_t \equiv \psi \circ \phi_t \circ \psi^{-1}$；
     先验证切矢量场公式
     \begin{equation*}
-        \psi_*(\Lie_{X} Y^a)  = \lim_{t\to 0} \frac{\psi_*{\phi}_{-t*} Y^a - \psi_*Y^a }{t} 
-       = \lim_{t\to 0} \frac{\tilde{\phi}_{-t*} \psi_*Y^a -\psi_*Y^a }{t} 
-       =\Lie_{\psi_*X} \psi_*Y^a .
+        \psi_*(\Lie_{X} Y)  = \lim_{t\to 0} \frac{\psi_*{\phi}_{-t*} Y - \psi_*Y }{t}
+       = \lim_{t\to 0} \frac{\tilde{\phi}_{-t*} \psi_*Y -\psi_*Y }{t}
+       =\Lie_{\psi_*X} \psi_*Y .
     \end{equation*}
     再验证余切矢量场公式
     \begin{align*}
-        \psi^{-1*}(\Lie_{X} \omega_a)  = \lim_{t\to 0} \frac{\psi^{-1*} {\phi}_{t}^{*} 
-            \omega_a - \psi^{-1*}\omega_a }{t} 
-        = \lim_{t\to 0} \frac{ \tilde{\phi}_{t}^{*} \psi^{-1*}\omega_a - \psi^{-1*}\omega_a }{t} 
-        =\Lie_{\psi_*X} \psi^{-1*}\omega_a  .
+        \psi^{-1*}(\Lie_{X} \omega)  = \lim_{t\to 0} \frac{\psi^{-1*} {\phi}_{t}^{*}
+            \omega - \psi^{-1*}\omega }{t}
+        = \lim_{t\to 0} \frac{ \tilde{\phi}_{t}^{*} \psi^{-1*}\omega - \psi^{-1*}\omega }{t}
+        =\Lie_{\psi_*X} \psi^{-1*}\omega  .
     \end{align*}
     利用Leibnitz律，可推广至高阶张量场。
 \end{proof}
@@ -2370,20 +2178,18 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
     切矢量场、余切矢量场的Lie 导数
 \end{example}
 由定理\ref{chdm:thm_xy-yx}可知切矢量场的Lie 导数可以表示为：
-\begin{equation}\label{chdm:eqn_LieD-tangent}
-    \Lie_{X} Y^{a} = [X, Y]^a , \qquad \forall X^a, Y^a \in \mathfrak{X}(M).
-\end{equation}
-利用式\eqref{chdm:def_LieD-scalar}以及定理\ref{chdm:thm_LieD-property}中的Leibnitz律，有
-$  Y^a \Lie_{X}( \omega_a ) +(\Lie_{X}Y^a) \omega_a = \Lie_{X}(Y^a \omega_a )
-     = X(Y^a \omega_a) $。
-整理此式后，可得余切矢量场$\omega_a\in \mathfrak{X}^*(M)$Lie 导数公式：
-\begin{equation}\label{chdm:eqn_LieD-cotangent}
-    (\Lie_{X} \omega_a ) Y^a = X\bigl(\omega_a Y^a\bigr) 
-    - \omega_a [X, Y]^a, \qquad \forall X^a, Y^a \in \mathfrak{X}(M).
-\end{equation}
-余切矢量场的Lie 导数需要辅助矢量场$Y^a$来描述，
-一般张量场的Lie 导数需引入更多辅助场来描述；
-在引入无挠联络后，有简洁表达式，见\S \ref{chccr:sec_LieD-Nabla}。
+\eq{\label{chdm:eqn_LieD-tangent}
+    \Lie_{X} Y = [X, Y] , \qquad \forall X, Y \in \mathfrak{X}(M).
+}
+利用式\eqref{chdm:def_LieD-scalar}及 Lie 导数与缩并可交换，得
+\[
+    (\Lie_X\omega)(Y)+\omega(\Lie_XY)=\Lie_X\bigl(\omega(Y)\bigr)=X\bigl(\omega(Y)\bigr).
+\]
+于是余切矢量场的 Lie 导数满足
+\eq{\label{chdm:eqn_LieD-cotangent}
+    (\Lie_X\omega)(Y)=X\bigl(\omega(Y)\bigr)-\omega([X,Y]),\qquad X,Y\in\mathfrak X(M).
+}
+一般张量场可通过作用于多个切矢场和余切矢场来描述。在引入无挠联络后，还有分量表达式，见\S\ref{chccr:sec_LieD-Nabla}。
 \qed
 
 \begin{example}
@@ -2394,64 +2200,35 @@ $  Y^a \Lie_{X}( \omega_a ) +(\Lie_{X}Y^a) \omega_a = \Lie_{X}(Y^a \omega_a )
 需要注意，一般说来$\Lie_{f\cdot X} T \neq f\cdot \Lie_{X} T$，其中$f\in C^\infty(M)$；
 此时需用式\eqref{chccr:eqn_LieD-tensor-Nabla}来计算。\qed
 
-\index[physwords]{适配坐标系!Lie 导数}
-\index[physwords]{Lie 导数!适配坐标系}
 
 \begin{example}
     适配坐标系中的Lie 导数。
 \end{example}
 
-由定理\ref{chdm:thm_1PDG-ppy}可知，对于任意在点$p\in M$非零光滑矢量场$X^a$都存在
-{\kaishu 适配坐标系}$(U;x^i)$使得$X^a |_U = (\frac{\partial }{\partial x^1} )^a_p$；
-在适配坐标系上Lie 导数的表达式较为简单，我们以$\binom{1}{1}$型张量$T_b^a$为例来求出具体表达式。
-由定义式\eqref{chdm:def_LieD-tensor}可得张量的\CJKunderwave{分量}$T_{j}^{i}$的Lie 导数（其中$t\equiv x^1$）
-\begin{equation}\label{chdm:eqn_LieD-adaptedX}
-    \bigl( \Lie_{X} T_{b}^{a} \bigr)
-    \left(\frac{\partial }{\partial x^{j}}\right)^{b} \left({\rm d}x^i \right)_a
-    = \left. \frac{\partial T_{j}^{i}}{\partial x^1 } \right|_{p} 
-    =\left. \Lie_{X} \bigl(T_{j}^{i} \right|_{p} \bigr) .
-\end{equation}
-具体证明过程如下：
-\begin{align*}
-    \bigl( \Lie_{X} T_{b}^{a} \bigr)&
-    \left(\frac{\partial }{\partial x^{j}}\right)^{b} \left({\rm d}x^i \right)_a
-    = \lim_{t\to 0} \frac{\Phi^{*}_{t} T_{b}^{a}-T_{b}^{a}}{t}  
-    \left(\frac{\partial }{\partial x^{j}}\right)^{b} \left({\rm d}x^i \right)_a \\
-     \xlongequal{\ref{chdm:eqn_tmp501}}&  \lim_{t\to 0} \frac{1}{t}\left( 
-        T^{\alpha}_{\beta}\bigl(\gamma_p(t)\bigr) \phi_{t*} ^{-1} 
-         \left(\frac{\partial }{\partial y^{\alpha}}\right)^{a}
-          \phi_{t}^{*}({\rm d}y^{\beta})_{b}  
-          \left(\frac{\partial }{\partial x^{j}}\right)^{b} \left({\rm d}x^i \right)_a
-           -T_{j}^{i}(p) \right) \\
-    \xlongequal[\ref{chdm:eqn_tmp-transxy}]{\ref{chdm:eqn_tmp501}}&
-    \lim_{t\to 0} \frac{1}{t}\left( T^{\alpha}_{\beta}\bigl(\gamma_p(t)\bigr) 
-    \frac{\partial x^i}{\partial y^{\alpha}} \frac{\partial y^\beta}{\partial x^{j}}
-    -T_{j}^{i}(p) \right) \\
-    \overset{*}{=}&  \lim_{t\to 0} \frac{1}{t}\left( T_{j}^{i}\bigl(\gamma_p(t)\bigr)   -T_{j}^{i}(p) \right) 
-    = \left. \frac{\partial T_{j}^{i}}{\partial x^1 } \right|_{p} 
-    =\left. \Lie_{X} \bigl(T_{j}^{i} \right|_{p} \bigr) .
-\end{align*}
-“$\overset{*}{=}$”步：
-因$X^a |_U = (\frac{\partial }{\partial x^1} )^a_p$，在点$p\in M$处
-有$y^1=x^1_p+t$，$y^k =x^k_p (1< k \leqslant m)$，
-即$\frac{\partial x^i}{\partial y^{\alpha}}=\delta^i_\alpha$和
-$\frac{\partial y^\beta}{\partial x^{j}}=\delta^\beta_j$。
-倒数第二步是因为$t\equiv x^1$。
-最后一步是因为式\eqref{chdm:def_LieD-scalar}。
-在一般的坐标系中，$( \Lie_{X} T_{b}^{a} )
-(\frac{\partial }{\partial x^{j}})^{b} ({\rm d}x^i )_a 
-= ( \Lie_{X} T ) _{j}^{i} \neq  \Lie_{X} (T  _{j}^{i})$；
-但在适配坐标系（适配坐标系定义见定理\ref{chdm:thm_1PDG-ppy}）下，两者相等。
+由定理\ref{chdm:thm_1PDG-ppy}，若 $X_p\ne0$，可取适配坐标系使 $X|_U=\p_1$。此时流只改变第一个坐标：
+\[
+    y^1=x^1+t,\qquad y^k=x^k\quad(k>1),
+\]
+故其 Jacobi 矩阵为单位矩阵，坐标基及对偶基在流的推前和拉回下不变。以 $(1,1)$ 型张量场 $T$ 为例，由式\eqref{chdm:eqn_tmp501}，
+\[
+    (\phi_t^*T)_p=T^i{}_j(\phi_t(p))\left.\p_i\right|_p\otimes\left.\d x^j\right|_p.
+\]
+因此
+\eq{\label{chdm:eqn_LieD-adaptedX}
+    (\Lie_XT)^i{}_j(p)
+    =\lim_{t\to0}\frac{T^i{}_j(\phi_t(p))-T^i{}_j(p)}{t}
+    =\p_1T^i{}_j(p)=X(T^i{}_j)(p).
+}
+这里 $(\Lie_XT)^i{}_j=(\Lie_XT)(\d x^i,\p_j)$ 是张量场 $\Lie_XT$ 的分量，而 $X(T^i{}_j)$ 是对分量函数求导；二者在适配坐标系下相等，在一般坐标系下未必相等。
 \qed
-
 
 \begin{exercise}
 	补全证明式\eqref{chdm:eqn_LieD-adaptedX}中所省略的步骤。
 \end{exercise}
 
 \begin{exercise}
-	在二维流形$\mathbb{R}^2$上有局部坐标系$x,y$，令$X^a = x^2 (\frac{\partial}{\partial x})^a$、
-	$Y^a = (\frac{\partial}{\partial x})^a + y^2 (\frac{\partial}{\partial y})^a$。
-	计算$\Lie_X Y^a$关于$(\frac{\partial}{\partial x})^a$、$(\frac{\partial}{\partial y})^a$的表达式。
-	作变换$u=x+y$、$v=x-y$，求$\Lie_X Y^a$关于$(\frac{\partial}{\partial u})^a$、$(\frac{\partial}{\partial v})^a$的表达式。
+	在二维流形$\R^2$上有局部坐标系$x,y$，令$X = x^2 (\frac{\partial}{\partial x})$、
+	$Y = (\frac{\partial}{\partial x}) + y^2 (\frac{\partial}{\partial y})$。
+	计算$\Lie_X Y$关于$(\frac{\partial}{\partial x})$、$(\frac{\partial}{\partial y})$的表达式。
+	作变换$u=x+y$、$v=x-y$，求$\Lie_X Y$关于$(\frac{\partial}{\partial u})$、$(\frac{\partial}{\partial v})$的表达式。
 \end{exercise}

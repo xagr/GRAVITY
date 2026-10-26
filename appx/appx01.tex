@@ -47,6 +47,13 @@
 由此可进一步构造自然数集 $\N$、整数集 $\Z$、有理数集 $\Q$ 和实数集 $\R$ 等，我们亦已有接触。
 马上将在 \S\ref{sec:order} 回顾构造 $\N$ 的方式.
 
+\begin{definition}
+    置映射 $f:X\to Y$ 及 $A\subset X$。映射 $f|_A:A\to Y$ 由 $f|_A(x):=f(x)$ 定义，称为 $f$ 在 $A$ 上的\textbf{限制}；反之，若 $g:A\to Y$ 满足 $f|_A=g$，则称 $f$ 为 $g$ 在 $X$ 上的一个\textbf{延拓}。
+\end{definition}
+\begin{remark}
+    限制唯一，延拓一般不唯一。连续或光滑延拓还须保持相应性质，其存在性须另证。
+\end{remark}
+
 \begin{theorem}
     置 $f:X\to Y$，任意 $A\subset Y$ 的逆像满足 $f^{-1}[A]=f^{-1}[A\cap\Im f]$。
 \end{theorem}
@@ -76,6 +83,7 @@
 	\text{并 } \; \bigcup_{i \in I} X_i, & \text{交} \; \bigcap_{i \in I} X_i,\quad (I \neq \mt),\\
 	\text{无交并 } \; \bigsqcup_{i \in I} X_i, & \text{积} \; \prod_{i \in I} X_i.
 \end{array}\]
+部分教材将无交并写作 $\coprod$。
 可以证明，de Morgan 律对任意指标集都成立。
 对应于 $I=\mt$ 的并与无交并都是 $\mt$，而积是 $\{\mt\}$。空交只能是全体集合构成的类 $\mathbf{V}$，不在 ZFC 系统的讨论范围。
 
@@ -850,10 +858,10 @@ FX & FY \arrow[l,"F(f)"'] \\
 				\hom_{\prod_{i \in I} \mathcal{C}_i}( (X_i)_i, (Y_i)_i ) & := \prod_{i \in I} \hom_{\mathcal{C}_i}(X_i, Y_i),
 			\end{align*}
 			其中以 $(X_i)_i$ 表示 $\prod_{i \in I} \Obj(\mathcal{C}_i)$ 的元素。态射的合成是逐个分量定义的.
-		\item 余积（无交并）范畴 $\coprod_{i \in I} \mathcal{C}_i$ 满足：
+		\item 余积（无交并）范畴 $\bigsqcup_{i \in I} \mathcal{C}_i$ 满足：
 			\begin{align*}
-				\Obj\left( \coprod_{i \in I} \mathcal{C}_i \right) & := \coprod_{i \in I} \Obj(\mathcal{C}_i), \\
-				\hom_{\coprod_{i \in I} \mathcal{C}_i}(X_j, X'_k) & :=
+				\Obj\left( \bigsqcup_{i \in I} \mathcal{C}_i \right) & := \bigsqcup_{i \in I} \Obj(\mathcal{C}_i), \\
+				\hom_{\bigsqcup_{i \in I} \mathcal{C}_i}(X_j, X'_k) & :=
 				\begin{cases}
 					\hom_{\mathcal{C}_j}(X_j, X'_k), & j = k, \\
 					\emptyset, & j \neq k;
@@ -864,7 +872,7 @@ FX & FY \arrow[l,"F(f)"'] \\
 \end{definition}
 由于 $I$ 已假设是 $\mathcal{U}$-集，我们造出的范畴仍然是 $\mathcal{U}$-范畴；若每个 $\mathcal{C}_i$ 都是 $\mathcal{U}$-小范畴，则它们的积和余积亦然.
 
-我们有一族投影函子 $\Pr_j: \prod_{i \in I} \mathcal{C}_i \to \mathcal{C}_j$，它将 $(X_i)_i$ 映至 $X_j$，在态射层面也是类似地投影到 $j$ 分量。同理定义一族包含函子 $\iota_j: \mathcal{C}_j \to \coprod_{i \in I} \mathcal{C}_i$，将 $\mathcal{C}_j$ 以自明的方式嵌入为全子范畴.
+我们有一族投影函子 $\Pr_j: \prod_{i \in I} \mathcal{C}_i \to \mathcal{C}_j$，它将 $(X_i)_i$ 映至 $X_j$，在态射层面也是类似地投影到 $j$ 分量。同理定义一族包含函子 $\iota_j: \mathcal{C}_j \to \bigsqcup_{i \in I} \mathcal{C}_i$，将 $\mathcal{C}_j$ 以自明的方式嵌入为全子范畴.
 
 特别地，取 $I$ 为有限集便能定义 $\mathcal{C}_1 \times \cdots \times \mathcal{C}_n, \mathcal{C}_1 \sqcup \cdots \sqcup \mathcal{C}_n$.
 
