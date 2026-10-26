@@ -650,6 +650,86 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
     再用一个余切矢场作用于输出，便得到实函数值的多重线性映射，应用上述引理即可。
 \end{proof}
 
+前文在线性空间上定义的度规，逐点赋予切空间并要求光滑，便得到流形上的度规场。
+
+\begin{definition}
+    $M$ 上对称、处处非退化且号差固定的光滑 $(0,2)$-张量场 $g$ 称为\textbf{度规场}，简称\textbf{度规}。赋有度规的 $(M,g)$ 称为\textbf{伪 Riemann 流形}；其中 $g$ 正定时称为\textbf{Riemann 流形}。
+\end{definition}
+
+度规给出各切空间上的内积 $g_p(v,w)$。在坐标系中，
+\eq{g=g_{ij}\,\d x^i\otimes\d x^j,\qquad g_{ij}=g(\p_i,\p_j),\qquad \det(g_{ij})\ne0.}
+音乐同构及升降指标均逐点沿用线性空间的定义；矩阵求逆保持光滑，故 $g^{-1}$ 也是光滑张量场。Sylvester 惯性定理保证号差无关坐标选择；光滑性与非退化性又使惯性指数局部恒定，故 $M$ 连通时无需另加号差固定的要求。
+
+\begin{definition}
+    规范矩阵中只有一个负号或只有一个正号的不定度规称为 \textbf{Lorentz 度规}。本书取一个负方向，即规范矩阵为 $\diag(-1,1,\cdots,1)$；四维时号差为 $+2$，记
+    \eq{(\eta_{\mu\nu})=\diag(-1,1,1,1).}
+\end{definition}
+
+\begin{remark}
+    在任意指定点 $p$，可对坐标作线性变换，使 $(g_{ij}(p))=\diag(\pm1,\cdots,\pm1)$。这只保证在该点成立，一般不能使整个坐标域上的度规分量都成为同一常矩阵。局部正交归一标架也未必是坐标标架。
+\end{remark}
+
+\begin{theorem}
+    每个光滑流形都存在 Riemann 度规。
+\end{theorem}
+\begin{proof}
+    取坐标开覆盖及从属的局部有限光滑单位分解 $\{\rho_\alpha\}$。各坐标域上置 $g_\alpha:=\sum_i\d x_\alpha^i\otimes\d x_\alpha^i$，将 $\rho_\alpha g_\alpha$ 在域外置零。则 $g:=\sum_\alpha\rho_\alpha g_\alpha$ 光滑、对称；对任意非零切矢 $v$，有 $g(v,v)>0$，故为 Riemann 度规。
+\end{proof}
+
+\begin{definition}
+    分段 $C^1$ 曲线 $C:[a,b]\to M$ 的\textbf{线长}为
+    \eq{L(C):=\int_a^b\sqrt{\abs{g_{C(t)}(\dot C(t),\dot C(t))}}\,\d t,}
+    其中 $\dot C(t)=\dv*{}{t}$ 为曲线切矢。在坐标中，被积函数为 $\sqrt{\abs{g_{ij}(C(t))\dot x^i(t)\dot x^j(t)}}$。
+\end{definition}
+
+\begin{theorem}
+    线长在分段 $C^1$ 微分同胚的重新参数化下不变，包括参数方向的反转。
+\end{theorem}
+\begin{proof}
+    若 $t=\phi(s)$、$\widetilde C=C\circ\phi$，则 $\dot{\widetilde C}=\phi'\dot C\circ\phi$，故
+    \eq{\sqrt{\abs{g(\dot{\widetilde C},\dot{\widetilde C})}}
+        =|\phi'|\sqrt{\abs{g(\dot C,\dot C)}}\circ\phi.}
+    对积分作变量替换即得。
+\end{proof}
+
+\begin{remark}
+    曲线允许停留或自交：停留段贡献为零，重复经过同一路段则重复计长。因此线长并非曲线像集的测度。不定度规下，非零切矢也可能满足 $g(v,v)=0$，故非恒定曲线的线长也可能为零。
+\end{remark}
+
+若 $C$ 为 $C^1$ 曲线且 $g(\dot C,\dot C)$ 处处非零，则累积线长
+\eq{\sigma(t):=\int_a^t\sqrt{\abs{g_{C(u)}(\dot C(u),\dot C(u))}}\,\d u}
+严格递增，可作\textbf{线长参数}。由链式法则，
+\eq{g\left(\dv{}{\sigma},\dv{}{\sigma}\right)
+    =\frac{g(\dot C,\dot C)}{|g(\dot C,\dot C)|}=\pm1.}
+
+\begin{example}
+    对采用本书号差约定的 Lorentz 度规，类时曲线满足 $g(\dot C,\dot C)<0$，其线长就是\textbf{固有时}（取 $c=1$）：
+    \eq{\tau(t)-\tau(a)=\int_a^t\sqrt{-g_{C(u)}(\dot C(u),\dot C(u))}\,\d u.}
+    以固有时为参数的切矢 $U:=\dv*{}{\tau}$ 满足 $g(U,U)=-1$。类光曲线的切矢非零但模方为零，故不能用线长参数化。
+\end{example}
+
+\begin{definition}
+    $\R^n$ 配以自然坐标中的度规 $\delta:=\delta_{ij}\,\d x^i\otimes\d x^j$，称为\textbf{欧氏空间} $\mathbb E^n:=(\R^n,\delta)$。使度规分量恒为 $\delta_{ij}$ 的坐标系称为 \textbf{Descartes 坐标系}。
+
+    $\R^4$ 配以自然坐标中的度规 $\eta:=\eta_{\mu\nu}\,\d x^\mu\otimes\d x^\nu$，称为\textbf{闵氏时空} $\R^{1,3}:=(\R^4,\eta)$。使度规分量恒为 $\eta_{\mu\nu}$ 的坐标系称为 \textbf{Lorentz 坐标系}，亦称\textbf{惯性坐标系}。
+\end{definition}
+
+\begin{theorem}
+    在连通的重叠域内，两 Descartes 坐标系之间的变换必为
+    \eq{x'=Qx+a,\qquad Q^{\mathsf T}Q=I;}
+    两 Lorentz 坐标系之间的变换必为
+    \eq{x'=\Lambda x+a,\qquad \Lambda^{\mathsf T}\eta\Lambda=\eta.}
+    其中矩阵及平移量均为常量。反之，这些变换均保持相应的度规分量。
+\end{theorem}
+\begin{proof}
+    将两种常度规矩阵统记为 $G$。设坐标变换 $x'=F(x)$，置 $F_i:=\p_iF$、$F_{ij}:=\p_i\p_jF$，并以 $\langle\ ,\ \rangle_G$ 表示 $G$ 给出的双线性函数。度规变换律给出 $\langle F_i,F_j\rangle_G=G_{ij}$。
+    记 $A_{ijk}:=\langle F_{ij},F_k\rangle_G$。由偏导对易及上式求导，分别得 $A_{ijk}=A_{jik}$、$A_{ijk}=-A_{ikj}$，于是
+    \eq{A_{ijk}=A_{jik}=-A_{jki}=-A_{kji}=A_{kij}=A_{ikj}=-A_{ijk}.}
+    故 $A_{ijk}=0$。因 $\{F_k\}$ 为一组基且 $G$ 非退化，知 $F_{ij}=0$。于是 Jacobi 矩阵在连通域内为常量，$F$ 为仿射变换；代回度规变换律即得矩阵条件及其逆命题。
+\end{proof}
+
+因此 Descartes 坐标变换由平移及正交变换组成，后者包括旋转与反射；惯性坐标变换则由平移及 Lorentz 变换组成，合称 Poincar\'e 变换。这里 $\Lambda$ 保持的是 $\eta$，一般不满足 $\Lambda^{\mathsf T}\Lambda=I$。
+
 \section{诱导映射}\label{chdm:sec_induced-map}
 \label{chdm:sec_induced-map-on-fields}\label{chdm:sec_related}
 
@@ -1417,3 +1497,6 @@ Lie 导数还可用来刻画流所保持的张量场。
 \end{proof}
 
 特别地，$\Lie_Xg=0$ 表示流保持度规，$\Lie_XY=[X,Y]=0$ 表示流保持切矢场 $Y$。在时空中，光滑单位类时场 $Z$ 的积分曲线描述观察者的世界线；沿这些世界线考察 $\Lie_ZT$，便是在用观察者线汇的流比较邻近的张量。若它为零，$T$ 随该流保持不变，此性质与坐标选择无关。
+
+\section{Killing 矢量}
+定义流形间映射便可谈及微分同胚。微分同胚映射可自然诱导张量丛的映射，故可谈及张量变换的主动、被动观点。所有微分同胚构成微分同胚群。任意光滑矢量场是该群的生成元。显然微分同胚有无穷多生成元，故维数无穷。一个光滑矢量场在群中挑出一个单参子群，称为单参微分同胚局部群（无穷小微分同胚）。若光滑矢量场还有完备性，则给出一个单参微分同胚群。紧致流形上任意矢量场可延拓至完备的。保持度规分量不变的变换对应的微分同胚映射称为等度规映射。诱导此映射的矢量场称为 Killing 矢量。代数定义可从 Lie 导数出发，也可从 Killing 方程出发以跳过 Lie 导数。此定义便告知可用 Killing 矢量场讨论度规（时空）的对称性。

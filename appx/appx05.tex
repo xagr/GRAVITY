@@ -97,24 +97,33 @@ $A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 
     \eq{\Lie_X\d=\d i_X\d=\d\Lie_X.\qedhere}
 \end{proof}
 
+\section{定向与带边流形}\label{sec:orientation-boundary}
 
-\section{定向与带边流形}
-\begin{definition}
-    连续的非零张量场称\textbf{非退化的}。非退化最高阶形式场称\textbf{体元场}或\textbf{体元}。存在体元的流形称\textbf{可定向的}(orientable)。
-\end{definition}
-
-    \begin{example}
-        $\R^3$ 可定向：只需取自然坐标便知存在光滑体元 $\d x\wedge\d y\wedge\d z$。
-    \end{example}
-    \begin{example}
-    M\"obius 环（图 \ref{mobius}）不可定向：若尝试连续指定非零定向，则沿途回到原处时一定会断开，而突然反号不满足连续要求。直观上讲这意味着它作为 2 维曲面却只有一个面，不能区分正反。
-    \end{example}
+\S\ref{sec:tensor-density} 已定义线性空间的体元与定向。对流形，每个切空间都可单独定向，问题在于能否随点光滑地选取。
 
 \begin{definition}
-    类似地，对体元场 $\epsilon_1,\epsilon_2$，若存在标量场 $h>0$ 使 $\epsilon_1=h\epsilon_2$，就说 $\epsilon_1,\epsilon_2$ 等价，由此体元场的等价类称为该流形的定向。
-    选好定向的可定向流形称（已）\textbf{定向的}(oriented)，类似地有正定体元、右手基等概念。
-    若坐标系的坐标基是右手的，则称\textbf{右手系}。
+    $n$ 维流形 $M$ 上处处非零的光滑 $n$-形式 $\epsilon$ 称为\textbf{体元场}，简称\textbf{体元}。存在体元的流形称为\textbf{可定向的}(orientable)。沿用线性空间的约定，$\epsilon_1\sim\epsilon_2$ 指 $\epsilon_1=h\epsilon_2$，其中 $h$ 为处处正的光滑函数；其等价类称为 $M$ 的\textbf{定向}。选定定向的流形称为\textbf{定向的}(oriented)。
 \end{definition}
+
+正定体元、右手基等术语均逐点沿用。坐标基为右手基的坐标系称为\textbf{右手系}；在其中，正定体元表为
+\eq{\epsilon=f\,\d x^1\wedge\cdots\wedge\d x^n,\qquad f>0.}
+若 $M$ 连通且可定向，任意两体元之比为连续非零函数，故符号恒定，于是恰有两个定向；不连通时，各连通分支可独立选择定向。
+
+\begin{theorem}
+    $n\geqslant1$ 维无边流形 $M$ 可定向当且仅当存在图册，使任意坐标变换的 Jacobi 行列式处处为正。
+\end{theorem}
+\begin{proof}
+    若有体元，缩小坐标域并在必要时反转一个坐标，即可使其成为右手系。由
+    \eq{\d x'^1\wedge\cdots\wedge\d x'^n
+        =\det\!\left(\pdv{x'^i}{x^j}\right)\d x^1\wedge\cdots\wedge\d x^n,}
+    两右手系间的 Jacobi 行列式为正。
+
+    反之，取从属于该图册的光滑单位分解 $\{\rho_\alpha\}$，将各 $\rho_\alpha\,\d x_\alpha^1\wedge\cdots\wedge\d x_\alpha^n$ 在坐标域外延拓为零。它们局部有限的和光滑，且在每点都是同向体元的非负组合，至少一项非零，故为体元。
+\end{proof}
+
+\begin{example}
+    $\R^n$ 的标准定向由 $\d x^1\wedge\cdots\wedge\d x^n$ 给出。M\"obius 带则不可定向：将矩形按 $(0,t)\sim(1,-t)$ 粘合，若存在体元，其拉回为 $f(s,t)\,\d s\wedge\d t$，其中 $f$ 连续且处处非零。粘合要求 $f(1,0)=-f(0,0)$，与 $f(s,0)$ 符号恒定矛盾。
+\end{example}
 
 \begin{figure}[h!]
     \centering
@@ -143,9 +152,39 @@ $A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 
 \end{figure}
 
 
-现借助坐标系叙述之。在 $M$ 中有一包含 $p$ 的局部坐标系 $(O,\psi;x^i)$，使得 $\psi(p)$ 是坐标原点且 $U\cap D =\{q\in U|x^1(q)\leqslant 0\}$，则称 $D$ 是 $M$ 上的一个\textit{带边区域}，其边界点 $x^1$ 坐标为零。坐标空间里这个区域就称作“\textit{半空间(half-space)}” $\mathbb H^{n}$，有时可记作 $\frac{1}{2}\R^n$。由于边界点失去了一个坐标自由度，因此我们很容易发现 $\partial D$ 是相较于 $D$ 而言“余 1 维(1-codimension)”。考虑到背景和内部都是同维开集，因此说\textit{带边区域不能直接认同为普通开集}，因其在实质上“强行”拼凑了两个不同维度的东西，即内部和边界。
+为讨论积分区域的边界，将坐标模型从欧氏空间推广到闭半空间
+\eq{\mathbb H^n:=\{(x^1,\cdots,x^n)\in\R^n:x^n\geqslant0\}.}
+半空间上的光滑映射，指在每点附近可延拓为欧氏开集上的光滑映射。
 
-区域定向可在其边界上也诱导出与之相应的定向
+\begin{definition}
+    仿紧 $T_2$ 空间 $M$ 若有图册，使各坐标域同胚于 $\mathbb H^n$ 的相对开集，且坐标变换及其逆均光滑，则赋以相应最大图册后称为 $n$ 维\textbf{光滑带边流形}(smooth manifold with boundary)。坐标满足 $x^n=0$ 的点称为\textbf{边界点}，全体记为 $\partial M$；其余点组成\textbf{内部} $M^\circ:=M\backslash\partial M$。
+\end{definition}
+
+\begin{remark}
+    内点、边界点的区分与坐标无关。否则某坐标变换将内点送到边界点，其末坐标在该内点处取局部最小值，导数为零，与坐标变换的微分可逆矛盾。带边流形允许 $\partial M=\mt$，此时就是前文的无边流形。上述半空间取 $n\geqslant1$；零维流形规定无边。
+\end{remark}
+
+\begin{theorem}\label{thm:boundary-no-boundary}
+    $n$ 维带边流形的非空边界是 $n-1$ 维无边流形，故 $\partial(\partial M)=\mt$。
+\end{theorem}
+\begin{proof}
+    边界是 $M$ 的闭子集，故仍为仿紧 $T_2$ 空间。将边界坐标系限制到 $x^n=0$，再去掉末坐标，便得到取值于 $\R^{n-1}$ 开集的坐标系；其坐标变换由原坐标变换限制而来，仍双向光滑。
+\end{proof}
+
+边界点处仍有 $\dim T_pM=n$；光滑函数的局部延拓给出通常的坐标导数。通过包含映射的推前，将 $T_p(\partial M)$ 看作 $T_pM$ 的子空间，则
+\eq{T_p(\partial M)=\ker(\d x^n)_p
+    =\operatorname{span}\{\p_1|_p,\cdots,\p_{n-1}|_p\}.}
+体元与定向的定义也照常适用。光滑单位分解的构造只需将欧氏空间的隆起函数限制到半空间，故仍成立。
+
+\begin{remark}
+    此处的边界是流形自身的概念，应与子集在环境空间中的拓扑边界区分。例如，球面作为流形无边，但作为欧氏空间的子集，其拓扑边界是自身。\textbf{闭流形}指紧且无边的流形，不能将“紧”换成“有界”。这里讨论光滑边界，不包含指定嵌入下的棱角。
+\end{remark}
+
+\begin{example}
+    若无边流形 $M$ 的闭子集 $D$ 在每个拓扑边界点附近都有坐标系 $(O,\psi)$，使
+    \eq{\psi[D\cap O]=\psi[O]\cap\mathbb H^n,}
+    则 $D$ 在诱导拓扑及限制图册下是与 $M$ 同维的带边流形，称为\textbf{光滑带边区域}。其流形边界恰是它在 $M$ 中的拓扑边界。闭球是典型例子，而任意闭集未必是带边区域。
+\end{example}
 
 \begin{figure}[h!]
     \centering
@@ -216,9 +255,32 @@ pattern radius = 1pt}
     \caption{带边区域}
 \end{figure}
 
+最后确定边界的定向。外向是相对于 $M$ 的局部内侧而言，并不要求 $\partial M$ 将某个背景空间分成内外两部分。对 $p\in\partial M$，若 $\nu\in T_pM$ 满足 $\d x^n(\nu)<0$，就称 $\nu$ \textbf{外向}。此条件与边界坐标的选择无关：坐标变换保持边界和内侧，其微分在横向上只能乘以正数。这里不要求 $\nu$ 为单位矢量或与边界正交，因而无需度规。
+
+\begin{theorem}\label{thm:boundary-orientation}
+    定向带边流形 $M$ 自然诱导 $\partial M$ 的定向。若 $\epsilon$ 为 $M$ 的正定体元、$\nu$ 为沿边界的光滑外向矢量场、$\iota:\partial M\hookrightarrow M$ 为包含映射，则边界定向由
+    \eq{\epsilon_{\partial}:=\iota^*(i_\nu\epsilon)}
+    给出。对 $n\geqslant2$，这等价于规定：$(v_1,\cdots,v_{n-1})$ 是边界的右手基，当且仅当 $(\nu,v_1,\cdots,v_{n-1})$ 是 $M$ 的右手基，称为\textbf{外向在前}约定。
+\end{theorem}
+\begin{proof}
+    各边界坐标系中的 $-\p_n$ 外向，用单位分解加权相加即可得到光滑外向场。因 $\nu$ 不在 $T_p(\partial M)$ 中，$\epsilon_{\partial}$ 处处非零。
+
+    若另取外向场 $\nu'$，则沿边界有 $\nu'=a\nu+w$，其中 $a>0$、$w$ 与边界相切。由于 $n$ 个边界切矢线性相关，$\iota^*(i_w\epsilon)=0$，故 $\iota^*(i_{\nu'}\epsilon)=a\epsilon_{\partial}$。改变正定体元也只会乘以正函数，故所得定向无关这些选择。
+\end{proof}
+
+\begin{example}\label{eg:half-space-orientation}
+    $\mathbb H^n$ 取标准体元 $\epsilon=\d x^1\wedge\cdots\wedge\d x^n$，外向矢量可取 $-\p_n$，于是
+    \eq{\epsilon_{\partial}=(-1)^n\d x^1\wedge\cdots\wedge\d x^{n-1}.}
+    因此 $n\geqslant2$ 时，边界坐标 $(x^1,\cdots,x^{n-1})$ 在 $n$ 为偶数时是右手系，为奇数时是左手系。
+\end{example}
+
+\begin{example}
+    平面圆盘取 $\d x\wedge\d y$ 定向，其边界诱导逆时针方向。区间 $[a,b]$ 取 $\d x$ 定向，则左端点外向矢量为 $-\p_x$，右端点为 $\p_x$，诱导的零维体元分别为 $-1,+1$。零维流形的定向就是逐点指定正负号，故边界积分为 $\int_{\partial[a,b]}f=f(b)-f(a)$。
+\end{example}
+
 \section{广义 Stokes 定理}
 
-考虑 $n$ 维定向流形 $M$。倘若 $n$-形式 $\omega$ 定义在坐标系 $(O,\psi)$，第 $i$ 坐标映射为 $x^i:M\to\R$，则可用 $\R^n$ 上 Riemann 积分简单定义有界集 $A\subset O$ 上 $\omega$ 的积分为 
+考虑 $n$ 维定向流形 $M$。取连通坐标域上的坐标系 $(O,\psi)$，其坐标函数为 $x^i:O\to\R$。若右端 Riemann 积分存在，则定义 $A\subset O$ 上 $n$-形式 $\omega$ 的积分为
 \eq{
     \int_A\omega:=\pm\int_{\psi[A]}(\omega_{1 \cdots n}\circ\psi^{-1})(x)\,\d x^1 \cdots\d x^n,
 }
@@ -226,91 +288,59 @@ pattern radius = 1pt}
 欲将积分域推至 $M$，需要将各局部积分进行缝合。已知单位分解 $\{\rho_i\}$ 满足 $\sum_i\rho_i=1$，因此 $\omega=\omega\sum_i\rho_i=\sum_i\rho_i\omega$。因单个 $\int\rho_i\omega$ 可用坐标系计算，故自然希望整个积分 $\int\omega$ 是 $\sum_i\int\rho_i\omega$。
 
 \begin{definition}
-    任选 $M$ 的单位分解 $\{\rho_i\}$。最高阶形式 $\omega$ 在 $M$ 上的积分为
+    设 $\omega$ 为 $n$ 维定向流形 $M$ 上的紧支撑光滑 $n$-形式，取从属于坐标开覆盖 $\{O_i\}$ 的局部有限光滑单位分解 $\{\rho_i\}$，定义
     \eq{
         \int_M\omega:=\sum_i\int_{O_i}\rho_i\omega.
     }
+    由紧支撑性及局部有限性，右端只有有限项非零。特别地，$M$ 紧时，任意光滑 $n$-形式均可如此积分。
 \end{definition}
 \begin{remark}
     实际上，总默认对诱导形式积分：$\int_S\omega=\int_S\tilde\omega$。
+    本书只对阶数与积分域维数相同的形式定义积分；若将积分扩展到任意阶形式，可约定其余阶数的积分为零。
 \end{remark}
 \begin{theorem}
-    积分定义与单位分解选取无关。
+    上述积分与坐标开覆盖及从属单位分解的选取无关。
 \end{theorem}
 \begin{proof}
-    设 $\{\rho_i\}$ 和 $\{\rho'_j\}$ 是 $M$ 的两个单位分解。则
+    设 $\{\rho_i\}$、$\{\rho'_j\}$ 分别从属于坐标开覆盖 $\{O_i\}$、$\{O'_j\}$。它们的支撑各只有有限个与紧集 $\supp\omega$ 相交，故以下均为有限和。又 $\rho_i\rho'_j\omega$ 的支撑含于 $O_i\cap O'_j$，且局部积分与坐标选择无关，于是
     \begin{align*}
-        \sum_i\int_{O_i}\rho_i\omega &= \sum_i\int_{O_i}\rho_i\omega\sum_j\rho'_j = \sum_{i,j}\int_{O_i}\rho_i\rho'_j\omega\\
-        &= \sum_{i,j}\int_{O_i\cap O'_j}\rho_i\rho'_j\omega.
+        \sum_i\int_{O_i}\rho_i\omega
+        &=\sum_{i,j}\int_{O_i\cap O'_j}\rho_i\rho'_j\omega\\
+        &=\sum_j\int_{O'_j}\Bigl(\sum_i\rho_i\Bigr)\rho'_j\omega
+        =\sum_j\int_{O'_j}\rho'_j\omega.\qedhere
     \end{align*}
-    同理
-    \begin{align*}
-        \sum_j\int_{O'_j}\rho'_j\omega &= \sum_j\int_{O'_j}\rho'_j\omega\sum_i\rho_i = \sum_{i,j}\int_{O'_j}\rho_i\rho'_j\omega\\
-        &= \sum_{i,j}\int_{O_i\cap O'_j}\rho_i\rho'_j\omega.
-    \end{align*}
-    两式相等，故积分值与单位分解选取无关。
 \end{proof}
 
-
-
-\begin{theorem}[广义Stokes 定理]
-    $\Omega$ 是 $n$ 维可定向（有界）带边流形，则 $\forall\omega\in\Lambda_{n-1}(M)$ 有
-\eq{
-\int_\Omega \d\omega=\int_{\partial\Omega}\omega.
-}
+\begin{theorem}[广义 Stokes 定理]
+    设 $\Omega$ 为 $n$ 维定向带边流形（$n\geqslant1$），$\partial\Omega$ 取诱导定向。对 $\Omega$ 上任意紧支撑光滑 $(n-1)$-形式 $\omega$，有
+    \eq{\int_\Omega\d\omega=\int_{\partial\Omega}\omega.}
+    特别地，$\Omega$ 紧时，任意光滑 $(n-1)$-形式均满足此式。
 \end{theorem}
 \begin{remark}
-    该式乃微积分之精髓，联系了边界效应与内部变化，统一了 Newton-Leibniz 定理、Green 公式、Gauss 定理、Stokes 公式等。
+    该式统一了 Newton-Leibniz 定理、Green 公式、Gauss 定理和 Stokes 公式，将内部的微分与边界上的积分联系起来。
 \end{remark}
-
 \begin{proof}
-    一般背景上需要处理一些技术性细节，为此不妨模仿分析学的做法，设想带边区域靠着一个个“微小单位”粘贴出来，这样可供在整体的场上积分，于是问题的关键在于内点邻域、边界点邻域，此二情况分别可以近似于 $\R^n$ 和 $\mathbb H^{n}$，不妨设 $\{(x^1,\cdots,x^n),x^n\geqslant 0\}$。
-    
-    我们先从半空间开始。微小邻域总是有界的（理解为背景里存在一个开的球区域包含它），边界点邻域内的坐标总能用 $A=[-R,R]^{n-1}\times[0,R]$ 囊括，这里 $R$ 是有限正数，使得 $(n-1)$-形式 $\omega$ 在 $A$ 边缘及以外为零。将 $\omega$ 展开为
-    \[
-    \omega=\sum_{i=1}^n\omega_i \d{x^1}\wedge \cdots \wedge \widehat{\d{x^i}}\wedge \cdots \wedge \d{x^n},
-    \]
-    则
-    \begin{align*}
-        \d\omega&=\sum_{i,j=1}^n\pdv{\omega_i}{x^j}\d{x^j}\wedge \d{x^1}\wedge \cdots \wedge \widehat{\d{x^i}}\wedge \cdots \wedge \d{x^n}\\
-        &=\sum_{i=1}^n(-1)^{i-1}\pdv{\omega_i}{x^i}\d{x^1}\wedge \cdots \wedge \d{x^n}.
-    \end{align*}
-    证明核心仍是读者最为熟知的 Newton-Leibniz 公式。由分析学的 Fubini 定理，
-    \begin{align*}
-        \int_{\mathbb H^{n}}\d\omega&=\sum_{i=1}^n(-1)^{i-1}\int_A\pdv{\omega_i}{x^i}\d{x^1}\wedge \cdots \wedge \d{x^n}\\
-        &=\sum_{i=1}^n(-1)^{i-1}\int_0^R\int_{-R}^{R}\cdots\int_{-R}^{R}\pdv{\omega_i}{x^i}\d{x^1}\cdots \d{x^n},
-    \end{align*}
-    由于 $\omega$ 在边界处为零，这意味着除 $i=n$ 外任意 $i$ 有 $\displaystyle\int_{-R}^{R}\pdv{\omega_i}{x^i}\d{x^i}=0$，则最后只剩下第 $n$ 项：
-    \begin{align*}
-        \int_{\mathbb H^{n}}\d\omega&=(-1)^{n-1}\int_0^R\int_{-R}^{R}\cdots\int_{-R}^{R}\pdv{\omega_n}{x^n}\d{x^1}\cdots \d{x^{n}}\\
-        &=(-1)^{n-1}\int_{-R}^{R}\cdots\int_{-R}^{R}\int_0^R\pdv{\omega_n}{x^n}\d{x^n}\d{x^1}\cdots \d{x^{n-1}}\\
-        &=(-1)^{n}\int_{-R}^{R}\cdots\int_{-R}^{R}\omega_n(x^1,\cdots,x^{n-1},0)\d{x^1}\cdots \d{x^{n-1}};
-    \end{align*}
-    记 $\partial\mathbb H^{n}=\{(x^1,\cdots,x^n),x^n=0\}$，则另一方面
-    \[
-    \int_{\partial\mathbb H^{n}}\omega=\sum_{i=1}^n\int_{A\cap\partial\mathbb H^{n}} \omega_i(x^1,\cdots,x^{n-1},0)\d{x^1}\wedge \cdots \wedge \widehat{\d{x^i}}\wedge \cdots \wedge \d{x^n},
-    \]
-    $x^n=0$ 意味着没了 $\d{x^n}$，故上式也只剩下
-    \[
-    \int_{\partial\mathbb H^{n}}\omega=\int_{A\cap\partial\mathbb H^{n}} \omega_i(x^1,\cdots,x^{n-1},0)\d{x^1}\wedge \cdots \wedge \d{x^{n-1}},
-    \]
-    考虑到 $n$ 为偶数时，坐标系 $(x^1,\cdots,x^{n-1})$ 正定（否则为负定），二者便是相等的。
+    先在取标准定向的 $\mathbb H^n$ 上证明。写成
+    \eq{\omega=\sum_{i=1}^n\omega_i\,\d x^1\wedge\cdots\wedge\widehat{\d x^i}\wedge\cdots\wedge\d x^n,}
+    帽号表示略去该项，故
+    \eq{\d\omega=\sum_{i=1}^n(-1)^{i-1}\pdv{\omega_i}{x^i}\,\d x^1\wedge\cdots\wedge\d x^n.}
+    由紧支撑性，按 $x^i$ 积分时，$i<n$ 的项两端均为零；$i=n$ 的项只留下 $x^n=0$ 处的值。因此由 Fubini 定理及 Newton-Leibniz 公式，
+    \eq{\int_{\mathbb H^n}\d\omega
+        =(-1)^n\int_{\R^{n-1}}\omega_n(x^1,\cdots,x^{n-1},0)\,\d x^1\cdots\d x^{n-1}
+        =\int_{\partial\mathbb H^n}\omega.}
+    最后一步用了例 \ref{eg:half-space-orientation} 的边界定向，以及 $\d x^n$ 在边界上的拉回为零。对 $\R^n$，各项积分均为零，结论同样成立。
 
-    再考虑 $\R^n$，这样 $\omega$ 的邻域就囊括于 $A=[-R,R]^n$ 中，那任意 $i$ 有 $\displaystyle\int_{-R}^{R}\pdv{\omega_i}{x^i}\d{x^i}=0$，故
-    \[
-    \int_{\R^{n}}\d\omega=0;
-    \]
-    由于 $\R^n$ 没边界，即 $\partial\R^n=\mt$，故
-    \[
-    \int_{\partial\R^{n}}\omega=0.
-    \]
-    每个邻域都有局部坐标系，而内部邻域没有贡献，这样总体的 $\int_\Omega\d\omega$ 就只剩下表面的变化 $\int_{\partial\Omega}\omega$。证明的严格术语将在第四章介绍。
-
-    最后用单位分解。
+    一般地，取由连通坐标域组成的开覆盖 $\{O_i\}$ 及从属的局部有限光滑单位分解 $\{\rho_i\}$。各 $\rho_i\omega$ 紧支撑于 $O_i$，用坐标表示并在像域外延拓为零，即可应用上述结论；坐标系若反向，两边同时变号。又因只有有限项非零，且 $\sum_i\rho_i\omega=\omega$，故
+    \[\int_\Omega\d\omega
+        =\sum_i\int_\Omega\d(\rho_i\omega)
+        =\sum_i\int_{\partial\Omega}\rho_i\omega
+        =\int_{\partial\Omega}\omega.\qedhere\]
 \end{proof}
-积分域 $\Omega$ 亦可写作 $\Omega^\circ$，因为 $\int_{\partial\Omega}\d\omega=\int_\Omega \d\d\omega=0$（Poincaré 引理），这里$\d\d\omega=0$ 可看作任意阶形式。当然，我们只定义了同阶形式在同维区域的积分，故此亦可视作规定不同维时积分为零，即如果 $k\neq k'$，则 $k$-形式在 $k'$ 维背景上的积分为零。
+\begin{remark}
+    计算 $\int_\Omega\d\omega$ 时，可在各坐标域中略去边界，因为超平面 $x^n=0$ 对 $n$ 重 Riemann 积分无贡献。若将积分域记为 $\Omega^\circ$，应按上述局部积分理解；$\d\omega$ 限制到内部后未必仍有紧支撑。
 
-可做对照：$\int_{\partial\partial\Omega}\omega=\int_{\partial\Omega} \d\omega=0$，这里不妨设 $\omega$ 为 $(l-2)$-形式场而 $\Omega$ 为 $l$ 维。这对任意 $\omega$ 成立，因而可能性只有 $\partial^2\Omega=\mt$，即边缘本身没有边缘。如何从直观上理解这件事？我们知道默认 $\Omega$ 为任意连通闭集，这应当使连通开集 $\Omega^\circ$ 有界，因而 $\partial\Omega$ 有界，且$\partial^2\Omega=\mt$ 还意味着它无边\footnote{有界无边的流形有时可称\textit{闭流形}（取闭合之意），请注意同闭集等名称区分。}！如此便可确定 $\partial\Omega$ 的内外部，因而有外指法矢的明确含义，故从背景 $M$ 可立即诱导出边界的定向。
+    有的书会用 $\d^2=0$ 解释 $\partial(\partial\Omega)=\mt$，但这不能直接作为证明：前者是形式的微分恒等式，后者是边界的几何性质。若连续两次应用 Stokes 定理，须先确认 $\partial\Omega$ 的流形结构，还须说明对所有测试形式积分为零何以推出边界为空。本书已由半空间坐标直接证明后者，见定理 \ref{thm:boundary-no-boundary}。
+\end{remark}
 
 \begin{example}[Green]
     设 $A$ 是 $(\R^2,\delta)$ 上的对偶矢量场，$S$ 是单连通开集，则
@@ -330,13 +360,149 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     $\int_{\partial S} \tilde{\omega}$ 的积分域是闭合曲线 $\partial S$，至少要用两个坐标域覆盖，因此应先对每个坐标域做局部积分再“缝合”。幸好可这样：设 $L$ 是 $\partial S$ 挖去一点所得，则它用一个坐标域即可覆盖，但挖去一点不影响 Riemann 积分。
 \end{remark}
 
+\section{Gauss 定理}\label{sec:gauss-divergence}
+
+以下置 $\dim M=n\geqslant2$。沿用附录 \ref{appx:LA} 的定义，流形上的\textbf{度规}是逐点对称、非退化的光滑 $(0,2)$-张量场 $g$。本节允许不定度规，升降指标及正交性均相对于 $g$ 而言。
+
+设 $M$ 已定向。由 \S\ref{sec:tensor-density}，度规与定向唯一确定\textbf{适配体元} $\epsilon$；在右手坐标系中，
+\eq{\label{eq:metric-volume}
+    \epsilon=\sqrt{|g|}\,\d x^1\wedge\cdots\wedge\d x^n,
+    \qquad g:=\det(g_{\mu\nu}).
+}
+对紧支撑连续函数 $f$，沿用前节的局部积分及单位分解，约定 $\int_M f:=\int_M f\epsilon$。例如，时空作用量 $S=\int_M\mathcal L$ 省略了适配体元 $\sqrt{-g}\,\d[4]x$。
+
+\begin{definition}
+    $M$ 的余维为 $1$ 的嵌入子流形 $\Sigma$ 称为\textbf{超曲面}(hypersurface)。记包含映射为 $\iota:\Sigma\hookrightarrow M$，通过 $\iota_*$ 将 $T_p\Sigma$ 视为 $T_pM$ 的子空间。满足 $g(\nu,w)=0$（$\forall w\in T_p\Sigma$）的非零切矢 $\nu\in T_pM$ 称为 $\Sigma$ 在 $p$ 处的\textbf{法矢}。
+\end{definition}
+
+超曲面局部可写为 $\Sigma=\{f=0\}$，其中 $\d f\ne0$。此时
+\eq{T_p\Sigma=\ker(\d f)_p,\qquad
+    (T_p\Sigma)^\perp=\operatorname{span}\{(\d f)_p^\sharp\}.}
+因为消去 $T_p\Sigma$ 的余矢构成一维空间，而音乐同构将其映到法空间，故任意两法矢只差非零倍数。法矢场局部总存在，整体存在则还需能一致地选取法向。
+
+\begin{definition}
+    $\Sigma$ 上的\textbf{诱导度规}为 $\tilde g:=\iota^*g$，即只让 $g$ 作用于超曲面的切矢。若以 $y^a$ 为 $\Sigma$ 的坐标、嵌入写作 $x^\mu=x^\mu(y)$，则
+    \eq{\tilde g_{ab}=g_{\mu\nu}\pdv{x^\mu}{y^a}\pdv{x^\nu}{y^b}.}
+\end{definition}
+
+诱导度规未必非退化：其退化子空间为 $T_p\Sigma\cap(T_p\Sigma)^\perp$，而法空间只有一维，故它退化当且仅当法矢满足 $g(\nu,\nu)=0$。此时超曲面在该点\textbf{类光}，法矢本身也切于 $\Sigma$。以下法向分解均假设 $\Sigma$ 非类光，并取单位法矢
+\eq{\sigma:=g(\nu,\nu)=\pm1.}
+每个 $v\in T_pM$ 都有唯一分解
+\eq{v=\sigma g(v,\nu)\nu+h(v),\qquad h(v)\in T_p\Sigma.}
+于是切向\textbf{投影映射}及其降指标形式为
+\eq{h^\mu{}_{\lambda}=\delta^\mu{}_{\lambda}-\sigma\nu^\mu\nu_{\lambda},
+    \qquad h_{\mu\lambda}=g_{\mu\lambda}-\sigma\nu_\mu\nu_\lambda.}
+显然 $h^2=h$、$h(\nu)=0$，且 $h$ 在 $T_p\Sigma$ 上为恒等映射。$h_{\mu\lambda}$ 在整个 $T_pM$ 上退化，限制到 $T_p\Sigma$ 才是非退化的 $\tilde g$；它是满足 $h(\nu,\cdot)=0$ 的诱导度规的唯一对称延拓。
+
+\begin{remark}
+    适配坐标 $\Sigma=\{x^n=0\}$ 中，$\d x^n$ 是法余矢，法矢则正比于 $(\d x^n)^\sharp$，一般并非 $\p_n$。
+\end{remark}
+
+\begin{theorem}
+    设 $\Sigma$ 非类光，并选定光滑单位法矢场 $\nu$。以 $(\nu,v_1,\cdots,v_{n-1})$ 为右手基来规定 $\Sigma$ 的定向，则其适配体元为
+    \eq{\tilde\epsilon=\iota^*(i_\nu\epsilon).}
+    特别地，$\Sigma=\partial D$ 且 $\nu$ 外向时，此定向就是前文的边界诱导定向。
+\end{theorem}
+\begin{proof}
+    逐点取正交归一右手基 $(\nu,e_1,\cdots,e_{n-1})$，其中 $e_a$ 切于 $\Sigma$。则 $e_a$ 关于 $\tilde g$ 也正交归一，且
+    \eq{\tilde\epsilon(e_1,\cdots,e_{n-1})
+        =\epsilon(\nu,e_1,\cdots,e_{n-1})=1,}
+    故 $\tilde\epsilon$ 正是该定向下的适配体元。
+\end{proof}
+
+在 $\Sigma$ 的右手坐标系中，$\tilde\epsilon=\sqrt{|\det(\tilde g_{ab})|}\,\d y^1\wedge\cdots\wedge\d y^{n-1}$。注意，$\iota^*\epsilon=0$，因为 $\Sigma$ 只有 $n-1$ 维；诱导体元须先对法矢内乘，再拉回。
+
+\begin{example}
+    欧氏空间的球面 $r=R$ 取外法矢 $\nu=\p_r$。由
+    \eq{g=\d r^2+r^2\d\theta^2+r^2\sin^2\theta\,\d\phi^2,\qquad
+        \epsilon=r^2\sin\theta\,\d r\wedge\d\theta\wedge\d\phi,}
+    得 $\tilde g=R^2(\d\theta^2+\sin^2\theta\,\d\phi^2)$、$\tilde\epsilon=R^2\sin\theta\,\d\theta\wedge\d\phi$，即熟悉的球面度规与面积元。
+\end{example}
+
+\begin{definition}
+    矢量场 $X$ 相对于 $g$ 的\textbf{散度} $\operatorname{div}_gX$ 由
+    \eq{\Lie_X\epsilon=(\operatorname{div}_gX)\epsilon}
+    定义，即体元沿 $X$ 的相对变化率。
+\end{definition}
+
+\begin{theorem}
+    散度满足
+    \eq{\label{eq:divergence-volume}
+        \d(i_X\epsilon)=(\operatorname{div}_gX)\epsilon,\qquad
+        \operatorname{div}_gX=\frac{1}{\sqrt{|g|}}\p_\mu\bigl(\sqrt{|g|}X^\mu\bigr).
+    }
+\end{theorem}
+\begin{proof}
+    因 $\epsilon$ 为最高阶形式，$\d\epsilon=0$，第一式即 Cartan 公式。对式 \eqref{eq:metric-volume} 内乘后取外微分，得
+    \eq{\d(i_X\epsilon)
+        =\p_\mu\bigl(\sqrt{|g|}X^\mu\bigr)\,\d x^1\wedge\cdots\wedge\d x^n,}
+    与第一式比较即得第二式。
+\end{proof}
+
+\begin{remark}
+    引入度规的 Levi-Civita 联络后（见附录 \ref{appx:curvature}），此散度就是 $\nabla_\mu X^\mu$。因为
+    \eq{\Gamma^\mu{}_{\mu\lambda}
+        =\frac12g^{\alpha\beta}\p_\lambda g_{\alpha\beta}
+        =\p_\lambda\ln\sqrt{|g|},}
+    故 $\nabla_\mu X^\mu=\p_\mu X^\mu+\Gamma^\mu{}_{\mu\lambda}X^\lambda$ 恰为上式。这里不能将 Levi-Civita 联络换为任意仿射联络。
+\end{remark}
+
+\begin{theorem}[Gauss]\label{thm:gauss-divergence}
+    设 $D$ 为定向度规流形 $(M,g)$ 中的光滑带边区域，$X$ 为光滑矢量场，且其在 $D$ 上的限制紧支撑。记 $j:\partial D\hookrightarrow M$，则
+    \eq{\int_D(\operatorname{div}_gX)\epsilon
+        =\int_{\partial D}j^*(i_X\epsilon).}
+    若边界处处非类光，取单位外法矢 $\nu$、$\sigma=g(\nu,\nu)$ 及 $\tilde\epsilon=j^*(i_\nu\epsilon)$，则又有
+    \eq{\int_D(\operatorname{div}_gX)\epsilon
+        =\int_{\partial D}\sigma g(X,\nu)\tilde\epsilon.}
+    $D$ 紧时，无需另加紧支撑条件。
+\end{theorem}
+\begin{proof}
+    将式 \eqref{eq:divergence-volume} 代入 Stokes 定理即得第一式。对第二式，在边界分解 $X=\sigma g(X,\nu)\nu+h(X)$。因 $h(X)$ 切于边界，$\epsilon$ 作用于它及其余 $n-1$ 个边界切矢时为零，故
+    \eq{j^*(i_X\epsilon)=\sigma g(X,\nu)\tilde\epsilon.\qedhere}
+\end{proof}
+
+\begin{remark}
+    正定度规下 $\sigma=1$，即通常的散度定理；按本书的 Lorentz 号差约定，类时单位法矢满足 $\sigma=-1$，不可略去此号。类光边界没有单位法矢，不能使用第二式，但第一式仍成立。
+\end{remark}
+
+为与 \S\ref{sec:Gauss} 的分量写法对应，定义\textbf{有向面元}的分量
+\eq{\label{eq:directed-surface-element}
+    \d\Sigma_\mu:=j^*(i_{\p_\mu}\epsilon)
+        =\frac{1}{(n-1)!}\epsilon_{\mu\mu_2\cdots\mu_n}
+        j^*(\d x^{\mu_2}\wedge\cdots\wedge\d x^{\mu_n}).
+}
+于是 $j^*(i_X\epsilon)=X^\mu\d\Sigma_\mu$；非类光边界上还有 $\d\Sigma_\mu=\sigma\nu_\mu\tilde\epsilon$。Gauss 定理在坐标域内写成
+\eq{\int_D\p_\mu\bigl(\sqrt{|g|}X^\mu\bigr)\,\d[n]x
+    =\int_{\partial D}X^\mu\d\Sigma_\mu,}
+其中体积分采用右手坐标，一般情形按坐标分片求和。四维 Lorentz 度规下 $\sqrt{|g|}=\sqrt{-g}$，这就是式 \eqref{eq:Gauss}。
 
 \section{Frobenius 定理}\label{sec:Frobenius}
 
+指定 n 维流形的 m 维子空间
+⼦空间场（m 维分布）、光滑 m 维分布定义
 
-\begin{theorem}
-    超曲面正交(hypersurface orthogonal)，因此无旋参考系又称为超曲面正交参考系。有旋就相应于非超曲面正交。
-\end{theorem}
+积分子流形、可积的、最大的
+
+可积充要条件：
+Frobenius 定理（矢量表述）
+
+%当条件满足时，不但m维分布可积，而且 \forall p\in M 都存在唯一的最大积分子流形\Sigma 使%p\in\Sigma。这是 Frobenius 定理的整体表述中的一个结论。证明:\dots
+
+%example: 下面给出一个用 Frobenius 定理求解偏微分方程组的例子。
+%假定要求解关于未知函数u(x,y)的下列偏微分方程组
+
+%设W是n维流形M上的一个n-1维分布.满足如下条件的余矢场称为消灭（annihilated）余矢场
+%...
+%可见任一p\in M的 T_p^*M 中的所有消灭余矢构成 T_p^*M 的一个1维子空间
+
+%theorem
+%n维流形M上的n-1维分布W 可积的充要条件是：对W的任一可微的消灭余矢场 \omega 及任意 p\in M，存在 p 的%开邻域 U及 W在 U上的消灭余矢场 \mu 和 上的余矢场 \psi 使
+%\d\omega = \mu \wedge \psi
+%proof
+
+\begin{example}
+    广义相对论中，超曲面正交(hypersurface orthogonal)，因此无旋参考系又称为超曲面正交参考系。有旋就相应于非超曲面正交。
+\end{example}
 \begin{proof}
     首先我们要先明确“超曲面正交”是何含义：对参考系定义域内的任一点 $p$，存在过$p$的一张超曲面 $\Sigma$ 同系内所有观者世界线正交。以 $Z$ 代表参考系的 4-速场，$Z_\flat=g_\flat(Z)$，则接受微分形式的结论：以上表述等价于
     \eq{
