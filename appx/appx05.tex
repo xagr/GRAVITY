@@ -362,7 +362,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 
 \section{Gauss 定理}\label{sec:gauss-divergence}
 
-以下置 $\dim M=n\geqslant2$。沿用附录 \ref{appx:LA} 的定义，流形上的\textbf{度规}是逐点对称、非退化的光滑 $(0,2)$-张量场 $g$。本节允许不定度规，升降指标及正交性均相对于 $g$ 而言。
+以下置 $\dim M=n\geqslant2$，度规 $g$ 沿用定义 \ref{def:metric-field}，允许不定。升降指标及正交性均相对于 $g$ 而言。
 
 设 $M$ 已定向。由 \S\ref{sec:tensor-density}，度规与定向唯一确定\textbf{适配体元} $\epsilon$；在右手坐标系中，
 \eq{\label{eq:metric-volume}
@@ -381,11 +381,11 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 因为消去 $T_p\Sigma$ 的余矢构成一维空间，而音乐同构将其映到法空间，故任意两法矢只差非零倍数。法矢场局部总存在，整体存在则还需能一致地选取法向。
 
 \begin{definition}
-    $\Sigma$ 上的\textbf{诱导度规}为 $\tilde g:=\iota^*g$，即只让 $g$ 作用于超曲面的切矢。若以 $y^a$ 为 $\Sigma$ 的坐标、嵌入写作 $x^\mu=x^\mu(y)$，则
+    $\Sigma$ 上的\textbf{诱导度规}为 $\tilde g:=\iota^*g$，即只让 $g$ 作用于超曲面的切矢。此处沿用“诱导度规”的惯称，允许其退化；若处处非退化，则在各连通分支上是定义 \ref{def:metric-field} 中的度规。若以 $y^a$ 为 $\Sigma$ 的坐标、嵌入写作 $x^\mu=x^\mu(y)$，则
     \eq{\tilde g_{ab}=g_{\mu\nu}\pdv{x^\mu}{y^a}\pdv{x^\nu}{y^b}.}
 \end{definition}
 
-诱导度规未必非退化：其退化子空间为 $T_p\Sigma\cap(T_p\Sigma)^\perp$，而法空间只有一维，故它退化当且仅当法矢满足 $g(\nu,\nu)=0$。此时超曲面在该点\textbf{类光}，法矢本身也切于 $\Sigma$。以下法向分解均假设 $\Sigma$ 非类光，并取单位法矢
+由定义 \ref{def:nondegenerate-bilinear}，$\tilde g_p$ 的退化子空间为 $T_p\Sigma\cap(T_p\Sigma)^\perp$。法空间只有一维，故 $\tilde g_p$ 退化当且仅当法矢满足 $g(\nu,\nu)=0$。此时超曲面在该点\textbf{类光}，法矢本身也切于 $\Sigma$。以下法向分解均假设 $\Sigma$ 非类光，并取单位法矢
 \eq{\sigma:=g(\nu,\nu)=\pm1.}
 每个 $v\in T_pM$ 都有唯一分解
 \eq{v=\sigma g(v,\nu)\nu+h(v),\qquad h(v)\in T_p\Sigma.}
@@ -441,10 +441,10 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 
 \begin{remark}
     引入度规的 Levi-Civita 联络后（见附录 \ref{appx:curvature}），此散度就是 $\nabla_\mu X^\mu$。因为
-    \eq{\Gamma^\mu{}_{\mu\lambda}
+    \eq{\Gamma^\mu_{\mu\lambda}
         =\frac12g^{\alpha\beta}\p_\lambda g_{\alpha\beta}
         =\p_\lambda\ln\sqrt{|g|},}
-    故 $\nabla_\mu X^\mu=\p_\mu X^\mu+\Gamma^\mu{}_{\mu\lambda}X^\lambda$ 恰为上式。这里不能将 Levi-Civita 联络换为任意仿射联络。
+    故 $\nabla_\mu X^\mu=\p_\mu X^\mu+\Gamma^\mu_{\mu\lambda}X^\lambda$ 恰为上式。这里不能将 Levi-Civita 联络换为任意仿射联络。
 \end{remark}
 
 \begin{theorem}[Gauss]\label{thm:gauss-divergence}
@@ -458,7 +458,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 \end{theorem}
 \begin{proof}
     将式 \eqref{eq:divergence-volume} 代入 Stokes 定理即得第一式。对第二式，在边界分解 $X=\sigma g(X,\nu)\nu+h(X)$。因 $h(X)$ 切于边界，$\epsilon$ 作用于它及其余 $n-1$ 个边界切矢时为零，故
-    \eq{j^*(i_X\epsilon)=\sigma g(X,\nu)\tilde\epsilon.\qedhere}
+    \[j^*(i_X\epsilon)=\sigma g(X,\nu)\tilde\epsilon.\qedhere\]
 \end{proof}
 
 \begin{remark}
@@ -478,67 +478,220 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
 
 \section{Frobenius 定理}\label{sec:Frobenius}
 
-指定 n 维流形的 m 维子空间
-⼦空间场（m 维分布）、光滑 m 维分布定义
+矢量场的积分曲线处处切于给定方向。若在每点指定一个 $m$ 维切子空间，何时能找到处处与之相切的 $m$ 维子流形？Frobenius 定理回答这一问题。以下流形无边，所论对象均光滑。
 
-积分子流形、可积的、最大的
+\begin{definition}
+    在 $n$ 维流形 $M$ 的每点 $p$ 指定一个 $m$ 维子空间 $W_p\subseteq T_pM$，称为一个 $m$ 维\textbf{分布}(distribution)。若每点附近都存在处处线性无关的矢量场 $X_1,\ldots,X_m$，使
+    \eq{W_q=\operatorname{span}\{X_1(q),\ldots,X_m(q)\},}
+    则称 $W$ 光滑，$X_1,\ldots,X_m$ 称为它的\textbf{局部基}。记开集 $U$ 上取值于 $W$ 的光滑矢量场全体为 $\Gamma(W|_U)$。若
+    \eq{X,Y\in\Gamma(W|_U)\im[X,Y]\in\Gamma(W|_U)}
+    对每个开集 $U$ 成立，则称 $W$ \textbf{对合}(involutive)。
+\end{definition}
 
-可积充要条件：
-Frobenius 定理（矢量表述）
+由 $[fX,gY]=fg[X,Y]+fX(g)Y-gY(f)X$，检验对合性只须检验局部基的 Lie 括号仍取值于 $W$。一维分布因而总对合。
 
-%当条件满足时，不但m维分布可积，而且 \forall p\in M 都存在唯一的最大积分子流形\Sigma 使%p\in\Sigma。这是 Frobenius 定理的整体表述中的一个结论。证明:\dots
+\begin{definition}
+    连通的浸入子流形 $\iota:\Sigma\hookrightarrow M$ 称为 $W$ 的\textbf{积分子流形}，若
+    \eq{\iota_*(T_p\Sigma)=W_p\qquad(p\in\Sigma).}
+    若每点都位于某个积分子流形中，则称 $W$ \textbf{可积}(integrable)。若一个积分子流形包含所有与它相交的积分子流形，则称它\textbf{最大}。
+\end{definition}
 
-%example: 下面给出一个用 Frobenius 定理求解偏微分方程组的例子。
-%假定要求解关于未知函数u(x,y)的下列偏微分方程组
-
-%设W是n维流形M上的一个n-1维分布.满足如下条件的余矢场称为消灭（annihilated）余矢场
-%...
-%可见任一p\in M的 T_p^*M 中的所有消灭余矢构成 T_p^*M 的一个1维子空间
-
-%theorem
-%n维流形M上的n-1维分布W 可积的充要条件是：对W的任一可微的消灭余矢场 \omega 及任意 p\in M，存在 p 的%开邻域 U及 W在 U上的消灭余矢场 \mu 和 上的余矢场 \psi 使
-%\d\omega = \mu \wedge \psi
-%proof
-
-\begin{example}
-    广义相对论中，超曲面正交(hypersurface orthogonal)，因此无旋参考系又称为超曲面正交参考系。有旋就相应于非超曲面正交。
-\end{example}
-\begin{proof}
-    首先我们要先明确“超曲面正交”是何含义：对参考系定义域内的任一点 $p$，存在过$p$的一张超曲面 $\Sigma$ 同系内所有观者世界线正交。以 $Z$ 代表参考系的 4-速场，$Z_\flat=g_\flat(Z)$，则接受微分形式的结论：以上表述等价于
-    \eq{
-    Z\wedge\d Z=\A(Z\otimes\nabla Z)=0,
+\begin{theorem}[Frobenius 定理，矢量表述]\label{thm:frobenius-vector}
+    光滑 $m$ 维分布 $W$ 可积当且仅当它对合。此时每点附近都有坐标 $(y^1,\ldots,y^n)$，使
+    \eq{\label{eq:frobenius-coordinates}
+        W=\operatorname{span}\{\p_{y^1},\ldots,\p_{y^m}\}.
     }
-    这里 $\d Z$ 表示 $Z$ 的外微分。
-\end{proof}
-
-\section{积分的求导}
-
-\begin{theorem}
-    设完备向量场 $v\in\mathfrak X(\R^n)$作用下 $p$维带边闭子流形 $D_0\subseteq\R^n$随时间演化为 $D\subseteq\R^{n+1}$，对同样随时演化的微分形式 $\omega\in\Omega^p(\R^n)\times\R$有 
- \eq{
-    \dv{t}\int_{D_t}\omega=\int_{D_t}\frac{\partial\omega}{\partial t}+\int_{D_t}i_v\d\omega+\int_{\partial D_t}i_v\omega,
- }
+    因而固定 $y^{m+1},\ldots,y^n$ 所得的连通小片都是积分子流形。
 \end{theorem}
 \begin{proof}
-    设 $v$由单参数群 $\psi$给出，设 $\R^{n+1}$上的向量场 $X:=v+\partial_t$由单参数群 $\phi$给出。注意到 $\omega$不含 $\d t$有
-    \eq{
-        i_X\omega=i_v\omega,\quad i_X\d\omega=i_v\d_x\omega+i_{\partial_t}(\dot{\omega}_I\d t\wedge\d x^I)=i_v\d_x\omega+\dot\omega.
+    若 $W$ 可积，任取 $X,Y\in\Gamma(W|_U)$。它们在积分子流形上的限制都是切矢场，其 Lie 括号仍切于该子流形；由 Lie 括号与浸入的相容性，$[X,Y]$ 也取值于 $W$。
+
+    反之，设 $W$ 对合。在 $p$ 附近取坐标 $x$ 及局部基。适当重排坐标，缩小坐标域，再对局部基作可逆线性组合，可令
+    \eq{X_i=\p_{x^i}+\sum_{\alpha=m+1}^n a_i^\alpha\p_{x^\alpha},
+        \qquad i=1,\ldots,m.}
+    这是因为原局部基的分量矩阵有一个非零的 $m$ 阶子式。此时 $[X_i,X_j]$ 的前 $m$ 个分量均为零，又属于 $W$，故 $[X_i,X_j]=0$。
+
+    设 $x(p)=0$，$\phi_i^t$ 是 $X_i$ 的局部流。由 $\Lie_{X_i}X_j=0$，各流保持其余 $X_j$ 不变。令
+    \eq{F(t,z)=\phi_m^{t^m}\circ\cdots\circ\phi_1^{t^1}
+        \bigl(x^{-1}(0,\ldots,0,z^{m+1},\ldots,z^n)\bigr).}
+    在原点附近 $F$ 有定义且 $F_*\p_{t^i}=X_i$。而 $F_{*(0,0)}$ 将其余坐标基映为 $\p_{x^{m+1}},\ldots,\p_{x^n}$，故可逆。由逆映射定理，$(t,z)$ 给出所求坐标；固定 $z$ 即得积分子流形。$m=0$ 或 $m=n$ 的情形直接成立。
+\end{proof}
+
+\begin{theorem}[最大积分子流形]\label{thm:frobenius-leaf}
+    若 $W$ 可积，则过每点恰有一个最大积分子流形，称为 $W$ 的\textbf{叶}(leaf)。各叶互不相交，其并为 $M$。
+\end{theorem}
+\begin{proof}
+    将式 \eqref{eq:frobenius-coordinates} 的坐标域取成开方盒，称其中固定横向坐标 $y^{m+1},\ldots,y^n$ 的集合为小片。任何积分子流形上的横向坐标微分均为零，故它在该坐标域内的每个连通分支都落在一个小片中，并是该小片的开子集。
+
+    固定 $p$，令 $L_p$ 为从含 $p$ 的小片出发，经有限次相交小片的拼接所能到达的全部点。小片相交处局部重合，故以这些小片为坐标域可赋予 $L_p$ 一个光滑结构，且包含映射 $L_p\hookrightarrow M$ 是浸入。此拓扑由小片内的开集生成；包含映射连续且 $M$ 是 Hausdorff 的，故 $L_p$ 也如此。又可取可数个小片覆盖 $L_p$，故它是仿紧流形。\footnote{只须考虑 $p$ 所在的连通分支。连通仿紧流形有可数坐标覆盖：取局部有限的相对紧坐标覆盖，每个成员仅与有限多个成员相交，再由连通性逐次扩展即可。现取可数个上述方盒；固定小片与任一方盒的交只有可数个连通分支，每个分支落在一个新小片中，故有限次拼接所得的小片仍可数。}
+    按构造 $L_p$ 连通且处处切于 $W$。任一与 $L_p$ 相交的积分子流形都是道路连通的；从交点出发，沿其中的道路用有限个小片覆盖，便知它包含于 $L_p$。这证明了最大性及唯一性；若两叶相交，同一论证表明它们相等。
+\end{proof}
+
+\begin{remark}
+    叶上的拓扑未必是 $M$ 的子拓扑，故最大积分子流形未必嵌入。例如二维环面 $\R^2/\Z^2$ 上，$\p_x+a\p_y$（$a$ 无理）的积分曲线是稠密的浸入直线。
+\end{remark}
+
+\begin{example}[一阶偏微分方程组]
+    求解 $u_x=yu,\ u_y=xu$。图像 $z=u(x,y)$ 的切空间须由
+    \eq{X=\p_x+yz\p_z,\qquad Y=\p_y+xz\p_z}
+    张成。因 $[X,Y]=0$，该分布可积；其积分曲面投影到 $(x,y)$ 平面的微分可逆，故局部确为函数图像。又
+    \eq{\d(\e^{-xy}u)=\e^{-xy}\bigl[(u_x-yu)\d x+(u_y-xu)\d y\bigr]=0,}
+    得 $u=C\e^{xy}$。给定一点的函数值就确定 $C$。
+\end{example}
+
+\begin{definition}
+    分布 $W$ 的\textbf{消灭子}(annihilator)为
+    \eq{W_p^0:=\{\omega\in T_p^*M:\omega(v)=0\ \text{对所有 }v\in W_p\}.}
+    它是光滑的 $n-m$ 维余切子空间场。取其局部基 $\mu^1,\ldots,\mu^{n-m}$，便有 $W=\bigcap_\alpha\ker\mu^\alpha$。取值于 $W^0$ 的 $1$-形式称为 $W$ 的\textbf{消灭形式}。
+\end{definition}
+
+\begin{theorem}[Frobenius 定理，对偶表述]\label{thm:frobenius-dual}
+    光滑分布 $W$ 可积当且仅当它的每个局部消灭形式 $\omega$ 都可局部写成
+    \eq{\label{eq:frobenius-ideal}
+        \d\omega=\sum_{\alpha=1}^{n-m}\mu^\alpha\wedge\psi^\alpha,
     }
-    则依 Lie导数定义、Cartan公式、Stokes公式有
-    \begin{align*} \dv{t}\bigg|_{t=0}\int_{D_t}\omega&=\dv{t}\bigg|_{t=0}\int_{D_0}\phi_t^*\omega =\int_{D_0}\dv{t}\bigg|_{t=0}\phi_t^*\omega=\int_{D_0}\mathcal L_X\omega\\ &=\int_{D_0}\d i_X\omega+i_X\d\omega =\int_{\partial D_0}i_v\omega+\int_{D_0}i_v\d_x\omega+\int_{D_0}\frac{\partial\omega}{\partial t}. \qedhere \end{align*}
+    其中 $\mu^\alpha$ 是 $W^0$ 的局部基，$\psi^\alpha$ 为 $1$-形式。检验此条件时，只须令 $\omega$ 遍历该局部基。
+\end{theorem}
+\begin{proof}
+    对 $X,Y\in\Gamma(W|_U)$，按外微分定义展开得
+    \eq{\label{eq:annihilator-bracket}
+        \d\omega(X,Y)=X\bigl(\omega(Y)\bigr)-Y\bigl(\omega(X)\bigr)-\omega([X,Y])
+        =-\omega([X,Y]).
+    }
+    故 $W$ 对合当且仅当所有消灭形式的外微分在 $W\times W$ 上为零。将 $\mu^\alpha$ 扩充为余标架，按此基展开 $\d\omega$；该限制为零，恰指每个楔积项至少含一个 $\mu^\alpha$，即式 \eqref{eq:frobenius-ideal}。最后，由 $\omega=f_\alpha\mu^\alpha$ 及 Leibniz 律，检验局部基即足够。
 \end{proof}
 
 \begin{example}
-在三维注意到 $2$-形式 $\omega$ 和向量场 $v$ 满足
-\begin{align*}
-    \star(\star\omega\wedge v^\flat)&=\star(\epsilon^{ijk}\omega_{ij}g_{k\mu}v_\nu\mathrm dx^\mu\wedge\mathrm dx^\nu)\\
-    &=\epsilon_{\alpha\beta\gamma}\epsilon^{ijk}\omega_{ij}v_\nu g_{k\mu}g^{\mu\alpha}g^{\nu\beta}\mathrm dx^\gamma\\ 
-    &=\delta_{\beta\gamma k}^{ijk}\omega_{ij}v^\beta\mathrm dx^\gamma\\ 
-    &=(\omega_{ij}-\omega_{ji})v^i\mathrm dx^j=\iota_v\omega, 
-\end{align*}
+    在 $\R^3$ 上取 $\omega=\d z-x\d y$。因
+    $\omega\wedge\d\omega=-\d x\wedge\d y\wedge\d z\ne0$，$\ker\omega$ 不可积。等价地，其局部基 $\p_x,\ \p_y+x\p_z$ 的 Lie 括号为 $\p_z$，不在该分布中。
+\end{example}
 
-在 $\R^3$ 矢量代数中，我们有
-令 $\omega=\mathbf F^\flat$ 就有 $\iota_v\omega=\mathbf F\cdot\bm v,\quad \iota_v\mathrm d\omega=\star(\star\mathrm d\mathbf{F}^\flat\wedge\bm v^\flat)=((\nabla\times\mathbf F)\times \bm v)^\flat. $
-令 $\omega=\star\mathbf{F}^\flat$ 就有 $\iota_v\omega=\star(\mathbf{F}^\flat\wedge\bm{v}^\flat)=(\mathbf F\times\bm v)^\flat,\quad\iota_v\mathrm d\omega=\star((\star\mathrm d\star\mathbf{F}^\flat)\bm v^\flat)=\star((\nabla\cdot\mathbf F)\bm v)^\flat. $
-令 $\omega=\star\mathrm F$ 就有 $\iota_v\omega=\star(\mathrm F\bm v)^\flat,\quad\iota_v\mathrm d\omega=\star(\star\mathrm d\star\mathrm F\wedge\bm v^\flat)=0.  $
+\begin{theorem}[余维为一的情形]\label{thm:frobenius-one-form}
+    设 $\omega$ 是处处非零的 $1$-形式。下列条件等价：
+    \begin{enumerate}
+        \item $\ker\omega$ 可积；
+        \item $\omega\wedge\d\omega=0$；
+        \item 存在光滑 $1$-形式 $\psi$，使 $\d\omega=\omega\wedge\psi$；
+        \item 每点附近都可写成 $\omega=h\d f$，其中 $h\ne0$、$\d f\ne0$。
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    由对偶表述，(1) 保证 (3) 局部成立，故有 (2)。反之，局部选取矢量场 $N$ 使 $\omega(N)=1$，再用单位分解拼成全局的 $N$。若 (2) 成立，则
+    \eq{0=i_N(\omega\wedge\d\omega)=\d\omega-\omega\wedge i_N\d\omega,}
+    取 $\psi=i_N\d\omega$ 即得 (3)，后者又由对偶表述推出 (1)。若 (1) 成立，取适配坐标，$\omega$ 必为 $h\d y^n$，故有 (4)；而 (4) 显然推出 (2)。
+\end{proof}
+
+\begin{definition}
+    设 $M$ 有度规 $g$，$v$ 为处处非零的矢量场。若每点附近都有处处与 $v$ 正交的超曲面经过该点，则称 $v$ \textbf{超曲面正交}(hypersurface orthogonal)。这等价于 $n-1$ 维分布
+    \eq{v^\perp=\ker v_\flat,\qquad v_\flat=g_{\mu\nu}v^\nu\d x^\mu}
+    可积。这里允许 $v$ 类光。
+\end{definition}
+
+\begin{theorem}[超曲面正交的充要条件]\label{thm:hypersurface-orthogonal}
+    处处非零的 $v$ 超曲面正交当且仅当
+    \eq{v_\flat\wedge\d v_\flat=0.}
+    等价地，存在 $1$-形式 $\psi$ 使 $\d v_\flat=v_\flat\wedge\psi$，或每点附近有 $v_\flat=h\d f$。若以任一无挠导数算符 $\nabla$ 表示（见附录 \ref{appx:curvature}），条件写成
+    \eq{v_{[\mu}\nabla_\nu v_{\rho]}=0.}
+\end{theorem}
+\begin{proof}
+    将上一定理用于 $\omega=v_\flat$ 即得。因 $\nabla$ 无挠，$(\d v_\flat)_{\mu\nu}=2\nabla_{[\mu}v_{\nu]}$，故最后一个条件正是 $v_\flat\wedge\d v_\flat=0$ 的分量表示。
+\end{proof}
+
+\begin{remark}
+    二维流形上的 $3$-形式恒为零，故其上处处非零的矢量场必超曲面正交。上述 $h\d f$ 表示是局部的，不能据此断言存在全局的 $f$。
+\end{remark}
+
+\begin{example}[无旋参考系]
+    沿用 \S\ref{sec:timelike}，设 $Z$ 为单位类时 $4$-速场，$h_\mu{}^\nu=\delta_\mu{}^\nu+Z_\mu Z^\nu$ 为其正交投影。涡量为
+    \eq{\omega_{\mu\nu}=h_\mu{}^\alpha h_\nu{}^\beta\nabla_{[\beta}Z_{\alpha]}.}
+    因此 $\omega_{\mu\nu}=0$ 恰等价于 $\d Z_\flat$ 在 $Z^\perp\times Z^\perp$ 上为零。由式 \eqref{eq:annihilator-bracket} 及 Frobenius 定理，这又等价于 $Z$ 超曲面正交。故无旋参考系正是超曲面正交参考系；局部可取 $Z_\flat=-N\d t$（$N>0$），其正交超曲面为 $t=\text{常数}$。
+\end{example}
+
+\section{积分的求导}\label{sec:transport-integral}
+
+积分随时间变化，既可能来自被积形式，也可能来自积分域的运动。将运动区域拉回初始区域，便可统一处理。
+
+设 $D_0\subset M$ 为紧的定向 $p$ 维带边子流形（$p\geqslant1$），$\phi_t$ 为其邻域上的光滑微分同胚族，$\phi_0=\id$。置
+\eq{D_t:=\phi_t[D_0],\qquad
+    v_t:=\dot\phi_t\circ\phi_t^{-1},}
+并由 $\phi_t$ 将定向传到 $D_t$。这里 $v_t$ 是区域的运动速度，允许依赖时间；只要求 $\phi_t$ 在所考察的时间区间内有定义。
+
+\begin{theorem}[广义 Leibniz 公式]\label{thm:transport-integral}
+    设 $\omega_t$ 为随时间光滑变化的 $p$-形式，定义在 $D_t$ 的邻域上，则
+    \eq{
+        \dv{t}\int_{D_t}\omega_t
+=\int_{D_t}\bigl(\partial_t\omega_t+\Lie_{v_t}\omega_t\bigr)=\int_{D_t}\bigl(\partial_t\omega_t+i_{v_t}\d\omega_t\bigr)
+        +\int_{\partial D_t}i_{v_t}\omega_t.\label{eq:transport-cartan}
+    }
+    其中 $\partial_t$ 固定空间点求导，$\d$ 只对空间变量取外微分，$\partial D_t$ 取诱导定向。
+\end{theorem}
+\begin{proof}
+    固定 $t$，$\phi_{t+h}\circ\phi_t^{-1}$ 在 $h=0$ 处为恒等映射，速度为 $v_t$。由 Lie 导数的定义及乘积法则，
+    \eq{\dv{t}(\phi_t^*\omega_t)
+        =\phi_t^*\bigl(\partial_t\omega_t+\Lie_{v_t}\omega_t\bigr).}
+    又 $\int_{D_t}\omega_t=\int_{D_0}\phi_t^*\omega_t$。因 $D_0$ 紧，可在固定域上将求导移入积分，故得第一式。再用 Cartan 公式
+    $\Lie_{v_t}\omega_t=i_{v_t}\d\omega_t+\d(i_{v_t}\omega_t)$，并对末项应用 Stokes 定理，即得第二式。
+\end{proof}
+
+以下在固定的欧氏空间中展开几个常用情形，均沿用上述光滑性及紧性条件。$f$、$\bm F$ 是被积的标量场、矢量场，$\bm v$ 是积分域的运动速度，与 $\bm F$ 不必相同。
+
+\begin{example}[一维：Leibniz 积分律]
+    设 $D_t=[a(t),b(t)]$，$a(t)<b(t)$，取 $\omega_t=f(t,x)\d x$。因 $\d\omega_t=0$、$i_{v_t}\omega_t=fv$，且两端点的速度分别为 $a',b'$，式 \eqref{eq:transport-cartan} 给出
+    \[
+        \dv{t}\int_{a(t)}^{b(t)}f(t,x)\,\d x
+        =\int_{a(t)}^{b(t)}\partial_t f(t,x)\,\d x+f(t,b(t))b'(t)-f(t,a(t))a'(t).
+    \]
+    上、下限固定时，便是通常的积分号下求偏导。
+\end{example}
+
+\begin{example}[二重积分]
+    设 $A_t\subset\R^2$ 为移动区域，$\bm\nu$ 为边界单位外法矢。取 $\omega_t=f\,\d x\wedge\d y$，则
+    \begin{align*}
+        \dv{t}\iint_{A_t}f\,\d x\,\d y
+        &=\iint_{A_t}\partial_t f\,\d x\,\d y
+          +\oint_{\partial A_t}f\,\bm v\cdot\bm\nu\,\d\ell\\
+        &=\iint_{A_t}\left[\partial_t f+\p_x(fv^x)+\p_y(fv^y)\right]\d x\,\d y.
+    \end{align*}
+    第一式由 $\d\omega_t=0$ 及 $i_v\omega_t=f(v^x\d y-v^y\d x)$ 得到；第二式是平面 Gauss 定理。
+\end{example}
+
+\begin{example}[三重积分：Reynolds 输运定理]
+    设 $V_t\subset\R^3$ 为移动体积，$\bm\nu$ 为边界单位外法矢。取 $\omega_t=f\,\d x\wedge\d y\wedge\d z$，同理得
+    \[
+        \dv{t}\iiint_{V_t}f\,\d V
+        =\iiint_{V_t}\partial_t f\,\d V
+          +\iint_{\partial V_t}f\,\bm v\cdot\bm\nu\,\d S=\iiint_{V_t}\left[\partial_t f+\nabla\cdot(f\bm v)\right]\d V.
+    \]
+    置随体导数 $\mathrm D_t f:=\partial_t f+\bm v\cdot\nabla f$，被积式也可写成 $\mathrm D_t f+f\nabla\cdot\bm v$。这里 $\bm v$ 是区域速度；区域随流体运动时，它才取为流体速度。
+\end{example}
+
+对二、三重积分，区域的运动只通过边界法向速度 $\bm v\cdot\bm\nu$ 进入公式；边界切向运动不改变积分域。
+
+\begin{example}[矢量场的线积分]
+    设 $C_t\subset\R^3$ 为从 $A_t$ 指向 $B_t$ 的移动曲线，取 $\omega_t=\bm F_\flat=F_i\d x^i$。由
+    \[i_v\omega_t=\bm F\cdot\bm v,\qquad
+        i_v\d\omega_t=\bigl((\nabla\times\bm F)\times\bm v\bigr)_\flat,\]
+    得
+    \[
+        \dv{t}\int_{C_t}\bm F\cdot\d\bm r
+        =\int_{C_t}\left[\partial_t\bm F+(\nabla\times\bm F)\times\bm v\right]\cdot\d\bm r+(\bm F\cdot\bm v)(B_t)-(\bm F\cdot\bm v)(A_t).
+    \]
+    曲线闭合时，端点项消失；若端点固定，端点速度为零，该项也消失。
+\end{example}
+
+\begin{example}[矢量场的面积分]
+    设 $S_t\subset\R^3$ 为移动的定向曲面，$\bm n$ 为与其定向相容的单位法矢，$\d\bm S:=\bm n\,\d S$，$\partial S_t$ 取诱导方向。置 $\epsilon=\d x\wedge\d y\wedge\d z$，取通量形式
+    \[\omega_t=i_{\bm F}\epsilon
+        =F^x\d y\wedge\d z+F^y\d z\wedge\d x+F^z\d x\wedge\d y.\]
+    对任意切矢 $w$，有 $i_v\omega_t(w)=\epsilon(\bm F,\bm v,w)=(\bm F\times\bm v)\cdot w$，故
+    \[i_v\omega_t=(\bm F\times\bm v)_\flat,\qquad
+        i_v\d\omega_t=(\nabla\cdot\bm F)i_v\epsilon.\]
+    于是
+    \begin{align*}
+        \dv{t}\iint_{S_t}\bm F\cdot\d\bm S
+        &=\iint_{S_t}\left[\partial_t\bm F+(\nabla\cdot\bm F)\bm v\right]\cdot\d\bm S+\oint_{\partial S_t}(\bm F\times\bm v)\cdot\d\bm r\\
+        &=\iint_{S_t}\left[\partial_t\bm F-\nabla\times(\bm v\times\bm F)
+          +(\nabla\cdot\bm F)\bm v\right]\cdot\d\bm S.
+    \end{align*}
+    $S_t$ 无边时，前式的线积分项消失。曲面法矢与面积元随运动的变化已包含在公式中，无需另加求导项。
 \end{example}

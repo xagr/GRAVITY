@@ -46,16 +46,17 @@
 \end{theorem}
 
 \begin{theorem}
-    流形必存在某个仿射联络，且数量无限多。
+    流形上存在仿射联络；非空且维数为正时，有无穷多个。
 \end{theorem}
+\begin{proof}
+    取坐标开覆盖 $\{O_\alpha\}$ 及从属的局部有限 $C^{r+1}$ 单位分解 $\{\rho_\alpha\}$。在各 $O_\alpha$ 上，令 $\nabla^{(\alpha)}$ 只对张量的坐标分量求导，即令该坐标系中的联络系数全为零。置
+    \eq{\nabla T:=\sum_\alpha\rho_\alpha\nabla^{(\alpha)}T,}
+    各项在坐标域外置零。局部有限性保证此式有定义且满足所需正则性；各局部算符均与缩并对易并满足 Leibniz 法则，又 $\sum_\alpha\rho_\alpha=1$，故 $\nabla f=\d f$，于是 $\nabla$ 为仿射联络。
 
-\begin{remark}
-    注意 $\omega_{[\mu_1\cdots\mu_l;\sigma]}=\omega_{[\mu_1\cdots\mu_l,\sigma]}$，这说明外微分可用任意无挠联络表为
-    \eq{
-        \d\omega=(l+1)\A(\cd\omega).
-    }
-    可见外微分定义显然无关于坐标系或无挠联络的选取。
-\end{remark}
+    若 $M$ 非空且维数为正，在一个坐标域内取非零的 $C^{r+1}$ 紧支撑函数 $b$，将 $\alpha:=b\,\d x^1$ 在域外置零。对任意 $t\in\R$ 及 $(k,l)$ 型张量场 $T$，定义
+    \eq{\nabla^{(t)}T:=\nabla T+t(k-l)\alpha\otimes T.}
+    张量积使型数差 $k-l$ 相加，缩并保持此差，而标量场的型数差为零，故各 $\nabla^{(t)}$ 仍满足联络公理。因 $\alpha\ne0$，不同 $t$ 给出不同联络。
+\end{proof}
 
 
 \begin{definition}
@@ -81,8 +82,17 @@
     上式显然成立，因为任意延拓的 $\bar v^\mu(t)$ 实为领域内的 $\bar v$ 同曲线映射复合的一元函数，该一元函数正是 $v^\mu(t)$。以后凡谈及只在曲线上定义的张量场时，不会讨论协变微分（因为没意义），但可求其沿线导数（沿线导数同延拓无关）。
 
 \begin{theorem}
-    置联络空间 $(M,\nabla)$ 和连接 $p,q\in M$ 的某条曲线 $\gamma$，则 $\gamma$上的平行移动构成 $T_p M$ 至 $T_q M$ 的一个同构。
+    置联络空间 $(M,\nabla)$ 和 $C^1$-曲线 $\gamma:[a,b]\to M$，其中 $\gamma(a)=p$、$\gamma(b)=q$。沿 $\gamma$ 的平行移动构成 $T_pM$ 至 $T_qM$ 的线性同构。
 \end{theorem}
+\begin{proof}
+    沿线矢量 $v(t)\in T_{\gamma(t)}M$ 的平行移动方程为
+    \eq{\dv{v^\lambda}{t}
+        +\Gamma^\lambda_{\mu\nu}(\gamma(t))\dot\gamma^\mu(t)v^\nu(t)=0.}
+    这是连续系数的齐次线性常微分方程组，给定初值后解存在且唯一。将 $[a,b]$ 有限分段，使每段曲线落在一个坐标域内，再逐段求解，便得到唯一的沿线平行矢量场，故 $P_\gamma:v(a)\mapsto v(b)$ 良定义。
+
+    方程的线性性及解的唯一性保证 $P_\gamma$ 线性。沿反向曲线 $\bar\gamma(t):=\gamma(a+b-t)$ 平行移动即还原原解，故 $P_{\bar\gamma}=P_\gamma^{-1}$，从而 $P_\gamma$ 为线性同构。
+\end{proof}
+
 
 \begin{definition}
     置 $C^1$-曲线 $\sigma\mapsto\gamma(\sigma)$。若 $\nabla_{\dot\gamma} \dot\gamma$ 平行于 $\dot\gamma$，则称 $\gamma$ 为\textbf{测地线}。总可取新参数 $\xi$ 使 $\nabla_{\dv{\xi}} \dv{\xi}=0$，称为\textbf{仿射参数}。
@@ -111,16 +121,33 @@
 \end{definition}
 
 \begin{theorem}
-    取坐标系 $\{x\}$，由 $[\partial_\mu,\partial_\nu]=0$ 可知 ${T^\mu}_{\lambda\nu}=2{\Gamma^\mu}_{[\lambda\nu]}$。
+    取坐标系 $\{x\}$，则 ${T^\mu}_{\lambda\nu}=2\Gamma^\mu_{[\lambda\nu]}$。
 \end{theorem}
+\begin{proof}
+    坐标基矢满足 $[\p_\lambda,\p_\nu]=0$，故
+    \eq{T(\p_\lambda,\p_\nu)=\nabla_{\p_\lambda}\p_\nu-\nabla_{\p_\nu}\p_\lambda
+        =(\Gamma^\mu_{\lambda\nu}-\Gamma^\mu_{\nu\lambda})\p_\mu.}
+    比较分量即得。
+\end{proof}
 
 \begin{theorem}
     无挠时，对易子可写作 $[X,Y]=\nabla_XY-\nabla_YX.$
 \end{theorem}
+\begin{proof}
+    在挠率定义中令 $T(X,Y)=0$ 即得。
+\end{proof}
 
 \begin{theorem}
-    无挠性等价于对函数 $f$ 有 $[\nabla,\nabla]f=0$。
+    无挠性等价于任意局部 $C^2$-函数 $f$ 的二阶协变导数对称，即 $\nabla_\mu\nabla_\nu f=\nabla_\nu\nabla_\mu f$。
 \end{theorem}
+\begin{proof}
+    因 $\nabla f=\d f$ 为协矢量场，故
+    \begin{align*}
+        \nabla_\mu\nabla_\nu f&=\p_\mu\p_\nu f-\Gamma^\lambda_{\mu\nu}\p_\lambda f,\\
+        (\nabla_\mu\nabla_\nu-\nabla_\nu\nabla_\mu)f&=-T^\lambda{}_{\mu\nu}\p_\lambda f.
+    \end{align*}
+    若 $T=0$，右端为零；反之，在任意坐标域内依次取 $f=x^\lambda$，便得所有挠率分量均为零。
+\end{proof}
 
 \begin{definition}
     置 $(M,g,\nabla)$。
@@ -132,32 +159,164 @@
     Levi-Civita 联络存在且唯一。
 \end{theorem}
 \begin{proof}
-    这是因为，给定度规场 $g$，可以用任意微分算符 $\tilde\nabla$ 及差 $C^\lambda{}_{\mu\nu}$ 构造出 $\nabla$ 使得 $\nabla g=0$，利用无挠性可求解$C^\lambda{}_{\mu\nu}$的表达式。不妨用普通微分 $\d$，这样便有 $\Gamma^\lambda_{\mu\nu}$ 同 $g$ 的关系（我们已经学过），而该表达式存在且唯一。
+    给定度规场 $g$，可用任意微分算符 $\tilde\nabla$ 及差 $C^\lambda{}_{\mu\nu}$ 构造出 $\nabla$ 使得 $\nabla g=0$，利用无挠性可求解$C^\lambda{}_{\mu\nu}$的表达式。不妨用普通微分 $\d$，这样便有 $\Gamma^\lambda_{\mu\nu}$ 同 $g$ 的关系（我们已经学过）：
+    \[\Gamma^\lambda_{\mu\nu}=\frac{1}{2}g^{\sigma\lambda}\left(g_{\sigma\nu,\mu}+ g_{\mu\sigma,\nu}-  g_{\mu\nu,\sigma}\right),\]
+    而该表达式存在且唯一。
 \end{proof}
 
-\begin{definition}
-    设 4 维光滑流形 $M$ 是单连通的，光滑度规场 $g$ 的号差为 $+2$（Lorentz 度规），$\nabla$ 为 Levi-Civita 联络，则称 $(M,g,\nabla)$ 为\textbf{Lorentz 流形}。
-\end{definition}
+\begin{example}
+    若光滑度规 $g$ 的负惯性指数为 $1$，则称 $(M,g)$ 为\textbf{Lorentz 流形}。四维时其号差为 $+2$。时空的数学模型通常为四维 Lorentz 流形，并按需要附加时间可定向性及因果条件；单连通性不是 Lorentz 流形的定义条件。
+    联络默认取 Levi-Civita 联络；无歧义时亦将 $(M,g)$ 简记为 $M$。
+\end{example}
 
 \begin{remark}
-    习惯于只简写为 $(M,g)$，甚至是 $M$（无歧义时）。时空的数学模型通常为 Lorentz 流形。
+    注意 $\omega_{[\mu_1\cdots\mu_l;\sigma]}=\omega_{[\mu_1\cdots\mu_l,\sigma]}$，这说明外微分可用任意无挠联络表为
+    \eq{
+        \d\omega=(l+1)\A(\cd\omega).
+    }
+    可见外微分定义显然无关于坐标系或无挠联络的选取。
 \end{remark}
 
-\begin{theorem}
-    可证具有（至少）$C^1$ 仿射联络的（至少）$C^3$ 连通流形一定仿紧。
+\begin{example}
+    矢量 $v$ 沿一曲线的\textbf{Fermi-Walker 导数}定义为
+    \eq{
+    \DFv{v}{\tau}:=\Dv{v}{\tau}+A\langle Z,v\rangle-Z\langle A,v\rangle,
+    }
+    这里 $D$ 在平直时空的惯性坐标系中为 $\d$。函数 $f$ 的费导定义为普通导数 $\d f/\d\tau$。规定其满足 Leibniz 律、线性性和缩并对易性，这样可推出其它张量的费导表达。这样费导可以看作联络，但需要定义在曲线上。
+\end{example}
+
+
+以下设 $M$ 至少为 $C^3$，联络 $\nabla$ 至少为 $C^1$。指数映射只需联络，无须指定度规。
+
+\begin{definition}
+    对 $v\in T_pM$，记 $\gamma_v:I_v\to M$ 为满足 $\gamma_v(0)=p$、$\dot\gamma_v(0)=v$ 的最大仿射参数测地线。置
+    \eq{\mathcal D_p:=\{v\in T_pM:1\in I_v\},\qquad
+        \exp_p:\mathcal D_p\to M,\quad v\longmapsto\gamma_v(1),}
+    称为 $p$ 处的\textbf{指数映射}。将各点的定义域合为 $\mathcal D\subset TM$，记 $\exp(v):=\exp_p(v)$（$v\in T_pM$）。
+\end{definition}
+
+\begin{theorem}\label{thm:exponential-map}
+    $\mathcal D$ 是包含零截面的开集，$\exp$ 为 $C^1$-映射。各 $\mathcal D_p$ 关于原点星形，且
+    \eq{\exp_p(tv)=\gamma_v(t),\qquad (\exp_p)_{*0}=\id_{T_pM},}
+    前式在 $t\in I_v$ 时成立，后式将 $T_0(T_pM)$ 自然识别为 $T_pM$。若流形及联络光滑，则 $\exp$ 光滑。
 \end{theorem}
 \begin{proof}
-    %%
-    涉及正则邻域（法邻域）的存在性。
+    测地线方程可写成 $TM$ 上的一阶方程组
+    \eq{\dot x^\lambda=u^\lambda,\qquad
+        \dot u^\lambda=-\Gamma^\lambda_{\mu\nu}(x)u^\mu u^\nu.}
+    由解对初值的 $C^1$ 依赖，解能延续到时刻 $1$ 的初值构成开集，且末点为初值的 $C^1$ 函数；零初矢给出常值曲线，故零截面含于 $\mathcal D$。光滑情形同理。
+
+    重参数化 $s\mapsto\gamma_v(ts)$ 仍满足测地线方程，初矢为 $tv$。由唯一性，$\gamma_{tv}(s)=\gamma_v(ts)$，取 $s=1$ 即得前式。若 $v\in\mathcal D_p$，则 $[0,1]\subset I_v$，故 $tv\in\mathcal D_p$（$0\leqslant t\leqslant1$），即星形性。再在 $t=0$ 求导，得
+    \eq{(\exp_p)_{*0}v=\eval{\dv{}{t}\exp_p(tv)}_{t=0}
+        =\dot\gamma_v(0)=v.\qedhere}
 \end{proof}
 
 \begin{definition}
-    矢量 $v$ 沿一曲线的\textbf{Fermi-Walker 导数}定义为
-    \eq{
-    \frac{D_F v}{\d\tau}:=\frac{D v}{\d\tau}+A\langle Z,v\rangle-Z\langle A,v\rangle,
-    }
-    这里 $D$ 在平直时空的惯性坐标系中为 $\d$。函数 $f$ 的费导定义为普通导数 $\d f/\d\tau$。规定其满足 Leibniz 律、线性性和缩并对易性，这样可推出其它张量的费导表达。
+    设 $W\subset\mathcal D_p$ 为含原点的星形开集，即 $v\in W$、$0\leqslant t\leqslant1$ 时 $tv\in W$。若 $\exp_p|_W:W\to N$ 为 $C^1$-同胚，则称 $N$ 为 $p$ 的\textbf{法邻域}。
+
+    取 $T_pM$ 的一组基 $\{e_\mu\}$，以
+    \eq{\exp_p^{-1}(q)=x^\mu(q)e_\mu}
+    定义坐标映射 $x:N\to\R^n$，则 $(N,x)$ 称为以 $p$ 为中心的\textbf{法坐标系}。光滑情形下，上述同胚为微分同胚，法坐标系属于 $M$ 的光滑图册。
 \end{definition}
+
+\begin{theorem}\label{thm:normal-neighborhood}
+    每点的任意开邻域内均有该点的法邻域。在法坐标系中，当 $tv\in W$ 时，过中心 $p$ 的测地线表为 $x^\mu(\gamma_v(t))=tv^\mu$。
+\end{theorem}
+\begin{proof}
+    因 $(\exp_p)_{*0}=\id$，逆函数定理给出 $0$ 附近的 $C^1$-同胚。将其定义域缩为足够小的原点开球 $W$，便可使像含于指定开邻域；开球星形，故像为法邻域。坐标表达由 $\exp_p(tv)=\gamma_v(t)$ 即得。
+\end{proof}
+
+\begin{remark}
+    法邻域 $N$ 中，$p$ 与任意 $q$ 可由留在 $N$ 内的唯一测地线段相连，将参数区间固定为 $[0,1]$ 后即为 $t\mapsto\exp_p(t\exp_p^{-1}(q))$。存在性由星形性保证；任一从 $p$ 出发且留在 $N$ 内的测地线，由初值唯一性及连续性，其法坐标始终为 $tv^\mu$，故终点唯一确定初矢。这里固定了中心 $p$，并未断言 $N$ 内任意两点都有此性质，也未排除绕出 $N$ 后再返回的测地线。
+\end{remark}
+
+本书已将仿紧性纳入拓扑流形的定义。下面暂不预设仿紧性，说明它也可由联络的存在性推出。
+
+\begin{theorem}
+    置连通 $T_2$ 局部欧氏空间 $M$，赋以 $C^3$-微分结构。若 $M$ 上存在 $C^1$ 仿射联络，则 $M$ 第二可数，因而仿紧。
+\end{theorem}
+\begin{proof}
+    先证 $\exp:\mathcal D\to M$ 为开映射。上述一阶方程组的流为
+    \eq{\Phi_t(v):=\dot\gamma_v(t)\in T_{\gamma_v(t)}M.}
+    由流的存在性定理，$\Phi_1$ 是开集间的 $C^1$-同胚，逆为 $\Phi_{-1}$。切丛投影 $\pi$ 在坐标中为 $(x,u)\mapsto x$，也是开映射，故 $\exp=\pi\circ\Phi_1$ 为开映射。
+
+    取非空坐标域 $U_0$，递推置
+    \eq{U_{k+1}:=\exp[\mathcal D\cap\pi^{-1}[U_k]],\qquad
+        A:=\bigcup_{k=0}^\infty U_k.}
+    各 $U_k$ 开，且由零初矢知 $U_k\subset U_{k+1}$。若 $U_k$ 第二可数，则 $\pi^{-1}[U_k]=TU_k$ 及其开子集 $\mathcal D\cap TU_k$ 也第二可数；其可数基在开映射 $\exp$ 下的像构成 $U_{k+1}$ 的可数基。由归纳，各 $U_k$ 第二可数，合并这些基便得开集 $A$ 的可数基。
+
+    任取 $q\in\bar A$，取 $q$ 的法邻域 $N$ 及 $p\in N\cap A$。从 $q$ 到 $p$ 的径向测地线反向后将 $p$ 连至 $q$，故 $p\in U_k$ 蕴涵 $q\in U_{k+1}\subset A$。于是 $A$ 也闭，由连通性 $A=M$。最后，$C_2\land T_2\land\text{局部欧}$ 蕴涵可度量，进而仿紧。
+\end{proof}
+
+\section{Killing 矢量}
+
+以下设 $M$ 及度规 $g$ 均光滑，$\nabla$ 为其 Levi-Civita 联络。
+
+\begin{definition}
+    微分同胚 $\psi:M\to M$ 若满足 $\psi^*g=g$，则称为\textbf{等度规映射}或\textbf{等距变换}，即
+    \eq{g_{\psi(p)}(\psi_{*p}v,\psi_{*p}w)=g_p(v,w),\qquad v,w\in T_pM.}
+    全体等度规映射在复合下构成\textbf{等度规群}，记作 $\operatorname{Isom}(M,g)$。开子集间满足同一条件的微分同胚称为\textbf{局部等度规映射}。
+\end{definition}
+
+\begin{definition}
+    满足 $\Lie_Kg=0$ 的光滑切矢场 $K$ 称为\textbf{Killing 矢量场}，简称\textbf{Killing 场}。全体 Killing 场记作 $\mathfrak{kill}(M,g)$。
+\end{definition}
+
+由 \S\ref{appx:Lie-deri} 中流保持张量的判据，$K$ 为 Killing 场当且仅当其流的各 $\phi_t$ 均为局部等度规映射。$K$ 完备时，才得到定义于所有实参数的整体单参数等度规群。Killing 场描述从恒等映射连续生成的对称性；反射等离散对称性不由这种流给出。
+
+\begin{theorem}[Killing 方程]\label{thm:killing-equation}
+    $K$ 为 Killing 场当且仅当
+    \eq{\label{eq:killing-equation}
+        \nabla_\mu K_\nu+\nabla_\nu K_\mu=0,\qquad K_\nu:=g_{\nu\lambda}K^\lambda.}
+\end{theorem}
+\begin{proof}
+    由 Lie 导数的 Leibniz 法则、$\nabla g=0$ 及无挠性，对任意切矢场 $X,Y$，
+    \begin{align*}
+        (\Lie_Kg)(X,Y)
+        &=K\bigl(g(X,Y)\bigr)-g([K,X],Y)-g(X,[K,Y])\\
+        &=g(\nabla_XK,Y)+g(X,\nabla_YK).
+    \end{align*}
+    取 $X=\p_\mu$、$Y=\p_\nu$，便得 $(\Lie_Kg)_{\mu\nu}=\nabla_\mu K_\nu+\nabla_\nu K_\mu$。
+\end{proof}
+
+在坐标系中，Killing 方程也可写为
+\eq{K^\lambda\p_\lambda g_{\mu\nu}
+    +g_{\lambda\nu}\p_\mu K^\lambda+g_{\mu\lambda}\p_\nu K^\lambda=0.}
+若 $K_p\ne0$，由直化定理可在 $p$ 附近取适配坐标使 $K=\p_1$，上式便化为 $\p_1g_{\mu\nu}=0$。反之，度规分量不依赖某坐标 $x^1$ 时，$\p_1$ 就是该坐标域上的 Killing 场。因而“度规分量沿某方向不变”是适配坐标中的表述。
+
+\begin{theorem}
+    $\mathfrak{kill}(M,g)$ 对常系数线性组合及 Lie 括号封闭，因而构成实 Lie 代数。
+\end{theorem}
+\begin{proof}
+    常系数线性组合由 Killing 方程的线性性即得。恒等式
+    $[\Lie_K,\Lie_L]=\Lie_{[K,L]}$ 在函数与切矢上由 Lie 括号及 Jacobi 恒等式给出，再由 Leibniz 法则及缩并推广至张量。故
+    \eq{\Lie_{[K,L]}g=\Lie_K(\Lie_Lg)-\Lie_L(\Lie_Kg)=0.\qedhere}
+\end{proof}
+
+\begin{example}
+    欧氏平面 $g=\d x^2+\d y^2$ 上，平移场 $\p_x,\p_y$ 和旋转场 $J=-y\p_x+x\p_y$ 均为 Killing 场。三者作为矢量场在 $\R$ 上线性无关，尽管任一点的切空间只有二维，且 $J$ 在原点为零。后文所谓独立 Killing 场的数目，均指这种常系数线性无关，与逐点线性无关不同。
+\end{example}
+
+\begin{theorem}\label{thm:killing-conserved}
+    若 $K$ 为 Killing 场，$\gamma$ 为仿射参数测地线，则 $g(K,\dot\gamma)$ 沿 $\gamma$ 为常数。
+\end{theorem}
+\begin{proof}
+    置 $T:=\dot\gamma$。由度规适配性、$\nabla_TT=0$ 及 Killing 方程，
+    \eq{\dv{}{t}g(K,T)=g(\nabla_TK,T)+g(K,\nabla_TT)
+        =T^\mu T^\nu\nabla_\mu K_\nu=0.\qedhere}
+\end{proof}
+
+\begin{theorem}\label{thm:isometry-connection}
+    局部等度规映射保持 Levi-Civita 联络及仿射参数测地线，因而
+    \eq{\label{eq:isometry-exponential}
+        \psi(\exp_p v)=\exp_{\psi(p)}(\psi_{*p}v),}
+    其中从 $p$ 出发的相应测地线段须留在 $\psi$ 的定义域内。
+\end{theorem}
+\begin{proof}
+    用 $\psi$ 将联络拉回，置
+    \eq{\widetilde\nabla_XY:=\psi_*^{-1}\bigl(\nabla_{\psi_*X}(\psi_*Y)\bigr).}
+    因 $\psi$ 保持度规及 Lie 括号，$\widetilde\nabla$ 仍度规适配且无挠，由 Levi-Civita 联络的唯一性，$\widetilde\nabla=\nabla$。于是 $\psi\circ\gamma_v$ 为初点 $\psi(p)$、初矢 $\psi_{*p}v$ 的仿射参数测地线，由初值唯一性即得式 \eqref{eq:isometry-exponential}。
+\end{proof}
 
 \section{曲率}
 
@@ -170,7 +329,7 @@
 \end{definition}
 
 \begin{theorem}
-    取坐标系 $\{x\}$，曲率分量为
+    曲率坐标分量为
     \eq{
     R^\rho{}_{\sigma\mu\nu}=\p_\mu\Gamma^\rho_{\nu\sigma}-\p_\nu\Gamma^\rho_{\mu\sigma}+\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}.
     }
@@ -178,77 +337,484 @@
 
 \begin{definition}
     \textbf{Ricci 张量}定义为 $\mathrm{Ric}(X,Y):=\mathrm{tr}(Z\mapsto R(Z,X)Y)$，分量为 $R_{\mu\nu}:=R^\rho{}_{\mu\rho\nu}$。
-    
-    \textbf{数量曲率}为 $R:=g^{\mu\nu}R_{\mu\nu}$。
+    \textbf{Ricci 标量}为 $R:=g^{\mu\nu}R_{\mu\nu}$。
 \end{definition}
 
-\begin{definition}
-    \textbf{Einstein 张量}定义为
-    \eq{
-    G_{\mu\nu}:=R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R.
-    }
-    它是 $(0,2)$ 型对称张量场，满足 $\nabla^\mu G_{\mu\nu}=0$（Bianchi 恒等式的推论）。
-\end{definition}
-
-\begin{theorem}
-    黎曼曲率张量具有以下对称性：
+\begin{theorem}[曲率的对称性]\label{thm:curvature-symmetries}
+    置光滑流形 $M$ 及光滑度规 $g$，$\nabla$ 为 Levi-Civita 联络。记
+    \eq{\mathcal R(X,Y,Z,W):=g(R(X,Y)Z,W).}
+    则对任意切矢场 $X,Y,Z,W$，
     \begin{align*}
-        R_{\rho\sigma\mu\nu}&=-R_{\sigma\rho\mu\nu},\\
-        R_{\rho\sigma\mu\nu}&=-R_{\rho\sigma\nu\mu},\\
-        R_{\rho\sigma\mu\nu}&=R_{\mu\nu\rho\sigma},\\
-        R_{\rho\sigma\mu\nu}+R_{\rho\mu\nu\sigma}+R_{\rho\nu\sigma\mu}&=0\quad\text{（第一 Bianchi 恒等式）}.
+        \mathcal R(X,Y,Z,W)&=-\mathcal R(Y,X,Z,W),\\
+        \mathcal R(X,Y,Z,W)&=-\mathcal R(X,Y,W,Z),\\
+        \mathcal R(X,Y,Z,W)&=\mathcal R(Z,W,X,Y).
     \end{align*}
-\end{theorem}
-
-\begin{theorem}
-    第二 Bianchi 恒等式：$\nabla_\rho R_{\sigma\mu\nu}^\lambda+\nabla_\sigma R_{\mu\rho\nu}^\lambda+\nabla_\mu R_{\rho\sigma\nu}^\lambda=0$。从而 $\nabla_\mu R^{\mu}{}_{\nu}=\nabla_\nu R-2\nabla^\mu R_{\mu\nu}$。
-\end{theorem}
-
-\begin{definition}
-    置联络 1-形式 $\Gamma^\lambda_\nu$，定义\textbf{曲率 2-形式}为
-    \eq{
-    \Omega^\lambda_\nu:=\d\Gamma^\lambda_\nu+\Gamma^\lambda_\mu\wedge\Gamma^\mu_\nu.
-    }
-    其分量为 $\Omega^\lambda_{\mu\nu}:=\frac{1}{2}R^\lambda_{\rho\mu\nu}\d x^\rho\wedge\d x^\sigma$。
-\end{definition}
-
-\begin{theorem}
-    曲率 2-形式满足 Cartan 第二结构方程：$\Omega=\d\Gamma+\Gamma\wedge\Gamma$。
-\end{theorem}
-
-
-\section{最大对称时空}
-
-\begin{definition}
-    Killing 矢量场满足 $\nabla_\mu K_\nu + \nabla_\nu K_\mu = 0$。
-\end{definition}
-
-\begin{definition}
-    置 $(M,g)$ 为 Lorentz 流形。若其 Ricci 张量满足 $R_{\mu\nu}=\lambda g_{\mu\nu}$（$\lambda$ 为常数），则称为\textbf{爱因斯坦流形}。
-\end{definition}
-
-\begin{theorem}
-    爱因斯坦流形的数量曲率为常数。
+    此外，曲率满足\textbf{第一 Bianchi 恒等式}
+    \eq{R(X,Y)Z+R(Y,Z)X+R(Z,X)Y=0.}
+    特别地，$\mathrm{Ric}$ 为对称张量。
 \end{theorem}
 \begin{proof}
-    由 $R_{\mu\nu}=\lambda g_{\mu\nu}$ 得 $R=g^{\mu\nu}R_{\mu\nu}=n\lambda$（$n$ 为维数）。
+    各式均为张量等式，只需在任意点 $p$ 验证。取以 $p$ 为中心的法坐标，将所给切矢延拓为坐标分量恒定的场。径向测地线方程给出 $\Gamma^\lambda_{\mu\nu}(p)v^\mu v^\nu=0$；由无挠性，$\Gamma^\lambda_{\mu\nu}(p)=0$，进而 $\p_\lambda g_{\mu\nu}(p)=0$。
+
+    将 Levi-Civita 联络系数代入曲率分量式，在 $p$ 处得
+    \eq{\begin{aligned}
+        2\mathcal R(X,Y,Z,W)
+        ={}&XZ\bigl(g(Y,W)\bigr)-XW\bigl(g(Y,Z)\bigr)\\
+        &-YZ\bigl(g(X,W)\bigr)+YW\bigl(g(X,Z)\bigr).
+    \end{aligned}}
+    这些场两两对易，故交换 $X,Y$，交换 $Z,W$，或交换两对变量，即得前三式；对 $X,Y,Z$ 循环求和则各项相消，由 $g$ 非退化即得第一 Bianchi 恒等式。再对该式的输出与 $X$ 缩并，中项为 $R(Y,Z)$ 的迹，因其对 $g$ 反对称而为零，故 $\mathrm{Ric}(Y,Z)=\mathrm{Ric}(Z,Y)$。
+\end{proof}
+
+\begin{theorem}[第二 Bianchi 恒等式]\label{thm:second-bianchi}
+    光滑无挠联络的曲率满足
+    \eq{(\nabla_XR)(Y,Z)+(\nabla_YR)(Z,X)+(\nabla_ZR)(X,Y)=0.}
+    此为作用于切矢场的算符等式；其中
+    \eq{\begin{aligned}
+        (\nabla_XR)(Y,Z)W
+        :={}&\nabla_X(R(Y,Z)W)-R(\nabla_XY,Z)W\\
+        &-R(Y,\nabla_XZ)W-R(Y,Z)\nabla_XW.
+    \end{aligned}}
+\end{theorem}
+\begin{proof}
+    任取 $p$，仍用法坐标将 $X,Y,Z$ 延拓为坐标分量恒定的场。它们两两对易，且在 $p$ 处相互的协变导数均为零，故在该点
+    \eq{[\nabla_X,[\nabla_Y,\nabla_Z]]
+        =[\nabla_X,R(Y,Z)]=(\nabla_XR)(Y,Z).}
+    对 $X,Y,Z$ 循环求和，由算符对易子的 Jacobi 恒等式即得结论。
+\end{proof}
+
+\begin{corollary}[缩并 Bianchi 恒等式]
+    对 Levi-Civita 联络，
+    \eq{\operatorname{div}\mathrm{Ric}=\frac12\d R.}
+    这里 $(\operatorname{div}\mathrm{Ric})(X):=\operatorname{tr}_g\bigl((Y,Z)\mapsto(\nabla_Y\mathrm{Ric})(Z,X)\bigr)$，即 $\nabla^\mu R_{\mu\nu}=\frac12\nabla_\nu R$。
+\end{corollary}
+\begin{proof}
+    在任一点取正交归一基 $\{e_a\}$，记 $\varepsilon_a:=g(e_a,e_a)=\pm1$。对第二 Bianchi 恒等式作一次缩并，得
+    \eq{\sum_a\varepsilon_a(\nabla_{e_a}\mathcal R)(X,Y,Z,e_a)
+        =(\nabla_X\mathrm{Ric})(Y,Z)-(\nabla_Y\mathrm{Ric})(X,Z).}
+    置 $X=Z=e_b$，乘 $\varepsilon_b$ 再求和。由曲率的反对称性及 $\mathrm{Ric}$ 的对称性，左端为 $-(\operatorname{div}\mathrm{Ric})(Y)$，右端为 $(\operatorname{div}\mathrm{Ric})(Y)-\d R(Y)$，移项即得。
+\end{proof}
+
+\begin{example}
+    \textbf{Einstein 张量}定义为 $G_{\mu\nu}:=R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R$。
+    它是 $(0,2)$ 型对称张量场，满足 $\nabla^\mu G_{\mu\nu}=0$（Bianchi 恒等式的推论）。
+\end{example}
+
+\begin{definition}
+    置联络空间 $(M,\nabla)$、局部矢量基场 $\{e_\mu\}$ 及其对偶基场 $\{e^\mu\}$。定义\textbf{曲率 2-形式}
+    \eq{\Omega^\lambda_\nu(X,Y):=\langle e^\lambda,R(X,Y)e_\nu\rangle.}
+    因 $R(X,Y)=-R(Y,X)$，各 $\Omega^\lambda_\nu$ 确为 2-形式。由微分形式的展开式，
+    \eq{\Omega^\lambda_\nu=\frac12R^\lambda{}_{\nu\mu\rho}\,e^\mu\wedge e^\rho.}
+    在坐标基中，取 $e^\mu=\d x^\mu$ 即得坐标表达。
+\end{definition}
+
+\begin{theorem}[Cartan 第二结构方程]\label{thm:cartan-second}
+    曲率 2-形式与联络 1-形式满足
+    \eq{\Omega^\lambda_\nu=\d\Gamma^\lambda_\nu
+        +\Gamma^\lambda_\mu\wedge\Gamma^\mu_\nu.}
+    将这些形式排列成矩阵 $\Gamma=(\Gamma^\lambda_\nu)$、$\Omega=(\Omega^\lambda_\nu)$，则可简写为
+    \eq{\Omega=\d\Gamma+\Gamma\wedge\Gamma,}
+    其中 $\d$ 逐项作用，$\Gamma\wedge\Gamma$ 按矩阵乘法缩并指标，并以楔积代替普通乘积。
+\end{theorem}
+\begin{proof}
+    由 $\nabla_Xe_\nu=\Gamma^\lambda_\nu(X)e_\lambda$ 及 Leibniz 法则，
+    \eq{\begin{aligned}
+        \Omega^\lambda_\nu(X,Y)
+        ={}&X\bigl(\Gamma^\lambda_\nu(Y)\bigr)
+            -Y\bigl(\Gamma^\lambda_\nu(X)\bigr)-\Gamma^\lambda_\nu([X,Y])\\
+        &+\Gamma^\lambda_\mu(X)\Gamma^\mu_\nu(Y)
+            -\Gamma^\lambda_\mu(Y)\Gamma^\mu_\nu(X)\\
+        ={}&\d\Gamma^\lambda_\nu(X,Y)
+            +(\Gamma^\lambda_\mu\wedge\Gamma^\mu_\nu)(X,Y).
+    \end{aligned}}
+    因 $X,Y$ 任意，即得结论。
+\end{proof}
+
+\begin{remark}
+    此式适用于任意仿射联络，不要求无挠或度规适配；局部基场也不必为坐标基。
+\end{remark}
+
+\section{Jacobi 场}
+
+以下设 $\dim M=n$，$g$ 光滑，$\nabla$ 为 Levi-Civita 联络。置仿射参数测地线 $\gamma:[a,b]\to M$，记 $Z:=\dot\gamma$。沿线场 $J$ 以参数为自变量，满足 $J(t)\in T_{\gamma(t)}M$；其沿线协变导数直接记为 $\nabla_ZJ$。
+
+\subsection{测地偏离与潮汐}
+
+\begin{definition}
+    光滑映射 $F:(-\epsilon,\epsilon)\times[a,b]\to M$ 若满足 $F(0,t)=\gamma(t)$，则称为 $\gamma$ 的\textbf{变分}。记 $\gamma_s(t):=F(s,t)$，其\textbf{变分场}为
+    \eq{J(t):=F_{*(0,t)}\p_s.}
+    若各 $\gamma_s$ 均以 $t$ 为仿射参数的测地线，则称为\textbf{测地线变分}。
+\end{definition}
+
+\begin{theorem}[测地偏离方程]\label{thm:jacobi-variation}
+    测地线变分的变分场满足
+    \eq{\label{eq:jacobi-equation}
+        \nabla_Z\nabla_ZJ+R(J,Z)Z=0.}
+    此式称为\textbf{Jacobi 方程}，其解称为沿 $\gamma$ 的\textbf{Jacobi 场}。反之，每个 Jacobi 场均可由测地线变分得到。
+\end{theorem}
+\begin{proof}
+    沿变分的两个参数方向，记 $Z=F_*\p_t$、$V=F_*\p_s$。无挠性给出 $\nabla_VZ=\nabla_ZV$，协变导数换序则给出
+    \eq{0=\nabla_V(\nabla_ZZ)
+        =\nabla_Z\nabla_VZ+R(V,Z)Z
+        =\nabla_Z\nabla_ZV+R(V,Z)Z.}
+    限制到 $s=0$ 即得方程。
+
+    在沿线平行移动的基中，这是二阶线性常微分方程，故由 $J(a)$、$(\nabla_ZJ)(a)$ 唯一确定解。反之，取初点曲线 $p(s)$ 及沿它的初矢 $v(s)$，使
+    \eq{p(0)=\gamma(a),\quad p'(0)=J(a),\qquad
+        v(0)=Z(a),\quad (\nabla_{p'}v)(0)=(\nabla_ZJ)(a).}
+    以这些初值求测地线，缩小 $s$ 的范围即可得到定义于整个 $[a,b]$ 的变分。其变分场与 $J$ 满足同一方程及初值，由唯一性相等。
+\end{proof}
+
+因此，沿一条测地线的 Jacobi 场构成 $2n$ 维实线性空间。切向解 $J=(c_1+c_2t)Z$ 来自仿射参数的平移与缩放。又由曲率的反对称性，
+\eq{\dv[2]{}{t}g(J,Z)=-g(R(J,Z)Z,Z)=0.}
+故若初始的 $J$ 与 $\nabla_ZJ$ 均垂直于 $Z$，则 $J$ 始终垂直于 $Z$。若变分中各条类时测地线均以固有时参数化，则 $g(\nabla_ZJ,Z)=\frac12\partial_s g(Z,Z)=0$，此时只需初始 $J\perp Z$。
+
+\begin{example}[潮汐]
+    在 Lorentz 流形中，置以固有时参数化的自由落体测地线，$g(Z,Z)=-1$。对正交 Jacobi 场 $J$，$J$、$\nabla_ZJ$、$\nabla_Z\nabla_ZJ$ 分别描述邻近自由落体线的一阶相对位移、速度与加速度。测地偏离方程表为
+    \eq{\nabla_Z\nabla_ZJ=-R(J,Z)Z.}
+    沿基准线取平行移动的正交归一标架 $e_0=Z,e_i$，写 $J=\xi^ie_i$，则
+    \eq{\ddot\xi^i=-\mathcal E^i{}_j\xi^j,\qquad
+        \mathcal E_{ij}:=g(R(e_j,Z)Z,e_i)=R_{i0j0}.}
+    $\mathcal E$ 为对称的\textbf{潮汐张量}，且 $\operatorname{tr}\mathcal E=\mathrm{Ric}(Z,Z)$。在弱场、低速的 Newton 极限，$\mathcal E_{ij}\simeq\p_i\p_j\Phi$，故 $\ddot\xi^i\simeq-\p^i\p_j\Phi\,\xi^j$，正是引力加速度之差。它由曲率决定，因而不能靠选择局部惯性坐标消去。
+\end{example}
+
+\subsection{固定端点的二阶变分}
+
+本节的变分只要求 $F(s,a)=\gamma(a)$、$F(s,b)=\gamma(b)$，不要求 $s\ne0$ 时仍为测地线。相应变分场 $V$ 满足 $V(a)=V(b)=0$。
+
+\begin{definition}
+    曲线的\textbf{能量泛函}为
+    \eq{E(\gamma):=\frac12\int_a^b g(\dot\gamma,\dot\gamma)\,\d t.}
+    对沿测地线的场 $V,W$，定义\textbf{指标型}
+    \eq{\label{eq:geodesic-index-form}
+        I(V,W):=\int_a^b\left[g(\nabla_ZV,\nabla_ZW)
+            -g(R(V,Z)Z,W)\right]\d t.}
+    曲率的对称性保证 $I$ 为对称双线性型。
+\end{definition}
+
+\begin{theorem}[能量的变分]\label{thm:geodesic-second-variation}
+    固定端点的能量一阶变分为
+    \eq{E'(0)=-\int_a^b g(V,\nabla_ZZ)\,\d t,}
+    故临界曲线恰为仿射参数测地线。沿测地线的二阶变分为
+    \eq{E''(0)=I(V,V).}
+\end{theorem}
+\begin{proof}
+    由度规适配性及 $\nabla_VZ=\nabla_ZV$，
+    \eq{E'(0)=\int_a^b g(\nabla_ZV,Z)\,\d t
+        =[g(V,Z)]_a^b-\int_a^b g(V,\nabla_ZZ)\,\d t.}
+    端点项为零；因 $V$ 任意、$g$ 非退化，即得临界曲线的刻画。
+
+    沿测地线再求一次变分，含 $\nabla_ZZ$ 的项为零，而
+    \eq{\nabla_V\nabla_ZZ=\nabla_Z\nabla_ZV+R(V,Z)Z.}
+    故 $E''(0)=-\int_a^b g(V,\nabla_Z\nabla_ZV+R(V,Z)Z)\,\d t$，分部积分即得结论。
+\end{proof}
+
+\begin{corollary}[弧长与固有时的二阶变分]\label{cor:length-second-variation}
+    若基准测地线非类光且单位速，记 $\varepsilon:=g(Z,Z)=\pm1$。置
+    \eq{L(\gamma_s):=\int_a^b\sqrt{|g(\dot\gamma_s,\dot\gamma_s)|}\,\d t,
+        \qquad V^\perp:=V-\varepsilon g(V,Z)Z.}
+    则固定端点的变分满足
+    \eq{L'(0)=0,\qquad L''(0)=\varepsilon I(V^\perp,V^\perp).}
+    正定度规下 $\varepsilon=1$；类时测地线的固有时取 $\varepsilon=-1$。
+\end{corollary}
+\begin{proof}
+    仅在基准线取单位速，邻近曲线仍使用共同参数 $t$。对根号求导，得
+    \eq{L'(0)=\varepsilon E'(0)=0,\qquad
+        L''(0)=\varepsilon I(V,V)-\int_a^b g(\nabla_ZV,Z)^2\,\d t.}
+    写 $V=V^\perp+fZ$，则 $I(V,V)=I(V^\perp,V^\perp)+\varepsilon\int_a^b(f')^2\,\d t$，且 $g(\nabla_ZV,Z)=\varepsilon f'$。切向项相消，即得结论。
+\end{proof}
+
+\begin{remark}
+    弧长的切向零方向来自重参数化，故极值问题应考察正交变分。正定度规或类时测地线的正交空间均正定；在足够短的线段上，指标型中的导数项控制有界的曲率项，因而非零正交变分给出 $I(V,V)>0$。这解释了短测地线的弧长二阶极小性及类时固有时的二阶极大性。类光曲线的弧长恒为零，不能由它获得上述变分信息，仍须使用能量泛函或 Jacobi 方程。
+\end{remark}
+
+\subsection{指数映射与共轭点}
+
+\begin{definition}
+    置非恒定测地线 $\gamma:[a,b]\to M$。若存在非零 Jacobi 场 $J$，使 $J(a)=J(b)=0$，则称 $\gamma(b)$ 与 $\gamma(a)$ \textbf{沿 $\gamma$ 共轭}。满足这两个端点条件的 Jacobi 场空间之维数称为共轭的\textbf{重数}。
+\end{definition}
+
+\begin{theorem}\label{thm:jacobi-exponential}
+    置 $p\in M$、$v\in\mathcal D_p$，记 $\gamma_v(t)=\exp_p(tv)$。对任意 $w\in T_pM$，初值为 $J_w(0)=0$、$(\nabla_ZJ_w)(0)=w$ 的 Jacobi 场满足
+    \eq{\label{eq:jacobi-exponential}
+        J_w(t)=(\exp_p)_{*tv}(tw).}
+    若 $v\ne0$，则 $\exp_p(v)$ 与 $p$ 沿 $\gamma_v|_{[0,1]}$ 共轭，当且仅当 $(\exp_p)_{*v}$ 不可逆；共轭重数等于其核的维数。
+\end{theorem}
+\begin{proof}
+    对测地线变分 $F(s,t)=\exp_p(t(v+sw))$ 关于 $s$ 求导，即得所示表达式；其初值为 $0,w$，故由唯一性正是 $J_w$。所有初端为零的 Jacobi 场都由某个 $w$ 唯一给出，而 $J_w(1)=(\exp_p)_{*v}w$，于是后两项结论同时成立。
+\end{proof}
+
+\begin{theorem}\label{thm:index-form-kernel}
+    固定端点场空间上的指标型退化，当且仅当两端沿该测地线共轭。更确切地，
+    \eq{I(V,W)=0\text{ 对所有固定端点场 }W\text{ 成立}
+        \iff V\text{ 为两端为零的 Jacobi 场}.}
+\end{theorem}
+\begin{proof}
+    分部积分得
+    \eq{I(V,W)=-\int_a^b g\bigl(\nabla_Z\nabla_ZV+R(V,Z)Z,W\bigr)\,\d t.}
+    因 $W$ 可任取、$g$ 非退化，左端恒为零当且仅当 $V$ 满足 Jacobi 方程。指标型有非零核便等价于共轭性。
+\end{proof}
+
+这里的退化要求 $I(V,W)$ 对所有 $W$ 为零；仅有 $I(V,V)=0$ 并不足够。共轭终点因此给出二阶变分的零方向，但二阶变分本身不能判定该方向上更高阶的变化。
+
+共轭性与“有多条测地线”分别涉及指数映射的微分与取值：
+\eq{\begin{aligned}
+    \text{沿初矢 $v$ 共轭}&\iff\ker(\exp_p)_{*v}\ne\{0\},\\
+    \text{从 $p$ 到 $q$ 有多条测地线段}&\iff
+        \exists\,v\ne w\in\mathcal D_p:\ \exp_p(v)=\exp_p(w)=q.
+\end{aligned}}
+此处各线段的仿射参数区间均固定为 $[0,1]$。前者考察一个原像处的微分是否退化，后者考察同一终点是否有多个原像，两者不能互推。特别地，共轭 Jacobi 场可来自一族测地线，但邻近线的终点只在一阶保持不动，不必精确等于原终点。法邻域保证其所对应的初矢开集内既无退化也无重复取值，并不排除从该初矢范围以外到达同一终点的测地线。
+
+\begin{example}[多条测地线而无共轭点]
+    在平坦圆柱 $S^1\times\R$ 上取度规 $\d\theta^2+\d z^2$。点 $p=(0,0)$、$q=(0,h)$（$h\ne0$）之间有测地线
+    \eq{\gamma_m(t)=(2\pi mt\bmod2\pi,ht),\qquad 0\leqslant t\leqslant1,\quad m\in\Z.}
+    它们绕圆柱的圈数不同。曲率为零，Jacobi 方程为 $\nabla_Z\nabla_ZJ=0$；在平行基中 $J$ 的分量均为仿射函数，两端为零便恒为零，故没有共轭点。
+\end{example}
+
+\begin{example}[共轭而连接测地线唯一]
+    在 $\R^4$ 的坐标 $(u,v,x,y)$ 上取 Lorentz 度规
+    \eq{g=2\d u\d v+\d x^2+\d y^2+(x^4-x^2)\d u^2.}
+    曲线 $\gamma(t)=(t,-t/2,0,0)$（$0\leqslant t\leqslant\pi$）为单位类时测地线。沿它有 $\nabla_Z\p_x=0$、$R(\p_x,Z)Z=\p_x$，故 $J(t)=\sin t\,\p_x$ 是两端为零的非零 Jacobi 场，端点共轭。
+
+    但任意连接这两点的测地线，仿射参数化到 $[0,\pi]$ 后，因 $u''=y''=0$ 必有 $u=t$、$y=0$。其 $x$ 方程及端点条件为
+    \eq{x''+x-2x^3=0,\qquad x(0)=x(\pi)=0.}
+    乘以 $x$ 并分部积分，再利用端点为零，得
+    \eq{0=\int_0^\pi\bigl[(x')^2-x^2+2x^4\bigr]\,\d t
+        =\int_0^\pi\bigl[(x'-x\cot t)^2+2x^4\bigr]\,\d t.}
+    第二次分部积分的端点项 $x^2\cot t$ 的极限为零。右端非负，故 $x=0$；此时 $v''=0$，端点条件又给出 $v=-t/2$。所以连接两端的测地线只有 $\gamma$，尽管指数映射沿相应初矢的微分已经退化。
+\end{example}
+
+\section{Weyl 张量}
+
+以下设 $\dim M=n\geqslant3$，$g$ 为光滑度规，$\nabla$ 为 Levi-Civita 联络。Ricci 张量由曲率缩并得到；从曲率中扣除由这些迹确定的部分，便得到 Weyl 张量。
+
+对称 $(0,2)$ 型张量 $S$ 可与度规组成
+\eq{\label{eq:metric-trace-curvature}
+    B_S(X,Y)Z:=S(Y,Z)X-S(X,Z)Y
+        +g(Y,Z)S^\sharp X-g(X,Z)S^\sharp Y,}
+其中 $S^\sharp$ 由 $g(S^\sharp X,Y)=S(X,Y)$ 确定。
+
+\begin{definition}
+    \textbf{Schouten 张量}为
+    \eq{P:=\frac1{n-2}\left(\mathrm{Ric}-\frac{R}{2(n-1)}g\right).}
+    \textbf{Weyl 张量}为 $(1,3)$ 型张量
+    \eq{C(X,Y)Z:=R(X,Y)Z-B_P(X,Y)Z.}
+    其降指标形式记作 $\mathcal C(X,Y,Z,W):=g(C(X,Y)Z,W)$。
+\end{definition}
+
+\begin{theorem}[曲率的迹分解]\label{thm:weyl-decomposition}
+    $\mathcal C$ 具有 $\mathcal R$ 的全部代数对称性，且任意两项用 $g^{-1}$ 缩并均为零。分解 $R=C+B_P$ 在 $P$ 对称、$C$ 无迹的条件下唯一。
+\end{theorem}
+\begin{proof}
+    由 $S$ 的对称性，$g(B_S(X,Y)Z,W)$ 满足两对变量内的反对称性、两对间的交换性及第一 Bianchi 恒等式，故 $\mathcal C$ 也满足。直接对 $Z\mapsto B_S(Z,X)Y$ 求迹，得
+    \eq{\label{eq:trace-metric-curvature}
+        \mathrm{Ric}_{B_S}=(n-2)S+(\operatorname{tr}_gS)g.}
+    因 $\operatorname{tr}_gP=R/[2(n-1)]$，代入得 $\mathrm{Ric}_{B_P}=\mathrm{Ric}$，故 $C$ 的 Ricci 缩并为零；其余缩并由代数对称性也为零。
+
+    反之，若 $R=C+B_S$ 且 $C$ 无迹，则 $\mathrm{Ric}=(n-2)S+(\operatorname{tr}_gS)g$。再取迹得 $R=2(n-1)\operatorname{tr}_gS$，代回便得 $S=P$，从而分解唯一。
+\end{proof}
+
+沿用 $C_{\rho\sigma\mu\nu}:=g_{\rho\lambda}C^\lambda{}_{\sigma\mu\nu}$ 的分量顺序，上述定义为
+\eq{\label{eq:weyl-components}
+\begin{aligned}
+    C_{\rho\sigma\mu\nu}={}&R_{\rho\sigma\mu\nu}
+        -\frac1{n-2}\bigl(g_{\rho\mu}R_{\sigma\nu}-g_{\rho\nu}R_{\sigma\mu}
+            -g_{\sigma\mu}R_{\rho\nu}+g_{\sigma\nu}R_{\rho\mu}\bigr)\\
+        &+\frac{R}{(n-1)(n-2)}
+            \bigl(g_{\rho\mu}g_{\sigma\nu}-g_{\rho\nu}g_{\sigma\mu}\bigr).
+\end{aligned}}
+
+\begin{theorem}
+    在每一点，Weyl 张量的独立分量数为
+    \eq{\frac{n(n+1)(n+2)(n-3)}{12}.}
+    因而三维时 $C=0$，曲率完全由 Ricci 张量确定；四维时 Weyl 张量有 $10$ 个独立分量。
+\end{theorem}
+\begin{proof}
+    记 $N:=\binom n2$。具有两对反对称性及对间交换性的 $(0,4)$ 型张量，相当于 $\Lambda^2T_pM$ 上的对称双线性型，有 $N(N+1)/2$ 个独立分量。第一 Bianchi 恒等式只在四个指标互异时给出新约束，每组四个指标给出一个独立约束，故代数曲率张量的维数为
+    \eq{\frac{N(N+1)}2-\binom n4=\frac{n^2(n^2-1)}{12}.}
+    由式 \eqref{eq:trace-metric-curvature}，Ricci 缩并映满对称 $(0,2)$ 型张量空间，其核正是 Weyl 张量空间。减去 $n(n+1)/2$，即得结论。
+\end{proof}
+
+\begin{remark}
+    二维时上述定义中的 $n-2$ 为零，不能直接代入。此时曲率仅有一个独立分量，
+    \eq{R(X,Y)Z=\frac R2\bigl(g(Y,Z)X-g(X,Z)Y\bigr),}
+    故也无独立的 Weyl 部分，通常约定 $C=0$。
+\end{remark}
+
+\begin{example}
+    若 $\mathrm{Ric}=0$，则 $P=0$，故 $C=R$；在四维及更高维，这并不迫使曲率为零。反之，若
+    \eq{R(X,Y)Z=k\bigl(g(Y,Z)X-g(X,Z)Y\bigr),}
+    则缩并得 $\mathrm{Ric}=(n-1)kg$、$R=n(n-1)k$，从而 $P=kg/2$、$C=0$。因此 $C=0$ 也不意味着曲率为零。
+\end{example}
+
+\begin{definition}
+    若 $\widehat g=\e^{2f}g$，其中 $f\in C^\infty(M)$，则称两度规\textbf{共形}，此替换称为度规的\textbf{共形变换}。若每点附近存在坐标，使 $g=\e^{2f}\eta$，其中 $\eta$ 的分量为常数，则称 $g$ \textbf{局部共形平直}。
+\end{definition}
+
+\begin{theorem}[Weyl 张量的共形不变性]\label{thm:weyl-conformal}
+    若 $\widehat g=\e^{2f}g$，则两度规的 $(1,3)$ 型 Weyl 张量相同，即 $\widehat C=C$；降指标后则有 $\widehat{\mathcal C}=\e^{2f}\mathcal C$。
+\end{theorem}
+\begin{proof}
+    两个 Levi-Civita 联络满足
+    \eq{\widehat\nabla_XY=\nabla_XY+X(f)Y+Y(f)X-g(X,Y)(\d f)^\sharp,}
+    因右端无挠且与 $\widehat g$ 适配，由唯一性即得。置对称张量
+    \eq{Q:=-\nabla\d f+\d f\otimes\d f-\frac12g^{-1}(\d f,\d f)g.}
+    将联络之差代入曲率定义，整理得 $\widehat R=R+B_Q$。由式 \eqref{eq:trace-metric-curvature} 缩并，便得 $\widehat P=P+Q$。对固定的 $S$，$B_S$ 中度规与逆度规的缩放相消，故 $B_S$ 不随共形变换改变。于是
+    \eq{\widehat C=\widehat R-B_{\widehat P}
+        =R+B_Q-B_{P+Q}=C.}
+    最后用 $\widehat g=\e^{2f}g$ 降指标，即得第二式。
+\end{proof}
+
+\begin{corollary}
+    局部共形平直的度规满足 $C=0$。
+\end{corollary}
+\begin{proof}
+    常分量度规 $\eta$ 的曲率为零，故其 Weyl 张量为零，再用共形不变性即可。
+\end{proof}
+
+\section{最大对称空间}\label{sec:maximally-symmetric}
+
+本节设 $(M,g)$ 为连通光滑度规流形，$\dim M=n\geqslant3$，$\nabla$ 为 Levi-Civita 联络。度规可以正定，也可以不定；Lorentz 号差下的最大对称空间称为最大对称时空。
+
+\subsection{截面曲率与 Einstein 条件}
+
+\begin{definition}
+    置 $p\in M$ 及非退化二维子空间 $\Pi=\operatorname{span}\{X,Y\}\subset T_pM$。其\textbf{截面曲率}为
+    \eq{\sec_p(\Pi):=\frac{g(R(X,Y)Y,X)}{g(X,X)g(Y,Y)-g(X,Y)^2}.}
+    更换 $\Pi$ 的基时，分子、分母均乘以基变换行列式的平方，故此定义与基无关。若所有点、所有非退化二维子空间的截面曲率均等于同一常数 $k$，则称 $(M,g)$ 为\textbf{常截面曲率空间}，简称\textbf{常曲率空间}。
+\end{definition}
+
+\begin{theorem}\label{thm:sectional-curvature-form}
+    在一点 $p$，所有截面曲率均等于 $k$，当且仅当
+    \eq{\label{eq:constant-sectional-curvature}
+        R(X,Y)Z=k\bigl(g(Y,Z)X-g(X,Z)Y\bigr),\qquad X,Y,Z\in T_pM.}
+\end{theorem}
+\begin{proof}
+    代入定义即得充分性。反之，将两边之差降指标，记为 $A(X,Y,Z,W)$。它具有曲率的代数对称性，且 $A(X,Y,Y,X)=0$；非退化二维子空间稠密，故此式对所有 $X,Y$ 成立。
+
+    对 $Y$ 极化，再用第一 Bianchi 恒等式，得 $A(X,Y,Z,X)=0$。再对 $X$ 极化，得
+    \eq{A(X,Y,Z,W)=-A(W,Y,Z,X)=A(Z,X,Y,W).}
+    因而第一 Bianchi 恒等式的三项相等，故 $3A=0$，即得必要性。
 \end{proof}
 
 \begin{definition}
-    置 Lorentz 流形 $(M,g)$。若存在 $r$ 个 Killing 矢量场线性独立，且每点处该 $r$ 个矢量张成的切空间维数为 $r$，则称 $(M,g)$ 具有\textbf{对称性}，这 $r$ 个 Killing 矢量生成 Lie 群 $G$ 作用在 $M$ 上。
+    若 $\mathrm{Ric}=\lambda g$，其中 $\lambda$ 为常数，则称 $(M,g)$ 为\textbf{Einstein 流形}。此时 Ricci 标量为 $R=n\lambda$。
 \end{definition}
 
-\begin{definition}
-    若 Lorentz 流形 $(M,g)$ 具有最大对称性，即 Killing 矢量数目为 $\frac{n(n+1)}{2}$，则称为\textbf{最大对称时空}。
-\end{definition}
+\begin{theorem}[Schur]\label{thm:schur}
+    若 $\mathrm{Ric}=\lambda g$，其中 $\lambda$ 起初只假定为光滑函数，则 $\lambda$ 必为常数。特别地，若每点的截面曲率只依赖该点，则它在 $M$ 上恒定。
+\end{theorem}
+\begin{proof}
+    因 $\nabla g=0$，$\operatorname{div}(\lambda g)=\d\lambda$，而 $R=n\lambda$。缩并 Bianchi 恒等式给出
+    \eq{\d\lambda=\frac12\d R=\frac n2\d\lambda.}
+    由 $n\geqslant3$ 及连通性，$\lambda$ 为常数。若截面曲率为 $k(p)$，缩并式 \eqref{eq:constant-sectional-curvature} 得 $\mathrm{Ric}=(n-1)kg$，故 $k$ 也为常数。
+\end{proof}
 
 \begin{theorem}
-    最多 Killing 矢量数目为 $\frac{n(n+1)}{2}$。
+    常截面曲率等价于 Einstein 条件与 $C=0$ 同时成立。此时
+    \eq{\mathrm{Ric}=(n-1)kg,\qquad R=n(n-1)k.}
 \end{theorem}
-
 \begin{proof}
-    这是 $n$ 个分量中 $\frac{n(n+1)}{2}$ 个独立条件的二阶偏微分方程。
-    
-    由唯一性定理，Killing 矢量由其在一点及该点处的一阶导数唯一确定。在一点处，矢量场有 $n$ 个自由度，其 Hessian 矩阵受 Killing 方程约束给出 $\frac{n(n+1)}{2}$ 个独立分量。这些自由度全部用尽后，不可能有更多线性独立的 Killing 矢量场。
+    常曲率情形已在 Weyl 张量的例子中算得。反之，若 $\mathrm{Ric}=\lambda g$，则 $P=\lambda g/[2(n-1)]$。由 $C=0$ 及 $R=C+B_P$，得式 \eqref{eq:constant-sectional-curvature}，其中 $k=\lambda/(n-1)$。
 \end{proof}
+
+\begin{example}
+    三维时 $C$ 恒为零，故 Einstein 条件就等价于常截面曲率。四维起则不然：两个同半径 $a$ 的圆球面之积 $S^2(a)\times S^2(a)$，取乘积度规，满足 $\mathrm{Ric}=a^{-2}g$；但位于同一因子内的二维子空间曲率为 $a^{-2}$，分别取自两因子的切矢所张成的二维子空间曲率为零。因此 Einstein 流形不能泛称为常曲率流形。
+\end{example}
+
+\subsection{Killing 场与最大对称性}
+
+\begin{theorem}\label{thm:killing-dimension}
+    置连通 $n$ 维流形及度规 $(M,g)$。Killing 场由任一点处的 $K_p$ 及 $(\nabla K)_p$ 唯一确定，故
+    \eq{\dim\mathfrak{kill}(M,g)\leqslant n+\frac{n(n-1)}2=\frac{n(n+1)}2.}
+\end{theorem}
+\begin{proof}
+    取两解之差，只需证 $K_p=0$、$(\nabla K)_p=0$ 蕴涵 $K=0$。记 $\phi_s$ 为 $K$ 的局部流。因 $K_p=0$，$\phi_s(p)=p$；又此时 $(\p_\nu K^\mu)(p)=(\nabla_\nu K^\mu)(p)=0$，对流方程关于初值求导，得
+    \eq{\dv{}{s}(\phi_s)_{*p}=0,\qquad (\phi_0)_{*p}=\id,}
+    故 $(\phi_s)_{*p}=\id$。取足够小的 $p$ 的法邻域 $N$，使 $\phi_s$ 对其中各点在共同的 $s=0$ 邻域内有定义。由式 \eqref{eq:isometry-exponential}，
+    \eq{\phi_s(\exp_p v)=\exp_p((\phi_s)_{*p}v)=\exp_p v,}
+    故 $K$ 在 $N$ 上为零。于是 $\{q:K_q=0,\ (\nabla K)_q=0\}$ 既闭又开，由连通性即为 $M$。
+
+    因而线性映射 $K\mapsto(K_p,(\nabla K)_p)$ 为单射。$K_p$ 有 $n$ 个分量，而 Killing 方程使 $\nabla_\mu K_\nu$ 反对称，只有 $n(n-1)/2$ 个独立分量，合计即得上界。
+\end{proof}
+
+\begin{definition}
+    若 $\dim\mathfrak{kill}(M,g)=n(n+1)/2$，则称 $(M,g)$ 为\textbf{最大对称空间}。若每点都有连通开邻域 $U$，使 $\dim\mathfrak{kill}(U,g|_U)=n(n+1)/2$，则称为\textbf{局部最大对称空间}。
+\end{definition}
+
+\begin{remark}
+    此处按 Killing 场的数目定义最大对称性。它们是否生成作用于整个 $M$ 的单参数等度规群，还取决于完备性。最大对称空间必局部最大对称：全局 Killing 场限制到非空连通开集后，由定理 \ref{thm:killing-dimension} 的唯一性仍线性无关。
+\end{remark}
+
+为证明常曲率与局部最大对称性等价，先说明常曲率度规的局部唯一性。
+
+\begin{lemma}\label{lem:constant-curvature-local-isometry}
+    两个同维、同号差的常截面曲率空间，若曲率常数相同，则任意切空间等距同构 $A:T_pM\to T_qN$ 均可延拓为 $p,q$ 附近的局部等度规映射。
+\end{lemma}
+\begin{proof}
+    在足够小的法邻域内置 $F:=\exp_q\circ A\circ\exp_p^{-1}$。只需证明 $F$ 保持度规。
+
+    沿 $\gamma_v(t)=\exp_p(tv)$，取定理 \ref{thm:jacobi-exponential} 中的 $J_w$，记 $Z:=\dot\gamma_v$。常曲率下的 Jacobi 方程为
+    \eq{\nabla_Z\nabla_ZJ_w
+        =k\bigl(g(J_w,Z)Z-g(Z,Z)J_w\bigr),\qquad
+        J_w(0)=0,\quad (\nabla_ZJ_w)(0)=w.}
+    在沿线平行移动的基中，$Z$ 的分量恒为 $v$，故它是只依赖 $k,g_p,v$ 的常系数线性方程。
+
+    在 $N$ 中以 $Av,Aw$ 作同样构造。$A$ 保持内积，故两组方程及初值由 $A$ 对应；由解的唯一性，对任意 $w,z\in T_pM$，两侧 $J_w(1),J_z(1)$ 的内积相同。而 $J_w(1)=(\exp_p)_{*v}w$，故 $F^*g_N=g_M$。
+\end{proof}
+
+\begin{example}[常曲率模型]\label{eg:space-form-models}
+    曲率为零的模型是带常度规的 $\R^n$。对平直 Killing 方程求导并循环消去，得 $\p_i\p_jK_k=0$，故其全部 Killing 场为
+    \eq{K(x)=a+Ax,\qquad g(Au,v)+g(u,Av)=0,}
+    即平移与度规反对称线性变换的生成场，共有 $n+n(n-1)/2$ 个独立参数。
+
+    对 $k\ne0$，在 $(n+1)$ 维常度规空间 $(V,\langle\ ,\ \rangle)$ 中取二次曲面
+    \eq{Q_k:=\{x\in V:\langle x,x\rangle=1/k\}.}
+    环境度规比所需度规多一个正号（$k>0$）或负号（$k<0$）；必要时取 $Q_k$ 的一个连通分支。$x$ 为非零法矢，故诱导度规非退化。记环境的平直联络为 $D$，对切矢场有
+    \eq{D_XY=\nabla_XY-k g(X,Y)x.}
+    将此式代入环境曲率为零的等式并取切向部分，得 $R(X,Y)Z=k(g(Y,Z)X-g(X,Z)Y)$。
+
+    每个环境度规反对称线性变换 $A$ 都给出切于 $Q_k$ 的 Killing 场 $K_A(x)=Ax$。若此场在一个非空开片上为零，则 $A$ 同时在该片一点 $p$ 及 $T_pQ_k$ 上为零；它们张成 $V$，故 $A=0$。因此这些场有 $n(n+1)/2$ 个独立参数。两类模型均达到 Killing 场数目的上界。
+\end{example}
+
+\begin{theorem}\label{thm:local-maximal-symmetry}
+    连通度规流形局部最大对称，当且仅当具有常截面曲率。
+\end{theorem}
+\begin{proof}
+    先设局部最大对称。定理 \ref{thm:killing-dimension} 中的单射
+    \eq{K\longmapsto\bigl(K_p,(\nabla K)_p\bigr)}
+    的定义域与值域同维，故为满射；其中 $(\nabla K)_p$ 可取任意对 $g_p$ 反对称的线性变换。特别地，任给这样的 $A$，可取 $K_p=0$、$(\nabla K)_p=A$。其局部流固定 $p$，在 $T_pM$ 上诱导 $\e^{tA}$，并保持曲率。
+
+    因而 $p$ 处的截面曲率在旋转及双曲旋转下不变。同一号差的非退化二维子空间可由这些变换联系，故它们有相同曲率。若度规不定，还需比较不同号差。取两两正交的单位切矢 $u,v,w$，其中 $u,v$ 同号、$w$ 异号。$\operatorname{span}\{\cosh t\,u\pm\sinh t\,w,v\}$ 与 $\operatorname{span}\{u,v\}$ 同号差。将两种符号的曲率分子求平均，得
+    \eq{k_{\text{同号}}=\cosh^2t\,k_{\text{同号}}
+        -\sinh^2t\,k_{\text{异号}},}
+    故两者相等。对每种存在的同号二维子空间作此比较，便知所有截面曲率相同。由 Schur 定理，曲率在连通的 $M$ 上为常数。
+
+    反之，若截面曲率恒为 $k$，由引理 \ref{lem:constant-curvature-local-isometry}，每点附近均与例 \ref{eg:space-form-models} 中相应模型的开片等度规。该开片有 $n(n+1)/2$ 个独立 Killing 场，拉回即得局部最大对称性。
+\end{proof}
+
+\subsection{标准例子及整体区别}
+
+置 $a>0$，记 $\R^{r,s}$ 的常度规有 $r$ 个负号、$s$ 个正号。正定及 Lorentz 号差下的标准模型为
+\begin{center}
+\begin{tabular}{c|c|c}
+    截面曲率 & 正定度规 & Lorentz 度规\\\hline
+    $0$ & 欧氏空间 $\R^n$ & Minkowski 时空 $\R^{1,n-1}$\\
+    $a^{-2}$ & 圆球面 $S^n(a)\subset\R^{n+1}$ & de Sitter 时空 $\mathrm{dS}_n(a)\subset\R^{1,n}$\\
+    $-a^{-2}$ & 双曲空间 $H^n(a)\subset\R^{1,n}$ & anti-de Sitter 时空 $\mathrm{AdS}_n(a)\subset\R^{2,n-1}$
+\end{tabular}
+\end{center}
+表中非零曲率模型均取自 $\langle x,x\rangle=\pm a^2$；双曲空间取其中一叶。AdS 二次曲面有闭合类时曲线，物理上通常使用它的万有覆盖，以解除时间方向的周期识别。上述环境 Killing 场提升后，万有覆盖仍最大对称。
+
+\begin{example}[局部与整体]
+    平坦环面 $\R^n/\Z^n$ 局部等度规于欧氏空间，故局部最大对称。但它的全局 Killing 场只有 $n$ 个独立平移场：提升到 $\R^n$ 后，平直 Killing 方程给出 $K(x)=a+Ax$，其中 $A$ 反对称；周期性要求 $Am=0$ 对所有 $m\in\Z^n$ 成立，故 $A=0$。所以常截面曲率不能单独保证整体最大对称。
+
+    另一方面，欧氏空间的开球上仍有 $n(n+1)/2$ 个独立 Killing 场，但平移场不完备，其流不能对所有参数保持该开球。这说明按全局 Killing 场计数与按整体等度规群计数，在不完备空间上仍须区分。
+\end{example}
+
+\begin{remark}
+    在 $n$ 维真空 Einstein 方程 $G+\Lambda g=0$ 中，最大对称解满足
+    \eq{\lambda=\frac{2\Lambda}{n-2},\qquad
+        k=\frac{2\Lambda}{(n-1)(n-2)}.}
+    四维时有 $10$ 个独立 Killing 场，且 $k=\Lambda/3$、$R=4\Lambda$。因此 $\Lambda=0$、$\Lambda>0$、$\Lambda<0$ 分别对应 Minkowski、de Sitter、anti-de Sitter 的局部几何；整体拓扑仍须另行指定。
+\end{remark}
 

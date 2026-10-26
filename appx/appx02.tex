@@ -260,16 +260,23 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 \end{definition}
 
 
-专注于 $W=\F$，则 $f$ 为双线性函数、$f_\flat(\alpha)$ 为对偶矢量、$f_\flat\in\hom(V,V^*)$。
+专注于 $W=\F$，并先设 $V$ 有限维。则 $f$ 为双线性函数、$f_\flat(\alpha)$ 为对偶矢量、$f_\flat\in\hom(V,V^*)$。
 双线性函数的分量矩阵称为\textbf{度量矩阵}。不同基的度量矩阵是合同的，而合同变换保秩，故可直接定义 $\rank f$ 为任意度量矩阵的秩。
 
 \begin{theorem}
     $\rank f=\rank f_\flat$.
 \end{theorem}
 
-$f$ 满秩时称为非退化的。易证充要条件是分量矩阵可逆，或
-\eq{\forall w \in V,\quad f(v,w)=0 \iff v=0.}
-故非退化性等价于 $f_\flat\in\mathrm{Isom}(V,V^*)$。换言之，可规定好某个 $f$ 作为 $V$ 上的额外结构，建立 $V,V^*$ 间的特殊同构。
+\begin{definition}\label{def:nondegenerate-bilinear}
+    若 $\ker f_\flat=\{0\}$，称 $f$ \textbf{非退化}；否则称为\textbf{退化}。即对任意 $v\in V$，
+    \eq{\bigl[\forall w\in V,\ f(v,w)=0\bigr]\iff v=0.}
+    对称双线性函数的 $\ker f_\flat$ 称为其\textbf{退化子空间}。
+\end{definition}
+有限维时，非退化等价于 $f$ 满秩、分量矩阵可逆，或 $f_\flat\in\mathrm{Isom}(V,V^*)$。换言之，可规定好某个 $f$ 作为 $V$ 上的额外结构，建立 $V,V^*$ 间的特殊同构。
+
+\begin{remark}
+    非零未必非退化，例如矩阵 $\diag(1,0)$ 给出的双线性函数。非退化也不要求 $f(v,v)\ne0$ 对一切非零 $v$ 成立：$g=\diag(-1,1)$ 非退化，但 $v=(1,1)$ 满足 $g(v,v)=0$。退化要求某个非零矢量与\textit{所有}矢量的配对均为零。
+\end{remark}
 
 相对论主要用实线性空间。度规是 $\F=\R$ 的特例：
 
@@ -290,32 +297,39 @@ $f$ 满秩时称为非退化的。易证充要条件是分量矩阵可逆，或
     基和对偶基的对应通常不是度规对偶，即 $e^\mu\ne (e_\mu)_\flat, e_\nu\ne (e^\nu)^\sharp$。
 \end{remark}
 
-任意对称矩阵 $f_{ij}$ 总合同于某个对角阵，对应标准二次型，秩正是非零对角元的个数。且还可继续归一化，对应规范二次型。就实对称矩阵而言，对角元（特征值）符号可变：
+任意实对称矩阵 $f_{ij}$ 总合同于某个对角阵，对应标准二次型，秩正是非零对角元的个数。且还可继续归一化，对应规范二次型：
 \eq{(\tilde f_{ij})=\diag(\pm 1,\cdots,\pm 1,0,\cdots),}
 但正、负或为零的\textit{个数}在合同变换下分别不变。正项个数称正惯性指数，负项个数称负惯性指数。简言之，合同变换保持正负惯性指数，此即代数学的 \textbf{Sylvester 惯性定理}。正负惯性指数之差就是号差，它进而是不变的。
 
-度规的非退化性使其无零特征值，就可迎合物理上时空度规总能变换至 $\eta_{\mu\nu}$ 的要求。
+非退化性排除规范矩阵中的零对角元；能否化为 $\eta_{\mu\nu}$，还取决于正、负惯性指数是否与之相同。
 记负惯性指数 $s$。$s=0$ 时称度规是\textbf{正定的}(positive definite)。$s=\dim V$ 时称\textbf{负定的}(negative definite)。其它皆称\textbf{不定的}(indefinite)，时空度规就是不定的，推广到高维情形时，可依旧按东海岸习惯规定 $(-1,1,\cdots,1)$，西海岸取 $(1,-1,\cdots,-1)$。
 
-使度规表为单位阵的基称为该度规下的\textbf{正交归一基}，即满足 $g(e_i,e_j)=\pm\delta_{ij}$ 的$\{e_{\mu}\}$。当然，数学上内积的定义略有不同。首先对于 $\R$，数学上的内积通常正定：$\langle\alpha,\beta\rangle\geqslant0$，而正定内积必非退化。相对论允许不定度规，因此 $\alpha \in V$ 的模或\textbf{范数} $|\alpha|=\sqrt{|\langle\alpha, \alpha\rangle|}$ 需在根号中加绝对值。有时为与行列式区分写作 $\|\alpha\|$。最常用的写法是 $\alpha^2=\langle\alpha, \alpha\rangle$，允许模方为负。但都有 \textbf{Cauchy-Schwartz 不等式} $|\langle\alpha, \beta\rangle| \leqslant|\alpha \| \beta|$。$n$ 维线性空间在给定正定内积后，就成了 $n$ 维实内积空间，其不仅同构于 $\R^n$，且可在正交归一基，按勾股定理定义夹角、长度等概念，故有时也被称为\textit{欧氏（线性）空间}。其次对于 $\C$，数学通常发展了量子力学的态矢概念：
+使度规表为 $\diag(\pm1,\cdots,\pm1)$ 的基称为该度规下的\textbf{正交归一基}。数学上通常将实内积限定为对称、正定的双线性函数；正定即 $\alpha\ne0$ 时 $\langle\alpha,\alpha\rangle>0$。正定必非退化，反之不然。
+
+正定内积给出\textbf{范数} $\|\alpha\|:=\sqrt{\langle\alpha,\alpha\rangle}$，并满足 \textbf{Cauchy-Schwarz 不等式} $|\langle\alpha,\beta\rangle|\leqslant\|\alpha\|\|\beta\|$。$n$ 维实线性空间配以正定内积，称为\textbf{欧氏（线性）空间}，可由内积定义长度和夹角。不定度规下仍可记 $\alpha^2=g(\alpha,\alpha)$、$|\alpha|=\sqrt{|\alpha^2|}$，但非零矢量也可能有零模长，故此处的模长不是范数，通常的 Cauchy-Schwarz 不等式也不再成立。
+
+对于 $\C$，内积采用适于量子力学态矢的定义；以下不要求空间有限维：
 \begin{definition}
     复线性空间 $V$ 称为\textbf{复内积空间}，简称内积空间，若给定内积运算 $(\oo, \oo): V \times V \rightarrow \C$，对任意 $f, g, h \in V$ 和任意 $c,d \in \C$ 满足：
     
     （第二槽线性性）$(f, cg+dh)=c(f, g)+d(f, h)$；
     
-    （交换律）$(f, g)=\overline{(g, f)}$，其中 $\overline{(g, f)}$ 代表复数 $(g, f)$ 的共轭复数；
+    （共轭对称性）$(f, g)=\overline{(g, f)}$，其中 $\overline{(g, f)}$ 代表复数 $(g, f)$ 的共轭复数；
     
-    （非退化）$(f, f) \geqslant 0$, 且 $(f, f)=0 \Leftrightarrow f=0$。
+    （正定性）$(f, f) \geqslant 0$, 且 $(f, f)=0 \Leftrightarrow f=0$。
     \end{definition}
     \begin{remark}
         数域为 $\R$ 时退为正定内积。只含零元的线性空间也可构成内积空间，但下面只讨论维数大于零的情况。
     \end{remark}
     \begin{theorem}
-    非退化条件配以线性性和交换律可得到 $(f+g, h)=(f, h)+(g, h)$ 及 $(c f, g)=\bar{c}(f, g)$。称内积对第一槽有\textbf{共轭线性}。
+    由第二槽线性性及共轭对称性可得 $(f+g, h)=(f, h)+(g, h)$ 及 $(c f, g)=\bar{c}(f, g)$。称内积对第一槽有\textbf{共轭线性}。
     \end{theorem}
     \begin{theorem}
-    对非退化条件中取 $g=f$ 可有：$\forall g\in V,(f,g)=0\im f=0$。
+    内积必非退化：若对所有 $g\in V$ 都有 $(f,g)=0$，则 $f=0$。
     \end{theorem}
+\begin{proof}
+    取 $g=f$，由正定性即得。
+\end{proof}
     \begin{example}
         对 $C[a, b]$ 定义如下内积就构成内积空间：
     \eq{\label{b11}
@@ -325,9 +339,9 @@ $f$ 满秩时称为非退化的。易证充要条件是分量矩阵可逆，或
 
 对于有限维，从任意基 $\{\beta_i\}$ 出发，通过 \textbf{Gram-Schmidt 正交化}：
 \eq{
-\alpha_1=\beta_1,\quad \alpha_r=\beta_r-\sum_{k=1}^{r-1}\frac{(\alpha_k,\beta_r)}{(\alpha_k,\alpha_k)}\alpha_k,\quad \xi_i=\frac{\alpha_i}{|\alpha_i|},
+\alpha_1=\beta_1,\quad \alpha_r=\beta_r-\sum_{k=1}^{r-1}\frac{(\alpha_k,\beta_r)}{(\alpha_k,\alpha_k)}\alpha_k,\quad \xi_i=\frac{\alpha_i}{\sqrt{(\alpha_i,\alpha_i)}},
 }
-总能找到内积空间中的正交归一基 $\{\xi_i\}$，其几何意义是正交投影和作差。这一正交化过程同样能用于寻找度规的正交归一基。
+总能找到内积空间中的正交归一基 $\{\xi_i\}$，其几何意义是正交投影和作差。不定度规下可能出现零模的中间矢量，故不能对任意基直接套用上述公式；其正交归一基的存在由 Sylvester 惯性定理保证。
 
 \begin{definition}
     置内积空间 $V$。对 $f,g\in V$ 的定义通常距离 $d(f, g):=\sqrt{(f-g, f-g)}$，便得到\textbf{度量线性空间}。该度量诱导拓扑之后（见定义 \ref{def:metric_topo}），又成了\textbf{拓扑线性空间}。
