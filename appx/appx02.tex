@@ -109,7 +109,7 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
     $({A}^{-\mathrm{T}})_\nu{}^\mu\langle e^{\nu}, e_\alpha^{\prime}\rangle  =(A^{-\mathrm{T}})_\nu{ }^\mu A^\beta{}_\alpha\langle e^{\nu}, e_\beta\rangle  =(A^\mathrm{T})_\alpha{ }^\beta (A^{-\mathrm{T}})_\nu{ }^\mu \delta_\beta^\nu =(A^\mathrm{T})_\alpha{ }^\nu (A^{-\mathrm{T}})_\nu{ }^\mu=\delta_\alpha^\mu=\langle e^{\prime \mu}, e_\alpha^{\prime}\rangle$。
 \end{proof}
 
-\section{张量空间}
+\section{张量空间}\label{sec:tensor}
 
 张量与有限个矢量、对偶矢量线性地缩并出标量，因此可用多重线性函数表述。换言之，可直接称多重线性函数为张量，该定义多数情况与等价类 $[T^{\cdots}{}_{\cdots}]$ 表述等价。至少本节谈到张量均指多重线性函数。张量相比矢量、对偶矢量，无非是多出若干输入端口。
 可类比从单元函数拓展到多元函数。
@@ -179,7 +179,7 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 \end{proof}
 
 张量空间实际上被视为\textit{线性空间张量积}的结果，即定义
-    \eq{V^k_l=:\underbrace{V^*\otimes\cdots\otimes V^*}_{k\in\N}\otimes\underbrace{V\otimes\cdots\otimes V}_{l\in\N}.}
+    \eq{V^k_l=:\underbrace{V\otimes\cdots\otimes V}_{k\text{个}}\otimes\underbrace{V^*\otimes\cdots\otimes V^*}_{l\text{个}}.}
 一般地，可定义不同线性空间的张量积为多重线性映射的 hom-集。换言之，矢量张量积是双线性映射 $\otimes:X\times Y\to W$，使得对任意线性空间 $Z$ 和双线性映射 $f: X\times Y\to Z$，都 $\exists!g\in\hom(W,Z)$ 满足 $f=g\circ\otimes$，即下图交换：
     \[ \begin{tikzcd}[row sep=small]
         X \times Y \arrow[rd, "f"'] \arrow[r] & X\otimes Y \arrow[d, "\exists!"] \\

@@ -345,10 +345,10 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
 
 \begin{theorem}[坐标分量变换律]
     置坐标系 $(O,\psi),(O',\psi')$ 及 $p\in O\cap O'$。两坐标基及同一切矢 $v\in T_pM$ 的分量满足
-    \[
+    \eq{\label{chdm:eqn_xy-transform}
         X_i= {\pdv{x'^j}{x^i}}(p)X'_j,\quad
         v'^j= {\pdv{x'^j}{x^i}}(p)v^i, \quad {\pdv{x'^j}{x^i}}(p):=\pdv{(x'^j\circ\psi^{-1})}{x^i}\bigg|_{\psi(p)}.
-    \]
+    }
     其中 Jacobi 系数 $\pdv*{x'^j}{x^i}$ 是 $O\cap O'$ 上的光滑函数。
 \end{theorem}
 \begin{proof}
@@ -425,558 +425,393 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
     全体余切空间的无交并 $T^*M:=\bigsqcup_{p\in M} T^*_p M$ 称为\textbf{余切丛}。
 \end{definition}
 
-Cartan 不仅提出了切矢的泛函导子定义，他还注意到
-%% ...
-这相当于给函数微分一个更严格的理解。标准分析学中常将 $\d f$ 定义为 $\Delta f$ 的线性主部，即 $\d f(x,\Delta x):=f'(x)\Delta x$。这里 $\Delta x$ 是从某点 $x$ 出发的位移，实际上任意大小，但物理上的理解是在 $\Delta x$ 很小时给出的微小增量。
-%% ...
-可见微分和余切的关系。
+Cartan 不仅提出了切矢的泛函导子定义，他还注意到，同一关系也可反过来看：切矢 $v$ 作用于函数 $f$ 给出实数 $v(f)$，而固定 $f$，便得到关于 $v$ 的线性泛函。
+这相当于给函数微分一个更严格的理解。标准分析学中常将 $\d f$ 定义为 $\Delta f$ 的线性主部，即 $\d f(x,\Delta x):=f'(x)\Delta x$。这里 $\Delta x$ 是从某点 $x$ 出发的位移，作为线性映射的自变量可取任意大小；只有用 $\d f$ 近似实际增量 $\Delta f$ 时，才要求 $\Delta x$ 足够小。物理上常将其理解为微小位移所引起的微小增量。
+在流形上，两点不能直接作差，但沿曲线的位移仍可由切矢作一阶描述。因此，将 $\Delta x$ 换为 $p$ 处的切矢 $v$，用方向导数 $v(f)$ 给出微分的作用。它对 $v$ 线性，故属于 $T_p^*M$，这便是微分与余切矢的关系。
+
+\begin{definition}
+    置开集 $U\subset M$ 及 $f\in C^\infty(U)$。$f$ 在 $p\in U$ 处的\textbf{微分}为
+    \eq{\label{chdm:eqn_dfv}
+        (\d f)_p(v):=v(f),\quad v\in T_pM.
+    }
+    它只依赖 $f$ 在 $p$ 处的函数芽。各点的微分组成余切矢场 $\d f$。
+\end{definition}
 
 \begin{theorem}
-    $\dim T_p^* M = \dim T_p M = n$。
+    坐标函数的微分 $\{(\d x^i)_p\}$ 是 $\{\p_i|_p\}$ 的对偶基，故 $\dim T_p^*M=\dim T_pM=n$。
 \end{theorem}
 \begin{proof}
-    $\{\p_i|_{p}\}$ 的对偶基记为 $\{\left.\d x^j\right|_{p}\}$，由
-\eq{\label{chdm:eqn_dual-natural-bases}
-    \left.\d x^j\right|_{p}\!\left(\p_i|_{p}\right):=\delta_i^j
-}
-确定。下文略去取值点，则 $\d x^j(v)=v^i\delta_i^j=v^j$，即取出 $v$ 的第 $j$ 个分量。任给 $\omega\in T^*_{p}M$，有
-\eq{
-    \omega=\omega_j\d x^j,\quad \omega(v)=\omega_jv^j.
-}
+    由定义，
+    \eq{\label{chdm:eqn_dual-natural-bases}
+        (\d x^j)_p(\p_i|_p)=\p_i|_p(x^j)=\delta_i^j.
+    }
+    故上述两组基对偶，维数结论随即成立。
 \end{proof}
 
-配对 $\langle\omega,v\rangle:=\omega(v)$ 是实数，而 $v(f)$ 也是实数，因此可用函数 $f$ 定义余切矢量。
-
-\begin{definition}\label{chdm:def_pushforward-vector}
-    映射 $F:M\to N$ 的在 $p$ 处的切映射
-    定义\textbf{推前映射}，或称为\textbf{切映射}：
-    \eq{
-        (\phi_{*}v)(g) := v(\phi^{*}(g)) = v (g \circ \phi),
-        \quad \forall g\in C^\infty_{\phi(p)}(N),\quad \forall v \in T_{p}M .
-    }
-\end{definition}
-
-\begin{definition}函数的\textbf{微分}定义为
-    \eq{
-    \d f(p)(A):=A(f).
-}
-\end{definition}
-
-由定义及坐标展开，
-\eq{\label{chdm:eqn_dfv}
-    (\d f)_{p}(v)=v(f)=v^i\left.\pdv{f}{x^i}\right|_{p}.
-}
-特别地，$\d x^i(\p_j)=\p_j(x^i)=\delta^i_j$，故坐标函数的微分正是上述对偶基，称为\textbf{对偶坐标基}。于是
+$\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。任给 $\omega\in T_p^*M$ 及 $v\in T_pM$，有
+\[
+    \omega=\omega_i\d x^i,\quad \omega_i:=\omega(\p_i),\qquad
+    \langle\omega,v\rangle:=\omega(v)=\omega_i v^i.
+\]
+特别地，$(\d f)(\p_i)=\p_i f$，故
 \eq{\label{chdm:eqn_df}
-    (\d f)_{p}=\left.\pdv{f}{x^j}\right|_{p}\left.\d x^j\right|_{p}.
+    \d f=\p_i f\,\d x^i.
 }
-略去取值点，即 $\d f=\p_jf\,\d x^j$，与通常的全微分一致。
+这与通常的全微分一致\footnote{在标准分析中，全微分理解为各线性映射间的关系，这里将线性映射叙述为余切矢量。为区分于标准分析学中的概念，部分书籍会用粗体表示这些泛函，如 $\bm A,\bm\omega,\bm{\partial}/{\bm{\partial}x^i},\mathbf{d}f$。但其实没有必要，因为两种概念其实是一致的。看似不同是因为本科教学为了通俗性，默认以坐标空间为基础，而没有额外提出流形。}。微分本身是余切矢；将其对应为梯度切矢还需指定度规。
 
-在标准分析中，全微分理解为各线性映射间的关系，这里将线性映射叙述为余切矢量。由于分量是 $\p_i f$，因此有时建议称标量场的\textbf{梯度}\footnote{为区分于标准分析学中的概念，部分书籍会用粗体表示这些泛函，如 $\bm A,\bm\omega,\bm{\partial}/{\bm{\partial}x^i},\mathbf{d}f$。但其实没有必要，因为两种概念其实是一致的。看似不同是因为本科教学为了通俗性，默认以坐标空间为基础，而没有额外提出流形。}。
+由切矢的线性性及 Leibniz 法则，微分满足
+\[
+    \d(af+bg)=a\,\d f+b\,\d g,\qquad
+    \d(fg)=g\,\d f+f\,\d g,\quad a,b\in\R.
+\]
 
-函数的微分，对于标量函数有这些运算：加法 $f+g$、乘法 $fg$ 和微分 $f\mapsto\d f$。乘法对于加法是可分配的。微分对乘法也是一个分配，即 Leibniz 法则。
+\begin{theorem}[余切分量变换律]
+    置同一点附近的两套坐标 $\{x\},\{x'\}$，略去取值点。对偶坐标基及同一余切矢的分量满足
+    \eq{\label{chdm:eqn_xy-cov-transform}
+        \d x'^j=\pdv{x'^j}{x^i}\d x^i,\qquad
+        \omega'_j=\pdv{x^i}{x'^j}\omega_i.
+    }
+\end{theorem}
+\begin{proof}
+    在式 \eqref{chdm:eqn_df} 中取 $f=x'^j$，即得对偶基变换。将其代入 $\omega=\omega_i\d x^i=\omega'_j\d x'^j$，比较系数并用逆 Jacobi 矩阵，即得分量变换。
+\end{proof}
 
-对于余切矢量认知，也可以先把式\eqref{chdm:eqn_dfv}当成定义，然后由此
-立刻导出坐标基矢间的内积公式\eqref{chdm:eqn_dual-natural-bases}；再导出其它公式。
-很明显定义\eqref{chdm:eqn_dual-natural-bases}和式\eqref{chdm:eqn_dfv}是相容的。
+有了切空间 $T_pM$ 及其对偶空间 $T_p^*M$，只需在 \S\ref{sec:tensor} 中取 $V=T_pM$，便得到流形在 $p$ 处的张量。
 
+\begin{definition}
+    $M$ 在 $p$ 处的 \textbf{$(k,l)$-张量}是张量空间
+    \eq{\label{chdm:eqn_TM-TsM}
+        \mathcal T^k_l(p):=(T_pM)^k_l
+        =\underbrace{T_pM\otimes\cdots\otimes T_pM}_{k\text{个}}
+        \otimes\underbrace{T_p^*M\otimes\cdots\otimes T_p^*M}_{l\text{个}}
+    }
+    中的元素，即接受 $k$ 个余切矢及 $l$ 个切矢的实值多重线性函数。由前文知，其维数为 $n^{k+l}$，其中 $n=\dim M$。
+\end{definition}
 
-微分流形定义中要求坐标卡可以取成各种相容形式，如果$p\in M$有两个相互容许的
-坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，且$U\cap V \neq \varnothing$；
-对应的自然坐标基底分别是$(\frac{\partial }{\partial x^i})_{p} $
-和$(\frac{\partial }{\partial y^j})_{p} $。
-我们把$(\frac{\partial }{\partial y^j})_{p} $看成
-式\eqref{chdm:eqn_v-expand-on-natural-bases}中的$v$，那么有
-\eq{\label{chdm:eqn_xy-transform}
-    \left(\frac{\partial }{\partial y^j}\right)_{p} = \left. \frac{\partial x^i}{\partial y^j}\right|_{p} \cdot
-    \left(\frac{\partial }{\partial x^i}\right)_{p}     {\ \Leftrightarrow \ }
-    \left(\frac{\partial }{\partial x^i}\right)_{p} = \left. \frac{\partial y^j}{\partial x^i}\right|_{p} \cdot
-    \left(\frac{\partial }{\partial y^j}\right)_{p} .
-}
-上式同时写出了逆变换；可见过渡矩阵恰好是$p$点的Jacobi矩阵。
-
-
-在$U\cap V$中可以把$y^j$看成自变量是$x^i$的标量函数（也可反过来），
-将式\eqref{chdm:eqn_df}中的$f$用$y^j$替换后，有
-\eq{\label{chdm:eqn_xy-cov-transform}
-    (\d y^j) = (\d x^i) \left.\frac{\partial y^j}{\partial x^i}\right|_{p}
-    {\quad \Leftrightarrow \quad }
-    (\d x^i) = (\d y^j) \left.\frac{\partial x^i}{\partial y^j}\right|_{p}
-}
-过渡矩阵恰好是$p$点的Jacobi矩阵之逆。
-
-其实，在同一流形$M$中，点$p\in M$有两个相互容许的坐标卡$(U,\varphi;x)$和$(V,\psi;y)$，
-且$U\cap V \neq \varnothing$；此时的局部坐标变换与局部微分同胚是等价的，
-一般分别称它们为被动模式和主动模式。请读者仔细理解这两种操作的等价性。
-
-有了切空间$T_{p}M$及其对偶空间$T_{p}^{*}M$（两个都是线性空间），
-仿照\S\ref{sec:tensor}，可以定义微分流形$M$在点$p$处的$({p},{q})$型张量，
-可以把它看成$m^{p+q}$维线性空间
-\eq{\label{chdm:eqn_TM-TsM}
-    \mathcal{T}^p_q(p) := \underbrace{T_{p}M\otimes \cdots \otimes T_{p}M}_{p\text{个}}
-    \otimes \underbrace{T_{p}^{*}M\otimes \cdots \otimes T_{p}^{*}M}_{q\text{个}}
-}
-中的元素。也可以把它看成笛卡尔积空间
-\eq{\label{chdm:eqn_TM-X-TsM}
-    \underbrace{T_{p}^{*}M \times \cdots \times T_{p}^{*}M}_{p\text{个}}
-    \times \underbrace{T_{p}M\times \cdots \times T_{p}M}_{q\text{个}}
-}
-的$p+q$重线性函数。
-
-
-从上一小节可知线性空间$\mathcal{T}^p_q(p)$的自然基矢量是（略去了下标$p$）
-\eq{\label{chdm:eqn_tensortrans}
-    \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
-    \d x^{j_1}\otimes\cdots\otimes\d x^{j_q}.
-}
-上式中$1\leqslant \{i,j\} \leqslant m $。
-由式\eqref{chdm:eqn_xy-transform}和\eqref{chdm:eqn_xy-cov-transform}不难得到
-上式在坐标变化下的变换关系。
-
-任一张量 $\alpha\in\mathcal T^p_q(p)$ 均可展开为
+取 $p$ 附近的坐标 $\{x\}$，以 $\p_i|_p$ 及其对偶基 $(\d x^j)_p$ 作张量积，便得到相应的张量基。略去取值点，任意 $\alpha\in\mathcal T^k_l(p)$ 均可唯一展开为
 \eq{\label{chdm:eqn_tensor-component}
-    \alpha=\alpha^{i_1\cdots i_p}{}_{j_1\cdots j_q}
-    \p_{i_1}\otimes\cdots\otimes\p_{i_p}\otimes
-    \d x^{j_1}\otimes\cdots\otimes\d x^{j_q}.
+    \alpha=\alpha^{i_1\cdots i_k}{}_{j_1\cdots j_l}
+    \p_{i_1}\otimes\cdots\otimes\p_{i_k}\otimes
+    \d x^{j_1}\otimes\cdots\otimes\d x^{j_l}.
 }
-
-由式\eqref{chdm:eqn_xy-transform}及\eqref{chdm:eqn_xy-cov-transform}，坐标变换时的分量满足
-\eq{\label{chdm:eqn_tensor-component-trans}
-    \tilde{\alpha}^{k_1 \cdots k_p}_{\phantom{k_1 \cdots k_p}l_1\cdots l_q} (y)
-    ={\alpha}^{i_1 \cdots i_p}_{\phantom{i_1 \cdots i_p}j_1\cdots j_q} (x) \times
-    \frac{\partial y^{k_1}}{\partial x^{i_1}} \cdots
-    \frac{\partial y^{k_p}}{\partial x^{i_p}} \times
-    \frac{\partial x^{j_1}}{\partial y^{l_1}} \cdots
-    \frac{\partial x^{j_q}}{\partial y^{l_q}} .
-}
-需要强调的是：上式所有量都需在点$p\in M$取值，
-$\{x\}$、$\{y\}$是$p$点某个小邻域的两套坐标系。
-由此式直接可得一阶切矢量或余切矢量的分量变换关系。
+坐标变换时，将式 \eqref{chdm:eqn_xy-transform}、\eqref{chdm:eqn_xy-cov-transform} 逐因子代入即可，即得熟悉的张量变换式
+\[
+    {\alpha'}^{k_1 \cdots k_p}_{\phantom{k_1 \cdots k_p}l_1\cdots l_q} (x')
+    ={\alpha}^{i_1 \cdots i_p}_{\phantom{i_1 \cdots i_p}j_1\cdots j_q} (x) 
+    \pdv{x'^{k_1}}{x^{i_1}} \cdots
+    \pdv{x'^{k_p}}{x^{i_p}}
+    \pdv{x^{j_1}}{x'^{l_1}} \cdots
+    \pdv{x^{j_q}}{x'^{l_q}}.
+\]
+所有系数均在同一点 $p$ 取值（等式两边分别取 $p$ 的坐标值 $x',x$）。
+将 $p$ 遍历定义域就是张量场的变换。
 
 \section{诱导映射}\label{chdm:sec_induced-map}
 
-考虑对偶函子 $D$。
+置光滑映射 $\phi:M\to N$。给定标量场 $f:N\to\R$，$p\in M$ 变到 $\phi(p)\in N$ 后，标量场的值为 $f(\phi(p))$。我们可将这个值直接搬回 $p$ 处，得到 $M$ 上的新标量场 $\phi^*f$，满足 $\phi^*f(p)=f(\phi(p))$。这就是\textbf{拉回}：点沿 $\phi$ 向前走，函数值沿 $\phi$ 搬回来。
 
-设有两个微分流形$M$和$N$，维数分别为$m$和$n$（两者未必相等），存在光滑映射$\phi:M\to N$；
-$M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
-\eq{
-    y^\alpha = \phi(x^i)=y^\alpha (x^1,\cdots, x^m), \quad 1\leqslant \alpha \leqslant n .
-}
-取微分流形$M$中任一点$p$及微分流形$N$中点$\phi(p)$，
-则有$y^\alpha_0=\phi(x^i_0)$。
-那么它自然诱导出一系列映射。
+类似地，若 $\phi$ 是微分同胚，则也可将 $p=\phi^{-1}(q)$ 处的函数值搬至 $q$ 处，即对 $h\in C^\infty(M)$ 定义 $\phi_*h:=h\circ\phi^{-1}$。这里需要光滑逆映射，才能保证得到的函数仍光滑。一般映射没有这样的逆：若不同点被映到同一点，其函数值可能不同；不在像中的点也无值可搬。
 
-
-给定标量场 $f:N\to\R$，$p\in M$ 变到 $\phi(p)\in N$ 后标量场的值为 $f(\phi(p))$，而我们可将 $\phi(p)$ 处的 $f$ 值直接搬运回 $p$ 处，即定义新标量场 $\phi^* f:M\to\R$ 满足 $\phi^* f(p):=f(\phi(p))$。
-考虑拉回 $\phi^*:C^\infty(N)\to C^\infty(M)$，即 $\phi^* f:=f\circ\phi$。
-易知 $\phi^*$ 是线性映射，且 $\phi^*(fg)=(\phi^* f) (\phi^* g)$。
-类似地，记 $\phi(p)=q$，若 $\phi$ 是同胚，则也可将 $p=\phi^{-1}(q)$ 处的 $f$ 值往前搬至 $q$ 处，即定义 $\phi_* f$ 使 $\phi_* f(q):=f(\phi^{-1}(q))$ 或者 $\phi_* f:=f\circ\phi^{-1}$
+切矢通过作用于函数来定义，因此函数的拉回也将诱导切矢的推前。再对切映射取线性对偶，便得到余切矢的拉回。以下置 $p\in M$、$q:=\phi(p)$。
 
 \begin{definition}\label{chdm:def_pullback-scalar}
-    从$C^\infty_{\phi(p)}(N)$到$C^\infty_{p}(M)$
-    的拉回 $\phi^{*}$ 为
-    \eq{
-        \phi^{*}(g) := g \circ \phi,
-        \quad \forall g\in C^\infty_{\phi(p)}(N) .
-    }
+    标量函数的\textbf{拉回}为
+    \[
+        \phi^*:C^\infty(N)\to C^\infty(M),\qquad \phi^*f:=f\circ\phi.
+    \]
+    同样的公式给出函数芽的拉回 $\phi^*:C^\infty_q(N)\to C^\infty_p(M)$。它是良定义的：在 $q$ 附近相等的函数，复合 $\phi$ 后在 $p$ 附近仍相等。
 \end{definition}
-一般来说，我们不能把$M$中的标量函数推前到$N$上；比如映射$\phi$不是单射，
-假设有$\phi(x_1)=\phi(x_2)=y\in N$，那么$y$处的被推前函数值就不知道该
-选为$g(x_1)$还是$g(x_2)$的值了，出现多值选择困难。
 
+由逐点运算知，拉回保持线性性及乘法，即
+\[
+    \phi^*(af+bg)=a\phi^*f+b\phi^*g,\qquad
+    \phi^*(fg)=(\phi^*f)(\phi^*g),\quad a,b\in\R.
+\]
 
-同样注意，对于一般的光滑映射，我们不能定义切矢量的拉回；请读者
-仿照上面讨论，用非单一性给出（类似）解释。
+\begin{definition}\label{chdm:def_pushforward-vector}
+    $\phi$ 在 $p$ 处的\textbf{推前映射}，亦称\textbf{切映射}或\textbf{微分}，为
+    \[
+        \phi_{*p}=\d\phi_p:T_pM\to T_qN,\qquad
+        (\phi_{*p}v)(f):=v(\phi^*f),\quad f\in C^\infty_q(N).
+    \]
+    取值点明确时简记 $\phi_*v$。
+\end{definition}
+
+\begin{proposition}
+    推前 $\phi_*v$ 是 $q$ 处的切矢，且 $\phi_{*p}$ 为线性映射。
+\end{proposition}
+\begin{proof}
+    $\phi_*v$ 的线性性由 $v$ 及 $\phi^*$ 的线性性给出。又
+    \[
+        (\phi_*v)(fg)=v\bigl((\phi^*f)(\phi^*g)\bigr)
+        =g(q)(\phi_*v)(f)+f(q)(\phi_*v)(g),
+    \]
+    故满足 Leibniz 法则。对任意切矢 $u,v$ 及 $a,b\in\R$，定义又直接给出 $\phi_*(au+bv)=a\phi_*u+b\phi_*v$。
+\end{proof}
 
 \begin{definition}\label{chdm:def_pullback-1form}
-    \textbf{拉回映射}可拓展到余切矢量，也称为\textbf{余切映射}：
-    \eq{
-        (\phi^*\omega)(v):=\omega(\phi_*v) ,
-        \quad \forall \omega \in T^{*}_{\phi(p)}N,\quad \forall v \in T_{p}M .
-    }
-\end{definition}
-需要强调的是：上面几个定义都是点对点的。
-
-
-\begin{proposition}
-    切映射和余切映射都是线性的。
-\end{proposition}
-\begin{proof}
-    先证切映射是线性的。设$\forall u,v \in T_{p}M,\  \forall g\in C^\infty_{\phi(p)}(N),\
-    \forall \lambda \in \R$，
-
-    \begin{align*}
-        \bigl(\phi_{*}(u+ \lambda v) \bigr)(g)= (u+ \lambda v)(g\circ \phi)
-        =u(g\circ \phi) +\lambda \cdot v (g\circ \phi)
-        =(\phi_{*} u) (g) + \lambda \cdot (\phi_{*}v)(g) .
-    \end{align*}
-
-    再证余切映射的线性性。任给 $\omega,\mu\in T^*_{\phi(p)}N$、$v\in T_{p}M$ 及 $\lambda\in\R$，有
+    $\phi$ 在 $p$ 处的\textbf{余切映射}是切映射的对偶，亦称余切矢的\textbf{拉回}：
     \[
-        \bigl(\phi^*(\omega+\lambda\mu)\bigr)(v)
-        =(\omega+\lambda\mu)(\phi_*v)
-        =(\phi^*\omega)(v)+\lambda(\phi^*\mu)(v).
+        \phi_p^*:T_q^*N\to T_p^*M,\qquad
+        (\phi_p^*\omega)(v):=\omega(\phi_{*p}v).
     \]
+    取值点明确时简记 $\phi^*\omega$。
+\end{definition}
 
-    标量函数的拉回映射\ref{chdm:def_pullback-scalar}也是线性的，
-    证明过程完全相同，略。
-\end{proof}
+这正是前文对偶函子在 $\phi_{*p}$ 上的作用，即 $\phi_p^*=(\phi_{*p})^*$，故余切映射也线性。函数拉回与余切矢拉回都记作 $\phi^*$，由作用对象区分。切映射与余切映射的起点、终点分别是 $p,q$ 处的切空间及其对偶空间。
 
-\begin{proposition}
-    证明切映射确实是“切矢量”，即验证$\phi_{*}v$满足定义\ref{chdm:def_tang-vec-inManifold}。
-\end{proposition}
-\begin{proof}
-    留给读者当作习题。
-\end{proof}
+一般不能反向拉回切矢：给定 $w\in T_qN$，方程 $\phi_*v=w$ 可能无解，也可能有多个解。若 $\phi$ 为微分同胚，则可用 $(\phi^{-1})_*$ 拉回切矢，用 $(\phi^{-1})^*$ 推前余切矢。
+
+\begin{remark}
+    对实函数 $f:M\to\R$，以 $s$ 为 $\R$ 上的自然坐标，有
+    \[
+        f_{*p}v=v(f)\left.\pdv{s}\right|_{f(p)}.
+    \]
+    将 $T_{f(p)}\R$ 通过自然坐标基识别为 $\R$，便得到前文的微分 $(\d f)_p(v)=v(f)$。因此标量函数的微分是切映射的特例。
+\end{remark}
+
+取 $M,N$ 的坐标系 $(U,\psi),(V,\eta)$，坐标分别为 $\{x^i\},\{y^\alpha\}$，使 $p\in U$、$\phi[U]\subset V$。如 \S\ref{sec:manifold}，将 $\phi$ 写成坐标表达 $y^\alpha=\phi^\alpha(x)$，其中 $\phi^\alpha:=y^\alpha\circ\phi\circ\psi^{-1}$。置
+\[
+    J^\alpha{}_i(p):=\pdv{\phi^\alpha}{x^i}\bigg|_{\psi(p)}
+    =\p_i|_p(y^\alpha\circ\phi).
+\]
+$J$ 是 $n\times m$ 的 Jacobi 矩阵，其中 $m=\dim M,n=\dim N$，两者不必相等。
 
 \begin{proposition}\label{chdm:thm_coortrans}
-    导出自然基矢在切映射和余切映射下的变换关系。
+    切映射及余切映射在坐标基上的作用为
+    \eq{\label{chdm:eqn_push-bases}
+        \phi_{*p}(\p_i|_p)=J^\alpha{}_i(p)\left.\pdv{y^\alpha}\right|_q,
+    }
+    \eq{\label{chdm:eqn_pull-bases}
+        \phi_p^*((\d y^\alpha)_q)=J^\alpha{}_i(p)(\d x^i)_p.
+    }
 \end{proposition}
 \begin{proof}
-符号同本小节开头叙述。命题要求解的是切映射$\phi_{*}(\frac{\partial}{\partial x^i})$在局部坐标$(V;y)$的
-自然基矢$(\frac{\partial}{\partial y^\alpha})$下的展开系数，
-我们只需将它作用在局部坐标$y^\alpha(x^i)$上即可。
-
-\eq{\label{chdm:eqn_push-bases}
-    \left[\phi_{*}\left(\frac{\partial}{\partial x^i}\right)\right] (y^\alpha)
-    =\frac{\partial}{\partial x^i} \left(y^\alpha \circ \phi \right)
-    =\frac{\partial y^\alpha}{\partial x^i}
-    \ \Leftrightarrow\ \phi_{*}
-    \left(\frac{\partial}{\partial x^i}\right) = \frac{\partial y^\alpha}{\partial x^i}
-    \left(\frac{\partial}{\partial y^\alpha}\right)
-}
-切映射在局部坐标基矢间的关系是Jacobi矩阵，
-注意这个矩阵未必是方阵。
-
-余切映射作用于对偶基时，由定义得
-\[
-    (\phi^*\d y^\alpha)(\p_i)
-    =\d y^\alpha(\phi_*\p_i)
-    =\pdv{(y^\alpha\circ\phi)}{x^i},
-\]
-故
-\eq{\label{chdm:eqn_pull-bases}
-    \phi^*(\d y^\alpha)=\pdv{(y^\alpha\circ\phi)}{x^i}\d x^i.
-}
-
-余切映射局部坐标基矢间的关系也是Jacobi矩阵。
-
-最后强调一点：所有公式只在$p$点取值，为使下标简洁上面表达式中略去了此点。
+    切矢的坐标分量由其作用于坐标函数给出，故
+    \[
+        \bigl(\phi_*(\p_i|_p)\bigr)(y^\alpha)
+        =\p_i|_p(y^\alpha\circ\phi)=J^\alpha{}_i(p).
+    \]
+    再由对偶关系，$(\phi^*(\d y^\alpha)_q)(\p_i|_p)=J^\alpha{}_i(p)$，即得第二式。
 \end{proof}
 
-命题\ref{chdm:thm_coortrans}中映射是$\phi:M\to N$，如果我们令$N=M$，并且
-令$\phi$是恒等映射$\id$；但$M$和$N$的局部坐标未必相同。
-这时上面命题中的变换可以理解成同一局部邻域内的{坐标变换}；
-公式与\S\ref{chdm:sec_coortrans}中的相同。
+因此，略去取值点，任意切矢及余切矢的分量满足
+\[
+    (\phi_*v)^\alpha=J^\alpha{}_i v^i,\qquad
+    (\phi^*\omega)_i=J^\alpha{}_i\omega_\alpha.
+\]
+若均以列表示分量，则切映射的矩阵为 $J$，余切映射的矩阵为 $J^{\mathsf T}$。取 $N=M$、$\phi=\id_M$，而在两端选用不同坐标，便恢复前文的坐标基变换式。
 
-利用式\eqref{chdm:eqn_pull-bases}可证明如下一个重要公式，
-即普通微分和拉回映射可对易。
-\begin{align}
-    {\phi ^*} (\d f) =& {\phi ^*} \left[ \frac{ \partial f  }
-      {\partial y^\alpha} (\d y^\alpha)  \right]
-    = \left. \frac{ \partial f }{\partial y^\alpha} \right|_{\phi(p)}
-      \left. \frac{{\partial {y^\alpha }}}{{\partial {x^i}}} \right|_{p}
-      \left( {\d {x^i }} \right)
-    = \left. \frac{ \partial (f \circ \phi) }{\partial x^i} \right|_{p}
-      \left( {\d {x^i }} \right)  \notag\\
-    =& \d (f \circ \phi) =\d ({\phi ^*}f) . \label{chdm:eqn_dfphi}
-\end{align}
-仿照上式，其实式\eqref{chdm:eqn_pull-bases}也
-可以写为${\phi ^*} (\d y^\alpha) = \d (y^\alpha \circ \phi)$。
+\begin{proposition}
+    微分与拉回可交换：对 $N$ 上的光滑函数 $f$，有
+    \eq{\label{chdm:eqn_dfphi}
+        \phi^*(\d f)=\d(\phi^*f).
+    }
+\end{proposition}
+\begin{proof}
+    对任意 $p\in M$ 及 $v\in T_pM$，
+    \[
+        \bigl(\phi_p^*(\d f)_q\bigr)(v)
+        =(\d f)_q(\phi_*v)=v(f\circ\phi)
+        =\bigl(\d(\phi^*f)\bigr)_p(v).
+    \]
+    因而两者相等。特别地，$\phi^*(\d y^\alpha)=\d(y^\alpha\circ\phi)$。
+\end{proof}
 
-给出复合映射的关系式。
-\begin{theorem}\label{chdm:thm_map-chain-rule}
-    设有光滑流形$M,N$和$Q$，存在流形间的光滑映射$\phi:M\to N$和$\psi:N\to Q$，则
-    复合映射$ \psi\circ\phi  : M\to Q$的三种诱导映射服从如下链式法则（其中$\forall p\in M$），
+\begin{theorem}[链式法则]\label{chdm:thm_map-chain-rule}
+    置光滑映射 $\phi:M\to N$、$\psi:N\to Q$，并记 $q=\phi(p)$。则
 
-    (1) $(\psi\circ \phi)^{*}= \phi^{*}\circ \psi^{*}:  C^{\infty}_{\psi\circ\phi(p)}(Q)\to C^{\infty}_p (M)$；
-    对应定义\ref{chdm:def_pullback-scalar}；
+    (1) 函数拉回满足 $(\psi\circ\phi)^*=\phi^*\circ\psi^*$；
 
-    (2) $(\psi\circ \phi)_{*}= \psi_{*}\circ \phi_{*}: T_p M\to T_{\psi\circ\phi(p)}Q$；
-    对应定义\ref{chdm:def_pushforward-vector}；
+    (2) 切映射满足 $(\psi\circ\phi)_{*p}=\psi_{*q}\circ\phi_{*p}$；
 
-    (3) $(\psi\circ \phi)^{*}= \phi^{*}\circ \psi^{*}:  T^{*}_{\psi\circ\phi(p)}Q\to T^{*}_p M$；
-    对应定义\ref{chdm:def_pullback-1form}。
+    (3) 余切映射满足 $(\psi\circ\phi)^*_p=\phi_p^*\circ\psi_q^*$。
 \end{theorem}
 \begin{proof}
-    设有任意$v\in T_pM$和任意$f\in C^\infty_{\psi\circ\phi(p)}(Q)$，
-    以及任意的$\omega\in T^{*}_{\psi\circ\phi(p)}(Q)$。
-    先证第(1)式，由定义直接计算，得
-    \begin{align*}
-        (\psi\circ \phi)^{*} (f) &= f\circ \psi\circ \phi (p) = (f\circ \psi )\circ \phi (p)
-        =\bigl(\psi^*(f) \bigr)\circ \phi (p) = \left. \phi^*\bigl(\psi^*(f) \bigr) \right|_p;
-        \ \text{或者} \\
-        (\psi\circ \phi)^{*} (f) &= f\circ \psi\circ \phi (p) = (f\circ \psi )\circ (\phi)|_p
-        =\phi^* (f\circ \psi )|_p = \left. \phi^*\bigl(\psi^*(f) \bigr) \right|_p .
-    \end{align*}
-    上式最后一式便是第(1)条中的结论。再证第(2)式：
-    \begin{equation*}
-        (\psi\circ \phi)_{*}v (f) = v \bigl((\psi\circ \phi)^{*} (f)\bigr)
-          =v \Bigl(\phi^{*}\circ \bigl( \psi^{*} (f)\bigr) \Bigr)
-          =\phi_{*} v \bigl( \psi^{*} (f)\bigr) =\psi_{*} \circ \phi_{*} v (f) .
-    \end{equation*}
-    证明过程中用到了第(1)式。最后证明第(3)式：
-    \begin{equation*}
-        \bigl((\psi\circ \phi)^{*} \omega\bigr) (v) = \omega \bigl((\psi\circ \phi)_{*} v\bigr)
-        = \omega (\psi_{*} \circ \phi_{*}  v )
-        = \psi^{*} \omega ( \phi_{*}  v)
-        = (\phi^{*}\circ \psi^{*} \omega) (v) .
-    \end{equation*}
-    需要注意，第(1)、(3)式的链式法则次序与原复合映射次序相反。
+    第 (1) 式即复合的结合律：$f\circ(\psi\circ\phi)=(f\circ\psi)\circ\phi$。对任意 $v\in T_pM$ 及 $\psi(q)$ 处的函数芽 $f$，有
+    \[
+        ((\psi\circ\phi)_*v)(f)=v(f\circ\psi\circ\phi)
+        =(\psi_*(\phi_*v))(f),
+    \]
+    即得第 (2) 式。第 (3) 式由第 (2) 式取线性对偶即得。
 \end{proof}
+
+恒等映射也诱导相应的恒等映射。可见，切映射保持复合次序，而函数拉回及余切映射反转次序，这分别体现了函子的协变性与逆变性。
 
 \begin{example}\label{chdm:exm_phiD=Dphi}
-    曲线$\gamma(t)$切矢的推前等于“曲线像$\phi\circ\gamma(t)$”的切矢。
-\end{example}
-设有光滑流形$M$和$N$，存在流形间的光滑映射$\phi:M\to N$。
-$M$中有光滑参数曲线$\gamma(t)$，此线切矢量如式\eqref{chdm:eqn_DiffCurve-2}所述。
-很明显$\phi\circ\gamma:(-\delta,\delta)\to N$是流形$N$中一条光滑曲线，下面来给出
-此条曲线的切矢量，$\forall f\in C^\infty_{\phi(0)}(N)$，
-\begin{align*}
-    \phi_{*}\left(\left.\frac{\d }{\d t}\right|_{\gamma(0)}\right) (f)
-    = \left.\frac{\d }{\d t}\right|_{\gamma(0)} (f\circ \phi)
-    = \left.\frac{\d }{\d t}\right|_{t=0} \bigl(f\circ \phi\circ\gamma(t)\bigr)
-    = \left.\frac{\d }{\d t}\right|_{\phi\circ\gamma(0)} (f) .
-\end{align*}
-从上式可以得到
-\eq{\label{chdm:eqn_phiD=Dphi}
-    \phi_{*}\left(\left.\frac{\d }{\d t}\right|_{\gamma(0)}\right)
-    = \left(\left.\frac{\d }{\d t}\right|_{\phi\circ\gamma(0)}\right).
-}
-在涉及曲线切矢量的计算时，此式非常有用。
-
-
-\begin{exercise}\label{chdm:exer_fg}
-	有映射$f(t)=(t,t^2)$，$g(x,y)=x \cos y$。
-	求切映射：$f_*$、$g_*$、$(f\circ g)_*$。
-\end{exercise}
-
-\begin{exercise}
-	算出例题\ref{chdm:exer_fg}中曲线$f$的切矢量，然后推前到像集中；
-	先将曲线$f$推前到像集中，再求它的切矢量；进而验证式\eqref{chdm:eqn_phiD=Dphi}是否正确。
-\end{exercise}
-
-\section{嵌入映射}\label{chdm:sec_sub-manifold}
-
-
-\begin{theorem}\label{chdm:thm_inv-in-M}
-    设光滑流形$M$和$N$的维数都是$m$，$f:M\to N$是光滑映射。
-    如果在一点$p\in M$，切映射$f_{*}:T_p M\to T_{f(p)}N$是同构的，
-    则存在点$p$在$M$中的邻域$U$使得$V=f(U)$是点$f(p)$在$N$中的一个邻域，
-    并且$f|_U :U\to V$是微分同胚映射。
-\end{theorem}
-利用上面定理可证明如下定理。
-\begin{theorem}\label{chdm:thm_immerse-1}
-    设光滑流形$M$和$N$的维数分别是$m$和$n$，且$m<n$。
-    $f:M\to N$是光滑映射，并且切映射$f_{*}:T_p M\to T_{f(p)}N$是非退化的。
-    则存在点$p$的局部坐标系$(U;x^i)$以及点$q=f(p)$的局部坐标系$(V;y^\alpha)$，
-    使得$f(U)\subset V$，并且映射$f|_U$可用局部坐标表示为
-    \eq{
-        \begin{cases}
-            y^i \circ f = x^i, & 1 \leqslant i \leqslant m ; \\
-            y^\nu \circ f = 0, & 1+m \leqslant \nu \leqslant n .
-        \end{cases}
+    曲线切矢的推前等于像曲线的切矢。即对 $C^1$ 曲线 $\gamma:I\to M$，
+    \eq{\label{chdm:eqn_phiD=Dphi}
+        \phi_{*\gamma(t)}\dot\gamma(t)=\dv{(\phi\circ\gamma)}{t}.
     }
+    只需作用于 $\phi(\gamma(t))$ 处的任意光滑函数芽 $f$，由定义得
+    \[
+        (\phi_*\dot\gamma(t))(f)
+        =\dot\gamma(t)(f\circ\phi)
+        =\dv{(f\circ\phi\circ\gamma)}{t}.
+    \]
+\end{example}
+
+\begin{example}
+    置 $f:\R\to\R^2$、$f(t)=(t,t^2)$，及 $g:\R^2\to\R$、$g(x,y)=x\cos y$。在自然坐标基下，切映射的矩阵为
+    \[
+        [f_{*t}]=\begin{pmatrix}1\\2t\end{pmatrix},\qquad
+        [g_{*(x,y)}]=\begin{pmatrix}\cos y&-x\sin y\end{pmatrix}.
+    \]
+    因 $(f\circ g)(x,y)=(x\cos y,x^2\cos^2y)$，由链式法则，
+    \[
+        [(f\circ g)_{*(x,y)}]
+        =[f_{*g(x,y)}][g_{*(x,y)}]
+        =\begin{pmatrix}
+            \cos y&-x\sin y\\
+            2x\cos^2y&-2x^2\cos y\sin y
+        \end{pmatrix}.
+    \]
+    将 $f$ 看作曲线，其切矢为 $\dot f(t)=\p_x|_{f(t)}+2t\p_y|_{f(t)}$。用 $s$ 表示目标实直线的坐标，则
+    \[
+        g_{*f(t)}\dot f(t)
+        =\bigl(\cos(t^2)-2t^2\sin(t^2)\bigr)\left.\pdv{s}\right|_{t\cos(t^2)}.
+    \]
+    另一方面，像曲线为 $(g\circ f)(t)=t\cos(t^2)$，直接求导即得同一切矢，验证了式 \eqref{chdm:eqn_phiD=Dphi}。
+\end{example}
+
+\section{嵌入映射}
+
+切映射描述光滑映射在一点附近的一阶行为。其秩决定哪些方向被保留、哪些方向被压缩；若还要将整个流形视作另一个流形的子空间，则须进一步考察单射性及像集的子拓扑。
+
+置光滑映射 $\phi:M\to N$，$m=\dim M,n=\dim N$。定义 $\phi$ 在 $p$ 处的\textbf{秩}为
+\[
+    \rank_p\phi:=\rank\phi_{*p}=\rank J(p)\leqslant\min(m,n).
+\]
+换坐标只会在 $J$ 两侧乘可逆矩阵，故秩与坐标无关。秩未必在每点附近恒定，例如 $t\mapsto t^3$ 在 $0$ 处秩为 $0$，在其余点秩为 $1$。但非零子式在充分小的邻域内仍非零，故最大秩条件可保持到邻域上。
+
+\begin{theorem}[逆函数定理]\label{chdm:thm_inv-in-M}
+    若 $m=n$ 且 $\phi_{*p}$ 为同构，则存在 $p$ 的开邻域 $U$ 及 $\phi(p)$ 的开邻域 $V$，使 $\phi|_U:U\to V$ 为微分同胚。
 \end{theorem}
 \begin{proof}
-    设光滑映射$f$在$p$点局部坐标系$(U;x^i)$下的像点$q$的坐标关系是
-    \begin{equation*}
-        y^\alpha = f^\alpha(x^1,\cdots,x^m), \quad 1 \leqslant \alpha \leqslant n .
-    \end{equation*}
-    因切映射$f_{*}$在点$p$是非退化的，那么可知Jacobi矩阵至少存在一个$m\times m$的
-    子矩阵的行列式非零，不妨假设
-    \begin{equation*}
-      \left. \frac{\partial ({f^1,\cdots,f^m})}{\partial ({x^1,\cdots,x^m})} \right|_{x^i=0} \neq 0.
-    \end{equation*}
-    因$f$是光滑函数，此行列式至少是连续的，所以存在$p$点附近一个充分小邻域，在此小邻域范围内上式恒不为零。
-
-    可以将$(U;x^i)$的$m$维坐标卡延拓至$n$维，即假设有$\R^{n-m}$中的一个充分小方体
-    \begin{equation*}
-        I:=\{(x^{m+1},\cdots,x^n) \mid \ \max(|x^{m+1}|,\cdots,|x^n|) < \delta \} ,
-    \end{equation*}
-    其中$\delta$是一个充分小正实数。
-    我们构造映射$\tilde{f}:U\times I \to V$，其坐标表达式如下
-    \eq{\label{chdm:eqn_tmp88}
-        \begin{cases}
-            (y\circ \tilde{f})^i = f^i(x^1,\cdots,x^m), & 1 \leqslant i \leqslant m; \\
-            (y\circ \tilde{f})^\alpha =x^\alpha+ f^\alpha(x^1,\cdots,x^m), & 1+m \leqslant \alpha \leqslant n .
-        \end{cases}
-    }
-    不失一般性，以设$p$点坐标是原点$0$；如果不是，平移一下原点即可。
-    我们将方体$I$的原点和$p$结合在一起，构成$U\times I $的新原点$\tilde p:=(p,0)$。
-    很明显映射$\tilde{f}$在新原点$\tilde{p}$的Jacobi行列式不为零，也就是切映射$\tilde{f}_{*}$是非退化的；
-    根据定理\ref{chdm:thm_inv-in-M}可知映射$\tilde{f}$在$\tilde{p}$点充分小邻域内是微分同胚。
-
-    现在我们舍弃$V$中原有坐标系$\{y^\alpha\}$（如果$\{y^\alpha\}$与式\eqref{chdm:eqn_tmp98}相同，
-    就不用舍弃了，直接用！）；
-    利用微分同胚$\tilde{f}$带来的坐标当成开集$V$的新局部坐标系$(V;z)$，可表示为
-    \eq{\label{chdm:eqn_tmp98}
-    \begin{cases}
-        (z\circ \tilde{f})^i = x^i, & 1 \leqslant i \leqslant m; \\
-        (z\circ \tilde{f})^\alpha =x^\alpha, & 1+m \leqslant \alpha \leqslant n .
-    \end{cases}
-    }
-    在此局部坐标系内，$\tilde{f}$是$(U\times I;x)$到$(V;z)$的恒等映射。
-    由映射$\tilde{f}$定义\eqref{chdm:eqn_tmp88}可知$\tilde{f}|_{U\times\{0\}}$满足定理中
-    要求的映射$f|_U$；也就是，坐标系\eqref{chdm:eqn_tmp98}具体表达为
-    \eq{
-        \tilde{f}(x^1,\cdots,x^m,0,\cdots,0)
-        = (x^1,\cdots,x^m,0,\cdots,0).
-    }
-    此定理说明，通过坐标变换满秩映射$f$可以将$U$单一地映入$N$的一个
-    局部坐标面内。
+    取两端的坐标系，将 $\phi$ 表为欧氏开集间的光滑映射。其在 $p$ 的坐标处 Jacobi 矩阵可逆，由通常的逆函数定理即得。
 \end{proof}
 
-
-\subsection{浸入、嵌入与淹没}\label{chdm:sec_immerse-embed}
-现在引入几个定义。设光滑流形$M$和$N$的维数分别是$m$和$n$；
-$\phi:M\to N$是光滑映射。将$p\in M$点的Jacobi矩阵（见注解\ref{chdm:rek_jacobi}）
-秩记为$\operatorname{rank}_p \phi$，可以考察关于秩的几种重要情形。
-需要指出的是流形上的秩未必逐点相同，但考虑到映射是连续的，
-肯定存在$p\in M$点附近的开邻域$U$，在$U$内任意点的秩都相同。
-
-(1) 若$m=n=\operatorname{rank}_p\phi$，则$\phi$是局部微分同胚的。
-
-(2) 若$m\leqslant n, \operatorname{rank}_p\phi=m$，也就是映射$\phi$说在$p$点某个邻域内是局部单一的，
-则称$\phi$点$p$是\textbf{局部浸入}的。若
-映射$\phi$在$M$上每一点都浸入，则称为\textbf{浸入映射}（immerse）。
-
-(3) 设$\phi:M\to N$是浸入的，若$\phi$是整体单一的，则称为\textbf{嵌入映射}（embed）。
-
-(4) 设$\phi:M\to N$是嵌入的，若$\phi$从$M$带到$\phi(M)$的拓扑结构与$\phi(M)$从$N$上得到
-的诱导拓扑结构（见定义\ref{chtop:def_induced-top}）相同，
-“相同”是指由$\phi$带来的拓扑和从$N$诱导得到的拓扑相互同胚；
-则称之为\textbf{正则嵌入映射}（regular embedding）。
-
-(5) 若$m> n, \operatorname{rank}_p\phi=n$，则称$\phi$点$p$是\textbf{局部淹没}的（submersion）。
-%如果映射$\phi$在$M$上每一点都淹没，则称之为\textbf{淹没映射}。
-
-
-浸入映射只要求局部单一，并不要求大范围单一；
-因此浸入映射的像可能有自交点。
-嵌入映射则要求在整个流形范围内是单一的，没有自交点。
-
-%单纯的嵌入映射$\phi$从$M$带入到$\phi(M)$的拓扑未必与$\phi(M)$从$N$上得到
-%的诱导拓扑结构相同，一般说来会细于诱导拓扑。
-
-有了浸入和嵌入便可有了子流形定义：
 \begin{definition}
-    有$m$维光滑流形$M$和光滑流形$N$间的光滑映射$\phi:M\to N$；
-    若$\phi$是浸入（嵌入、正则嵌入）的，则称$(\phi,M)$是$N$的一个$m$维
-    \textbf{浸入（嵌入、正则嵌入）子流形}。
+    对光滑映射 $\phi:M\to N$，规定：
+    \begin{itemize}
+        \item 若每点的 $\phi_{*p}$ 均为单射，即 $\rank_p\phi=m$，则称 $\phi$ 为\textbf{浸入}(immersion)，此时 $m\leqslant n$；
+        \item 若 $\phi$ 为浸入，且 $\phi:M\to\phi[M]$ 为同胚，其中 $\phi[M]$ 取 $N$ 的子拓扑，则称 $\phi$ 为\textbf{嵌入}(embedding)，记 $M\hookrightarrow N$；
+        \item 若每点的 $\phi_{*p}$ 均为满射，即 $\rank_p\phi=n$，则称 $\phi$ 为\textbf{淹没}(submersion)，此时 $m\geqslant n$。
+    \end{itemize}
+    若只在某点满足相应的秩条件，则称在该点浸入或淹没。
 \end{definition}
 
+浸入和淹没都是局部条件；当 $m=n$ 时，两者都等价于局部微分同胚。嵌入还要求整体单射，并使源空间拓扑与像集的子拓扑一致，这与 \S\ref{sec:manifold} 的定义相同。
+
+\begin{theorem}[浸入的局部标准形]\label{chdm:thm_immerse-1}
+    若 $\phi$ 在 $p$ 处浸入，则可取以 $p,\phi(p)$ 为原点的坐标系 $(U,x),(V,y)$，使 $\phi[U]\subset V$，且
+    \[
+        y\circ\phi\circ x^{-1}(u)=(u^1,\ldots,u^m,0,\ldots,0).
+    \]
+\end{theorem}
+\begin{proof}
+    先任选原点位于 $p,\phi(p)$ 的坐标，将 $\phi$ 表为 $F$。重排目标坐标，可使 $\partial(F^1,\ldots,F^m)/\partial(u^1,\ldots,u^m)$ 在 $0$ 处可逆。令
+    \eq{\label{chdm:eqn_tmp88}
+        H(u,z):=\bigl(F^1(u),\ldots,F^m(u),F^{m+1}(u)+z^1,\ldots,F^n(u)+z^{n-m}\bigr).
+    }
+    $H$ 在 $(0,0)$ 处的 Jacobi 矩阵为分块三角矩阵，其对角块为上述可逆矩阵和单位矩阵，故 $H$ 在原点附近为微分同胚。用 $H^{-1}$ 改换目标坐标，由 $H(u,0)=F(u)$ 得
+    \eq{\label{chdm:eqn_tmp98}
+        H^{-1}\circ F(u)=(u,0),
+    }
+    即得所求。
+\end{proof}
+
+此式说明，浸入在充分小的源邻域上就是坐标面的包含映射，因而局部上是嵌入。但源邻域之外的点仍可能映入附近，甚至与其重合，故整体上未必单射，也未必为嵌入。
+
+\begin{theorem}[淹没的局部标准形]
+    若 $\phi$ 在 $p$ 处淹没，则可取两端的局部坐标，使其表为投影
+    \[
+        (u^1,\ldots,u^m)\longmapsto(u^1,\ldots,u^n).
+    \]
+\end{theorem}
+\begin{proof}
+    将 $\phi$ 表为 $F$，重排源坐标，使 $\partial(F^1,\ldots,F^n)/\partial(u^1,\ldots,u^n)$ 在原点可逆。于是 $H(u):=(F(u),u^{n+1},\ldots,u^m)$ 在原点附近为微分同胚，以 $H$ 为新源坐标即得。
+\end{proof}
 
 \begin{definition}\label{chdm:def_inclusion-map}
-    设有集合$A$和$B$，并且有$A\subset B$，
-    映射$\imath: A\to B;\ \imath(x) = x, \ \forall x\in A. $
-    那么，称映射$\imath$为\textbf{包含映射}（inclusion map）。
+    对子集 $S\subset N$，映射 $\imath:S\to N$、$\imath(p)=p$ 称为\textbf{包含映射}(inclusion map)。若 $S$ 赋有流形结构，使 $\imath$ 为浸入，则称 $S$ 为 $N$ 的\textbf{浸入子流形}；若 $\imath$ 为嵌入，则称\textbf{嵌入子流形}。
 \end{definition}
-包含映射一定是嵌入映射；但反之未必，因为嵌入映射的值域未必与定义域有交集。
 
-\subsection{浸入与嵌入区别}
-我们先叙述几个例题。
+单射浸入 $\phi:M\to N$ 可将 $M$ 的拓扑及光滑结构搬到 $S=\phi[M]$ 上，使 $\phi:M\to S$ 为微分同胚；此时 $S$ 是浸入子流形。这种拓扑可能严于 $N$ 的子拓扑，两者一致时才是嵌入子流形。因而包含映射虽总是单射，却并非对任意所赋的流形结构都为嵌入。
+
 \begin{example}\label{chdm:exm_opensub}
-    \textbf{开子流形}。设$U$是光滑流形$N$的一个开子集，将流形$N$的光滑结构
-    限制在$U$上，变得到$U$的一个光滑结构，使之成为与$N$同维数的光滑流形。
-    包含映射$(\imath,U)$是$N$的一个正则嵌入子流形。
-    则称$(\imath,U)$是$N$的开子流形。
+    \textbf{开子流形}。对开集 $U\subset N$，限制 $N$ 的坐标系便给出 $U$ 的光滑结构。包含映射 $U\hookrightarrow N$ 为嵌入，且 $\dim U=\dim N$。
 \end{example}
 
 \begin{example}\label{chdm:exm_closesub}
-    \textbf{闭子流形}。设$(\phi,M)$是$N$的一个光滑嵌入子流形，
-    如果(1)$\phi(M)$是$N$的一个闭子集。 (2)$\forall p\in \phi(M)$，$N$中存在
-    局部坐标系$(U;x^i)$使得$\phi(M)\cap U$是
-    由方程$x^{m+1}=x^{m+2}=\cdots=x^n=0$定义的，
-    那么，称$(\phi,M)$是$N$的闭子流形。
-    比如，二维球面连同包含映射就是三维空间的一个闭子集。
+    \textbf{闭子流形}是作为子集闭的嵌入子流形。例如 $S^2\subset\R^3$：在任意点附近，可将一个非零坐标由 $x^2+y^2+z^2=1$ 光滑地解出，故局部为光滑函数的图像；配以子拓扑，其包含映射为嵌入，且 $S^2$ 在 $\R^3$ 中闭。
 \end{example}
 
-
-下面给出两个十分相近的函数，它们都是从$\R$到$\R^2$的映射。
+下面两个相近的平面曲线说明，浸入的局部性质不足以保证嵌入。
 \begin{example}\label{chdm:exm_iec1}
-    浸入，非嵌入例子。
+    浸入可以有自交。置
     \eq{\label{chdm:eqn_tmp-f-immerse}
-        F(t)=\left(2\cos\Big(t-\frac{\pi}{2}\Big),\ \sin2\Big(t-\frac{\pi}{2}\Big) \right) .
+        F:\R\to\R^2,\qquad F(t)=(2\sin t,-\sin2t).
     }
-    当$t$取值从$-\infty$到$+\infty$时，式\eqref{chdm:eqn_tmp-f-immerse}在原点（$(0,0)$）处无穷多次自相交。
-    所以$(F,\R)$是$\R^2$的浸入子流形，不是嵌入子流形。
+    $F'(t)=(2\cos t,-2\cos2t)$ 处处非零，故 $F$ 为浸入。但 $F(0)=F(\pi)=(0,0)$，故不单射，从而不是嵌入。
 \end{example}
 
 \begin{example}\label{chdm:exm_iec2}
-    浸入，且嵌入，但非正则嵌入例子。
+    单射浸入仍未必是嵌入。置
     \eq{\label{chdm:eqn_tmp-g-embed}
-      G(t)=\left(2\cos\Big(2\arctan t+\frac{\pi}{2}\Big),\ \sin2\Big(2 \arctan t+\frac{\pi}{2}\Big) \right) .
+        G(t)=(2\cos\theta(t),\sin2\theta(t)),\qquad
+        \theta(t):=2\arctan t+\frac\pi2.
     }
-        当$t=0$时，$G(0)=(0,0)$。当$t\to \pm \infty$时，曲线无限接近原点，
-    但没有到达原点，即$G(t\to \pm \infty)\to (0,0)$；没有自交点。
-    所以$(G,\R)$是$\R^2$是嵌入子流形，当然它也是浸入子流形。
+    $\theta$ 严格递增，值域为 $(-\pi/2,3\pi/2)$，且 $\theta'(t)>0$。因 $(-2\sin\theta,2\cos2\theta)$ 处处非零，$G$ 为浸入。第一分量非零时，可由两分量恢复 $\cos\theta$ 及 $\sin\theta$；第一分量为零时，只有 $\theta=\pi/2$。故 $G$ 也单射。
 
-    由$G$带入$G(\R)$的是一条不自相交的曲线，这个拓扑是一维的，同胚于实数轴。
-    我们再来看诱导拓扑，参见定义\ref{chtop:def_induced-top}。
-    取二维平面$\R^2$中的通常拓扑：开圆盘。圆心在原点的开圆盘$C$，无论半径取多小
-    （必须是个有限小的确定数值，不能是零，也不能取无限趋近于零的极限），首先
-    会包含$-\epsilon < t< \epsilon$的$G(t)$曲线；
-    其次当$t\to \pm \infty$时，$G(t\to \pm \infty)\to (0,0)$，曲线
-    都会进入开圆盘$C$。很明显利用开圆盘得到的诱导拓扑不是一维的实线段，
-    与映射$G$带来的拓扑不同胚，因此$G$不是正则嵌入。
+    然而 $G(0)=(0,0)$，且 $G(t)\to(0,0)$（$t\to\pm\infty$）。取 $t_k\to+\infty$，则 $G(t_k)\to G(0)$，而 $t_k$ 不趋于 $0$，故像集取子拓扑时 $G^{-1}$ 不连续，$G$ 不是嵌入。几何上，原点的任意小圆盘都会同时遇到 $t=0$ 附近的曲线和参数远处的尾部；由源空间搬来的拓扑则可将两者分开。
 \end{example}
-
 
 \begin{example}\label{chdm:exm_iec3}
-    浸入，且嵌入，但非正则嵌入又一例。
-    定义映射$H:\R\to \R^2$如下
-    \eq{
+    尾部还可向一整段曲线积聚。置 $H:\R\to\R^2$，在两端定义
+    \[
         H(t)=\begin{cases}
-           \left(\frac{3}{t^2},\sin\pi t \right), & 1 \leqslant t < +\infty, \\
-           \left(0,\ t+2\right), & -\infty < t \leqslant -1.
+            (0,t+2),&t\leqslant-1,\\
+            (3/t^2,\sin\pi t),&t\geqslant1.
         \end{cases}
-    }
-    假定$H(t)$在定义区间$[-1,+1]$内是连接$(3,0)$和$(0,1)$两点的光滑曲线，且与上式给出的两个部分无交点。
-    映射$(H,\R)$是整体单一浸入到$\R^2$的曲线，没有自交点；所以它是浸入的，且是嵌入的。
+    \]
+    在 $-1<t<1$ 上，沿区域 $\{y>1\}\cup\{x>3\}$ 选取无自交且切矢处处非零的光滑弧连接两端，并在端点处与上述两式光滑衔接。两端的切矢也处处非零，且三个部分除接点外互不相交，故 $H$ 为单射浸入。
 
-    带入拓扑是由$H(t)$描述的一维曲线，同胚于实数轴。
-    下面分析诱导拓扑，不难发现$y$轴的$[-1,+1]$部分是曲线$H(t)$的一部分，
-    记为$I_y$；显然$I_y$是诱导拓扑中的一部分，且是一维直线段。
-    当$t\to +\infty$时，曲线会围绕着$x$轴上下摆动，从右侧无限接近$I_y$部分。
-    与上一例相似，取$\R^2$中的通常拓扑——开圆盘$C$，
-    且令开圆盘的圆心在$I_y$上。
-    但是无论开圆盘半径取得多么小（必须是有限小的确定值），
-    当$t\to +\infty$时，曲线$H(t\to +\infty)$都会进入开圆盘$C$；
-    所以$H(t\to +\infty)$也是诱导拓扑的一部分，
-    故带入拓扑与诱导拓扑不是同胚的。因此，映射$H$不是正则嵌入的。
+    其尾部在右侧振荡，向像中 $y$ 轴的 $[-1,1]$ 段积聚。特别地，$H(2k)=(3/(4k^2),0)\to(0,0)=H(-2)$，而 $2k$ 不趋于 $-2$。因此 $H^{-1}$ 对像集的子拓扑不连续，$H$ 不是嵌入。这与上一例具有相同的拓扑障碍。
 \end{example}
 
-我们再叙述几个定理，省略证明过程，可请参考文献\parencite[\S 1.3]{cc2001-zh}。
+下面给出保证嵌入的条件，并说明嵌入子流形在环境空间中的局部形状。
 \begin{theorem}\label{chdm:thm_embed-1}
-    设$(\phi,M)$是流形$N$的浸入子流形，若$M$是紧致的，则$(\phi,M)$是正则嵌入。
+    若 $M$ 紧，则任意单射浸入 $\phi:M\to N$ 都是嵌入，且 $\phi[M]$ 为闭子流形。
 \end{theorem}
+\begin{proof}
+    $N$ 为 $T_2$，故紧集 $M$ 到 $\phi[M]$ 的连续双射为同胚，且紧像 $\phi[M]$ 在 $N$ 中闭。
+\end{proof}
+
+\begin{theorem}[局部坐标面判据]\label{chdm:thm_embed-3}
+    设 $\phi:M\to N$ 为单射浸入，$S:=\phi[M]$。则 $\phi$ 为嵌入，当且仅当每个 $q\in S$ 都有以 $q$ 为原点的坐标系 $(V,y)$，使
+    \[
+        S\cap V=\{r\in V:y^{m+1}(r)=\cdots=y^n(r)=0\}.
+    \]
+\end{theorem}
+\begin{proof}
+    若 $\phi$ 为嵌入，由浸入的局部标准形，取 $p=\phi^{-1}(q)$ 的开邻域 $U$，使 $\phi[U]$ 为局部坐标面。因 $\phi[U]$ 在 $S$ 中开，可取 $N$ 中开集 $W$ 使 $W\cap S=\phi[U]$。再将目标坐标域缩小到 $W$ 内的一个坐标开方体，便排除了 $U$ 外的点的像，得到所需等式。
+
+    反之，给 $S$ 赋子拓扑。在每个上述坐标域内，$S\cap V$ 是 $m$ 维坐标面，且 $\phi:\phi^{-1}[V]\to S\cap V$ 为双射。因 $\phi$ 浸入，其作为两侧 $m$ 维流形间映射的切映射可逆，故为局部微分同胚。双射的局部微分同胚是同胚；这些坐标域覆盖 $S$，故 $\phi:M\to S$ 为同胚，即为嵌入。
+\end{proof}
 
 \begin{theorem}\label{chdm:thm_embed-2}
-    设$(\phi,M)$是$n$光滑流形$N$的$m$维浸入子流形。
-    $(\phi,M)$是正则嵌入的充分必要条件是：
-    它是$N$的一个开子流形的闭子流形。
+    浸入子流形 $S\subset N$ 是嵌入子流形，当且仅当它是 $N$ 的某个开子流形的闭子流形。
 \end{theorem}
+\begin{proof}
+    若 $S$ 嵌入，取上一判据给出的坐标域 $\{V_\alpha\}$ 覆盖 $S$，则 $S\cap V_\alpha$ 在 $V_\alpha$ 中闭。令 $W:=\bigcup_\alpha V_\alpha$，有
+    \[
+        W\backslash S=\bigcup_\alpha(V_\alpha\backslash S),
+    \]
+    为开集，故 $S$ 为开子流形 $W$ 的闭子流形。反之，嵌入 $S\hookrightarrow W$ 与开集的包含映射 $W\hookrightarrow N$ 复合仍为嵌入，即得。
+\end{proof}
 
-\begin{theorem}\label{chdm:thm_embed-3}
-    设$(\phi,M)$是$n$光滑流形$N$的$m$维浸入子流形。
-    $(\phi,M)$是正则嵌入的充分必要条件是：
-    对任意点$p\in M$，在$N$中存在$q=\phi(q)$的局部坐标系$(V;y^i)$，
-    其中$y^i(q)=0$；还要使得$\phi(M)\cap V$是
-    由$y^{m+1}=y^{m+2}=\cdots=y^{n}=0$定义的。
-\end{theorem}
-
-对比定理\ref{chdm:thm_immerse-1}与定理\ref{chdm:thm_embed-3}，可以十分清晰地看到浸入与正则嵌入的区别。
-浸入只是局部上的要求，即$\forall p\in U\subset M$，$N$中都存在$\phi(p)$点附近
-的开邻域$\phi(U)\subset V\subset N$，在邻域$V$内坐标分量$y^i=0(i>m)$；对邻域$U$外的$M$中的点
-如何在$N$中表示不作任何要求。
-正则嵌入则是整体上的要求，即$\forall p\in U\subset M$，$N$中都存在$\phi(p)$点附近
-的开邻域$\phi(U)\subset V\subset N$，在邻域$V$内坐标分量$y^i=0(i>m)$；对邻域$U$外的$M$中的点
-如何在$N$中表示也作要求，即$M-U$中的点不能映入$V$中。
-若只在$p$点局部邻域$U$内看问题的话，则浸入和正则嵌入没有差别，
-换句话说：浸入{在局部上}必定是正则嵌入的。
-例\ref{chdm:exm_iec1}、\ref{chdm:exm_iec2}、\ref{chdm:exm_iec3}具体地表明了
-浸入、嵌入、正则嵌入的差别，尤其请参阅后两道例题中带入拓扑和诱导拓扑的分析。
+对比定理 \ref{chdm:thm_immerse-1} 与 \ref{chdm:thm_embed-3}：浸入只要求一个源邻域的像是坐标面；嵌入则要求像集在目标邻域内的全部部分恰为这个坐标面。前者不排除远处的点再次进入目标邻域，后者还须控制这种整体的拓扑行为。例 \ref{chdm:exm_iec1} 展示自交，例 \ref{chdm:exm_iec2}、\ref{chdm:exm_iec3} 则说明即使没有自交，仍可能因远处像的积聚而不是嵌入。
 
 
 \section{切矢量丛}\label{chdm:sec_tangent-bundles}
