@@ -56,12 +56,16 @@
 
 % 中文字体
 \usepackage[fontset=none]{ctex}
-\defaultfontfeatures{Mapping=fullwidth-stop}
+\defaultfontfeatures[FandolSong-Regular]{Mapping=fullwidth-stop, BoldItalicFont = FandolSong-Bold}
+% 定理内的加粗中文仍用宋体粗体，将粗斜体字形映射到 FandolSong-Bold
 \ctexset{fontset=fandol}
 
 % 数学字体
 \usepackage{mathrsfs}               % 花体
+% anyfontsize.sty 的作者注释采用 Latin-1；只为载入该文件切换默认输入编码。
+\XeTeXdefaultencoding "ISO-8859-1"
 \usepackage{anyfontsize}            % 允许任意字体大小
+\XeTeXdefaultencoding "UTF-8"
 % 临时保存字体设置
 \let\oldencodingdefault\encodingdefault
 \let\oldrmdefault\rmdefault         % 罗马衬线
@@ -315,6 +319,7 @@
 \newcommand{\diag}{\operatorname{diag}}  % 对角
 \newcommand{\supp}{\operatorname{supp}}  % 支撑
 
+\newcommand{\contract}{\mathrm{C}}     % 张量缩并；保留 \c 的文本重音含义
 \newcommand{\A}{\operatorname{A}}       % 反称化
 \newcommand{\alt}{\operatorname{alt}}   % 反称化算子
 
