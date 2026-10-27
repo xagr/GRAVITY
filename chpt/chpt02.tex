@@ -308,7 +308,7 @@ u(\phi)\simeq \frac{1}{b}\sin\phi+\frac{3M}{2b^2}+\frac{M}{2b^2}\cos2\phi
 \eq{\tcbhighmath{T=x\sinh At,\quad X=x\cosh At\im \d s^2=-\d T^2+\d X^2=-(Ax)^2\d t^2+\d x^2.}}
 坐标网格即双曲线族和过原点直线族。无交叉项说明 Rindler 系是正交系，故可认为 Rindler 系是按 $A=1/x$ 分布的一系列匀加速观者的共动系。
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \subfloat[\centering 按 $A=1/x$ 分布]{
     \begin{tikzpicture}[scale=1.2]
@@ -359,7 +359,7 @@ Rindler 度规的行列式 $g=-A^2x^2$ 在 $x=0$ 处为零，但闵氏时空处�
 \end{align*}
 于是 $\d s^2=-\e^{A(v-u)}\d v\,\d u=-\d V\,\d U$，并有 $T=(V+U)/2$、$X=(V-U)/2$。前一表达仍在 $x\to0$ 时退化，后一表达则在 $U=0$ 或 $V=0$ 处保持光滑。
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=.6\textwidth]{fig/chpt02/rindler.pdf}
     \caption{Rindler 坐标域及其闵氏延拓}
@@ -401,7 +401,7 @@ Rindler 图中，类光测地线趋近视界时有 $|t|\to\infty$，但其闵氏
 考虑测地线汇从 $t = 0 = \tau$ 释放，每一线用 $r_m$ 标记，新系为 $(\tau,r_m)$。由 $Z^\mu Z_\mu = -1$ 可知
 \[\d\tau=-Z_0(r_m)\d t-Z_1(r,r_m)\d r=\sqrt{1-\frac{2M}{r_m}}\d t+\frac{\sqrt{2M/{r}-2M/{r_m}}}{1-{2M}/{r}}\d r.\]
 $r = r_m\cos^2\frac{\eta}{2},\tau = -(\eta+\sin\eta){r_m^{3/2}}/{\sqrt{8M}}$ 确定了变换 $r(\tau,r_m)$。
-记变换 $\d r = \pdv{r}{\tau}\d\tau + \pdv{r}{r_m}\d r_m$，由测地线 $\tau$ 轴 $\d\r_m = 0$ 可知 $\pdv{r}{\tau} = Z^1(r,r_m)$，从而 $-Z^1(r,r_m)\d\tau+\d r=\cos^2\frac{\eta}{2}\d r_m$。依次做 $t\to\tau,r\to r_m$ 变换有
+记变换 $\d r = \pdv{r}{\tau}\d\tau + \pdv{r}{r_m}\d r_m$，由测地线 $\tau$ 轴 $\d r_m = 0$ 可知 $\pdv{r}{\tau} = Z^1(r,r_m)$，从而 $-Z^1(r,r_m)\d\tau+\d r=\cos^2\frac{\eta}{2}\d r_m$。依次做 $t\to\tau,r\to r_m$ 变换有
 \[\d s^2 = -\d\tau^2+\left(\frac{-Z^1(r,r_m)\d\tau+\d r}{Z_0(r_m)}\right)^2+r^2\d\Omega^2= -\d\tau^2+\frac{\cos^4({\eta}/{2})\d r_m^2}{1-2M/r_m}+r^2\d\Omega^2.\]
 其中加上了没动过的空间部分。$\eta(\tau,r_m)$ 表明这是非稳态系，直观上落体者当然感受到变化的引力场。
 $r_m$ 称\textbf{Novikov 径向坐标}。可以看到的确 $\tilde g_{00}=-1,\tilde g_{01}=0$。
@@ -461,7 +461,7 @@ $r_m$ 称\textbf{Novikov 径向坐标}。可以看到的确 $\tilde g_{00}=-1,\t
     r=2M\left[1+\operatorname W\left(\frac{X^2-T^2}{\e}\right)\right].
 }
 径向二维度规只是二维 Minkowski 度规乘上正函数，因而在 $T$--$X$ 图中类光线斜率仍为 $\pm1$。这里仅有径向二维部分共形平直，并不意味着完整四维 Schwarzschild 时空共形平直。
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=.6\textwidth]{fig/chpt02/kruskal.pdf}
     \caption{Kruskal 延拓及其四个区域}
@@ -634,6 +634,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
 
 \begin{center}
 \begin{minipage}{.82\textwidth}
+    \captionsetup{type=figure}
     \centering
     \begin{tikzpicture}[x=1.8cm,y=1.8cm]
         % matter region
@@ -676,7 +677,7 @@ $\chi=\chi_b$ 是星体表面，面积半径为 $R(\tau)=a(\tau)\sin\chi_b$。�
         \node at (.72,.70) {陷获区};
         \fill (0,0) circle(1pt);
     \end{tikzpicture}
-    \captionof{figure}{球对称恒星坍缩的 Penrose 图示意。事件视界在正则中心产生，穿出星体后延伸到未来类时无穷远；表观视界在物质内部与它一般并不重合。}
+    \caption{球对称恒星坍缩的 Penrose 图示意。事件视界在正则中心产生，穿出星体后延伸到未来类时无穷远；表观视界在物质内部与它一般并不重合。}
     \label{fig:collapse-penrose}
 \end{minipage}
 \end{center}

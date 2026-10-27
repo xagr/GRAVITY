@@ -9,14 +9,14 @@
         \item 与缩并对易；
         \item 对 $C^1$-函数 $f$ 有 $\nabla f=\d f$。
     \end{itemize}
-    分量记作 $\nabla_\mu T^{\cdots}_{\cdots}$，算符 $\nabla_\mu$ 称为\textbf{协变导数}。$\nabla_X:=\c^1_1(X\otimes\nabla)$ 称为沿矢量场 $X$ 的\textbf{方向导数}。$(M,\nabla)$ 构成\textbf{联络空间}。
+    分量记作 $\nabla_\mu T^{\cdots}_{\cdots}$，算符 $\nabla_\mu$ 称为\textbf{协变导数}。$\nabla_X:=\contract^1_1(X\otimes\nabla)$ 称为沿矢量场 $X$ 的\textbf{方向导数}。$(M,\nabla)$ 构成\textbf{联络空间}。
 \end{definition}
 
 \begin{example}
     对标量场 $f$，$\nabla_X f=\langle\d f,X\rangle=X(f)$。
 \end{example}
 
-\begin{definition}
+\begin{definition}\label{def:connection-one-form}
     置联络空间 $(M,\nabla)$ 和矢量基场 $\{e_\mu\}$，\textbf{联络系数}为 $\Gamma^\lambda_{\mu\nu}:=\langle e^\lambda,\nabla_{e_\mu} e_\nu\rangle$。
     $\Gamma^\lambda_\nu:=\Gamma^\lambda_{\mu\nu} e^\mu$ 称为\textbf{联络 1-形式}。
 \end{definition}
@@ -36,7 +36,7 @@
     取 $e_\mu=\p_\mu$ 即可。
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{thm:connection-frame-change}
     设 $e_\mu^{\prime}=A^\nu{ }_\mu e_\nu$，则
     \begin{align*}
         \Gamma'^{\gamma}_{\sigma\kappa}&=\langle e'^\gamma,\nabla_{e'_\sigma} e'_\kappa\rangle=(A^{-1})^\gamma{}_\lambda A^\mu{}_\sigma\langle e^\lambda,\nabla_{e_\mu} (A^\nu{}_\kappa e_\nu)\rangle\\
@@ -149,7 +149,7 @@
     若 $T=0$，右端为零；反之，在任意坐标域内依次取 $f=x^\lambda$，便得所有挠率分量均为零。
 \end{proof}
 
-\begin{definition}
+\begin{definition}\label{def:levi-civita}
     置 $(M,g,\nabla)$。
     $\nabla g=0$ 称为\textbf{度规适配性}。
     度规适配的无挠联络称为 \textbf{Levi-Civita 联络}。上式称为与度规 $g$ 的适配性或相容性。
@@ -188,7 +188,7 @@
 
 以下设 $M$ 至少为 $C^3$，联络 $\nabla$ 至少为 $C^1$。指数映射只需联络，无须指定度规。
 
-\begin{definition}
+\begin{definition}\label{def:geodesic-exponential}
     对 $v\in T_pM$，记 $\gamma_v:I_v\to M$ 为满足 $\gamma_v(0)=p$、$\dot\gamma_v(0)=v$ 的最大仿射参数测地线。置
     \eq{\mathcal D_p:=\{v\in T_pM:1\in I_v\},\qquad
         \exp_p:\mathcal D_p\to M,\quad v\longmapsto\gamma_v(1),}
@@ -248,17 +248,17 @@
     任取 $q\in\bar A$，取 $q$ 的法邻域 $N$ 及 $p\in N\cap A$。从 $q$ 到 $p$ 的径向测地线反向后将 $p$ 连至 $q$，故 $p\in U_k$ 蕴涵 $q\in U_{k+1}\subset A$。于是 $A$ 也闭，由连通性 $A=M$。最后，$C_2\land T_2\land\text{局部欧}$ 蕴涵可度量，进而仿紧。
 \end{proof}
 
-\section{Killing 矢量}
+\section{Killing 矢量}\label{sec:killing-isometries}
 
 以下设 $M$ 及度规 $g$ 均光滑，$\nabla$ 为其 Levi-Civita 联络。
 
-\begin{definition}
+\begin{definition}\label{def:isometry}
     微分同胚 $\psi:M\to M$ 若满足 $\psi^*g=g$，则称为\textbf{等度规映射}或\textbf{等距变换}，即
     \eq{g_{\psi(p)}(\psi_{*p}v,\psi_{*p}w)=g_p(v,w),\qquad v,w\in T_pM.}
     全体等度规映射在复合下构成\textbf{等度规群}，记作 $\operatorname{Isom}(M,g)$。开子集间满足同一条件的微分同胚称为\textbf{局部等度规映射}。
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{def:killing-field}
     满足 $\Lie_Kg=0$ 的光滑切矢场 $K$ 称为\textbf{Killing 矢量场}，简称\textbf{Killing 场}。全体 Killing 场记作 $\mathfrak{kill}(M,g)$。
 \end{definition}
 
@@ -306,7 +306,7 @@
         =T^\mu T^\nu\nabla_\mu K_\nu=0.\qedhere}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{thm:isometry-connection-geodesics}
     局部等度规映射保持 Levi-Civita 联络及仿射参数测地线，因而
     \eq{\label{eq:isometry-exponential}
         \psi(\exp_p v)=\exp_{\psi(p)}(\psi_{*p}v),}
@@ -318,7 +318,7 @@
     因 $\psi$ 保持度规及 Lie 括号，$\widetilde\nabla$ 仍度规适配且无挠，由 Levi-Civita 联络的唯一性，$\widetilde\nabla=\nabla$。于是 $\psi\circ\gamma_v$ 为初点 $\psi(p)$、初矢 $\psi_{*p}v$ 的仿射参数测地线，由初值唯一性即得式 \eqref{eq:isometry-exponential}。
 \end{proof}
 
-\section{曲率}
+\section{曲率}\label{sec:appendix-curvature}
 
 \begin{definition}
     置联络空间 $(M,\nabla)$ 和 $C^r$-矢量场 $X,Y,Z$。\textbf{黎曼曲率张量}定义为
@@ -330,7 +330,7 @@
 
 \begin{theorem}
     曲率坐标分量为
-    \eq{
+    \eq{\label{eq:curvature-components}
     R^\rho{}_{\sigma\mu\nu}=\p_\mu\Gamma^\rho_{\nu\sigma}-\p_\nu\Gamma^\rho_{\mu\sigma}+\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}.
     }
 \end{theorem}
@@ -679,7 +679,7 @@
 
 \begin{definition}
     置 $p\in M$ 及非退化二维子空间 $\Pi=\operatorname{span}\{X,Y\}\subset T_pM$。其\textbf{截面曲率}为
-    \eq{\sec_p(\Pi):=\frac{g(R(X,Y)Y,X)}{g(X,X)g(Y,Y)-g(X,Y)^2}.}
+    \eq{\label{eq:sectional-curvature}\sec_p(\Pi):=\frac{g(R(X,Y)Y,X)}{g(X,X)g(Y,Y)-g(X,Y)^2}.}
     更换 $\Pi$ 的基时，分子、分母均乘以基变换行列式的平方，故此定义与基无关。若所有点、所有非退化二维子空间的截面曲率均等于同一常数 $k$，则称 $(M,g)$ 为\textbf{常截面曲率空间}，简称\textbf{常曲率空间}。
 \end{definition}
 

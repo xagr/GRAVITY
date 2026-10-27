@@ -356,9 +356,8 @@ U_\alpha \cap U_\beta \neq \varnothing$。
 那么坐标变换$\omega_i \leftrightarrow \tilde{\omega}_j$是$C^\infty$的；
 而$U_\alpha \cap U_\beta$自身的坐标变换$x^i_\alpha \leftrightarrow {x}^j_\beta$本来就是$C^\infty$的；
 $T^*M$坐标是由两者结合得到的$(x^1,\cdots,x^m,\omega_1,\cdots,\omega_m)$，它的坐标变换自然也是$C^\infty$的。
-由\pageref{chdm:def_Dmanifold}页
-定义\ref{chdm:def_Dmanifold}中第二条和命题\ref{chdm:thm_biggestDiffStruc}可知，
-这个坐标卡集合是{相容的}，那么便建立了$T^*M$的$C^\infty$微分结构，从而它是微分流形了。
+因此这些坐标卡构成光滑图册，将所有与之相容的坐标卡加入便得到唯一的最大光滑图册，
+从而建立了$T^*M$的$C^\infty$微分结构（见定义\ref{def:smooth-manifold}）。
 
 由式\eqref{chfb:eqn_ctbv}可以直接看出余切丛的过渡函数族是
 \begin{equation}
@@ -684,7 +683,7 @@ $(\nabla\xi)(X):=\nabla_X\xi$。于是
 	\omega_{\gamma}^\beta a_{\alpha}^\gamma .
 \end{equation}
 式\eqref{chfb:eqn_wform-trans}是联络形式在局部标架场变换下的变换公式。
-此式与\eqref{chccr:eqn_1form-transformation}相似，该式只适用于切标架丛；
+此式在切丛上对应于定理\ref{thm:connection-frame-change}中的仿射联络换基公式；
 式\eqref{chfb:eqn_wform-trans}适用于矢量丛（包含切标架丛）。
 
 \begin{example}
@@ -713,7 +712,7 @@ $\nabla_v \xi$是光滑截面 $\xi$ 在 $p$ 点沿切矢量 $v$ 的协变导数�
     =-s^{\alpha} \bigl( \Gamma^\gamma_{i \beta} s_\gamma \bigr)
     =-\Gamma^\alpha_{i \beta} .
 \end{equation}
-从外在形式上来看，上述公式与仿射联络的公式\eqref{chccr:eqn_Ddualbase}完全相同。
+在切丛上，这就是对偶基的协变导数公式 $(\nabla_{e_i}e^\alpha)(e_\beta)=-\Gamma^\alpha_{i\beta}$，可由 $e^\alpha(e_\beta)=\delta^\alpha_\beta$ 的协变导数为零得到。
 \qed
 
 \subsection{拉回丛上的诱导联络}
@@ -808,7 +807,7 @@ $\tilde{e}_\sigma= e_\alpha A^\alpha_{\sigma} {\  \Leftrightarrow\  }
 这便证明了诱导联络定义与标架场选取无关。
 
 注意到，对于任意的 $X \in \mathfrak{X}(M), \phi_*(X) \in \Gamma(\phi^* T N)$。
-现在进一步假定 $N$是广义黎曼流形，则$\mathrm{D}$是相应的Levi-Civita联络（见\S\ref{chrg:sec_riemann-metric}）。
+现在进一步假定 $N$是广义黎曼流形，则$\mathrm{D}$是相应的Levi-Civita联络（见定义\ref{def:levi-civita}）。
 则根据联络 $\nabla$ 的构造以及Levi-Civita联络$\mathrm{D}$的性质，
 可得下面两个恒等式：
 \begin{align}
@@ -916,7 +915,7 @@ $\Omega$是2-形式场。这样，式\eqref{chfb:eqn_ATheta}可记成：
 
 设$X$、$Y$是$M$上任意两个切矢量场，则由曲率形式$\Omega$定义了从$\Gamma(E)$到$\Gamma(E)$的线性变换$R(X, Y)$。
 $\forall p \in U\subset M$ 任取两个切矢量 $X, Y \in$ $T_p(M)$，则用曲率形式$\Omega$可定义从纤维$\pi^{-1}(p)$到
-自身的线性变換$R(X, Y)$。它的定义如下：设 $\xi \in \pi^{-1}(p)$，它用矢量丛$E$在$U$上
+自身的线性变换$R(X, Y)$。它的定义如下：设 $\xi \in \pi^{-1}(p)$，它用矢量丛$E$在$U$上
 的局部标架场$s_\alpha=\left(s_1, \cdots, s_q\right)$可表成
 $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$。则命
 \begin{equation}\label{chfb:eqn_CurvatureO}
@@ -958,7 +957,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$。则命
     \omega_{\gamma}^\alpha(Y)
     \Bigr) s_\alpha .
 \end{align*}
-因此
+利用 $1$-形式的外微分恒等式 $\d\omega(X,Y)=X(\omega(Y))-Y(\omega(X))-\omega([X,Y])$，得
 
 \begin{align*}
     \nabla_X \nabla_Y \xi & -\nabla_Y \nabla_X \xi =
@@ -969,7 +968,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$。则命
     &-Y \bigl(X (\xi^\alpha )+ \xi^\beta \omega_{\beta}^\alpha(X) \bigr)-
     \bigl(X (\xi^\gamma )+ \xi^\beta \omega_{\beta}^\gamma(X) \bigr)
     \omega_{\gamma}^\alpha(Y)     \Bigr)s_\alpha \\
-   \xlongequal{\ref{chdf:eqn_d1form-value}}&\Bigl( \left[X,Y\right](\xi^\alpha)
+   =&\Bigl( \left[X,Y\right](\xi^\alpha)
    +\xi^\beta \bigl( \d \omega_{\beta}^\alpha (X,Y)
    +\omega_{\beta}^\alpha([X,Y])
    + (\omega_{\gamma}^\alpha \wedge \omega_{\beta}^\gamma)(X,Y)
@@ -988,7 +987,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$。则命
     其中$X, Y \in \Gamma(TM)$，$ f \in C^{\infty}(M)$，$ \xi \in \Gamma(E)$。
 \end{theorem}
 \begin{proof}
-    证明过程与\S\ref{chccr:sec_rit}类似，请读者补齐。
+    证明过程与\S\ref{sec:appendix-curvature}类似，请读者补齐。
 \end{proof}
 
 \begin{theorem}\label{chfb:thm_2ndBianchi}
@@ -1079,9 +1078,11 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$。则命
 
 \begin{definition}\label{chfb:def_associated}
     设$(E, M, \pi, F, G)$和$(\widetilde{E}, M, \tilde{\pi}, \widetilde{F}, G)$是同一个光滑流形$M$上两个纤维丛。
-    若存在$M$的一个开覆盖 $\left\{U_\alpha\right\}$，
-    使得两个纤维丛有相同的过渡函数族$\left\{g_{\alpha \beta}:
-    U_\alpha \cap U_\beta \rightarrow G\right\}$，则称这两个纤维丛是\textbf{相配的}（associated）。
+    若存在$M$的一个开覆盖 $\left\{U_\alpha\right\}$，使得两个纤维丛有相同的过渡函数族
+    \[
+        \left\{g_{\alpha \beta}:U_\alpha \cap U_\beta \rightarrow G\right\},
+    \]
+    则称这两个纤维丛是\textbf{相配的}（associated）。
 \end{definition}
 
 纤维丛的相配关系是一个等价关系，具有自反性、对称性、传递性。
@@ -1335,7 +1336,7 @@ $\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q$维方阵）。
 	我们借用$G$-主丛的目的就是要在式\eqref{chfb:eqn_Gwform}中自然引入$G$的Lie 代数$\mathfrak{g}$。}
 
 当$G$-标架丛是$GL(m)$-切标架丛时，其结构群便是$GL(m)$；与切标架丛相配的矢量丛就是切丛。
-此时$G$-标架丛联络\eqref{chfb:eqn_Gwform}就是\eqref{chccr:def_1form-gauge}（请读者验证之）。
+此时$G$-标架丛联络\eqref{chfb:eqn_Gwform}就是定义\ref{def:connection-one-form}中的联络 $1$-形式（请读者验证之）。
 
 由\S\ref{chfb:sec_vc}、\S\ref{chfb:sec_frame-bundles}内容可知由矢量丛联络可诱导出标架丛联络。
 反之，若先给定$G$-标架丛联络（见上面两式），$G$-主丛联络理论表明：标架丛联络也可自然诱导出矢量丛联络；
@@ -1438,7 +1439,7 @@ $x^i\to \tilde{x}^i$下，曲率分量表达式是如何变换的。
 \end{equation}
 
 \paragraph{曲率分量表达式} 由式\eqref{chfb:eqn_Riemann-Curvature}可以得到
-（请与式\eqref{chccr:eqn_Riemannian13-component}比对）：
+（请与式\eqref{eq:curvature-components}比对）：
 \begin{equation}\label{chfb:eqn_R-vector-bundle}
 	R_{\alpha i j}^\beta
 	= \frac{\partial}{\partial x^i} \Gamma^{\beta}_{j \alpha}

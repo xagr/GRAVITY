@@ -1,6 +1,6 @@
 \chapter{线性代数}\label{appx:LA}
 
-\section{线性空间}
+\section{线性空间}\label{sec:linear-space}
 
 带有满足结合律的二元运算的非空集称\textbf{半群}(semigroup)。存在单位元的半群称\textbf{幺半群}(monoid)。元素皆可逆的幺半群正是群。
 \textbf{同态}(homomorphisms)是保持群结构的映射 $f \in \hom(G_1, G_2 ) \Leftrightarrow f (g_1 h_1 )=f (g_1 ) f (h_1 )$。
@@ -178,7 +178,7 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 基底显然线性无关。进而 $V_l^k=\mathrm{span}\{e_{\mu_1}\otimes\cdots\otimes e_{\mu_k}\otimes e^{\sigma_1}\otimes\cdots\otimes e^{\sigma_l}\}$。故 $\dim V_l^k=\prod_{i=1}^k\dim V^*\prod_{j=1}^l\dim V=(\dim V)^{k+l}$。
 \end{proof}
 
-张量空间实际上被视为\textit{线性空间张量积}的结果，即定义
+张量空间实际上被视为\emph{线性空间张量积}的结果，即定义
     \eq{V^k_l=:\underbrace{V\otimes\cdots\otimes V}_{k\text{个}}\otimes\underbrace{V^*\otimes\cdots\otimes V^*}_{l\text{个}}.}
 一般地，可定义不同线性空间的张量积为多重线性映射的 hom-集。换言之，矢量张量积是双线性映射 $\otimes:X\times Y\to W$，使得对任意线性空间 $Z$ 和双线性映射 $f: X\times Y\to Z$，都 $\exists!g\in\hom(W,Z)$ 满足 $f=g\circ\otimes$，即下图交换：
     \[ \begin{tikzcd}[row sep=small]
@@ -201,7 +201,7 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 
 \begin{definition}
     $(k,l)$-张量 $ T $ 的第 $i$ 上标 $(i \leqslant k)$ 与第 $j$ 下标 $(j \leqslant l)$ 的\textbf{缩并}为
-\eq{\mathrm{C}_{j}^{i} T:=T \big(\cdots,\hl{red}{e^{h}},\cdots ; \cdots,\hl[b]{blue}{e_{h}},\cdots\big),}
+\eq{\contract_{j}^{i} T:=T \big(\cdots,\hl{red}{e^{h}},\cdots ; \cdots,\hl[b]{blue}{e_{h}},\cdots\big),}
 \hn{-2}{-1}{red}{第 $i$ 上槽}
 \hn[b]{-2}{1}{blue}{第 $j$ 下槽}
 \vspace{-0.1\baselineskip}
@@ -209,13 +209,13 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 \noindent 其中对 $h$ 使用求和约定。缩并结果为 $(k-1,l-1)$-张量，且显然与基选择无关。
 \end{definition}
 
-缩并其实是求迹的映射版本，因此数学家会混记为 $\tr$。如线性变换 $T$ 在任意基底下矩阵的迹 $\tr T$ 就是 $(1,1)$-张量缩并，是基不变的标量。但两种符号的逻辑稍许不同：$\tr$ 是写出缩并后张量类型，$\c$ 是指明所缩指标位置。假设 $T$ 是 $(1,3)$-张量，定义 $S:=\mathrm{C}_2^1T$，分量写法是 $S_{ij}=T^{k}{}_{ikj}$，但数学上记作 $S=\tr^0_2 T$。并且 $\tr$ 的用法有时并不唯一，比如 $S_{ij}$ 求迹必须借助升指标得 $g^{ij}S_{ij}$，数学上写作 $\tr_{g}S$。
+缩并其实是求迹的映射版本，因此数学家会混记为 $\tr$。如线性变换 $T$ 在任意基底下矩阵的迹 $\tr T$ 就是 $(1,1)$-张量缩并，是基不变的标量。但两种符号的逻辑稍许不同：$\tr$ 是写出缩并后张量类型，$\contract$ 是指明所缩指标位置。假设 $T$ 是 $(1,3)$-张量，定义 $S:=\contract_2^1T$，分量写法是 $S_{ij}=T^{k}{}_{ikj}$，但数学上记作 $S=\tr^0_2 T$。并且 $\tr$ 的用法有时并不唯一，比如 $S_{ij}$ 求迹必须借助升指标得 $g^{ij}S_{ij}$，数学上写作 $\tr_{g}S$。
 将分量语言改写为映射语言时，只需注意“先张量积再缩并”可产生各种类型的新张量。可从映射语言直接看出，其结果相当于张量对矢量、对偶矢量的作用。比如，置 $T \in V^k_l,v \in V$，则
 \begin{align*}
-    \mathrm{C}_{\cdots}^{k+1}(T \otimes v)&=T \otimes v(\cdots,e^{\mu} ; \cdots,e_{\mu},\cdots)=T(\cdots;\cdots,e_{\mu},\cdots)v(e^\mu)\\
+    \contract_{\cdots}^{k+1}(T \otimes v)&=T \otimes v(\cdots,e^{\mu} ; \cdots,e_{\mu},\cdots)=T(\cdots;\cdots,e_{\mu},\cdots)v(e^\mu)\\
     &=T(\cdots;\cdots,v(e^\mu)e_{\mu},\cdots)=T(\cdots;\cdots,v,\cdots);
 \end{align*}
-同理 $T$ 对 $\omega\in V^*$ 作用其实即 $\mathrm{C}_{l+1}^{\cdots}(T \otimes \omega)$。
+同理 $T$ 对 $\omega\in V^*$ 作用其实即 $\contract_{l+1}^{\cdots}(T \otimes \omega)$。
 换言之，作用就是先积后并。
 
 \begin{definition}
@@ -275,13 +275,13 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 有限维时，非退化等价于 $f$ 满秩、分量矩阵可逆，或 $f_\flat\in\mathrm{Isom}(V,V^*)$。换言之，可规定好某个 $f$ 作为 $V$ 上的额外结构，建立 $V,V^*$ 间的特殊同构。
 
 \begin{remark}
-    非零未必非退化，例如矩阵 $\diag(1,0)$ 给出的双线性函数。非退化也不要求 $f(v,v)\ne0$ 对一切非零 $v$ 成立：$g=\diag(-1,1)$ 非退化，但 $v=(1,1)$ 满足 $g(v,v)=0$。退化要求某个非零矢量与\textit{所有}矢量的配对均为零。
+    非零未必非退化，例如矩阵 $\diag(1,0)$ 给出的双线性函数。非退化也不要求 $f(v,v)\ne0$ 对一切非零 $v$ 成立：$g=\diag(-1,1)$ 非退化，但 $v=(1,1)$ 满足 $g(v,v)=0$。退化要求某个非零矢量与\emph{所有}矢量的配对均为零。
 \end{remark}
 
 相对论主要用实线性空间。度规是 $\F=\R$ 的特例：
 
 \begin{definition}
-    $V$ 上一个对称、非退化的双线性实函数 g 称为 $V$ 上的一个\textbf{度规}。 $g_\flat:V\to V^*$ 称作\textbf{音乐同构}(musical isomorphism)。度规逆 $g^{-1}:=g^{ij} e_i\otimes e_j$，或用 $\mathrm{C}_1^2(g^{-1}\otimes g)=\id_V$ 定义。
+    $V$ 上一个对称、非退化的双线性实函数 g 称为 $V$ 上的一个\textbf{度规}。 $g_\flat:V\to V^*$ 称作\textbf{音乐同构}(musical isomorphism)。度规逆 $g^{-1}:=g^{ij} e_i\otimes e_j$，或用 $\contract_1^2(g^{-1}\otimes g)=\id_V$ 定义。
 \end{definition}
 
 \begin{remark}
@@ -290,7 +290,7 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 
 \begin{definition}
     \textbf{升降指标}操作本质为音乐同构，故是相对于某度规而言的。比如 $(1,1)$-张量 $T$ 的降为
-    $\mathrm{C}_1^1(g\otimes T)=T_\flat$。升指标用度规逆，即 $\mathrm{C}_1^1(g^{-1}\otimes T)=T^\sharp$。就矢量、对偶矢量而言，可将音乐同构称为\textbf{度规对偶}：$A\in V$ 的降为 $A_\flat:=g_\flat A$；$\omega\in V^*$ 的升是 $\omega^\sharp:=g^{-1}(\omega,\oo)$。
+    $\contract_1^1(g\otimes T)=T_\flat$。升指标用度规逆，即 $\contract_1^1(g^{-1}\otimes T)=T^\sharp$。就矢量、对偶矢量而言，可将音乐同构称为\textbf{度规对偶}：$A\in V$ 的降为 $A_\flat:=g_\flat A$；$\omega\in V^*$ 的升是 $\omega^\sharp:=g^{-1}(\omega,\oo)$。
 \end{definition}
 
 \begin{remark}
@@ -298,8 +298,8 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 \end{remark}
 
 任意实对称矩阵 $f_{ij}$ 总合同于某个对角阵，对应标准二次型，秩正是非零对角元的个数。且还可继续归一化，对应规范二次型：
-\eq{(\tilde f_{ij})=\diag(\pm 1,\cdots,\pm 1,0,\cdots),}
-但正、负或为零的\textit{个数}在合同变换下分别不变。正项个数称正惯性指数，负项个数称负惯性指数。简言之，合同变换保持正负惯性指数，此即代数学的 \textbf{Sylvester 惯性定理}。正负惯性指数之差就是号差，它进而是不变的。
+\eq{\label{eq:quadratic-normal-form}(\tilde f_{ij})=\diag(\pm 1,\cdots,\pm 1,0,\cdots),}
+但正、负或为零的\emph{个数}在合同变换下分别不变。正项个数称正惯性指数，负项个数称负惯性指数。简言之，合同变换保持正负惯性指数，此即代数学的 \textbf{Sylvester 惯性定理}。正负惯性指数之差就是号差，它进而是不变的。
 
 非退化性排除规范矩阵中的零对角元；能否化为 $\eta_{\mu\nu}$，还取决于正、负惯性指数是否与之相同。
 记负惯性指数 $s$。$s=0$ 时称度规是\textbf{正定的}(positive definite)。$s=\dim V$ 时称\textbf{负定的}(negative definite)。其它皆称\textbf{不定的}(indefinite)，时空度规就是不定的，推广到高维情形时，可依旧按东海岸习惯规定 $(-1,1,\cdots,1)$，西海岸取 $(1,-1,\cdots,-1)$。
@@ -309,7 +309,7 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 正定内积给出\textbf{范数} $\|\alpha\|:=\sqrt{\langle\alpha,\alpha\rangle}$，并满足 \textbf{Cauchy-Schwarz 不等式} $|\langle\alpha,\beta\rangle|\leqslant\|\alpha\|\|\beta\|$。$n$ 维实线性空间配以正定内积，称为\textbf{欧氏（线性）空间}，可由内积定义长度和夹角。不定度规下仍可记 $\alpha^2=g(\alpha,\alpha)$、$|\alpha|=\sqrt{|\alpha^2|}$，但非零矢量也可能有零模长，故此处的模长不是范数，通常的 Cauchy-Schwarz 不等式也不再成立。
 
 对于 $\C$，内积采用适于量子力学态矢的定义；以下不要求空间有限维：
-\begin{definition}
+\begin{definition}\label{def:complex-inner-product}
     复线性空间 $V$ 称为\textbf{复内积空间}，简称内积空间，若给定内积运算 $(\oo, \oo): V \times V \rightarrow \C$，对任意 $f, g, h \in V$ 和任意 $c,d \in \C$ 满足：
     
     （第二槽线性性）$(f, cg+dh)=c(f, g)+d(f, h)$；
@@ -432,7 +432,7 @@ $\{e^\mu\}$的楔积即可作为 $\Lambda_l(V)$ 的基：由于已说明任意 $
 \end{theorem}
 
 \begin{definition}
-    矢量和形式的缩并 $i_v \omega:=\mathrm{C}_1^1 (v\otimes\omega)=\omega(v,\cdots)$ 称为\textbf{内导数}、\textbf{内缩}或\textbf{内乘}(interior product)，分量表述为
+    矢量和形式的缩并 $i_v \omega:=\contract_1^1 (v\otimes\omega)=\omega(v,\cdots)$ 称为\textbf{内导数}、\textbf{内缩}或\textbf{内乘}(interior product)，分量表述为
     \eq{
         i_v \omega_{\mu_1\cdots\mu_{k}}:=v^\nu\omega_{\nu\mu_1\cdots\mu_{k}},
     }
@@ -478,7 +478,7 @@ $\{e^\mu\}$的楔积即可作为 $\Lambda_l(V)$ 的基：由于已说明任意 $
 $\varepsilon_{i_1\cdots i_n}$ 下标数与维度一致，故独立分量只有 $\varepsilon_{1\cdots n}=1$。
 记基 $\{e'_\nu\}$ 下的 Levi-Civita 符号为 $\varepsilon'_{i_1\cdots i_n}=\varepsilon_{j_1\cdots j_n} A^{j_1}{}_{i_1} \cdots A^{j_n}{}_{i_n} J^w$，只需取 $(i_1\cdots i_n)=(1\cdots n)$ 即可，这样 $1=\varepsilon'_{1\cdots n}=J^{-1} J^w$ 即 $w=1$。
 
-\textit{用赝张量构造张量的办法是利用度规}，而此张量只在正交归一基中表为此赝张量，如协变导数的度规适配性。约定某正交归一基 $\{\zeta_\mu\}$ 是右手的，\textbf{Levi-Civita 张量}为 $\epsilon=\epsilon_{i_1\cdots i_n} e^{i_1}\otimes\cdots\otimes e^{i_n}=\varepsilon_{j_1\cdots j_n} \zeta^{j_1}\otimes\cdots\otimes \zeta^{j_n}$，记 $e_\mu=\Pi^\nu{ }_\mu \zeta_\nu$，则
+\emph{用赝张量构造张量的办法是利用度规}，而此张量只在正交归一基中表为此赝张量，如协变导数的度规适配性。约定某正交归一基 $\{\zeta_\mu\}$ 是右手的，\textbf{Levi-Civita 张量}为 $\epsilon=\epsilon_{i_1\cdots i_n} e^{i_1}\otimes\cdots\otimes e^{i_n}=\varepsilon_{j_1\cdots j_n} \zeta^{j_1}\otimes\cdots\otimes \zeta^{j_n}$，记 $e_\mu=\Pi^\nu{ }_\mu \zeta_\nu$，则
 \eq{
     \epsilon_{i_1\cdots i_n}=\varepsilon_{j_1\cdots j_n} \Pi^{j_1}{}_{i_1} \cdots \Pi^{j_n}{}_{i_n}.
 }
@@ -516,7 +516,7 @@ $\varepsilon_{i_1\cdots i_n}$ 下标数与维度一致，故独立分量只有 $
 }
 
 此外，还可这样得到 Levi-Civita 符号。\textbf{广义 Kronecker 符号}是指如下张量
-\eq{
+\eq{\label{eq:generalized-kronecker}
     \delta_{i_1\cdots i_n}^{j_1\cdots j_n}:=n!\delta_{i_1}^{[j_1}\cdots\delta_{i_n}^{j_n]}= \det(\delta_{i_n}^{j_n}).
 }
 进而 $\delta_{i_1}^{[j_1}\cdots\delta_{i_n}^{j_n]}=\delta_{[i_1}^{[j_1}\cdots\delta_{i_n]}^{j_n]}=\delta_{[i_1}^{j_1}\cdots\delta_{i_n]}^{j_n}$ 或 $\delta_{i_1\cdots i_n}^{j_1\cdots j_n}=\delta_{[i_1\cdots i_n]}^{j_1\cdots j_n}$。假设 $\{i_k\},\{j_k\}$ 内均无相同指标（否则为零），可以看出二者互为偶排列时为 $1$，互为奇排列时为 $-1$。这样，取 $j_k=k$ 就可有 $\varepsilon_{i_1\cdots i_n}=\delta_{i_1\cdots i_n}^{1\cdots n}$，但要注意 $\delta_{i_1\cdots i_n}^{1\cdots n}$ 已不再是张量。同理 $\varepsilon^{j_1\cdots j_n}=(1/g)\delta^{j_1\cdots j_n}_{1\cdots n}$。则

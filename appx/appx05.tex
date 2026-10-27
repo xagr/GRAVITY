@@ -97,7 +97,7 @@ $A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 
     \eq{\Lie_X\d=\d i_X\d=\d\Lie_X.\qedhere}
 \end{proof}
 
-\section{定向与带边流形}
+\section{定向与带边流形}\label{sec:oriented-manifold}
 
 \S\ref{sec:tensor-density} 已定义线性空间的体元与定向。对流形，每个切空间都可单独定向，问题在于能否随点光滑地选取。
 
@@ -125,7 +125,7 @@ $A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 
     $\R^n$ 的标准定向由 $\d x^1\wedge\cdots\wedge\d x^n$ 给出。M\"obius 带则不可定向：将矩形按 $(0,t)\sim(1,-t)$ 粘合，若存在体元，其拉回为 $f(s,t)\,\d s\wedge\d t$，其中 $f$ 连续且处处非零。粘合要求 $f(1,0)=-f(0,0)$，与 $f(s,0)$ 符号恒定矛盾。
 \end{example}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
@@ -186,7 +186,7 @@ $A$ 正是 $4$-势。$A$ 当然不唯一，因为 $\d^{2}=0$，$A+\mathrm{d} f$ 
     则 $D$ 在诱导拓扑及限制图册下是与 $M$ 同维的带边流形，称为\textbf{光滑带边区域}。其流形边界恰是它在 $M$ 中的拓扑边界。闭球是典型例子，而任意闭集未必是带边区域。
 \end{example}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
 \tikzset{
 pattern size/.store in=\mcSize, 
@@ -278,7 +278,7 @@ pattern radius = 1pt}
     平面圆盘取 $\d x\wedge\d y$ 定向，其边界诱导逆时针方向。区间 $[a,b]$ 取 $\d x$ 定向，则左端点外向矢量为 $-\p_x$，右端点为 $\p_x$，诱导的零维体元分别为 $-1,+1$。零维流形的定向就是逐点指定正负号，故边界积分为 $\int_{\partial[a,b]}f=f(b)-f(a)$。
 \end{example}
 
-\section{广义 Stokes 定理}
+\section{广义 Stokes 定理}\label{sec:integration-on-manifold}
 
 考虑 $n$ 维定向流形 $M$。取连通坐标域上的坐标系 $(O,\psi)$，其坐标函数为 $x^i:O\to\R$。若右端 Riemann 积分存在，则定义 $A\subset O$ 上 $n$-形式 $\omega$ 的积分为
 \eq{
@@ -289,7 +289,7 @@ pattern radius = 1pt}
 
 \begin{definition}
     设 $\omega$ 为 $n$ 维定向流形 $M$ 上的紧支撑光滑 $n$-形式，取从属于坐标开覆盖 $\{O_i\}$ 的局部有限光滑单位分解 $\{\rho_i\}$，定义
-    \eq{
+    \eq{\label{eq:integral-partition}
         \int_M\omega:=\sum_i\int_{O_i}\rho_i\omega.
     }
     由紧支撑性及局部有限性，右端只有有限项非零。特别地，$M$ 紧时，任意光滑 $n$-形式均可如此积分。

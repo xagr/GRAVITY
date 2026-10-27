@@ -60,7 +60,7 @@ $m$ 维复 Lie 群也是 $2m$ 维实 Lie 群，因为全纯群运算在底层实
 \end{definition}
 
 \begin{definition}
-    设 Lie 群$H$是 Lie 群$G$的 Lie 子群，如果$H$还是$G$的闭子集（见定义\ref{chtop:def_closedset}），
+    设 Lie 群$H$是 Lie 群$G$的 Lie 子群，如果$H$还是$G$的闭子集（见定义\ref{def:closed-set}），
     则称$H$为$G$的\textbf{闭子群}。
 \end{definition}
 
@@ -78,7 +78,7 @@ $m$ 维复 Lie 群也是 $2m$ 维实 Lie 群，因为全纯群运算在底层实
     则称$\mathscr{H}$是$\mathscr{G}$的\textbf{理想}（ideal）。
 \end{definition}
 因 Lie 代数具有反对称性（$[X,Y]=-[Y,X]$），故理想不分左、右，全部是双边理想。
- Lie 代数中理想的概念与群理论中正规子群（见定义\ref{chtop:def_normal-subgroup}）概念相当。
+ Lie 代数中理想的概念与群理论中正规子群（即满足 $gHg^{-1}=H$ 对所有 $g\in G$ 成立的子群 $H$）概念相当。
 
 \begin{definition}
     设有 Lie 群$G$及其 Lie 代数$\mathscr{G}$。
@@ -219,7 +219,7 @@ $L_g h = gh = h \ \Rightarrow \ g=e$。
 
 \begin{example}\label{chlg:exam_dir-prod}
     \textbf{Lie 群直积}。设有 Lie 群$G$、$H$，在积流形$G\times H$
-    （见\S\ref{chdm:sec_cartensian-product}）上定义
+    （其局部坐标由两因子的局部坐标合并而成）上定义
     \begin{equation}
         (g_1,h_1)\cdot(g_2,h_2):=(g_1 g_2, h_1h_2), \qquad
         (g,h)^{-1}:=(g^{-1},h^{-1}).
@@ -356,7 +356,7 @@ $[\cdot,\cdot]:\mathfrak g\times\mathfrak g\to\mathfrak g$。
     \textbf{商代数}。
 \end{proposition}
 \begin{proof}
-    线性空间的商空间概念见\S\ref{chmla:sec_quotient}。首先，证明商空间中括号积定义的合理性。
+    商空间由陪集 $x+\mathfrak h$ 构成，运算为 $\bar x+\bar y=\overline{x+y}$、$\lambda\bar x=\overline{\lambda x}$。首先，证明商空间中括号积定义的合理性。
     设$\overline{x_1}=\bar{x},\ \overline{y_1}=\bar{y}$，即
     $x-x_1=u\in \mathfrak{h}$，$y-y_1=v\in \mathfrak{h}$。
     于是$[x,y]-[x_1,y_1]=[x_1+u,\  y_1+v]-[x_1,y_1]=[x_1,v]+[u,y_1]+[u,v]\in \mathfrak{h}$。
@@ -448,7 +448,7 @@ $[\cdot,\cdot]:\mathfrak g\times\mathfrak g\to\mathfrak g$。
 	[e_2,e_3]= n^1 e_1,\quad
 	[e_3,e_1]=n^2 e_2 + a e_3 .
 \end{equation}
-由第\pageref{chmla:thm_pm1num}页推论\ref{chmla:thm_pm1num}可知：
+仿照实对称型的规范化式\eqref{eq:quadratic-normal-form}，对非零系数吸收其绝对值，可知：
 一定可以通过基矢的归一化，使得$n^1$、$n^2$、$n^3$只取：$-1$、$0$、$+1$。
 实参数$a$是任意的；若$a=0$，称为{A 类}，否则称为{B 类}。
 通过四个实参数$(a,n^1,n^2,n^3)$的不同取值将三维实 Lie 代数分为$11$类（同构意义下）；
@@ -488,7 +488,7 @@ $[\cdot,\cdot]:\mathfrak g\times\mathfrak g\to\mathfrak g$。
 \subsection{同态、表示定义}\label{chlg:sec_lieiso}
 \begin{definition}
     若从 Lie 群$G$到 Lie 群$H$存在一个{光滑映射}$\phi:G\to H$（流形角度），
-    它是群$G$到群$H$的群同态映射（见\pageref{chtop:def_tttg}页定义\ref{chtop:def_tttg}，群角度）；
+    它是群$G$到群$H$的群同态映射（即 $\phi(gh)=\phi(g)\phi(h)$，群角度）；
     那么称$\phi$是 Lie 群$G$到$H$的\textbf{同态映射}。
 
     若$\phi$是群同构（群角度）且微分同胚（流形角度），
@@ -510,9 +510,7 @@ $[\cdot,\cdot]:\mathfrak g\times\mathfrak g\to\mathfrak g$。
 
  Lie 群、 Lie 代数表示理论是一个非常专门且深入的学科，任何具体群的实际应用
 绝大多数都是用它的表示。
-第\pageref{chtop:def_group_representation}页所叙述的群表示
-定义\ref{chtop:def_group_representation}适用于 Lie 群；
-但我们还是再次叙述一次：
+群的线性表示是到一般线性群的同态；对 Lie 群还要求该同态光滑：
 \begin{definition}
     如果存在从 Lie 群$G$到一般线性群$GL(m,V)$的 Lie 群同态映射$\phi:G\to GL(V)$，
     则称$(\phi,V)$为 Lie 群$G$的一个$m$维\textbf{线性表示}，简称\textbf{表示}。
@@ -777,7 +775,7 @@ $X_e$是切矢量，$X^i$是它在坐标基下的分量。
 \end{theorem}
 \begin{proof}
     若$X,Y$是$G$上左不变切矢量场，则$X+\lambda\cdot Y(\forall \lambda \in \mathbb{R})$也是
-     Lie 群$G$上的左不变切矢量场，满足封闭性。不难验证$\mathscr{G}$满足定义\ref{chmla:def_linear-space}，
+     Lie 群$G$上的左不变切矢量场，满足封闭性。不难验证$\mathscr{G}$满足\S\ref{sec:linear-space}中的线性空间公理，
     故$\mathscr{G}$是线性空间。
 
     由定理\ref{chlg:thm_lfv}可知，任意一左不变矢量场$X$都可由单位元处的线性空间$T_eG$中矢量生成，
@@ -2003,7 +2001,7 @@ $\exp(tX)\exp(tY)=I+t(X+Y)+t^2(X^2/2+XY+Y^2/2)+O(t^3)$。
 局部群同构把这些等式传回原 Lie 群。
 \end{proof}
 
-读者应能发现 Lie 群中通过单参数子群定义的指数映射和由黎曼测地线定义的指数映射（见\S\ref{chgd:sec_exp}）有
+读者应能发现 Lie 群中通过单参数子群定义的指数映射和由黎曼测地线定义的指数映射（见定义\ref{def:geodesic-exponential}）有
 很多相似之处；其实在满足一定条件下两者是相同的，见推论\ref{chlg:thm_expiso}。
 
 \subsection{矩阵群的指数映射}\label{chlg:sec_GL-exp}
@@ -2299,7 +2297,7 @@ $\forall A\in GL(m)$、$\forall X\in \mathfrak{gl}(m)$，利用式\eqref{chlg:eq
 \end{proof}
 
 我们可以从多个角度来看问题，比如$GL(V)$是从矢量空间$V$到矢量空间$V$的全体可逆线性变换的集合；
-$\forall g\in GL(V)$它将$V$中矢量映射为另一矢量，故从多重映射角度（见例\ref{chmla:exm_T11TR}）来看，
+$\forall g\in GL(V)$它将$V$中矢量映射为另一矢量，故从多重映射角度（见\S\ref{sec:tensor}）来看，
 $g$可以看成$\binom{1}{1}$型张量，也就是说$GL(V)$是$V$上全体$\binom{1}{1}$型张量构成的空间$\mathcal{T}^1_1(V)$。
 我们用$\binom{1}{1}$型张量观点再次审视一下$\operatorname{Ad}_g$和$\operatorname{ad}_X$。
 $\operatorname{Ad}_g\in GL(\mathscr{G})$是$\mathscr{G}$上的线性变换，故它是 Lie 代数$\mathscr{G}$上的$\binom{1}{1}$型张量。
@@ -2606,7 +2604,7 @@ $SL(m,\mathbb{C})$群元的行列式是$1$；
 $GL(m,\mathbb{C})$减掉$SL(m,\mathbb{C})$后剩余元素的行列式
 取值范围是$C := (-\infty,0)\cup (0,1)\cup (1,+\infty)$，显然$C$是开集。
 行列式映射$\det$是拓扑学上的连续函数，那么它的$\det^{-1}C$构成的逆像集也是开集；
-因此由定义\ref{chtop:def_closedset}可知$\det A =1$所构成的集合是{闭集}，
+因此由定义\ref{def:closed-set}可知$\det A =1$所构成的集合是{闭集}，
 也就是说$SL(m,\mathbb{C})$是$GL(m,\mathbb{C})$的拓扑闭子集。
 这便回应本节开头所述$SL(m,\mathbb{C})$是闭子集的断言。
 上面关于闭子集的论述同样适用于$SL(m,\mathbb{R})$、
@@ -2801,7 +2799,7 @@ $O(m)=SO(m)\times \{I_m, -I_m\}$，即此时是直积。
 需要指出的是：$SO(2)$是无穷度连通的（用专业术语来说它的基本群是整数加法群$(\mathbb{Z},+)$，
 $\mathbb{Z}$有无穷多个元素，故为无穷度连通），
 它的通用覆盖群是单连通的实数加法群$(\mathbb{R},+)$。
-它们的群表示见\S\ref{chlar:sec_Abel-Lie}。
+例如其一维幺正表示分别为 $\theta\mapsto\e^{\i n\theta}$（$n\in\Z$）和 $t\mapsto\e^{\i\lambda t}$（$\lambda\in\R$）；前者的整数条件来自 $2\pi$ 周期性。
 
 \subsubsection{SO(3)群}\label{chlg:sec_rotation}
 
@@ -2832,12 +2830,12 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 \begin{figure}[htb]
     \begin{minipage}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=7cm]{fig/ch13-eulerangleY.eps}
+        \includegraphics[width=\linewidth]{fig/appx/ch13-eulerangleY.pdf}
         \caption{欧拉角：临时轴$N$是$y$轴} \label{chlg:fig_euler}
     \end{minipage}
     \begin{minipage}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=7cm]{fig/ch13-eulerangleX.eps}
+        \includegraphics[width=\linewidth]{fig/appx/ch13-eulerangleX.pdf}
         \caption{欧拉角：临时轴$N$是$x$轴} \label{chlg:fig_euler2}
     \end{minipage}
 \end{figure}
@@ -2929,7 +2927,7 @@ $\d \theta$的旋转方向与固定轴$n$符合右手螺旋定则。
 右作用在基矢量$\{e_1,e_2,e_3\}$（行）上；
 或者左作用在某矢量的具体分量$(x,y,z)^{\mathrm{T}}$（列）上；不能反过来。
 
-我们把$\mathfrak{so}(3)$ Lie 代数放到\S\ref{chlar:sec_LA-su2so3}，与$\mathfrak{su}(2)$一起讨论。
+$\mathfrak{so}(3)$ 由三维实反对称矩阵组成；其三个旋转生成元可由上述绕坐标轴的转动矩阵在零转角处求导得到。
 
 \subsubsection{广义正交群}
 在实数域$\mathbb{R}$中，取式\eqref{chlg:eqn_gsinit}中的$S$为
@@ -3187,8 +3185,8 @@ $m=1$的特殊线性群和特殊酉群均为单点。}
 
 \subsection{等距映射补遗}
 本节将第\ref{appx:curvature}章的等距群 $\operatorname{Isom}(M,g)$ 简记为 $I(M)$。
-在\S \ref{chrg:sec_isometry}我们已初步讨论了等距映射（Isometry），
-等距定义自然仍为\ref{chrg:def_isometry-immersion}；我们从群论角度再次讨论这个问题。
+在\S \ref{sec:killing-isometries}我们已初步讨论了等距映射（Isometry），
+等距定义自然仍为\ref{def:isometry}；我们从群论角度再次讨论这个问题。
 
 对于光滑广义黎曼流形$M$，所有从$M$到$M$的等距映射集合$I(M)$，在把
 复合映射当成群乘法的情形下构成一个群，称为$M$的\textbf{等距群}。
@@ -3204,7 +3202,7 @@ $m=1$的特殊线性群和特殊酉群均为单点。}
     设在广义黎曼流形$(M,g)$、$(N,h)$间存在局部等距同构映射$\phi:M\to N$。
     则$\forall p\in M$，交换图\ref{chlg:pic_exp-exchange}成立；
     其中$U_p\subset T_pM$，$V_{\phi(p)}\subset T_{\phi(p)}N$分别
-    是$\exp_p$和$\exp_{\phi(p)}$的法邻域（指数映射的像集，见\S\ref{chgd:sec_exp}）。
+    是$\exp_p$和$\exp_{\phi(p)}$的法邻域（指数映射的像集，见定义\ref{def:geodesic-exponential}）。
 \end{theorem}
 
 \begin{figure}[htb]
@@ -3219,12 +3217,12 @@ $m=1$的特殊线性群和特殊酉群均为单点。}
 \end{figure}
 
 \begin{proof}
-    设$\gamma(t)$是$M$中测地线，且$p=\gamma(0)$；由定理\ref{chrg:thm_geodesic-MN}可知
+    设$\gamma(t)$是$M$中测地线，且$p=\gamma(0)$；由定理\ref{thm:isometry-connection-geodesics}可知
     映射$\phi\circ\gamma(t)$是$N$中测地线。
     $\forall v\in U_p$，与之对应$\phi_* v \in V_{\phi(p)}$；两条测地线诱导的指数映射分别是：
     $\exp_p(t v)=\gamma(t;p,v)$和
     $\exp_{\phi(p)}(t\, \phi_*v)=\phi\circ\gamma\bigl(t;\phi(p),\phi_* v\bigr)$。
-    由定理\ref{chrg:thm_geodesic-MN}有
+    由定理\ref{thm:isometry-connection-geodesics}有
     \begin{equation}\label{chlg:eqn_isoexp}
         \phi \bigl(\exp_p(t v)\bigr) = \exp_{\phi(p)}(t\, \phi_* v ) .
     \end{equation}
@@ -3453,7 +3451,7 @@ $(a_1, R_1)(a_2, R_2)=(a_1 \Psi_{R_1}( a_2), R_1 R_2)
 =(a_1 + R_1 a_2 , R_1 R_2)$。
 这与上面用矩阵表示的连续两次欧氏变换完全相同。
 
-\subsubsection{$ISO(2)$}\label{chlg:sec_e2}
+\subsubsection{\texorpdfstring{$ISO(2)$}{ISO(2)}}\label{chlg:sec_e2}
 二维欧几里得群$ISO(2)$（或$E(2)$）的乘法关系\eqref{chlg:eqn_Em-max}中的$T$可表示为
 \begin{equation}
     T( a, \theta ) =  \begin{pmatrix}
@@ -3463,7 +3461,7 @@ $(a_1, R_1)(a_2, R_2)=(a_1 \Psi_{R_1}( a_2), R_1 R_2)
     \end{pmatrix} .
 \end{equation}
 $T( 0, \theta )$是$SO(2)$，它表示$x-y$平面内的旋转（即绕$z$轴旋转），
-它可以表示成（参见式\eqref{chlar:eqn_expSO3}）
+对转动矩阵在 $\theta=0$ 处求导得到生成元，再取矩阵指数，即可表示成
 \begin{equation}\label{chlg:eqn_tmpR}
     T( 0, \theta )= R(\theta ) =\exp(-\i \theta J); \
     J = \left(\begin{smallmatrix}
@@ -3507,7 +3505,7 @@ $\exp(-\i a^j P_j)$就是式\eqref{chlg:eqn_Em-max}中的平移。
 通过矩阵的直接计算可得到对易关系如下：
 \begin{equation}
     [P_1,P_2]=0, \quad [J,P_1]=\i P_2,\quad
-    [J,P_2]=-\i P_1。
+    [J,P_2]=-\i P_1.
 \end{equation}
 上式是矩阵形式基矢量的对易关系。
 直接计算偏导数形式的基矢量对易关系，所得结果与上式相同；
@@ -3527,7 +3525,7 @@ $\exp(-\i a^j P_j)$就是式\eqref{chlg:eqn_Em-max}中的平移。
     将$R(\theta)$乘在上式两端便可证明命题。
 \end{proof}
 
-\subsubsection{Lie 代数收缩一：几何形式的$\mathfrak{so}(3)\to \mathfrak{iso}(2)$} 
+\subsubsection{Lie 代数收缩一：几何形式的\texorpdfstring{$\mathfrak{so}(3)\to \mathfrak{iso}(2)$}{so(3) → iso(2)}}
 这里叙述较易理解的几何形式In\"on\"u--Wigner收缩。
 作为 Lie 变换群，$SO(3)$是二维球面的对称群，$ISO(2)$是二维平面的对称群；
 可以通过球面上的点在平面上的立体投影来建立这些群的元素之间的对应关系。
@@ -3544,7 +3542,7 @@ $x-y$平面切于地球表面，切点是北极点$N$。
 对于$OXYZ$系来说，第一个动作相当于绕$X$旋转了$\alpha=-d_2/R$角度，
 第二个动作相当于绕$Y$旋转了$\beta=d_1/R$角度，
 第三个动作相当于绕$Z$轴旋转了$\theta$角。
-借用式\eqref{chlar:eqn_so3-L}，可以将上述三个动作表示成
+取旋转生成元 $\hat L_X=-\i(Y\partial_Z-Z\partial_Y)$ 及其循环置换，可以将上述三个动作表示成
 （三个坐标约是：$X\approx 0,\ Y\approx 0,\  Z\approx R$）
 \begin{equation}\label{chlg:eqn_tmp3r}
     \alpha \hat{L}_X + \beta \hat{L}_Y + \theta \hat{L}_Z
@@ -3574,7 +3572,7 @@ $x-y$平面切于地球表面，切点是北极点$N$。
 这就是说：当$R\to \infty$时，
 旋转算符$\hat{L}_X,\hat{L}_Y,\hat{L}_Z$（$SO(3)$生成元）
 收缩成算符$\hat{P}_x,\hat{P}_y,\hat{L}_z$（$ISO(2)$生成元）。
-对易关系也有相应的收缩变化，即式\eqref{chlar:eqn_so3-comm-L}变为：
+旋转生成元满足 $[\hat L_X,\hat L_Y]=\i\hat L_Z$ 及其循环置换；这些对易关系相应地收缩为：
 
 \begin{align*}
     &\left[\frac{1}{R}\hat{L}_X,\ \frac{1}{R}\hat{L}_Y\right] = \i \frac{1}{R^2}\hat{L}_Z
@@ -3686,7 +3684,7 @@ Lorentz变换$L^{\uparrow}_{+}$本身以及通过三个
 也就是$\Lambda^0_0 >0$的部分。
 $L^{\uparrow}_{+}\cup L^{\downarrow}_{+}$保纯空间定向不变，
 也就是$\det (\Lambda) >0$的部分。
-纯空间定向概念见\S\ref{chdf:sec_oriented-manifold}（由一个$3\times 3$矩阵描述）；
+纯空间定向概念见\S\ref{sec:oriented-manifold}（由一个$3\times 3$矩阵描述）；
 其实时间方向的概念也是如此定义的，只不过时间维度是一个数，不需要用矩阵行列式来描述，
 或者说是一个$1\times 1$的矩阵。
 
@@ -3755,7 +3753,7 @@ $v$如图\ref{chlg:fig_cart_sph}所示。
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=6cm]{fig/ch13-boost.pdf}
+    \includegraphics[width=6cm]{fig/appx/ch13-boost.pdf}
     \caption{两参考系速度差$v$与坐标系的关系} \label{chlg:fig_cart_sph}
 \end{figure}
 
@@ -4061,8 +4059,7 @@ $v=0$时按连续极限理解。令$u=\d r/\d t$、$u'=\d r'/\d t'$，
 \subsubsection{Lorentz代数}
 正时固有Lorentz群$SO^{+}(1,3)$有六个实参数来描述，其中固有转动占三个，伪转动占三个。
 我们通过单参数子群来求取其 Lie 代数。
-在\S\ref{chlar:sec_LA-su2so3}中，我们
-找到了$SO(3)$群的三个单参数子群；只需将其拓展到四维空间即可。
+\S\ref{chlg:sec_rotation}给出了绕三个坐标轴的转动；将其在零转角处的导数拓展到四维空间，便得到三个旋转生成元。
 它们是
 \begin{small}
 \begin{equation}\label{chlg:eqn_LA-so13-r}
@@ -4125,7 +4122,7 @@ $v=0$时按连续极限理解。令$u=\d r/\d t$、$u'=\d r'/\d t'$，
     [b_i, r_j] = \sum_k \epsilon_{ijk} b_k,\quad
     [b_i, b_j] = -\sum_k \epsilon_{ijk} r_k.
 \end{equation}
-其中$i,j,k=1,2,3$；$\epsilon_{ijk}=\delta^{123}_{ijk}$，定义见式\eqref{chmla:eqn_gkd}。
+其中$i,j,k=1,2,3$；$\epsilon_{ijk}=\delta^{123}_{ijk}$，定义见式\eqref{eq:generalized-kronecker}。
 式\eqref{chlg:eqn_LA-so13-r}、\eqref{chlg:eqn_LA-so13-b}连同
 对易关系\eqref{chlg:eqn_LA-so13-comm}构成了$\mathfrak{so}^{+}(1,3)$ Lie 代数。
 
@@ -4174,8 +4171,7 @@ $v=0$时按连续极限理解。令$u=\d r/\d t$、$u'=\d r'/\d t'$，
 自然是$y$、$z$方向的伪转动。
 这些计算略显繁琐，但没有难度；也可借助计算机符号软件完成。
 
-在\S\ref{chlar:sec_LA-su2so3}中，我们建立了$\mathfrak{so}(3)$ Lie 代数矩阵基矢量和微分基矢量间的同构关系；
-仿照那里的做法，可以建立Lorentz Lie 代数$\mathfrak{so}^{+}(1,3)$矩阵基矢量和微分基矢量间的同构关系$\Psi$。
+将无穷小坐标变换写为作用于函数的微分算符，可以建立Lorentz Lie 代数$\mathfrak{so}^{+}(1,3)$矩阵基矢量和微分基矢量间的同构关系$\Psi$。
 \begin{small}
 
 \begin{equation}\label{chlg:eqn_LA-so13-JK-diff}
@@ -4490,7 +4486,7 @@ $g_{0i}$必然依赖于速度$v^k$以及转动$R^{j}_{i}$，这是不允许的�
 由此可见，保Galilei变换不变的度规$g^{\mu\nu}$必然是退化的，
 除$g^{11}=g^{22}=g^{33}=1$外，其余矩阵元都是零。它是与空间相关的度规。
 
-因度规退化（之后称它们为{退型}，见\S\ref{chnull:sec_indef-algebra}），
+因上述双线性型退化（见定义\ref{def:nondegenerate-bilinear}），
 我们将保Galilei变换不变的$g_{\mu\nu}$、$g^{\mu\nu}$分别
 记为$\tau_{\mu\nu}$（与时间相关）、$h^{\mu\nu}$（与空间相关），
 它们的显示表述为：
@@ -4526,8 +4522,8 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 紧致群的像紧致，而$\mathbb R_{>0}$的唯一紧致子群是$\{1\}$，故$c(g)=1$。
 对于不连通的紧致群，改用正密度，完全相同的论证仍成立。
 
-有了双不变体积元概念，可仿照\S\ref{chdf:sec_integral-on-manifold}中
-式\eqref{chdf:eqn_def-integral-omega-partition}引入
+有了双不变体积元概念，可仿照\S\ref{sec:integration-on-manifold}中
+式\eqref{eq:integral-partition}引入
 紧致 Lie 群$G$上\textbf{不变积分}的概念；$\forall f\in C^0(G)$以及$G$上任意
 单位分解$\{h_\alpha\}$定义其积分为
 \begin{equation}
@@ -4609,7 +4605,7 @@ $m$维连通紧致 Lie 群$G$上的归一化积分具有如下性质：
 \end{proof}
 
 \begin{theorem}\label{chlg:thm_U}
-    设有$m$维复线性空间$V$，且度规选为酉内积\ref{chcx:def_unitary-space}；
+    设有$m$维复线性空间$V$，且配备定义\ref{def:complex-inner-product}中的正定复内积；
     以及其上的复一般线性群$GL(V)$，$G$是$GL(V)$中连通、紧致 Lie 子群。
     那么在$V$上存在一组基使得$G$的表示矩阵都是幺正矩阵，即
     为幺正群$U(m)$的紧致连通子群。
@@ -4685,7 +4681,7 @@ Lie 群$G$上的左不变度规场由$G$的 Lie 代数$\mathfrak{g}$上的非退
 设有 Lie 群$G$上的左不变切标架$\{e_1,\cdots,e_m\}$，
 $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左不变的。
  Lie 代数$\mathscr{G}$中的任意两个左不变矢量的标量积都是常数，
-故由例\ref{chrg:exam_Koszul}中的Koszul公式可得一个简化版的Koszul公式：
+由度规相容性展开 $X\langle Y,Z\rangle$ 及其循环置换，再用无挠性 $\nabla_XY-\nabla_YX=[X,Y]$，即可得简化的Koszul公式：
 \begin{equation}\label{chlg:eqn_Koszul-lv}
 	2 \left< \nabla_X Y, Z\right> =  \left<Y, [Z,X]\right> + \left<Z, [X,Y]\right> - \left<X, [Y,Z]\right>.
 \end{equation}
@@ -4821,7 +4817,7 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
         0=\nabla_Z Z =\nabla_{X+Y}(X+Y)= \nabla_X X+\nabla_X Y+\nabla_Y X+\nabla_Y Y
         =\nabla_X Y+\nabla_Y X .
     \end{align*}
-    由上式和式\eqref{chccr:eqn_XYcommutator}（$\left[ {X,Y} \right] = \nabla_X Y - \nabla_Y X$）可
+    由上式和无挠性（$\left[ {X,Y} \right] = \nabla_X Y - \nabla_Y X$）可
     知(5)是正确的。
 
     \noindent {$(6)\Leftrightarrow (7)$。}
@@ -4832,14 +4828,14 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
 
     反之。若$\alpha$是过单位元的测地线，则必有$(\nabla_X X)|_{\alpha}=0$，注意此式仅在
     曲线$\alpha(t)$上成立，需要证明它还在整个流形上成立。
-    因左移动是等距映射，在左移动作用下$\nabla$保持不变（见定理\ref{chrg:thm_isometry-connection-vector}），
+    因左移动是等距映射，在左移动作用下$\nabla$保持不变（见定理\ref{thm:isometry-connection-geodesics}），
     故$\nabla_X X=0$在流形$G$上成立。
 \end{proof}
 
 由定理\ref{chlg:thm_biinmg}中的(6)和(7)立刻可得：
 \begin{corollary}\label{chlg:thm_expiso}
     当 Lie 群上存在双不变度规场时， Lie 群的指数映射与黎曼几何中借用测地线定义
-    的指数映射（见\S\ref{chgd:sec_exp}）完全相同。
+    的指数映射（见定义\ref{def:geodesic-exponential}）完全相同。
 \end{corollary}
 
 \begin{theorem}
@@ -4864,7 +4860,7 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
         =  -\frac{1}{4} \bigl[[X,Y],Z\bigr] .
     \end{align*}
 
-    (2) 由截面曲率公式\eqref{chrg:eqn_sectional-curvature}、定理\ref{chlg:thm_biinmg}中的(4)和本定理的(1)可知
+    (2) 由截面曲率公式\eqref{eq:sectional-curvature}、定理\ref{chlg:thm_biinmg}中的(4)和本定理的(1)可知
     \begin{align*}
         K(X,Y)
         = \frac{\left<R(X,Y)Y,X\right> } {\left<X,X\right>\left<Y,Y\right>-\left<X,Y\right>^2}
@@ -5278,10 +5274,10 @@ $e=\left(e_1, \cdots, e_m\right) \in \mathscr{B}$。
 记$g=\exp(t X)$，并对式\eqref{chlg:eqn_equivariant}在$t=0$处取$t$的导数，
 得到$f_* X_M = X_N \circ f$；这说明$X_M$和$X_N$是$f$-相关的。
 
-\section{Lie 群$I(M)$}
+\section{Lie 群\texorpdfstring{$I(M)$}{I(M)}}
 
-已知$S^n_\nu$、$H^n_\nu$和$\mathbb{R}^n_\nu$的等距群都是{Lie 群}
-（见命题\ref{chhss:thm_ssh}和例题\ref{chlg:exm_Rmnu}）。
+例\ref{chlg:exm_Rmnu}已给出广义闵氏空间$\mathbb{R}^n_\nu$的等距群；
+球面及双曲空间等常曲率模型（见例\ref{eg:space-form-models}）的等距群也是 Lie 群，均为下面一般结论的特例。
 一般连通广义黎曼流形$(M,g)$的等距群$I(M)$也是 Lie 群。
 本节均假定$M$连通，等距群取紧开$C^\infty$拓扑。
 
@@ -5343,7 +5339,7 @@ $F(s,t)=\Phi_s(\gamma(t))$对每个固定$s$都是测地线。
 $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的单参数子群；
 式\eqref{chlg:eqn_basicVTeG}中定义的$\widetilde{X}$为$M$上的左基本矢量场。
 群$\exp(t X)$可以看成$I(M)$的单参数可微变换群，它自然是{等距}子群；
-依照Killing 场定义\ref{chrg:def_killing}可知由$I(M)$的
+依照Killing 场定义\ref{def:killing-field}可知由$I(M)$的
 单参数可微变换子群$\exp(t X)$诱导得到的左基本矢量场$\widetilde{X}$是$M$上的Killing 矢量场。
 
 沿用第\ref{appx:curvature}章的记法，全体 Killing 场组成 $\mathfrak{kill}(M,g)$；本节简记为 $\mathfrak K(M)$。
@@ -5377,7 +5373,7 @@ $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的�
 \end{proof}
 
 \begin{remark}
-	由定理\ref{chrg:thm_killing-MAX}、\ref{chlg:thm_la-killing}可
+	由定理\ref{thm:killing-dimension}、\ref{chlg:thm_la-killing}可
 	知$m$维广义黎曼流形$(M,g)$的等距群$I(M)$的最高维数是$m(m+1)/2$；
 	$I(M)$最少包含一个元素——恒等变换（此时是零维）。
 \end{remark}
@@ -5387,7 +5383,7 @@ $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的�
 \subsection{例}
 
 \paragraph{闵氏时空}
-\S\ref{chrg:sec_killing-Minkowski}中讨论了广义闵氏空间的Killing 矢量场，
+广义闵氏空间中的平移及保持平直度规的线性变换生成 Killing 矢量场；
 为了明确物理意义，我们只讨论$\mathbb{R}^4_1$空间的问题。
 我们已经知道$\mathbb{R}^4_1$的等距群$I({R}^4_1)$是Poincar\'{e}群（见\ref{chlg:sec_Poincare-group}），
 $I({R}^4_1)$的 Lie 代数是Poincar\'{e}代数（生成元是\eqref{chlg:eqn_PA-gen}）；
@@ -5413,13 +5409,13 @@ $[J_i,J_j]=\epsilon_{ijk}J_k$、$[J_i,P_j]=\epsilon_{ijk}P_k$、$[P_i,P_j]=0$。
 \paragraph{二维球面}
 正定度规的欧几里得空间$\mathbb{R}^3$中的二维球面$S^2$的等距群是$O(3)$群，
 $S^2$是紧致、完备的，它上的Killing 场同构于 Lie 代数$\mathfrak{o}(3)$。
-$\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
+采用物理学的生成元记法，三个旋转算符为
 \begin{equation*}
         \hat{L}_1 = -\i (y \partial_z - z \partial_y ), \quad
         \hat{L}_2 = -\i (z \partial_x - x \partial_z ), \quad
         \hat{L}_3 = -\i (x \partial_y - y \partial_x ).
 \end{equation*}
-为简单起见，去掉虚数单位；把它们变成球坐标的形式（参考式\eqref{chrg:eqn_rtpxyz}），
+为简单起见，去掉虚数单位；把它们变成球坐标的形式（使用 $x=r\sin\theta\cos\phi$、$y=r\sin\theta\sin\phi$、$z=r\cos\theta$），
 \begin{small}
 \begin{equation}
     \xi_1= \sin\phi \frac{\partial }{\partial \theta} + \cot\theta \cos\phi \frac{\partial }{\partial \phi},\
@@ -5438,10 +5434,10 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 \section{复化与实形}
 本节讨论实 Lie 代数的复化及复 Lie 代数的实形式。
 
-在\S\ref{chcx:sec_cr}中，我们通过定义\ref{chcx:def_cxn}将实线性空间复化，
-只需再略加修改便可得到实 Lie 代数的复化。
+实线性空间 $V$ 的复化为 $V^{\C}:=V\otimes_{\R}\C$，也可写为 $V\oplus\i V$，
+其中 $\i(x+\i y)=-y+\i x$。将 Lie 括号作复双线性延拓，便得到实 Lie 代数的复化。
 设有$m$维实 Lie 代数$\mathfrak{g}$，其基矢为$\{e_1,\cdots,e_m\}$；
-在\S\ref{chcx:sec_cr}中，我们已论证过复化过程与基矢选取无关。
+上述张量积构造不依赖基矢的选取。
 作为线性空间，$\mathfrak{g}$复化后的空间记为$\mathfrak{g}^{\mathbb{C}}$；
 在$\mathfrak{g}^{\mathbb{C}}$中，定义 Lie 积关系为
 （下式中$1\leqslant i,j\leqslant m$，$a$、$b$、$c$、$d$为实数）：
@@ -5463,8 +5459,9 @@ $\operatorname{ad}_h$在其上的特征值比为$2\i$；换基只可把此比换
 复 Lie 代数$\mathfrak{h}$有实形式的充要条件是它存在一组
 基矢$\{e_i\}$使得这组基的结构常数恰好都是实数。
 
-如果$2m$维实 Lie 代数$\mathfrak{h}_{\mathbb{R}}$存在复结构$\mathbb{J}$（参见\S\ref{chcx:sec_cpstru}），
-那么存在$m$维复 Lie 代数$\mathfrak{h}$与其对应（见定理\ref{chcx:thm_CRJ}）。
+如果$2m$维实 Lie 代数$\mathfrak{h}_{\mathbb{R}}$上存在实线性映射$\mathbb J$，满足
+$\mathbb J^2=-\id$ 以及 $\mathbb J[x,y]=[\mathbb Jx,y]=[x,\mathbb Jy]$，
+则定义 $(a+\i b)x:=ax+b\mathbb Jx$，便得到一个$m$维复 Lie 代数$\mathfrak h$。
 则$\forall x \in \mathfrak{h}_{\mathbb{R}}$有$\mathbb{J} x = \i x$，利用此式可得
 \begin{equation}
     \mathbb{J}[x,y]= \i [x,y]=[\i x,y]=[\mathbb{J}x,y]=[x,\mathbb{J}y]=[x,\i y].
@@ -5494,14 +5491,14 @@ $\operatorname{ad}_h$在其上的特征值比为$2\i$；换基只可把此比换
 
 又$\forall x, y \in \mathfrak{h}_{\mathbb{R}}$，有
 $(\mathbb{J}\circ \operatorname{ad}_x) y=\mathbb{J}[x, y]=[x, \mathbb{J} y]=(\operatorname{ad}_x \circ \mathbb{J}) y $。
-由命题\ref{chcx:thm_pJJp}知$\operatorname{ad}_x$亦是复线性空间$\mathfrak{h}$的线性变换。
+因 $\mathbb J$ 表示乘以 $\i$，实线性映射与 $\mathbb J$ 对易即为复线性，故$\operatorname{ad}_x$亦是复线性空间$\mathfrak{h}$的线性变换。
 设 $\operatorname{ad}_x \operatorname{ad}_y$ 作为$\mathfrak{h}$的线性变换
 对基$\{e_1,\cdots,e_m\}$的矩阵为$B+\i C$，其中$B$、$C$是$m$阶实方阵。
 则$\operatorname{ad}_x \operatorname{ad}_y$ 作为$\mathfrak{h}_{\mathbb{R}}$的线性变换
 对基$\{e_1,\cdots,e_m;\mathbb{J}e_1,\cdots,\mathbb{J}e_m\}$的矩阵为
 $    \left(\begin{smallmatrix}
     B& -C \\ C & B
-\end{smallmatrix}\right)$（参见命题\ref{chcx:thm_ABC}）。
+\end{smallmatrix}\right)$，这是将 $(B+\i C)(u+\i v)=(Bu-Cv)+\i(Cu+Bv)$ 分成实部和虚部的结果。
 而Killing 型是矩阵求迹运算，故可得式\eqref{chlg:eqn_KRK}。
 \end{proof}
 
@@ -5527,7 +5524,7 @@ $\operatorname{ad}_{ \mathbb{J} x} \operatorname{ad}_y=\mathbb{J} \operatorname{
     \begin{pmatrix}0&-I_m\\I_m&0\end{pmatrix}.
 \]
 故对 $x, y \in \mathfrak{h}_{\mathbb{R}}$，
-由命题\ref{chcx:thm_ABC}可得$\operatorname{ad}_{ \mathbb{J} x} \operatorname{ad}_y$对此基的矩阵是
+按上述实部、虚部分块表示，$\operatorname{ad}_{ \mathbb{J} x} \operatorname{ad}_y$对此基的矩阵是
 \begin{equation}
 \left(\begin{array}{cc}
     0 & -I_m \\

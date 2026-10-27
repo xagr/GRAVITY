@@ -56,7 +56,7 @@ $(X,\topo T)$ 称为 $X$ 关于拓扑 $\topo T$ 的\textbf{拓扑空间}(topolog
 \end{remark}
 
 %% \setminus or \backslash
-\begin{definition}
+\begin{definition}\label{def:closed-set}
     $A\subset X$ 称为\textbf{闭集}，若 $X\backslash A\in\topo{T}$。
 \end{definition}
 
@@ -253,7 +253,7 @@ $\topo{T}=\left\{\bigcup_{U\in\topo{F}}U:\topo{F}\subset\topo{B}\right\}$ 构成
 可以证明，设 $\tilde{\topo T}^{\prime}$ 为 $\tilde X$ 上另一个拓扑，且使 $\pi$ 连续，则 $\tilde{\topo T}^{\prime} \subset \tilde{\topo T}$。
 
 \begin{remark}
-    \textbf{局部}性质通过各点的邻域描述，但具体要求依性质而定：有时只需每点存在一个具有该性质的邻域，有时则要求这样的邻域构成邻域基。例如，局部可度量只需每点存在一个可度量开邻域，因为度量可限制到更小的子空间；路径连通却未必在缩小邻域后保留，故合理的“局部路径连通”应要求每点存在\textit{任意小}的路径连通开邻域。各术语以下文定义为准。
+    \textbf{局部}性质通过各点的邻域描述，但具体要求依性质而定：有时只需每点存在一个具有该性质的邻域，有时则要求这样的邻域构成邻域基。例如，局部可度量只需每点存在一个可度量开邻域，因为度量可限制到更小的子空间；路径连通却未必在缩小邻域后保留，故合理的“局部路径连通”应要求每点存在\emph{任意小}的路径连通开邻域。各术语以下文定义为准。
 \end{remark}
 
 \section{可数与分离}
