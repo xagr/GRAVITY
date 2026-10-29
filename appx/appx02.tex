@@ -40,9 +40,9 @@ e'_\mu=A^\nu{ }_\mu e_\nu,
 \eq{
     v'^\mu=(A^{-1})^\mu{}_\nu v^\nu.
 }
-因此基变换和分量变换是互逆的。故相对于 $\{e_\mu\}$ 而言可称 $v\in V$ 为逆变矢量。
+因此，保持矢量 $v$ 不变而改变基时，分量须按基变换的逆矩阵变化，故称 $v\in V$ 为\textbf{逆变矢量}。“逆”是分量相对于基而言，并非矢量本身发生反向变化。
 
-\section{对偶空间}
+\section{对偶空间}\label{sec:dual-space}
 
 以 $\F$-线性空间为对象、线性映射为态射，构建\textbf{线性空间范畴} $\cate{Vect}(\F)$。
 类此定义有限维 $f$ 线性空间范畴 $\cate{Vect}_f(\F)$，它是 $\cate{Vect}(\F)$ 的全子范畴。
@@ -102,12 +102,20 @@ $V,V^*$ 间的同构当然不唯一。注意到 $\{e_\mu\}$ 到其对偶基 $\{e
 \eq{
 e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 }
-这说明对偶矢量 $\omega=\omega_\mu e^\mu$ 的坐标变换为 $\omega_\mu'=A^\nu{}_\mu\omega_\nu$。故相对于 $\{e_\mu\}$ 而言可称 $\omega\in V^*$ 为协变矢量。
+这说明对偶矢量 $\omega=\omega_\mu e^\mu$ 的分量变换为 $\omega_\mu'=A^\nu{}_\mu\omega_\nu$。因 $\omega'_\mu=\omega(e'_\mu)$ 与原空间的基矢 $e'_\mu$ 使用同一组系数 $A^\nu{}_\mu$，故称 $\omega\in V^*$ 为\textbf{协变矢量}。这里参照的是 $V$ 的基，而非 $V^*$ 的对偶基；相对于后者，分量仍反向变化。
 \end{theorem}
 
 \begin{proof}
     $({A}^{-\mathrm{T}})_\nu{}^\mu\langle e^{\nu}, e_\alpha^{\prime}\rangle  =(A^{-\mathrm{T}})_\nu{ }^\mu A^\beta{}_\alpha\langle e^{\nu}, e_\beta\rangle  =(A^\mathrm{T})_\alpha{ }^\beta (A^{-\mathrm{T}})_\nu{ }^\mu \delta_\beta^\nu =(A^\mathrm{T})_\alpha{ }^\nu (A^{-\mathrm{T}})_\nu{ }^\mu=\delta_\alpha^\mu=\langle e^{\prime \mu}, e_\alpha^{\prime}\rangle$。
 \end{proof}
+
+\begin{remark}
+    分量的“协变、逆变”以基变换为参照，函子的同名术语则以态射方向为参照。对线性映射 $f:V\to W$，矢量沿 $f$ 送至 $W$，方向不变；这对应恒等函子 $V\mapsto V$ 的协变性。对偶矢量则由 $f^*:W^*\to V^*$ 反向拉回，且 $(g\circ f)^*=f^*\circ g^*$，故 $V\mapsto V^*$ 是逆变函子。因此，“逆变矢量”并不表示它来自逆变函子，“协变矢量”也不表示对偶函子协变。
+
+    二者的联系在于同一对偶配对：
+    \[\langle f^*\omega,v\rangle=\langle\omega,fv\rangle.\]
+    对映射而言，切换配对的一侧使箭头反向；对换基而言，保持配对不变使两侧分量按互相对偶的规律变化。若分量均写成列，基变换 $e'_\mu=A^\nu{}_\mu e_\nu$ 给出 $v'=A^{-1}v$、$\omega'=A^{\mathrm T}\omega$，于是 $\omega'^{\mathrm T}v'=\omega^{\mathrm T}v$。
+\end{remark}
 
 \section{张量空间}\label{sec:tensor}
 

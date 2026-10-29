@@ -761,7 +761,7 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
         \phi_{*p}=\d\phi_p:T_pM\to T_qN,\qquad
         (\phi_{*p}v)(f):=v(\phi^*f),\quad f\in C^\infty_q(N).
     \]
-    取值点明确时简记 $\phi_*v$。
+    取值点明确时简记 $\phi_*v$，也记作 $\d\phi(v)$。记作微分，是因它给出 $\phi$ 在该点的一阶线性化，其坐标矩阵就是通常的导数矩阵。
 \end{definition}
 
 \begin{proposition}
@@ -789,7 +789,7 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
 
 这正是前文对偶函子在 $\phi_{*p}$ 上的作用，即 $\phi_p^*=(\phi_{*p})^*$，故余切映射也线性。函数拉回与余切矢拉回都记作 $\phi^*$，由作用对象区分。切映射与余切映射的起点、终点分别是 $p,q$ 处的切空间及其对偶空间。
 
-一般不能反向拉回切矢：给定 $w\in T_qN$，方程 $\phi_*v=w$ 可能无解，也可能有多个解。若 $\phi$ 为微分同胚，则可用 $(\phi^{-1})_*$ 拉回切矢，用 $(\phi^{-1})^*$ 推前余切矢。
+因此，对一般光滑映射，自然的方向是\textbf{切矢推前、形式拉回}，无需逆映射；高阶形式的拉回只须将每个输入切矢推前后再求值。一般不能反向拉回切矢：给定 $w\in T_qN$，方程 $\phi_*v=w$ 可能无解，也可能有多个解。若 $\phi$ 为微分同胚，则可用 $(\phi^{-1})_*$ 拉回切矢，用 $(\phi^{-1})^*$ 推前余切矢。
 
 \begin{remark}
     对实函数 $f:M\to\R$，以 $s$ 为 $\R$ 上的自然坐标，有
@@ -830,6 +830,12 @@ $J$ 是 $n\times m$ 的 Jacobi 矩阵，其中 $m=\dim M,n=\dim N$，两者不�
     (\phi^*\omega)_i=J^\alpha{}_i\omega_\alpha.
 \]
 若均以列表示分量，则切映射的矩阵为 $J$，余切映射的矩阵为 $J^{\mathsf T}$。取 $N=M$、$\phi=\id_M$，而在两端选用不同坐标，便恢复前文的坐标基变换式。
+
+\begin{remark}
+    对坐标变换 $x\mapsto x'$，置 $J^i{}_j=\p x'^i/\p x^j$。同一切矢、余切矢的新旧分量列满足
+    \[v'=Jv,\qquad \omega'=J^{-\mathsf T}\omega,\]
+    从而 $\omega'^{\mathsf T}v'=\omega^{\mathsf T}v$。切基满足 $\p'_i=(J^{-1})^j{}_i\p_j$，故基变换矩阵是 $A=J^{-1}$；切矢分量乘 $J$ 正是相对于切基的“逆变”，余切矢分量乘 $J^{-\mathsf T}$ 则是相对于同一切基的“协变”，见 \S\ref{sec:dual-space}。这里 $\omega=J^{\mathsf T}\omega'$ 才是从目标拉回源的写法，解出新分量便出现逆转置。
+\end{remark}
 
 \begin{proposition}
     微分与拉回可交换：对 $N$ 上的光滑函数 $f$，有
@@ -874,6 +880,7 @@ $J$ 是 $n\times m$ 的 Jacobi 矩阵，其中 $m=\dim M,n=\dim N$，两者不�
 \end{proof}
 
 恒等映射也诱导相应的恒等映射，故上述构造满足 \S\ref{sec:functors} 的函子公理。具体地，以带基点的流形 $(M,p)$ 为对象、保持基点的光滑映射为态射，构成 $\cate{Man}_\bullet$。则 $(M,p)\mapsto T_pM$、$\phi\mapsto\phi_{*p}$ 给出协变函子 $\cate{Man}_\bullet\to\cate{Vect}(\R)$；取线性对偶，$(M,p)\mapsto T_p^*M$、$\phi\mapsto\phi_p^*$ 则给出逆变函子。函数拉回的逆变性同样由第 (1) 式给出。
+因此，通常所谓逆变切矢由协变的切函子推前，协变余切矢由逆变的对偶函子拉回；前者的命名比较分量与基，后者比较诱导映射与原映射的方向。
 
 \begin{example}
     对光滑曲线 $\gamma:I\to M$，其切矢就是切映射作用于参数方向的结果：
