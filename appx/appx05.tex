@@ -14,11 +14,13 @@
 \end{definition}
 
 \begin{definition}
-    \textbf{外微分}(exterior derivative)是映射 $\d:\Lambda_l(V)\to\Lambda_{l+1}(V)$ 使
+    记开集 $U$ 上全体光滑 $l$-形式为 $\Omega^l(U)$。\textbf{外微分}(exterior derivative)是映射 $\d:\Omega^l(U)\to\Omega^{l+1}(U)$ 使
     \eq{
         \d\omega :=\sum_{\mu_1<\cdots<\mu_l}\d\omega_{\mu_1\cdots\mu_l}\wedge\d x^{\mu_{1}}\wedge\cdots\wedge\d x^{\mu_{l}}=\frac{1}{l!}\d\omega_{\nu_1\cdots\nu_l}\wedge\d x^{\nu_{1}}\wedge\cdots\wedge\d x^{\nu_{l}}.
     }
 \end{definition}
+
+与光滑函数一样，微分形式可以限制，并由重叠处相等的局部形式唯一粘合。因此 $U\mapsto\Omega^l(U)$ 构成\textbf{微分形式层} $\Omega^l_M$，其节就是局部微分形式。外微分只用局部系数及其导数，故 $\d(\omega|_V)=(\d\omega)|_V$，给出层态射 $\d:\Omega^l_M\to\Omega^{l+1}_M$；它为 $\R$-线性，一般不为 $\mathcal C^\infty_M$-线性。
 
 \begin{theorem}
     任取坐标系有 $(\d\omega)_{\sigma\mu_1\cdots\mu_l}=(l+1)\omega_{[\mu_1\cdots\mu_l,\sigma]}$。
@@ -43,7 +45,23 @@
 \begin{definition}
     $l$-形式 $\omega$ 称\textbf{闭的}(closed) $\Leftrightarrow\d\omega=0$；$\omega$ 称\textbf{恰当的}(exact) $\Leftrightarrow \exists (l-1)$-形式 $\mu$ 使 $\omega=\d\mu$。
 \end{definition}
-依 $\d^2=0$，恰当形式必为闭形式。逆命题局部成立：\textbf{Poincaré 引理}断言，某些单连通（$\R^{n}$、开球及更一般的“星形”）开集上的闭 $l$-形式（$l\geqslant1$）必恰当，从而流形上每点邻域成立。整体上则未必成立；单连通只保证闭 $1$-形式恰当，高阶情形涉及相应阶数的所谓 de Rham 上同调（即准确说法是要求坐标域$X\subset M$ 第二种 de Rham 上同调 $H^{2}(X;\R)$ 平凡），留待 \S\ref{appx:Alge-Topo} 讨论。
+依 $\d^2=0$，恰当形式必为闭形式。逆命题局部成立：\textbf{Poincaré 引理}断言，星形开集上的闭 $l$-形式（$l\geqslant1$）必恰当，从而流形上每点都有成立的邻域。整体上则未必；单连通只保证闭 $1$-形式恰当，一般 $l$ 阶的条件是相应 de Rham 上同调 $H^l_{\mathrm{dR}}(U)$ 为零，留待 \S\ref{appx:Alge-Topo} 讨论。
+
+\begin{remark}\label{rem:sheafification-forms}
+    对 $l\geqslant1$，记 $\mathcal Z^l(U):=\ker\d|_{\Omega^l(U)}$、$\mathcal B^l(U):=\d\Omega^{l-1}(U)$。闭形式的粘合仍闭，故 $\mathcal Z^l$ 是层；$\mathcal B^l$ 一般只是预层，因为各片上的势未必能相容地选取。
+
+    将预层 $\mathcal F$ 变为层的典范过程称为\textbf{层化}(sheafification)，记作 $\mathcal F\to\mathcal F^\#$。其各点的茎不变，且任意从 $\mathcal F$ 到层的态射都唯一经 $\mathcal F^\#$ 分解。Poincaré 引理正说明闭形式局部来自恰当形式，故 $(\mathcal B^l)^\#\cong\mathcal Z^l$；但一般仍有 $\mathcal B^l(M)\ne\mathcal Z^l(M)$。
+\end{remark}
+
+\begin{example}\label{eg:local-potential-period}
+    穿孔平面 $\R^2\backslash\{0\}$ 上的
+    \eq{\omega=\frac{-y\,\d x+x\,\d y}{x^2+y^2}}
+    在每个可选定角度的开片上都是 $\d\theta$，故闭且局部恰当。取单位圆的逆时针参数化 $\gamma(t)=(\cos t,\sin t)$，则 $\gamma^*\omega=\d t$，绕行积分为 $2\pi$。若 $\omega=\d f$ 整体成立，沿闭路的积分应为零，矛盾。因此局部形式可以粘合，局部势却未必能粘合。
+\end{example}
+
+由 $\d^2=0$，层态射组成序列
+\eq{\Omega^0_M\xrightarrow{\d}\Omega^1_M\xrightarrow{\d}\Omega^2_M\xrightarrow{\d}\cdots,}
+称为\textbf{de Rham 复形}。这里“复形”指相邻两次映射复合为零的代数结构，与下文按面拼接的单纯复形含义不同。Poincaré 引理保证正阶数处局部的闭形式都有势；全局的障碍则可由积分显现。
 
 \begin{definition}
     $\delta={\star\d\star}$ 称为\textbf{余微分}(codifferential)，有时也记作 $\d^*$。
@@ -434,7 +452,7 @@ Stokes 定理也适用于单纯形：在各棱角附近作光滑截断后应用�
 这就是 Stokes 定理的\textbf{对偶表述}：外微分提高形式的阶数，边界算子降低链的维数，二者关于积分配对互为对偶，即 $\partial$ 可看作 $\d$ 的\textbf{转置算子}(transpose)，亦称\textbf{对偶算子}。此处无须度规；Hodge 理论中的\textbf{形式伴随}(formal adjoint) 则相对于微分形式的 $L^2$ 内积定义，作用于形式而非链。\footnote{该形式伴随通常称为余微分，但须注意符号约定：在 $n$ 维定向 Riemann 流形上，作用于 $p$-形式时，$\d^\dagger=(-1)^{n(p+1)+1}\star\d\star$；故前文约定的 $\delta=\star\d\star$ 不可直接等同于 $\d^\dagger$。伴随等式 $(\d\alpha,\beta)_{L^2}=(\alpha,\d^\dagger\beta)_{L^2}$ 要求边界项消失。}
 对代表定向区域的同向分片求和时，内部公共面相消，只余区域的外边界。
 
-特别地，闭形式在满足 $c-c'=\partial b$ 的同维链上积分相同；恰当形式在边界为零的链上积分为零。两点都由式 \eqref{eq:stokes-pairing} 直接得到，它们正是积分与整体拓扑发生联系的起点。有关同调、上同调及其配对的系统讨论，留待附录 \ref{appx:Alge-Topo}。
+特别地，闭形式在满足 $c-c'=\partial b$ 的同维链上积分相同；恰当形式在边界为零的链上积分为零。两点都由式 \eqref{eq:stokes-pairing} 直接得到，它们正是积分与整体拓扑发生联系的起点。例 \ref{eg:local-potential-period} 的绕行积分就是全局势不存在的判据。有关同调、上同调及其配对的系统讨论，留待附录 \ref{appx:Alge-Topo}。
 
 \begin{example}[Green]
     设 $A$ 是 $(\R^2,\delta)$ 上的对偶矢量场，$S$ 是单连通开集，则
@@ -632,6 +650,10 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     \eq{\d(\e^{-xy}u)=\e^{-xy}\bigl[(u_x-yu)\d x+(u_y-xu)\d y\bigr]=0,}
     得 $u=C\e^{xy}$。给定一点的函数值就确定 $C$。
 \end{example}
+
+\begin{remark}
+    上例也可用射流描述：以 $(x,y,z,p,q)$ 记录函数值及一阶导数，方程成为 $p=yz,\ q=xz$。实际函数的射流还须满足 $z=u,\ p=u_x,\ q=u_y$，即沿其图像有 $\d z-p\d x-q\d y=0$。Frobenius 条件在此保证受约束的数据局部来自函数；射流丛的表述见定义 \ref{def:jet-bundle}。
+\end{remark}
 
 \begin{definition}
     分布 $W$ 的\textbf{消灭子}(annihilator)为

@@ -163,6 +163,24 @@
     $C^k$-流形上的第 $i$ \textbf{坐标映射} $x^i:O\to\R$ 属于 $C^k(O)$。
 \end{example}
 
+函数不仅可在一个开集上研究，还可随开集限制、粘合。将这种局部与整体的关系抽出，便得到层的语言。
+
+\begin{definition}\label{def:presheaf-sheaf}
+    拓扑空间 $X$ 上的\textbf{预层}(presheaf) $\mathcal F$ 为每个开集 $U$ 指定集合 $\mathcal F(U)$，并对 $V\subset U$ 指定\textbf{限制映射} $\rho^U_V:\mathcal F(U)\to\mathcal F(V)$，满足
+    \eq{\rho^U_U=\id,\qquad \rho^V_W\circ\rho^U_V=\rho^U_W\quad(W\subset V\subset U).}
+    $\mathcal F(U)$ 的元素称为 $U$ 上的\textbf{节}(section)，限制简记为 $s|_V$。若任意开覆盖 $U=\bigcup_iU_i$ 上满足
+    \eq{s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j}}
+    的节族都能唯一写成 $s_i=s|_{U_i}$，其中 $s\in\mathcal F(U)$，则称 $\mathcal F$ 为\textbf{层}(sheaf)。空覆盖也包含在内，故集合层的 $\mathcal F(\mt)$ 为独点集。
+\end{definition}
+
+预层也就是开集范畴上的逆变函子；包含 $V\hookrightarrow U$ 对应反向的限制映射。若各 $\mathcal F(U)$ 为环、模等，且限制保持相应结构，就得到环、模等的预层与层。与限制映射交换的一族映射 $\mathcal F(U)\to\mathcal G(U)$ 称为\textbf{预层态射}；两者都是层时也称\textbf{层态射}。
+
+\begin{example}
+    $\mathcal C^\infty_M(U):=C^\infty(U)$ 连同通常的函数限制构成\textbf{光滑函数层}。重叠处相等的函数能唯一拼成函数，而光滑性可局部检验，故满足层公理。这里不需单位分解：层的粘合保留各局部函数，单位分解则以加权求和构造整体函数。
+\end{example}
+
+拓扑空间连同其环层称为\textbf{赋环空间}，例如 $(M,\mathcal C^\infty_M)$。\footnote{代数几何中的\textbf{概型}(scheme)也采用这一观点，其局部模型为交换幺环 $A$ 的素谱及结构层 $(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A})$。素谱以素理想为点，结构层记录局部代数函数；严格定义在局部赋环空间的范畴中作出，此处不展开。}
+
 \section{流形的拓扑性质*}
 
 \begin{theorem}
@@ -294,6 +312,10 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
         f-f(p)=\sum_i(x^i-x^i(p))H_i
     \]
     中的 $H_i$ 仍属于同一函数代数，从而可对各项使用 Leibniz 法则。对 $f\in C^r$（$1\leqslant r<\infty$），这种分解的系数一般仅为 $C^{r-1}$，$v(H_i)$ 未必有定义；光滑时则无此问题，并可由此证明切矢恰由 $\dim M$ 个坐标分量决定。因此不能直接将上述定义中的 $\infty$ 换为有限 $r$；有限阶可微流形可用曲线等价类定义切矢。
+\end{remark}
+
+\begin{remark}\label{rem:sheaf-stalk}
+    函数芽的定义也适用于预层：两个局部节在 $p$ 的某个更小邻域上限制相同，就定义同一个\textbf{芽}(germ)。所有这样的芽组成预层在 $p$ 处的\textbf{茎}(stalk) $\mathcal F_p$。故 $[f]_p$ 是一个芽，而 $C^\infty_p(M)$ 是光滑函数层的茎；它记录邻域上的函数信息，并非只记录 $f(p)$。
 \end{remark}
 
 \begin{theorem}
@@ -550,6 +572,14 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
     \d(af+bg)=a\,\d f+b\,\d g,\qquad
     \d(fg)=g\,\d f+f\,\d g,\quad a,b\in\R.
 \]
+
+\begin{definition}\label{def:function-jet}
+    若两个光滑函数在 $p$ 处的函数值及直到 $k$ 阶的所有偏导数相同，称它们在 $p$ 处有相同的 $k$ 阶\textbf{射流}(jet)，相应等价类记为 $j_p^kf$。这里 $k\geqslant0$，条件由链式法则知无关坐标选取。特别地，
+    \eq{j_p^0f\longleftrightarrow f(p),\qquad
+        j_p^1f\longleftrightarrow\bigl(f(p),(\d f)_p\bigr).}
+\end{definition}
+
+同芽必有相同的各阶射流，反之未必。射流只保留指定阶数的导数；即使各阶导数全相同，光滑函数也未必同芽，例如 $f(x)=\e^{-1/x^2}$（$x\ne0$）、$f(0)=0$ 与零函数在原点的情形。截面的射流及其组成的丛见定义 \ref{def:jet-bundle}。
 
 \begin{theorem}[余切分量变换律]
     置同一点附近的两套坐标 $\{x\},\{x'\}$，略去取值点。对偶坐标基及同一余切矢的分量满足

@@ -212,7 +212,7 @@ $g_{\alpha \beta}^p \cdot g_{\beta \alpha}^p=g_{\alpha\alpha}^p=I$，
 \begin{definition}
     设$(E,M,\pi)$是矢量丛，若$s:M\to E$是一个$C^\infty$映射，
     并且满足$\pi \circ s = \id  :M\to M$，则称映射$s$是矢量丛$E$的一个\textbf{截面}。
-    若$s:U\to E$，其中$U$是$M$某坐标卡中的开集，则称映射$s$是定义在$U$上的\textbf{局部截面}。
+    若光滑映射$s:U\to E$满足$\pi\circ s=\id_U$，其中$U\subset M$为开集，则称$s$为$U$上的\textbf{局部截面}。截面亦称\textbf{节}(section)。
     光滑截面的集合记为$\Gamma(E)$。
 \end{definition}
 
@@ -246,6 +246,12 @@ $\{s_i^{(\alpha)}(p)\}$称为定义在$U_\alpha$上矢量丛$E$的\textbf{局部
 
 上述描述方式说明了$M$上的矢量丛$E$上一定存在$q$个局部标架场，
 但整个$M$上未必存在这样的标架场。
+
+\begin{remark}\label{rem:section-sheaf}
+    将各开集上的截面一并考虑，$\mathcal E(U):=\Gamma(E|_U)$ 连同限制构成 $E$ 的\textbf{光滑截面层}：重叠处相等的截面逐点粘合，且光滑性可局部检验。它是光滑函数层 $\mathcal C^\infty_M$ 上的模层；在局部标架域 $U$ 内，截面的 $q$ 个分量给出
+    \eq{\mathcal E|_U\cong(\mathcal C^\infty_M|_U)^q.}
+    这称为秩 $q$ 的\textbf{局部自由层}。丛 $E$ 按点组织纤维，层 $\mathcal E$ 按开集组织截面；$\mathcal E_p$ 中的截面芽仍含邻域信息，不等同于纤维 $E_p$ 中的取值。
+\end{remark}
 
 \section{矢量丛例子}
 
@@ -500,6 +506,24 @@ $\tilde\psi_{\alpha,p}(\lambda):=\lambda\circ\psi_{\alpha,p}^{-1}$给出。
 
 张量丛的光滑截面是光滑张量场。
 \qed
+
+函数的射流也可推广到截面，使场及其有限阶导数成为同一个几何对象。
+
+\begin{definition}\label{def:jet-bundle}
+    设 $E\to M$ 为光滑矢量丛。若两个局部截面在 $p$ 处的分量及直到 $k$ 阶的所有偏导数相同，称其有相同的 $k$ 阶射流，记等价类为 $j_p^ks$。条件与坐标、局部标架的选择无关。全体射流组成\textbf{射流丛}(jet bundle)
+    \eq{J^kE:=\bigsqcup_{p\in M}J_p^kE,\qquad j_p^ks\longmapsto p.}
+    它仍是矢量丛，$J^0E=E$；局部截面 $s$ 给出其\textbf{射流延拓} $j^ks:p\mapsto j_p^ks$。
+\end{definition}
+
+局部坐标及标架下，$J^1E$ 的坐标为 $(x^i,u^a,u^a_i)$，其中 $u^a_i$ 记录一阶导数。截面分量变换及链式法则给出这些坐标的光滑变换律。作为特例，实函数是一维积丛的截面，且
+\eq{J^1(M\times\R)\cong(M\times\R)\oplus T^*M,\qquad
+    j_p^1f\longleftrightarrow\bigl(f(p),(\d f)_p\bigr).}
+
+\begin{remark}
+    本书将 $\mathcal J^k(E)(U):=\Gamma(J^kE|_U)$ 称为\textbf{射流层}(jet sheaf)，即射流丛的光滑截面层。其任意节未必形如 $j^ks$；后者称为\textbf{完整的}(holonomic)，各阶数据须真是低阶数据的导数。例如实函数的一阶射流场 $(u,a_i)$ 完整当且仅当 $a_i=\p_i u$。因此射流层应与仅由完整节组成的子层区分。
+\end{remark}
+
+一阶线性微分算符在 $p$ 处的输出只依赖 $j_p^1s$，故可由 $J^1E$ 上的丛映射表示。下面的联络就是一例：$(\nabla s)_p$ 由 $s$ 的值及一阶导数决定，取值于 $T_p^*M\otimes E_p$。
 
 \section{矢量丛的联络与曲率}
 
