@@ -1363,6 +1363,52 @@ $\d s^2=0$ 即 $t=\pm\left(r+2M\ln|r-2M|\right)+C$。
 光线外向族为 $\dv*{\tilde t}{r}=\frac{r+2M}{r-2M}$，即 $t=r+4M\ln\abs{r-2M}+C_1, r=2M$。
 内向族正是 $\dv*{\tilde t}{r}=-1$ 即 $\tilde t=-r+C$。
 
+\subsection{Lorentz 变换推导*}\label{sec:PoincareLorentz}
+
+本节旨在补上任意 Lorentz 变换的代数证明。由于重点只在矩阵的行列指标，故本节将上标都写作下标以简化运算。
+根据相对性原理，对 $\Lambda$ 的分类同样适用于相应 $\Lambda^{-1}$。当然，亦可直接证明之。注意 $|\Lambda^{-1}|=|\Lambda|^{-1}$，我们只需证明 $(\Lambda^{-1})_{00}=\Lambda_{00}$。
+用 $\Lambda$ 表示 $\Lambda^{-1}$ 就是 $(\Lambda^{-1})_{\lambda\sigma}=\eta_{\mu\sigma}\Lambda_{\mu\nu}\eta_{\nu\lambda}$。
+取其 $\sigma=\lambda=0$ 就有 $(\Lambda^{-1})_{00}=\Lambda_{00}=(\Lambda^\mathrm{T})_{00}$。
+
+下面用 $\{x\}\{x'\}$ 的相对速度表示 Lorentz 变换。
+我们说 $S'$ 系相对于 $S$ 的速度是 $u_i=\dv*{x_i}{t}$，是指 $S'$ 任意的相对静止的世界线在 $S$ 下测得的速度分量都是 $u_i$。显然这等价于研究 $S'$ 系的空间原点运动。反之，设 $S$ 系的空间原点在 $S'$ 下测得 $u'_i=\dv*{x'_i}{t'}$。先考虑 $S'$ 的空间原点，其世界线始终满足 $\d x'_i=0$，则 $\d x_\lambda=(\Lambda^{-1})_{\lambda 0}\d x'_0$，故 $\Lambda_{00}=(\Lambda^{-1})_{00}=\dv*{t}{t'},(\Lambda^{-1})_{i0}=u_i\dv*{t}{t'}$，
+据式 \eqref{eq:Lorentz} 有 $\eta_{\mu\nu}(\Lambda^{-1})_{\mu\sigma}(\Lambda^{-1})_{\nu\lambda}={\eta}_{\sigma\lambda}$（显然 $\Lambda^{-1}$ 也是 Lorentz 变换）。
+取 $\sigma=\lambda=0$ 有 $(\Lambda_{00})^2=1+\delta_{ij}(\Lambda^{-1})_{i0}(\Lambda^{-1})_{j0}$。
+再结合正时条件有 $\Lambda_{00}=(\Lambda^{-1})_{00}=\gamma$，以及 $(\Lambda^{-1})_{i0}=\gamma u_i$，其中 $u:=\sqrt{u_i u_i}$。再考虑 $S$ 的空间原点，类似地有 $\Lambda_{00}=\dv*{t'}{t},\Lambda_{i0}=u'_i \dv*{t'}{t}=\gamma u'_i$，以及
+\[u'_iu'_i=u_i u_i=u^2.\]
+这看似是显然的，但现在要作为经过证明的结论。
+不过，这是用 $u'_i$ 表示 $\Lambda$，固然渴望用 $u_i$ 直接表示。对 $(\Lambda^{-1})_{\lambda\sigma}=\eta_{\mu\sigma}\Lambda_{\mu\nu}\eta_{\nu\lambda}$ 其余 $\sigma,\lambda$ 讨论有 $(\Lambda^{-1})_{i0}=-\Lambda_{0i},(\Lambda^{-1})_{0i} =-\Lambda_{i0}$，
+以及 $(\Lambda^{-1})_{ij}=(\Lambda^\mathrm{T})_{ij}$。
+可得 $\Lambda_{0i}=(\Lambda^\mathrm{T})_{i0}=-\gamma u_i$。
+还差 $\Lambda_{i0},\Lambda_{ij}$。尝试用 $u_i$ 表示 $u'_i$。取 \eqref{eq:Lorentz} 式 $\sigma=0,\lambda=k$（反之亦可），有
+\eq{\label{eq:Au'=u}
+    \delta_{ij}\Lambda_{i0}\Lambda_{jk}=\Lambda_{00}\Lambda_{0k}\im \Lambda_{jk} u'_j=-\gamma u_k.
+}
+同理取 $\eta_{\mu\nu}\Lambda_{\sigma\mu}\Lambda_{\lambda\nu}={\eta}_{\sigma\lambda}$ 的 $\sigma=0,\lambda=k$ 有
+\eq{\label{eq:Au=u'}
+    \Lambda_{kj} u_j=-\gamma u'_k.
+}
+故只需关注 $\Lambda_{ij}$。更直观的表示可利用 $R\in\mathrm{SO}(3)$。若两坐标系仅差一个旋转变换，则仍相对静止，相对论的动力学效应不会体现。增速变换即指这类相对速度可朝任意方向的 Lorentz 变换，但保持空间坐标轴平行。二维特殊情形保持 $y'=y,z'=z$。增速变换是“时空旋转”，故任意 Lorentz 变换应可表为一个增速变换和一个空间旋转的复合（因此不一定有 $u_i=-u'_i$）。为找到 $R$，注意总可假设
+$R_{ij}=:\Lambda_{ij}+S_{ij}$，
+其中 $\Lambda_{ij}$ 的符号取正是为迎合固有条件。由定义，$R_{ij}$ 满足
+\eq{
+    \delta_{ik} R_{ij} R_{kl}=\delta_{jl},\quad R_{ij} u_j=-u'_i,\quad R_{ij} u'_i=-u_j.
+}
+取 \eqref{eq:Lorentz} 式 $\sigma=j,\lambda=l$ 有 $\delta_{ik}\Lambda_{ij}\Lambda_{kl}=\delta_{jl}+ \gamma^2 u_j u_l$，
+结合 \eqref{eq:Au'=u},\eqref{eq:Au=u'} 以及上式，经过一些繁琐计算后可得 $S_{ij}=\frac{\gamma-1}{u^2}u'_i u_j$，综上任意 Lorentz 变换可表为
+\eq{
+\tcbhighmath{
+    \Lambda_{00}=\gamma,\quad\Lambda_{0i}=-\gamma u_i,\quad\Lambda_{i0}=-\gamma R_{ij} u_j,\quad \Lambda_{ij}=R_{ij}+\frac{\gamma-1}{u^2}  R_{ik} u_k u_j.
+}
+}
+取 $R_{ij}=\delta_{ij}$ 就可得任意增速变换
+\eq{
+\tcbhighmath{
+    \Lambda_{00}=\gamma,\quad \Lambda_{0i}=\Lambda_{i0}=-\gamma u_i,\quad \Lambda_{ij}=\delta_{ij}+\frac{\gamma-1}{u^2}u_iu_j.
+}
+}
+再令 $u_2=u_3=0$ 就有 $\Lambda_{11}=\Lambda_{00}=\gamma, \Lambda_{01}=\Lambda_{01}=-\gamma u_1$，即二维增速变换，常记作 $\Lambda(\theta)$。鉴于此，任意 Lorentz 变换可用 $R_{1},R_{2}\in\mathrm{SO}(3)$ 表为 $R_{1} \Lambda(\theta) R_{2}$ 的形式。
+
 \section{进阶话题}
 
 \subsection{Noether 定理}\label{sec:Noe}
@@ -3583,52 +3629,3 @@ T^{\alpha_1\cdots\alpha_r}{}_{\beta_1\cdots\rho\cdots\beta_s}.
 对于 $\R^{1,3}$，10 种独立 Killing 矢量场对应 4 种平移和 6 种平面旋转，其中平面旋转分为3 种空间旋转、3 种时空伪旋转，进而复合出任意 Poincaré 变换。
 
 %% 最大对称
-
-\subsection{Lorentz 变换推导}\label{sec:PoincareLorentz}
-
-    本节旨在补上任意 Lorentz 变换的代数证明。由于重点只在矩阵的行列指标，故本节将上标都写作下标以简化运算。
-根据相对性原理，对 $\Lambda$ 的分类同样适用于相应 $\Lambda^{-1}$。当然，亦可直接证明之。注意 $|\Lambda^{-1}|=|\Lambda|^{-1}$，我们只需证明 $(\Lambda^{-1})_{00}=\Lambda_{00}$。
-用 $\Lambda$ 表示 $\Lambda^{-1}$ 就是 $(\Lambda^{-1})_{\lambda\sigma}=\eta_{\mu\sigma}\Lambda_{\mu\nu}\eta_{\nu\lambda}$。
-取其 $\sigma=\lambda=0$ 就有 $(\Lambda^{-1})_{00}=\Lambda_{00}=(\Lambda^\mathrm{T})_{00}$。
-
-
-
-下面用 $\{x\}\{x'\}$ 的相对速度表示 Lorentz 变换。
-我们说 $S'$ 系相对于 $S$ 的速度是 $u_i=\dv*{x_i}{t}$，是指 $S'$ 任意的相对静止的世界线在 $S$ 下测得的速度分量都是 $u_i$。显然这等价于研究 $S'$ 系的空间原点运动。反之，设 $S$ 系的空间原点在 $S'$ 下测得 $u'_i=\dv*{x'_i}{t'}$。先考虑 $S'$ 的空间原点，其世界线始终满足 $\d x'_i=0$，则 $\d x_\lambda=(\Lambda^{-1})_{\lambda 0}\d x'_0$，故 $\Lambda_{00}=(\Lambda^{-1})_{00}=\dv*{t}{t'},(\Lambda^{-1})_{i0}=u_i\dv*{t}{t'}$，
-据式 \eqref{eq:Lorentz} 有 $\eta_{\mu\nu}(\Lambda^{-1})_{\mu\sigma}(\Lambda^{-1})_{\nu\lambda}={\eta}_{\sigma\lambda}$（显然 $\Lambda^{-1}$ 也是 Lorentz 变换）。
-取 $\sigma=\lambda=0$ 有 $(\Lambda_{00})^2=1+\delta_{ij}(\Lambda^{-1})_{i0}(\Lambda^{-1})_{j0}$。
-    再结合正时条件有 $\Lambda_{00}=(\Lambda^{-1})_{00}=\gamma$，以及 $(\Lambda^{-1})_{i0}=\gamma u_i$，其中 $u:=\sqrt{u_i u_i}$。再考虑 $S$ 的空间原点，类似地有 $\Lambda_{00}=\dv*{t'}{t},\Lambda_{i0}=u'_i \dv*{t'}{t}=\gamma u'_i$，
-以及
-\[u'_iu'_i=u_i u_i=u^2.\]
-这看似是显然的，但现在要作为经过证明的结论。
-不过，这是用 $u'_i$ 表示 $\Lambda$，固然渴望用 $u_i$ 直接表示。对 $(\Lambda^{-1})_{\lambda\sigma}=\eta_{\mu\sigma}\Lambda_{\mu\nu}\eta_{\nu\lambda}$ 其余 $\sigma,\lambda$ 讨论有 $(\Lambda^{-1})_{i0}=-\Lambda_{0i},(\Lambda^{-1})_{0i} =-\Lambda_{i0}$，
-以及 $(\Lambda^{-1})_{ij}=(\Lambda^\mathrm{T})_{ij}$。
-可得 $\Lambda_{0i}=(\Lambda^\mathrm{T})_{i0}=-\gamma u_i$。
-还差 $\Lambda_{i0},\Lambda_{ij}$。尝试用 $u_i$ 表示 $u'_i$。取 \eqref{eq:Lorentz} 式 $\sigma=0,\lambda=k$（反之亦可），有
-\eq{\label{eq:Au'=u}
-    \delta_{ij}\Lambda_{i0}\Lambda_{jk}=\Lambda_{00}\Lambda_{0k}\im \Lambda_{jk} u'_j=-\gamma u_k.
-}
-同理取 $\eta_{\mu\nu}\Lambda_{\sigma\mu}\Lambda_{\lambda\nu}={\eta}_{\sigma\lambda}$ 的 $\sigma=0,\lambda=k$ 有
-\eq{\label{eq:Au=u'}
-    \Lambda_{kj} u_j=-\gamma u'_k.
-}
-故只需关注 $\Lambda_{ij}$。更直观的表示可利用 $R\in\mathrm{SO}(3)$。若两坐标系仅差一个旋转变换，则仍相对静止，相对论的动力学效应不会体现。增速变换即指这类相对速度可朝任意方向的 Lorentz 变换，但保持空间坐标轴平行。二维特殊情形保持 $y'=y,z'=z$。增速变换是“时空旋转”，故任意 Lorentz 变换应可表为一个增速变换和一个空间旋转的复合（因此不一定有 $u_i=-u'_i$）。为找到 $R$，注意总可假设
-$R_{ij}=:\Lambda_{ij}+S_{ij}$，
-其中 $\Lambda_{ij}$ 的符号取正是为迎合固有条件。由定义，$R_{ij}$ 满足
-\eq{
-    \delta_{ik} R_{ij} R_{kl}=\delta_{jl},\quad R_{ij} u_j=-u'_i,\quad R_{ij} u'_i=-u_j.
-}
-取 \eqref{eq:Lorentz} 式 $\sigma=j,\lambda=l$ 有 $\delta_{ik}\Lambda_{ij}\Lambda_{kl}=\delta_{jl}+ \gamma^2 u_j u_l$，
-结合 \eqref{eq:Au'=u},\eqref{eq:Au=u'} 以及上式，经过一些繁琐计算后可得 $S_{ij}=\frac{\gamma-1}{u^2}u'_i u_j$，综上任意 Lorentz 变换可表为
-\eq{
-\tcbhighmath{
-    \Lambda_{00}=\gamma,\quad\Lambda_{0i}=-\gamma u_i,\quad\Lambda_{i0}=-\gamma R_{ij} u_j,\quad \Lambda_{ij}=R_{ij}+\frac{\gamma-1}{u^2}  R_{ik} u_k u_j.
-}
-}
-取 $R_{ij}=\delta_{ij}$ 就可得任意增速变换
-\eq{
-\tcbhighmath{
-    \Lambda_{00}=\gamma,\quad \Lambda_{0i}=\Lambda_{i0}=-\gamma u_i,\quad \Lambda_{ij}=\delta_{ij}+\frac{\gamma-1}{u^2}u_iu_j.
-}
-}
-再令 $u_2=u_3=0$ 就有 $\Lambda_{11}=\Lambda_{00}=\gamma, \Lambda_{01}=\Lambda_{01}=-\gamma u_1$，即二维增速变换，常记作 $\Lambda(\theta)$。鉴于此，任意 Lorentz 变换可用 $R_{1},R_{2}\in\mathrm{SO}(3)$ 表为 $R_{1} \Lambda(\theta) R_{2}$ 的形式。

@@ -35,7 +35,7 @@
     $\d(\omega\wedge\mu)=\d\omega\wedge\mu+(-1)^k\omega\wedge\d\mu$。
 \end{theorem}
 
-\begin{theorem}[Poincaré 引理] $\d^2=0$.
+\begin{theorem} $\d^2=0$.
 \end{theorem}
 \begin{proof} $(\d\d\omega)_{\nu\sigma\mu_1\cdots\mu_l}=(l+2)(l+1)\omega_{[[\mu_1\cdots\mu_l,\sigma],\nu]}=(l+2)(l+1)\omega_{[\mu_1\cdots\mu_l,(\sigma\nu)]}=0$。
 \end{proof}
@@ -43,7 +43,7 @@
 \begin{definition}
     $l$-形式 $\omega$ 称\textbf{闭的}(closed) $\Leftrightarrow\d\omega=0$；$\omega$ 称\textbf{恰当的}(exact) $\Leftrightarrow \exists (l-1)$-形式 $\mu$ 使 $\omega=\d\mu$。
 \end{definition}
-依 Poincaré 引理，恰当形式必为闭形式。反之欲成立，须要求坐标域$X\subset M$ 第二种 de Rham 上同调 $H^{2}(X;\R)$ 平凡，见 \S\ref{appx:Alge-Topo}。形象理解为区域是任意的单连通流形，例如 $\R^{n}$、开球及更一般的“星形式”开区域等。对一般流形而言，往往局域 $X$ 内亦成立，即逆命题至少在处处点的邻域上成立。
+依 $\d^2=0$，恰当形式必为闭形式。逆命题局部成立：\textbf{Poincaré 引理}断言，某些单连通（$\R^{n}$、开球及更一般的“星形”）开集上的闭 $l$-形式（$l\geqslant1$）必恰当，从而流形上每点邻域成立。整体上则未必成立；单连通只保证闭 $1$-形式恰当，高阶情形涉及相应阶数的所谓 de Rham 上同调（即准确说法是要求坐标域$X\subset M$ 第二种 de Rham 上同调 $H^{2}(X;\R)$ 平凡），留待 \S\ref{appx:Alge-Topo} 讨论。
 
 \begin{definition}
     $\delta={\star\d\star}$ 称为\textbf{余微分}(codifferential)，有时也记作 $\d^*$。
@@ -278,7 +278,7 @@ pattern radius = 1pt}
     平面圆盘取 $\d x\wedge\d y$ 定向，其边界诱导逆时针方向。区间 $[a,b]$ 取 $\d x$ 定向，则左端点外向矢量为 $-\p_x$，右端点为 $\p_x$，诱导的零维体元分别为 $-1,+1$。零维流形的定向就是逐点指定正负号，故边界积分为 $\int_{\partial[a,b]}f=f(b)-f(a)$。
 \end{example}
 
-\section{广义 Stokes 定理}\label{sec:integration-on-manifold}
+\section{积分区域与链}\label{sec:integration-on-manifold}
 
 考虑 $n$ 维定向流形 $M$。取连通坐标域上的坐标系 $(O,\psi)$，其坐标函数为 $x^i:O\to\R$。若右端 Riemann 积分存在，则定义 $A\subset O$ 上 $n$-形式 $\omega$ 的积分为
 \eq{
@@ -295,7 +295,7 @@ pattern radius = 1pt}
     由紧支撑性及局部有限性，右端只有有限项非零。特别地，$M$ 紧时，任意光滑 $n$-形式均可如此积分。
 \end{definition}
 \begin{remark}
-    实际上，总默认对诱导形式积分：$\int_S\omega=\int_S\tilde\omega$。
+    若积分区域是 $M$ 中的定向 $p$ 维子流形 $\iota:S\hookrightarrow M$，总默认先将 $p$-形式拉回：$\int_S\omega:=\int_S\iota^*\omega=\int_S\tilde\omega$，即诱导形式。因此积分域不必与环境流形同维，且 $M$ 本身不必可定向，只须 $S$ 定向。
     本书只对阶数与积分域维数相同的形式定义积分；若将积分扩展到任意阶形式，可约定其余阶数的积分为零。
 \end{remark}
 \begin{theorem}
@@ -310,6 +310,88 @@ pattern radius = 1pt}
         =\sum_j\int_{O'_j}\rho'_j\omega.\qedhere
     \end{align*}
 \end{proof}
+
+积分区域还可由若干有向小片拼成。积分不仅依赖点集，还记录定向及重数；为将分片求和写成代数运算，先介绍最简单的小片。
+
+\begin{definition}
+    欧氏空间中 $p+1$ 个仿射无关点 $v_0,\ldots,v_p$ 的凸包
+    \eq{\left\{\sum_{i=0}^p t_i v_i:t_i\geqslant0,\ \sum_{i=0}^p t_i=1\right\}}
+    称为 $p$ 维\textbf{单纯形}(simplex)。由部分顶点张成的单纯形称为它的\textbf{面}。点、线段、实心三角形、实心四面体分别是零至三维单纯形。
+\end{definition}
+
+当 $p\geqslant1$，顶点的次序通过基 $(v_1-v_0,\ldots,v_p-v_0)$ 指定定向，记有向单纯形为 $[v_0\cdots v_p]$。偶置换保持定向，奇置换反转定向，故约定
+\eq{[v_{\pi(0)}\cdots v_{\pi(p)}]
+    =\operatorname{sgn}(\pi)[v_0\cdots v_p].}
+零维单纯形 $[v]$ 取正定向，$-[v]$ 表示带负号的点。
+
+\begin{definition}
+    一族单纯形 $K$ 称为\textbf{单纯复形}(simplicial complex)，若每个单纯形的所有面仍属于 $K$，且任意两个单纯形的交或为空，或为二者的公共面。其并记作 $|K|$。
+\end{definition}
+
+例如，将四边形沿对角线剖成两个三角形，并收入所有边与顶点，就得到一个复形。以下只需有限复形。在流形中，可用同胚 $F:|K|\to D\subset M$ 将这些小片拼成区域；若 $F$ 在每个单纯形上光滑且为嵌入，就得到区域的\textbf{光滑三角剖分}。各片的定向由参数域传递，公共面由同一映射识别。这里不讨论剖分的存在性，只用它描述已有的分片。
+
+\begin{definition}
+    为 $K$ 的每个 $p$ 维单纯形选定一个参考定向。有限形式和
+    \eq{c=\sum_\alpha a_\alpha\sigma_\alpha,\qquad a_\alpha\in\R,}
+    称为实系数 $p$ 维\textbf{链}(chain)，全体记为 $C_p(K;\R)$。加法及数乘按系数定义：
+    \eq{\sum_\alpha a_\alpha\sigma_\alpha+\sum_\alpha b_\alpha\sigma_\alpha
+        =\sum_\alpha(a_\alpha+b_\alpha)\sigma_\alpha,\qquad
+        \lambda c=\sum_\alpha(\lambda a_\alpha)\sigma_\alpha.}
+    因而 $C_p(K;\R)$ 是实线性空间，反向单纯形等于原单纯形的负元。
+\end{definition}
+
+链是有向小片的线性组合，并非点集的并：$\sigma+\sigma=2\sigma$ 记录重数，$\sigma+(-\sigma)=0$ 表示抵消；一般实系数则是积分的权重。若各顶维小片与区域 $D$ 同向，它们的和就代表 $D$ 的积分；公共面维数较低，不造成重复积分。单纯形虽有棱角，其积分仍按参数域上的多重 Riemann 积分定义。
+
+\begin{definition}
+    对 $p\geqslant1$，\textbf{边界算子} $\partial:C_p(K;\R)\to C_{p-1}(K;\R)$ 由
+    \eq{\label{eq:simplex-boundary}
+        \partial[v_0\cdots v_p]
+        :=\sum_{i=0}^p(-1)^i[v_0\cdots\widehat{v_i}\cdots v_p],\qquad
+        \partial c:=\sum_\alpha a_\alpha\partial\sigma_\alpha
+    }
+    定义，其中帽号表示略去该顶点；规定零维链的边界为零。
+\end{definition}
+
+交替符号恰使各面取外向在前的诱导定向。因此 $\partial$ 将维数降低一阶，并满足
+\eq{\partial(ac+bc')=a\partial c+b\partial c',\qquad
+    \partial(-c)=-\partial c.}
+
+\begin{example}
+    有向线段、三角形、四面体的边界依次为
+    \begin{align*}
+        \partial[v_0v_1]&=[v_1]-[v_0],\\
+        \partial[v_0v_1v_2]&=[v_1v_2]-[v_0v_2]+[v_0v_1],\\
+        \partial[v_0v_1v_2v_3]&=[v_1v_2v_3]-[v_0v_2v_3]
+            +[v_0v_1v_3]-[v_0v_1v_2].
+    \end{align*}
+    第二式也即 $[v_0v_1]+[v_1v_2]+[v_2v_0]$，沿三角形绕行一周。再取逆时针排列的凸四边形顶点 $v_0,v_1,v_2,v_3$，令
+    \eq{c=[v_0v_1v_2]+[v_0v_2v_3].}
+    公共边的诱导方向相反，故
+    \eq{\partial c=[v_0v_1]+[v_1v_2]+[v_2v_3]+[v_3v_0].}
+    若两片分别带权 $a,b$，则公共边 $[v_0v_2]$ 的系数为 $b-a$；只有权重相等时才抵消。
+\end{example}
+
+\begin{theorem}\label{thm:chain-boundary-square}
+    $\partial^2=0$。
+\end{theorem}
+\begin{proof}
+    对单纯形连续取两次边界，每个余维为二的面恰出现两次。若略去 $v_i,v_j$（$i<j$），先略去 $v_i$ 的符号为 $(-1)^{i+j-1}$，先略去 $v_j$ 的符号为 $(-1)^{j+i}$，故逐项相消。线性性将结论推广到任意链；零维、一维情形直接成立。
+\end{proof}
+
+在光滑三角剖分 $F:|K|\to D\subset M$ 下，记 $F_\alpha:=F|_{\sigma_\alpha}$。微分形式在链上的积分按线性延拓：
+\eq{\label{eq:chain-pairing}
+    \langle\omega,c\rangle:=\int_c\omega
+        :=\sum_\alpha a_\alpha\int_{\sigma_\alpha}F_\alpha^*\omega.}
+若各片就在欧氏空间中，$F_\alpha$ 取包含映射即可。零维时，此式即
+\eq{\left\langle f,\sum_i a_i[v_i]\right\rangle=\sum_i a_i f(F(v_i)).}
+这称为形式与链的\textbf{积分配对}，对两者均线性：
+\begin{align*}
+    \langle a\omega+b\eta,c\rangle&=a\langle\omega,c\rangle+b\langle\eta,c\rangle,\\
+    \langle\omega,ac+bc'\rangle&=a\langle\omega,c\rangle+b\langle\omega,c'\rangle.
+\end{align*}
+固定 $\omega$，积分就是链空间上的线性泛函；这正是\textbf{对偶配对}的意义，并不声称微分形式空间等于链空间的整个代数对偶。积分域与被积形式由此成为相互配对的两个对象，下面的定理进一步联系它们各自的运算。
+
+\section{广义 Stokes 定理}\label{sec:generalized-stokes}
 
 \begin{theorem}[广义 Stokes 定理]
     设 $\Omega$ 为 $n$ 维定向带边流形（$n\geqslant1$），$\partial\Omega$ 取诱导定向。对 $\Omega$ 上任意紧支撑光滑 $(n-1)$-形式 $\omega$，有
@@ -340,7 +422,18 @@ pattern radius = 1pt}
     计算 $\int_\Omega\d\omega$ 时，可在各坐标域中略去边界，因为超平面 $x^n=0$ 对 $n$ 重 Riemann 积分无贡献。若将积分域记为 $\Omega^\circ$，应按上述局部积分理解；$\d\omega$ 限制到内部后未必仍有紧支撑。
 
     有的书会用 $\d^2=0$ 解释 $\partial(\partial\Omega)=\mt$，但这不能直接作为证明：前者是形式的微分恒等式，后者是边界的几何性质。若连续两次应用 Stokes 定理，须先确认 $\partial\Omega$ 的流形结构，还须说明对所有测试形式积分为零何以推出边界为空。本书已由半空间坐标直接证明后者，见定理 \ref{thm:boundary-no-boundary}。
+且带边流形的 $\partial(\partial\Omega)=\mt$ 与链的 $\partial^2c=0$ 亦须作区分：后者指有向面的代数抵消，见定理 \ref{thm:chain-boundary-square}。例如三角形的各边仍有端点，只是再次取边界时各顶点相消。二者严格上都不能用 $\d^2=0$ 理解。
 \end{remark}
+
+Stokes 定理也适用于单纯形：在各棱角附近作光滑截断后应用上述定理，再令截断缩至棱角。形式光滑，新增边界的面积趋于零，故只留下各面的积分；一维情形就是 Newton-Leibniz 公式。对参数化小片，利用拉回与外微分可交换，得
+\eq{\int_\sigma F^*(\d\omega)
+    =\int_\sigma\d(F^*\omega)=\int_{\partial\sigma}F^*\omega.}
+再由线性性，对任意 $p$ 维链 $c$ 及光滑 $(p-1)$-形式 $\omega$ 有
+\eq{\label{eq:stokes-pairing}
+    \boxed{\langle\d\omega,c\rangle=\langle\omega,\partial c\rangle}.}
+这就是 Stokes 定理的\textbf{对偶表述}：外微分提高形式的阶数，边界算子降低链的维数，二者关于积分配对互为对偶。对代表定向区域的同向分片求和时，内部公共面相消，只余区域的外边界。
+
+特别地，闭形式在满足 $c-c'=\partial b$ 的同维链上积分相同；恰当形式在边界为零的链上积分为零。两点都由式 \eqref{eq:stokes-pairing} 直接得到，它们正是积分与整体拓扑发生联系的起点。有关同调、上同调及其配对的系统讨论，留待附录 \ref{appx:Alge-Topo}。
 
 \begin{example}[Green]
     设 $A$ 是 $(\R^2,\delta)$ 上的对偶矢量场，$S$ 是单连通开集，则
@@ -369,7 +462,7 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     \epsilon=\sqrt{|g|}\,\d x^1\wedge\cdots\wedge\d x^n,
     \qquad g:=\det(g_{\mu\nu}).
 }
-对紧支撑连续函数 $f$，沿用前节的局部积分及单位分解，约定 $\int_M f:=\int_M f\epsilon$。例如，时空作用量 $S=\int_M\mathcal L$ 省略了适配体元 $\sqrt{-g}\,\d[4]x$。
+对紧支撑连续函数 $f$，沿用 \S\ref{sec:integration-on-manifold} 的局部积分及单位分解，约定 $\int_M f:=\int_M f\epsilon$。例如，时空作用量 $S=\int_M\mathcal L$ 省略了适配体元 $\sqrt{-g}\,\d[4]x$。
 
 \begin{definition}
     $M$ 的余维为 $1$ 的嵌入子流形 $\Sigma$ 称为\textbf{超曲面}(hypersurface)。记包含映射为 $\iota:\Sigma\hookrightarrow M$，通过 $\iota_*$ 将 $T_p\Sigma$ 视为 $T_pM$ 的子空间。满足 $g(\nu,w)=0$（$\forall w\in T_p\Sigma$）的非零切矢 $\nu\in T_pM$ 称为 $\Sigma$ 在 $p$ 处的\textbf{法矢}。
