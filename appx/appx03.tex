@@ -144,14 +144,14 @@ $\topo T$ 的名称若自明或不重要，则拓扑空间常略写为$X$。讨�
 \end{remark}
 
 \begin{definition}
-置 $A\subset X$。\textbf{导集}(derived set)为 $A':=\{x \in X:x\in\overline{A\backslash\{x\}}\}$，其元素称为\textbf{聚点}(accumulation point)或\textbf{极限点}。
+置 $A\subset X$。\textbf{导集}(derived set)为 $A':=\{x \in X:x\in\overline{A\backslash\{x\}}\}$，其元素称为\textbf{集合聚点}(accumulation point)，亦称\textbf{极限点}；下文统一称集合聚点。
 $\bar{A}=X$ 时称 $A$ 在 $X$ 中\textbf{稠密}(dense)。
 \end{definition}
 \begin{remark}
     $x\in A'\eqto \forall U\in\topo N(x),(U\cap A)\backslash\{x\}=U\cap (A\backslash\{x\})\ne\mt$。$U$ 可等价换为任意含 $x$ 开集。
 \end{remark}
 \begin{example}
-    考虑实直线，$0,1/2,1$ 都是 $[0,1)$ 的聚点。
+    考虑实直线，$0,1/2,1$ 都是 $[0,1)$ 的集合聚点。
 \end{example}
 
 \begin{theorem}
@@ -206,7 +206,7 @@ $\bar{A}=X$ 时称 $A$ 在 $X$ 中\textbf{稠密}(dense)。
 
 \begin{remark}
     注意序列记录次序及重复项，不能与其值域 $\{x_n:n\in\N\}$ 混同。
-    若 $x$ 的任意邻域都含点列的无限多项，则称 $x$ 为点列的\textbf{聚点}(cluster point)。各项可取相同值，故须与值域作为点集的聚点区分。极限必为点列聚点，反之未必。
+    若 $x$ 的任意邻域都含点列的无限多项，则称 $x$ 为该序列的\textbf{序列聚点}(cluster point)。各项可取相同值，故须与值域的集合聚点区分。序列的极限必为序列聚点，反之未必。
 \end{remark}
 
 在一般拓扑空间中，序列不够强：闭包中的点未必是集合内某个序列的极限，紧致性也未必能由收敛子列刻画（见 \S\ref{sec:topological-compactness}）。障碍在于序列只有可数个指标，而一点的邻域未必能由可数多个代表。后者正涉及下一节的第一可数性。
@@ -233,7 +233,7 @@ $\bar{A}=X$ 时称 $A$ 在 $X$ 中\textbf{稠密}(dense)。
     \eq{T_\alpha:=\{x_\beta:\alpha\preceq\beta\}.}
     若 $\forall U\in\topo N(x),\exists\alpha_0\in D$ 使 $T_{\alpha_0}\subseteq U$，则称该网\textbf{收敛}于 $x$，记 $x_\alpha\to x$，即最终落入 $x$ 的每个邻域。若只要求
     \eq{\forall U\in\topo N(x),\ \forall\alpha\in D,\quad T_\alpha\cap U\ne\mt,}
-    则称 $x$ 为该网的\textbf{聚点}，即任意往后仍有项落入每个邻域。
+    则称 $x$ 为该网的\textbf{网聚点}，即任意往后仍有项落入每个邻域。
 \end{definition}
 
 \begin{theorem}\label{thm:net-closure}
@@ -254,14 +254,14 @@ $\bar{A}=X$ 时称 $A$ 在 $X$ 中\textbf{稠密}(dense)。
 子列是子网的特例，但子网可换用新的有向集，指标映射也不必单射。特别地，序列的子网未必是子列。由定义，收敛网的每个子网仍收敛于原来的每个极限。
 
 \begin{theorem}\label{thm:net-cluster-subnet}
-    $x$ 是一个网的聚点，当且仅当存在收敛于 $x$ 的子网。
+    一个网有网聚点 $x$，当且仅当存在收敛于 $x$ 的子网。
 \end{theorem}
 \begin{proof}
-    若 $x$ 为聚点，取
+    若 $x$ 为网聚点，取
     \eq{E:=\{(\alpha,U):\alpha\in D,\ U\in\topo N(x),\ x_\alpha\in U\},}
-    规定 $(\alpha,U)\preceq(\beta,V)$ 当且仅当 $\alpha\preceq\beta$ 且 $V\subseteq U$。给定两项，先取原指标的共同上界，再由聚点条件在更后方选取落入两邻域之交的项，故 $E$ 有向。投影 $\phi(\alpha,U)=\alpha$ 保序且共尾，所得子网收敛于 $x$。
+    规定 $(\alpha,U)\preceq(\beta,V)$ 当且仅当 $\alpha\preceq\beta$ 且 $V\subseteq U$。给定两项，先取原指标的共同上界，再由网聚点条件在更后方选取落入两邻域之交的项，故 $E$ 有向。投影 $\phi(\alpha,U)=\alpha$ 保序且共尾，所得子网收敛于 $x$。
 
-    反之，若子网收敛于 $x$，由共尾性与收敛性，可使其项既越过原网任给的指标，又落在 $x$ 的任给邻域中，故 $x$ 是原网的聚点。
+    反之，若子网收敛于 $x$，由共尾性与收敛性，可使其项既越过原网任给的指标，又落在 $x$ 的任给邻域中，故 $x$ 是原网的网聚点。
 \end{proof}
 
 网的指标并非收敛问题的全部内容。若只关心它最终落入哪些集合，这些集合应当向上封闭，并可作有限交；滤子将此性质抽象出来。
@@ -284,19 +284,19 @@ $\bar{A}=X$ 时称 $A$ 在 $X$ 中\textbf{稠密}(dense)。
 例如，$\topo N(x)$ 本身就是滤子，称为\textbf{邻域滤子}；$\N$ 中所有余有限集也构成滤子，其基可取各尾集 $\{n:n\geqslant N\}$。
 
 \begin{definition}
-    若 $\topo N(x)\subseteq\mathcal F$，则称滤子 $\mathcal F$ \textbf{收敛}于 $x$，记作 $\mathcal F\to x$。若 $x$ 的每个邻域都与 $\mathcal F$ 的每个成员相交，则称 $x$ 为 $\mathcal F$ 的\textbf{聚点}。因此其聚点集为
+    若 $\topo N(x)\subseteq\mathcal F$，则称滤子 $\mathcal F$ \textbf{收敛}于 $x$，记作 $\mathcal F\to x$。若 $x$ 的每个邻域都与 $\mathcal F$ 的每个成员相交，则称 $x$ 为 $\mathcal F$ 的\textbf{滤子聚点}。因此其滤子聚点集为
     \eq{\operatorname{adh}\mathcal F:=\bigcap_{A\in\mathcal F}\bar A.}
 \end{definition}
 
-极限必为聚点，反之未必。若 $\mathcal F\to x$，则任何较细滤子也收敛于 $x$；仅有聚点时，只要求各成员与邻域相交，不要求滤子包含这些邻域。
+滤子的极限必为滤子聚点，反之未必。若 $\mathcal F\to x$，则任何较细滤子也收敛于 $x$；仅有滤子聚点时，只要求各成员与邻域相交，不要求滤子包含这些邻域。
 
 \begin{theorem}[网与滤子的对应]\label{thm:net-filter}
     网的尾集构成滤子基，生成\textbf{尾滤子}
     \eq{\mathcal F_{(x_\alpha)}:=\{A\subseteq X:\exists\alpha\in D,\ T_\alpha\subseteq A\}.}
-    网与其尾滤子有相同的极限及聚点。反之，每个滤子都可实现为某个网的尾滤子。
+    网与其尾滤子有相同的极限，且网聚点恰为尾滤子的滤子聚点。反之，每个滤子都可实现为某个网的尾滤子。
 \end{theorem}
 \begin{proof}
-    每个尾集非空，且指标的共同上界给出含于任意两尾集之交的尾集，故确为滤子基。极限与聚点的对应由定义立即得到。
+    每个尾集非空，且指标的共同上界给出含于任意两尾集之交的尾集，故确为滤子基。极限的对应及网聚点与滤子聚点的对应由定义立即得到。
 
     给定滤子 $\mathcal F$，取带标记点的指标集
     \eq{D_{\mathcal F}:=\{(A,a):A\in\mathcal F,\ a\in A\},\qquad
@@ -364,10 +364,10 @@ $\topo{T}=\left\{\bigcup_{U\in\topo{F}}U:\topo{F}\subset\topo{B}\right\}$ 构成
 \end{definition}
 
 \begin{theorem}
-    在第一可数空间中，$x\in\bar A$ 当且仅当 $A$ 中有点列收敛于 $x$；$x$ 是点列的聚点，当且仅当有子列收敛于 $x$。
+    在第一可数空间中，$x\in\bar A$ 当且仅当 $A$ 中有点列收敛于 $x$；对任意序列，$x$ 为序列聚点当且仅当有子列收敛于 $x$。
 \end{theorem}
 \begin{proof}
-    取 $x$ 的可数邻域基 $\{U_n\}_{n\geqslant1}$，置 $V_n=U_1\cap\cdots\cap U_n$。若 $x\in\bar A$，逐次取 $a_n\in A\cap V_n$ 即得 $a_n\to x$。若 $x$ 为点列 $(x_n)$ 的聚点，则可逐次取 $n_k>n_{k-1}$ 使 $x_{n_k}\in V_k$，所得子列收敛于 $x$。两式的反向均直接成立。
+    取 $x$ 的可数邻域基 $\{U_n\}_{n\geqslant1}$，置 $V_n=U_1\cap\cdots\cap U_n$。若 $x\in\bar A$，逐次取 $a_n\in A\cap V_n$ 即得 $a_n\to x$。若 $x$ 为 $(x_n)$ 的序列聚点，则可逐次取 $n_k>n_{k-1}$ 使 $x_{n_k}\in V_k$，所得子列收敛于 $x$。两式的反向均直接成立。
 \end{proof}
 
 故第一可数性使序列足以刻画闭包。例 \ref{eg:cocountable-sequences} 的不可数余可数空间不满足此条件；一般空间则须保留网或滤子的表述。
@@ -601,7 +601,7 @@ $\R^{n}$ 当然完备。
     不妨以 $(0,1]$ 为例，存在开覆盖 $\{(1/n,2):n\in\N\}$ 不具有限子覆盖；其余情形同理。
 \end{proof}
 
-开覆盖描述如何从外部覆盖空间，取补集则转化为闭集能否共同相交。网与滤子正可将这种有限相容性表为聚点与收敛。
+开覆盖描述如何从外部覆盖空间，取补集则转化为闭集能否共同相交。网与滤子正可将这种有限相容性表为网聚点、滤子聚点与收敛。
 
 \begin{definition}
     $X$ 的子集族 $\mathcal A$ 具有\textbf{有限交性质}(finite intersection property)，若任意有限个成员的交非空；此处零个成员的交约定为 $X$。这些有限交构成滤子基，生成包含 $\mathcal A$ 的最小滤子。
@@ -621,10 +621,10 @@ $\R^{n}$ 当然完备。
 \end{proof}
 
 \begin{theorem}
-    超滤子的聚点恰是它的极限。
+    对超滤子，滤子聚点恰为极限。
 \end{theorem}
 \begin{proof}
-    极限必为聚点。若 $x$ 是超滤子 $\mathcal U$ 的聚点，而某邻域 $V\in\topo N(x)$ 不属于 $\mathcal U$，则 $X\backslash V\in\mathcal U$，与聚点条件矛盾。因此 $\topo N(x)\subseteq\mathcal U$，即 $\mathcal U\to x$。
+    滤子的极限必为滤子聚点。若 $x$ 是超滤子 $\mathcal U$ 的滤子聚点，而某邻域 $V\in\topo N(x)$ 不属于 $\mathcal U$，则 $X\backslash V\in\mathcal U$，与滤子聚点条件矛盾。因此 $\topo N(x)\subseteq\mathcal U$，即 $\mathcal U\to x$。
 \end{proof}
 
 \begin{samepage}
@@ -634,7 +634,7 @@ $\R^{n}$ 当然完备。
         \item $X$ 紧致；
         \item $X$ 中具有有限交性质的任意闭集族，其全体成员之交非空；
         \item $X$ 中每个网都有收敛子网，极限在 $X$ 中；
-        \item $X$ 上每个滤子的聚点集非空，即 $\operatorname{adh}\mathcal F\ne\mt$；
+        \item $X$ 上每个滤子 $\mathcal F$ 都有滤子聚点，即 $\operatorname{adh}\mathcal F\ne\mt$；
         \item $X$ 上每个超滤子都收敛于 $X$ 中某点。
     \end{compactenum}
 \end{theorem}
@@ -644,15 +644,15 @@ $\R^{n}$ 当然完备。
 
     $(2)\im(4)$：滤子 $\mathcal F$ 的任意有限个成员之交非空，故闭集族 $\{\bar A:A\in\mathcal F\}$ 有有限交性质。于是
     \eq{\operatorname{adh}\mathcal F=\bigcap_{A\in\mathcal F}\bar A\ne\mt.}
-    反之，对具有有限交性质的闭集族 $\mathcal A$，取其生成滤子的聚点 $x$。因每个 $A\in\mathcal A$ 闭，有 $x\in\bar A=A$，故得 $(2)$。
+    反之，对具有有限交性质的闭集族 $\mathcal A$，取其生成滤子的滤子聚点 $x$。因每个 $A\in\mathcal A$ 闭，有 $x\in\bar A=A$，故得 $(2)$。
 
-    $(4)\im(3)$：取网的尾滤子，由 $(4)$ 取其聚点，再用定理 \ref{thm:net-filter}、\ref{thm:net-cluster-subnet} 即得收敛子网。反之，将任一滤子实现为网的尾滤子，由 $(3)$ 取收敛子网；其极限是原网的聚点，也是原滤子的聚点，故得 $(4)$。
+    $(4)\im(3)$：取网的尾滤子，由 $(4)$ 取其滤子聚点，再用定理 \ref{thm:net-filter}、\ref{thm:net-cluster-subnet} 即得收敛子网。反之，将任一滤子实现为网的尾滤子，由 $(3)$ 取收敛子网；其极限是原网的网聚点，也是原滤子的滤子聚点，故得 $(4)$。
 
-    $(4)\im(5)$：超滤子有聚点便收敛。反之，将任一滤子 $\mathcal F$ 扩张为超滤子 $\mathcal U$，由 $(5)$ 取极限 $x$。$x$ 的任意邻域与 $\mathcal F$ 的任意成员都属于 $\mathcal U$，故交非空，于是 $x\in\operatorname{adh}\mathcal F$，得 $(4)$。
+    $(4)\im(5)$：超滤子有滤子聚点便收敛。反之，将任一滤子 $\mathcal F$ 扩张为超滤子 $\mathcal U$，由 $(5)$ 取极限 $x$。$x$ 的任意邻域与 $\mathcal F$ 的任意成员都属于 $\mathcal U$，故交非空，于是 $x\in\operatorname{adh}\mathcal F$，得 $(4)$。
 \end{proof}
 
 \begin{remark}
-    上述等价性不要求第一可数性或 Hausdorff 性，极限也不要求唯一。若 $X$ 为 Hausdorff 空间，则收敛网与收敛滤子的极限唯一：两个不同极限的不交邻域，不可能同时含有网的某个尾集，也不可能同时属于一个真滤子。紧致子集 $K\subseteq X$ 则对其子空间拓扑应用上述定理，聚点及极限均须位于 $K$ 中。
+    上述等价性不要求第一可数性或 Hausdorff 性，极限也不要求唯一。若 $X$ 为 Hausdorff 空间，则收敛网与收敛滤子的极限唯一：两个不同极限的不交邻域，不可能同时含有网的某个尾集，也不可能同时属于一个真滤子。紧致子集 $K\subseteq X$ 则对其子空间拓扑应用上述定理，网聚点、滤子聚点及极限均须位于 $K$ 中。
 \end{remark}
 
 \begin{definition}
