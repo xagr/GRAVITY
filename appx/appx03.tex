@@ -200,13 +200,111 @@ $\bar{A}=X$ 时称 $A$ 在 $X$ 中\textbf{稠密}(dense)。
 \end{proof}
 
 \begin{definition}
-    $S:\N\to X,n\mapsto x_n$ 的值域 $\Im S=\left\{x_n\right\}$ 称为\textbf{序列}或\textbf{点列}。
-    若 $\exists x \in X$，$\forall U\in\topo N(x),\exists N\in\N$，使 $n>N\im x_n\in U$，则称 $\{x_n\}$ 有\textbf{极限}或\textbf{收敛}于 $x$。
+    $S:\N\to X,n\mapsto x_n$ 称\textbf{序列}或\textbf{点列}，记作 $(x_n)$。
+    若 $\exists x \in X$，$\forall U\in\topo N(x),\exists N\in\N$，使 $n>N\im x_n\in U$，则称 $(x_n)$ 有\textbf{极限}或\textbf{收敛}于 $x$。
 \end{definition}
 
 \begin{remark}
-    点列聚点的任意邻域都含点列的无限个点。极限是聚点，但聚点不一定是极限。
+    注意序列记录次序及重复项，不能与其值域 $\{x_n:n\in\N\}$ 混同。
+    若 $x$ 的任意邻域都含点列的无限多项，则称 $x$ 为点列的\textbf{聚点}(cluster point)。各项可取相同值，故须与值域作为点集的聚点区分。极限必为点列聚点，反之未必。
 \end{remark}
+
+在一般拓扑空间中，序列不够强：闭包中的点未必是集合内某个序列的极限，紧致性也未必能由收敛子列刻画（见 \S\ref{sec:topological-compactness}）。障碍在于序列只有可数个指标，而一点的邻域未必能由可数多个代表。后者正涉及下一节的第一可数性。
+
+\begin{example}[余可数拓扑]\label{eg:cocountable-sequences}
+    在不可数集 $X$ 上取\textbf{余可数拓扑}(cocountable topology)：开集为 $\mt$ 及补集至多可数的子集。若 $x_n\to x$，则
+    \eq{U:=X\backslash\{x_n:x_n\ne x\}}
+    是 $x$ 的开邻域，且点列落在 $U$ 中的项只能等于 $x$，故点列最终恒等于 $x$。反之显然成立。于是此拓扑与离散拓扑有完全相同的收敛序列。
+
+    但 $A=X\backslash\{x\}$ 在余可数拓扑中稠密，因为任意非空开集都不可数，必与 $A$ 相交。虽然 $x\in\bar A$，$A$ 内却无点列收敛于 $x$。故仅凭序列的极限，连闭集也不能完全识别。
+\end{example}
+
+解决办法有两种：将自然数指标推广为能不断向后推进的\textbf{有向集}，得到\textbf{网}；或直接记录“最终落入哪些集合”，得到\textbf{滤子}。
+
+\begin{definition}
+    非空预序集 $(D,\preceq)$ 称为\textbf{有向集}(directed set)，若任意 $\alpha,\beta\in D$ 都有共同上界，即存在 $\gamma\in D$ 使 $\alpha\preceq\gamma,\beta\preceq\gamma$。若还要求反称性，就是 \S\ref{sec:order} 的滤过序集；此处允许预序。
+    映射 $D\to X,\alpha\mapsto x_\alpha$ 称为 $X$ 中的\textbf{网}(net)，记作 $(x_\alpha)_{\alpha\in D}$。取 $D=\N$ 及通常次序，就得到序列。
+\end{definition}
+
+例如，$\topo N(x)$ 按反包含关系定序：$U\preceq V\iff V\subseteq U$。因 $U\cap V$ 是二者的共同上界，这便是有向集；指标越往后，邻域越小，并不要求任意两邻域可比。
+
+\begin{definition}
+    网 $(x_\alpha)_{\alpha\in D}$ 的\textbf{尾集}为
+    \eq{T_\alpha:=\{x_\beta:\alpha\preceq\beta\}.}
+    若 $\forall U\in\topo N(x),\exists\alpha_0\in D$ 使 $T_{\alpha_0}\subseteq U$，则称该网\textbf{收敛}于 $x$，记 $x_\alpha\to x$，即最终落入 $x$ 的每个邻域。若只要求
+    \eq{\forall U\in\topo N(x),\ \forall\alpha\in D,\quad T_\alpha\cap U\ne\mt,}
+    则称 $x$ 为该网的\textbf{聚点}，即任意往后仍有项落入每个邻域。
+\end{definition}
+
+\begin{theorem}\label{thm:net-closure}
+    $x\in\bar A$ 当且仅当 $A$ 中存在收敛于 $x$ 的网。因此 $A$ 闭当且仅当 $A$ 中任意收敛网的所有极限仍在 $A$ 中。
+\end{theorem}
+\begin{proof}
+    若 $x\in\bar A$，以 $\topo N(x)$ 的反包含关系为指标，从每个 $A\cap U$ 中取 $x_U$。当 $V\subseteq U$ 时，$x_V\in V\subseteq U$，故 $x_U\to x$。反之，收敛网使 $x$ 的每个邻域都与 $A$ 相交，即 $x\in\bar A$。
+\end{proof}
+
+例 \ref{eg:cocountable-sequences} 中，正可如此用 $A$ 内的网逼近 $x$。网逐一适应所有邻域，因而不受可数指标的限制。
+
+\begin{definition}
+    设 $D,E$ 为有向集，$\phi:E\to D$ 保序且\textbf{共尾}(cofinal)，即
+    \eq{\forall\alpha\in D,\ \exists\beta_0\in E,\quad\alpha\preceq\phi(\beta_0).}
+    则 $(x_{\phi(\beta)})_{\beta\in E}$ 称为 $(x_\alpha)_{\alpha\in D}$ 的\textbf{子网}(subnet)。保序性保证 $\beta\succeq\beta_0$ 时仍有 $\phi(\beta)\succeq\alpha$，即子网最终越过原网的每个指标。
+\end{definition}
+
+子列是子网的特例，但子网可换用新的有向集，指标映射也不必单射。特别地，序列的子网未必是子列。由定义，收敛网的每个子网仍收敛于原来的每个极限。
+
+\begin{theorem}\label{thm:net-cluster-subnet}
+    $x$ 是一个网的聚点，当且仅当存在收敛于 $x$ 的子网。
+\end{theorem}
+\begin{proof}
+    若 $x$ 为聚点，取
+    \eq{E:=\{(\alpha,U):\alpha\in D,\ U\in\topo N(x),\ x_\alpha\in U\},}
+    规定 $(\alpha,U)\preceq(\beta,V)$ 当且仅当 $\alpha\preceq\beta$ 且 $V\subseteq U$。给定两项，先取原指标的共同上界，再由聚点条件在更后方选取落入两邻域之交的项，故 $E$ 有向。投影 $\phi(\alpha,U)=\alpha$ 保序且共尾，所得子网收敛于 $x$。
+
+    反之，若子网收敛于 $x$，由共尾性与收敛性，可使其项既越过原网任给的指标，又落在 $x$ 的任给邻域中，故 $x$ 是原网的聚点。
+\end{proof}
+
+网的指标并非收敛问题的全部内容。若只关心它最终落入哪些集合，这些集合应当向上封闭，并可作有限交；滤子将此性质抽象出来。
+
+\begin{definition}
+    非空子集族 $\mathcal F\subseteq2^X$ 称为 $X$ 上的\textbf{滤子}(filter)，若
+    \begin{gather*}
+        \mt\notin\mathcal F,\qquad
+        A,B\in\mathcal F\im A\cap B\in\mathcal F,\\
+        A\in\mathcal F,\quad A\subseteq B\subseteq X\im B\in\mathcal F.
+    \end{gather*}
+    本书的滤子均指这种不含空集的\textbf{真滤子}(proper filter)。若 $\mathcal F\subseteq\mathcal G$，则称 $\mathcal G$ \textbf{较细}。
+\end{definition}
+
+\begin{definition}
+    非空子集族 $\mathcal B\subseteq2^X$ 称为\textbf{滤子基}(filter base)，若各成员非空，且任意 $B_1,B_2\in\mathcal B$ 都有 $B_3\in\mathcal B$ 满足 $B_3\subseteq B_1\cap B_2$。它生成滤子
+    \eq{\langle\mathcal B\rangle:=\{A\subseteq X:\exists B\in\mathcal B,\ B\subseteq A\}.}
+\end{definition}
+
+例如，$\topo N(x)$ 本身就是滤子，称为\textbf{邻域滤子}；$\N$ 中所有余有限集也构成滤子，其基可取各尾集 $\{n:n\geqslant N\}$。
+
+\begin{definition}
+    若 $\topo N(x)\subseteq\mathcal F$，则称滤子 $\mathcal F$ \textbf{收敛}于 $x$，记作 $\mathcal F\to x$。若 $x$ 的每个邻域都与 $\mathcal F$ 的每个成员相交，则称 $x$ 为 $\mathcal F$ 的\textbf{聚点}。因此其聚点集为
+    \eq{\operatorname{adh}\mathcal F:=\bigcap_{A\in\mathcal F}\bar A.}
+\end{definition}
+
+极限必为聚点，反之未必。若 $\mathcal F\to x$，则任何较细滤子也收敛于 $x$；仅有聚点时，只要求各成员与邻域相交，不要求滤子包含这些邻域。
+
+\begin{theorem}[网与滤子的对应]\label{thm:net-filter}
+    网的尾集构成滤子基，生成\textbf{尾滤子}
+    \eq{\mathcal F_{(x_\alpha)}:=\{A\subseteq X:\exists\alpha\in D,\ T_\alpha\subseteq A\}.}
+    网与其尾滤子有相同的极限及聚点。反之，每个滤子都可实现为某个网的尾滤子。
+\end{theorem}
+\begin{proof}
+    每个尾集非空，且指标的共同上界给出含于任意两尾集之交的尾集，故确为滤子基。极限与聚点的对应由定义立即得到。
+
+    给定滤子 $\mathcal F$，取带标记点的指标集
+    \eq{D_{\mathcal F}:=\{(A,a):A\in\mathcal F,\ a\in A\},\qquad
+        (A,a)\preceq(B,b)\iff B\subseteq A.}
+    它是有向预序集。令 $x_{(A,a)}=a$，则从 $(A,a)$ 起的尾集恰为 $A$：后项都在 $A$ 中，而每个 $b\in A$ 又由指标 $(A,b)$ 出现。故尾滤子恰为 $\mathcal F$，特别地 $\mathcal F\to x$ 当且仅当此网收敛于 $x$。
+\end{proof}
+
+这说明网与滤子是同一收敛结构的两种表述：前者记录带指标的点，后者记录最终所属的集合。尾集族本身未必是滤子，还须收入其所有超集。上述反向构造不需 Zorn 引理；将滤子扩张为超滤子时才用到它，见 \S\ref{sec:topological-compactness}。
 
 \begin{definition}
     在 $(X,\topo T)$ 下，可定义 $A \subset X$ 的\textbf{相对}(relative)\textbf{拓扑}或\textbf{诱导}(induced)\textbf{拓扑} $\topo T_r=\{O \cap A: O\in\topo T\}$。赋予诱导拓扑的子集称为原集的\textbf{拓扑子空间}(topological subspace)。
@@ -256,7 +354,7 @@ $\topo{T}=\left\{\bigcup_{U\in\topo{F}}U:\topo{F}\subset\topo{B}\right\}$ 构成
     \textbf{局部}性质通过各点的邻域描述，但具体要求依性质而定：有时只需每点存在一个具有该性质的邻域，有时则要求这样的邻域构成邻域基。例如，局部可度量只需每点存在一个可度量开邻域，因为度量可限制到更小的子空间；路径连通却未必在缩小邻域后保留，故合理的“局部路径连通”应要求每点存在\emph{任意小}的路径连通开邻域。各术语以下文定义为准。
 \end{remark}
 
-\section{可数与分离}
+\section{可数与分离}\label{sec:countability-separation}
 本节目的是给出物理上足够有用的空间，使拓扑性质足够好，不至于太怪异。
 
 在拓扑学中针对一堆研究对象谈它们的可数性时，并不一定是指这些对象的全体可数，因这个要求不是很容易达到。很多时候可数性会定义成：从这堆对象中可以选出可数多个代表来“刻画出”其他所有对象。邻域/拓扑基就是从邻域/开集里面选出来的“代表团”。
@@ -264,6 +362,15 @@ $\topo{T}=\left\{\bigcup_{U\in\topo{F}}U:\topo{F}\subset\topo{B}\right\}$ 构成
 
 \begin{definition}\textbf{第一可数}空间的任意点存在可数邻域基，\textbf{第二可数}空间存在可数拓扑基，各记 $C_1,C_2$。字母 C 来⾃于英语“countable”。
 \end{definition}
+
+\begin{theorem}
+    在第一可数空间中，$x\in\bar A$ 当且仅当 $A$ 中有点列收敛于 $x$；$x$ 是点列的聚点，当且仅当有子列收敛于 $x$。
+\end{theorem}
+\begin{proof}
+    取 $x$ 的可数邻域基 $\{U_n\}_{n\geqslant1}$，置 $V_n=U_1\cap\cdots\cap U_n$。若 $x\in\bar A$，逐次取 $a_n\in A\cap V_n$ 即得 $a_n\to x$。若 $x$ 为点列 $(x_n)$ 的聚点，则可逐次取 $n_k>n_{k-1}$ 使 $x_{n_k}\in V_k$，所得子列收敛于 $x$。两式的反向均直接成立。
+\end{proof}
+
+故第一可数性使序列足以刻画闭包。例 \ref{eg:cocountable-sequences} 的不可数余可数空间不满足此条件；一般空间则须保留网或滤子的表述。
 
 \begin{theorem}
     $C_2$ $\im$ \textbf{Lindel\"of}：任意开覆盖都存在可数子覆盖。
@@ -459,6 +566,8 @@ $\R^{n}$ 当然完备。
     \textbf{有限 $\epsilon$-网}(net)是有限集 $\{x_n\}\subset X$，使 $\forall x\in X$，$\exists x_i$ 使 $d(x,x_i)<\epsilon$。换言之，$X\subset\bigcup_{i=1}^n B(x_i,\epsilon)$。
 \end{definition}
 
+此处的“网”指在给定精度下覆盖空间的点集，与前文以有向集为指标的网是不同概念。两者虽同名，有限 $\epsilon$-网本身并未指定指标次序或收敛过程。
+
 \begin{definition}
     $(X,d)$ 称为\textbf{全有界的}(totally bounded)，若对任意 $\epsilon>0$，$X$ 都存在有限 $\epsilon$-网。
 \end{definition}
@@ -473,7 +582,7 @@ $\R^{n}$ 当然完备。
 
 %%%
 
-\section{紧致性}
+\section{紧致性}\label{sec:topological-compactness}
 
 分析学给出了若干等价的实数定理，其中一条是著名的\textbf{Heine-Borel 定理}：若有界闭集能被某开集族覆盖，则可从中找到有限个开集，构成依旧能覆盖的子族。
 19 世纪中叶，Dirichlet 在试图严格化函数连续性时，率先用有限覆盖技术，证明了闭区间上的连续实函数一致连续。
@@ -492,13 +601,67 @@ $\R^{n}$ 当然完备。
     不妨以 $(0,1]$ 为例，存在开覆盖 $\{(1/n,2):n\in\N\}$ 不具有限子覆盖；其余情形同理。
 \end{proof}
 
+开覆盖描述如何从外部覆盖空间，取补集则转化为闭集能否共同相交。网与滤子正可将这种有限相容性表为聚点与收敛。
+
+\begin{definition}
+    $X$ 的子集族 $\mathcal A$ 具有\textbf{有限交性质}(finite intersection property)，若任意有限个成员的交非空；此处零个成员的交约定为 $X$。这些有限交构成滤子基，生成包含 $\mathcal A$ 的最小滤子。
+\end{definition}
+
+\begin{definition}
+    $X$ 上按包含关系极大的滤子称为\textbf{超滤子}(ultrafilter)，即不存在严格包含它的真滤子。
+\end{definition}
+
+\begin{theorem}\label{thm:ultrafilter-extension}
+    每个滤子均包含于某个超滤子。滤子 $\mathcal U$ 是超滤子，当且仅当对任意 $A\subseteq X$，$A$ 与 $X\backslash A$ 恰有一个属于 $\mathcal U$。
+\end{theorem}
+\begin{proof}
+    固定滤子 $\mathcal F$，将所有包含它的真滤子按包含关系排序。此偏序集非空，每条非空链的并仍是真滤子，故由附录 \ref{appx:cat} 的 Zorn 引理存在极大元，即所求超滤子。
+
+    滤子不能同时含 $A$ 及其补集。若 $\mathcal U$ 极大且 $A\notin\mathcal U$，则加入 $A$ 后不能生成真滤子，故存在 $B\in\mathcal U$ 使 $A\cap B=\mt$。于是 $B\subseteq X\backslash A$，从而 $X\backslash A\in\mathcal U$。反之，若满足此二择一性质，则加入任何新集合都会与其已在滤子中的补集产生空交，故无法真扩张。
+\end{proof}
+
+\begin{theorem}
+    超滤子的聚点恰是它的极限。
+\end{theorem}
+\begin{proof}
+    极限必为聚点。若 $x$ 是超滤子 $\mathcal U$ 的聚点，而某邻域 $V\in\topo N(x)$ 不属于 $\mathcal U$，则 $X\backslash V\in\mathcal U$，与聚点条件矛盾。因此 $\topo N(x)\subseteq\mathcal U$，即 $\mathcal U\to x$。
+\end{proof}
+
+\begin{samepage}
+\begin{theorem}[紧致性的等价刻画]\label{thm:compact-nets-filters}
+    对任意拓扑空间 $X$，下列条件等价：
+    \begin{compactenum}[(1)]
+        \item $X$ 紧致；
+        \item $X$ 中具有有限交性质的任意闭集族，其全体成员之交非空；
+        \item $X$ 中每个网都有收敛子网，极限在 $X$ 中；
+        \item $X$ 上每个滤子的聚点集非空，即 $\operatorname{adh}\mathcal F\ne\mt$；
+        \item $X$ 上每个超滤子都收敛于 $X$ 中某点。
+    \end{compactenum}
+\end{theorem}
+\end{samepage}
+\begin{proof}
+    $(1)\iff(2)$：将开覆盖中的集合逐一取补集，有限子覆盖恰对应有限个补集的交为空，故由 De Morgan 律即得。
+
+    $(2)\im(4)$：滤子 $\mathcal F$ 的任意有限个成员之交非空，故闭集族 $\{\bar A:A\in\mathcal F\}$ 有有限交性质。于是
+    \eq{\operatorname{adh}\mathcal F=\bigcap_{A\in\mathcal F}\bar A\ne\mt.}
+    反之，对具有有限交性质的闭集族 $\mathcal A$，取其生成滤子的聚点 $x$。因每个 $A\in\mathcal A$ 闭，有 $x\in\bar A=A$，故得 $(2)$。
+
+    $(4)\im(3)$：取网的尾滤子，由 $(4)$ 取其聚点，再用定理 \ref{thm:net-filter}、\ref{thm:net-cluster-subnet} 即得收敛子网。反之，将任一滤子实现为网的尾滤子，由 $(3)$ 取收敛子网；其极限是原网的聚点，也是原滤子的聚点，故得 $(4)$。
+
+    $(4)\im(5)$：超滤子有聚点便收敛。反之，将任一滤子 $\mathcal F$ 扩张为超滤子 $\mathcal U$，由 $(5)$ 取极限 $x$。$x$ 的任意邻域与 $\mathcal F$ 的任意成员都属于 $\mathcal U$，故交非空，于是 $x\in\operatorname{adh}\mathcal F$，得 $(4)$。
+\end{proof}
+
+\begin{remark}
+    上述等价性不要求第一可数性或 Hausdorff 性，极限也不要求唯一。若 $X$ 为 Hausdorff 空间，则收敛网与收敛滤子的极限唯一：两个不同极限的不交邻域，不可能同时含有网的某个尾集，也不可能同时属于一个真滤子。紧致子集 $K\subseteq X$ 则对其子空间拓扑应用上述定理，聚点及极限均须位于 $K$ 中。
+\end{remark}
+
 \begin{definition}
     若 $K\subset X$ 中任何序列都包含收敛子列，则称 $K$ 是\textbf{相对紧的}。若这些子列还收敛于 $K$ 中，则称\textbf{自列紧的}，简称\textbf{列紧}\footnote{列紧在部分书中指相对紧。}。
 \end{definition}
 
 %%%
 \begin{remark}
-    一般拓扑空间中，紧与列紧互不蕴含。
+    一般拓扑空间中，紧与列紧互不蕴含。定理 \ref{thm:compact-nets-filters} 中的“网、子网”不能直接换成“序列、子列”：即使原网是序列，其收敛子网也可能需要新的、不可数的指标集。网与滤子的刻画则彼此等价，都保留了序列所遗漏的邻域信息。
 \end{remark}
 
 \begin{theorem}\label{thm:compactness}
