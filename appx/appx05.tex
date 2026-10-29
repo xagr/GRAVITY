@@ -431,7 +431,8 @@ Stokes 定理也适用于单纯形：在各棱角附近作光滑截断后应用�
 再由线性性，对任意 $p$ 维链 $c$ 及光滑 $(p-1)$-形式 $\omega$ 有
 \eq{\label{eq:stokes-pairing}
     \boxed{\langle\d\omega,c\rangle=\langle\omega,\partial c\rangle}.}
-这就是 Stokes 定理的\textbf{对偶表述}：外微分提高形式的阶数，边界算子降低链的维数，二者关于积分配对互为对偶。对代表定向区域的同向分片求和时，内部公共面相消，只余区域的外边界。
+这就是 Stokes 定理的\textbf{对偶表述}：外微分提高形式的阶数，边界算子降低链的维数，二者关于积分配对互为对偶，即 $\partial$ 可看作 $\d$ 的\textbf{转置算子}(transpose)，亦称\textbf{对偶算子}。此处无须度规；Hodge 理论中的\textbf{形式伴随}(formal adjoint) 则相对于微分形式的 $L^2$ 内积定义，作用于形式而非链。\footnote{该形式伴随通常称为余微分，但须注意符号约定：在 $n$ 维定向 Riemann 流形上，作用于 $p$-形式时，$\d^\dagger=(-1)^{n(p+1)+1}\star\d\star$；故前文约定的 $\delta=\star\d\star$ 不可直接等同于 $\d^\dagger$。伴随等式 $(\d\alpha,\beta)_{L^2}=(\alpha,\d^\dagger\beta)_{L^2}$ 要求边界项消失。}
+对代表定向区域的同向分片求和时，内部公共面相消，只余区域的外边界。
 
 特别地，闭形式在满足 $c-c'=\partial b$ 的同维链上积分相同；恰当形式在边界为零的链上积分为零。两点都由式 \eqref{eq:stokes-pairing} 直接得到，它们正是积分与整体拓扑发生联系的起点。有关同调、上同调及其配对的系统讨论，留待附录 \ref{appx:Alge-Topo}。
 
@@ -637,6 +638,12 @@ $\tilde{\omega}_1(\ell)=\tilde{\omega}(\partial / \partial \ell)=\omega(\partial
     \eq{W_p^0:=\{\omega\in T_p^*M:\omega(v)=0\ \text{对所有 }v\in W_p\}.}
     它是光滑的 $n-m$ 维余切子空间场。取其局部基 $\mu^1,\ldots,\mu^{n-m}$，便有 $W=\bigcap_\alpha\ker\mu^\alpha$。取值于 $W^0$ 的 $1$-形式称为 $W$ 的\textbf{消灭形式}。
 \end{definition}
+
+消灭子 $W_p^0\subset T_p^*M$ 不依赖度规，正交补 $W_p^\perp\subset T_pM$ 则依赖度规；度规非退化时，二者由升降指标对应：$(W_p^\perp)^\flat=W_p^0$。
+
+\begin{example}[Pfaff 系统]
+    由 $1$-形式给出的方程 $\mu=\mu_i\d x^i=0$ 称为\textbf{Pfaff 方程}，一组这样的方程称为\textbf{Pfaff 系统}。取上述消灭子的局部基，便得到系统 $\mu^1=\cdots=\mu^{n-m}=0$。这里的“零”指在所求子流形 $\iota:S\hookrightarrow M$ 上有 $\iota^*\mu^\alpha=0$，即 $S$ 的切矢均落在 $W$ 中，并非这些形式在环境流形上恒为零。若 $\dim S=m$，它正是 $W$ 的积分子流形；下面的定理给出此类子流形局部处处存在的充要条件。
+\end{example}
 
 \begin{theorem}[Frobenius 定理，对偶表述]
     光滑分布 $W$ 可积当且仅当它的每个局部消灭形式 $\omega$ 都可局部写成

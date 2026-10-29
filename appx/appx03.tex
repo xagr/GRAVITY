@@ -595,7 +595,7 @@ $\R^{n}$ 当然完备。
 \end{proof}
 
 \begin{lemma}[Urysohn]\label{lem:urysohn-separation}
-    $T_4$ 空间中，对任意不交闭集 $A,B$，存在连续函数 $f:X\to[0,1]$ 使 $f|_A=0,f|_B=1$。
+    $T_4$ 空间中，对任意不交闭集 $A,B$，存在连续函数 $f:X\to[0,1]$ 使 $f|_A=0,f|_B=1$（从而将二者分离）。
 \end{lemma}
 \begin{proof}
     置 $D=\{k/2^n:n,k\in\N,\ 0\leqslant k\leqslant2^n\}$，$O_1=X\backslash B$。由收缩定理取 $A\subset O_0\subset\bar O_0\subset O_1$，再逐次插入二等分点对应的开集，使 $r<s\im\bar O_r\subset O_s$。令
@@ -609,6 +609,35 @@ $\R^{n}$ 当然完备。
     \]
     右端均开，故 $f$ 连续。
 \end{proof}
+
+Urysohn 引理用连续函数分离闭集。进一步，闭子集上已给定的连续实值函数，也可延拓到全空间。
+
+\begin{theorem}[Tietze 延拓定理]\label{thm:tietze-extension}
+    设 $X$ 为 $T_4$ 空间，$A\subset X$ 闭，则任意连续函数 $f:A\to\R$ 都有连续延拓 $F:X\to\R$，即 $F|_A=f$。若 $f$ 取值于闭区间 $[a,b]$，则可使 $F$ 仍取值于 $[a,b]$。
+\end{theorem}
+\begin{proof}
+    先证有界情形，经线性变换只须考虑 $f:A\to[-1,1]$。任给连续函数 $g:A\to[-r,r]$（$r>0$），集合
+    \[
+        A_-:=\{x\in A:g(x)\leqslant-r/3\},\qquad
+        A_+:=\{x\in A:g(x)\geqslant r/3\}
+    \]
+    是 $X$ 中的不交闭集。由 Urysohn 引理，存在连续函数 $h:X\to[-r/3,r/3]$，在 $A_-,A_+$ 上分别为 $-r/3,r/3$，故 $|g-h|\leqslant2r/3$ 在 $A$ 上成立。
+
+    从 $g=f,r=1$ 开始，对每次的余项重复此构造，得到连续函数 $h_n:X\to\R$，满足
+    \[
+        |h_n|\leqslant\frac13\left(\frac23\right)^{n-1},\qquad
+        \left|f-\sum_{k=1}^nh_k\right|\leqslant\left(\frac23\right)^n\quad\text{在 }A\text{ 上}.
+    \]
+    因此 $F:=\sum_{n=1}^\infty h_n$ 一致收敛，连续且取值于 $[-1,1]$，并有 $F|_A=f$。一般闭区间由线性变换得到；$a=b$ 时取常函数即可。
+
+    对无界的 $f$，令 $u=f/(1+|f|):A\to(-1,1)$。由已证情形取连续延拓 $H:X\to[-1,1]$。闭集 $B:=\{x:|H(x)|=1\}$ 与 $A$ 不交，故由 Urysohn 引理可取连续函数 $\chi:X\to[0,1]$，在 $A$ 上为 $1$、在 $B$ 上为 $0$。于是 $G:=\chi H$ 处处满足 $|G|<1$，且 $G|_A=u$，所求延拓即
+    \[
+        F=\frac{G}{1-|G|}.\qedhere
+    \]
+\end{proof}
+\begin{remark}
+    闭性不可略去。例如 $f(x)=1/x$ 在 $(0,1)\subset\R$ 上连续，却不能连续延拓到 $\R$。定理不要求 $f$ 有界，也不保证延拓唯一。
+\end{remark}
 
 \begin{theorem}[Urysohn-Lindel\"of]\label{thm:urysohn-metrization}
     $T_3\xLeftrightarrow{C_2} T_4\xLeftrightarrow{C_2}$ 可度量
@@ -704,7 +733,7 @@ $\R^{n}$ 当然完备。
 \end{proof}
 
 \begin{definition}
-    置开覆盖 $\topo P=\{O_i\}$。若函数族 $\{\rho_i\}$ 满足
+    置开覆盖 $\topo P=\{O_i\}_{i\in I}$。若函数族 $\{\rho_i\}_{i\in I}$ 满足
     \begin{itemize}
         \item $0\leqslant\rho_i\leqslant 1$；
         \item $\rho_i$ 支撑在 $O_i$ 上；
@@ -712,6 +741,10 @@ $\R^{n}$ 当然完备。
     \end{itemize}
     则称从属于 $\topo P$ 的一个\textbf{单位分解}(partition of unity)。若 $\rho_i$ 连续则称\textbf{连续单位分解}。
 \end{definition}
+
+\begin{remark}
+    指标集 $I$ 可以是任意集合，有限、可数或不可数均可，定义本身不要求可数。在下述仿紧 $T_2$ 条件下，若另有 Lindel\"of 性（例如第二可数），则可先从开覆盖抽取可数子覆盖，再构造从属于它的可数指标连续单位分解，便于书写及将局部对象加权求和以作整体构造。但保证这种求和局部只有有限项的是局部有限性，而非指标集的可数性。
+\end{remark}
 
 \begin{theorem}
     仿紧 $\land$ $T_2\im$ 任何开覆盖存在从属于它的局部有限的连续单位分解。

@@ -37,6 +37,19 @@
 因此，积丛的截面与映射$f:B\to F$一一对应。
 若$E\subset B\times F$是同底空间的子丛，只须再要求$(b,f(b))\in E$。
 
+截面在底空间的每点选取一个纤维元素；若只沿一条曲线选取，就得到曲线的提升。
+\begin{definition}\label{chfb:def_curve-lift}
+    设$\pi:E\to B$为丛，$\gamma:I\to B$为曲线，$I\subset\R$为区间。
+    若曲线$\widetilde\gamma:I\to E$满足
+    \eq{\pi\circ\widetilde\gamma=\gamma,}
+    则称$\widetilde\gamma$为$\gamma$的\textbf{提升}(lift of a curve)。
+    即$\widetilde\gamma(t)\in\pi^{-1}(\gamma(t))$，投影后还原原曲线。此处曲线均连续；讨论光滑丛时，所论曲线及提升均取光滑。
+\end{definition}
+
+例如，积丛中的提升具有形式$\widetilde\gamma(t)=(\gamma(t),f(t))$，其中$f:I\to F$可任取。
+故提升本身不需要联络，指定初点后通常也不唯一。
+若$s$为截面，则$s\circ\gamma$是一个提升；但一般提升未必来自底空间上的截面，因为当$\gamma$回到同一点时，提升可以到达该纤维中的另一点。
+
 \section{矢量丛定义}
 
 从\S \ref{chdm:sec_tangent-bundles}的微分流形$TM$所具有的特殊构造可抽象出如下定义：
@@ -686,21 +699,21 @@ $(\nabla\xi)(X):=\nabla_X\xi$。于是
 此式在切丛上对应于定理\ref{thm:connection-frame-change}中的仿射联络换基公式；
 式\eqref{chfb:eqn_wform-trans}适用于矢量丛（包含切标架丛）。
 
-\begin{example}
-    矢量丛截面的平行。
+\begin{example}[沿曲线的平行移动]\label{chfb:eg_parallel-lift}
+    设$\nabla$为矢量丛$\pi:E\to M$上的联络，$\gamma:[a,b]\to M$为光滑曲线。
+    沿线矢量$v(t)\in E_{\gamma(t)}$就是$\gamma$在$E$中的提升；它只须沿参数$t$定义，不必延拓为$M$上的截面。
+    在局部标架中写$v(t)=v^\alpha(t)s_\alpha(\gamma(t))$，则
+    \eq{\frac{D v}{\d t}
+        =\left(\dot v^\beta+\omega^\beta_{\alpha}(\dot\gamma)v^\alpha\right)s_\beta.}
+    此式由联络的换基律保证与标架选择无关。若$D v/\d t=0$，就称$v$沿$\gamma$\textbf{平行}，其分量满足
+    \eq{\label{chfb:eq_parallel-lift}
+        \dot v^\beta+\omega^\beta_{\alpha}(\dot\gamma)v^\alpha=0.}
+    这是线性常微分方程组，给定$v(a)$后，在整个$[a,b]$上有唯一解；跨越标架域时按过渡函数拼接。
+    因而\textbf{平行移动}映射
+    \eq{P_\gamma:E_{\gamma(a)}\to E_{\gamma(b)},\qquad v(a)\mapsto v(b)}
+    是线性同构，其逆由反向曲线给出。它一般依赖整条路径，而非仅依赖端点。
+    从总空间看，平行移动正是沿特定提升将初始纤维中的点送到终止纤维；这种提升将在定义\ref{chfb:def_horizontal-lift}中称为水平提升。
 \end{example}
-
-设$\nabla$是矢量丛$(E,M,\pi)$ 上的一个联络，令$p \in M$。
-$\forall \xi \in \Gamma(E)$，$\forall v \in T_p M$，
-$\nabla_v \xi$是光滑截面 $\xi$ 在 $p$ 点沿切矢量 $v$ 的协变导数。
-另外，对于 $M$ 中的光滑曲线 $\gamma:[0, b] \rightarrow M$，如果 $\xi \in \Gamma(E)$ 满
-足$ \nabla_{\gamma^{\prime}(t)} \xi=0, \ \forall t \in[0, b]$，
-则称光滑截面$\xi$沿曲线$\gamma$是\textbf{平行}的；当然，此时只需要 $\xi$ 沿 $\gamma$ 有定义即可。
-类似于仿射联络空间，对于任意的 $p \in M$，还可以定义矢量 $\xi \in \pi^{-1}(p)$沿底流形 $M$ 上
-从 $p$ 出发的光滑曲线 $\gamma$ 的平行移动，从而得到在两个不同点 $p, q \in M$ 处
-的纤维 $\pi^{-1}(p)$ 和 $\pi^{-1}(q)$ 之间的线性同构，
-该同构与连接 $p, q$ 的光滑曲线 $\gamma$ 有关。
-这种推广并不困难，不再赘述。\qed
 
 \begin{example}
     对偶丛联络的局部表示。
@@ -1101,12 +1114,44 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$。则命
 这个命题再次强调了过渡函数族对于一般纤维丛的核心作用，
 并且在结构群为$G$的纤维丛的相配类中确有一个$G$-主丛作为它的代表。
 
-主丛联络可用水平子空间描述。设$P$为右$G$-主丛，
-在每点$u$选取$H_u\subset T_uP$，使
-$T_uP=\ker\pi_{*u}\oplus H_u$，并满足$(R_g)_*H_u=H_{ug}$。
+曲线提升一般不唯一，联络则通过指定其切向方向来选出提升。
+设$\pi:E\to M$为光滑纤维丛，$V_u:=\ker\pi_{*u}$是沿纤维的\textbf{垂直子空间}。
+光滑选取补空间$H_u$，使
+\eq{T_uE=V_u\oplus H_u,}
+称为给定一个\textbf{水平分布}，也称\textbf{Ehresmann 联络}。这里“水平”指所选的补空间，不涉及度规或正交性。
+因$\pi_{*u}|_{H_u}:H_u\to T_{\pi(u)}M$是线性同构，每个$X\in T_{\pi(u)}M$恰有一个$X_u^H\in H_u$满足$\pi_{*u}X_u^H=X$，称为$X$在$u$处的\textbf{水平提升}。
+
+\begin{definition}\label{chfb:def_horizontal-lift}
+    设纤维丛$\pi:E\to M$已给定水平分布$H$。曲线$\gamma:I\to M$的提升$\widetilde\gamma:I\to E$若满足
+    \eq{\dot{\widetilde\gamma}(t)\in H_{\widetilde\gamma(t)},}
+    则称为$\gamma$的\textbf{水平提升}(horizontal lift)。等价地，
+    \eq{\dot{\widetilde\gamma}(t)=\bigl(\dot\gamma(t)\bigr)^H_{\widetilde\gamma(t)}.}
+\end{definition}
+
+在局部丛坐标$(x^i,y^\alpha)$中，水平分布可唯一写成
+\eq{H=\operatorname{span}\left\{\p_{x^i}+A_i^\alpha(x,y)\p_{y^\alpha}\right\}.}
+故$\widetilde\gamma(t)=(x(t),y(t))$水平当且仅当
+\eq{\dot y^\alpha=A_i^\alpha(x(t),y(t))\dot x^i.}
+由常微分方程的存在唯一性，指定$\widetilde\gamma(t_0)\in E_{\gamma(t_0)}$后，水平提升局部存在且唯一。
+一般水平分布不保证提升在整个参数区间存在。例如积丛$\R^2\to\R$、$(x,y)\mapsto x$上取$H=\operatorname{span}\{\p_x+y^2\p_y\}$，$\gamma(t)=t$从$(0,1)$出发的水平提升为$(t,(1-t)^{-1})$，不能延至$t=1$。
+
+\begin{example}[水平提升与平行移动]
+    矢量丛联络$\nabla$自然给出水平分布。在坐标$x^i$及局部丛标架$s_\alpha$中，记$\nabla_{\p_{x^i}}s_\alpha=\Gamma^\beta_{i\alpha}s_\beta$，令$v=y^\alpha s_\alpha(x)$，则
+    \eq{\label{chfb:eq_horizontal-connection}
+        H_{(x,y)}=\operatorname{span}\left\{
+        \p_{x^i}-\Gamma^\beta_{i\alpha}(x)y^\alpha\p_{y^\beta}\right\}.}
+    联络的换基律使这些子空间在交叠处一致。因而$v(t)$作为$E$中的曲线水平，当且仅当
+    \eq{\dot v^\beta+\Gamma^\beta_{i\alpha}(\gamma(t))\dot x^i v^\alpha=0,}
+    即式\eqref{chfb:eq_parallel-lift}中的$D v/\d t=0$。
+    因此，\textbf{平行矢量场就是底曲线在矢量丛中的水平提升}；平行移动映射$P_\gamma$则记录该提升的终点。
+    这里方程对纤维坐标线性，故给定初始矢量后，提升在底曲线的整个紧参数区间上存在。
+\end{example}
+
+对右$G$-主丛$P$，主丛联络要求水平分布还满足$(R_g)_*H_u=H_{ug}$。
 这等价于给定$\mathfrak g$值一形式$\omega$，满足
 $\omega(A^\#)=A$及$R_g^*\omega=\operatorname{Ad}_{g^{-1}}\omega$，
 其中$A^\#_u=\left.\frac{\d}{\d t}\right|_0u\exp(tA)$，且$H_u=\ker\omega_u$。
+此时曲线水平的条件就是$\omega(\dot{\widetilde\gamma})=0$。
 相配矢量丛的截面可表示为等变函数$f:P\to V$；沿底空间矢量的水平提升对$f$求导，
 便得到满足线性性和Leibniz法则的矢量丛联络。
 
