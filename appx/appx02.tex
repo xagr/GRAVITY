@@ -314,7 +314,15 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 
 使度规表为 $\diag(\pm1,\cdots,\pm1)$ 的基称为该度规下的\textbf{正交归一基}。数学上通常将实内积限定为对称、正定的双线性函数；正定即 $\alpha\ne0$ 时 $\langle\alpha,\alpha\rangle>0$。正定必非退化，反之不然。
 
-正定内积给出\textbf{范数} $\|\alpha\|:=\sqrt{\langle\alpha,\alpha\rangle}$，并满足 \textbf{Cauchy-Schwarz 不等式} $|\langle\alpha,\beta\rangle|\leqslant\|\alpha\|\|\beta\|$。$n$ 维实线性空间配以正定内积，称为\textbf{欧氏（线性）空间}，可由内积定义长度和夹角。不定度规下仍可记 $\alpha^2=g(\alpha,\alpha)$、$|\alpha|=\sqrt{|\alpha^2|}$，但非零矢量也可能有零模长，故此处的模长不是范数，通常的 Cauchy-Schwarz 不等式也不再成立。
+\begin{definition}\label{def:normed-space}
+    实或复线性空间 $V$ 上的\textbf{范数}(norm)是函数 $\|\oo\|:V\to[0,\infty)$，满足
+    \eq{\|x\|=0\iff x=0,\qquad \|ax\|=|a|\|x\|,\qquad
+        \|x+y\|\leqslant\|x\|+\|y\|.}
+    配备范数的线性空间称为\textbf{赋范空间}(normed space)。
+\end{definition}
+
+正定内积给出范数 $\|\alpha\|:=\sqrt{\langle\alpha,\alpha\rangle}$，并满足 \textbf{Cauchy-Schwarz 不等式} $|\langle\alpha,\beta\rangle|\leqslant\|\alpha\|\|\beta\|$，由此可证三角不等式。范数未必来自内积，例如 $\R^2$ 上的 $\|(x,y)\|_1=|x|+|y|$ 不满足内积范数应有的平行四边形恒等式。
+$n$ 维实线性空间配以正定内积，称为\textbf{欧氏（线性）空间}，可由内积定义长度和夹角。不定度规下仍可记 $\alpha^2=g(\alpha,\alpha)$、$|\alpha|=\sqrt{|\alpha^2|}$，但非零矢量也可能有零模长，故此处的模长不是范数，通常的 Cauchy-Schwarz 不等式也不再成立。
 
 对于 $\C$，内积采用适于量子力学态矢的定义；以下不要求空间有限维：
 \begin{definition}\label{def:complex-inner-product}
@@ -351,17 +359,17 @@ e^{\prime \mu}=(A^{-\mathrm{T}})_\nu{ }^\mu e^{\nu}=(A^{-1})^\mu{ }_\nu e^{\nu}.
 }
 总能找到内积空间中的正交归一基 $\{\xi_i\}$，其几何意义是正交投影和作差。不定度规下可能出现零模的中间矢量，故不能对任意基直接套用上述公式；其正交归一基的存在由 Sylvester 惯性定理保证。
 
-\begin{definition}
-    置内积空间 $V$。对 $f,g\in V$ 的定义通常距离 $d(f, g):=\sqrt{(f-g, f-g)}$，便得到\textbf{度量线性空间}。该度量诱导拓扑之后（见定义 \ref{def:metric_topo}），又成了\textbf{拓扑线性空间}。
-\end{definition}
+\begin{example}
+    内积空间 $V$ 上的距离 $d(f,g):=\|f-g\|=\sqrt{(f-g,f-g)}$ 诱导拓扑，见定义 \ref{def:metric_topo}。加法与数乘关于此拓扑连续，故它是\textbf{拓扑线性空间}的例子。一般定义及不同拓扑下的收敛，见 \S\ref{sec:weak-topology}。
+\end{example}
 
-$\C$ 也能作为通常度量空间。以拓扑线性空间为对象、连续线性映射为态射，可构建\textbf{拓扑线性空间范畴} $\cate{TopVect}(\mathbb C)$。
+复拓扑线性空间以连续线性映射为态射，构成\textbf{拓扑线性空间范畴} $\cate{TopVect}(\C)$。
 
 \begin{definition}
-    内积空间上全体连续线性函数之集称为其\textbf{共轭空间}。
+    内积空间 $V$ 上全体连续线性泛函构成其\textbf{连续对偶空间} $V'$，也称\textbf{共轭空间}。这里的连续性相对于内积诱导的拓扑。
 \end{definition}
 \begin{remark}
-    有限维内积空间 $V$ 上的线性函数必连续，故 $\hom(V,\F)$ 等价于此处定义的共轭空间。
+    前文 $V^*=\hom(V,\F)$ 是\textbf{代数对偶}，不要求连续性，故 $V'\subseteq V^*$。有限维内积空间上的线性泛函必连续，此时二者相等；无穷维时须作区分。
 \end{remark}
 
 \section{外代数}
@@ -582,6 +590,13 @@ Penrose 首创一种兼顾二者优势的书写系统：仍用类似于分量语
 
 \section{无穷维线性代数*}\label{sec:infinite}
 
-%% 完备
+无穷维时，线性组合仍指有限和；要谈无穷级数与极限，就须另给拓扑。赋范空间中可用 $d(x,y)=\|x-y\|$ 衡量逼近，以下完备性均取定义 \ref{def:complete-metric-space} 的意义。
+
+\begin{definition}\label{def:banach-hilbert}
+    关于范数诱导距离完备的赋范空间称为 \textbf{Banach 空间}；关于内积诱导距离完备的内积空间称为 \textbf{Hilbert 空间}。因此 Hilbert 空间是范数来自内积的 Banach 空间。
+\end{definition}
+
+例如，$C[a,b]$ 配以一致范数 $\|f\|_\infty=\max_{[a,b]}|f|$ 是 Banach 空间，因为连续函数的一致极限仍连续；配以前文积分内积诱导的范数则不完备，其完备化为 $L^2[a,b]$。序列空间 $\ell^2$ 也是 Hilbert 空间。
+同一线性空间还可赋予较弱的拓扑，使收敛只由连续线性泛函的取值检验，见 \S\ref{sec:weak-topology}；$L^p$ 及 Sobolev 空间见 \S\ref{sec:sobolev-spaces}。以下涉及完备化时，均采用内积诱导的范数。
 
 量子场论考虑粒子数可变的量子态，设 $\mathscr H$ 为单粒子 Hilbert 空间，则 $n$ 粒子量子态位于 $\mathscr H^{\otimes n}=\underbrace{\mathscr H\otimes\cdots\otimes\mathscr H}_{n\text{ 次}}$ 之中，Fock 空间构造为 $\mathscr F(\mathscr H)=\bigoplus_{n=0}^{\infty}\mathscr H^{ \otimes n}$，其中 \(\mathscr H^{\otimes0}=\mathbb C\) 对应零粒子真空态。当然，为了保证无限维的 $\mathscr H$ 仍可构造完备空间，准确应写作 $\mathscr H_1\widehat\otimes\mathscr H_2=\overline{\mathscr H_1\otimes\mathscr H_2}$。并且，Hilbert 直和允许无限多个非零分量，只要求它们的模平方可求和，而不要求只有有限项非零。

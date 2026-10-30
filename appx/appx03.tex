@@ -540,8 +540,10 @@ f^{-1}(y)=\frac{y}{1+|y|}.
 \end{proof}
 
 对于度量空间，点列 $\left\{x_n\right\}$ 收敛于 $x$ 等价于 $\lim_{n\to\infty}d(x, x_n)=0$。
-点列称为基本列或 Cauchy 列，即$\forall\epsilon>0,\exists N\in\N$使 $k,l>N\Rightarrow d(x_{k},x_{l})<\epsilon$。
+\begin{definition}\label{def:complete-metric-space}
+点列称为基本列或 Cauchy 列，若 $\forall\epsilon>0,\exists N\in\N$ 使 $k,l>N\Rightarrow d(x_k,x_l)<\epsilon$。
 度量空间称为\textbf{完备的}(complete)，若其中任意 Cauchy 列都收敛于其中的点。
+\end{definition}
 %
 实直线上闭区间完备，但开区间不完备：只需注意 $\{1/n\}_{n=2}^\infty$ 在 $(0,1)$ 上无极限。
 $\R^{n}$ 当然完备。
@@ -1022,3 +1024,203 @@ Urysohn 引理用连续函数分离闭集。进一步，闭子集上已给定的
 同胚于圆周 $S^1$ 的子空间称为\textbf{简单闭曲线}；一般闭路则允许自交。平面上的简单闭曲线将平面分为有界的内部和无界的外部，此为 Jordan 曲线定理。更一般地，Jordan--Brouwer 分隔定理断言：若 $n\geq2$ 且 $\Sigma\subset\R^n$ 同胚于球面 $S^{n-1}=\{x\in\R^n:|x|=1\}$，则 $\R^n\backslash\Sigma$ 恰有两个连通分支，一有界、一无界，且均以 $\Sigma$ 为边界。此处不证。
 
 一般连通区域的边界未必是曲面。物理学中的通量积分与 Gauss 定理还需定向及相应的正则性条件，详见附录 \ref{appx:form}。
+
+\section{拓扑线性空间与弱拓扑*}\label{sec:weak-topology}
+
+线性结构允许叠加，拓扑结构规定如何取极限。前文 $\ell^2$ 中的标准基 $e_n$ 彼此保持固定距离，故不按范数收敛；但若只检验各连续线性泛函的取值，便可得到不同的收敛方式。以下 $\F=\R$ 或 $\C$，取通常拓扑。
+
+\subsection{范数拓扑与连续对偶}
+
+\begin{definition}
+    线性空间 $V$ 配以拓扑，若加法与数乘
+    \eq{V\times V\to V,\quad(x,y)\mapsto x+y;\qquad
+        \F\times V\to V,\quad(a,x)\mapsto ax}
+    均连续，则称为\textbf{拓扑线性空间}(topological vector space)，其中定义域取乘积拓扑。
+\end{definition}
+
+\begin{definition}
+    赋范空间 $(V,\|\oo\|)$ 的距离 $d(x,y)=\|x-y\|$ 诱导\textbf{范数拓扑}(norm topology)，记为 $\topo T_{\|\oo\|}$，在此语境下也称\textbf{强拓扑}。相应的\textbf{强收敛}就是
+    \eq{x_\alpha\to x\iff\|x_\alpha-x\|\to0.}
+\end{definition}
+
+由范数的三角不等式及齐次性，加法与数乘连续，故赋范空间是拓扑线性空间。强收敛要求误差的整个范数趋零。Banach 与 Hilbert 空间的完备性均相对于此距离而言，见定义 \ref{def:banach-hilbert}。
+
+沿用附录 \ref{appx:LA}，记连续对偶为
+\eq{V':=\{f\in V^*:f\text{ 连续}\}.}
+在赋范空间中，线性泛函 $f$ 连续当且仅当存在常数 $C\geqslant0$，使 $|f(x)|\leqslant C\|x\|$。充分性显然；反之，由零点处连续性，取 $\delta>0$ 使 $\|x\|<\delta\im|f(x)|<1$，再对非零 $x$ 考察 $\delta x/(2\|x\|)$ 即得。
+
+\begin{definition}
+    赋范空间 $V$ 的连续对偶 $V'$ 配以\textbf{对偶范数}
+    \eq{\|f\|_{V'}:=\sup_{\|x\|\leqslant1}|f(x)|.}
+    它就是不等式 $|f(x)|\leqslant C\|x\|$ 中可取的最小常数。
+\end{definition}
+
+\begin{theorem}
+    $V'$ 关于对偶范数是 Banach 空间，即使 $V$ 本身不完备。
+\end{theorem}
+\begin{proof}
+    若 $\{f_n\}$ 为范数 Cauchy 列，则每个 $\{f_n(x)\}$ 都是标量 Cauchy 列。置 $f(x)=\lim_n f_n(x)$，逐点取极限可知 $f$ 线性。又 $\sup_n\|f_n\|_{V'}=:C<\infty$，故 $|f(x)|\leqslant C\|x\|$，即 $f\in V'$。在 $|f_n(x)-f_m(x)|\leqslant\epsilon\|x\|$ 中令 $m\to\infty$，再取单位球上的上确界，便得 $f_n\to f$。
+\end{proof}
+
+\subsection{初始拓扑与弱拓扑}
+
+欲只通过若干映射检验收敛，可用同一种拓扑构造。
+
+\begin{definition}\label{def:initial-topology}
+    给定集合 $X$、拓扑空间族 $\{Y_i\}_{i\in I}$ 及映射 $q_i:X\to Y_i$，使所有 $q_i$ 连续的最粗拓扑称为这族映射在 $X$ 上的\textbf{初始拓扑}(initial topology)。它以
+    \eq{\{q_i^{-1}[U]:i\in I,\ U\text{ 在 }Y_i\text{ 中开}\}}
+    为子基，故基本开集是这类集合的有限交。
+\end{definition}
+
+每个使 $q_i$ 连续的拓扑都须包含这些原像，因而也包含它们生成的拓扑。这既证明了存在性，也给出特征：映射 $h:Z\to X$ 连续，当且仅当每个 $q_i\circ h$ 连续。同样，由基本邻域只涉及有限个条件，
+\eq{x_\alpha\to x\text{（初始拓扑）}
+    \iff q_i(x_\alpha)\to q_i(x)\quad(\forall i\in I).}
+
+\begin{example}
+    子空间拓扑是包含映射的初始拓扑。任意乘积 $X=\prod_{i\in I}Y_i$ 的\textbf{乘积拓扑}则是各坐标投影 $\pi_i:X\to Y_i$ 的初始拓扑：一个基本开集只限制有限个坐标，其余坐标任意。因此乘积中的网收敛恰等价于逐坐标收敛。
+\end{example}
+
+\begin{definition}
+    由全部连续线性泛函 $f\in V'$ 诱导的初始拓扑，称为 $V$ 的\textbf{弱拓扑}(weak topology)，记作 $\sigma(V,V')$。其在 $x\in V$ 处的邻域基为
+    \eq{U(x;f_1,\ldots,f_m;\epsilon)
+        :=\{y\in V:|f_j(y-x)|<\epsilon,\ j=1,\ldots,m\},}
+    其中 $m$ 有限，$f_j\in V'$，$\epsilon>0$。
+\end{definition}
+
+这些集合是有限多个标量开邻域的原像之交。弱拓扑比原拓扑粗，且由初始拓扑的特征及泛函的线性性知，加法与数乘仍连续。这里 $V'$ 先由原拓扑确定，再用它定义弱拓扑。
+
+\begin{theorem}
+    网 $x_\alpha$ 在弱拓扑下收敛于 $x$，记作 $x_\alpha\rightharpoonup x$，当且仅当
+    \eq{f(x_\alpha)\to f(x)\qquad(\forall f\in V').}
+\end{theorem}
+\begin{proof}
+    必要性由各 $f$ 连续得到。反之，任给上述基本邻域，其中只有有限个泛函，故可取共同指标，使后续各项同时满足所有不等式。
+\end{proof}
+
+因此范数收敛必推出弱收敛。有限维赋范空间中，取有限个坐标泛函，逐分量收敛就推出范数收敛，故两种拓扑相同；无穷维时则未必。
+
+\begin{example}
+    在 $\ell^2=\{x=(x_n):\sum_n|x_n|^2<\infty\}$ 中取范数 $\|x\|=(\sum_n|x_n|^2)^{1/2}$ 及标准基 $e_n$。任给 $f\in(\ell^2)'$，置 $a_n=f(e_n)$，并取 $C$ 使 $|f(x)|\leqslant C\|x\|$。由
+    \eq{\sum_{n=1}^N|a_n|^2
+        =f\!\left(\sum_{n=1}^N\bar a_n e_n\right)
+        \leqslant C\left(\sum_{n=1}^N|a_n|^2\right)^{1/2},}
+    得 $\sum_{n=1}^N|a_n|^2\leqslant C^2$，故 $a_n\to0$。于是 $e_n\rightharpoonup0$，但 $\|e_n\|=1$，并不按范数收敛于零。
+\end{example}
+
+\begin{remark}
+    弱拓扑为 $T_2$ 当且仅当 $V'$ \textbf{分离点}，即对任意 $x\ne y$，存在 $f\in V'$ 使 $f(x)\ne f(y)$。因为此时可用标量域中的不交邻域分离二者；反之，所有泛函取值相同的两点具有相同的弱邻域。一般拓扑线性空间的连续对偶未必分离点。
+\end{remark}
+
+\subsection{弱星拓扑与紧致性}
+
+反过来，固定 $x\in V$，求值 $Jx:f\mapsto f(x)$ 是 $V'$ 上的线性泛函。以下 $V$ 为赋范空间，$V'$ 取对偶范数；由 $|f(x)|\leqslant\|f\|_{V'}\|x\|$，知 $Jx\in V'':=(V')'$。
+
+\begin{definition}
+    由所有求值映射 $Jx$（$x\in V$）诱导的初始拓扑，称为 $V'$ 的\textbf{弱星拓扑}(weak-$*$ topology)，亦称\textbf{弱$^*$拓扑}，记作 $\sigma(V',V)$。于是
+    \eq{f_\alpha\xrightarrow{\,w^*\,}f
+        \iff f_\alpha(x)\to f(x)\qquad(\forall x\in V).}
+\end{definition}
+
+弱拓扑以 $V'$ 检验 $V$ 中的收敛，弱星拓扑则以 $V$ 检验 $V'$ 中的收敛，二者来自同一对偶配对 $\langle f,x\rangle=f(x)$。在 $V'$ 本身还可谈由全部 $V''$ 检验的弱拓扑，故须区分
+\eq{\sigma(V',V)\subseteq\sigma(V',V'')\subseteq\topo T_{\|\oo\|_{V'}}.}
+相应地，范数收敛推出弱收敛，弱收敛推出弱星收敛；其中范数收敛要求在 $V$ 的单位球上一致逼近，弱星收敛只要求逐点逼近。
+
+\begin{theorem}[Tychonoff]\label{thm:tychonoff-product}
+    任意一族紧空间的乘积，赋予乘积拓扑后仍紧。
+\end{theorem}
+\begin{proof}
+    空乘积或乘积为空时结论显然。对乘积 $X=\prod_i K_i$ 上任一超滤子 $\mathcal U$，各投影给出超滤子
+    \eq{\mathcal U_i:=\{A\subseteq K_i:\pi_i^{-1}[A]\in\mathcal U\}.}
+    由各 $K_i$ 紧，可取 $x_i\in K_i$ 使 $\mathcal U_i\to x_i$。点 $x=(x_i)$ 的基本邻域是有限个坐标邻域原像之交，每个原像都在 $\mathcal U$ 中，故此交也在其中。因此 $\mathcal U\to x$，由定理 \ref{thm:compact-nets-filters} 得 $X$ 紧。
+\end{proof}
+
+\begin{theorem}[Banach--Alaoglu]\label{thm:banach-alaoglu}
+    赋范空间 $V$ 的连续对偶闭单位球
+    \eq{B_{V'}:=\{f\in V':\|f\|_{V'}\leqslant1\}}
+    在弱星拓扑 $\sigma(V',V)$ 下紧。这里无需 $V$ 完备。
+\end{theorem}
+\begin{proof}
+    将 $f$ 视为其全部取值组成的点 $(f(x))_{x\in V}$，则 $B_{V'}$ 嵌入乘积
+    \eq{P:=\prod_{x\in V}\{z\in\F:|z|\leqslant\|x\|\}.}
+    各因子均为紧的闭区间或闭圆盘，故 $P$ 紧。像集恰由线性条件
+    \eq{z_{ax+by}=az_x+bz_y\qquad(x,y\in V,\ a,b\in\F)}
+    刻画：这些条件保证 $x\mapsto z_x$ 线性，而 $P$ 的坐标约束保证它连续且范数不超过 $1$。每个条件规定一个闭集，故像集在 $P$ 中闭，因而紧。最后，乘积的相对拓扑恰由各求值映射生成，就是弱星拓扑。
+\end{proof}
+
+\begin{remark}
+    该定理说的是对偶球的\emph{弱星紧致性}，不能据此断言它在范数拓扑下紧，也不能直接断言任意有界序列有弱星收敛子列。一般情形先得到的是有界网存在弱星收敛子网。
+\end{remark}
+
+\begin{theorem}
+    若 $V$ 可分，则 $B_{V'}$ 上的弱星拓扑可度量；于是 $V'$ 中任意范数有界序列都有弱星收敛子列。
+\end{theorem}
+\begin{proof}
+    取 $V$ 中可数稠密集 $\{x_j\}$。在 $B_{V'}$ 上置
+    \eq{d_*(f,g):=\sum_{j=1}^\infty2^{-j}
+        \min\{1,|f(x_j)-g(x_j)|\}.}
+    连续泛函由稠密集上的值唯一确定，故这确为度量，其拓扑就是在各 $x_j$ 上逐点收敛的拓扑。对任意 $x\in V$，有
+    \eq{|(f-g)(x)|\leqslant|(f-g)(x_j)|+2\|x-x_j\|.}
+    先以 $x_j$ 逼近 $x$，再控制该坐标，便知每个求值映射对 $d_*$ 连续。因此这正是球上的弱星拓扑。由 Banach--Alaoglu 定理，该球紧且可度量，故列紧；一般有界序列只需缩放。
+\end{proof}
+
+\subsection{Sobolev 空间}\label{sec:sobolev-spaces}
+
+偏微分方程既要控制函数，也要控制其导数。只用逐点可微函数，取极限时未必仍留在原空间中；Sobolev 空间将导数改用分部积分刻画，以得到适于取极限的 Banach 空间。
+
+以下 $\Omega\subset\R^n$ 为开集，积分取 Lebesgue 意义，并将几乎处处相等的可测函数视为同一元素。“几乎处处”指允许相差一个测度为零的集合。对 $1\leqslant p<\infty$，置
+\eq{L^p(\Omega):=\{u:\|u\|_{L^p}<\infty\},\qquad
+    \|u\|_{L^p}:=\left(\int_\Omega|u|^p\,\d[n]x\right)^{1/p}.}
+$L^\infty(\Omega)$ 则取\textbf{本性上确界}范数
+\eq{\|u\|_{L^\infty}:=\operatorname*{ess\,sup}_{\Omega}|u|
+    :=\inf\{C\geqslant0:|u|\leqslant C\text{ 几乎处处}\}.}
+这些空间都是 Banach 空间；这里采用其完备性，不展开测度论。
+
+\begin{definition}\label{def:weak-derivative}
+    对局部可积函数 $u,v$，若
+    \eq{\int_\Omega u\,\p_i\varphi\,\d[n]x
+        =-\int_\Omega v\varphi\,\d[n]x
+        \qquad(\forall\varphi\in C_c^\infty(\Omega)),}
+    则称 $v$ 为 $u$ 的第 $i$ 个\textbf{弱偏导数}，仍记 $v=\p_i u$。这里 $C_c^\infty(\Omega)$ 是紧支撑光滑测试函数的空间。
+\end{definition}
+
+光滑函数的弱导数与通常导数一致，因为分部积分的边界项为零。弱导数若存在，作为几乎处处等价类唯一。对多重指标 $\alpha=(\alpha_1,\ldots,\alpha_n)$，各 $\alpha_i$ 为非负整数，记 $|\alpha|=\sum_i\alpha_i$，类似地以
+\eq{\int_\Omega u\,D^\alpha\varphi\,\d[n]x
+    =(-1)^{|\alpha|}\int_\Omega(D^\alpha u)\varphi\,\d[n]x}
+定义高阶弱导数，其中 $D^\alpha=\p_1^{\alpha_1}\cdots\p_n^{\alpha_n}$。
+
+\begin{definition}
+    对非负整数 $k$ 及 $1\leqslant p\leqslant\infty$，\textbf{Sobolev 空间}为
+    \eq{W^{k,p}(\Omega):=\{u\in L^p(\Omega):D^\alpha u\in L^p(\Omega),\ |\alpha|\leqslant k\}.}
+    所有导数均取弱意义，$D^0u=u$。其范数取为
+    \eq{\|u\|_{W^{k,p}}:=
+        \begin{cases}
+            \bigl(\sum_{|\alpha|\leqslant k}\|D^\alpha u\|_{L^p}^p\bigr)^{1/p},&1\leqslant p<\infty,\\
+            \max_{|\alpha|\leqslant k}\|D^\alpha u\|_{L^\infty},&p=\infty.
+        \end{cases}}
+\end{definition}
+
+\begin{theorem}
+    $W^{k,p}(\Omega)$ 是 Banach 空间；特别地，$H^k(\Omega):=W^{k,2}(\Omega)$ 是 Hilbert 空间，其内积为
+    \eq{(u,v)_{H^k}:=\sum_{|\alpha|\leqslant k}
+        \int_\Omega\overline{D^\alpha u}\,D^\alpha v\,\d[n]x.}
+\end{theorem}
+\begin{proof}
+    若 $\{u_j\}$ 为 Sobolev 范数下的 Cauchy 列，则每个 $D^\alpha u_j$ 在 $L^p$ 中趋于某个 $v_\alpha$，记 $u=v_0$。对固定测试函数，在弱导数的积分恒等式中取极限，即得 $D^\alpha u=v_\alpha$；这里由 H\"older 不等式及测试函数的紧支撑性保证积分收敛。因此 $u\in W^{k,p}$ 且 $u_j\to u$。$p=2$ 时，上述内积恰诱导此范数，故完备性又给出 Hilbert 性。
+\end{proof}
+
+\begin{example}
+    $u(x)=|x|$ 在 $(-1,1)$ 上不是处处可微，但分段积分得
+    \eq{\int_{-1}^1|x|\varphi'(x)\,\d x
+        =-\int_{-1}^1\operatorname{sgn}(x)\varphi(x)\,\d x.}
+    故其弱导数为 $\operatorname{sgn}(x)$，并有 $u\in W^{1,\infty}(-1,1)\subset H^1(-1,1)$。导数在单点 $0$ 的取值不影响这些结论。
+\end{example}
+
+\begin{remark}
+    \textbf{弱导数}规定如何解释微分，\textbf{弱拓扑}规定如何检验收敛；Sobolev 空间也同时有强、弱拓扑。强收敛 $u_j\to u$ 要求各 $D^\alpha u_j\to D^\alpha u$ 都在 $L^p$ 范数下成立；弱收敛则由 $(W^{k,p})'$ 中所有连续线性泛函检验，并推出各弱导数在相应 $L^p$ 空间中弱收敛，因为取弱导数是连续线性映射。
+\end{remark}
+
+例如 Poisson 方程 $-\Delta u=f$ 的弱形式为
+\eq{\int_\Omega\nabla u\cdot\nabla\varphi\,\d[n]x
+    =\int_\Omega f\varphi\,\d[n]x
+    \qquad(\forall\varphi\in C_c^\infty(\Omega)).}
+当 $f\in L^2$、$u\in H^1$ 时，两边均有定义，不必要求 $u$ 有逐点二阶导数。每个固定测试函数给出的左端都是 $H^1$ 上的连续线性泛函。因此，若近似解 $u_j\rightharpoonup u$ 于 $H^1$，且对每个测试函数的方程残差趋零，则极限满足上式；求边值问题还须另指定边界条件。Sobolev 嵌入、迹及弱解的存在性不在此展开。
