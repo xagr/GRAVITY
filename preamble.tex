@@ -14,6 +14,7 @@
 \usepackage{mdwlist}                % 紧凑列表
 \usepackage{subfig}                 % 子图
 \usepackage{perpage}                % 每页编号
+\counterwithout*{footnote}{chapter}
 \MakePerPage{footnote}              % 脚注
 
 
@@ -212,7 +213,7 @@
 \newtheorem{corollary}{推论}[section]
 \newtheorem{lemma}{引理}[section]
 %\newtheorem{axiom}{公理}[chapter]
-\newtheorem{hypothesis}[section]{假设}
+\newtheorem{hypothesis}{假设}[section]
 
 \newcommand{\rightiso}{\ensuremath{\stackrel{\sim}{\rightarrow}}}
 

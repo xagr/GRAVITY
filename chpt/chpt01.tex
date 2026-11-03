@@ -157,10 +157,10 @@
 \eq{\eta_{\alpha\beta}\d x'^\alpha\d x'^\beta=\eta_{\gamma\sigma}\d x^\gamma\d x^\sigma\iff \eta_{\alpha\beta}\pdv{x'^\alpha}{x^\gamma}\pdv{x'^\beta}{x^\sigma}=\eta_{\gamma\sigma},}
 可以证明（见 \eqref{eq:affine-trans} 式）变换是仿射的：
 \eq{\label{eq:Lorentz} 
-\pdv{x'^\alpha}{x^{\gamma}}{x^\epsilon}=0\iff \tcbhighmath{x'^\mu=x_0^\mu+ \Lambda^{\mu}{}_{\nu}x^\nu,\quad \text{$\Lambda^{\mu}{}_{\nu}$ 满足 $\eta_{\mu\nu}\Lambda^{\mu}{}_{\sigma}{\Lambda^{\nu}}_{\lambda}={\eta}_{\sigma\lambda}$}.}
+\pdv{x'^\alpha}{x^{\gamma}}{x^\epsilon}=0\iff \tcbhighmath{x'^\mu=a^\mu+ \Lambda^{\mu}{}_{\nu}x^\nu,\quad \text{$\Lambda^{\mu}{}_{\nu}$ 满足 $\eta_{\mu\nu}\Lambda^{\mu}{}_{\sigma}{\Lambda^{\nu}}_{\lambda}={\eta}_{\sigma\lambda}$}.}
 }
 满足上式的变换称\textbf{Poincaré 变换}。
-置 $S,S'$ 的时空原点重合，则 $x^\mu_0=0$，变换仅线性。设空间轴初态重合，但 $S'$ 相对于 $S$ 沿共同 $x,x'$ 轴匀速运动，则 $y,z$ 坐标一致。设正方向速率 $u$，则 $x=ut$ 对应 $x'=0$。    
+置 $S,S'$ 的时空原点重合，则 $a^\mu=0$，变换仅线性。设空间轴初态重合，但 $S'$ 相对于 $S$ 沿共同 $x,x'$ 轴匀速运动，则 $y,z$ 坐标一致。设正方向速率 $u$，则 $x=ut$ 对应 $x'=0$。    
 进而（或直接利用钟慢尺缩）得到\textbf{增速}(boost)变换：
 \eq{
 \tcbhighmath{
@@ -193,7 +193,7 @@ Einstein 最初用对钟、仿射性假设得到上式，时空线元则后来�
 线元的不变是一种对称性，Poincaré 变换构成的集合 $P$ 称\textbf{Poincaré 群}\footnote{集合上规定满足结合律的二元封闭运算，且存在恒等元和逆元，则称\textbf{群}(group)，元素称\textbf{群元}，该运算称\textbf{群乘}。比如沿 $x$ 轴的任意平移变换表为 $\bar x=x+a$，记作 $\varphi_a$。
 原则上，变换可有若干参数 $\{\alpha,\beta,\cdots\}$，但只需任取一个方向来研究\textbf{单参变换}，且可从某区间 $I\subset\R$ 任意取值，称\textbf{连续变换}。
 单参连续变换 $\{\varphi_a:a\in\R\}$ 构成\textbf{单参群}，群乘可为 $\varphi_a\varphi_b:=\varphi_{a+b}$，这样 $\R$ 的加法和乘法自动给出 $\varphi_0$ 为恒等变换，$\varphi_{-a}$ 为 $\varphi_{a}$ 为逆元。加法交换律使群乘可交换。一个东西在某种变换下形式保持不变，称这个东西具有相应的\textbf{对称性}，群称对称群。除连续变换外，参数还可只取有限个值，称\textbf{分立}或\textbf{离散}变换(英语均为 discrete)，比如反射变换。}。
-若为齐次变换：$x^\mu_0=0$，则变换仅由线性变换的矩阵 $\Lambda$ 即可表示，群乘可对应矩阵乘法。
+若为齐次变换 $a^\mu=0$，则变换仅由线性变换的矩阵 $\Lambda$ 即可表示，群乘可对应矩阵乘法。
 $\Lambda$ 都满足类似于正交矩阵\footnote{正交矩阵满足保持单位阵不变的合同变换 $R^\mathrm{T} R = I\eqto (R^\mathrm{T})_k{}^i\delta_{ij} R^j{}_l=\delta_{ij}R^i{}_k R^j{}_l=\delta_{ij}$。
 其中注意矩阵转置满足 $(R^\mathrm{T})_k{}^i=R^i{}_k$；矩阵乘法顺序涉及指标的相靠。从右手系 $\{x\}$ 出发，只要坐标变换是\textbf{保定向}的，即 Jacobi 行列式 $\det(\pdv*{y^i}{x^k})>0$，则新系 $\{y\}$ 也右手。$R^\mathrm{T} R = I$ 取行列式有 $|R|^2=1$。当 $|R|=1$ 时它就是旋转变换，当 $|R|=-1$ 时就存在空间反射。右手 Descartes 系间相差保定向旋转变换、原点平移，它们都保持勾股定理 $\d\ell^2=\delta_{ij}\d x^i\d x^j$。}的 \eqref{eq:Lorentz} 式（$|\Lambda|^2=1$），但无非是比空间转动还多出了时空伪转动。全体 $\Lambda$ 构成\textbf{广义正交群}，号差 $+2$ 下记 O(1,3)，前者指度规负项个数，后者指正项个数。
 号差不改变实质也可体现：可证 O(1,3),O(3,1) 同构。
@@ -413,12 +413,10 @@ $\dot m=0$ 时 $F^\mu=m A^\mu$ 且功能关系 $\dot p^i \dot{x}_i=\dot{E}$ 得�
 
 不变性有两层含义：作用量（从而导出的物理方程）在各惯性系的数学形式一致，称为\textbf{Lorentz 协变性}(covariance)；方程中的绝对对象在坐标变换下严格相同。\textbf{绝对对象}(absolute object)是指与物质状态无关的量。否则称\textbf{动力学对象}(dynamical object)，例如粒子的位置和动量、场的场强和能量密度等。
 如此就能审查哪些量能够且如何出现于作用量、方程。
-\begin{itemize}
-    \item 光速是绝对对象，并且由于 $x^0=ct$，必须出现于作用量。假若它是可变的，由于协变性只要求数学形式一致，因此满足；但不满足不变性。换言之，将协变性提升为不变性才能给出光速不变 $c=c'$。可见不变性要求更高。
-    \item 考察 $S=-m\int\sqrt{-\eta_{\mu\nu}\d x^\mu \d x^\nu}$，其中仅 $\eta_{\mu\nu}$ 是不变绝对对象。取 $\{x'\}$，则 $\d x'^\mu=\Lambda^\mu{}_\nu \d x^\nu, \eta_{\mu\nu}=\eta_{\mu\nu}'$，进而 $\eta_{\mu\nu}\d x'^\mu \d x'^\nu=\eta_{\mu\nu}\Lambda^{\mu}{}_{\sigma}{\Lambda^{\nu}}_{\lambda}\d x^\sigma \d x^\lambda$。通过取 $\{x''\}$ 可知这满足协变性。但 $\Lambda$ 是可变的绝对对象，好在 $\eta_{\mu\nu}\Lambda^{\mu}{}_{\sigma}{\Lambda^{\nu}}_{\lambda}={\eta}_{\sigma\lambda}$ 吸收了 $\Lambda$，进一步得 $\eta_{\mu\nu}\d x'^\mu \d x'^\nu=\eta_{\mu\nu}\d x^\mu \d x^\nu$，故 $\eta_{\mu\nu}$ 兼具 Lorentz 协变性和不变性。
-    \item 在 $\{x\}$ 中写出方程 $p^\mu=m U^\mu$，这里 $U^\mu=\d x^\mu/\d\tau$。两边乘上 $\Lambda$ 得 $\Lambda^\mu{}_\nu p^\nu = m \Lambda^\mu{}_\nu U^\nu$，具有协变性。为满足不变性，注意 $p^\nu,U^\nu$ 是动力学对象，可变，因此取 $U'^\mu=\Lambda^\mu{}_\nu U^\nu$ 来吸收。也即 4-速在另一惯性系下也测得 $U'^\mu=\d x'^\mu/\d\tau$，在 $\{x'\}$ 中仍成立 $p'^\mu=m U'^\mu$。这就得到了相对性原理。
-\end{itemize}
-可见为满足不变性，物理量在不同系的分量将根据 $\d x'^\mu=\Lambda^\mu{}_\nu \d x^\nu$ 进行一定变换。这种量称为\textbf{张量}(tensor)\footnote{Cauchy 率先提出张量。物理量有标量、矢量这种 0,1 维矩阵。Cauchy 研究介质力学时发现，相邻微元以微小界面分割，之间的作用需要考察界面和作用力方向，故应力需用 2 维矩阵描述。}。
+光速是绝对对象，且由于 $x^0=ct$，必须出现于作用量。假若它是可变的，由于协变性只要求数学形式一致，因此满足；但不满足不变性。换言之，将协变性提升为不变性才能给出光速不变 $c=c'$。可见不变性要求更高。
+考察 $S=-m\int\sqrt{-\eta_{\mu\nu}\d x^\mu \d x^\nu}$，其中仅 $\eta_{\mu\nu}$ 是不变绝对对象。取 $\{x'\}$，则 $\d x'^\mu=\Lambda^\mu{}_\nu \d x^\nu, \eta_{\mu\nu}=\eta_{\mu\nu}'$，进而 $\eta_{\mu\nu}\d x'^\mu \d x'^\nu=\eta_{\mu\nu}\Lambda^{\mu}{}_{\sigma}{\Lambda^{\nu}}_{\lambda}\d x^\sigma \d x^\lambda$。通过取 $\{x''\}$ 可知这满足协变性。但 $\Lambda$ 是可变的绝对对象，好在 $\eta_{\mu\nu}\Lambda^{\mu}{}_{\sigma}{\Lambda^{\nu}}_{\lambda}={\eta}_{\sigma\lambda}$ 吸收了 $\Lambda$，进一步得 $\eta_{\mu\nu}\d x'^\mu \d x'^\nu=\eta_{\mu\nu}\d x^\mu \d x^\nu$，故 $\eta_{\mu\nu}$ 兼具 Lorentz 协变性和不变性。
+在 $\{x\}$ 中写出方程 $p^\mu=m U^\mu$，这里 $U^\mu=\d x^\mu/\d\tau$。两边乘上 $\Lambda$ 得 $\Lambda^\mu{}_\nu p^\nu = m \Lambda^\mu{}_\nu U^\nu$，具有协变性。为满足不变性，注意 $p^\nu,U^\nu$ 是动力学对象，可变，因此取 $U'^\mu=\Lambda^\mu{}_\nu U^\nu$ 来吸收。也即 4-速在另一惯性系下也测得 $U'^\mu=\d x'^\mu/\d\tau$，在 $\{x'\}$ 中仍成立 $p'^\mu=m U'^\mu$。这就得到了相对性原理。
+可见为满足不变性，物理量在不同系的分量将根据 $\d x'^\mu=\Lambda^\mu{}_\nu \d x^\nu$ 进行一定变换。这种量称为\textbf{张量}(tensor)\footnote{物理量有标量、矢量这种 0,1 维矩阵。Cauchy 率先提出张量：他研究介质力学时发现，相邻微元以微小界面分割，之间的作用需要考察界面和作用力方向，故应力需用 2 维矩阵描述。}。
 消除了 $\Lambda$，方程就不会同时出现两种坐标系符号，即坐标系与方程分量表达一一对应，整个方程是指标平衡的张量方程。$\Lambda$ 只在分量变换律中出现。
 
 像 $U^\mu$ 一样变换的矢量称为\textbf{逆变矢量}(contravector)，上指标又称\textbf{逆变指标}。
@@ -435,13 +433,13 @@ $(k+l)$ 叫作\textbf{阶}(rank)。$(0,0)$-张量就是不变标量。$(n,0),(0,
 若存在惯性系使其分量为零，其显然在任何惯性系下分量都为零，故不论何型都称\textbf{零张量}。
 给每个时空点赋予一个张量就构成了\textbf{张量场}(tensor field)，它可以视作从时空点到张量的映射。以后谈及张量实际上都在讨论时空上的张量场。
 基本运算性质如下：
-\begin{enumerate}
-    \item 张量分量相乘仍为张量，称\textbf{张量积}\footnote{电动力学、量子力学中的\textbf{并矢}(dyadic)就是张量积，如 $\bm A\bm B,|\Psi\rangle\langle\Phi|$ 等。}，如将 $T^\mu,S_{\lambda\sigma}$ 拼成 $T^\mu S_{\lambda\sigma}$，变换式无非将各自变换相乘；
+\begin{compactenum}
+    \item 张量分量相乘显然仍为张量，称\textbf{张量积}\footnote{电动力学、量子力学中的\textbf{并矢}(dyadic)就是张量积，如 $\bm A\bm B,|\Psi\rangle\langle\Phi|$ 等。}，如将 $T^\mu,S_{\lambda\sigma}$ 拼成 $T^\mu S_{\lambda\sigma}$；
     \item 张量\textbf{缩并}仍是张量，因为变换式只是消去一对矩阵元；
     \item 张量的\textbf{线性组合}仍是张量；
     \item \textbf{指标升降}约定用度规及其逆，构成\textbf{度规对偶}；
     \item \textbf{坐标偏导} $T_{\cdots,\mu}=\p_\mu T_{\cdots}=\pdv*{T_{\cdots}}{x^\mu}$ 保持 Lorentz 协变。
-\end{enumerate}
+\end{compactenum}
 故 $A^\mu=U^\nu\p_\nu U^\mu$ 是 Lorentz 张量。
 $\eta_{\mu\nu},\eta^{\mu\nu},\delta_{\mu\nu},\delta^\mu_\nu$ 等在此处比较特殊，它们 Lorentz 不变且协变。
 称 $T_{\cdots}$ 是张量，准确是称分量等价类 $[T_{\cdots}]=\{T_{\cdots},T'_{\cdots},\cdots\}$ 是张量。
@@ -454,7 +452,7 @@ Cartan 率先给出定义 $\{e_I\}$ 的准确办法，从而可不借坐标地�
     T_{\cdots[\mu_1\cdots\mu_k]\cdots}:=\frac{1}{k!}\sum_{\sigma\in S_k} \sgn\sigma\,T_{\cdots\mu_{\sigma(1)}\cdots\mu_{\sigma(k)}\cdots},
 \]
 其中 $S_k$ 是全体 $(1\cdots k)$ 排列之集；$\sigma\in S_k$ 为偶排列时 $\sgn\sigma=1$，否则为 $-1$；$\sigma(k)$ 为 $\sigma$ 的第 $k$ 项。上式分别称为 $T_{\cdots}$ 的\textbf{对称部分}(symmetric part)和\textbf{反称部分}(alternating part)。除序 $1/k!$ 是为与原张量平均。对上标定义同理。对两个指标，在代数学中就学过矩阵的对称、反称分解。上下标之间的对称、反称性要用度规升降后再讨论。有时会横跨地标注，如 $V^{[\mu}W^{\nu]},F_{(\mu|\sigma\lambda|\nu)}$ 都标记在了 $\mu,\nu$ 指标。运算性质如下：
-\begin{enumerate}
+\begin{compactenum}
     \item \emph{缩并时两种括号都有传递性}，读者自证不难：
     \[T_{(\mu_1\cdots\mu_k)}S^{\mu_1\cdots\mu_k}=T_{(\mu_1\cdots\mu_k)}S^{(\mu_1\cdots\mu_k)}=T_{\mu_1\cdots\mu_k}S^{(\mu_1\cdots\mu_k)};\]
     \item \emph{嵌套括号时，同种子括号随意添删，异种子括号为零}。这几乎显然：不失一般性，
@@ -466,7 +464,7 @@ Cartan 率先给出定义 $\{e_I\}$ 的准确办法，从而可不借坐标地�
     \item 由此可推\emph{异种括号缩并为零}，如 $T_{(\mu_1\cdots\mu_k)}S^{[\mu_1\cdots\mu_k]}=0$。\textbf{全对称}或\textbf{全反称}时，二阶张量可分解 $T_{\mu\nu}=T_{(\mu\nu)}+T_{[\mu\nu]}$。三阶及以上张量则不然，但仍可有
     \[T_{\mu_1\cdots\mu_k}=T_{(\mu_1\cdots\mu_k)}\im T_{[\mu_1\cdots\mu_k]}=0,\quad
         T_{\mu_1\cdots\mu_k}=T_{[\mu_1\cdots\mu_k]}\im T_{(\mu_1\cdots\mu_k)}=0.\]
-\end{enumerate}
+\end{compactenum}
 
 
 
@@ -503,11 +501,11 @@ $\p_t\Phi_i,\p_i\Phi$ 分别是时间导数以及相邻体元间的相互作用�
 
 Fréchet 变分与 $\p,\int$ 交换而计算 $\var S=\int \d[4]{x}\var\Lag$。
 单元微积分下，边界项即函数作差；在多元情形中这是高维 Gauss 定理 \eqref{eq:Gauss} 式，证明见 \S\ref{appx:form}。故为消除边界项可有三类 Fréchet 假设：
-\begin{enumerate}
+\begin{compactenum}
     \item 可取无穷积分，认为无穷远没有贡献或不存在边界，准确地说，表面积分的被积函数在无穷远时足够快趋于零，至少比 $1/r^{n-1}$ 快，即 $f(x)=o(1/|x|^{n-1})$，$n-1$ 为表面维度；
     \item 仅在 $\delta \Phi=0$ 条件下，可通过修改 $\Lag$ 使其消除边界项；
     \item 考虑积分域 $U$时，规定边界上任意阶都有 $(\delta \Phi)_{,\cdots}=0$（比如认为 $U$ 外的旁路 $\Phi$ 恒定地与边界一致），这一更强的条件使 $\Lag$ 无论含多少阶导数都能消除边界项。
-\end{enumerate}
+\end{compactenum}
 总之，不与物理意义冲突时，默认舍去变分中的全微分项。有方程 $\fdv*{\Lag}{\Phi}=\pdv*{\Lag}{\Phi}-\p_\mu\pdv{\Lag}{\Phi_{,\mu}}+\cdots=0$。
 在粒子情形我们通过决定性原理排除高阶导，而现在 $\p$ 还包含相互作用势的含义，高阶导数可能导致能量无下界，故一般不考虑高阶导。\S\ref{sec:Einstein} 还出现一类情况：高阶导只存在于边界项中，于是在变分时实质上消除掉了。若非要考虑高阶导，则公式法本身也并不方便。
 为规避这些麻烦，直接具体问题具体分析，按相似程序计算变分即可。
