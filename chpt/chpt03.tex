@@ -494,166 +494,286 @@ $\Upsilon_0$ 比较同一位置的两个速度，$\Gamma_0,\Lambda_0$ 则比较�
 
 如果恰好只有度规传递长程引力，又能不能由 SEP 单独导出 Einstein 方程？在四维的一个较窄问题中，可要求场方程的几何端仅含度规及至多二阶的导数，满足对称性、协变性和恒等协变无散，且具有适当的局域性、正则性。此时的唯一性结果才使 Einstein 张量和 $g_{\mu\nu}$ 的常系数组合受到偏爱。其比例还要由 Newton 极限定出，另有宇宙学常数待测。若允许高阶导数或其它动力学场，这一推理的前提已变。另一条路线从平直背景上一种无质量二自旋场的线性耦合出发，要求它普适地耦合于守恒应力，进而把场自身贡献也逐次纳入源。这种自耦合构造同样引入平直极限、局域作用量等假定，详见 \S\ref{sec:Einstein} 对场方程的讨论。因此是实验先问谁与尺钟耦合，再用场动力学和弱场参数比较候选理论，不能倒过来因某种理论实现了 SEP 就先免除这些比较。
 
-\section{后 Newton 理论}
+\section{后 Newton 理论}\label{sec:exp-pn}
 
-Einstein 方程是非线性的，精确解却只在高度对称的情形容易得到。对于孤立的弱引力系统，若典型速度 $v\ll c$，且正值 Newton 势 $U$ 满足 $U/c^2\ll1$，便可在保留引力非线性的同时作 $1/c$ 渐近展开。这称为\textbf{后 Newton 展开}(post-Newtonian expansion, PN expansion)。对引力束缚系统，维里关系给出统一的小参数 $\epsilon\sim v^2/c^2\sim U/c^2\sim GM/(rc^2)\ll1$。Newton 理论是 0PN，较之小 $\epsilon^n$ 的修正称为 $n$PN；半整数阶可由自旋、辐射尾项或耗散效应产生。后 Newton 展开不是简单的线性化：例如 $U^2/c^4$ 是 1PN 动力学所必需的非线性项。以下约定 $x^0=ct$，并保留 $c$ 以标明阶次。
+\hyperlink{subsection.2.2.2}{\S\,2.2.2} 从 Schwarzschild 解求得水星的额外进动。若把其它行星的引力也算进去，场既不球对称，也不静止。所幸在水星轨道上 $GM_\odot/(rc^2)\simeq2.5\times10^{-8}$，行星的速度也远小于光速。可从 Newton 多体解出发，把场和运动同时修正。这称为\textbf{后 Newton 近似}(post-Newtonian approximation, PN)。以下沿用式 \eqref{eq:h-g-phi} 的符号约定，另记正值势 $U=-\phi$，取 $x^0=ct$。
+太阳既自转也脉动，其外场还含有质量多极矩。自转轴与黄道面法线约成 $7.25^\circ$，与银盘面法线约成 $67.23^\circ$。光球并非刚体。相对于远星，赤道的自转周期约 $25.05$ 日，近两极约 $34.4$ 日，赤道线速度约 $7.19\times10^3\,\mathrm{km/h}$。因自转而生的质量四极矩已会改变 Newton 轨道。同一自转的质量流还会产生相对论性的拖曳。定轨时须分开两项。
 
-水星处的太阳引力势满足 $GM_\odot/(rc^2)\simeq 2.5\times10^{-8}$。计入其余行星的 Newton 摄动后，水星近日点仍有每世纪约 $43$ 角秒的进动有待解释。若从精确解出发，又很难把其余行星的摄动一并计入。可否仍用熟悉的势和轨道，逐阶算出这点差额？这就是\textbf{后 Newton 展开}(post-Newtonian expansion, PN)的出发点。
+% 黄 §3.12.1，式 (3.12.1)–(3.12.5)、表 3.12.1。Weinberg §9.1。
+\subsection{近区与计数}
 
-\subsection{计数规则与逐次解法}
+取源的尺度为 $R$，质量为 $M$，典型速度为 $v$。束缚系统的维里估计给出 $v^2\sim GM/R$。圆轨道上就是 $v^2=GM/R$。记 $\epsilon\sim v^2/c^2\sim U/c^2\ll1$，Newton 阶记为 0PN，相对大小为 $O(\epsilon^n)$ 的修正称为 $n$PN。对非束缚粒子须分别检查速度与场强。源演化的时间约为 $R/v$，故 $\p_i=O(1/R)$，$\p_0=c^{-1}\p_t=O(\sqrt\epsilon/R)$。静力平衡给出 $p/\rho\sim GM/R$，普通星体的比内能 $\Pi$ 通常亦为 $O(v^2)$。相对论性气体即使质心静止，也不能这样计数。
 
-这里的正值势与前面的记号相反，即 $U=-\phi$。对维里化的引力束缚系统，速度和势的计数可以共用；对入射的非束缚粒子须分别检查这两种小量。
+记 $q^\mu=\d x^\mu/\d t$，取 $q^0=c$。以 $\lambda$ 为仿射参数，在式 \eqref{eq:general-coordinate} 中用时间分量消去 $\d^2t/\d\lambda^2$，空间方程化为
+\begin{equation}\label{eq:pn-coordinate-geo}
+ \frac{\d q^i}{\d t}=-\left(\Gamma^i{}_{\mu\nu}
+                  -\frac{q^i}{c}\Gamma^0{}_{\mu\nu}\right)q^\mu q^\nu .
+\end{equation}
+其中沿速度的一项来自重选参数。慢质点的坐标加速度须由 $v^2/R$ 算到 $v^4/(Rc^2)$。在固有时根号中，$g_{00}$、$g_{0i}$、$g_{ij}$ 各乘 $1$、$2v^i/c$、$v^iv^j/c^2$，故相应需要四、三、二阶度规。这里以 $v/c$ 的幂数说阶次。保守无自旋源在时间反演下 $g_{00},g_{ij}$ 为偶，$g_{0i}$ 为奇。静质量不产生一阶 $g_{0i}$，质量流首次在三阶出现。四阶 $g_{00}$ 中度规一次扰动的平方与动能修正同阶，必须保留。按 $G$ 展开的\textbf{后 Minkowski 近似}则不要求物质低速。\S\ref{sec:Einstein} 的线性弱场结果可在弱场慢运动极限与 PN 展开比较。
 
-取源的典型尺度为 $R$。空间导数为 $\partial_i=O(R^{-1})$，缓慢运动则给出 $c^{-1}\partial_t=O(\epsilon^{1/2}\partial_i)$。物质的应力--能量张量相应满足 $T^{0i}/T^{00}=O(\epsilon^{1/2})$、$T^{ij}/T^{00}=O(\epsilon)$。度规各分量并非从同一阶开始：$g_{00}+1=O(\epsilon)$、$g_{0i}=O(\epsilon^{3/2})$、$g_{ij}-\delta_{ij}=O(\epsilon)$。要求运动方程达到 1PN 精度时，须分别求出 $g_{00}$ 至 $O(c^{-4})$、$g_{0i}$ 至 $O(c^{-3})$、$g_{ij}$ 至 $O(c^{-2})$。
+场点距源 $d$ 处的光行时约为 $d/c$。若源的特征角频率为 $\Omega$，则\textbf{近区}要求 $R,d\ll c/\Omega$，方可展开推迟时刻。孤立系统另有一个条件。随质心自由落体可消去外场的共同加速度，外部潮汐在尺度 $R$ 上留下的相对加速度 $|\p_i\p_jU_{\rm ext}|R$ 若与所求修正相当，仍须计入。对太阳系，可在源势已小、宇宙演化又可忽略处取不转动的渐近惯性轴，归一化钟和尺。求波时还须在远处指定无入射辐射。这项边界条件选出推迟解，决定耗散项的符号。近、远区的匹配见 \S\ref{sec:pn-matching}。
 
-度规须算到几阶？自由质点的拉氏量为 $L=-mc^2\sqrt{-g_{00}-2g_{0i}v^i/c-g_{ij}v^iv^j/c^2}$。代入 $g_{00}=-1+2U/c^2$、$g_{ij}=\delta_{ij}$、$g_{0i}=0$，展开根号，除去常数即得 $L_{\rm N}=m(v^2/2+U)$。于是 $\dot{\bm v}=\bm\nabla U$，对 $U=GM/r$ 果然指向场源。再向下一阶，根号内要保留到 $c^{-4}$。因 $g_{0i}$ 已乘 $v^i/c$，$g_{ij}$ 已乘 $v^iv^j/c^2$，$g_{00},g_{0i},g_{ij}$ 分别算到 $c^{-4},c^{-3},c^{-2}$ 阶就够了。特别是 $g_{00}$ 中的 $U^2/c^4$ 与动能修正同阶，单作度规的线性近似就会漏掉它。
+例如平直空间切片的膨胀宇宙，令 $a(t_0)=1$、$H_0=(\dot a/a)_0$、$q_0=-(a\ddot a/\dot a^2)_0$。宇宙空间度规中的 $2H_0(t-t_0)$ 可由局域坐标变换消去。按 \S\ref{sec:tidal} 的约定，随质心自由落下的正交轴上有 $R_{\hat0 i\hat0 j}=q_0(H_0/c)^2\delta_{ij}$、$R_{\hat0 ijk}=0$。$g_{00}$ 和 $g_{ij}$ 的首项背景修正分别为 $-R_{\hat0 i\hat0 j}X^iX^j$ 和 $-R_{ikjl}X^kX^l/3$。当地可测量的是 $O((H_0d/c)^2)$ 的潮汐。若远处未计的单极项约为 $\epsilon GM/(c^2d)$，令两种误差相当，得 $d_0^3\sim\epsilon GM/H_0^2$。取 $M=M_\odot$、$\epsilon=10^{-6}$、$H_0\simeq2.3\times10^{-18}\ {\rm s}^{-1}$，有 $d_0\sim3\times10^{13}\ {\rm km}$，度规误差约 $5\times10^{-20}$。邻星和银河的潮汐须按各自的梯度另估。
 
-若源的特征角频率为 $\Omega$，辐射波长约为 $\lambda\sim c/\Omega$。在\textbf{近区}(near zone) $R\ll\lambda$ 内，源的变化时间远长于光行时，推迟势可按 $R/\lambda\sim v/c$ 展开。选定坐标规范后，将度规、物质变量与 Einstein 方程同时按 $1/c$ 排列；低阶方程的解作为高阶方程的源，如此逐次求解。坐标条件在这里不可省略，因为度规系数和坐标加速度都随规范改变，只有进动角、钟的频率比等可观测量不依赖这种选择。
-
-“近区”对场点也有要求。距源 $d$ 处的推迟量约为 $d/c$，场点须满足 $d\ll c/\Omega$，即使源自己的尺度 $R$ 已经很小也不能免掉此条件。求远处的辐射须在两种展开都成立处把近区运动与向外传播的解匹配。耗散项在这个匹配中出现，其阶次见本节末。
-
-还须说明“孤立”的意思。假设用太阳系质心附近的钟作历表的时间标准。太阳对各行星的引力要算，银河对整个太阳系的共同加速度却可用自由落体坐标消去。不能这样消去的是外场的梯度。如果在尺度 $R$ 上由此外场产生的相对加速度 $|\p_i\p_j U_{\rm ext}|R$ 已与待测的 PN 项相当，就须另加一个潮汐势。换言之，外界影响小到能否略去，要与欲求的精度相比，并不只取决于太阳是否比邻星重。
-
-因而常取两道边界。第一道离源足够远，使源本身的势已衰减，且离得足够近，使宇宙膨胀在一次观测中可忽略。在这道边界上规定空间轴不转动，令背景度规取 Minkowski 形式，这就固定了坐标时和长度的单位。第二道用于求辐射，要求在遥远处没有由外而来的波。前一道允许在空间中解 Poisson 方程，后一道在波动方程的两个解之间选出了推迟解。若在近区一开始就把外边界条件选成严格的静态条件，同一套算法便无法给出辐射损失的符号。
-
-计数还可用钟来检验。以 $t$ 表示这套坐标的时间，随源以速度 $\bm v$ 运动的理想钟有 $\d\tau/\d t=1-(U+v^2/2)/c^2+O(c^{-4})$。取同种钟分别固定在近地面和卫星上，前者的 $U$ 较大，后者的 $v^2/2$ 通常较大。校正钟速时两项同阶，却未必同号地影响两钟之差。只把引力算到高阶而将运动学一律按 Newton 理论处理，连这个最低阶的可测差值也得不对。若传递信号还要测到下一阶，求钟的世界线和沿光路求传播时间是两个不同的展开。
-
-还可以估计这道近处边界离太阳有多远。取平直空间切片的膨胀宇宙作例，令 $a(t_0)=1$、$H_0=\dot a(t_0)/a(t_0)$、$q_0=-a\ddot a/\dot a^2|_{t_0}$。宇宙坐标中的空间度规含有 $2H_0(t-t_0)$ 的一次变化。若把这一项直接加在行星速度上，就会预言一个正比于 $H_0$ 的局域阻尼。随太阳系质心自由落下建立正交标架，结果颇不同。按 \S\ref{sec:tidal} 的曲率约定，局域长度坐标 $X^i$ 上首个不能消去的项是
+用静止球体检验度规的阶次。由\hyperlink{section.2.1}{\S\,2.1} 的 Schwarzschild 解，令 $m=GM/c^2$、$u_R=m/R$，$R$ 为面积半径，则 $g_{00}=-1+2u_R$，$g_{RR}=1+2u_R+4u_R^2+\cdots$。在 $x^i=Rn^i$ 中，后一修正只乘 $\d R^2=(n_i\d x^i)^2$。改用各向同性半径 $\varrho$，记 $u=m/\varrho$，则
 \[
- g_{00}=-1-R_{\hat0 i\hat0 j}X^iX^j,\qquad
- g_{ij}=\delta_{ij}-\tfrac13 R_{ikjl}X^kX^l .
+ g_{00}=-1+2u-2u^2+O(u^3),\qquad
+ g_{ij}=\big(1+2u+\tfrac32u^2\big)\delta_{ij}+O(u^3).
 \]
-这里只保留背景的二次项。此时 $R_{\hat0 i\hat0 j}=q_0(H_0/c)^2\delta_{ij}$、$R_{\hat0 ijk}=0$，空间曲率分量的量级也是 $H_0^2/c^2$。故当地钟和自由落体能看见的首先是宇宙潮汐，量级为 $(H_0R/c)^2$。套用星系间的速度--距离关系来解释一条束缚轨道，会把能消去的一阶坐标效应也算进去。
+两式中 $g_{00}$ 的二次项不同，源于 $R=\varrho(1+u/2)^2$。空间度规中的二次项虽也能写出，计算慢体的 1PN 轨道只需其中的一次项。
 
-设某阶局域场在远处仍含 $\epsilon GM/(c^2 d)$ 的单极项，$d$ 为距系统中心的距离。若一定把度规在边界上取成平直，至少应选在这项和背景曲率改正都不大的地方。令两种误差相当，可估 $d_0^3\sim\epsilon GM/H_0^2$。取 $M=M_\odot$、$\epsilon=10^{-6}$、$H_0$ 约每秒 $2.3\times10^{-18}$，则 $d_0$ 约 $3\times10^{13}$ 公里，边界处的无量纲误差仅为 $5\times10^{-20}$ 的量级。实际太阳系高精度历表更早就要考虑邻近恒星和银河的非均匀场。这里的估计只说明为什么把宇宙的均匀膨胀拿掉，仍能给太阳系定义一个足够精确的 $G$；它没有把所有的外部潮汐也一并拿掉。
+% 黄式 (3.12.6)–(3.12.31)。Weinberg §9.1，式 (9.1.4)–(9.1.56)。
+\subsection{谐和坐标中的场方程}\label{sec:pn-components}
 
-同一计数还要用到物质侧。写理想流体能动张量时，热能、压强和体运动动能不能任意指定为同阶。对自引力束缚的普通星体，静力平衡给出 $p/R\sim\rho GM/R^2$，故 $p/(\rho c^2)$ 可按 $\epsilon$ 计。若单位静质量的内能 $\Pi$ 与维持压强的随机运动有关，通常也有 $\Pi/c^2=O(\epsilon)$。因而只求运动到 Newton 阶时，$T^{00}$ 取 $\rho c^2$ 即够，但由 $T^{ii}$ 求 1PN 的时间度规时，$\rho v^2$ 和 $3p$ 已须一同保留。若源是一团辐射或高度相对论性的致密物质，仅因其整体平移缓慢并不足以作这种替换。这正是为何描述双中子星轨道与描述每颗中子星内部，需要不同的近似区域。
+写 $g_{00}=-1+h+k+\cdots$、$g_{0i}=b_i+\cdots$、$g_{ij}=\delta_{ij}+s_{ij}+\cdots$，其中 $h,s_{ij}$ 为二阶，$b_i$ 为三阶，$k$ 为四阶。对于物质，写 $T^{00}=\rho_0c^2+e+\cdots$、$T^{0i}=cj_i+\cdots$、$T^{ij}=\sigma_{ij}+\cdots$。$\rho_0$ 是最低阶质量密度，$j_i$ 是质量流，$\sigma_{ij}$ 是最低阶动量通量。相对于 $\rho_0c^2$，$cj_i$ 为一阶，$e,\sigma_{ij}$ 为二阶。
 
-\subsection{势函数与 1PN 度规}
+由 $g^{\mu\lambda}g_{\lambda\nu}=\delta^\mu_\nu$ 逐阶求逆，得 $g^{00}=-1-h-k-h^2+O(c^{-6})$、$g^{0i}=b_i+O(c^{-5})$、$g^{ij}=\delta^{ij}-s_{ij}+O(c^{-4})$。联络和 Ricci 分量同样按时间指标的奇偶分阶。
 
-质量密度 $\rho$ 的最低阶势及质量流势定义为
-\[
-    U(t,\mathbf x)=G\int\frac{\rho(t,\mathbf x')}{|\mathbf x-\mathbf x'|}\d^3x',\qquad
-    U_i(t,\mathbf x)=G\int\frac{\rho(t,\mathbf x')v_i(t,\mathbf x')}{|\mathbf x-\mathbf x'|}\d^3x'.
-\]
-因此 $\nabla^2U=-4\pi G\rho$、$\nabla^2U_i=-4\pi G\rho v_i$。这里约定 $U>0$；点质量给出 $U=GM/r$，故 Newton 加速度是 $\nabla U=-GM\mathbf n/r^2$，其中 $\mathbf n=\mathbf x/r$。
-
-在调和坐标中，一般缓慢运动源的最低几阶具有结构
-\[
-    g_{00}=-1+\frac{2U}{c^2}+O(c^{-4}),\qquad
-    g_{0i}=-\frac{4U_i}{c^3}+O(c^{-5}),\qquad
-    g_{ij}=\left(1+\frac{2U}{c^2}\right)\delta_{ij}+O(c^{-4}).
-\]
-$g_{00}$ 的 $O(c^{-4})$ 部分除 $U^2$ 外，还含由动能、内能、压强及引力自能产生的势，不能对一般物质源一概略去。若源是静止点质量，外部真空区没有这些物质势；在各向同性坐标中，所需度规简化为
-\[
-    g_{00}=-1+\frac{2U}{c^2}-\frac{2U^2}{c^4}+O(c^{-6}),\qquad
-    g_{0i}=0,\qquad
-    g_{ij}=\left(1+\frac{2U}{c^2}\right)\delta_{ij}+O(c^{-4}),
-    \quad U=\frac{GM}{r}.
-\]
-这正是 Schwarzschild 度规在各向同性半径下的弱场展开。与质量流有关的 $g_{0i}$ 称为引力磁部分；它在静态球对称外场消失，却在转动天体或多体系统中产生拖曳效应。
-
-以下也可改用守恒密度来定义势，以便与后文的 PPN 形式比较。
-
-以理想流体为源，令 $\rho$ 为共动系所测的静质量密度。取 $\rho_*=\rho\sqrt{-g}\,\d t/\d\tau$，则流体元的质量为 $\rho_*\,\d[3]{x}$，连续性方程恰为 $\p_t\rho_*+\bm\nabla\cdot(\rho_*\bm v)=0$。定义
-\[
- U(t,\bm x)=G\int\frac{\rho_*(t,\bm x')}{|\bm x-\bm x'|}\,\d[3]{x'},\qquad
- V_i(t,\bm x)=G\int\frac{\rho_*(t,\bm x')v_i(t,\bm x')}{|\bm x-\bm x'|}\,\d[3]{x'}.
-\]
-于是 $\nabla^2U=-4\pi G\rho_*$，$\nabla^2 V_i=-4\pi G\rho_*v_i$。在广义相对论的谐和坐标中，质量流给出 $g_{0i}=-4V_i/c^3+O(c^{-5})$。再将低阶解代回场方程，动能、压强、内能和引力本身都会成为 $g_{00}$ 的高阶源。
-
-守恒密度与固有密度究竟差多少？由上式的度规，$\sqrt{-g}=1+2U/c^2+O(c^{-4})$，又有 $\d t/\d\tau=1+(v^2/2+U)/c^2+O(c^{-4})$，故广义相对论中 $\rho_*=\rho[1+(v^2/2+3U)/c^2]+O(\rho c^{-4})$。用 $\rho_*$ 的好处是随同一批流体元运动的体积内，重子总质量 $\int\rho_*\,\d[3]{x}$ 严格守恒。应避免把它直接当作天体由外部轨道测得的质量，后者还包括热能及负的引力结合能。把两种密度混用于同一阶，相当于既改变了 $U$，又漏掉补偿这一变化的势。
-
-推迟的效应也可用一个积分算清。以 $s=|\bm x-\bm x'|$ 记场点和源点的距离，$\rho_*'$ 的撇在下式仅指空间源点。对有界源展开推迟时间，有
+以逗号表示偏导，以方括号中的数表示 $v/c$ 的幂次。将上述逆度规代入联络公式 \eqref{eq:metric-christ}，需要的分量为
 \begin{align*}
- G\!\int\!\frac{\rho_*(t-s/c,\bm x')}{s}\,\d[3]{x'}
- &=U-\frac{G}{c}\frac{\d}{\d t}\int \rho_*'\,\d[3]{x'}
-       +\frac{1}{2c^2}\p_t^2 X+\cdots,\\
- X(t,\bm x)&=G\int\rho_*'s\,\d[3]{x'} .
+ (\Gamma^i{}_{00})_{[2]}&=(\Gamma^0{}_{0i})_{[2]}=-\tfrac12h_{,i},&
+ (\Gamma^0{}_{00})_{[3]}&=-\tfrac12h_{,0},\\
+ (\Gamma^i{}_{jk})_{[2]}&=\tfrac12(s_{ij,k}+s_{ik,j}-s_{jk,i}),&
+ (\Gamma^0{}_{ij})_{[3]}&=\tfrac12(s_{ij,0}-b_{i,j}-b_{j,i}),\\
+ (\Gamma^i{}_{0j})_{[3]}&=\tfrac12(s_{ij,0}+b_{i,j}-b_{j,i}),&
+ (\Gamma^i{}_{00})_{[4]}&=b_{i,0}-\tfrac12 k_{,i}+\tfrac12s_{ij}h_{,j}.
 \end{align*}
-第一项修正看起来只比 $U$ 小 $v/c$，但它正比于总重子质量的时间导数，故为零。下一个修正 $\ddot X/(2c^2)$ 有 Newton 势的量纲，乘上 $g_{00}$ 中的 $2/c^2$ 后恰为 1PN 项。这一展开仍保留了有限传播速度的效应。哪些项为零，取决于守恒律；能否把留下的项移到别的度规分量中，则取决于规范。
-
-也可用 \hyperlink{section.2.1}{\S\,2.1} 的各向同性 Schwarzschild 解核对 $U^2$ 的系数。若 $r_{\rm S}$ 取面积半径、$\bar r$ 取各向同性半径，则同一只钟有 $-g_{00}=1-2GM/(r_{\rm S}c^2)=1-2u+2u^2+O(u^3)$，其中 $u=GM/(\bar r c^2)$。据第一种形式认定二次项为零，会把半径坐标的选择误作非线性系数的测量。
-
-\subsection{二体运动与近日点进动}
-
-1PN 理论已经超出“测试粒子绕固定中心”的近似。设两体质量为 $m_1,m_2$，总质量 $m=m_1+m_2$，对称质量比 $\eta=m_1m_2/m^2\leqslant1/4$；再令 $\mathbf x=\mathbf x_1-\mathbf x_2$、$r=|\mathbf x|$、$\mathbf n=\mathbf x/r$、$\mathbf v=\dot{\mathbf x}$ 及 $\dot r=\mathbf n\cdot\mathbf v$。在质心系的调和坐标中，Einstein--Infeld--Hoffmann 方程化为
+例如最后一项来自逆空间度规乘低阶时间势。在 \S\ref{sec:Einstein} 的谐和坐标条件中，保留最先出现的各项，得
 \[
-\begin{split}
-    \ddot{\mathbf x}={}&-\frac{Gm}{r^2}\mathbf n
-    +\frac{Gm}{c^2r^2}\bigg\{
-       \left[(4+2\eta)\frac{Gm}{r}-(1+3\eta)v^2
-       +\frac{3}{2}\eta\dot r^2\right]\mathbf n \\
-       &\hspace{42mm}+(4-2\eta)\dot r\,\mathbf v\bigg\}
-    +O(c^{-4}).
-\end{split}
+ C_0:=\tfrac12(h+s_{jj})_{,0}-b_{j,j}=0,\qquad
+ C_i:=s_{ij,j}+\tfrac12(h-s_{jj})_{,i}=0 .
 \]
-取 $m_1/m_2\to0$、$m\to M$，即 $\eta\to0$，便得到测试粒子在 Schwarzschild 外场中的 1PN 加速度。上式的具体形式依赖坐标；由它算出的轨道不变量则不依赖坐标选择。
+写 $\Delta=\p_i\p_i$。直接缩并曲率，$2(R_{ij})_{[2]}=-\Delta s_{ij}+C_{i,j}+C_{j,i}$，$2(R_{0i})_{[3]}=-\Delta b_i+C_{i,0}-C_{0,i}$。四阶的 $R_{00}$ 还含二阶联络的乘积。消去含 $C_\mu$ 及其导数的项后，有 $2(R_{00})_{[2]}=-\Delta h$、$2(R_{ij})_{[2]}=-\Delta s_{ij}$、$2(R_{0i})_{[3]}=-\Delta b_i$。四阶时间分量为 $2(R_{00})_{[4]}=-\Delta k+h_{,00}+s_{ij}h_{,ij}-h_{,i}h_{,i}$。例如 $2b_{i,i0}-s_{ii,00}=h_{,00}$ 用到了 $C_{0,0}=0$。$s_{ij,i}=(s_{ii}-h)_{,j}/2$ 则消去了 $s_{ii,j}h_{,j}$。这样保留下来的梯度平方与 $\Delta k$ 同阶。
 
-对束缚轨道，1PN 修正破坏了 Newton 椭圆的闭合性。以 Newton 阶半长轴 $a$ 和离心率 $e$ 表示，每个径向周期的近心点进动为 $\Delta\phi_{\rm prec}=6\pi Gm/[a(1-e^2)c^2]+O(c^{-4})$。测试质量极限 $m\to M$ 恰与\hyperlink{subsection.2.2.2}{\S\,2.2.2} 由精确 Schwarzschild 测地线得到的结果一致；这里则说明同一公式在 1PN 阶也适用于质量可比的二体相对运动。
+场方程右边是 $S_{\mu\nu}=T_{\mu\nu}-g_{\mu\nu}T/2$。用上指标的物质变量，记 $A=\rho_0c^2$。则 $T_{00}=A+e-2hA+\cdots$，$T=-A-e+hA+\sigma_{jj}+\cdots$。一个坐标静止的观者有单位切矢 $n^0=(-g_{00})^{-1/2}$、$n^i=0$，所测能量密度为 $T_{00}/(-g_{00})=A+e-hA+\cdots$。换成观者的钟后，留下的势能项与单看 $T_{00}$ 时不同。逐分量取迹反转得
+\begin{align*}
+ S_{00}&=\tfrac12(A+e+\sigma_{kk}-2hA)+\cdots,\\
+ S_{0i}&=-cj_i-T^{0i}_{(3)}+c(h\delta_{ij}-s_{ij})j_j-\tfrac12Ab_i+\cdots,\\
+ S_{ij}&=\tfrac12 A\delta_{ij}+\sigma_{ij}+\tfrac12As_{ij}
+           +\tfrac12(e-hA-\sigma_{kk})\delta_{ij}+\cdots .
+\end{align*}
+这里 $T^{0i}_{(3)}$ 是 $T^{0i}$ 的三阶项。在 $R_{0i}$、$R_{ij}$ 的场方程中，此次只需 $S_{0i}$、$S_{ij}$ 的首项。
 
-上述二体方程可作两个直接检验。先令轨道为圆，$\dot r=0$、$v=r\Omega$，再在已乘 $1/c^2$ 的项中以 $v^2=Gm/r$ 代入。得到谐和坐标中的圆轨道定律 $\Omega^2=(Gm/r^3)[1-(3-\eta)Gm/(rc^2)]+O(c^{-4})$。它显示同样的质量组合如何从 Newton 势进入速度修正。但 $r$ 是坐标间距，单把 $r$ 的修正叫作观测到的轨道收缩还没有物理意义。
+% 黄式 (3.12.32)–(3.12.45)。Weinberg §9.1 后半及 §9.2。
+\subsection{三个势与运动的钟}\label{sec:pn-three}
 
-令 $\mu=m_1m_2/m$，并以单位约化质量表示能量。产生上述运动的一种 1PN 相对拉氏量为
+现在解反迹场方程。记 $s=|\bm x-\bm x'|$，对任意源密度 $f$ 定义 $\mathcal I[f]=G\int f(t,\bm x')\,\d^3x'/s$。最低两个势为 $U=\mathcal I[\rho_0]$、$V_i=\mathcal I[j_i]$。因 $\nabla^2\mathcal I[f]=-4\pi G f$，在 $R_{\mu\nu}=8\pi G S_{\mu\nu}/c^4$ 中分别取 $00,ij$ 的二阶及 $0i$ 的三阶，衰减解即为 $h=2U/c^2$、$s_{ij}=h\delta_{ij}$、$b_i=-4V_i/c^3$。此时空间谐和条件自动满足，时间条件化为 $\dot U+\bm\nabla\cdot\bm V=0$。对它取 Laplace 算符，所得正是 $-4\pi G(\dot\rho_0+\p_i j_i)=0$。孤立边界排除了附加的调和函数。
+
+四阶时间方程还含有 $|\bm\nabla U|^2$。用 $2|\bm\nabla U|^2=\nabla^2(U^2)-2U\nabla^2 U$，可将非线性部分抽出，置 $k=2(Q-U^2)/c^4$。余下的方程及其近区解为
 \begin{align}
- \frac{L}{\mu}={}&\frac{v^2}{2}+\frac{Gm}{r}
- +\frac{1}{c^2}\left\{\frac{1-3\eta}{8}v^4
- +\frac{Gm}{2r}\left[(3+\eta)v^2+\eta\dot r^2-\frac{Gm}{r}\right]\right\}
- +O(c^{-4}).\label{eq:exp-rel-L}
+ \nabla^2Q&=\ddot U-4\pi G(e+\sigma_{ii}),&
+ Q&=\mathcal I[e+\sigma_{ii}]+\tfrac12\ddot X,\qquad
+ X=G\int\rho_0(t,\bm x')s\,\d^3x'.\label{eq:pn-Q}
 \end{align}
-时间平移给出 $E=\bm v\cdot\p L/\p\bm v-L$。求 $E$ 时，齐四次的速度项要乘 $3$，齐二次项的系数不变，无速度的项则变号。因而圆轨道的结合能（已扣除静能）可用可观测的 $\Omega$ 来写。取 $x=(Gm\Omega/c^3)^{2/3}$，消去 $r$ 后即得
-\[
- \frac{E}{\mu c^2}=-\frac{x}{2}
-            \left[1-\left(\frac34+\frac{\eta}{12}\right)x+O(x^2)\right].
-\]
-改用另一种径向坐标，$\Omega(r)$ 和 $E(r)$ 都能改变，$E(\Omega)$ 却不变。后面由辐射功率求引力波相位时正需要这种形式，无须另约定远处观者怎样“看见”二星间距。
+这是因为 $\nabla^2s=2/s$，故 $\nabla^2X=2U$。还可直接展开推迟核。$\mathcal I[\rho_0]$ 的一阶推迟改正为 $-(G/c)\d(\int\rho_0\,\d^3x')/\d t$，孤立系统的总质量在此阶守恒，故为零。二阶改正为 $\ddot X/(2c^2)$。$X$ 本身在远处随 $r$ 增长，进入近区度规的却是它的时间导数。至此，任意慢源的谐和度规可写为
+\begin{equation}\label{eq:pn-harmonic}
+ \begin{aligned}
+ g_{00}&=-1+\frac{2U}{c^2}+\frac{2(Q-U^2)}{c^4}+O(c^{-6}),\\
+ g_{0i}&=-\frac{4V_i}{c^3}+O(c^{-5}),\qquad
+ g_{ij}=\left(1+\frac{2U}{c^2}\right)\delta_{ij}+O(c^{-4}).
+ \end{aligned}
+\end{equation}
+若用 Weinberg 的几何单位，这三个势分别是 $\phi=-U$、$\bm\zeta=-4\bm V$、$\psi=-Q$。下节的 $\psi$ 则专指标准 PPN 坐标中的标量势。静止球体外 $\bm V=0$，但星内 $e+\sigma_{ii}$ 仍可给 $Q$ 一个 $1/r$ 项。用外部轨道测得的质量吸收此项后，$g_{00}$ 的显式二次项才只剩 $-2U^2/c^4$。均匀流体球的压强、内能与结合能怎样合成这一质量，见 \S\ref{sec:pn-binding}。
 
-再看离心率不为零的轨道。设半通径 $p=a(1-e^2)$、真近点角 $f$、单位约化质量的轨道角动量 $h=\sqrt{Gmp}$。以未扰动椭圆作积分路径，则 $r=p/(1+e\cos f)$、$\dot r=(h/p)e\sin f$、$r^2\dot f=h$。近心点方向就是离心率矢量 $\bm e=\bm v\times(\bm x\times\bm v)/(Gm)-\bm n$ 的方向。对 $\bm e$ 求导，径向、顺行扰动加速度 $A_R,A_T$ 给出一周的方向改变量
+考虑在场中运动的钟。令 $\bm v=\d\bm x/\d t$，将式 \eqref{eq:pn-harmonic} 代入线元，按 $c^{-1}$ 展开。扣去静能后的单位质量拉氏量 $\ell=c^2(1-\d\tau/\d t)$ 为
+\begin{equation}\label{eq:pn-test-L}
+ \ell=\frac{v^2}{2}+U+\frac{1}{c^2}
+   \left(\frac{v^4}{8}+\frac32Uv^2-\frac12 U^2+Q-4\bm v\cdot\bm V\right)
+   +O(c^{-4}).
+\end{equation}
+地面钟和卫星钟相比较，势与速度在 $\d\tau/\d t$ 中同阶，地面处 $U$ 较大，卫星的 $v^2/2$ 通常较大，两项对钟速差的贡献可有相反的符号。若用电磁信号比钟，还须另算光路。对自由下落的钟，时间测地线还给 $\d\ln(\d t/\d\tau)/\d t=(\p_t U+2\bm v\cdot\bm\nabla U)/c^2+O(c^{-4})$。其中一个 $\bm v\cdot\bm\nabla U$ 来自沿轨道求势的导数，另一个来自动能随 Newton 加速度的改变。
+
+对质点用式 \eqref{eq:pn-test-L} 作变分，$D_t=\p_t+\bm v\cdot\bm\nabla$ 沿轨道作用于势，保留至 1PN 得
+\begin{align}
+ \dot{\bm v}={}&\bm\nabla U+\frac{1}{c^2}\big\{
+ (v^2-4U)\bm\nabla U+\bm\nabla Q+4\p_t\bm V
+ -4\bm v\times(\bm\nabla\times\bm V)\nonumber\\[-2pt]
+ &\hspace{37mm}-\bm v(3\dot U+4\bm v\cdot\bm\nabla U)\big\}+O(c^{-4}).
+ \label{eq:pn-test-a}
+\end{align}
+式中 $\dot U=\p_tU$ 表示场点固定。只留最低阶，$U=GM/r$ 给出 $\dot{\bm v}=-GM\bm n/r^2$，$\bm n=\bm x/r$，方向指向场源。$\bm V$ 的时间导数作用于瞬时静止的粒子，旋度则乘以粒子速度。后文式 \eqref{eq:pn-general-motion} 将这两种作用推广到一般 PPN 度规。
+
+光子的速度在零阶就是 $c$，须回到零测地线。记 $\bm u=\d\bm x/\d t$、$\bm n=\bm u/|\bm u|$。零线元给出 $|\bm u|/c=1-2U/c^2+O(\epsilon^{3/2})$。在式 \eqref{eq:pn-coordinate-geo} 中只取场的二阶项，得横纵两向的坐标加速度 $\dot{\bm u}=2\bm\nabla U-4\bm n(\bm n\cdot\bm\nabla U)$。其纵向分量恰为坐标光速沿程的改变量。以 $\ell_{\rm ray}$ 表示坐标弧长，横向分量给 $\d\bm n/\d\ell_{\rm ray}=2[\bm\nabla U-\bm n(\bm n\cdot\bm\nabla U)]/c^2$。两个固定端点的积分及与时延的关系见 \S\ref{sec:pn-light}，球对称场的精确测地线见 \hyperlink{subsection.2.2.3}{\S\,2.2.3}。
+
+% Weinberg §§9.3、9.8。热流体所需的额外联络见式 (9.1.73)–(9.1.75)。
+\subsection{物质的守恒与逐次解法}\label{sec:pn-matter}
+
+场作用于源，源又决定场。为看清求解的次序，先不指定物质模型。将 \S\ref{sec:Einstein} 的 $\cd_\mu T^{\mu\nu}=0$ 按阶分开，最低两式为 $\dot\rho_0+\p_i j_i=0$、$\dot j_i+\p_j\sigma_{ij}=\rho_0 U_{,i}$。前式已保证谐和条件，后式是 Newton 引力下的动量平衡。写 $T^{0i}=cj_i+F_i/c+\cdots$、$T^{ij}=\sigma_{ij}+\Sigma_{ij}/c^2+\cdots$，将同一守恒方程再算一阶，得
+\begin{align}
+ \dot e+\p_iF_i={}&-\rho_0\dot U,\nonumber\\
+ \dot F_i+\p_j\Sigma_{ij}={}&
+ \rho_0[\p_i(Q-2U^2)+4\dot V_i]+(e+\sigma_{kk})U_{,i}
+ -4\sigma_{ij}U_{,j}\nonumber\\[-2pt]
+ &+4j_j(\p_jV_i-\p_iV_j)-4j_i\dot U .\label{eq:pn-matter-balance}
+\end{align}
+可用时间方程核对符号。$\sqrt{-g}=1+2U/c^2+O(c^{-4})$，体积因子对能流给出的 $2j_iU_{,i}$ 被 $\Gamma^0{}_{0i}$ 项抵消，余下 $-\rho_0\dot U$。这里守恒的是物质的协变能动量。在时变的外场中，物质的坐标能量本身可以改变。逐阶求系数时，$F_i,\Sigma_{ij}$ 也包括低阶源随轨道修正产生的改变量。若用未展开的密度和速度作未知量，应将相邻两阶的守恒方程相加。两种写法都只需上一步的场。
+
+以只有引力相互作用的粒子为例。把 \S\ref{sec:Einstein} 的点粒子能动张量在 $t=\text{常数}$ 面上展开，令 $\delta_A=\delta^3(\bm x-\bm x_A)$，则
 \[
+ \rho_0=\sum_A m_A\delta_A,\quad j_i=\sum_A m_A v_A^i\delta_A,\quad
+ \sigma_{ij}=\sum_A m_A v_A^iv_A^j\delta_A,\quad
+ e=\sum_A m_A(\tfrac12v_A^2-U_A)\delta_A .
+\]
+最后一式的 $-U_A$ 来自 $(\d t/\d\tau_A)/\sqrt{-g}$，$U_A$ 只计其它天体在 $A$ 处产生的势。由 $\p_t\delta_A=-v_A^i\p_i\delta_A$，质量方程恒满足，动量方程则逐体给 $\dot{\bm v}_A=\bm\nabla U_{\rm ext}(\bm x_A)$。局域弹性碰撞可用碰撞前后的总能动量匹配。无碰撞时，先解 Newton 多体问题，用所得位置和速度构成 $j_i,e,\sigma_{ij}$，再由式 \eqref{eq:pn-Q} 求 $Q$，将 $Q,\bm V$ 代回式 \eqref{eq:pn-test-a} 更新轨道。点源的自场只在取外场时排除。每个天体自身的结合能已计入它的质量。对有限体先积分再取单极极限，见 \S\ref{sec:pn-finite}。
+
+若以流体描述有大小的天体，月球的 Newton 潮汐即可超过地球场的 1PN 修正。沿用 \hyperlink{subsection.1.2.3}{\S\,1.2.3} 的理想流体张量与粒子数流，$\rho$ 是固有静质量密度，$\mathcal E=\rho(c^2+\Pi)$ 是共动能量密度。取 $u^\mu=\d x^\mu/\d\tau$、$D_t=\p_t+v^j\p_j$，则 $u^i=v^iu^0/c$。\textbf{守恒密度} $\rho_*=\rho\sqrt{-g}\,u^0/c$ 满足 $\dot\rho_*+\bm\nabla\cdot(\rho_*\bm v)=0$，随流体元运动的 $\int\rho_*\,\d^3x$ 恰为重子质量。若以 $\rho_0=\rho_*$ 定义 $U$，由钟速及体积因子有 $\rho_*/\rho=1+(v^2/2+3U)/c^2+O(c^{-4})$。于是
+\[
+ j_i=\rho_*v_i,\qquad \sigma_{ij}=\rho_*v_iv_j+p\delta_{ij},\qquad
+ e=\rho_*(\Pi+v^2/2-U).
+\]
+这使式 \eqref{eq:pn-Q} 的瞬时源成为 $\rho_*(\Pi+3v^2/2-U)+3p$。若改以固有密度定义势，$2U/c^2$ 自身要补上一项四阶改正，两种密度不能只换其一。理想流体的全部 $F_i,\Sigma_{ij}$ 由 \S\ref{sec:pn-source-stress} 的分量式取 $\gamma=1$ 即得。
+
+冷的简并流体可取单参数状态方程 $p=p(\mathcal E)$。先以连续性方程和 $\rho D_t\bm v=\rho\bm\nabla U-\bm\nabla p$ 求 Newton 解，按该状态方程更新各势的源。具体令 $d=\mathcal E/c^2$、$W=d+[p+d(v^2+2U)]/c^2$。此时 $T^{00}/c^2=W-p/c^2$、$T^{0i}/c=Wv^i$，动量通量为 $Wv^iv^j+p(1-2U/c^2)\delta_{ij}$，各留到其首个修正。将能量的两阶相加，便有 $\p_t(W-p/c^2)+\bm\nabla\cdot(W\bm v)=-d\dot U/c^2$。将同一动量通量代入式 \eqref{eq:pn-matter-balance} 的空间方程并加上 Newton 项，即可推进 $\bm v$。等价的沿流线写法见式 \eqref{eq:exp-fluid-p}，其中取 $\gamma=1$、$B_i=-4V_i$、$K=2(Q-U^2)$，即回到这里的谐和坐标。
+
+温度若是独立变量，$p=p(\rho,\Pi)$，还需求热能。为从时间方程中扣去重子静能，置 $E_{\rm th}=T^{00}-c\rho u^0$、$F^i_{\rm th}=cT^{i0}-c^2\rho u^i$。前者含有扣除静能后的动能与引力项，并非单指 $\rho\Pi$。将能量守恒减去 $c^2$ 倍的重子守恒，得
+\[
+ \p_t(\sqrt{-g}\,E_{\rm th})+\p_i(\sqrt{-g}\,F^i_{\rm th})
+ =-c\sqrt{-g}\,\Gamma^0{}_{\alpha\beta}T^{\alpha\beta}.
+\]
+热能相对静能小两阶。故在 Newton 步，连续、动量、去静能的时间方程分别留到速度的一、二、三次，在 1PN 步分别留到三、四、五次。为求右端，除前面的联络外只须补上
+\[
+ (\Gamma^0{}_{00})_{[5]}=-\tfrac12(k_{,0}+h h_{,0}+b_i h_{,i}),\qquad
+ (\Gamma^0{}_{0i})_{[4]}=-\tfrac12(k_{,i}+h h_{,i}).
+\]
+$\Gamma^0{}_{ij}$ 乘以本已二阶的应力，取三阶即够。配上状态方程及重子守恒，各步的未知量与独立方程数相合。无黏绝热时，沿流线的热方程也可用 $D_t\Pi=pD_t\rho/\rho^2$ 表示。
+
+% Weinberg §9.4。
+\subsection{有限源的外场}\label{sec:pn-source-moments}
+
+设物质限于半径 $b$ 内，场点在源外近区 $b\ll r\ll c/\Omega$。令 $\bm n=\bm x/r$，则 $1/|\bm x-\bm x'|=1/r+\bm n\cdot\bm x'/r^2+O(b^2/r^3)$。任一紧支集密度 $s$ 的势，前两项只取决于单极 $M[s]=\int s\,\d^3x$ 与偶极 $\bm D[s]=\int\bm x s\,\d^3x$。例如 $U$ 的两矩由 $\rho_0$ 给出。矢量势各分量也可这样展开，
+\[
+ V_i=\frac{GP_i}{r}+\frac{G n_j}{r^2}\int x'^j j_i'\,\d^3x'+O(r^{-3}),
+ \qquad \bm P=\int\bm j\,\d^3x .
+\]
+连续性方程给出 $\dot M[\rho_0]=0$、$\dot{\bm D}[\rho_0]=\bm P$。源定常时 $\bm P=0$，对 $\int x^ix^j\rho_0\,\d^3x$ 求导又知流的一次矩是反对称的。它的三个分量构成自转角动量 $\bm J=\int\bm x\times\bm j\,\d^3x$，故 $\bm V=G\bm J\times\bm x/(2r^3)+O(r^{-3})$。质量偶极取决于原点，质心静系中的自转偶极却不能用平移消去。
+
+在 $g_{00}$ 中可将 $U+Q/c^2$ 一起作多极展开，因为 $U^2$ 中再作这一替换已超出 1PN。其紧支集源为 $s=\rho_0+(e+\sigma_{kk})/c^2$。若源定常，保留到偶极阶，标量外场可写为 $G M[s]/|\bm x-\bm D[s]/M[s]|$。故外部质量含能量与应力的修正，将原点移至该有效质量的中心即可消去标量偶极。源随时间改变时，还须加上 $\ddot X/(2c^2)$。此项可直接将 $|\bm x-\bm x'|=r-\bm n\cdot\bm x'+[x'^2-(\bm n\cdot\bm x')^2]/(2r)+\cdots$ 代入 $X$ 后求导。孤立源的总质量守恒、质心匀速，故头两项的二阶时间导数为零。记 $z=\bm n\cdot\bm x'$，则 $X$ 在 $1/r$、$1/r^2$ 阶所取的矩分别为 $\int\rho_0'(x'^2-z^2)\,\d^3x'$ 和 $\int\rho_0' z(x'^2-z^2)\,\d^3x'$，系数各为 $G/2$。因此即使只读 $1/r$ 项，随时间变化的二阶矩也会出现。
+
+对球对称的标量源，角平均 $\langle1/|\bm x-\bm x'|\rangle_{\bm n'}=1/\max(r,r')$。因而定常球体的标量外场直至表面都只有单极。谐和半径 $r$ 与面积半径在 Schwarzschild 外场中相差 $GM/c^2$，据此可用\hyperlink{section.2.1}{\S\,2.1} 的精确解核对 $g_{00}$ 中的平方项。即使球体径向脉动，其球对称真空外部仍由该节的 Birkhoff 定理决定。
+
+设球体各层以角速度 $\bm\omega(r')$ 缓慢转动，保留转速的一次项，则 $\bm j'=\rho_0(r')\bm\omega(r')\times\bm x'$。用 $\langle\bm x'/|\bm x-\bm x'|\rangle_{\bm n'}=\bm x r'^2/[3\max(r,r')^3]$ 积分，有
+\[
+ \bm V(\bm x)=\frac{G}{3}\!\int\!
+ \frac{r'^2\,\bm\omega(r')\times\bm x}{\max(r,r')^3}\,\d m',
+ \qquad
+ \bm J=\frac23\int r'^2\bm\omega(r')\,\d m',\qquad
+ \d m'=4\pi\rho_0(r')r'^2\d r'.
+\]
+所以即使表面与内层的转速不同，整个球外区域的 $\bm V$ 都由一个 $\bm J$ 给定。若物质只在壳层上，空腔内则有 $\bm V=(G/3)[\int(\bm\omega/r')\,\d m']\times\bm x$，其旋度处处相同。
+
+% Weinberg §9.5。Icarus 数值例据黄书第 3 章习题 8。
+\subsection{二体运动与近心点}\label{sec:pn-peri}
+
+两体质量为 $m_1,m_2$，记 $m=m_1+m_2$、$\mu=m_1m_2/m$、$\eta=\mu/m$。以 $\bm x=\bm x_1-\bm x_2$ 为相对位置，令 $r=|\bm x|$、$\bm n=\bm x/r$、$\bm v=\dot{\bm x}$、$\dot r=\bm n\cdot\bm v$。Einstein、Infeld 与 Hoffmann (EIH) 原从天体周围的真空场方程反求运动。这种边界积分与流体算法的关系见 \S\ref{sec:pn-matching}。在质心谐和坐标中可直接写相对拉氏量。将式 \eqref{eq:exp-nbody-lag} 取广义相对论的参数并去掉质心运动，得
+\begin{equation}\label{eq:exp-rel-L}
+ \frac{L}{\mu}=\frac{v^2}{2}+\frac{Gm}{r}
+ +\frac{1}{c^2}\left\{\frac{1-3\eta}{8}v^4+
+ \frac{Gm}{2r}\left[(3+\eta)v^2+\eta\dot r^2-\frac{Gm}{r}\right]\right\}
+ +O(c^{-4}).
+\end{equation}
+变分后，式 \eqref{eq:g3-relative-ppn} 中乘 $Gm/r,v^2,\dot r^2,\dot r\bm v$ 的四个系数依其记号为 $A=4+2\eta$、$B=1+3\eta$、$C=3\eta/2$、$D=4-2\eta$。$\eta\to0$ 还原单粒子方程。对圆轨道，1PN 项中可用 $v^2=Gm/r$，故 $\Omega^2=(Gm/r^3)[1-(3-\eta)Gm/(rc^2)]$。由时间平移守恒，将此式代入 $E=\bm v\cdot\p L/\p\bm v-L$，用 $x=(Gm\Omega/c^3)^{2/3}$ 消去 $r$，所得结合能的首项为 $-\mu c^2 x/2$，其 1PN 相对修正为 $-(3/4+\eta/12)x$。半径随坐标选择而变，$E(\Omega)$ 可直接与波的能流联用。高一阶的结果见 \S\ref{sec:pn-wave-energy}。
+
+偏心轨道可用 \textbf{Runge--Lenz 矢量}的方向标记近心点。令 $\bm h=\bm x\times\bm v$、$\bm e=\bm v\times\bm h/(Gm)-\bm n$。在 Newton 椭圆上两者均为常矢量。若 $\bm A$ 为扰动加速度，则 $Gm\dot{\bm e}=\bm A\times\bm h+\bm v\times(\bm x\times\bm A)$。令 $p=a(1-e^2)$、$h=\sqrt{Gmp}$，在未扰动椭圆上以真近点角 $f$ 作参数，有 $r=p/(1+e\cos f)$、$\dot r=he\sin f/p$、$r^2\dot f=h$。将 $\dot{\bm e}$ 投影到面内垂直于 $\bm e$ 的方向，再沿一周积分，即得
+\begin{equation}\label{eq:pn-apsis-integral}
  \Delta\varpi=\frac{1}{eGm}\int_0^{2\pi}r^2
  \left[-A_R\cos f+A_T(1+r/p)\sin f\right]\d f .
-\]
-这里 $A_R,A_T$ 只取非 Newton 部分。二体方程中 $\dot r\,\bm v$ 在径向投影另给一个 $\dot r^2$，故
+\end{equation}
+其中 $A_R,A_T$ 是 $\bm A$ 的径向与顺行分量。由二体方程，
 \begin{align*}
  \frac{r^2c^2}{Gm}A_R&=(4+2\eta)\frac{Gm}{r}-(1+3\eta)v^2
                               +(4-\eta/2)\dot r^2,\\
  \frac{r^2c^2}{Gm}A_T&=(4-2\eta)\dot r\,h/r .
 \end{align*}
-代入积分，径向项给 $-(2-4\eta)\pi Gm/(pc^2)$，顺行项给 $(8-4\eta)\pi Gm/(pc^2)$。相加后恰好消去质量比，得到前述 $6\pi Gm/(pc^2)$。这也说明为何从测试粒子推得的进动角在此阶仍能用于双星，而逐点比较两个问题的加速度却不会相同。对严格圆轨道，近心点的方位没有定义，应取小离心率极限，比较径向微振动频率与绕转频率。
+两项给出的进动分别为 $-(2-4\eta)\pi Gm/(pc^2)$ 和 $(8-4\eta)\pi Gm/(pc^2)$，相加后质量比消去。故 \hyperlink{subsection.2.2.2}{\S\,2.2.2} 的每周进动 $6\pi Gm/(pc^2)$ 对质量可比的双星仍成立。作一数值检验。小行星 Icarus 的 $a\simeq1.61\times10^8\ {\rm km}$、$e\simeq0.827$，每世纪约绕日 $89$ 周，得每世纪约 $10.0''$，可与早期测值 $(9.8\pm0.8)''$ 比较。严格圆轨道没有近心点方向，其小偏心率极限应理解为径向振动与绕转频率之差。
 
-\subsection{参数化后 Newton 形式}
+Runge--Lenz 矢量在式 \eqref{eq:pn-apsis-integral} 中的一阶变化对扰动加速度是线性的。若干微扰的一周进动可分别计算再相加。以太阳角动量 $\bm J_\odot$ 为例，定常矢量势给试验粒子的附加加速度为 $\bm A_J=\frac{2G}{c^2r^3}\,\bm v\times[\bm J_\odot-3\bm n(\bm n\cdot\bm J_\odot)]$。取顺行赤道轨道，$\bm J_\odot$ 沿轨道法线。此时 $A_R=2GJ_\odot h/(c^2r^4)$，$A_T=-2GJ_\odot\dot r/(c^2r^3)$。代入同一个进动积分，得每周 $\Delta\varpi_J=-8\pi GJ_\odot/[c^2\sqrt{GM_\odot}\,p^{3/2}]$，符号与球单极进动相反。取早期估值 $J_\odot=1.7\times10^{41}\,\mathrm{kg\,m^2\,s^{-1}}$、水星半通径 $5.55\times10^7\,\mathrm{km}$，得每周 $-2.1\times10^{-11}$ 弧度，约合每世纪 $-0.0018$ 角秒。即使将这项角动量放大 $25$ 倍，也只有每世纪约 $0.04$ 角秒。还有太阳扁率、转动动能对 $Q$ 的各向异性贡献，以及其余行星摄动的 1PN 修正。实际历表怎样分离它们，见 \S\ref{sec:pn-ephemeris}。
 
-PN 是在给定引力理论内逐阶求解，\textbf{参数化后 Newton 形式}(PPN formalism) 则把一类度规引力理论写成统一的弱场参数族，以便直接比较实验\cite{Will-thesis}。对于静态球对称源，标准 PPN 坐标中的有关部分为
+% Weinberg §§9.6–9.7。
+\subsection{陀螺的轴与旋转球壳}\label{sec:pn-transport-shell}
+
+如何将\hyperlink{subsection.1.3.3}{\S\,1.3.3} 的输运律化成相对于远星的角速度？Schiff 沿用 Papapetrou 和 Fock 的方法，先求有体积陀螺的运动再取小体极限。若忽略自旋对轨道的反作用，亦可直接将陀螺视为点状探针。以 $S_\mu$ 表示自旋协矢，其三个坐标分量记为 $\bm s=(S_i)$。正交条件给 $S_0=-\bm v\cdot\bm s/c$。于是平行移动所保持的平方长度，至相对 $c^{-2}$ 阶为 $(1-2U/c^2)s^2-(\bm v\cdot\bm s)^2/c^2$。引入 $\bm{\mathcal S}=\left(1-\frac{U}{c^2}\right)\bm s-\frac{\bm v(\bm v\cdot\bm s)}{2c^2}$，其欧氏长度正是陀螺静系中的自旋长度。对上式求导，已乘 $c^{-2}$ 的加速度用 $\dot{\bm v}=\bm\nabla U$。将 $\d S_i/\d t=\Gamma^\alpha{}_{i\nu} S_\alpha\,\d x^\nu/\d t$ 代入，$\bm s\,\d U/\d t$ 项相消，余下的反对称部分为
 \[
-    g_{00}=-1+\frac{2U}{c^2}-2\beta\frac{U^2}{c^4}+O(c^{-6}),\qquad
-    g_{ij}=\left(1+2\gamma\frac{U}{c^2}\right)\delta_{ij}+O(c^{-4}).
+ \frac{\d\bm{\mathcal S}}{\d t}=\bm\Omega\times\bm{\mathcal S},
+ \qquad \bm\Omega=\frac{1}{c^2}
+ \left(\frac32\bm v\times\bm\nabla U+2\bm\nabla\times\bm V\right).
 \]
-$\gamma$ 衡量单位静质量所产生的空间曲率，$\beta$ 衡量引力场叠加的非线性；广义相对论给出 $\gamma=\beta=1$。其余 PPN 参数描述优选参考系、动量守恒破坏等可能效应，在静态球对称问题中不出现。
+第一项是测地进动，第二项是中心天体自旋与陀螺自旋的耦合，形似原子超精细相互作用。若空间度规的系数改成 $2\gamma U/c^2$，恒长矢量第一项相应改成 $(1-\gamma U/c^2)\bm s$，测地进动系数便由 $3/2$ 变为 $\gamma+1/2$。将球外的 $\bm V$ 代入并沿椭圆平均，结果及两种角速度的方向见 \S\ref{sec:pn-gyro-observe}。
 
-PPN 近日点进动为
+Pugh 与 Schiff 建议用卫星携带陀螺。用望远镜让导星的像落在随轴运动的光电探测器上，实际量的是入射光与转轴的夹角。令 $u$ 为陀螺的单位切矢（$u\cdot u=-1$），$k$ 为光的未来指向波矢，则 $\cos\theta=(S\cdot k)/[\sqrt{S\cdot S}(-u\cdot k)]$，因为在陀螺本身的正交标架中 $S^{\hat0}=0$。在地心系设远方光线的传播方向为 $\bm n_\infty$，在接收点静止的正交标架中其方向为 $\bm n_\infty+\delta\bm n$。其中 $\delta\bm n\perp\bm n_\infty$ 由光线方程给出，量级为 $U/c^2$。令 $\bm b=\bm v/c$、$z=\bm b\cdot\bm n_\infty$。在这个正交标架与陀螺静系间作瞬时 Lorentz 推进，将上面的不变量展开得
 \[
-    \Delta\phi_{\rm prec}=\frac{6\pi GM}{a(1-e^2)c^2}
-    \left(\frac{2+2\gamma-\beta}{3}\right)+O(c^{-4}).
+ \cos\theta=\hat{\bm{\mathcal S}}\cdot\!
+ \left[\bm n_\infty+\delta\bm n
+       +z\bm n_\infty-\bm b+
+       (z^2-\tfrac12 b^2)\bm n_\infty-\tfrac12 z\bm b\right]
+ + O\bigl((v/c)^3\bigr).
 \]
-因此近日点进动约束 $2+2\gamma-\beta$，弱场光线偏折 $\Delta\theta=2(1+\gamma)GM/(bc^2)$ 与 Shapiro 延迟则主要约束 $\gamma$。不同实验测量不同参数组合，才能排除只在某一观测上偶然符合广义相对论的理论。
+这里光的局域方向已归一化。若从坐标波矢出发，静止标架的空间尺度与频率都须换算，才能得到同一个 $\delta\bm n$。括号内关于 $\bm b$ 的一次、二次项是相应阶的光行差。地球近旁，单周内的偏折、二阶光行差与测地进动均为 $O(v^2/c^2)$，逐周分辨它们需约 $10^{-10}$ 弧度的角精度。同一轨道位置观测 $N$ 周后，周期修正仍有界，轴的进动却累积至 $O(Nv^2/c^2)$。扣除光行差后，夹角余弦的长期改变即为 $\bm n_\infty\cdot\Delta\hat{\bm{\mathcal S}}$。
 
-\subsection{高阶结构与适用范围}
+取半径 $r$ 的近地圆极轨道，地球单极给出的测地进动约为每年 $8.4(R_\oplus/r)^{5/2}$ 角秒。若初始转轴沿轨道法线，这一项不使转轴偏移，而地球自转给出每年约 $0.055(R_\oplus/r)^3$ 角秒的偏转。在 $r\simeq R_\oplus$ 处二者之比约 $6.5\times10^{-3}$。这是一种只显出自转效应的设想，Gravity Probe B 用导星分辨两种进动的办法见 \S\ref{sec:pn-gyro-guide}。
 
-太阳系轨道的 $GM/(rc^2)$ 约为 $10^{-8}$；水星处约为 $2.5\times10^{-8}$，故 1PN 已给出主导相对论进动。精密历表还须同时拟合太阳多极矩、其他天体摄动、自转引起的 Lense--Thirring 效应及更高 PN 项，这些效应的物理来源不应混为一个“相对论修正”。
+陀螺在自身携带的惯性标架中有固定方向，故上面所得也是该标架相对于远星的转速，与陀螺本身转得多快无关。按 Mach 的想法，周围物质的运动应参与确定惯性系。旋转球壳给这一想法一个可算的例子。空腔内 $U$ 为常数，只有质量流的旋度留下。若薄球壳以同一 $\bm\omega$ 转动，$U=GM/R$，则 $\bm\Omega_{\rm in}=4GM\bm\omega/(3Rc^2)$，整个空腔内的惯性轴均沿壳的转向拖动。若 $GM/(Rc^2)$ 不再很小，还能沿用此式吗？
 
-对非自旋二体，最低几阶保守修正依次为 1PN、2PN 等整数阶；自旋--轨道和自旋--自旋耦合分别从 1.5PN、2PN 开始。引力波带走能量和角动量，使运动方程首次在 2.5PN 出现耗散的\textbf{辐射反作用}(radiation reaction)。紧致双星早期旋近仍可用 PN 理论描述：虽然黑洞或中子星内部并非弱场，外部轨道只要满足 $Gm/(rc^2)\ll1$、$v/c\ll1$，其内部结构在低阶主要吸收到质量和自旋中；潮汐等有限尺度效应在更高阶才显现。
+对于旋转外场，可将\hyperlink{subsection.2.5.2}{\S\,2.5.2} 的 Kerr 解改用渐近直角坐标，与这里的偶极直接比较。令 $m=GM/c^2$、$\bm a=\bm J/(Mc)$、$r=|\bm x|$，取在远处满足 $\varrho/r\to1$ 的根 $\varrho^4-(r^2-a^2)\varrho^2-(\bm a\cdot\bm x)^2=0$。在入射 Kerr--Schild 坐标下，线元为
+\begin{align*}
+ \d s^2&=-c^2\d t^2+\d\bm x^2+
+  \frac{2m\varrho^3}{\varrho^4+(\bm a\cdot\bm x)^2}
+  (c\,\d t+\bm\ell\cdot\d\bm x)^2,\\
+ \bm\ell&=\frac{\varrho\bm x-\bm a\times\bm x+
+ (\bm a\cdot\bm x)\bm a/\varrho}{\varrho^2+a^2}.
+\end{align*}
+上面的四次方程保证 $\bm\ell^2=1$。在远处 $g_{00}=-1+2m/r+O(r^{-2})$，$g_{ij}=\delta_{ij}+2mn_i n_j/r+O(r^{-2})$。混合分量有两项，$g_{0i}=2mn_i/r-2m(\bm a\times\bm n)_i/r^2+O(r^{-3})$。前项为 $2m\p_i\ln r$，来自时间坐标，旋度为零。后项恰是谐和度规的自转偶极。由此读出系统在静系的总动量为零、能量为 $Mc^2$、角动量为 $Mc\bm a$。仅给外部真空解还不能指定壳内的惯性轴，须在壳面匹配内外解。
 
-PN 级数在近区有效，却不能直接一致地延伸到波区；计算引力波时须将近区解与满足无入射辐射条件的远区多极展开匹配。随着双星接近并合，$v/c$ 与 $Gm/(rc^2)$ 不再很小，截断级数逐渐失准，必须改用重求和方法、黑洞微扰或数值相对论。另须区分\textbf{后 Minkowski 展开}(post-Minkowskian expansion)：后者按 $G$ 展开而不要求低速，PN 则按 $1/c$ 展开并允许在每一阶保留引力的非线性。
+Brill 与 Cohen 对自转角速度只留一次项，对质量则保持所有阶。设 $R$ 为壳的各向同性坐标半径，$q=\max(r,R)$，$A=(1-m/2q)/(1+m/2q)$、$B=(1+m/2q)^2$，则
+\[
+ \d s^2=-A^2c^2\d t^2+B^2\bigl[\d r^2+r^2\d\theta^2+
+ r^2\sin^2\theta(\d\phi-\Omega(r)\d t)^2\bigr]+O(\omega^2).
+\]
+在 $r<R$，$A,B,\Omega$ 均为常数。取 $t'=At$、$r'=Br$、$\phi'=\phi-\Omega_{\rm in} t$，即得平直度规。规定无穷远处 $\Omega=0$，外部真空解有 $\Omega(r)\propto[rB(r)]^{-3}$，比例常数由壳面匹配决定。若 $\chi=m/(2R)$，支撑静态薄壳的切向应力与面能量密度之比为 $b_s=\chi/[2(1-\chi)]$。将角动量方程跨越壳面作积分，得
+\[
+ \frac{\Omega_{\rm in}}{\omega}
+ =\left[1+\frac{3(R-m/2)}{4m(1+b_s)}\right]^{-1}
+ =\frac{4\chi(2-\chi)}{(1+\chi)(3-\chi)} .
+\]
+弱场极限给出 $4m/(3R)$。当 $R\to m/2$ 时，壳的面积半径 $R(1+\chi)^2\to2m$，拖曳率趋于壳的转率。这个极限须连同维系薄壳的应力一起求，不能从弱场式外推。\footnote{D.~R.~Brill 与 J.~M.~Cohen，Phys. Rev. \textbf{143} (1966) 1011。这里区分各向同性半径和面积半径。}
 
-例如在极端质量比的情形，测试粒子绕无自转黑洞的圆轨道给出精确的频率--能量关系 $E/(\mu c^2)=(1-2x)/\sqrt{1-3x}-1$。按小 $x$ 展开即得 $-x/2+3x^2/8+\cdots$，与上面取 $\eta\to0$ 相符。这个精确例子还允许倒过来检查误差。在最内稳定圆轨道 $x=1/6$ 处，精确结合能的绝对值为 $1-\sqrt{8/9}$，而只取 Newton 项则为 $1/12$。即使每一项的系数都算对了，拿一个很低阶的截断去预言临近并合的运动，误差仍可观。对偏心双星尤其要检查近心点处的 $v/c$ 和 $Gm/(rc^2)$，用半长轴估计可能太乐观。
+% Weinberg §9.9。
+\subsection{Brans--Dicke 理论中的球体外场}\label{sec:pn-bd}
 
-在精度足以辨别自旋时，还要说明“阶次”相对于什么量。对质量 $m_A$、角动量 $S_A$ 的天体，常固定无量纲自旋 $\chi_A=cS_A/(Gm_A^2)$，再按轨道速度计数。以此约定，领先的自旋--轨道项相对于 Newton 束缚能小 $O(\chi_A x^{3/2})$。若星体本身转得很慢，它还会有一个很小的 $\chi_A$。这样，同称 1.5PN 的项，在紧致双星和行星系统中未必有相近的相对大小。
+取 \S\ref{sec:scalar} 的 Brans--Dicke 场方程，令耦合 $\omega$ 为常数，标量无势。在孤立系统的边界令 $\phi\to\phi_0$，写 $\phi=\phi_0(1+\Psi)$，以 $q=1/(\omega+2)$ 记标量的强度。将 \eqref{eq:BDtrace} 代回度规方程，$R_{\mu\nu}$ 的物质源正比于 $T_{\mu\nu}-(\omega+1)g_{\mu\nu}T/(2\omega+3)$，另有 $\cd_\mu\cd_\nu\Psi/(1+\Psi)$ 与 $\omega\p_\mu\Psi\p_\nu\Psi/(1+\Psi)^2$。迹 $T$ 只取物质的贡献。比较标量及 $00$ 方程的最低阶 Poisson 源，即有 $\Psi=q u+O(c^{-4})$，其中 $u=U/c^2$，势中的 $G$ 由慢质点的加速度或钟速差标定。它与 $1/\phi_0$ 的换算见 \S\ref{sec:pn-bd-parameters}。
+
+现在取\emph{物理度规}的谐和坐标。记 $g_{00}=-1+2u+k$、$g_{ij}=\delta_{ij}+s_{ij}$、$g_{0i}=b_i$，各式只保留 1PN 所需的阶次。沿用 \S\ref{sec:pn-components} 的上指标物质源。令 $K=1-q/2$，逐阶得
+\begin{align*}
+ \nabla^2s_{ij}&=2(1-q)\delta_{ij}\nabla^2u-2q\,u_{,ij},\\
+ \nabla^2 b_i&=\frac{16\pi G}{c^3}Kj_i-2q\,u_{,i0},\\
+ \nabla^2k&=2(1-q)u_{,00}+2s_{ij}u_{,ij}-2(2+q)|\bm\nabla u|^2
+ \\[-2pt]
+ &\quad +\frac{8\pi G}{c^4}\big[(4+q)\rho_0c^2u-e-(1-q)\sigma_{ii}\big].
+\end{align*}
+其中 $u_{,0}^2$ 已是六阶。与 \S\ref{sec:pn-bd-aux} 对照，同一源在辅助度规的谐和坐标中有各向同性的 $g_{ij}$，在这里则多了标量的 Hessian。
+
+设源静止且球对称。取 $Y=X/c^2$，则 $\nabla^2Y=2u$，正则性给出 $Y'(r)=2r^{-2}\int_0^r s^2u(s)\,\d s$。故在球内外皆有 $s_{ij}=2(1-q)u\delta_{ij}-qY_{,ij}$。置 $m=GM/c^2$，球外 $u=m/r$，并以 $mR_e^2=\int_0^\infty[m/s-u(s)]s^2\,\d s$ 定义一个质量矩。被积式只在球内非零。令 $n_i=x_i/r$，在球外积分即得
+\begin{align*}
+ s_{ij}&=u[(2-3q)\delta_{ij}+q n_i n_j]
+       +\frac{2q mR_e^2}{r^3}(\delta_{ij}-3n_i n_j),\\
+ k&=-(2-q)u^2-\frac{2q m^2R_e^2}{r^4}+\frac{D}{r} .
+\end{align*}
+长度 $D$ 由球心正则解在表面的匹配确定。时间度规中的 $1/r$ 项将远处测得的质量长度改为 $m+D/2$。再作 $x'^i=x^i(1+qmR_e^2/r^3)$，空间度规由平直项产生的改正抵消 $r^{-3}$ 项，而 $2m/r$ 改用 $r'$ 表示时正好抵消 $k$ 中的 $r^{-4}$ 项。因此这颗弱自引力球在所求阶次的外部度规只余实测质量。与谐和半径下的球对称展开比较，$n_i n_j$ 的系数是 $(1-\gamma)u$，时间度规二次项是 $-(\gamma-1+2\beta)u^2$，即 $\gamma=1-q$、$\beta=1$。
+
+若球体缓慢转动而质量流定常，$u_{,i0}=0$，矢量势便是广义相对论结果的 $K=(2\omega+3)/(2\omega+4)$ 倍。因此给定相同的实测 $GM$ 和自转角动量，自转引起的陀螺和轨道近心点进动均按此因子改变。正 $\omega$ 时 $K<1$，两种自转效应均较弱。另在外势 $U_{\rm e}$ 中作局域 Cavendish 实验，实验室虽可自由下落，标量的背景值仍是 $\phi_0(1+qU_{\rm e}/c^2)$。固定 $\omega$ 的局域耦合与该值成反比，故两地点测值之差为 $\Delta G_{\rm L}/G=-q\,\Delta U_{\rm e}/c^2$，与 \S\ref{sec:pn-local-g} 的固有距离与支撑力计算相合。取 Weinberg 当时举例所用的 $\omega=6$，仅计地球的势，从远高轨道移到地面，$U_\oplus/c^2\simeq6.9\times10^{-10}$，相对变化约为 $-8.6\times10^{-11}$。同一 $q$ 也乘在弱自引力体的负结合能分数上，给出其被动质量与惯性质量之差，见 \S\ref{sec:pn-sep}。
+
+\subsection{精度与适用范围}
+
+对静止球体，以轨道标定 $GM$ 后，还可分别问单位质量产生多少空间曲率、时间度规中的二次项有多大。标准坐标用 $\gamma,\beta$ 表示这两个系数，广义相对论中均为一。式 \eqref{eq:exp-ppn-all} 给出有质量流及优选系等效应时的推广。近日点进动测 $2+2\gamma-\beta$，星光偏折与 Shapiro 时延测 $1+\gamma$。偏折角和总进动的归一化分别见 \S\ref{sec:pn-light}、\S\ref{sec:pn-ephemeris}。区分各参数须合用不同观测。
+
+非自旋二体的保守动力学先有 1PN、2PN 修正，辐射带走能量与角动量，在相对 Newton 加速度的 2.5PN 阶首次产生\textbf{辐射反作用}。对自旋天体固定 $\chi_A=cS_A/(Gm_A^2)$ 作计数，自旋--轨道和自旋--自旋耦合分别起于 1.5PN、2PN。前者相对 Newton 束缚能为 $O(\chi_A x^{3/2})$，慢转行星的 $\chi_A$ 须按实际自转另估。波的尾项也可使可观测量出现半整数阶，例见 \S\ref{sec:pn-wave-energy}。黑洞或中子星的内部即使不满足弱场条件，其早期双星轨道仍可满足 $x\ll1$。在广义相对论的低阶轨道方程中，星体结构主要归入质量与自旋，有限大小的潮汐效应可用更高阶的矩描述。
+
+误差亦可用精确解估计。在 \hyperlink{subsection.2.2.2}{\S\,2.2.2} 的有效势中取圆轨道条件，得 $E/(\mu c^2)=(1-2x)/\sqrt{1-3x}-1$。其二次项正是前面 $\eta\to0$ 时的 $3x^2/8$。但到最内稳定圆轨道 $x=1/6$，精确结合能的绝对值为 $1-\sqrt{8/9}$，Newton 截断却给 $1/12$。偏心轨道也应在近心点检查场强与速度。接近并合时须借助重求和、黑洞微扰或数值相对论，视质量比及所需精度而定。
 
 \section{PPN 形式}\label{sec:exp-ppn}
 
-设已由行星轨道标定太阳的 $GM$，再用一束掠日光测量空间曲率。上节的静止球体度规说明，为何二者对同一质量的响应仍由独立系数 $\gamma$ 计量。$\beta$ 的定义还须指明径向坐标。若在面积半径下直接读取 $g_{00}$ 的二次项，与各向同性半径下不会得到同一数，见 \hyperlink{section.2.1}{\S\,2.1}。
+设已由行星轨道标定太阳的 $GM$，再用一束掠日光测量空间曲率。\S\ref{sec:exp-pn} 的静止球体展开说明，为何二者对同一质量的响应仍由独立系数 $\gamma$ 计量。$\beta$ 的定义还须指明径向坐标。若在面积半径下直接读取 $g_{00}$ 的二次项，与各向同性半径下不会得到同一数，见 \hyperlink{section.2.1}{\S\,2.1}。
 
-当质量分布会运动、形变时，可把度规写成一组共同的势，而将理论间的差别留在各势的系数中，称\textbf{参数化后 Newton 形式}(parametrized post-Newtonian formalism, PPN)。如何选势？先按阶次，再按空间旋转下的性质选取。譬如 $g_{00}$ 在 $c^{-4}$ 阶需要量纲为速度四次方的标量，$g_{0i}$ 在 $c^{-3}$ 阶则需要矢量。记 $P[f]=G\int\rho_*'f'\,\d[3]{x'}/|\bm x-\bm x'|$，撇表示在源点取值，因而 $U=P[1]$、$V_i=P[v_i]$。若 $\Pi$ 是单位静质量的内能，$p$ 是压强，便有四个标量势 $\Phi_1=P[v^2]$、$\Phi_2=P[U]$、$\Phi_3=P[\Pi]$、$\Phi_4=P[p/\rho_*]$。另记 $X=G\int\rho_*'|\bm x-\bm x'|\,\d[3]{x'}$，满足 $\nabla^2X=2U$。于是 $\p_i\dot X$ 也是所需阶次的矢量。
+当质量分布会运动、形变时，可把度规写成一组共同的势，而将理论间的差别留在各势的系数中，称\textbf{参数化后 Newton 形式}(parametrized post-Newtonian formalism, PPN)。如何选势？先按阶次，再按空间旋转下的性质选取。譬如 $g_{00}$ 在 $c^{-4}$ 阶需要量纲为速度四次方的标量，$g_{0i}$ 在 $c^{-3}$ 阶则需要矢量。沿用 \S\ref{sec:pn-three} 的势积分，简记 $P[f]=\mathcal I[\rho_* f]$，则 $U=P[1]$、$V_i=P[v_i]$。若 $\Pi$ 是单位静质量的内能，$p$ 是压强，便有四个标量势 $\Phi_1=P[v^2]$、$\Phi_2=P[U]$、$\Phi_3=P[\Pi]$、$\Phi_4=P[p/\rho_*]$。式 \eqref{eq:pn-Q} 的超势也采用 $\rho_0=\rho_*$。于是 $\p_i\dot X$ 也是所需阶次的矢量。
 
 先取只有 $\gamma,\beta$ 两个自由参数的一族理论。在标准 PPN 规范中，运动流体产生的度规为
 \begin{align*}
@@ -819,7 +939,7 @@ $P^0$ 中 $-\rho_*U/2$ 是总结合能的密度写法，它的积分与把密度
 
 怎样从场方程读出 PPN 参数？先找出物质钟尺所测的度规，选取离系统足够远而仍可忽略宇宙演化的区域作边界。令此处度规趋于 Minkowski 度规，其它引力场则取各自的背景值。由静止测试粒子的加速度确定 $g_{00}$ 中 $1/r$ 项的系数，把它归入实测的 $G$。然后逐阶解出 $g_{ij},g_{0i},g_{00}$，转到同一 PPN 规范，逐项比较即可。
 
-\subsection{边界归一化与场方程的逐级比较}
+\subsection{边界归一化与场方程的逐级比较}\label{sec:pn-source-stress}
 
 选用什么坐标能让物理度规在边界处取成 Minkowski 形式？若只有一份动力学度规，直接把坐标尺和钟校准即可。若背景还带有不能调节的平直张量，先把背景写成 $\eta_{\mu\nu}$ 后，物理度规的均匀部分通常是 $\operatorname{diag}(-C_0,C_1,C_1,C_1)$，而不是 $\eta_{\mu\nu}$。$C_0,C_1$ 由宇宙的匹配条件给定。令 $\bar t=\sqrt{C_0}\,t$、$\bar{\bm x}=\sqrt{C_1}\,\bm x$，物理度规在新坐标中归一，原来背景张量的分量却一起变了。若在变换后又把背景强定为旧数值，就修改了理论。假设原坐标给 $g_{00}=-C_0+2kU_0$，$U_0=\int\rho_*'\d[3]{x'}/s$ 暂不含 $G$；由于 $\d m_*=\rho_*'\d[3]{x'}$ 不变，$U_0=\sqrt{C_1}\,\bar U_0$。故运动方程 Newton 阶实际读出的常数是 $G_{\rm N}=k\sqrt{C_1}/C_0$。引力作用量中的系数和台秤或轨道测得的 $G$ 至此才可比较。
 
@@ -859,14 +979,14 @@ $\Lambda^{\mu\nu}$ 从 $H\,\p\p H$、$\p H\,\p H$ 等二次项起步。左边用
                           +14|\bm\nabla U|^2,\\
  \square_\eta H^{kk}&=-16\pi(\rho_*v^2+3p)+2|\bm\nabla U|^2 .
 \end{align*}
-例如 $3p$ 来自 $T^{kk}$ 中三个正交方向的应力，$|\bm\nabla U|^2$ 却处处可有，甚至延伸到物质外。后一项看似需要另外定义一个没有紧支集的势。其实由 $\nabla^2U=-4\pi\rho_*$ 及 $\nabla^2\Phi_2=-4\pi\rho_*U$，可写 $|\bm\nabla U|^2=\tfrac12\nabla^2(U^2)-\nabla^2\Phi_2$。这样它在满足既定边界条件的 Poisson 解中只会产生 $U^2/2-\Phi_2$，不再是新未知量。最低阶 $\rho_*$ 的推迟修正则是上文算出的 $\ddot X/2$。合起来得
+例如 $3p$ 来自 $T^{kk}$ 中三个正交方向的应力，$|\bm\nabla U|^2$ 却处处可有，甚至延伸到物质外。后一项看似需要另外定义一个没有紧支集的势。其实由 $\nabla^2U=-4\pi\rho_*$ 及 $\nabla^2\Phi_2=-4\pi\rho_*U$，可写 $|\bm\nabla U|^2=\tfrac12\nabla^2(U^2)-\nabla^2\Phi_2$。这样它在满足既定边界条件的 Poisson 解中只会产生 $U^2/2-\Phi_2$，不再是新未知量。最低阶 $\rho_*$ 的推迟修正则是式 \eqref{eq:pn-Q} 中的 $\ddot X/2$。合起来得
 \begin{align*}
  H^{00}&=4U+7U^2+2\Phi_1-2\Phi_2+4\Phi_3+2\ddot X,\\
  H^{kk}&=U^2+4\Phi_1-2\Phi_2+12\Phi_4 ,
 \end{align*}
 两行只写到所需阶次。代回 $g_{00}$，$U^2$ 的总系数为 $7/2-6+1/2=-2$。这给出另一个不同于球对称解的检验，而且同时得到一般流体的系数 $\psi=\tfrac32\Phi_1-\Phi_2+\Phi_3+3\Phi_4$。这时 $g_{00}$ 还剩 $+\ddot X$。作 $t_{\rm PPN}=t_{\rm harm}-\dot X/2$，它便消失，而 $g_{0i}$ 成为 $-4V_i-\p_i\dot X/2$。与 \eqref{eq:exp-ppn-all} 逐项相比，$\gamma=\beta=1$，余下八个系数皆为零。从这个例子可见，用真空球解可以很快读出两个数，要证明其它各项全无异常，必须允许物质运动、有压强且不具球对称性。以下恢复 $G,c$。
 
-\subsubsection{非线性源的构造与外部质量的核对}
+\subsubsection{非线性源的构造与外部质量的核对}\label{sec:pn-binding}
 
 若要在计算中自行产生这里用到的二阶源，不必为每种物质另写一个引力应力公式。用相同的几何制和谐和坐标，定义四指标量
 $\mathcal H^{\alpha\mu\beta\nu}=\mathfrak g^{\alpha\beta}\mathfrak g^{\mu\nu}
@@ -884,7 +1004,7 @@ $\mathcal H^{\alpha\mu\beta\nu}=\mathfrak g^{\alpha\beta}\mathfrak g^{\mu\nu}
 
 同一个例子还可说明测定参数时要分清哪些量已经被 Kepler 定律吸收。若只改变 $\Phi_3$ 在 $g_{00}$ 中的系数，单个定常球体的 $1/r$ 项仍可通过重新拟合 $GM$ 而符合数据。若让系统内部的能量形式改变，或令不同结合能占比的物体在同一外场自由落体，同一个质量重定义便不能普遍消去差别。实际实验的灵敏度在很大程度上取决于有没有独立的第二种质量比较方法。
 
-\subsection{从物理度规标定引力常数}
+\subsection{从物理度规标定引力常数}\label{sec:pn-bd-parameters}
 
 以 \S\ref{sec:scalar} 的标量-张量理论为例。忽略标量势，使标量场在太阳系尺度上是长程的。远离源处令 $\phi=\phi_0$，记 $\omega_0=\omega(\phi_0)$。由标量场方程，源除了激发度规扰动，还激发一个与质量成正比的标量扰动。依第一章作用量的归一化，Cavendish 实验所测的引力常数为 $G=(2\omega_0+4)/[(2\omega_0+3)\phi_0]$。以此值定义 $U$，才可把空间度规同上节比较。结果为
 \[
@@ -913,7 +1033,7 @@ $\mathcal H^{\alpha\mu\beta\nu}=\mathfrak g^{\alpha\beta}\mathfrak g^{\mu\nu}
 
 若新增的场是单位类时矢量，它的背景值就选出了一个时间方向。以 Einstein-以太理论为例，其 $\gamma=\beta=1$，但 $\alpha_1,\alpha_2$ 一般随矢量场的耦合常数而变。两个理论因而可以给出同样的太阳光线偏折，却给出不同的双星轨道面进动。
 
-\subsection{从一次标量响应到非线性参数}
+\subsection{从一次标量响应到非线性参数}\label{sec:pn-bd-aux}
 
 为看清 $\omega'_0$ 究竟怎样被近日点实验测到，以下用 $G_{\rm N}=c=1$，取标量的背景值为 $\phi_0$、归一化物理标量为 $\phi/\phi_0=1+\Psi$。引入两种不同的量
 \[
@@ -1073,16 +1193,11 @@ $\varepsilon^{\gamma\delta\rho\sigma}$ 为随定向选定的体积张量。若�
 
 \section{PPN 中的运动方程}
 
-\subsection{坐标时与光的传播}
+\subsection{坐标时与光的传播}\label{sec:pn-light}
 
 先看光线。以 $\d\ell=|\d\bm x|$ 表示坐标欧氏线元，$\bm n=\d\bm x/\d\ell$ 表示光线方向。对静止弱场，只保留 $U/c^2$ 的一次项。由 $\d s^2=0$ 得 $c\,\d t=[1+(1+\gamma)U/c^2]\d\ell$。再由零测地线方程，方向的变化为 $\d\bm n/\d\ell=(1+\gamma)\bm\nabla_\perp U/c^2$，其中 $\bm\nabla_\perp U=\bm\nabla U-\bm n(\bm n\cdot\bm\nabla U)$。沿未扰动光路积分，纵向的光行时和横向的偏折都只含 $1+\gamma$。前一式的 $\d\ell/\d t$ 是坐标速率，当地自由落体观者仍测得光速 $c$。
 
-为看清光速式中沿光线和垂直光线的两部分，先将仿射参数 $\lambda$ 换为台站所用的坐标时 $t$。记 $q^\mu=\d x^\mu/\d t$，故 $q^0=c$。将 $\mu=0$ 的测地线方程解出 $\d^2 t/\d\lambda^2$，代回空间分量即得
-\[
- \frac{\d q^i}{\d t}=-\left(\Gamma^i{}_{\mu\nu}
-                  -\frac{q^i}{c}\Gamma^0{}_{\mu\nu}\right)q^\mu q^\nu .
-\]
-第二项来自重选参数。若只将仿射参数的记号直接改成 $t$，连光在静态势中的坐标速率也会算错。在前述各向同性空间度规中，令 $\bm q=|\bm q|\bm n$，则零线元先给出 $|\bm q|=c[1-(1+\gamma)U/c^2]$。把上式投影到与 $\bm n$ 正交的平面，所有平行于 $\bm q$ 的项都消去，便回到方向方程。故沿一条未扰动光路，定时取样的是 $U$ 的积分，量角取样的是横向梯度的积分。这里用了一次迭代。若求二阶偏折，还要把一阶修正过的位置带回梯度，不能只在原直线上再积分一次二阶度规。
+式 \eqref{eq:pn-coordinate-geo} 中沿 $\bm q$ 的一项来自重选参数。若只将仿射参数的记号直接改成 $t$，连光在静态势中的坐标速率也会算错。在前述各向同性空间度规中，令 $\bm q=|\bm q|\bm n$，则零线元先给出 $|\bm q|=c[1-(1+\gamma)U/c^2]$。把上式投影到与 $\bm n$ 正交的平面，所有平行于 $\bm q$ 的项都消去，便回到方向方程。故沿一条未扰动光路，定时取样的是 $U$ 的积分，量角取样的是横向梯度的积分。这里用了一次迭代。若求二阶偏折，还要把一阶修正过的位置带回梯度，不能只在原直线上再积分一次二阶度规。
 
 进一步，给定发射点和接收点，比给定发射方向更接近测距实验。对静态、透明的引力场，定义 $T(\bm x_e,\bm x_r)$ 为连接两点的传播时间。最低非平凡阶有
 \[
@@ -1117,27 +1232,16 @@ $\varepsilon^{\gamma\delta\rho\sigma}$ 为随定向选定的体积张量。若�
 
 \subsection{从度规求联络：光与慢物体要留到哪一项}
 
-有时只想从一份已求得的度规模型生成定轨方程。为避免在每一行都写十个参数，令 $B_i=c^3g_{0i}$ 和 $K=c^4(g_{00}+1-2U/c^2)$ 分别取其最低非平凡阶；它们须用 \eqref{eq:exp-ppn-all} 给出的完整势及优选系项。把第一章的 Levi-Civita 联络公式用于这个度规，对慢物体有贡献的全部组合是
-\begin{align*}
- \Gamma^0{}_{00}&=-\dot U/c^3,& \Gamma^0{}_{0i}&=-U_{,i}/c^2,\\
- \Gamma^0{}_{ij}&=[\gamma\delta_{ij}\dot U-\p_{(i}B_{j)}]/c^3,&
- \Gamma^i{}_{0j}&=[\gamma\delta_{ij}\dot U
-                       +(\p_jB_i-\p_iB_j)/2]/c^3,\\
- \Gamma^i{}_{00}&=-U_{,i}/c^2+
-       [\dot B_i-\p_i K/2+2\gamma UU_{,i}]/c^4,\\
- \Gamma^i{}_{jk}&=\gamma(\delta_{ij}U_{,k}+\delta_{ik}U_{,j}
-                      -\delta_{jk}U_{,i})/c^2 .
-\end{align*}
-空间指标在这些势上用 $\delta_{ij}$ 升降，每行均只写到其所需阶。值得核查的是 $\Gamma^i{}_{00}$ 的最后一项。即使 $g_{00}$ 中的 $K$ 已包括非线性，还须展开逆空间度规，$g^{ij}=\delta^{ij}(1-2\gamma U/c^2)$，才会有 $2\gamma UU_{,i}$。另一处是 $\Gamma^0{}_{ij}$ 与 $\Gamma^i{}_{0j}$ 中 $\p B$ 的对称性不同。若给两者都取旋度，重排时间坐标产生的梯度势将无法正确相消。
+有时只想从一份已求得的度规模型生成定轨方程。为避免在每一行都写十个参数，令 $B_i=c^3g_{0i}$ 和 $K=c^4(g_{00}+1-2U/c^2)$ 分别取其最低非平凡阶；它们须用 \eqref{eq:exp-ppn-all} 给出的完整势及优选系项。在 \S\ref{sec:pn-components} 的分量展开中取 $h=2U/c^2$、$s_{ij}=2\gamma U\delta_{ij}/c^2$、$b_i=B_i/c^3$、$k=K/c^4$，即得所需各联络。空间指标用 $\delta_{ij}$ 升降。值得核查的是 $\Gamma^i{}_{00}$ 的最后一项。即使 $g_{00}$ 中的 $K$ 已包括非线性，还须展开逆空间度规，$g^{ij}=\delta^{ij}(1-2\gamma U/c^2)$，才会有 $2\gamma UU_{,i}$。另一处是 $\Gamma^0{}_{ij}$ 与 $\Gamma^i{}_{0j}$ 中 $\p B$ 的对称性不同。若给两者都取旋度，重排时间坐标产生的梯度势将无法正确相消。
 
 代入以坐标时写成的测地线方程，有质量的试验体满足
-\begin{align*}
+\begin{align}
  a_i={}&U_{,i}+\frac1{c^2}\big\{(\gamma v^2-2\gamma U)U_{,i}
           +\tfrac12K_{,i}-\dot B_i
-          +v^j(\p_iB_j-\p_jB_i)\\
+          +v^j(\p_iB_j-\p_jB_i)\nonumber\\
        &\hspace{27mm}-v_i[(2\gamma+1)\dot U+
-                          2(1+\gamma)v^jU_{,j}]\big\}+O(c^{-4}).
-\end{align*}
+                          2(1+\gamma)v^jU_{,j}]\big\}+O(c^{-4}).\label{eq:pn-general-motion}
+\end{align}
 例如一团运动物质产生的引力磁力不仅有 $\bm v\times(\bm\nabla\times\bm B)$，即使把试验体瞬时停下仍会有 $-\dot{\bm B}$。若改用一只运动钟的固有时，最后一组沿 $\bm v$ 的系数也会重排。原则上可代 $K=2\psi-2\beta U^2+\Phi_{\rm F}$、$B_i$ 的含参表达式直接积分任意测试粒子。下文对有压强的流体和自引力显著的扩展物体还要增加内部项，不能把这里的试验体方程套给每个天体的质量中心。
 
 光则另有 $|\bm v|$ 在零阶就是 $c$ 的计数。把 $|\bm v|=c$ 代进一个已按 $v/c\ll1$ 截断的高阶慢体方程，一般不能得到同等精度的光学公式，因为慢体中忽略的高次速度项可能已经降至同一阶。求光的首个弱场偏折，只需先用零线元求纵向速率，再在横向方程保留 $U/c^2$ 的一次项。若求运动太阳或行星的更高阶光时，便须增加移动源、矢量势及端点在同一坐标规范内的修正。
@@ -1216,7 +1320,7 @@ $U_a^2$ 是多体问题与一组孤立二体问题的区别所在。把太阳、
 
 令 $i$ 为倾角、$\Omega_{\rm node}$ 为升交点经度、$\omega$ 为近心点角，$u=\omega+f$。由 $\dot{\bm h}=\bm r\times\bm A$，法向力只改变角动量的方向，其结果是 $\dot i=r\cos u\,A_N/h$、$\dot\Omega_{\rm node}=r\sin u\,A_N/(h\sin i)$。在转动的轨道面内读近心点角，还须从面内近心点转速减去 $\cos i\,\dot\Omega_{\rm node}$。故高度倾斜的卫星既能用轨道面检验拖曳，也可用长期进动约束中心体的多极矩。若 $e=0$ 或 $i=0$，公式中 $1/e$、$1/\sin i$ 的奇性只说明近心点或交点的坐标没有定义。改为拟合离心率矢量和轨道法向量的两个独立分量，轨道本身的响应依然正则。
 
-\subsection{流体方程与有限天体}
+\subsection{流体方程与有限天体}\label{sec:pn-finite}
 
 源若是理想流体，沿流线的导数记为 $D_t=\p_t+v^j\p_j$。沿用 \hyperlink{subsection.1.2.3}{\S\,1.2.3} 的状态方程及绝热关系 $D_t\Pi=(p/\rho^2)D_t\rho$，配上 $\rho_*$ 的连续性方程，尚需求 1PN 动量方程。
 
@@ -1442,7 +1546,7 @@ $C_0$ 与三角形无关，$Q_{ABC}$ 有长度倒数的量纲。三标签贡献�
 
 六个密切要素的前五个说明椭圆的大小、形状和朝向，第六个才告诉我们钟在何时经过曲线上的某点。如果选 $f$ 而非近心点历元作为独立角，尚有 $\dot f=h/r^2-\dot\omega-\cos i\,\dot\Omega_{\rm node}$。这是一条运动学恒等式，表达轨道面自身转动时，从固定观者看来“沿椭圆走过的角”须作哪些扣除。若把进动全部加在 $\omega$ 上却仍取 $\dot f=h/r^2$，在逐圈累计到达时刻时就会把同一部分进动算两遍。对圆轨道则宜采用平均经度与离心率矢量，避免在不存在近心点时给 $\omega$ 一个可测的初值。
 
-\subsection{Cavendish 实验中的局域引力常数}
+\subsection{Cavendish 实验中的局域引力常数}\label{sec:pn-local-g}
 
 设球形场源在外部引力场中自由下落，在离它一小段固有距离 $r_{\rm p}$ 处放一试验体。以非引力装置维持这一距离不变，并用测力装置读出单位试验质量所需的径向支撑加速度。将其随 $r_{\rm p}$ 改变而按 $M/r_{\rm p}^2$ 变化的部分取出，其系数就是\textbf{局域引力常数} $G_{\rm L}$。试验体仅为测力探针，源的 $M$ 用同一实验室的惯性质量单位标定。不能用 PPN 坐标距离和坐标加速度相乘便当作仪器读数，否则仅仅重新标度时间、长度也会给出一个假的 $G$ 变化。
 
@@ -1479,9 +1583,7 @@ $C_0$ 与三角形无关，$Q_{ABC}$ 有长度倒数的量纲。三标签贡献�
 
 对一团自转物质，应先指定绕哪条世界线取角动量。在最低阶质心系中有 $\bm S_A=\int_A\rho_*\bm y\times\bar{\bm v}\,\d^3x$，其中 $\bm y=\bm x-\bm z_{*A}$。挪动所取的中心而保持同一团物质的总角动量不变，必有一部分角动量在自转与轨道之间挪动。在相对论中尤其如此：判断一颗有宽度的星在不同部位“同一时刻”的能量分布，要先选同时面。设总动量为 $p^\mu$、总角动量为 $J^{\mu\nu}$，在局域近似平直区域内相对于 $z^\mu$ 定义 $S^{\mu\nu}=J^{\mu\nu}-2z^{[\mu}p^{\nu]}$。故换到另一中心 $z^\mu+\delta z^\mu$ 时，$S^{\mu\nu}$ 随之改变 $-2\delta z^{[\mu}p^{\nu]}$。可施加 $S^{\mu\nu}p_\nu=0$ 作为选取中心的条件，在总动量静系便有 $S^{0i}=0$。之后的轨道位置及自旋须配用这一约定。只更换质心而不给轨道角动量作补偿，会使同一观测看来有两种进动量。
 
-先忽略陀螺自旋对轨道的反作用。无外力矩时用 \hyperlink{subsection.1.3.3}{\S\,1.3.3} 的 Fermi--Walker 输运，质心自由落体时即为平行移动。现在要将轴相对于远处恒星的转角用 PPN 势写出。
-
-为与 PPN 的势联系，设自旋矢量以质心的局域正交轴计分量，而轴的朝向由 PPN 坐标的静止正交标架作瞬时无转动的 Lorentz 推进来指定。在自由落体、试验自旋的近似下，取 $S\cdot u=0$ 消去时间分量，平行移动方程的旋转部分给出 $\dot{\bm S}=\bm\Omega\times\bm S$，其中
+取 \S\ref{sec:pn-transport-shell} 的试验自旋，以 PPN 坐标的静止正交标架作瞬时无转动的 Lorentz 推进，指定质心系的空间轴。将同一输运计算用于式 \eqref{eq:exp-ppn-all}，有 $\dot{\bm S}=\bm\Omega\times\bm S$，其中
 \[
  \bm\Omega=\frac{1}{c^2}
  \left[(\gamma+\tfrac12)\bm v\times\bm\nabla U
@@ -1619,7 +1721,7 @@ $\bar{\bm S}_a=[1+v_a^2+(2\gamma+1)U_a]\bm S_a
 
 在无线电链路中，须区分相位走过的周期数与脉冲包络的传输时间。冷等离子体内群延迟和相位延迟的色散贡献符号相反，不能将测距标定直接作为测速的相位改正。Cassini 的 X 波段和 Ka 波段上行频率约为 $7.2$ 和 $34.3\,\mathrm{GHz}$，这样大的差别使日冕电子柱密度的影响在两组记录中有很大的相对改变量。仅减去两组频移会同时减掉引力信号；先用差值估出色散，再保留共同分量，才有上面的双频组合。所得 $2.3\times10^{-5}$ 是对 $\gamma-1$ 的误差，对时延系数 $(1+\gamma)/2$ 则约为 $1.15\times10^{-5}$。对无质量的 Brans--Dicke 标量，$\beta=1$ 且 $\gamma-1=-1/(\omega_{\rm BD}+2)$，故这种观测特殊的意义在于把正 $\omega_{\rm BD}$ 的下限推到数万量级。若标量有质量，火星与太阳之间的作用、不同时刻无线电经过太阳附近的作用未必有同一个系数。该下限不能原样套给短程的理论。
 
-\subsection{从行星历表中分离近日点进动}
+\subsection{从行星历表中分离近日点进动}\label{sec:pn-ephemeris}
 
 水星近日点每世纪约 $43$ 角秒的额外进动并非直接读自望远镜。把几世纪的天球位置换到固定的参考系，扣除其余行星摄动后才有这个数。雷达和航天器跟踪改变了定轨的做法。观测给出的是某历元的角位置、往返时间或频率比，近日点方向要从用这些资料定出的轨道中算。在参数化理论里尤其要问，改变某个参数能否由另一个参数的改变补偿？
 
@@ -1656,7 +1758,7 @@ Dicke 和 Goldenberg 曾用遮光圆盘挡住太阳像，仅留下很窄的光�
 
 \section{强等效原理的检验}
 
-\subsection{地球和月球向太阳下落}
+\subsection{地球和月球向太阳下落}\label{sec:pn-sep}
 
 实验室中两块材料的自由落体加速度已经可以比得很准，为何还要测地球和月球？设质量为 $m$、半径为 $R$ 的球自无穷远逐层聚集，每添一层质量 $\d m(r)$ 放出的能量为 $Gm(r)\d m(r)/r$。故其 Newton 引力势能为 $E_{\rm g}=-\int_0^R Gm(r)\d m(r)/r$。均匀球给出 $E_{\rm g}=-3Gm^2/(5R)$，结合能所占的比例随 $Gm/(Rc^2)$ 而增大。一块半径 $10$ 厘米、质量 $1$ 公斤的试验体，这个比例不到 $10^{-26}$；用实际密度分布估算，地球约为 $4.6\times10^{-10}$，月球约为 $0.2\times10^{-10}$。即使两组实验的加速度精度相当，检验引力结合能也应选后者。
 
@@ -1830,7 +1932,7 @@ $\alpha_3$ 更特殊。只让星 1 有不可忽略的自引力和自转，令 $\
 
 \section{后 Newton 引力的其它检验}
 
-\subsection{陀螺的两种进动}
+\subsection{陀螺的两种进动}\label{sec:pn-gyro-observe}
 
 自由下落的小陀螺不受外力矩时，其自转矢量沿测地线平行移动。若它绕静止球对称天体运动，对照远处恒星，转轴一般每公转一周便略微改变方向，这称为\textbf{测地进动}(geodetic precession)。若中心天体也在转，它的质量流还要通过度规的 $g_{0i}$ 拖动陀螺，这就是\textbf{Lense--Thirring 进动}。前者取决于陀螺的轨道角动量，后者还须有中心天体的自转角动量。这里的自转指有体积物体的转动。即使陀螺和中心星都极接近球形，两种效应仍可存在。地球自转轴在日月引力下的寻常岁差则需要地球的赤道隆起，属于 Newton 四极矩受外力矩的效应。
 
@@ -1860,7 +1962,7 @@ $\alpha_3$ 更特殊。只让星 1 有不可忽略的自引力和自转，令 $\
 
 \subsubsection{质量流怎样拖动一个陀螺}
 
-拖曳的名称容易引起一个误会，仿佛沿绕转方向在每个质点上附加同一角速度即可。可以先算旋转质量的远场。设场源静止在质心系，只保留与自转成一次的项，它的质流矢量势为 $V_i=G\int\rho_*'v_i'\,\d[3]{x'}/|\bm r-\bm x'|$。在源外将分母按 $x'/r$ 展开，首项含总动量而为零。若质量分布平稳，一次矩 $\int\rho_*'x'_jv'_i\,\d[3]{x'}$ 的对称部分为惯性矩时间导数的一半，亦为零。仅剩反对称部分，其三个独立分量正是自转角动量 $J_i=\int\rho_*'(\bm x'\times\bm v')_i\,\d[3]{x'}$。故偶极项是 $\bm V=G(\bm J\times\bm r)/(2r^3)$。稳态时超势的时间导数为零，在忽略外加优选系速度后有 $\bm g_0=(g_{01},g_{02},g_{03})=-2KG(\bm J\times\bm r)/(c^3 r^3)$。这个场随赤道半径和方向改变，即使用匀速旋转的坐标消去一点的表观转动，也不能在整个外部区域同时消去。
+由 \S\ref{sec:pn-source-moments} 的定常流偶极，在忽略外加优选系速度时，标准 PPN 度规给出 $\bm g_0=(g_{01},g_{02},g_{03})=-2KG(\bm J\times\bm r)/(c^3 r^3)$。这个场随赤道半径和方向改变，即使用匀速旋转的坐标消去一点的表观转动，也不能在整个外部区域同时消去。
 
 从这里既可看轨道也可看陀螺。慢粒子拉氏量中与质量流有关的项为 $mc\,\bm g_0\cdot\bm v$，于是平稳场给粒子的附加加速度是 $c\,\bm v\times(\bm\nabla\times\bm g_0)$。固定能量时把轨道运行方向反过来，这项反号，质量单极矩带来的 Newton 加速度则同向。另一方面，将自转矢量沿轨道平行移动，质量流给出的角速度为 $\bm\Omega_{\rm LT}=-(c/2)\bm\nabla\times\bm g_0$。代入偶极矢量势即得上文的 $[3\hat{\bm r}(\hat{\bm r}\cdot\bm J)-\bm J]/r^3$。同一个旋度关联轨道加速度和自转轴进动，二者却不测量同一个角。特别是陀螺本身的慢速运动另有测地进动，仅用这个旋度不能算出总读数。
 
@@ -1892,7 +1994,7 @@ $\alpha_3$ 更特殊。只让星 1 有不可忽略的自引力和自转，令 $\
 \]
 看出。对 $\bm S_1$ 求偏导再叉乘 $\bm S_1$，正给由 $\bm S_2$ 所致的拖曳自旋进动；对位置求负梯度，则给轨道一个按 $r^{-4}$ 变化的相互作用力。作轨道平均，用此前的 $\langle \hat r_i\hat r_j/r^3\rangle$ 即得平均能量正比于 $\bm S_1\cdot\bm S_2-3(\bm S_1\cdot\hat{\bm h})(\bm S_2\cdot\hat{\bm h})$。若两星均缓慢自转，它远小于轨道运动本身造成的测地进动；对两颗快速旋转的紧致天体，应同时计入自旋所诱导的单体四极矩。中心质量不规则形变的 Newton 四极矩、自旋乘积耦合、线性质量流效应是三个不同阶次和来源的修正，不宜都吸收到一个拖曳系数中。
 
-\subsection{让转轴指向远处恒星}
+\subsection{让转轴指向远处恒星}\label{sec:pn-gyro-guide}
 
 Gravity Probe B 采用的正是这个安排。2004 年升空的卫星带四只球形石英陀螺，在离地面约 $642$ 公里的近极地圆轨道上运动。转子的直径约 $4$ 厘米，表面覆以铌膜，在 $1.8\,\mathrm K$ 左右处于超导态。旋转的超导体产生沿自转轴的 London 磁矩，只要用周围的超导量子干涉仪测磁矩的指向，就无须在转子上接触一个机械指针。外壳定期绕望远镜视线旋转，许多固连在外壳上的微小力矩在一转中可以抵消。实际上，若转子与外壳表面存在分布不匀的电势，即使两者的总电荷为零也会有静电力矩。转子的惯性主轴又未必与自转轴完全重合，表面电势图样相对外壳缓慢摆动，使这种误差有自己的时间规律。数据归算时须由四只陀螺各自的摆动和卫星转动记录估计其影响。
 
@@ -2242,7 +2344,7 @@ $K_{ab}$ 是前面在优选系给出的速度二次式，此处将它按 $\bm v_
 
 \section{引力辐射}
 
-\subsection{由源区到波区}
+\subsection{由源区到波区}\label{sec:pn-matching}
 
 一对相距很远的中子星，附近的单星场很强，绕转却慢，传到地球上的波更弱。这三处不宜用同一近似处理。设双星间距为 $a$，角频率为 $\Omega$，记 $\ell=c/\Omega$。轨道缓慢时 $a/\ell\sim v/c\ll1$。在距双星质心 $r\ll\ell$ 处，一个光行时还不足以使源显著改变，推迟积分可按时间导数逐次展开。在 $r\gg a$ 处，双星的角大小很小，可按源的多极矩展开，但要保留推迟时刻 $u=t-r/c$。两种展开在 $a\ll r\ll\ell$ 都有意义，可令两展开代表同一个场。如此定下近区解中的齐次项、远区波中的多极系数。还须在远处规定无入射辐射；否则除了双星自己发的波，解中还可有从外面打来的任意自由波。
 
@@ -2740,7 +2842,7 @@ $t_c,\Phi_c$ 是时刻和初相的积分常数。最低阶的 $\eta y^5$ 只依�
 
 2015 年的双黑洞事件 GW150914 在地面探测器的敏感频带内仅约 $0.2$ 秒，却已可见先加快、再达到峰值、随后衰减的过程。将信号分为低频和高频两段，可各自估计遗留黑洞的质量和自旋，比较两组允许区域；这一步会用到并合的数值波形。若将来只用晚时振铃作上述多模检验，依赖的主要是单黑洞微扰理论及其边界条件。两种检验对能分辨的信号长度、噪声以及开始分析的时刻要求不同。系统若含中子星，临近并合还可发生潮汐形变或瓦解，不能拿双黑洞的模板残差直接当作引力理论偏离。
 
-\subsection{保守能量、通量与频域模板}
+\subsection{保守能量、通量与频域模板}\label{sec:pn-wave-energy}
 
 旋近资料能测出的不是某个坐标半径的势能。为避免把坐标选择当成新物理，先用从波测出的 $\Omega=\pi f$ 构成 $x=(Gm\Omega/c^3)^{2/3}=y^2$。对无自旋圆轨道，可用径向运动方程消去坐标半径，将广义相对论的束缚能和能流各写到相对 2PN：
 \begin{align*}
