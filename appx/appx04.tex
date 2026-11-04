@@ -163,6 +163,8 @@
     $C^k$-流形上的第 $i$ \textbf{坐标映射} $x^i:O\to\R$ 属于 $C^k(O)$。
 \end{example}
 
+\subsection{函数层与局部赋环空间}
+
 函数不仅可在一个开集上研究，还可随开集限制、粘合。将这种局部与整体的关系抽出，便得到层的语言。
 
 \begin{definition}\label{def:presheaf-sheaf}
@@ -179,7 +181,93 @@
     $\mathcal C^\infty_M(U):=C^\infty(U)$ 连同通常的函数限制构成\textbf{光滑函数层}。重叠处相等的函数能唯一拼成函数，而光滑性可局部检验，故满足层公理。这里不需单位分解：层的粘合保留各局部函数，单位分解则以加权求和构造整体函数。
 \end{example}
 
-拓扑空间连同其环层称为\textbf{赋环空间}，例如 $(M,\mathcal C^\infty_M)$。\footnote{代数几何中的\textbf{概型}(scheme)也采用这一观点，其局部模型为交换幺环 $A$ 的素谱及结构层 $(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A})$。素谱以素理想为点，结构层记录局部代数函数；严格定义在局部赋环空间的范畴中作出，此处不展开。}
+层描述开集上的函数及其粘合；若只关心一点附近的信息，就应把在充分小邻域上相同的节视为相同。
+
+\begin{definition}\label{def:sheaf-stalk}
+    置 $p\in X$ 及预层 $\mathcal F$。对 $p$ 的开邻域 $U,V$ 上的节 $s\in\mathcal F(U),t\in\mathcal F(V)$，若存在开邻域 $p\in W\subset U\cap V$ 使 $s|_W=t|_W$，则称它们在 $p$ 处等价。等价类 $[s]_p$ 称为 $p$ 处的\textbf{芽}(germ)，全体这样的芽组成\textbf{茎}(stalk) $\mathcal F_p$。
+    若 $\mathcal F$ 是环层，在共同邻域上相加、相乘便使 $\mathcal F_p$ 成为环。
+\end{definition}
+
+光滑函数层的茎记为 $\mathcal C^\infty_{M,p}=C^\infty_p(M)$。函数芽保留的是邻域上的函数信息，不只是点值。例如实直线原点处 $[x]_0\ne[0]_0$，尽管两者在原点的值相同。
+
+以下环均指交换幺环，环同态保持单位元。环 $A$ 的理想 $I$ 是对加减封闭、且对任意 $a\in A,u\in I$ 有 $au\in I$ 的非空子集；真理想中不被更大真理想包含的称为\textbf{极大理想}。商环 $A/I$ 为域当且仅当 $I$ 极大。
+
+\begin{definition}\label{def:locally-ringed-space}
+    具有唯一极大理想 $\mathfrak m$ 的环 $A$ 称为\textbf{局部环}(local ring)，域 $A/\mathfrak m$ 称为其\textbf{剩余域}(residue field)。拓扑空间 $X$ 连同其上的环层 $\mathcal O_X$ 称为\textbf{赋环空间}(ringed space)，$\mathcal O_X$ 称为\textbf{结构层}。若每个茎 $\mathcal O_{X,p}$ 都是局部环，则称 $(X,\mathcal O_X)$ 为\textbf{局部赋环空间}(locally ringed space)。
+\end{definition}
+
+\begin{proposition}\label{prop:smooth-local-ring}
+    光滑流形 $M$ 的函数芽环 $C^\infty_p(M)$ 是局部环，其唯一极大理想与剩余域分别为
+    \eq{
+        \mathfrak m_p=\{[f]_p:f(p)=0\},\qquad C^\infty_p(M)/\mathfrak m_p\cong\R.
+    }
+    因而 $(M,\mathcal C^\infty_M)$ 是局部赋环空间。
+\end{proposition}
+\begin{proof}
+    取值映射 $[f]_p\mapsto f(p)$ 是满的实代数同态，核为 $\mathfrak m_p$，故上述商环为 $\R$，$\mathfrak m_p$ 为极大理想。若 $f(p)\ne0$，由连续性可缩小邻域使 $f$ 处处非零，且 $1/f$ 光滑，故 $[f]_p$ 可逆。反之，若 $f(p)=0$，则不可能有 $[f]_p[g]_p=[1]_p$。因此 $\mathfrak m_p$ 恰为全体不可逆元；任何真理想都不能含可逆元，只能包含于 $\mathfrak m_p$，故极大理想唯一。
+\end{proof}
+
+\begin{remark}
+    “局部”指的是每一点的\emph{茎}为局部环，并非要求每个开集的截面环 $\mathcal O_X(U)$ 都是局部环。例如 $C^\infty(\R)$ 中，在 $0$ 消失与在 $1$ 消失的函数分别组成两个不同的极大理想。函数 $x$ 在整个 $\R$ 上不可逆，但它在 $1$ 处的芽可逆。这也说明为何必须允许缩小邻域。
+\end{remark}
+
+\subsection{用结构层刻画光滑流形}
+
+图册规定哪些坐标变换光滑，结构层则规定哪些局部函数光滑。要说明二者表达同一几何结构，还须规定空间之间的映射怎样作用于层。
+
+\begin{definition}\label{def:locally-ringed-morphism}
+    赋环空间之间的\textbf{态射} $(\phi,\phi^\sharp):(X,\mathcal O_X)\to(Y,\mathcal O_Y)$ 由连续映射 $\phi:X\to Y$ 和一族与限制映射交换的环同态
+    \eq{
+        \phi^\sharp_V:\mathcal O_Y(V)\to\mathcal O_X(\phi^{-1}[V]),\qquad V\subset Y\text{ 开},
+    }
+    组成。它在每个 $p\in X$ 处诱导茎上的同态
+    \eq{
+        \phi^\sharp_p:\mathcal O_{Y,\phi(p)}\to\mathcal O_{X,p},\qquad
+        [s]_{\phi(p)}\mapsto[\phi^\sharp_V(s)]_p.
+    }
+    若两端均为局部赋环空间，且对每个 $p$ 有
+    \eq{\label{eq:local-morphism}
+        (\phi^\sharp_p)^{-1}(\mathfrak m_{X,p})=\mathfrak m_{Y,\phi(p)},
+    }
+    则称为\textbf{局部赋环空间态射}；满足此条件的茎同态称为\textbf{局部同态}。当结构层为实代数层时，以下还要求各 $\phi^\sharp_V$ 保持实常数，即为实代数同态。
+\end{definition}
+
+点沿 $\phi$ 向前映，函数沿 $\phi^\sharp$ 反向传递。条件 \eqref{eq:local-morphism} 对函数芽的含义是：在 $\phi(p)$ 处取零值，当且仅当传回后在 $p$ 处取零值。定义中的“局部同态”不要求 $\phi$ 为局部同胚。一般结构层的节未必是通常的数值函数，因此不能只给出 $\phi$ 而省去 $\phi^\sharp$。\footnote{一般定义及光滑流形的例子可参见 \href{https://stacks.math.columbia.edu/tag/01HA}{The Stacks Project, \S26.2}。}
+
+\begin{proposition}\label{prop:smooth-lrs-morphism}
+    光滑流形间的光滑映射 $\phi:M\to N$ 与 $(M,\mathcal C^\infty_M)\to(N,\mathcal C^\infty_N)$ 的局部实代数赋环空间态射一一对应。其层同态必为函数拉回
+    \eq{
+        \phi^\sharp_V(f)=f\circ\phi|_{\phi^{-1}[V]}.
+    }
+\end{proposition}
+\begin{proof}
+    若 $\phi$ 光滑，复合保持光滑性，所给公式保持实代数运算并与限制交换。又因 $(f\circ\phi)(p)=f(\phi(p))$，茎同态满足 \eqref{eq:local-morphism}。
+
+    反之，给定这样的态射，取 $p\in\phi^{-1}[V]$，令 $q=\phi(p)$。芽 $[f-f(q)]_q$ 属于 $\mathfrak m_q$；局部性及保持实常数给出
+    \eq{(\phi^\sharp_V f)(p)-f(q)=0.}
+    此式对每个 $p$ 成立，故 $\phi^\sharp_V f=f\circ\phi$，层同态由底空间映射唯一决定。特别地，取 $f$ 为 $N$ 的局部坐标函数 $y^i$，便知各 $y^i\circ\phi$ 光滑，所以 $\phi$ 光滑。
+\end{proof}
+
+\begin{theorem}[光滑流形的层刻画]\label{thm:manifold-lrs}
+    按定义 \ref{def:smooth-manifold} 的拓扑约定，一个 $n$ 维光滑流形等价地可描述为局部赋环空间 $(M,\mathcal O_M)$，其中 $M$ 为 $T_2$ 仿紧空间，$\mathcal O_M$ 为实代数层，且每点都有开邻域 $U$ 使
+    \eq{
+        (U,\mathcal O_M|_U)\cong(V,\mathcal C^\infty_V),\qquad V\subset\R^n\text{ 开}.
+    }
+    同构在上述局部实代数赋环空间的意义下取，维数 $n$ 对所有邻域固定。这里 $\mathcal O_M|_U$ 是把层限制在 $U$ 的各开子集上。
+\end{theorem}
+\begin{proof}
+    从光滑图册出发，取 $\mathcal O_M=\mathcal C^\infty_M$。坐标映射 $\psi:U\to V$ 及其逆均光滑，故由命题 \ref{prop:smooth-lrs-morphism} 给出所需的局部同构。
+
+    反之，每个局部同构的底空间映射给出坐标图 $\psi:U\to V$。在两个坐标域的交上，同构复合给出欧氏开集之间的局部赋环空间同构。由同一命题，其底空间映射及逆均光滑，故坐标变换光滑。这些图生成最大光滑图册；由前述态射的唯一性，各局部层识别在重叠处一致，粘合后把 $\mathcal O_M$ 识别为该图册的光滑函数层。加入任何其他这种局部模型也只会给出相容坐标图，故恢复的最大图册唯一。
+\end{proof}
+
+因此，$\mathcal C^\infty_M$ 完整记录了光滑结构；两光滑流形微分同胚，当且仅当它们的光滑函数局部赋环空间同构。从范畴看，$M\mapsto(M,\mathcal C^\infty_M)$ 把 $\cate{Man}$ 完全忠实地嵌入上述范畴，其像由定理 \ref{thm:manifold-lrs} 的局部模型和拓扑条件刻画。这并未使坐标失去作用：坐标图正是把抽象结构层与熟悉的欧氏光滑函数层相比较的局部同构。
+
+\begin{remark}
+    局部赋环空间比流形宽泛得多，“局部赋环”本身不蕴含“局部欧氏”。例如任意拓扑空间 $X$ 上的连续实函数层 $\mathcal C^0_X$，其茎也由上述取逆论证成为局部环，但 $X$ 未必是流形。即使 $X=\R^n$，连续函数层与光滑函数层也承担不同的结构。
+
+    复流形采用全纯函数层，局部模型为 $\C^n$ 的开集及其全纯函数层，相应坐标变换须双全纯。代数几何中的\textbf{概型}(scheme)则局部同构于 $(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A})$：点是交换幺环 $A$ 的素理想 $\mathfrak p$，该点的茎为局部化 $A_{\mathfrak p}$。三者共享局部赋环空间的语言，但采用不同的局部模型；光滑流形不会仅因带有光滑函数层就自动成为概型。
+\end{remark}
 
 \section{流形的拓扑性质*}
 
@@ -315,7 +403,7 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
 \end{remark}
 
 \begin{remark}\label{rem:sheaf-stalk}
-    函数芽的定义也适用于预层：两个局部节在 $p$ 的某个更小邻域上限制相同，就定义同一个\textbf{芽}(germ)。所有这样的芽组成预层在 $p$ 处的\textbf{茎}(stalk) $\mathcal F_p$。故 $[f]_p$ 是一个芽，而 $C^\infty_p(M)$ 是光滑函数层的茎；它记录邻域上的函数信息，并非只记录 $f(p)$。
+    这里的函数芽正是定义 \ref{def:sheaf-stalk} 对光滑函数层的应用：$[f]_p$ 是一个芽，$C^\infty_p(M)$ 是茎，也是命题 \ref{prop:smooth-local-ring} 中的局部环。切矢因此是在这个局部环上满足 Leibniz 法则的实线性映射，其中 Leibniz 法则里的 $f(p),g(p)$ 由取值映射 $C^\infty_p(M)\to C^\infty_p(M)/\mathfrak m_p\cong\R$ 给出。
 \end{remark}
 
 \begin{theorem}
@@ -362,6 +450,23 @@ $A=A^\mu\p_\mu$ 是求导操作，至少要考虑到线性性、Leibniz 乘法�
     }
     于是 $\{\p_i|_p\}_{i=1}^n$ 张成 $T_p M$，从而是一组基，故 $\dim T_p M=n$。
 \end{proof}
+
+局部环还给出切空间的另一种内在描述。记 $A=C^\infty_p(M)$，$\mathfrak m_p^2$ 为 $\mathfrak m_p$ 中元素两两乘积的有限和组成的理想。
+\begin{proposition}\label{prop:tangent-local-ring}
+    有自然的实线性同构
+    \eq{
+        T_pM\cong\hom_{\R}(\mathfrak m_p/\mathfrak m_p^2,\R).
+    }
+\end{proposition}
+\begin{proof}
+    若 $a,b\in\mathfrak m_p$，则 Leibniz 法则给出 $v(ab)=0$，故切矢在 $\mathfrak m_p$ 上的限制下降为商空间上的线性泛函。反之，给定线性泛函 $\ell$，令
+    \eq{v(f):=\ell\bigl((f-f(p))+\mathfrak m_p^2\bigr),\qquad f\in A.}
+    由于 $(f-f(p))(g-g(p))\in\mathfrak m_p^2$，模去它后有
+    \eq{fg-f(p)g(p)\equiv f(p)(g-g(p))+g(p)(f-f(p))\pmod{\mathfrak m_p^2},}
+    故 $v$ 满足 Leibniz 法则。两种构造互逆。
+\end{proof}
+
+上面的坐标分解还说明，$[x^i-x^i(p)]_p$ 在 $\mathfrak m_p/\mathfrak m_p^2$ 中的类构成一组基；独立性可用 $\p_j|_p$ 检验。这个商空间只保留函数在 $p$ 的一阶变化，正是余切空间的代数描述，而切矢作用于这些一阶变化。由此，结构层不仅记录哪些函数光滑，也能恢复每点的切空间及维数。
 
 \begin{definition}
     $X_i = \p_i|_p$ 称为 $p$ 处第 $i$ 个\textbf{坐标基矢}。$\{X_i\}$ 称为 $p$ 处的\textbf{坐标基}。
@@ -778,6 +883,12 @@ $\{(\d x^i)_p\}$ 称为\textbf{对偶坐标基}。以下略去取值点 $p$。�
     \]
     同样的公式给出函数芽的拉回 $\phi^*:C^\infty_q(N)\to C^\infty_p(M)$。它是良定义的：在 $q$ 附近相等的函数，复合 $\phi$ 后在 $p$ 附近仍相等。
 \end{definition}
+
+这正是命题 \ref{prop:smooth-lrs-morphism} 的层态射在全局截面及茎上的作用。特别地，芽的拉回满足
+\[
+    (\phi^*)^{-1}(\mathfrak m_p)=\mathfrak m_q,
+\]
+即它是局部环之间的局部同态。
 
 由逐点运算知，拉回保持线性性及乘法，即
 \[
